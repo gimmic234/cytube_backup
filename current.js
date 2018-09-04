@@ -260,7 +260,7 @@ const second = 1000,
 
 let countDown = new Date(date_utc).getTime(),
     x = setInterval(function() {
-			if ($('.countdownbase:hidden')) {
+			if ($('.countdownbase:hidden').length > 0) {
 				$('.countdownbase').show();
 			}
 			let now = new Date().getTime(),
