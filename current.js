@@ -260,7 +260,9 @@ const second = 1000,
 
 let countDown = new Date(date_utc).getTime(),
     x = setInterval(function() {
-		
+			if ($('.countdownbase:hidden')) {
+				$('.countdownbase').show();
+			}
 			let now = new Date().getTime(),
 			distance = countDown - now;
 			
@@ -272,7 +274,7 @@ let countDown = new Date(date_utc).getTime(),
       //do something later when date is reached
       if (distance < 0) {
         clearInterval(x);
-        $('.countdownbase').html("");
+        $('.countdownbase').hide();
       }
 
     }, second)
