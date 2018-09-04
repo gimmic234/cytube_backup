@@ -1,13 +1,18 @@
+//change countdown_utc to adjust motd
+var countdown_utc = {
+	year: 2018,
+	month: 9,
+	date: 5,
+	hour: 23,
+	minute: 30
+};
+
 var emoteArray = [];
 var selectedPopover;
 var emoteTable;
 var handler;
 var allowedDomainUrl = ["free.timeanddate.com", "free.someotherdomain.com"];
-
-//change date_utc to adjust motd
-//year, month, date, hour, minute
-//month starts from 0
-var date_utc = Date.UTC(2018, 8, 5, 23, 0);
+var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month-1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute);
 
 var emoteHandler = function(e) {
 	if(emoteTable) {
@@ -255,19 +260,19 @@ const second = 1000,
 
 let countDown = new Date(date_utc).getTime(),
     x = setInterval(function() {
-
-      let now = new Date().getTime(),
-          distance = countDown - now;
-
-      document.getElementById('days').innerText = Math.floor(distance / (day)),
-        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+		
+			let now = new Date().getTime(),
+			distance = countDown - now;
+			
+			document.getElementById('days').innerText = Math.floor(distance / (day)),
+			document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+			document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+			document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
       
       //do something later when date is reached
-      //if (distance < 0) {
-      //  clearInterval(x);
-      //  'Next Stream starts in...;
-      //}
+      if (distance < 0) {
+        clearInterval(x);
+        $('.countdownbase').html("");
+      }
 
     }, second)
