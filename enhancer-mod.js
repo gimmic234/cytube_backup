@@ -940,7 +940,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
 
                     IS_COMMAND = false;
                 } else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2){
-					let text = msg.val().split(" ");
+					let text = msg.split(" ");
 					let mode = (text.length > 1) ? text[1] : "";
                     mode = (mode == "true" || mode == "false") ? mode : "";
                     if (mode.length > 0) {
