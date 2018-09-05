@@ -14,6 +14,16 @@ var handler;
 var allowedDomainUrl = ["free.timeanddate.com", "free.someotherdomain.com"];
 var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute);
 
+var waitForEl = function(selector, callback) {
+	if ($(selector).length) {
+		callback();
+	} else {
+		setTimeout(function() {
+			waitForEl(selector, callback);
+		}, 100);
+	}
+};
+
 var emoteHandler = function(e) {
 	if (emoteTable) {
 		$('#chatline').off('keydown');
@@ -75,15 +85,39 @@ function fetchEmote() {
 	});
 }
 
-var waitForEl = function(selector, callback) {
-	if ($(selector).length) {
-		callback();
-	} else {
-		setTimeout(function() {
-			waitForEl(selector, callback);
-		}, 100);
+function allowExternalContent() {
+	let src = $('div#ytapiplayer div div a.vjs-hidden').attr('href');
+	if (src) {
+		let block = $('div#ytapiplayer div div button.btn-default');
+		allowedDomainUrl.forEach(function(value) {
+			if (src.indexOf(value) > -1) {
+				block.click();
+			}
+		});
 	}
-};
+}
+
+function videoDisplayToggle() {
+	let queuelist = $('ul#queue').children();
+	let next = $('#plcount').html();
+	if (next == "0 items") {
+		$('#videowrap').hide();
+	} else {
+		$('#videowrap').show();
+	}
+}
+
+function autoStartHandler() {
+	let mode = $("#motd-mode").attr('data-value');
+	if (mode == "true") {
+		$('#queue').find("button.btn-auto-keep").remove();
+		let list = $('#queue').children(":visible");
+		list.each(function(index, value) {
+			$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
+			$(value).attr('data-keep', 'false');
+		})
+	}
+}
 
 function populateEmote() {
 	fetchEmote();
@@ -173,30 +207,9 @@ $('body').on('click', 'button.btn-auto-keep', function() {
 	}
 });
 
-function allowExternalContent() {
-	let src = $('div#ytapiplayer div div a.vjs-hidden').attr('href');
-	if (src) {
-		let block = $('div#ytapiplayer div div button.btn-default');
-		allowedDomainUrl.forEach(function(value) {
-			if (src.indexOf(value) > -1) {
-				block.click();
-			}
-		});
-	}
-}
-
-function videoDisplayToggle() {
-	let queuelist = $('ul#queue').children();
-	let next = $('#plcount').html();
-	if (next == "0 items") {
-		$('#videowrap').hide();
-	} else {
-		$('#videowrap').show();
-	}
-}
-
 $("body").on('DOMSubtreeModified', '#plcount', function(e) {
 	videoDisplayToggle();
+	autoStartHandler();
 })
 
 $('document').ready(function() {
@@ -211,6 +224,7 @@ $('document').ready(function() {
 
 	waitForEl('span#plcount', function() {
 		videoDisplayToggle();
+		autoStartHandler();
 	})
 })
 
@@ -241,7 +255,7 @@ window[CHANNEL.name].sequenceList = {
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/28bab290c8ec4fa670f2e690f1d1f7dc6ca167e1/enhancer-mod.js",
+		url: "//rawgit.com/gimmic234/cytube_backup/3f2ee216c65a6ead1267f8ab3280fc90e4f7d2b4/enhancer-mod.js",
 		callback: true
 	},
 };
@@ -313,11 +327,11 @@ let countDown = new Date(date_utc).getTime(),
 				})
 				$('#queue').find("button.btn-auto-keep").remove();
 				let list = $('#queue').children(":visible");
-                list.each(function(index, value) {
-                    $(value).removeAttr('data-keep');
-                    $(value).removeClass('list-keep');
-                })
-                $('motd-mode').attr('data-value', 'false');
+				list.each(function(index, value) {
+					$(value).removeAttr('data-keep');
+					$(value).removeClass('list-keep');
+				})
+				$('#motd-mode').attr('data-value', 'false');
 			}
 		}
 
