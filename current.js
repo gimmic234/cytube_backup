@@ -279,7 +279,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/BillTube/theme/gh-pages/channelbase.js",
+		url: "//rawgit.com/gimmic234/cytube_backup/master/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
