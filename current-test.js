@@ -3,8 +3,8 @@ var countdown_utc = {
 	year: 2018,
 	month: 9,
 	date: 5,
-	hour: 23,
-	minute: 30
+	hour: 5,
+	minute: 9
 };
 
 var emoteArray = [];
@@ -199,6 +199,25 @@ $("body").on('DOMSubtreeModified', '#plcount', function(e) {
 	videoDisplayToggle();
 })
 
+$('body').on('click', 'button#testBtn', function() {
+	let mode = $('#motd-mode').attr('data-value', 'true');
+	let list = $('#queue').children(":visible");
+	list.each(function(index, value) {
+		console.log(value);
+        $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart Keep</button>");
+        $(value).attr('data-keep', 'false');
+    })
+})
+
+$('body').on('click', 'button#testBtn2', function() {
+	let list = $('#queue').children(":visible");
+	$('#queue').find("button.btn-auto-keep").remove();
+	list.each(function(index, value) {
+                            $(value).removeAttr('data-keep');
+                            $(value).removeClass('list-keep');
+                        })
+})
+
 $('document').ready(function() {
 	waitForEl('#chatline', function() {
 		populateEmote();
@@ -211,6 +230,11 @@ $('document').ready(function() {
 
 	waitForEl('span#plcount', function() {
 		videoDisplayToggle();
+	})
+
+	waitForEl('button#addmedia', function() {
+		$('button#addmedia').before("<button id='testBtn' class='headbtn headbtnleft'>test</button>");
+		$('button#addmedia').before("<button id='testBtn2' class='headbtn headbtnleft'>test2</button>");
 	})
 })
 
@@ -241,7 +265,7 @@ window[CHANNEL.name].sequenceList = {
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/28bab290c8ec4fa670f2e690f1d1f7dc6ca167e1/enhancer-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/e697716b3b9b4340abe986636a0f37a396509642/enhancer-mod.js",
 		callback: true
 	},
 };
@@ -311,13 +335,6 @@ let countDown = new Date(date_utc).getTime(),
 				delList.each(function(index, elem) {
 					$(elem).find('button.qbtn-delete').click();
 				})
-				$('#queue').find("button.btn-auto-keep").remove();
-				let list = $('#queue').children(":visible");
-                list.each(function(index, value) {
-                    $(value).removeAttr('data-keep');
-                    $(value).removeClass('list-keep');
-                })
-                $('motd-mode').attr('data-value', 'false');
 			}
 		}
 
