@@ -939,7 +939,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                     window.socket.emit("chatMsg", {msg: 'billbot: ' + msgForCommand});
 
                     IS_COMMAND = false;
-                } else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2) {
+                } else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2){
                     let toggle_mode = $('#motd-mode').attr('data-value');
                     console.log(toggle_mode);
                     toggle_mode = (toggle_mode == "true") ? "false" : "true";
@@ -947,7 +947,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                     $('#motd-mode').attr('data-value', toggle_mode);
 
                     let list = $('#queue').children(":visible");
-                    let new_mode = $('motd-mode').attr('data-value');
+                    let new_mode = $('#motd-mode').attr('data-value');
                     console.log(new_mode);
                     if (new_mode == "true") {
                         list.each(function(index, value) {
@@ -962,7 +962,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                             $(value).removeClass('list-keep');
                         })
                         $('motd-mode').attr('data-value', 'false');
-                        window.socket.emit("chatMsg", {msg: "autostart_off"});
+                        window.socket.emit("chatMsg", {msg: "autostart off"});
                     }
 
 
