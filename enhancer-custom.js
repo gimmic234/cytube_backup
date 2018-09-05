@@ -939,19 +939,35 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                     window.socket.emit("chatMsg", {msg: 'billbot: ' + msgForCommand});
 
                     IS_COMMAND = false;
-                } else if (msg.indexOf("/countdown") > -1){
-					let text = chat.val().split(" ");
-					window.socket.emit("chatMsg", {msg: "countdown start"});
-					let counter = (text.length > 1) ? text[1] : 10;
-					var interval = setInterval(function() {
-							window.socket.emit("chatMsg", {msg: counter + "..."});
-							counter--;
-							if (counter == -1) {
-								clearInterval(interval);
-								videojs("ytapiplayer").play();
-							}
-						}, 1000);
-				} else {
+                } else if (msg.indexOf("/autostart") > -1){
+                    let text = chat.val().split(" ");
+                    let mode = (text.length > 1) ? text[1] : "";
+                    mode = (mode == "true" || mode == "false") ? mode : "";
+                    if (mode.length > 0) {
+                        $('#motd-mode').attr('data-value', mode);
+                    } else {
+                        let toggle_mode = $('#motd-mode').attr('data-value');
+                        toggle_mode = (toggle_mode == "true") ? "false" : "true";
+                        $('#motd-mode').attr('data-value', toggle_mode);
+                    } 
+
+                    let new_mode = $('motd-mode').attr('data-value');
+                    let list = $('#queue').children(":visible");
+                    if ($('motd-mode') == "true") {
+                        list.each(function(value) {
+                            value.find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart Keep</button>");
+                            value.attr('data-keep', 'false');
+                        })
+                    } else {
+                        list.each(function(value) {
+                            value.remove("button.btn-auto-keep");
+                            value.removeAttr('data-keep');
+                            value.removeClass('list-keep');
+                        })
+                    }
+
+
+                } else {
                     window.socket.emit("chatMsg", {msg: msg, meta: meta});
                 }
 
@@ -2092,7 +2108,7 @@ window.cytubeEnhanced.addModule('showVideoInfo', function (app) {
 
     this.$titleRow = $('<div id="titlerow" class="row">').insertBefore('#main');
 
-	this.$titleRowOuter = $('<div id="titlerow-outer" class="col-md-12" />')
+    this.$titleRowOuter = $('<div id="titlerow-outer" class="col-md-12" />')
         .html($("#currenttitle").text($(".queue_active a").text() !== '' ? $("#currenttitle").text().replace(/^Currently Playing:/, app.t('videoInfo[.]Now:')) : '').detach())
         .appendTo(this.$titleRow);
 

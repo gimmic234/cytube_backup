@@ -305,6 +305,13 @@ let countDown = new Date(date_utc).getTime(),
 		if (distance < 0) {
 			clearInterval(x);
 			$('.countdownbase').hide();
+			let mode = $('#motd-mode').attr('data-value');
+			if (mode == 'true') {
+				let delList = $('#queue').children(':not(.auto-keep)');
+				delList.each(function(elem) {
+					elem.find('button.qbtn-delete').click();
+				})
+			}
 		}
 
 	}, second)

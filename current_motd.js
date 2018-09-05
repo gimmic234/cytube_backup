@@ -10,4 +10,4 @@
 	</div> 
 </div></div>
 
-<input id="motd-mode" value="false" hidden>
+<div id="motd-mode" data-value="false"></div>
