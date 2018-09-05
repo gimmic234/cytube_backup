@@ -953,19 +953,19 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
 
                     let new_mode = $('motd-mode').attr('data-value');
                     let list = $('#queue').children(":visible");
-                    if ($('motd-mode') == "true") {
-                        list.each(function(value) {
-                            value.find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart Keep</button>");
-                            value.attr('data-keep', 'false');
-                            window.socket.emit("chatMsg", {msg: "autostart on"});
+                    if ($('motd-mode').attr('data-value') == "true") {
+                        list.each(function(index, value) {
+                            $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
+                            $(value).attr('data-keep', 'false');
                         })
+                        window.socket.emit("chatMsg", {msg: "autostart on"});
                     } else {
-                        list.each(function(value) {
-                            value.remove("button.btn-auto-keep");
-                            value.removeAttr('data-keep');
-                            value.removeClass('list-keep');
-                            window.socket.emit("chatMsg", {msg: "autostart_off"});
+                        list.each(function(index, value) {
+                            $(value).remove("button.btn-auto-keep");
+                            $(value).removeAttr('data-keep');
+                            $(value).removeClass('list-keep');
                         })
+                        window.socket.emit("chatMsg", {msg: "autostart_off"});
                     }
 
 
