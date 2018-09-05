@@ -14,67 +14,6 @@ var handler;
 var allowedDomainUrl = ["free.timeanddate.com", "free.someotherdomain.com"];
 var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute);
 
-var emoteHandler = function(e) {
-	if (emoteTable) {
-		$('#chatline').off('keydown');
-		switch (e.which) {
-			case 13:
-			case 9:
-				if (selectedPopover) {
-					appendEmote($('tr.active'));
-					$('#emote-data-field').hide();
-					selectedPopover = null;
-					emoteTable = false;
-					$('#chatline').on('keydown', handler);
-				}
-				return false;
-				break;
-
-			case 40:
-				if (selectedPopover) {
-					selectedPopover.removeClass('active');
-					next = selectedPopover.next();
-					if (next.length > 0) {
-						selectedPopover = next.addClass('active');
-					} else {
-						selectedPopover = selectedPopover.eq(0).addClass('active');
-					}
-				} else {
-					selectedPopover = selectedPopover.eq(0).addClass('active');
-				}
-				break;
-
-			case 38:
-				if (selectedPopover) {
-					selectedPopover.removeClass('active');
-					next = selectedPopover.prev();
-					if (next.length > 0) {
-						selectedPopover = next.addClass('active');
-					} else {
-						selectedPopover = selectedPopover.last().addClass('active');
-					}
-				} else {
-					selectedPopover = selectedPopover.last().addClass('active');
-				}
-				break;
-
-			default:
-				break;
-		}
-	}
-	$('#chatline').on('keydown', emoteHandler);
-	return true;
-};
-
-function fetchEmote() {
-	emoteArray = CHANNEL.emotes.map(function(e) {
-		return {
-			name: e.name,
-			image: e.image
-		}
-	});
-}
-
 var waitForEl = function(selector, callback) {
 	if ($(selector).length) {
 		callback();
@@ -84,94 +23,6 @@ var waitForEl = function(selector, callback) {
 		}, 100);
 	}
 };
-
-function populateEmote() {
-	fetchEmote();
-	$('#chatline').before("<div id='emote-data-field' hidden></div>");
-	let events = $._data($('#chatline').get(0), "events");
-	handler = events['keydown'][0].handler;
-}
-
-function appendEmote(elem) {
-	let chat = $('#chatline');
-	let text = chat.val().split(" ");
-	text.pop();
-	text.push(elem.attr('data-value'));
-	chat.val(text.join(" "));
-	chat.focus();
-}
-
-$('body').on('click', 'button#emotelistbtn', function() {
-	fetchEmote();
-});
-
-$('body').on('click', '.selectEmote', function() {
-	appendEmote($(this));
-	$('#emote-data-field').hide();
-	$('#chatline').off('keydown');
-	$('#chatline').on('keydown', handler);
-})
-
-$('body').on('input', 'input#chatline', function() {
-	let chat = $('#chatline');
-	let emote = $('#emote-data-field');
-	emote.html("");
-	let text = chat.val().split(" ");
-	let lastText = text.pop();
-	let filteredEmote = {};
-	let emoteString = "";
-	let active = "";
-	let innerString = "";
-	if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
-		innerString = lastText.substr(1, lastText.length);
-		filteredEmote = emoteArray.filter(emote => (emote.name.indexOf(innerString) > -1));
-		emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
-		filteredEmote.forEach(function(value, index) {
-			active = (index == 0) ? "active" : "";
-			emoteString += "<tr class='selectEmote " + active + "' data-value='" + value.name + "'>";
-			emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image + "'></td>";
-			emoteString += "<td width='80%'>" + value.name + "</td>";
-			emoteString += "</tr>";
-		})
-		emoteString += "</tbody></table>";
-		emote.html(emoteString);
-		chat.attr('data-content', emoteString);
-		if (lastText.substr(lastText.length - 1) == ':' || filteredEmote.length == 0) {
-			emote.hide();
-			popover = null;
-			emoteTable = false;
-		} else {
-			selectedPopover = $('tr.active');
-			emoteTable = true;
-			$('#chatline').off('keydown');
-			$('#chatline').on('keydown', emoteHandler);
-			emote.show();
-		}
-	} else {
-		emote.hide();
-		$('#chatline').on('keydown', handler);
-		selectedPopover = null;
-		emoteTable = false;
-	}
-});
-
-$('body').on('focusout', 'input#chatline', function() {
-	setTimeout(function() {
-		$('#emote-data-field').hide();
-	}, 100);
-});
-
-$('body').on('click', 'button.btn-auto-start', function() {
-	let listElem = $(this).closest('li');
-	let toggle = listElem.attr('auto-keep');
-	toggle = (toggle == 'false') ? 'true' : 'false';
-	listElem.attr('auto-keep', toggle);
-	if (toggle == 'false') {
-		listElem.removeClass('list-keep');
-	} else {
-		listElem.addClass('list-keep');
-	}
-});
 
 function allowExternalContent() {
 	let src = $('div#ytapiplayer div div a.vjs-hidden').attr('href');
@@ -200,10 +51,6 @@ $("body").on('DOMSubtreeModified', '#plcount', function(e) {
 })
 
 $('document').ready(function() {
-	waitForEl('#chatline', function() {
-		populateEmote();
-		$('#chatline').on('keydown', handler);
-	});
 
 	waitForEl('#ytapiplayer div div button', function() {
 		allowExternalContent();

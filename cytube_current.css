@@ -99,3 +99,7 @@ span#days, span#hours, span#minutes, span#seconds {
     margin: 5px;
     position: inherit;
 }
+
+.list-keep {
+    background-color: #367117 !important;
+}
