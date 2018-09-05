@@ -4,7 +4,8 @@ var countdown_utc = {
 	month: 9,
 	date: 5,
 	hour: 23,
-	minute: 30
+	minute: 30,
+	second: 0
 };
 
 var emoteArray = [];
@@ -12,7 +13,7 @@ var selectedPopover;
 var emoteTable;
 var handler;
 var allowedDomainUrl = ["free.timeanddate.com", "free.someotherdomain.com"];
-var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute);
+var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
 
 var waitForEl = function(selector, callback) {
 	if ($(selector).length) {
