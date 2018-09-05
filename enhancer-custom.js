@@ -947,7 +947,9 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                     $('#motd-mode').attr('data-value', toggle_mode);
 
                     let list = $('#queue').children(":visible");
-                    if ($('motd-mode').attr('data-value') == "true") {
+                    let new_mode = $('motd-mode').attr('data-value');
+                    console.log(new_mode);
+                    if (new_mode == "true") {
                         list.each(function(index, value) {
                             $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
                             $(value).attr('data-keep', 'false');
