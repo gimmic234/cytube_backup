@@ -1,4 +1,10 @@
-//change countdown_utc to adjust motd
+//motd image url
+var banner_url = "http://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
+
+//motd href url
+var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
+
+//change countdown_utc to adjust motd countdown
 var countdown_utc = {
 	year: 2018,
 	month: 9,
@@ -214,6 +220,15 @@ $("body").on('DOMSubtreeModified', '#plcount', function(e) {
 })
 
 $('document').ready(function() {
+
+	waitForEl('#club_redirect', function() {
+		$('#club_redirect').attr('href', href_url);
+	});
+
+	waitForEl('#club_banner', function() {
+		$('#club_banner').attr('src', banner_url);
+	});
+
 	waitForEl('#chatline', function() {
 		populateEmote();
 		$('#chatline').on('keydown', handler);
