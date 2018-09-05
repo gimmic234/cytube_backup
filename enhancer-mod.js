@@ -939,8 +939,8 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                     window.socket.emit("chatMsg", {msg: 'billbot: ' + msgForCommand});
 
                     IS_COMMAND = false;
-                } else if (msg.indexOf("/autostart") > -1){
-					let text = chat.val().split(" ");
+                } else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2){
+					let text = msg.val().split(" ");
 					let mode = (text.length > 1) ? text[1] : "";
                     mode = (mode == "true" || mode == "false") ? mode : "";
                     if (mode.length > 0) {
@@ -957,12 +957,14 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                         list.each(function(value) {
                             value.find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart Keep</button>");
                             value.attr('data-keep', 'false');
+                            window.socket.emit("chatMsg", {msg: "autostart on"});
                         })
                     } else {
                         list.each(function(value) {
                             value.remove("button.btn-auto-keep");
                             value.removeAttr('data-keep');
                             value.removeClass('list-keep');
+                            window.socket.emit("chatMsg", {msg: "autostart_off"});
                         })
                     }
 
