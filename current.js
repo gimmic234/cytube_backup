@@ -1,8 +1,6 @@
-//motd image url
 var banner_url = "http://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
-
-//motd href url
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
+var autostart_msg = "start!";
 
 //change countdown_utc to adjust motd countdown
 var countdown_utc = {
@@ -83,6 +81,15 @@ var emoteHandler = function(e) {
 	return true;
 };
 
+function cleanAutoStart() {
+	let list = $('#queue').children(":visible");
+	$('#queue').find("button.btn-auto-keep").remove();
+    list.each(function(index, value) {
+        $(value).removeAttr('data-keep');
+        $(value).removeClass('list-keep');
+    })
+}
+
 function fetchEmote() {
 	emoteArray = CHANNEL.emotes.map(function(e) {
 		return {
@@ -142,10 +149,6 @@ function appendEmote(elem) {
 	chat.focus();
 }
 
-$('body').on('click', 'button#emotelistbtn', function() {
-	fetchEmote();
-});
-
 $('body').on('click', '.selectEmote', function() {
 	appendEmote($(this));
 	$('#emote-data-field').hide();
@@ -164,6 +167,7 @@ $('body').on('input', 'input#chatline', function() {
 	let active = "";
 	let innerString = "";
 	if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
+		fetchEmote();
 		innerString = lastText.substr(1, lastText.length);
 		filteredEmote = emoteArray.filter(emote => (emote.name.indexOf(innerString) > -1));
 		emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
@@ -204,14 +208,24 @@ $('body').on('focusout', 'input#chatline', function() {
 
 $('body').on('click', 'button.btn-auto-keep', function() {
 	let listElem = $(this).closest('li');
+	let list = $('#queue').children(":visible");
 	let toggle = listElem.attr('data-keep');
+
 	toggle = (toggle == 'false') ? 'true' : 'false';
-	listElem.attr('data-keep', toggle);
+
+	list.each(function(index, value) {
+		$(value).attr('data-keep', 'false');
+        $(value).removeClass('list-keep');
+	});
+
 	if (toggle == 'false') {
 		listElem.removeClass('list-keep');
 	} else {
 		listElem.addClass('list-keep');
 	}
+	listElem.attr('data-keep', toggle);
+	let name = listElem.find('a.qe_title').html();
+	window.socket.emit("chatMsg", {msg: "Autostart - ["+ name+"]"});	
 });
 
 $("body").on('DOMSubtreeModified', '#plcount', function(e) {
@@ -326,10 +340,21 @@ let countDown = new Date(date_utc).getTime(),
 		let now = new Date().getTime(),
 			distance = countDown - now;
 
-		document.getElementById('days').innerText = Math.floor(distance / (day)),
+			document.getElementById('days').innerText = Math.floor(distance / (day)),
 			document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
 			document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
 			document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+		let totalSeconds = Math.floor(distance / second);
+
+		if (totalSeconds <= 5 && totalSeconds > 0 && $('#motd-mode').attr('data-value') == "true") {
+			window.socket.emit("chatMsg", {msg: totalSeconds + "..."});	
+		}
+
+		if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && $('#motd-mode').attr('data-value') == "true") {
+			totalSeconds = (totalSeconds >= 60) ? (totalSeconds/60) + " minutes" : totalSeconds + " seconds";
+			window.socket.emit("chatMsg", {msg: "the stream will start in " + totalSeconds});
+		}
 
 		//do something later when date is reached
 		if (distance < 0) {
@@ -337,16 +362,12 @@ let countDown = new Date(date_utc).getTime(),
 			$('.countdownbase').hide();
 			let mode = $('#motd-mode').attr('data-value');
 			if (mode == 'true') {
-				let delList = $("li.queue_entry[data-keep='false']");
-				delList.each(function(index, elem) {
-					$(elem).find('button.qbtn-delete').click();
+				let selectedList = $("li.queue_entry[data-keep='true']");
+				selectedList.each(function(index, elem) {
+					$(elem).find('button.qbtn-play').click();
+					window.socket.emit("chatMsg", {msg: autostart_msg});	
 				})
-				$('#queue').find("button.btn-auto-keep").remove();
-				let list = $('#queue').children(":visible");
-				list.each(function(index, value) {
-					$(value).removeAttr('data-keep');
-					$(value).removeClass('list-keep');
-				})
+				cleanAutoStart();
 				$('#motd-mode').attr('data-value', 'false');
 			}
 		}
