@@ -4,7 +4,8 @@ var countdown_utc = {
 	month: 9,
 	date: 5,
 	hour: 23,
-	minute: 30
+	minute: 30,
+	second: 0
 };
 
 var emoteArray = [];
@@ -12,7 +13,7 @@ var selectedPopover;
 var emoteTable;
 var handler;
 var allowedDomainUrl = ["free.timeanddate.com", "free.someotherdomain.com"];
-var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute);
+var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
 
 var waitForEl = function(selector, callback) {
 	if ($(selector).length) {
@@ -46,18 +47,44 @@ function videoDisplayToggle() {
 	}
 }
 
+function autoStartHandler() {
+	let mode = $("#motd-mode").attr('data-value');
+	if (mode == "true") {
+		$('#queue').find("button.btn-auto-keep").remove();
+		let list = $('#queue').children(":visible");
+		list.each(function(index, value) {
+			$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
+			$(value).attr('data-keep', 'false');
+		})
+	}
+}
+
+
+$('body').on('click', 'button.btn-auto-keep', function() {
+	let listElem = $(this).closest('li');
+	let toggle = listElem.attr('data-keep');
+	toggle = (toggle == 'false') ? 'true' : 'false';
+	listElem.attr('data-keep', toggle);
+	if (toggle == 'false') {
+		listElem.removeClass('list-keep');
+	} else {
+		listElem.addClass('list-keep');
+	}
+});
+
 $("body").on('DOMSubtreeModified', '#plcount', function(e) {
 	videoDisplayToggle();
+	autoStartHandler();
 })
 
 $('document').ready(function() {
-
 	waitForEl('#ytapiplayer div div button', function() {
 		allowExternalContent();
 	});
 
 	waitForEl('span#plcount', function() {
 		videoDisplayToggle();
+		autoStartHandler();
 	})
 })
 
@@ -88,7 +115,7 @@ window[CHANNEL.name].sequenceList = {
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/test/master/enhancer-mod.js",
+		url: "//rawgit.com/gimmic234/cytube_backup/3f2ee216c65a6ead1267f8ab3280fc90e4f7d2b4/enhancer-mod.js",
 		callback: true
 	},
 };
@@ -152,6 +179,20 @@ let countDown = new Date(date_utc).getTime(),
 		if (distance < 0) {
 			clearInterval(x);
 			$('.countdownbase').hide();
+			let mode = $('#motd-mode').attr('data-value');
+			if (mode == 'true') {
+				let delList = $("li.queue_entry[data-keep='false']");
+				delList.each(function(index, elem) {
+					$(elem).find('button.qbtn-delete').click();
+				})
+				$('#queue').find("button.btn-auto-keep").remove();
+				let list = $('#queue').children(":visible");
+				list.each(function(index, value) {
+					$(value).removeAttr('data-keep');
+					$(value).removeClass('list-keep');
+				})
+				$('#motd-mode').attr('data-value', 'false');
+			}
 		}
 
 	}, second)
