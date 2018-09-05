@@ -960,7 +960,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                             $(value).removeClass('list-keep');
                         })
                         $('motd-mode').attr('data-value', 'false');
-                        window.socket.emit("chatMsg", {msg: "autostart_off"});
+                        window.socket.emit("chatMsg", {msg: "autostart off"});
                     }
 
 

@@ -939,7 +939,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                     window.socket.emit("chatMsg", {msg: 'billbot: ' + msgForCommand});
 
                     IS_COMMAND = false;
-                } else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2){
+                } else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2) {
                     let toggle_mode = $('#motd-mode').attr('data-value');
                     console.log(toggle_mode);
                     toggle_mode = (toggle_mode == "true") ? "false" : "true";
