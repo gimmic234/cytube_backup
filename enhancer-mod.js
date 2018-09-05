@@ -940,18 +940,12 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
 
                     IS_COMMAND = false;
                 } else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2){
-					let text = msg.split(" ");
-					let mode = (text.length > 1) ? text[1] : "";
-                    mode = (mode == "true" || mode == "false") ? mode : "";
-                    if (mode.length > 0) {
-                        $('#motd-mode').attr('data-value', mode);
-                    } else {
-                        let toggle_mode = $('#motd-mode').attr('data-value');
-                        toggle_mode = (toggle_mode == "true") ? "false" : "true";
-                        $('#motd-mode').attr('data-value', toggle_mode);
-                    } 
+				    let toggle_mode = $('#motd-mode').attr('data-value');
+                    console.log(toggle_mode);
+                    toggle_mode = (toggle_mode == "true") ? "false" : "true";
+                    console.log(toggle_mode);
+                    $('#motd-mode').attr('data-value', toggle_mode);
 
-                    let new_mode = $('motd-mode').attr('data-value');
                     let list = $('#queue').children(":visible");
                     if ($('motd-mode').attr('data-value') == "true") {
                         list.each(function(index, value) {
