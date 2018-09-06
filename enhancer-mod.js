@@ -933,6 +933,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
 
 
                 var msgForCommand = this.prepareMessage(msg);
+                let text = msg.split(" ");    
 
                 if (IS_COMMAND) {
                     window.socket.emit("chatMsg", {msg: msg, meta: meta});
@@ -940,8 +941,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
 
                     IS_COMMAND = false;
                 } 
-                else if (msg.indexOf("/addq") > -1) {
-                    let text = msg.split(" ");
+                else if (text[0] == '/addq') {
                     if (text.length > 1) {
                         text = text.shift();
                         text.forEach(function(value) {
@@ -950,7 +950,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                         })
                     }
                 }
-                else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2){
+                else if (text[0] == "/autostart" && window.CLIENT.rank >= 2){
 				    let toggle_mode = $('#motd-mode').attr('data-value');
                     toggle_mode = (toggle_mode == "true") ? "false" : "true";
                     $('#motd-mode').attr('data-value', toggle_mode);
