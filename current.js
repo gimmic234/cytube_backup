@@ -6,9 +6,9 @@ var autostart_msg = ":excited: start!";
 var countdown_utc = {
 	year: 2018,
 	month: 9,
-	date: 5,
-	hour: 23,
-	minute: 30,
+	date: 9,
+	hour: 19,
+	minute: 0,
 	second: 0
 };
 

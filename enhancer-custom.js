@@ -939,16 +939,24 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                     window.socket.emit("chatMsg", {msg: 'billbot: ' + msgForCommand});
 
                     IS_COMMAND = false;
-                } else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2){
+                } 
+                else if (msg.indexOf("/addq") > -1) {
+                    let text = msg.split(" ");
+                    if (text.length > 1) {
+                        text = text.shift();
+                        text.forEach(function(value) {
+                            $('#mediaurl').val(value);
+                            $('#queue_end').click();
+                        })
+                    }
+                }
+                else if (msg.indexOf("/autostart") > -1 && window.CLIENT.rank >= 2){
                     let toggle_mode = $('#motd-mode').attr('data-value');
-                    console.log(toggle_mode);
                     toggle_mode = (toggle_mode == "true") ? "false" : "true";
-                    console.log(toggle_mode);
                     $('#motd-mode').attr('data-value', toggle_mode);
 
                     let list = $('#queue').children(":visible");
                     let new_mode = $('#motd-mode').attr('data-value');
-                    console.log(new_mode);
                     if (new_mode == "true") {
                         list.each(function(index, value) {
                             $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
