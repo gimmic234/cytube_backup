@@ -159,15 +159,14 @@ $('body').on('click', '.selectEmote', function() {
 $('body').on('input', 'input#chatline', function() {
 	let chat = $('#chatline');
 	let emote = $('#emote-data-field');
-	emote.html("");
 	let text = chat.val().split(" ");
 	let lastText = text.pop();
-	let filteredEmote = {};
-	let emoteString = "";
-	let active = "";
-	let innerString = "";
 	if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
-		fetchEmote();
+		emote.html("");
+		let filteredEmote = {};
+		let emoteString = "";
+		let active = "";
+		let innerString = "";
 		innerString = lastText.substr(1, lastText.length);
 		filteredEmote = emoteArray.filter(emote => (emote.name.indexOf(innerString) > -1));
 		emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
@@ -182,6 +181,8 @@ $('body').on('input', 'input#chatline', function() {
 		emote.html(emoteString);
 		chat.attr('data-content', emoteString);
 		if (lastText.substr(lastText.length - 1) == ':' || filteredEmote.length == 0) {
+			$('#chatline').off('keydown');
+			$('#chatline').on('keydown', handler);
 			emote.hide();
 			popover = null;
 			emoteTable = false;
@@ -193,12 +194,17 @@ $('body').on('input', 'input#chatline', function() {
 			emote.show();
 		}
 	} else {
-		emote.hide();
+		$('#chatline').off('keydown');
 		$('#chatline').on('keydown', handler);
+		emote.hide();
 		selectedPopover = null;
 		emoteTable = false;
 	}
 });
+
+$('body').on('click', '#emotelistbtn', function() {
+	fetchEmote();
+})
 
 $('body').on('focusout', 'input#chatline', function() {
 	setTimeout(function() {
@@ -245,7 +251,6 @@ $('document').ready(function() {
 
 	waitForEl('#chatline', function() {
 		populateEmote();
-		$('#chatline').on('keydown', handler);
 	});
 
 	waitForEl('#ytapiplayer div div button', function() {
