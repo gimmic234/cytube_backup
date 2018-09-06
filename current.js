@@ -1,6 +1,6 @@
 var banner_url = "http://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var autostart_msg = "start!";
+var autostart_msg = ":excited: start!";
 
 //change countdown_utc to adjust motd countdown
 var countdown_utc = {
@@ -142,10 +142,9 @@ function populateEmote() {
 
 function appendEmote(elem) {
 	let chat = $('#chatline');
-	let text = chat.val().split(" ");
-	text.pop();
-	text.push(elem.attr('data-value'));
-	chat.val(text.join(" "));
+	let text = chat.val();
+	let index = text.lastIndexOf(" ");
+	chat.val(text.substr(0, index+1) + elem.attr('data-value'));
 	chat.focus();
 }
 
@@ -156,37 +155,31 @@ $('body').on('click', '.selectEmote', function() {
 	$('#chatline').on('keydown', handler);
 })
 
-$('body').on('input', 'input#chatline', function() {
-	let chat = $('#chatline');
+$('body').on('input', 'input#chatline', function(e) {
+	let index = this.value.lastIndexOf(" ");
+	let lastText = this.value.substr(index+1);
+	let chat = $(this);
 	let emote = $('#emote-data-field');
-	let text = chat.val().split(" ");
-	let lastText = text.pop();
 	if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
 		emote.html("");
-		let filteredEmote = {};
-		let emoteString = "";
-		let active = "";
-		let innerString = "";
-		innerString = lastText.substr(1, lastText.length);
-		filteredEmote = emoteArray.filter(emote => (emote.name.indexOf(innerString) > -1));
-		emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
-		filteredEmote.forEach(function(value, index) {
-			active = (index == 0) ? "active" : "";
-			emoteString += "<tr class='selectEmote " + active + "' data-value='" + value.name + "'>";
-			emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image + "'></td>";
-			emoteString += "<td width='80%'>" + value.name + "</td>";
-			emoteString += "</tr>";
-		})
-		emoteString += "</tbody></table>";
-		emote.html(emoteString);
-		chat.attr('data-content', emoteString);
+		let filteredEmote = emoteArray.filter(emote => (emote.name.indexOf(lastText.substr(1, lastText.length)) > -1));
 		if (lastText.substr(lastText.length - 1) == ':' || filteredEmote.length == 0) {
 			$('#chatline').off('keydown');
 			$('#chatline').on('keydown', handler);
 			emote.hide();
-			popover = null;
+			selectedPopover = null;
 			emoteTable = false;
 		} else {
+			let emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
+			filteredEmote.forEach(function(value, index) {
+				let active = (index == 0) ? "active" : "";
+				emoteString += "<tr class='selectEmote " + active + "' data-value='" + value.name + "'>";
+				emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image + "'></td>";
+				emoteString += "<td width='80%'>" + value.name + "</td>";
+				emoteString += "</tr>";
+			})
+			emoteString += "</tbody></table>";
+			emote.html(emoteString);
 			selectedPopover = $('tr.active');
 			emoteTable = true;
 			$('#chatline').off('keydown');
@@ -194,7 +187,7 @@ $('body').on('input', 'input#chatline', function() {
 			emote.show();
 		}
 	} else {
-		$('#chatline').off('keydown');
+		//$('#chatline').off('keydown');
 		$('#chatline').on('keydown', handler);
 		emote.hide();
 		selectedPopover = null;
@@ -209,6 +202,8 @@ $('body').on('click', '#emotelistbtn', function() {
 $('body').on('focusout', 'input#chatline', function() {
 	setTimeout(function() {
 		$('#emote-data-field').hide();
+		$('#chatline').off('keydown');
+		$('#chatline').on('keydown', handler);
 	}, 100);
 });
 
@@ -239,7 +234,14 @@ $("body").on('DOMSubtreeModified', '#plcount', function(e) {
 	autoStartHandler();
 })
 
+$('body').on('click', 'a.export', function() {
+	let text = $('#cs-chanlog-text').text().replace(/\n/g, "\r\n");
+	this.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(text);
+});
+
 $('document').ready(function() {
+
+	$('#cs-chanlog').append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 
 	waitForEl('#club_redirect', function() {
 		$('#club_redirect').attr('href', href_url);
@@ -262,15 +264,6 @@ $('document').ready(function() {
 		autoStartHandler();
 	})
 })
-
-$('document').ready(function() {
-
-	$('#cs-chanlog').append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
-	$('body').on('click', 'a.export', function() {
-		let text = $('#cs-chanlog-text').text().replace(/\n/g, "\r\n");
-		this.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(text);
-	});
-});
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -357,7 +350,7 @@ let countDown = new Date(date_utc).getTime(),
 		}
 
 		if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && $('#motd-mode').attr('data-value') == "true") {
-			totalSeconds = (totalSeconds >= 60) ? (totalSeconds/60) + " minutes" : totalSeconds + " seconds";
+			totalSeconds = (totalSeconds >= 60) ? (totalSeconds/60) + " minute(s)" : totalSeconds + " seconds";
 			window.socket.emit("chatMsg", {msg: "the stream will start in " + totalSeconds});
 		}
 
@@ -368,10 +361,12 @@ let countDown = new Date(date_utc).getTime(),
 			let mode = $('#motd-mode').attr('data-value');
 			if (mode == 'true') {
 				let selectedList = $("li.queue_entry[data-keep='true']");
-				selectedList.each(function(index, elem) {
-					$(elem).find('button.qbtn-play').click();
-					window.socket.emit("chatMsg", {msg: autostart_msg});	
+				let delList = selectedList.prevAll();
+				delList.each(function(index, elem) {
+					$(elem).find('button.qbtn-delete').click();		
 				})
+				selectedList.find('button.qbtn-play').click();
+				window.socket.emit("chatMsg", {msg: autostart_msg});	
 				cleanAutoStart();
 				$('#motd-mode').attr('data-value', 'false');
 			}
