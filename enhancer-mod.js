@@ -943,7 +943,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
                 } 
                 else if (text[0] == '/addq') {
                     if (text.length > 1) {
-                        text = text.shift();
+                        text.shift();
                         text.forEach(function(value) {
                             $('#mediaurl').val(value);
                             $('#queue_end').click();
