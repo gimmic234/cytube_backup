@@ -33,7 +33,7 @@ var waitForEl = function(selector, callback) {
 	}
 };
 
-$('body').on('keydown', 'input#chatline', function(e) {
+function emoteHandler(e) {
 	if (emoteTable) {
 		//chatline.off('keydown');
 		e.preventDefault();
@@ -51,11 +51,12 @@ $('body').on('keydown', 'input#chatline', function(e) {
 					emoteTable = false;
 					//chatline.on('keydown', handlerKeydown);
 				}
-				return true;
+				return false;
 				break;
 
 			case 40:
 				if (selectedPopover) {
+					console.log("enter arrow");
 					selectedPopover.removeClass('active');
 					next = selectedPopover.next();
 					if (next.length > 0) {
@@ -85,10 +86,104 @@ $('body').on('keydown', 'input#chatline', function(e) {
 			default:
 				break;
 		}
+	} else {
+        if(e.keyCode === 13) {
+            if (window.CHATTHROTTLE) {
+                return;
+            }
+
+            var msg = chatline.val().trim();
+
+            if(msg !== '') {
+                var meta = {};
+
+                if (window.USEROPTS.adminhat && window.CLIENT.rank >= 255) {
+                    msg = "/a " + msg;
+                } else if (window.USEROPTS.modhat && window.CLIENT.rank >= window.Rank.Moderator) {
+                    meta.modflair = window.CLIENT.rank;
+                }
+
+                // The /m command no longer exists, so emulate it clientside
+                if (window.CLIENT.rank >= 2 && msg.indexOf("/m ") === 0) {
+                    meta.modflair = window.CLIENT.rank;
+                    msg = msg.substring(3);
+                }
+
+
+                
+                let text = msg.split(" ");    
+                if (text[0] == '/addq') {
+                    if (text.length > 1) {
+                        text.shift();
+                        text.forEach(function(value) {
+                            $('#mediaurl').val(value);
+                            $('#queue_end').click();
+                        })
+                    }
+                }
+                else if (text[0] == "/autostart" && window.CLIENT.rank >= 2){
+				    let toggle_mode = $('#motd-mode').attr('data-value');
+                    toggle_mode = (toggle_mode == "true") ? "false" : "true";
+                    $('#motd-mode').attr('data-value', toggle_mode);
+
+                    let list = $('#queue').children(":visible");
+                    let new_mode = $('#motd-mode').attr('data-value');
+                    if (new_mode == "true") {
+                        list.each(function(index, value) {
+                            $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
+                            $(value).attr('data-keep', 'false');
+                        })
+                        window.socket.emit("chatMsg", {msg: "autostart on"});
+                    } else {
+                        $('#queue').find("button.btn-auto-keep").remove();
+                        list.each(function(index, value) {
+                            $(value).removeAttr('data-keep');
+                            $(value).removeClass('list-keep');
+                        })
+                        $('motd-mode').attr('data-value', 'false');
+                        window.socket.emit("chatMsg", {msg: "autostart off"});
+                    }
+
+
+				} else {
+                    window.socket.emit("chatMsg", {msg: msg, meta: meta});
+                }
+
+
+                window.CHATHIST.push($("#chatline").val());
+                window.CHATHISTIDX = window.CHATHIST.length;
+                $("#chatline").val('');
+            }
+
+            return;
+        } else if(e.keyCode === 9) { // Tab completion
+            window.chatTabComplete();
+            e.preventDefault();
+            return false;
+        } else if(e.keyCode === 38) { // Up arrow (input history)
+            if(window.CHATHISTIDX === window.CHATHIST.length) {
+                window.CHATHIST.push($("#chatline").val());
+            }
+            if(window.CHATHISTIDX > 0) {
+                window.CHATHISTIDX--;
+                $("#chatline").val(window.CHATHIST[window.CHATHISTIDX]);
+            }
+
+            e.preventDefault();
+            return false;
+        } else if(e.keyCode === 40) { // Down arrow (input history)
+            if(window.CHATHISTIDX < window.CHATHIST.length - 1) {
+                window.CHATHISTIDX++;
+                $("#chatline").val(window.CHATHIST[window.CHATHISTIDX]);
+            }
+
+            e.preventDefault();
+            return false;
+        }
 	}
 	//chatline.on('keydown', emoteHandler);
 	return true;
-});
+};
 
 function cleanAutoStart() {
 	let list = queueList.children(":visible");
@@ -246,8 +341,11 @@ $('document').ready(function() {
 	});
 
 	waitForEl('#chatline', function() {
-		chatline = $(document.getElementById('chatline'));
+		chatline = $(document.getElementById('chatline'))
 		populateEmote();
+		chatline.on('keydown', function(e) {
+			emoteHandler(e);
+		})
 	});
 
 	waitForEl('span#plcount', function() {
@@ -279,7 +377,7 @@ window[CHANNEL.name].sequenceList = {
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/559ab054a5c94ef9817386af0dcac80b3afed7f3/enhancer-mod.js",
+		url: "//rawgit.com/gimmic234/cytube_backup/42d645da2d1518d9ef51f4188262393a36bb3cc7/enhancer-mod.js",
 		callback: true
 	},
 };

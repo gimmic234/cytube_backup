@@ -909,7 +909,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
 
 
     this.sendUserChatMessage = function (e) {
-        if(e.keyCode === 13) {
+/*        if(e.keyCode === 13) {
             if (window.CHATTHROTTLE) {
                 return;
             }
@@ -1008,7 +1008,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
 
             e.preventDefault();
             return false;
-        }
+        }*/
     };
 
 
