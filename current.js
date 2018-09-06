@@ -251,6 +251,15 @@ $('document').ready(function() {
 		$('#club_banner').attr('src', banner_url);
 	});
 
+	waitForEl('#mod', function() {
+		console.log(window.CLIENT.rank);
+		if (window.CLIENT.rank >= 2) {
+			//$('#mod').show();
+		} else {
+			//$('#mod').hide();
+		}
+	});
+
 	waitForEl('#chatline', function() {
 		populateEmote();
 	});
@@ -283,7 +292,7 @@ window[CHANNEL.name].sequenceList = {
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/e68f906e0b36b38741154917095449f8023244e0/enhancer-mod.js",
+		url: "//rawgit.com/gimmic234/cytube_backup/559ab054a5c94ef9817386af0dcac80b3afed7f3/enhancer-mod.js",
 		callback: true
 	},
 };
