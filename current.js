@@ -361,14 +361,20 @@ let countDown = new Date(date_utc).getTime(),
 			let mode = $('#motd-mode').attr('data-value');
 			if (mode == 'true') {
 				let selectedList = $("li.queue_entry[data-keep='true']");
-				let delList = selectedList.prevAll();
-				delList.each(function(index, elem) {
-					$(elem).find('button.qbtn-delete').click();		
-				})
-				selectedList.find('button.qbtn-play').click();
-				window.socket.emit("chatMsg", {msg: autostart_msg});	
-				cleanAutoStart();
-				$('#motd-mode').attr('data-value', 'false');
+				if (selectedList.length != 0) {
+					let delList = selectedList.prevAll();
+					delList.each(function(index, elem) {
+						$(elem).find('button.qbtn-delete').click();		
+					})
+					selectedList.find('button.qbtn-play').click();
+					window.socket.emit("chatMsg", {msg: autostart_msg});	
+					cleanAutoStart();
+					$('#motd-mode').attr('data-value', 'false');
+				} else {
+					window.socket.emit("chatMsg", {msg: "error: the video was not selected"});	
+					cleanAutoStart();
+					$('#motd-mode').attr('data-value', 'false');
+				}
 			}
 		}
 
