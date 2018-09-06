@@ -1012,7 +1012,7 @@ window.cytubeEnhanced.addModule('additionalChatCommands', function (app, setting
     };
 
 
-    $('#chatline, #chatbtn').off();
+    //$('#chatline, #chatbtn').off();
 
     $('#chatline').on('keydown', function (e) {
         that.sendUserChatMessage(e);

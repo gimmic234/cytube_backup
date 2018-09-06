@@ -1,8 +1,7 @@
+//-------CONTROL BLOCK-------------------------------------------------------------------------------------------------------------
 var banner_url = "http://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
 var autostart_msg = ":excited: start!";
-
-//change countdown_utc to adjust motd countdown
 var countdown_utc = {
 	year: 2018,
 	month: 9,
@@ -11,13 +10,18 @@ var countdown_utc = {
 	minute: 0,
 	second: 0
 };
+//-----------------------------------------------------------------------------------------------------------------------------------
 
 var emoteArray = [];
 var selectedPopover;
 var emoteTable;
-var handler;
-var allowedDomainUrl = ["free.timeanddate.com", "free.someotherdomain.com"];
+var handlerKeydown;
 var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
+var chatline;
+var queueList;
+var emoteList;
+var motdMode = $(document.getElementById('motd-mode'));
+
 
 var waitForEl = function(selector, callback) {
 	if ($(selector).length) {
@@ -29,20 +33,25 @@ var waitForEl = function(selector, callback) {
 	}
 };
 
-var emoteHandler = function(e) {
+$('body').on('keydown', 'input#chatline', function(e) {
 	if (emoteTable) {
-		$('#chatline').off('keydown');
+		//chatline.off('keydown');
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		console.log("emoteHandler");
+		console.log(window.cytubeEnhanced);
 		switch (e.which) {
 			case 13:
 			case 9:
 				if (selectedPopover) {
+					console.log("enter");
 					appendEmote($('tr.active'));
-					$('#emote-data-field').hide();
+					emoteList.hide();
 					selectedPopover = null;
 					emoteTable = false;
-					$('#chatline').on('keydown', handler);
+					//chatline.on('keydown', handlerKeydown);
 				}
-				return false;
+				return true;
 				break;
 
 			case 40:
@@ -77,13 +86,13 @@ var emoteHandler = function(e) {
 				break;
 		}
 	}
-	$('#chatline').on('keydown', emoteHandler);
+	//chatline.on('keydown', emoteHandler);
 	return true;
-};
+});
 
 function cleanAutoStart() {
-	let list = $('#queue').children(":visible");
-	$('#queue').find("button.btn-auto-keep").remove();
+	let list = queueList.children(":visible");
+	queueList.find("button.btn-auto-keep").remove();
     list.each(function(index, value) {
         $(value).removeAttr('data-keep');
         $(value).removeClass('list-keep');
@@ -99,33 +108,20 @@ function fetchEmote() {
 	});
 }
 
-function allowExternalContent() {
-	let src = $('div#ytapiplayer div div a.vjs-hidden').attr('href');
-	if (src) {
-		let block = $('div#ytapiplayer div div button.btn-default');
-		allowedDomainUrl.forEach(function(value) {
-			if (src.indexOf(value) > -1) {
-				block.click();
-			}
-		});
-	}
-}
-
 function videoDisplayToggle() {
-	let queuelist = $('ul#queue').children();
-	let next = $('#plcount').html();
+	let next = $(document.getElementById('plcount'))[0].innerHTML;
 	if (next == "0 items") {
-		$('#videowrap').hide();
+		$(document.getElementById('videowrap')).hide();
 	} else {
-		$('#videowrap').show();
+		$(document.getElementById('videowrap')).show();
 	}
 }
 
 function autoStartHandler() {
-	let mode = $("#motd-mode").attr('data-value');
+	let mode = motdMode.attr('data-value');
 	if (mode == "true") {
-		$('#queue').find("button.btn-auto-keep").remove();
-		let list = $('#queue').children(":visible");
+		queueList.find("button.btn-auto-keep").remove();
+		let list = queueList.children(":visible");
 		list.each(function(index, value) {
 			$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
 			$(value).attr('data-keep', 'false');
@@ -135,38 +131,38 @@ function autoStartHandler() {
 
 function populateEmote() {
 	fetchEmote();
-	$('#chatline').before("<div id='emote-data-field' hidden></div>");
-	let events = $._data($('#chatline').get(0), "events");
-	handler = events['keydown'][0].handler;
+	chatline.before("<div id='emote-data-field' hidden></div>");
+	let events = $._data(chatline.get(0), "events");
+	console.log(events['keydown']);
+	handlerKeydown = events['keydown'][0].handler;
+	emoteList = $(document.getElementById('emote-data-field'));
 }
 
 function appendEmote(elem) {
-	let chat = $('#chatline');
-	let text = chat.val();
+	let text = chatline.val();
 	let index = text.lastIndexOf(" ");
-	chat.val(text.substr(0, index+1) + elem.attr('data-value'));
-	chat.focus();
+	chatline.val(text.substr(0, index+1) + elem.attr('data-value'));
+	chatline.focus();
 }
 
-$('body').on('click', '.selectEmote', function() {
-	appendEmote($(this));
-	$('#emote-data-field').hide();
-	$('#chatline').off('keydown');
-	$('#chatline').on('keydown', handler);
+$('body').on('click', '#emote-data-field', function(e) {
+	appendEmote($(e.target).closest('tr'));
+	emoteList.hide();
+	//chatline.off('keydown');
+	//chatline.on('keydown', handlerKeydown);
 })
 
 $('body').on('input', 'input#chatline', function(e) {
 	let index = this.value.lastIndexOf(" ");
 	let lastText = this.value.substr(index+1);
 	let chat = $(this);
-	let emote = $('#emote-data-field');
 	if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
-		emote.html("");
+		emoteList[0].innerHTML = "";
 		let filteredEmote = emoteArray.filter(emote => (emote.name.indexOf(lastText.substr(1, lastText.length)) > -1));
 		if (lastText.substr(lastText.length - 1) == ':' || filteredEmote.length == 0) {
-			$('#chatline').off('keydown');
-			$('#chatline').on('keydown', handler);
-			emote.hide();
+			//chatline.off('keydown');
+			//chatline.on('keydown', handlerKeydown);
+			emoteList.hide();
 			selectedPopover = null;
 			emoteTable = false;
 		} else {
@@ -179,17 +175,16 @@ $('body').on('input', 'input#chatline', function(e) {
 				emoteString += "</tr>";
 			})
 			emoteString += "</tbody></table>";
-			emote.html(emoteString);
+			emoteList[0].innerHTML = emoteString;
 			selectedPopover = $('tr.active');
 			emoteTable = true;
-			$('#chatline').off('keydown');
-			$('#chatline').on('keydown', emoteHandler);
-			emote.show();
+			//chatline.off('keydown');
+			//chatline.on('keydown', emoteHandler);
+			emoteList.show();
 		}
 	} else {
-		//$('#chatline').off('keydown');
-		$('#chatline').on('keydown', handler);
-		emote.hide();
+		chatline.on('keydown', handlerKeydown);
+		emoteList.hide();
 		selectedPopover = null;
 		emoteTable = false;
 	}
@@ -201,15 +196,15 @@ $('body').on('click', '#emotelistbtn', function() {
 
 $('body').on('focusout', 'input#chatline', function() {
 	setTimeout(function() {
-		$('#emote-data-field').hide();
-		$('#chatline').off('keydown');
-		$('#chatline').on('keydown', handler);
-	}, 100);
+		emoteList.hide();
+		//chatline.off('keydown');
+		//chatline.on('keydown', handlerKeydown);
+	}, 1000);
 });
 
 $('body').on('click', 'button.btn-auto-keep', function() {
 	let listElem = $(this).closest('li');
-	let list = $('#queue').children(":visible");
+	let list = queueList.children(":visible");
 	let toggle = listElem.attr('data-keep');
 
 	toggle = (toggle == 'false') ? 'true' : 'false';
@@ -225,7 +220,7 @@ $('body').on('click', 'button.btn-auto-keep', function() {
 		listElem.addClass('list-keep');
 	}
 	listElem.attr('data-keep', toggle);
-	let name = listElem.find('a.qe_title').html();
+	let name = listElem.find('a.qe_title')[0].innerHTML;
 	window.socket.emit("chatMsg", {msg: "Autostart - ["+ name+"]"});	
 });
 
@@ -240,7 +235,6 @@ $('body').on('click', 'a.export', function() {
 });
 
 $('document').ready(function() {
-
 	$('#cs-chanlog').append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 
 	waitForEl('#club_redirect', function() {
@@ -251,26 +245,19 @@ $('document').ready(function() {
 		$('#club_banner').attr('src', banner_url);
 	});
 
-	waitForEl('#mod', function() {
-		console.log(window.CLIENT.rank);
-		if (window.CLIENT.rank >= 2) {
-			//$('#mod').show();
-		} else {
-			//$('#mod').hide();
-		}
-	});
-
 	waitForEl('#chatline', function() {
+		chatline = $(document.getElementById('chatline'));
 		populateEmote();
 	});
 
-	waitForEl('#ytapiplayer div div button', function() {
-		allowExternalContent();
-	});
-
 	waitForEl('span#plcount', function() {
+		queueList = $(document.getElementById('queue'));
 		videoDisplayToggle();
 		autoStartHandler();
+	})
+
+	waitForEl('#motd-mode', function() {
+		motdMode = $(document.getElementById('motd-mode'));
 	})
 })
 /*!
@@ -354,11 +341,11 @@ let countDown = new Date(date_utc).getTime(),
 
 		let totalSeconds = Math.floor(distance / second);
 
-		if (totalSeconds <= 5 && totalSeconds > 0 && $('#motd-mode').attr('data-value') == "true") {
+		if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
 			window.socket.emit("chatMsg", {msg: totalSeconds + "..."});	
 		}
 
-		if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && $('#motd-mode').attr('data-value') == "true") {
+		if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
 			totalSeconds = (totalSeconds >= 60) ? (totalSeconds/60) + " minute(s)" : totalSeconds + " seconds";
 			window.socket.emit("chatMsg", {msg: "the stream will start in " + totalSeconds});
 		}
@@ -367,7 +354,7 @@ let countDown = new Date(date_utc).getTime(),
 		if (distance < 0) {
 			clearInterval(x);
 			$('.countdownbase').hide();
-			let mode = $('#motd-mode').attr('data-value');
+			let mode = motdMode.attr('data-value');
 			if (mode == 'true') {
 				let selectedList = $("li.queue_entry[data-keep='true']");
 				if (selectedList.length != 0) {
@@ -378,11 +365,11 @@ let countDown = new Date(date_utc).getTime(),
 					selectedList.find('button.qbtn-play').click();
 					window.socket.emit("chatMsg", {msg: autostart_msg});	
 					cleanAutoStart();
-					$('#motd-mode').attr('data-value', 'false');
+					motdMode.attr('data-value', 'false');
 				} else {
 					window.socket.emit("chatMsg", {msg: "error: the video was not selected"});	
 					cleanAutoStart();
-					$('#motd-mode').attr('data-value', 'false');
+					motdMode.attr('data-value', 'false');
 				}
 			}
 		}
