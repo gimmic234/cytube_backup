@@ -26,62 +26,188 @@ var emoteList;
 var motdMode = $(document.getElementById('motd-mode'));
 var collapseArrow;
 var jsTextField = $(document.getElementById('cs-jstext'));
-var chatCmdList = ['/addq', '/autostart', '/editbg', '/editbanner', '/editurl'];
+var bodyElem = document.body;
+var keyInjectionList = [9, 13, 38, 40];
 var chatCmdLookup = {
-			'/addq' : function(chatCmdText) {
-							if (chatCmdText.length > 1 && chatCmdText.length <= 10) {
-								chatCmdText.shift();
-								chatCmdText.forEach(function(value) {
-								    $(document.getElementById('mediaurl')).val(value);
-								    $(document.getElementById('queue_end')).click();
-								})
-								}	
-			},
-			'/autostart' : function() {
-		                		if (window.CLIENT.rank >= 2) {
-		                			let toggle_mode = motdMode.attr('data-value');
-				                    toggle_mode = (toggle_mode == "true") ? "false" : "true";
-				                    motdMode.attr('data-value', toggle_mode);
+	'/addq': function(chatCmdText) {
+		if (chatCmdText.length > 1 && chatCmdText.length <= 10) {
+			chatCmdText.shift();
+			chatCmdText.forEach(function(value) {
+				$(document.getElementById('mediaurl')).val(value);
+				$(document.getElementById('queue_end')).click();
+			})
+		}
+	},
+	'/autostart': function() {
+		if (window.CLIENT.rank >= 2) {
+			let toggle_mode = motdMode.attr('data-value');
+			toggle_mode = (toggle_mode == "true") ? "false" : "true";
+			motdMode.attr('data-value', toggle_mode);
 
-				                    let list = queueList.children(":visible");
-				                    let new_mode = motdMode.attr('data-value');
-				                    if (new_mode == "true") {
-				                        list.each(function(index, value) {
-				                            $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
-				                            $(value).attr('data-keep', 'false');
-				                        })
-				                        window.socket.emit("chatMsg", {msg: "autostart on"});
-				                    } else {
-				                        queueList.find("button.btn-auto-keep").remove();
-				                        list.each(function(index, value) {
-				                            $(value).removeAttr('data-keep');
-				                            $(value).removeClass('list-keep');
-				                        })
-				                        motdMode.attr('data-value', 'false');
-				                        window.socket.emit("chatMsg", {msg: "autostart off"});
-				                    }
-		                		}
-			},
-			'/editbg' : function(chatCmdText) {
-				editJs(4, chatCmdText);
-			},
-			'/editbanner' : function(chatCmdText) {
-				editJs(2, chatCmdText);	
-			},
-			'/purge' : function() {
-				if (window.CLIENT.rank >= 2) {
-					let list = queueList.children(":visible");
-					deleteAllPlaylist(list);
-				}
+			let list = queueList.children(":visible");
+			let new_mode = motdMode.attr('data-value');
+			if (new_mode == "true") {
+				list.each(function(index, value) {
+					$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
+					$(value).attr('data-keep', 'false');
+				})
+				window.socket.emit("chatMsg", {
+					msg: "autostart on"
+				});
+			} else {
+				queueList.find("button.btn-auto-keep").remove();
+				list.each(function(index, value) {
+					$(value).removeAttr('data-keep');
+					$(value).removeClass('list-keep');
+				})
+				motdMode.attr('data-value', 'false');
+				window.socket.emit("chatMsg", {
+					msg: "autostart off"
+				});
 			}
-		};
+		}
+	},
+	'/editbg': function(chatCmdText) {
+		editJs(4, chatCmdText);
+		window.socket.emit("chatMsg", {
+				msg: "background updated"
+			});
+	},
+	'/editbanner': function(chatCmdText) {
+		editJs(2, chatCmdText);
+		window.socket.emit("chatMsg", {
+				msg: "banner updated"
+			});
+	},
+	'/purge': function() {
+		if (window.CLIENT.rank >= 2) {
+			let list = queueList.children(":visible");
+			deleteAllPlaylist(list);
+		}
+	}
+};
+
+var emoteKeyLookup = {
+	13: function(e) {
+		emoteSelectSubmit(e);
+	},
+	40: function(e) {
+		if (selectedPopover) {
+			selectedPopover.removeClass('active');
+			next = selectedPopover.next();
+			if (next.length > 0) {
+				selectedPopover = next.addClass('active');
+			} else {
+				selectedPopover = selectedPopover.eq(0).addClass('active');
+			}
+		} else {
+			selectedPopover = selectedPopover.eq(0).addClass('active');
+		}
+	},
+	38: function(e) {
+		if (selectedPopover) {
+			selectedPopover.removeClass('active');
+			next = selectedPopover.prev();
+			if (next.length > 0) {
+				selectedPopover = next.addClass('active');
+			} else {
+				selectedPopover = selectedPopover.last().addClass('active');
+			}
+		} else {
+			selectedPopover = selectedPopover.last().addClass('active');
+		}
+	},
+	9: function(e) {
+		emoteSelectSubmit(e);
+	}
+};
+
+var chatKeyLookup = {
+	13: function(e) {
+		if (window.CHATTHROTTLE) {
+			return;
+		}
+
+		var msg = chatlineElem.val().trim();
+
+		if (msg !== '') {
+			var meta = {};
+
+			if (window.USEROPTS.adminhat && window.CLIENT.rank >= 255) {
+				msg = "/a " + msg;
+			} else if (window.USEROPTS.modhat && window.CLIENT.rank >= window.Rank.Moderator) {
+				meta.modflair = window.CLIENT.rank;
+			}
+
+			// The /m command no longer exists, so emulate it clientside
+			if (window.CLIENT.rank >= 2 && msg.indexOf("/m ") === 0) {
+				meta.modflair = window.CLIENT.rank;
+				msg = msg.substring(3);
+			}
+
+			var chatCmdText = msg.split(" ");
+
+			if (chatCmdLookup[chatCmdText[0]] != undefined) {
+				chatCmdLookup[chatCmdText[0]](chatCmdText);
+			} else {
+				window.socket.emit("chatMsg", {
+					msg: msg,
+					meta: meta
+				});
+			}
+
+
+			window.CHATHIST.push(chatlineElem.val());
+			window.CHATHISTIDX = window.CHATHIST.length;
+			chatlineElem.val('');
+		}
+
+		return;
+	},
+	9: function(e) {
+		e.preventDefault();
+		return false;
+	},
+	38: function(e) {
+		if (window.CHATHISTIDX === window.CHATHIST.length) {
+			window.CHATHIST.push(chatlineElem.val());
+		}
+		if (window.CHATHISTIDX > 0) {
+			window.CHATHISTIDX--;
+			chatlineElem.val(window.CHATHIST[window.CHATHISTIDX]);
+		}
+
+		e.preventDefault();
+		return false;
+	},
+	40: function(e) {
+		if (window.CHATHISTIDX < window.CHATHIST.length - 1) {
+			window.CHATHISTIDX++;
+			chatlineElem.val(window.CHATHIST[window.CHATHISTIDX]);
+		}
+
+		e.preventDefault();
+		return false;
+	}
+}
+
+var emoteSelectSubmit = function(e) {
+	if (selectedPopover) {
+		e.preventDefault();
+		appendEmote($('tr.active'));
+		emoteList.hide();
+		selectedPopover = null;
+		emoteTable = false;
+	}
+	return false;
+}
 
 var editJs = function(fieldIndex, chatCmdText) {
 	if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
 		var textField = jsTextField.val();
 		var textFieldArray = textField.split("\n");
-		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(' = ')+1);
-		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + "= '" + chatCmdText[1] + "';");
+		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(' = ') + 1);
+		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + "= '" + chatCmdText[1].replace(/['"]+/g,'').trim() + "';");
 		jsTextField.val(textField);
 		$(document.getElementById('cs-jssubmit')).click();
 	}
@@ -98,151 +224,52 @@ var waitForEl = function(selector, callback) {
 };
 
 function chatHandler(e) {
+
 	if (emoteTable) {
 		e.stopImmediatePropagation();
-		switch (e.which) {
-			case 13:
-			case 9:
-				if (selectedPopover) {
-					e.preventDefault();
-					appendEmote($('tr.active'));
-					emoteList.hide();
-					selectedPopover = null;
-					emoteTable = false;
-				}
-				return false;
-				break;
-
-			case 40:
-				if (selectedPopover) {
-					selectedPopover.removeClass('active');
-					next = selectedPopover.next();
-					if (next.length > 0) {
-						selectedPopover = next.addClass('active');
-					} else {
-						selectedPopover = selectedPopover.eq(0).addClass('active');
-					}
-				} else {
-					selectedPopover = selectedPopover.eq(0).addClass('active');
-				}
-				break;
-
-			case 38:
-				if (selectedPopover) {
-					selectedPopover.removeClass('active');
-					next = selectedPopover.prev();
-					if (next.length > 0) {
-						selectedPopover = next.addClass('active');
-					} else {
-						selectedPopover = selectedPopover.last().addClass('active');
-					}
-				} else {
-					selectedPopover = selectedPopover.last().addClass('active');
-				}
-				break;
-
-			default:
-				break;
+		if (emoteKeyLookup[e.which] != undefined) {
+			emoteKeyLookup[e.which](e);
 		}
 	} else {
-		//not emote
-        if(e.keyCode === 13) {
-            if (window.CHATTHROTTLE) {
-                return;
-            }
-
-            var msg = chatlineElem.val().trim();
-
-            if(msg !== '') {
-                var meta = {};
-
-                if (window.USEROPTS.adminhat && window.CLIENT.rank >= 255) {
-                    msg = "/a " + msg;
-                } else if (window.USEROPTS.modhat && window.CLIENT.rank >= window.Rank.Moderator) {
-                    meta.modflair = window.CLIENT.rank;
-                }
-
-                // The /m command no longer exists, so emulate it clientside
-                if (window.CLIENT.rank >= 2 && msg.indexOf("/m ") === 0) {
-                    meta.modflair = window.CLIENT.rank;
-                    msg = msg.substring(3);
-                }
-                
-                var chatCmdText = msg.split(" ");
-               
-                console.log(chatCmdText[0]);
-                if (chatCmdLookup.hasOwnProperty(chatCmdText[0])) {
-                   chatCmdLookup[chatCmdText[0]](chatCmdText);
-				} else {
-                    window.socket.emit("chatMsg", {msg: msg, meta: meta});
-                }
-
-
-                window.CHATHIST.push(chatlineElem.val());
-                window.CHATHISTIDX = window.CHATHIST.length;
-                chatlineElem.val('');
-            }
-
-            return;
-        } else if(e.keyCode === 9) { // Tab completion
-            window.chatTabComplete();
-            e.preventDefault();
-            return false;
-        } else if(e.keyCode === 38) { // Up arrow (input history)
-            if(window.CHATHISTIDX === window.CHATHIST.length) {
-                window.CHATHIST.push(chatlineElem.val());
-            }
-            if(window.CHATHISTIDX > 0) {
-                window.CHATHISTIDX--;
-                chatlineElem.val(window.CHATHIST[window.CHATHISTIDX]);
-            }
-
-            e.preventDefault();
-            return false;
-        } else if(e.keyCode === 40) { // Down arrow (input history)
-            if(window.CHATHISTIDX < window.CHATHIST.length - 1) {
-                window.CHATHISTIDX++;
-                chatlineElem.val(window.CHATHIST[window.CHATHISTIDX]);
-            }
-
-            e.preventDefault();
-            return false;
-        }
+		if (chatKeyLookup[e.which] != undefined) {
+			chatKeyLookup[e.which](e);
+		}
 	}
+
 	return true;
 };
 
 function preloadImages(array) {
-    if (!preloadImages.list) {
-        preloadImages.list = [];
-    }
-    var list = preloadImages.list;
-    for (var i = 0; i < array.length; i++) {
-        var img = new Image();
-        img.onload = function() {
-            var index = list.indexOf(this);
-            if (index !== -1) {
-                list.splice(index, 1);
-            }
-        }
-        list.push(img);
-        img.src = array[i];
-    }
+	if (!preloadImages.list) {
+		preloadImages.list = [];
+	}
+	var list = preloadImages.list;
+	for (var i = 0; i < array.length; i++) {
+		var img = new Image();
+		img.onload = function() {
+			var index = list.indexOf(this);
+			if (index !== -1) {
+				list.splice(index, 1);
+			}
+		}
+		list.push(img);
+		img.src = array[i];
+	}
 }
 
 function deleteAllPlaylist(delList) {
 	delList.each(function(index, elem) {
-		$(elem).find('button.qbtn-delete').click();		
+		$(elem).find('button.qbtn-delete').click();
 	})
 }
 
 function cleanAutoStart() {
 	let list = queueList.children(":visible");
 	queueList.find("button.btn-auto-keep").remove();
-    list.each(function(index, value) {
-        $(value).removeAttr('data-keep');
-        $(value).removeClass('list-keep');
-    })
+	list.each(function(index, value) {
+		$(value).removeAttr('data-keep');
+		$(value).removeClass('list-keep');
+	})
 }
 
 function fetchEmote() {
@@ -286,18 +313,19 @@ function appendEmote(elem) {
 	let text = chatlineElem.val();
 	let index = text.lastIndexOf(" ");
 	chatlineElem.val("");
-	chatlineElem.val(text.substr(0, index+1) + elem.attr('data-value'));
+	chatlineElem.val(text.substr(0, index + 1) + elem.attr('data-value'));
 	chatlineElem.focus();
 }
 
-$('body').on('click', '#emote-data-field', function(e) {
+$(bodyElem).on('click', '#emote-data-field', function(e) {
 	appendEmote($(e.target).closest('tr'));
 	emoteList.hide();
+	emoteTable = false;
 })
 
-$('body').on('input', 'input#chatline', function(e) {
+$(bodyElem).on('input', '#chatline', function(e) {
 	let index = this.value.lastIndexOf(" ");
-	let lastText = this.value.substr(index+1);
+	let lastText = this.value.substr(index + 1);
 	let chat = $(this);
 	if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
 		emoteList[0].innerHTML = "";
@@ -329,17 +357,19 @@ $('body').on('input', 'input#chatline', function(e) {
 	}
 });
 
-$('body').on('click', '#emotelistbtn', function() {
+$(bodyElem).on('click', '#emotelistbtn', function() {
 	fetchEmote();
 })
 
-$('body').on('focusout', 'input#chatline', function() {
-	setTimeout(function() {
-		emoteList.hide();
-	}, 1000);
+$(bodyElem).on('focusout', '#chatline', function() {
+	if (emoteList[0].matches(':hover')) {
+		return false;
+	}
+	emoteList.hide();
+	emoteTable = false;
 });
 
-$('body').on('click', 'button.btn-auto-keep', function() {
+$(bodyElem).on('click', '.btn-auto-keep', function() {
 	let listElem = $(this).closest('li');
 	let list = queueList.children(":visible");
 	let toggle = listElem.attr('data-keep');
@@ -348,7 +378,7 @@ $('body').on('click', 'button.btn-auto-keep', function() {
 
 	list.each(function(index, value) {
 		$(value).attr('data-keep', 'false');
-        $(value).removeClass('list-keep');
+		$(value).removeClass('list-keep');
 	});
 
 	if (toggle == 'false') {
@@ -358,32 +388,41 @@ $('body').on('click', 'button.btn-auto-keep', function() {
 	}
 	listElem.attr('data-keep', toggle);
 	let name = listElem.find('a.qe_title')[0].innerHTML;
-	window.socket.emit("chatMsg", {msg: "Autostart - ["+ name+"]"});	
+	window.socket.emit("chatMsg", {
+		msg: "Autostart - [" + name + "]"
+	});
 });
 
-$("body").on('DOMSubtreeModified', '#plcount', function(e) {
+$(bodyElem).on('DOMSubtreeModified', '#plcount', function(e) {
 	videoDisplayToggle();
 	autoStartHandler();
 })
 
-$('body').on('click', 'a.export', function() {
+$(bodyElem).on('click', '.export', function() {
 	let text = $('#cs-chanlog-text').text().replace(/\n/g, "\r\n");
 	this.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(text);
 });
 
-$('body').on('hidden.bs.collapse', '#collapseMessage', function() {
+$(bodyElem).on('hidden.bs.collapse', '#collapseMessage', function() {
 	collapseArrow[0].classList.remove('glyphicon-chevron-up');
 	collapseArrow[0].classList.add('glyphicon-chevron-down');
 })
 
-$('body').on('show.bs.collapse', '#collapseMessage', function() {
+$(bodyElem).on('show.bs.collapse', '#collapseMessage', function() {
 	collapseArrow[0].classList.remove('glyphicon-chevron-down');
 	collapseArrow[0].classList.add('glyphicon-chevron-up');
 })
 
-$('document').ready(function() {
+$(bodyElem).on('mousedown', '.qbtn-delete', function() {
+	window.socket.emit("chatMsg", {
+		msg: "video deleted"
+	});
+})
 
-	$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
+$(document).ready(function() {
+	if (!document.getElementById('cs-chanlog')) {
+		$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
+	}
 
 	waitForEl('#club_redirect', function() {
 		$('#club_redirect').attr('href', href_url);
@@ -492,7 +531,7 @@ let countDown = new Date(date_utc).getTime(),
 		let now = new Date().getTime(),
 			distance = countDown - now;
 
-			document.getElementById('days').innerText = Math.floor(distance / (day)),
+		document.getElementById('days').innerText = Math.floor(distance / (day)),
 			document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
 			document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
 			document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
@@ -500,12 +539,16 @@ let countDown = new Date(date_utc).getTime(),
 		let totalSeconds = Math.floor(distance / second);
 
 		if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-			window.socket.emit("chatMsg", {msg: totalSeconds + "..."});	
+			window.socket.emit("chatMsg", {
+				msg: totalSeconds + "..."
+			});
 		}
 
 		if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-			totalSeconds = (totalSeconds >= 60) ? (totalSeconds/60) + " minute(s)" : totalSeconds + " seconds";
-			window.socket.emit("chatMsg", {msg: "the stream will start in " + totalSeconds});
+			totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
+			window.socket.emit("chatMsg", {
+				msg: "the stream will start in " + totalSeconds
+			});
 		}
 
 		//do something later when date is reached
@@ -519,11 +562,15 @@ let countDown = new Date(date_utc).getTime(),
 					let delList = selectedList.prevAll();
 					deleteAllPlaylist(delList);
 					selectedList.find('button.qbtn-play').click();
-					window.socket.emit("chatMsg", {msg: autostart_msg});	
+					window.socket.emit("chatMsg", {
+						msg: autostart_msg
+					});
 					cleanAutoStart();
 					motdMode.attr('data-value', 'false');
 				} else {
-					window.socket.emit("chatMsg", {msg: "error: the video was not selected"});	
+					window.socket.emit("chatMsg", {
+						msg: "error: the video was not selected"
+					});
 					cleanAutoStart();
 					motdMode.attr('data-value', 'false');
 				}
