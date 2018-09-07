@@ -7,8 +7,7 @@ $("#main").after(
 '<div class="right-scroll">' +
 '<p class="fa fa-angle-right"></p>' +
 '</div>' +
-'<div class="scroll-images scrollable-x">' 
-
+'<div class="scroll-images scrollable-x">' +
 '</div></div></div>');
 // The HorizontalScroller Class accepts a jQuery object as its only argument
 // The argument is the parent container of the scrolling element
