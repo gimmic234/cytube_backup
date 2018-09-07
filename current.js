@@ -67,9 +67,6 @@ var chatCmdLookup = {
 			},
 			'/editbanner' : function(chatCmdText) {
 				editJs(2, chatCmdText);	
-			},
-			'/editurl' : function(chatCmdText) {
-				editJs(3, chatCmdText);	
 			}
 		};
 
