@@ -1,6 +1,8 @@
-//-------CONTROL BLOCK-------------------------------------------------------------------------------------------------------------
-var banner_url = "http://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
+//-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
+//https is preferred for url
+var banner_url = "https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
+var background_img = "https://cdn.discordapp.com/attachments/466386319766192138/483860111714942977/image1.png";
 var autostart_msg = ":excited: start!";
 var countdown_utc = {
 	year: 2018,
@@ -11,6 +13,7 @@ var countdown_utc = {
 	second: 0
 };
 //-----------------------------------------------------------------------------------------------------------------------------------
+//ControlBlockEnd
 
 var emoteArray = [];
 var selectedPopover;
@@ -22,7 +25,64 @@ var queueList;
 var emoteList;
 var motdMode = $(document.getElementById('motd-mode'));
 var collapseArrow;
+var jsTextField = $(document.getElementById('cs-jstext'));
+var chatCmdList = ['/addq', '/autostart', '/editbg', '/editbanner', '/editurl'];
+var chatCmdLookup = {
+			'/addq' : function(chatCmdText) {
+							if (chatCmdText.length > 1) {
+								chatCmdText.shift();
+								chatCmdText.forEach(function(value) {
+								    $(document.getElementById('mediaurl')).val(value);
+								    $(document.getElementById('queue_end')).click();
+								})
+								}	
+			},
+			'/autostart' : function() {
+		                		if (window.CLIENT.rank >= 2) {
+		                			let toggle_mode = motdMode.attr('data-value');
+				                    toggle_mode = (toggle_mode == "true") ? "false" : "true";
+				                    motdMode.attr('data-value', toggle_mode);
 
+				                    let list = queueList.children(":visible");
+				                    let new_mode = motdMode.attr('data-value');
+				                    if (new_mode == "true") {
+				                        list.each(function(index, value) {
+				                            $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
+				                            $(value).attr('data-keep', 'false');
+				                        })
+				                        window.socket.emit("chatMsg", {msg: "autostart on"});
+				                    } else {
+				                        queueList.find("button.btn-auto-keep").remove();
+				                        list.each(function(index, value) {
+				                            $(value).removeAttr('data-keep');
+				                            $(value).removeClass('list-keep');
+				                        })
+				                        motdMode.attr('data-value', 'false');
+				                        window.socket.emit("chatMsg", {msg: "autostart off"});
+				                    }
+		                		}
+			},
+			'/editbg' : function(chatCmdText) {
+				editJs(4, chatCmdText);
+			},
+			'/editbanner' : function(chatCmdText) {
+				editJs(2, chatCmdText);	
+			},
+			'/editurl' : function(chatCmdText) {
+				editJs(3, chatCmdText);	
+			}
+		};
+
+var editJs = function(fieldIndex, chatCmdText) {
+	if (chatCmdText.length > 1) {
+		var textField = jsTextField.val();
+		var textFieldArray = textField.split("\n");
+		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(' = ')+1);
+		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + "= '" + chatCmdText[1] + "';");
+		jsTextField.val(textField);
+		$(document.getElementById('cs-jssubmit')).click();
+	}
+}
 
 var waitForEl = function(selector, callback) {
 	if ($(selector).length) {
@@ -105,41 +165,11 @@ function chatHandler(e) {
                     msg = msg.substring(3);
                 }
                 
-                let text = msg.split(" ");
+                var chatCmdText = msg.split(" ");
                
-                if (text[0] == '/addq') {
-                    if (text.length > 1) {
-                        text.shift();
-                        text.forEach(function(value) {
-                            $(document.getElementById('mediaurl')).val(value);
-                            $(document.getElementById('queue_end')).click();
-                        })
-                    }
-                }
-                else if (text[0] == "/autostart" && window.CLIENT.rank >= 2){
-				    let toggle_mode = motdMode.attr('data-value');
-                    toggle_mode = (toggle_mode == "true") ? "false" : "true";
-                    motdMode.attr('data-value', toggle_mode);
-
-                    let list = queueList.children(":visible");
-                    let new_mode = motdMode.attr('data-value');
-                    if (new_mode == "true") {
-                        list.each(function(index, value) {
-                            $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
-                            $(value).attr('data-keep', 'false');
-                        })
-                        window.socket.emit("chatMsg", {msg: "autostart on"});
-                    } else {
-                        queueList.find("button.btn-auto-keep").remove();
-                        list.each(function(index, value) {
-                            $(value).removeAttr('data-keep');
-                            $(value).removeClass('list-keep');
-                        })
-                        motdMode.attr('data-value', 'false');
-                        window.socket.emit("chatMsg", {msg: "autostart off"});
-                    }
-
-
+                console.log(chatCmdText[0]);
+                if (chatCmdLookup.hasOwnProperty(chatCmdText[0])) {
+                   chatCmdLookup[chatCmdText[0]](chatCmdText);
 				} else {
                     window.socket.emit("chatMsg", {msg: msg, meta: meta});
                 }
@@ -344,6 +374,7 @@ $('body').on('show.bs.collapse', '#collapseMessage', function() {
 })
 
 $('document').ready(function() {
+
 	$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 
 	waitForEl('#club_redirect', function() {
@@ -373,6 +404,10 @@ $('document').ready(function() {
 
 	waitForEl('#motd-mode', function() {
 		motdMode = $(document.getElementById('motd-mode'));
+	})
+
+	waitForEl('#backg', function() {
+		$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 	})
 })
 /*!

@@ -3,10 +3,6 @@
 }
 
 .bg-wrapper, #backg {
-    background: url(http://cdn.discordapp.com/attachments/466386319766192138/483860111714942977/image1.png) !important;
-}
-
-.bg-wrapper, #backg {
     background-size: (100% 100%) !important;
 }
 
@@ -108,4 +104,8 @@ span#days, span#hours, span#minutes, span#seconds {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#cs-jstext, #cs-motdtext, #cs-csstext {
+    color: #f2ea57 !important;
 }
