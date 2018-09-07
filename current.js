@@ -332,19 +332,20 @@ $('body').on('click', 'a.export', function() {
 	this.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(text);
 });
 
-$('#collapseMessage').on('hidden.bs.collapse', function() {
+$('body').on('hidden.bs.collapse', '#collapseMessage', function() {
 	collapseArrow[0].classList.remove('glyphicon-chevron-up');
 	collapseArrow[0].classList.add('glyphicon-chevron-down');
 })
 
-$('#collapseMessage').on('show.bs.collapse', function() {
+$('body').on('show.bs.collapse', '#collapseMessage', function() {
+	console.log("test");
 	collapseArrow[0].classList.remove('glyphicon-chevron-down');
 	collapseArrow[0].classList.add('glyphicon-chevron-up');
 })
 
 $('document').ready(function() {
-	$('#cs-chanlog').append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
-
+	$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
+	
 	waitForEl('#club_redirect', function() {
 		$('#club_redirect').attr('href', href_url);
 		$('#club_banner').attr('src', banner_url);
