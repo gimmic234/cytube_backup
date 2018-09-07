@@ -147,7 +147,7 @@ var chatKeyLookup = {
 
 			var chatCmdText = msg.split(" ");
 
-			if (chatCmdLookup[chatCmdText[0]] != undefined) {
+			if (chatCmdLookup.hasOwnProperty(chatCmdText[0])) {
 				chatCmdLookup[chatCmdText[0]](chatCmdText);
 			} else {
 				window.socket.emit("chatMsg", {
@@ -227,11 +227,11 @@ function chatHandler(e) {
 
 	if (emoteTable) {
 		e.stopImmediatePropagation();
-		if (emoteKeyLookup[e.which] != undefined) {
+		if (emoteKeyLookup.hasOwnProperty(e.which)) {
 			emoteKeyLookup[e.which](e);
 		}
 	} else {
-		if (chatKeyLookup[e.which] != undefined) {
+		if (chatKeyLookup.hasOwnProperty(e.which)) {
 			chatKeyLookup[e.which](e);
 		}
 	}
