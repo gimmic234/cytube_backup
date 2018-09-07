@@ -33,30 +33,24 @@ var waitForEl = function(selector, callback) {
 	}
 };
 
-function emoteHandler(e) {
+function chatHandler(e) {
 	if (emoteTable) {
-		//chatline.off('keydown');
-		e.preventDefault();
 		e.stopImmediatePropagation();
-		console.log("emoteHandler");
-		console.log(window.cytubeEnhanced);
 		switch (e.which) {
 			case 13:
 			case 9:
 				if (selectedPopover) {
-					console.log("enter");
+					e.preventDefault();
 					appendEmote($('tr.active'));
 					emoteList.hide();
 					selectedPopover = null;
 					emoteTable = false;
-					//chatline.on('keydown', handlerKeydown);
 				}
 				return false;
 				break;
 
 			case 40:
 				if (selectedPopover) {
-					console.log("enter arrow");
 					selectedPopover.removeClass('active');
 					next = selectedPopover.next();
 					if (next.length > 0) {
@@ -87,6 +81,7 @@ function emoteHandler(e) {
 				break;
 		}
 	} else {
+		//not emote
         if(e.keyCode === 13) {
             if (window.CHATTHROTTLE) {
                 return;
@@ -108,26 +103,25 @@ function emoteHandler(e) {
                     meta.modflair = window.CLIENT.rank;
                     msg = msg.substring(3);
                 }
-
-
                 
-                let text = msg.split(" ");    
+                let text = msg.split(" ");
+               
                 if (text[0] == '/addq') {
                     if (text.length > 1) {
                         text.shift();
                         text.forEach(function(value) {
-                            $('#mediaurl').val(value);
-                            $('#queue_end').click();
+                            $(document.getElementById('mediaurl')).val(value);
+                            $(document.getElementById('queue_end')).click();
                         })
                     }
                 }
                 else if (text[0] == "/autostart" && window.CLIENT.rank >= 2){
-				    let toggle_mode = $('#motd-mode').attr('data-value');
+				    let toggle_mode = motdMode.attr('data-value');
                     toggle_mode = (toggle_mode == "true") ? "false" : "true";
-                    $('#motd-mode').attr('data-value', toggle_mode);
+                    motdMode.attr('data-value', toggle_mode);
 
-                    let list = $('#queue').children(":visible");
-                    let new_mode = $('#motd-mode').attr('data-value');
+                    let list = queueList.children(":visible");
+                    let new_mode = motdMode.attr('data-value');
                     if (new_mode == "true") {
                         list.each(function(index, value) {
                             $(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
@@ -135,12 +129,12 @@ function emoteHandler(e) {
                         })
                         window.socket.emit("chatMsg", {msg: "autostart on"});
                     } else {
-                        $('#queue').find("button.btn-auto-keep").remove();
+                        queueList.find("button.btn-auto-keep").remove();
                         list.each(function(index, value) {
                             $(value).removeAttr('data-keep');
                             $(value).removeClass('list-keep');
                         })
-                        $('motd-mode').attr('data-value', 'false');
+                        motdMode.attr('data-value', 'false');
                         window.socket.emit("chatMsg", {msg: "autostart off"});
                     }
 
@@ -152,7 +146,7 @@ function emoteHandler(e) {
 
                 window.CHATHIST.push($("#chatline").val());
                 window.CHATHISTIDX = window.CHATHIST.length;
-                $("#chatline").val('');
+                chatline.val('');
             }
 
             return;
@@ -166,7 +160,7 @@ function emoteHandler(e) {
             }
             if(window.CHATHISTIDX > 0) {
                 window.CHATHISTIDX--;
-                $("#chatline").val(window.CHATHIST[window.CHATHISTIDX]);
+                chatline.val(window.CHATHIST[window.CHATHISTIDX]);
             }
 
             e.preventDefault();
@@ -174,14 +168,13 @@ function emoteHandler(e) {
         } else if(e.keyCode === 40) { // Down arrow (input history)
             if(window.CHATHISTIDX < window.CHATHIST.length - 1) {
                 window.CHATHISTIDX++;
-                $("#chatline").val(window.CHATHIST[window.CHATHISTIDX]);
+                chatline.val(window.CHATHIST[window.CHATHISTIDX]);
             }
 
             e.preventDefault();
             return false;
         }
 	}
-	//chatline.on('keydown', emoteHandler);
 	return true;
 };
 
@@ -228,7 +221,6 @@ function populateEmote() {
 	fetchEmote();
 	chatline.before("<div id='emote-data-field' hidden></div>");
 	let events = $._data(chatline.get(0), "events");
-	console.log(events['keydown']);
 	handlerKeydown = events['keydown'][0].handler;
 	emoteList = $(document.getElementById('emote-data-field'));
 }
@@ -236,6 +228,7 @@ function populateEmote() {
 function appendEmote(elem) {
 	let text = chatline.val();
 	let index = text.lastIndexOf(" ");
+	chatline.val("");
 	chatline.val(text.substr(0, index+1) + elem.attr('data-value'));
 	chatline.focus();
 }
@@ -243,8 +236,6 @@ function appendEmote(elem) {
 $('body').on('click', '#emote-data-field', function(e) {
 	appendEmote($(e.target).closest('tr'));
 	emoteList.hide();
-	//chatline.off('keydown');
-	//chatline.on('keydown', handlerKeydown);
 })
 
 $('body').on('input', 'input#chatline', function(e) {
@@ -255,8 +246,6 @@ $('body').on('input', 'input#chatline', function(e) {
 		emoteList[0].innerHTML = "";
 		let filteredEmote = emoteArray.filter(emote => (emote.name.indexOf(lastText.substr(1, lastText.length)) > -1));
 		if (lastText.substr(lastText.length - 1) == ':' || filteredEmote.length == 0) {
-			//chatline.off('keydown');
-			//chatline.on('keydown', handlerKeydown);
 			emoteList.hide();
 			selectedPopover = null;
 			emoteTable = false;
@@ -273,8 +262,6 @@ $('body').on('input', 'input#chatline', function(e) {
 			emoteList[0].innerHTML = emoteString;
 			selectedPopover = $('tr.active');
 			emoteTable = true;
-			//chatline.off('keydown');
-			//chatline.on('keydown', emoteHandler);
 			emoteList.show();
 		}
 	} else {
@@ -292,8 +279,6 @@ $('body').on('click', '#emotelistbtn', function() {
 $('body').on('focusout', 'input#chatline', function() {
 	setTimeout(function() {
 		emoteList.hide();
-		//chatline.off('keydown');
-		//chatline.on('keydown', handlerKeydown);
 	}, 1000);
 });
 
@@ -343,8 +328,9 @@ $('document').ready(function() {
 	waitForEl('#chatline', function() {
 		chatline = $(document.getElementById('chatline'))
 		populateEmote();
+		chatline.off('keydown');
 		chatline.on('keydown', function(e) {
-			emoteHandler(e);
+			chatHandler(e);
 		})
 	});
 
@@ -377,7 +363,7 @@ window[CHANNEL.name].sequenceList = {
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/42d645da2d1518d9ef51f4188262393a36bb3cc7/enhancer-mod.js",
+		url: "//rawgit.com/gimmic234/cytube_backup/eedc95d106d82db1462f2eafba3b38791bcb68a5/enhancer-mod.js",
 		callback: true
 	},
 };
