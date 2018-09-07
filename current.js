@@ -17,7 +17,7 @@ var selectedPopover;
 var emoteTable;
 var handlerKeydown;
 var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
-var chatline;
+var chatlineElem;
 var queueList;
 var emoteList;
 var motdMode = $(document.getElementById('motd-mode'));
@@ -88,7 +88,7 @@ function chatHandler(e) {
                 return;
             }
 
-            var msg = chatline.val().trim();
+            var msg = chatlineElem.val().trim();
 
             if(msg !== '') {
                 var meta = {};
@@ -145,9 +145,9 @@ function chatHandler(e) {
                 }
 
 
-                window.CHATHIST.push($("#chatline").val());
+                window.CHATHIST.push(chatlineElem.val());
                 window.CHATHISTIDX = window.CHATHIST.length;
-                chatline.val('');
+                chatlineElem.val('');
             }
 
             return;
@@ -157,11 +157,11 @@ function chatHandler(e) {
             return false;
         } else if(e.keyCode === 38) { // Up arrow (input history)
             if(window.CHATHISTIDX === window.CHATHIST.length) {
-                window.CHATHIST.push($("#chatline").val());
+                window.CHATHIST.push(chatlineElem.val());
             }
             if(window.CHATHISTIDX > 0) {
                 window.CHATHISTIDX--;
-                chatline.val(window.CHATHIST[window.CHATHISTIDX]);
+                chatlineElem.val(window.CHATHIST[window.CHATHISTIDX]);
             }
 
             e.preventDefault();
@@ -169,7 +169,7 @@ function chatHandler(e) {
         } else if(e.keyCode === 40) { // Down arrow (input history)
             if(window.CHATHISTIDX < window.CHATHIST.length - 1) {
                 window.CHATHISTIDX++;
-                chatline.val(window.CHATHIST[window.CHATHISTIDX]);
+                chatlineElem.val(window.CHATHIST[window.CHATHISTIDX]);
             }
 
             e.preventDefault();
@@ -238,17 +238,17 @@ function autoStartHandler() {
 
 function populateEmote() {
 	fetchEmote();
-	chatline.before("<div id='emote-data-field' hidden></div>");
+	chatlineElem.before("<div id='emote-data-field' hidden></div>");
 	emoteList = $(document.getElementById('emote-data-field'));
 	preloadImages(emoteArray.map(emote => emote.image));
 }
 
 function appendEmote(elem) {
-	let text = chatline.val();
+	let text = chatlineElem.val();
 	let index = text.lastIndexOf(" ");
-	chatline.val("");
-	chatline.val(text.substr(0, index+1) + elem.attr('data-value'));
-	chatline.focus();
+	chatlineElem.val("");
+	chatlineElem.val(text.substr(0, index+1) + elem.attr('data-value'));
+	chatlineElem.focus();
 }
 
 $('body').on('click', '#emote-data-field', function(e) {
@@ -283,7 +283,7 @@ $('body').on('input', 'input#chatline', function(e) {
 			emoteList.show();
 		}
 	} else {
-		chatline.on('keydown', handlerKeydown);
+		chatlineElem.on('keydown', handlerKeydown);
 		emoteList.hide();
 		selectedPopover = null;
 		emoteTable = false;
@@ -345,7 +345,7 @@ $('body').on('show.bs.collapse', '#collapseMessage', function() {
 
 $('document').ready(function() {
 	$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
-	
+
 	waitForEl('#club_redirect', function() {
 		$('#club_redirect').attr('href', href_url);
 		$('#club_banner').attr('src', banner_url);
@@ -357,10 +357,10 @@ $('document').ready(function() {
 	});
 
 	waitForEl('#chatline', function() {
-		chatline = $(document.getElementById('chatline'))
+		chatlineElem = $(document.getElementById('chatline'))
 		populateEmote();
-		chatline.off('keydown');
-		chatline.on('keydown', function(e) {
+		chatlineElem.off('keydown');
+		chatlineElem.on('keydown', function(e) {
 			chatHandler(e);
 		})
 	});
