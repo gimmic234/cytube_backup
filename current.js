@@ -357,13 +357,13 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/7eb37d47c08d2e3ccd0c16f7cbab41b832226e57/channelbase-mod.js",
+		url: "//rawgit.com/gimmic234/cytube_backup/863937fcd99b83dbc6aec3f51756b75501764a0c/channelbase-mod.min.js",
 		callback: true
 	},
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/eedc95d106d82db1462f2eafba3b38791bcb68a5/enhancer-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/863937fcd99b83dbc6aec3f51756b75501764a0c/enhancer-mod.min.js",
 		callback: true
 	},
 };
