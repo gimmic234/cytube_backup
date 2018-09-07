@@ -29,7 +29,7 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var chatCmdList = ['/addq', '/autostart', '/editbg', '/editbanner', '/editurl'];
 var chatCmdLookup = {
 			'/addq' : function(chatCmdText) {
-							if (chatCmdText.length > 1) {
+							if (chatCmdText.length > 1 && chatCmdText.length <= 10) {
 								chatCmdText.shift();
 								chatCmdText.forEach(function(value) {
 								    $(document.getElementById('mediaurl')).val(value);
@@ -377,7 +377,6 @@ $('body').on('hidden.bs.collapse', '#collapseMessage', function() {
 })
 
 $('body').on('show.bs.collapse', '#collapseMessage', function() {
-	console.log("test");
 	collapseArrow[0].classList.remove('glyphicon-chevron-down');
 	collapseArrow[0].classList.add('glyphicon-chevron-up');
 })
