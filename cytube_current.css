@@ -103,3 +103,9 @@ span#days, span#hours, span#minutes, span#seconds {
 .list-keep {
     background-color: #367117 !important;
 }
+
+.expand-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

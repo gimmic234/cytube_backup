@@ -21,6 +21,7 @@ var chatline;
 var queueList;
 var emoteList;
 var motdMode = $(document.getElementById('motd-mode'));
+var collapseArrow;
 
 
 var waitForEl = function(selector, callback) {
@@ -178,6 +179,24 @@ function chatHandler(e) {
 	return true;
 };
 
+function preloadImages(array) {
+    if (!preloadImages.list) {
+        preloadImages.list = [];
+    }
+    var list = preloadImages.list;
+    for (var i = 0; i < array.length; i++) {
+        var img = new Image();
+        img.onload = function() {
+            var index = list.indexOf(this);
+            if (index !== -1) {
+                list.splice(index, 1);
+            }
+        }
+        list.push(img);
+        img.src = array[i];
+    }
+}
+
 function cleanAutoStart() {
 	let list = queueList.children(":visible");
 	queueList.find("button.btn-auto-keep").remove();
@@ -220,9 +239,8 @@ function autoStartHandler() {
 function populateEmote() {
 	fetchEmote();
 	chatline.before("<div id='emote-data-field' hidden></div>");
-	let events = $._data(chatline.get(0), "events");
-	handlerKeydown = events['keydown'][0].handler;
 	emoteList = $(document.getElementById('emote-data-field'));
+	preloadImages(emoteArray.map(emote => emote.image));
 }
 
 function appendEmote(elem) {
@@ -314,11 +332,23 @@ $('body').on('click', 'a.export', function() {
 	this.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(text);
 });
 
+$('#collapseMessage').on('hidden.bs.collapse', function() {
+	collapseArrow[0].classList.remove('glyphicon-chevron-up');
+	collapseArrow[0].classList.add('glyphicon-chevron-down');
+})
+
+$('#collapseMessage').on('show.bs.collapse', function() {
+	collapseArrow[0].classList.remove('glyphicon-chevron-down');
+	collapseArrow[0].classList.add('glyphicon-chevron-up');
+})
+
 $('document').ready(function() {
 	$('#cs-chanlog').append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 
 	waitForEl('#club_redirect', function() {
 		$('#club_redirect').attr('href', href_url);
+		$('#club_banner').attr('src', banner_url);
+		collapseArrow = $(document.getElementById('collapseArrow'));
 	});
 
 	waitForEl('#club_banner', function() {
