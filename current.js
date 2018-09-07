@@ -387,7 +387,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/0ba21a2561ece2348f40f60dcd9e0edb26475475/channelbase-mod.min.js",
+		url: "//rawgit.com/gimmic234/cytube_backup/dc48fa4dd4f51e1b990e371aa3212750ebbea6a1/channelbase-mod.min.js",
 		callback: true
 	},
 	'channel': {

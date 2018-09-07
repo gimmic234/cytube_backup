@@ -213,7 +213,7 @@
     },
     {
         "name": ":ayadance:",
-        "image": "https://vignette.wikia.nocookie.net/yandere-simulator/images/a/a8/Yuru_Yuri_Ayano_Sugiura.gif/revision/latest?cb=20160716200701&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;path-prefix=es"
+        "image": "https://vignette.wikia.nocookie.net/yandere-simulator/images/a/a8/Yuru_Yuri_Ayano_Sugiura.gif/revision/latest?cb=20160716200701&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;path-prefix=es"
     },
     {
         "name": ":kyoukodance:",
@@ -233,7 +233,7 @@
     },
     {
         "name": ":haruhidance:",
-        "image": "http://gifimage.net/wp-content/uploads/2017/09/anime-girl-gif-transparent-1.gif"
+        "image": "https://gifimage.net/wp-content/uploads/2017/09/anime-girl-gif-transparent-1.gif"
     },
     {
         "name": ":chiyodance:",
@@ -289,7 +289,7 @@
     },
     {
         "name": ":nene:",
-        "image": "https://media.discordapp.net/attachments/401840553634955266/465400022758850560/Nene_Upvote.jpg?width=278&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;height=300"
+        "image": "https://media.discordapp.net/attachments/401840553634955266/465400022758850560/Nene_Upvote.jpg?width=278&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;height=300"
     },
     {
         "name": ":sweat:",
@@ -309,7 +309,7 @@
     },
     {
         "name": ":geah:",
-        "image": "https://media.discordapp.net/attachments/401840553634955266/466987588226383872/1437157963189.png?width=485&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;height=472"
+        "image": "https://media.discordapp.net/attachments/401840553634955266/466987588226383872/1437157963189.png?width=485&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;height=472"
     },
     {
         "name": ":hibicry:",
@@ -377,7 +377,7 @@
     },
     {
         "name": ":dess:",
-        "image": "http://cdn.discordapp.com/emojis/478747763354370079.png"
+        "image": "https://cdn.discordapp.com/emojis/478747763354370079.png"
     },
     {
         "name": ":hime:",
@@ -386,5 +386,9 @@
     {
         "name": ":aosalute:",
         "image": "https://cdn.discordapp.com/attachments/423966721020395525/485920480713244674/aosalute.png"
+    },
+    {
+        "name": ":aopat:",
+        "image": "https://cdn.discordapp.com/attachments/407269120858390530/486948672173506560/aopatlarge.gif"
     }
 ]
