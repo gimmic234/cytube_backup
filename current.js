@@ -67,11 +67,17 @@ var chatCmdLookup = {
 			},
 			'/editbanner' : function(chatCmdText) {
 				editJs(2, chatCmdText);	
+			},
+			'/purge' : function() {
+				if (window.CLIENT.rank >= 2) {
+					let list = queueList.children(":visible");
+					deleteAllPlaylist(list);
+				}
 			}
 		};
 
 var editJs = function(fieldIndex, chatCmdText) {
-	if (chatCmdText.length > 1) {
+	if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
 		var textField = jsTextField.val();
 		var textFieldArray = textField.split("\n");
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(' = ')+1);
@@ -222,6 +228,12 @@ function preloadImages(array) {
         list.push(img);
         img.src = array[i];
     }
+}
+
+function deleteAllPlaylist(delList) {
+	delList.each(function(index, elem) {
+		$(elem).find('button.qbtn-delete').click();		
+	})
 }
 
 function cleanAutoStart() {
@@ -506,9 +518,7 @@ let countDown = new Date(date_utc).getTime(),
 				let selectedList = $("li.queue_entry[data-keep='true']");
 				if (selectedList.length != 0) {
 					let delList = selectedList.prevAll();
-					delList.each(function(index, elem) {
-						$(elem).find('button.qbtn-delete').click();		
-					})
+					deleteAllPlaylist(delList);
 					selectedList.find('button.qbtn-play').click();
 					window.socket.emit("chatMsg", {msg: autostart_msg});	
 					cleanAutoStart();
