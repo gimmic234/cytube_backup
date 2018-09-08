@@ -7,7 +7,7 @@ var autostart_msg = ":excited: start!";
 var countdown_utc = {
 	year: 2018,
 	month: 9,
-	date: 9,
+	day: 9,
 	hour: 19,
 	minute: 0,
 	second: 0
@@ -16,19 +16,24 @@ var anime = "parasyte";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 
+const second = 1000,
+	minute = second * 60,
+	hour = minute * 60,
+	day = hour * 24;
 var emoteArray = [];
 var selectedPopover;
 var emoteTable;
 var handlerKeydown;
-var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.date, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
+var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.day, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
 var chatlineElem;
 var queueList;
 var emoteList;
+var countDown;
+var countDownTimer
 var motdMode = $(document.getElementById('motd-mode'));
 var collapseArrow;
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
-var keyInjectionList = [9, 13, 38, 40];
 var chatCmdLookup = {
 	'/addq': function(chatCmdText) {
 		if (chatCmdText.length > 1 && chatCmdText.length <= 10) {
@@ -105,20 +110,19 @@ var chatCmdLookup = {
 			textField = isNaN(chatCmdText[5]) ? textField : textField.replace(textFieldArray[11], minute + ": " + chatCmdText[5].replace(/['"]+/g, '').trim() + ",");
 
 			jsTextField.val(textField);
-			clearInterval(x);
 			$(document.getElementById('cs-jssubmit')).click();
 		}
 	},
 	'/dateutc': function() {
-		var date = countdown_utc.year + "-" + pad(countdown_utc.month) + "-" + pad(countdown_utc.date) + " " + pad(countdown_utc.hour) + ":" + pad(countdown_utc.minute);
+		var date = countdown_utc.year + "-" + pad(countdown_utc.month) + "-" + pad(countdown_utc.day) + " " + pad(countdown_utc.hour) + ":" + pad(countdown_utc.minute);
 		window.socket.emit("chatMsg", {
-			msg: "stream date: [" + date + "] (UTC)"
+			msg: "UTC date: [" + date + "] (UTC)"
 		});
 	},
 	'/datelocal': function() {
 		var dateLocal = new Date(date_utc);
 		window.socket.emit("chatMsg", {
-			msg: "stream date: [" + dateLocal.toString() + "] (Local)"
+			msg: "local date: [" + dateLocal.toString() + "] (Local)"
 		});
 	}	
 };
@@ -245,7 +249,6 @@ var editJs = function(fieldIndex, chatCmdText) {
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(' = ') + 1);
 		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + "= '" + chatCmdText[1].replace(/['"]+/g, '').trim() + "';");
 		jsTextField.val(textField);
-		clearInterval(x);
 		$(document.getElementById('cs-jssubmit')).click();
 	}
 }
@@ -460,6 +463,7 @@ function bindEventHandler() {
 
 }
 
+
 $(document).ready(function() {
 	if (!document.getElementById('export-btn')) {
 		$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
@@ -498,6 +502,65 @@ $(document).ready(function() {
 	waitForEl('#backg', function() {
 		$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 	})
+
+ 	countDown = new Date(date_utc).getTime();
+ 	clearInterval(countDownTimer);
+	countDownTimer = setInterval(function() {
+		if ($('.countdownbase:hidden').length > 0) {
+			$('.countdownbase').show();
+		}
+		let now = new Date().getTime(),
+			distance = countDown - now;
+
+		document.getElementById('days').innerText = Math.floor(distance / (day)),
+			document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+			document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+			document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+		let totalSeconds = Math.floor(distance / second);
+
+		if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+			window.socket.emit("chatMsg", {
+				msg: totalSeconds + "..."
+			});
+		}
+
+		if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+			totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
+			window.socket.emit("chatMsg", {
+				msg: "the stream will start in " + totalSeconds
+			});
+		}
+
+		//do something later when date is reached
+		if (distance < 0) {
+			clearInterval(countDownTimer);
+			$('.countdownbase').hide();
+			let mode = motdMode.attr('data-value');
+			if (mode == 'true') {
+				let selectedList = $("li.list-keep");
+				if (selectedList.length != 0) {
+					let delList = selectedList.prevAll();
+					deleteAllPlaylist(delList);
+					selectedList.find('button.qbtn-play').click();
+					window.socket.emit("chatMsg", {
+						msg: autostart_msg
+					});
+					cleanAutoStart();
+					motdMode.attr('data-value', 'false');
+				} else {
+					window.socket.emit("chatMsg", {
+						msg: "error: the video was not selected"
+					});
+					cleanAutoStart();
+					motdMode.attr('data-value', 'false');
+				}
+			}
+		}
+
+	}, second)
+
+
 })
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -559,64 +622,3 @@ window[CHANNEL.name].sequencerLoader = function() {
 window[CHANNEL.name].sequencerLoader()
 
 $(".navbar-brand").text("Anime Club");
-
-const second = 1000,
-	minute = second * 60,
-	hour = minute * 60,
-	day = hour * 24;
-
-let countDown = new Date(date_utc).getTime(),
-	x = setInterval(function() {
-		if ($('.countdownbase:hidden').length > 0) {
-			$('.countdownbase').show();
-		}
-		let now = new Date().getTime(),
-			distance = countDown - now;
-
-		document.getElementById('days').innerText = Math.floor(distance / (day)),
-			document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-			document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-			document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
-
-		let totalSeconds = Math.floor(distance / second);
-
-		if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-			window.socket.emit("chatMsg", {
-				msg: totalSeconds + "..."
-			});
-		}
-
-		if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-			totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
-			window.socket.emit("chatMsg", {
-				msg: "the stream will start in " + totalSeconds
-			});
-		}
-
-		//do something later when date is reached
-		if (distance < 0) {
-			clearInterval(x);
-			$('.countdownbase').hide();
-			let mode = motdMode.attr('data-value');
-			if (mode == 'true') {
-				let selectedList = $("li.list-keep");
-				if (selectedList.length != 0) {
-					let delList = selectedList.prevAll();
-					deleteAllPlaylist(delList);
-					selectedList.find('button.qbtn-play').click();
-					window.socket.emit("chatMsg", {
-						msg: autostart_msg
-					});
-					cleanAutoStart();
-					motdMode.attr('data-value', 'false');
-				} else {
-					window.socket.emit("chatMsg", {
-						msg: "error: the video was not selected"
-					});
-					cleanAutoStart();
-					motdMode.attr('data-value', 'false');
-				}
-			}
-		}
-
-	}, second)
