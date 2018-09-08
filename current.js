@@ -28,14 +28,11 @@ var chatlineElem;
 var queueList;
 var emoteList;
 var countDown;
-var countDownTimer
+var countDownTimer;
 var collapseArrow;
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
-var jsLoad = [
-    {jsId: 'current-ext', src: ''},
-    ];
 var chatCmdLookup = {
 	'/addq': function(chatCmdText) {
 		if (chatCmdText.length > 1 && chatCmdText.length <= 10) {
@@ -473,18 +470,6 @@ $(document).ready(function() {
 		bindEventHandler();
 	}
 
-	jsLoad.forEach(function(val) {
-        if (!document.getElementById(val.jsId))
-        {
-            var head  = document.head;
-            var link  = document.createElement('script');
-            link.id   = val.jsId;
-            link.src = val.src;
-            link.media = 'all';
-            head.appendChild(link);
-        }
-    })
-
 	waitForEl('#club_redirect', function() {
 		$('#club_redirect').attr('href', href_url);
 		$('#club_banner').attr('src', banner_url);
@@ -574,8 +559,6 @@ $(document).ready(function() {
 		}
 
 	}, second)
-
-
 })
 /*!
  **|   XaeMae Sequenced Module Loader
