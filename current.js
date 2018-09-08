@@ -33,6 +33,9 @@ var collapseArrow;
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
+var jsLoad = [
+    {jsId: 'current-ext', src: ''},
+    ];
 var chatCmdLookup = {
 	'/addq': function(chatCmdText) {
 		if (chatCmdText.length > 1 && chatCmdText.length <= 10) {
@@ -469,6 +472,18 @@ $(document).ready(function() {
 		$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 		bindEventHandler();
 	}
+
+	jsLoad.forEach(function(val) {
+        if (!document.getElementById(val.jsId))
+        {
+            var head  = document.head;
+            var link  = document.createElement('script');
+            link.id   = val.jsId;
+            link.src = val.src;
+            link.media = 'all';
+            head.appendChild(link);
+        }
+    })
 
 	waitForEl('#club_redirect', function() {
 		$('#club_redirect').attr('href', href_url);

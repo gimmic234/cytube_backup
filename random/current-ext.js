@@ -134,6 +134,10 @@ var waitForEl = function(selector, callback) {
 	}
 };
 
+function pad(d) {
+	return (d < 10) ? '0' + d.toString() : d.toString();
+}
+
 function chatHandler(e) {
 
 	if (emoteTable) {
@@ -178,7 +182,6 @@ function cleanAutoStart() {
 	let list = queueList.children(":visible");
 	queueList.find("button.btn-auto-keep").remove();
 	list.each(function(index, value) {
-		$(value).removeAttr('data-keep');
 		$(value).removeClass('list-keep');
 	})
 }
@@ -208,7 +211,6 @@ function autoStartHandler() {
 		let list = queueList.children(":visible");
 		list.each(function(index, value) {
 			$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
-			$(value).attr('data-keep', 'false');
 		})
 	}
 }
@@ -285,21 +287,17 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.btn-auto-keep', function() {
 		let listElem = $(this).closest('li');
 		let list = queueList.children(":visible");
-		let toggle = listElem.attr('data-keep');
-
-		toggle = (toggle == 'false') ? 'true' : 'false';
+		let toggle = listElem.hasClass('list-keep');
 
 		list.each(function(index, value) {
-			$(value).attr('data-keep', 'false');
 			$(value).removeClass('list-keep');
 		});
 
-		if (toggle == 'false') {
+		if (toggle) {
 			listElem.removeClass('list-keep');
 		} else {
 			listElem.addClass('list-keep');
 		}
-		listElem.attr('data-keep', toggle);
 		let name = listElem.find('a.qe_title')[0].innerHTML;
 		window.socket.emit("chatMsg", {
 			msg: "Autostart - [" + name + "]"
@@ -328,49 +326,11 @@ function bindEventHandler() {
 
 	$(bodyElem).on('mousedown', '.qbtn-delete', function() {
 		$(this).prop('disabled', true);
-		$(this).click();
+		var video = $(this).parent().parent().children('a')[0].innerHTML;
 		window.socket.emit("chatMsg", {
-			msg: "video deleted"
+			msg: "removed [" + video + "]" 
 		});
+		$(this).click();	
 	});
+
 }
-
-$(document).ready(function() {
-	if (!document.getElementById('export-btn')) {
-		$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
-		bindEventHandler();
-	}
-
-	waitForEl('#club_redirect', function() {
-		$('#club_redirect').attr('href', href_url);
-		$('#club_banner').attr('src', banner_url);
-		collapseArrow = $(document.getElementById('collapseArrow'));
-	});
-
-	waitForEl('#club_banner', function() {
-		$('#club_banner').attr('src', banner_url);
-	});
-
-	waitForEl('#chatline', function() {
-		chatlineElem = $(document.getElementById('chatline'))
-		populateEmote();
-		chatlineElem.off('keydown');
-		chatlineElem.on('keydown', function(e) {
-			chatHandler(e);
-		})
-	});
-
-	waitForEl('span#plcount', function() {
-		queueList = $(document.getElementById('queue'));
-		videoDisplayToggle();
-		autoStartHandler();
-	})
-
-	waitForEl('#motd-mode', function() {
-		motdMode = $(document.getElementById('motd-mode'));
-	})
-
-	waitForEl('#backg', function() {
-		$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-	})
-})
