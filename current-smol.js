@@ -29,12 +29,8 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var jsLoad = [
     {jsId: 'current-ext', src: 'https://rawgit.com/gimmic234/cytube_backup/f378989f52e494bb28ef0aed2b774aa9deb0e2a8/current-ext.min.js'},
-    {jsId: 'current-channelbase', src: 'https://rawgit.com/gimmic234/cytube_backup/dc48fa4dd4f51e1b990e371aa3212750ebbea6a1/channelbase-mod.min.js'},
-    {jsId: 'current-channel', src: 'https://rawgit.com/gimmic234/cytube_backup/f135d324a3b1cd92781d5505f18ba0869896ec96/channels.min.js'},
-    {jsId: 'current-overlay', src: 'https://rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/overlay.min.js'},
-    {jsId: 'current-XaeKaiModule', src: 'https://rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/XaeKaiModules.js'},
-    {jsId: 'current-settings', src: 'https://rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/settings.min.js'},
-    {jsId: 'current-enhancer', src: 'https://rawgit.com/gimmic234/cytube_backup/863937fcd99b83dbc6aec3f51756b75501764a0c/enhancer-mod.min.js'},
+    {jsId: 'current-channelbase', src: 'https://rawgit.com/gimmic234/cytube_backup/067c40e2d8dab045009b7f666cc541a1c8923a32/channelbase-mod.min.js'},
+    {jsId: 'current-enhancer', src: 'https://rawgit.com/gimmic234/cytube_backup/067c40e2d8dab045009b7f666cc541a1c8923a32/enhancer-mod.min.js'},
 ];
 
 var chatCmdLookup = {
