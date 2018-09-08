@@ -1378,7 +1378,7 @@ window.cytubeEnhanced.addModule('favouritePictures', function (app) {
 
         that.addFavouritePicture($('#picture-address').val().trim());
     });
-    $('#picture-address').on('keypress', function (e) {
+    $(document.getElementById('picture-address')).on('keypress', function (e) {
         e.preventDefault();
 
         if (e.which == 13) {
@@ -1410,7 +1410,7 @@ window.cytubeEnhanced.addModule('favouritePictures', function (app) {
 
         return $modalWindow;
     };
-    $('#help-pictures-btn').on('click', function (e) {
+    $(document.getElementById('help-pictures-btn')).on('click', function (e) {
         e.preventDefault();
 
         that.showHelp();
@@ -1445,7 +1445,7 @@ window.cytubeEnhanced.addModule('favouritePictures', function (app) {
         });
         favouritePicturesAddressesReader.readAsText(importFile);
     };
-    $('#import-pictures').on('change', function () {
+    $(document.getElementById('import-pictures')).on('change', function () {
         that.importPictures($(this)[0].files[0]);
     });
 
@@ -1729,7 +1729,7 @@ window.cytubeEnhanced.addModule('navMenuTabs', function (app) {
         '<iframe $1>$2</iframe>': /\[iframe(.*?)\](.*?)[/iframe]]/g
     };
     this.fixMotdCut = function () {
-        $('#motd-tabs-content').find('.motd-tab-content').each(function () {
+        $(document.getElementById('motd-tabs-content')).find('.motd-tab-content').each(function () {
             for (var tag in that.motdCutMap) {
                 if (that.motdCutMap.hasOwnProperty(tag)) {
                     $(this).html($(this).html().replace(that.motdCutMap[tag], tag));
@@ -2909,36 +2909,36 @@ window.cytubeEnhanced.addModule('videoControls', function (app, settings) {
 
 
     this.settingsFix = function () {
-        $("#us-theme").val(window.USEROPTS.theme);
-        $("#us-layout").val(window.USEROPTS.layout);
-        $("#us-no-channelcss").prop("checked", window.USEROPTS.ignore_channelcss);
-        $("#us-no-channeljs").prop("checked", window.USEROPTS.ignore_channeljs);
+        $(document.getElementById("us-theme")).val(window.USEROPTS.theme);
+        $(document.getElementById("us-layout")).val(window.USEROPTS.layout);
+        $(document.getElementById("us-no-channelcss")).prop("checked", window.USEROPTS.ignore_channelcss);
+        $(document.getElementById("us-no-channeljs")).prop("checked", window.USEROPTS.ignore_channeljs);
 
-        $("#us-synch").prop("checked", window.USEROPTS.synch);
-        $("#us-synch-accuracy").val(window.USEROPTS.sync_accuracy);
-        $("#us-wmode-transparent").prop("checked", window.USEROPTS.wmode_transparent);
-        $("#us-hidevideo").prop("checked", window.USEROPTS.hidevid);
-        $("#us-playlistbuttons").prop("checked", window.USEROPTS.qbtn_hide);
-        $("#us-oldbtns").prop("checked", window.USEROPTS.qbtn_idontlikechange);
-        $("#us-default-quality").val(window.USEROPTS.default_quality || "auto");
+        $(document.getElementById("us-synch")).prop("checked", window.USEROPTS.synch);
+        $(document.getElementById("us-synch-accuracy")).val(window.USEROPTS.sync_accuracy);
+        $(document.getElementById("us-wmode-transparent")).prop("checked", window.USEROPTS.wmode_transparent);
+        $(document.getElementById("us-hidevideo")).prop("checked", window.USEROPTS.hidevid);
+        $(document.getElementById("us-playlistbuttons")).prop("checked", window.USEROPTS.qbtn_hide);
+        $(document.getElementById("us-oldbtns")).prop("checked", window.USEROPTS.qbtn_idontlikechange);
+        $(document.getElementById("us-default-quality")).val(window.USEROPTS.default_quality || "auto");
 
-        $("#us-chat-timestamp").prop("checked", window.USEROPTS.show_timestamps);
-        $("#us-sort-rank").prop("checked", window.USEROPTS.sort_rank);
-        $("#us-sort-afk").prop("checked", window.USEROPTS.sort_afk);
-        $("#us-blink-title").val(window.USEROPTS.blink_title);
-        $("#us-ping-sound").val(window.USEROPTS.boop);
-        $("#us-sendbtn").prop("checked", window.USEROPTS.chatbtn);
-        $("#us-no-emotes").prop("checked", window.USEROPTS.no_emotes);
+        $(document.getElementById("us-chat-timestamp")).prop("checked", window.USEROPTS.show_timestamps);
+        $(document.getElementById("us-sort-rank")).prop("checked", window.USEROPTS.sort_rank);
+        $(document.getElementById("us-sort-afk")).prop("checked", window.USEROPTS.sort_afk);
+        $(document.getElementById("us-blink-title")).val(window.USEROPTS.blink_title);
+        $(document.getElementById("us-ping-sound")).val(window.USEROPTS.boop);
+        $(document.getElementById("us-sendbtn")).prop("checked", window.USEROPTS.chatbtn);
+        $(document.getElementById("us-no-emotes")).prop("checked", window.USEROPTS.no_emotes);
 
-        $("#us-modflair").prop("checked", window.USEROPTS.modhat);
-        $("#us-joinmessage").prop("checked", window.USEROPTS.joinmessage);
-        $("#us-shadowchat").prop("checked", window.USEROPTS.show_shadowchat);
+        $(document.getElementById("us-modflair")).prop("checked", window.USEROPTS.modhat);
+        $(document.getElementById("us-joinmessage")).prop("checked", window.USEROPTS.joinmessage);
+        $(document.getElementById("us-shadowchat")).prop("checked", window.USEROPTS.show_shadowchat);
     };
 
 
     this.expandPlaylist = function ($expandPlaylistBtn) {
         if ($expandPlaylistBtn.hasClass('btn-success')) {//expanded
-            $('#queue').css('max-height', settings.playlistHeight + 'px');
+            $(document.getElementById('queue')).css('max-height', settings.playlistHeight + 'px');
 
             $expandPlaylistBtn.attr('title', app.t('video[.]Expand playlist'));
 
