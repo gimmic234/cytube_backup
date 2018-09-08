@@ -114,13 +114,13 @@ var chatCmdLookup = {
 	'/dateutc': function() {
 		var date = countdown_utc.year + "-" + pad(countdown_utc.month) + "-" + pad(countdown_utc.day) + " " + pad(countdown_utc.hour) + ":" + pad(countdown_utc.minute);
 		window.socket.emit("chatMsg", {
-			msg: "UTC date: [" + date + "] (UTC)"
+			msg: "[" + date + "] (UTC)"
 		});
 	},
 	'/datelocal': function() {
 		var dateLocal = new Date(date_utc);
 		window.socket.emit("chatMsg", {
-			msg: "local date: [" + dateLocal.toString() + "] (Local)"
+			msg: "[" + dateLocal.toString() + "] (Local)"
 		});
 	}
 };
