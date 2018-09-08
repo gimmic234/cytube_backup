@@ -27,11 +27,16 @@ var motdMode = $(document.getElementById('motd-mode'));
 var collapseArrow;
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
-var jsLoad = [
-    {jsId: 'current-ext', src: 'https://rawgit.com/gimmic234/cytube_backup/f378989f52e494bb28ef0aed2b774aa9deb0e2a8/current-ext.min.js'},
-    {jsId: 'current-channelbase', src: 'https://rawgit.com/gimmic234/cytube_backup/067c40e2d8dab045009b7f666cc541a1c8923a32/channelbase-mod.min.js'},
-    {jsId: 'current-enhancer', src: 'https://rawgit.com/gimmic234/cytube_backup/067c40e2d8dab045009b7f666cc541a1c8923a32/enhancer-mod.min.js'},
-];
+var jsLoad = [{
+	jsId: 'current-ext',
+	src: 'https://rawgit.com/gimmic234/cytube_backup/f378989f52e494bb28ef0aed2b774aa9deb0e2a8/current-ext.min.js'
+}, {
+	jsId: 'current-channelbase',
+	src: 'https://rawgit.com/gimmic234/cytube_backup/6479a79289442240f6a13bfbfcd2ca28ef2092f5/channelbase-mod.min.js'
+}, {
+	jsId: 'current-enhancer',
+	src: 'https://rawgit.com/gimmic234/cytube_backup/067c40e2d8dab045009b7f666cc541a1c8923a32/enhancer-mod.min.js'
+}, ];
 
 var chatCmdLookup = {
 	'/addq': function(chatCmdText) {
@@ -117,19 +122,18 @@ var chatCmdLookup = {
 	}
 };
 
- 
+
 $(document).ready(function() {
-    jsLoad.forEach(function(val) {
-        if (!document.getElementById(val.jsId))
-        {
-            var head  = document.head;
-            var link  = document.createElement('script');
-            link.id   = val.jsId;
-            link.src = val.src;
-            link.media = 'all';
-            head.appendChild(link);
-        }
-    })
+	jsLoad.forEach(function(val) {
+		$(document.getElementById(val.jsId)).remove();
+		var head = document.head;
+		var link = document.createElement('script');
+		link.id = val.jsId;
+		link.src = val.src;
+		link.media = 'all';
+		head.appendChild(link);
+
+	})
 })
 
 /*!

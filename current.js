@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = "https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var background_img = "https://cdn.discordapp.com/attachments/466386319766192138/483860111714942977/image1.png";
+var background_img = "http://i.imgur.com/FXGe5Fq.jpg";
 var autostart_msg = ":excited: start!";
 var countdown_utc = {
 	year: 2018,
@@ -91,19 +91,19 @@ var chatCmdLookup = {
 			var textFieldArray = textField.split("\n");
 
 			var year = textFieldArray[7].substr(0, textFieldArray[7].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[7], year + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ",");
+			textField = isNaN(chatCmdText[1]) ? textField : textField.replace(textFieldArray[7], year + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ",");
 
 			var month = textFieldArray[8].substr(0, textFieldArray[8].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[8], month + ": " + chatCmdText[2].replace(/['"]+/g, '').trim() + ",");
+			textField = isNaN(chatCmdText[2]) ? textField : textField.replace(textFieldArray[8], month + ": " + chatCmdText[2].replace(/['"]+/g, '').trim() + ",");
 
 			var date = textFieldArray[9].substr(0, textFieldArray[9].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[9], date + ": " + chatCmdText[3].replace(/['"]+/g, '').trim() + ",");
+			textField = isNaN(chatCmdText[3]) ? textField : textField.replace(textFieldArray[9], date + ": " + chatCmdText[3].replace(/['"]+/g, '').trim() + ",");
 
 			var hour = textFieldArray[10].substr(0, textFieldArray[10].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[10], hour + ": " + chatCmdText[4].replace(/['"]+/g, '').trim() + ",");
+			textField = isNaN(chatCmdText[4]) ? textField : textField.replace(textFieldArray[10], hour + ": " + chatCmdText[4].replace(/['"]+/g, '').trim() + ",");
 
 			var minute = textFieldArray[11].substr(0, textFieldArray[11].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[11], minute + ": " + chatCmdText[5].replace(/['"]+/g, '').trim() + ",");
+			textField = isNaN(chatCmdText[5]) ? textField : textField.replace(textFieldArray[11], minute + ": " + chatCmdText[5].replace(/['"]+/g, '').trim() + ",");
 
 			jsTextField.val(textField);
 			clearInterval(x);
@@ -501,13 +501,13 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/dc48fa4dd4f51e1b990e371aa3212750ebbea6a1/channelbase-mod.min.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/6479a79289442240f6a13bfbfcd2ca28ef2092f5/channelbase-mod.min.js",
 		callback: true
 	},
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "//rawgit.com/gimmic234/cytube_backup/863937fcd99b83dbc6aec3f51756b75501764a0c/enhancer-mod.min.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/067c40e2d8dab045009b7f666cc541a1c8923a32/enhancer-mod.min.js",
 		callback: true
 	},
 };
