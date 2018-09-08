@@ -559,8 +559,6 @@ $(document).ready(function() {
 		}
 
 	}, second)
-
-
 })
 /*!
  **|   XaeMae Sequenced Module Loader
