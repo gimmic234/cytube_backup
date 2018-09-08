@@ -7,7 +7,7 @@
 //force https for videos from googs
 if (window.location.protocol != "https:")
     window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-$(document.head).append("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' />"); 
+$('head').append("<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' />"); 
 console.log("sup yall");
 
 
@@ -22,99 +22,99 @@ console.log("sup yall");
 	 */
 	!function(){this.ResizeSensor=function(e,t){function s(){this.q=[],this.add=function(e){this.q.push(e)};var e,t;this.call=function(){for(e=0,t=this.q.length;t>e;e++)this.q[e].call()}}function i(e,t){return e.currentStyle?e.currentStyle[t]:window.getComputedStyle?window.getComputedStyle(e,null).getPropertyValue(t):e.style[t]}function o(e,t){if(e.resizedAttached){if(e.resizedAttached)return void e.resizedAttached.add(t)}else e.resizedAttached=new s,e.resizedAttached.add(t);e.resizeSensor=document.createElement("div"),e.resizeSensor.className="resize-sensor";var o="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: scroll; z-index: -1; visibility: hidden;",n="position: absolute; left: 0; top: 0;";e.resizeSensor.style.cssText=o,e.resizeSensor.innerHTML='<div class="resize-sensor-expand" style="'+o+'"><div style="'+n+'"></div></div><div class="resize-sensor-shrink" style="'+o+'"><div style="'+n+' width: 200%; height: 200%"></div></div>',e.appendChild(e.resizeSensor),{fixed:1,absolute:1}[i(e,"position")]||(e.style.position="relative");var r,l,d=e.resizeSensor.childNodes[0],c=d.childNodes[0],h=e.resizeSensor.childNodes[1],a=(h.childNodes[0],function(){c.style.width=d.offsetWidth+10+"px",c.style.height=d.offsetHeight+10+"px",d.scrollLeft=d.scrollWidth,d.scrollTop=d.scrollHeight,h.scrollLeft=h.scrollWidth,h.scrollTop=h.scrollHeight,r=e.offsetWidth,l=e.offsetHeight});a();var f=function(){e.resizedAttached&&e.resizedAttached.call()},u=function(e,t,s){e.attachEvent?e.attachEvent("on"+t,s):e.addEventListener(t,s)},z=function(){(e.offsetWidth!=r||e.offsetHeight!=l)&&f(),a()};u(d,"scroll",z),u(h,"scroll",z)}var n=Object.prototype.toString.call(e),r="[object Array]"===n||"[object NodeList]"===n||"[object HTMLCollection]"===n||"undefined"!=typeof jQuery&&e instanceof jQuery||"undefined"!=typeof Elements&&e instanceof Elements;if(r)for(var l=0,d=e.length;d>l;l++)o(e[l],t);else o(e,t);this.detach=function(){if(r)for(var t=0,s=e.length;s>t;t++)ResizeSensor.detach(e[t]);else ResizeSensor.detach(e)}},this.ResizeSensor.detach=function(e){e.resizeSensor&&(e.removeChild(e.resizeSensor),delete e.resizeSensor,delete e.resizedAttached)}}();
 /*player skin*/
-$(document.head).append("<link rel='stylesheet' href='//rawgit.com/BillTube/theme/gh-pages/base.css?build=@version.MinorRevision' />");
-$(document.head).append("<link rel='stylesheet' href='//rawgit.com/BillTube/theme/gh-pages/polyzor.css' />");
-$(document.getElementsById("videowrap")).addClass("vjs-polyzor-skin");
+$('head').append("<link rel='stylesheet' href='//rawgit.com/BillTube/theme/gh-pages/base.css?build=@version.MinorRevision' />");
+$('head').append("<link rel='stylesheet' href='//rawgit.com/BillTube/theme/gh-pages/polyzor.css' />");
+$("#videowrap").addClass("vjs-polyzor-skin");
 $(".server-msg-reconnect").addClass("fa fa-plug");
 $(".server-msg-reconnect").text("");
-$(document.body).addClass("darktheme");
-$(document.getElementsById("userlisttoggle")).removeClass("glyphicon glyphicon-chevron-down pull-left pointer");
-$(document.getElementsById("userlisttoggle")).addClass("btn-default fa fa-users ch");
-$(document.getElementsById("userlisttoggle")).text("");
-$(document.getElementsById("controlsrow")).after($("#motdrow"));//move channel description (motd) below controls
-$(document.getElementsById("controlsrow")).after($("#announcements"));//move cytube announcements below controls
+$("body").addClass("darktheme");
+$("#userlisttoggle").removeClass("glyphicon glyphicon-chevron-down pull-left pointer");
+$("#userlisttoggle").addClass("btn-default fa fa-users ch");
+$("#userlisttoggle").text("");
+$("#controlsrow").after($("#motdrow"));//move channel description (motd) below controls
+$("#controlsrow").after($("#announcements"));//move cytube announcements below controls
 $(".container-fluid").append($("#footer"));//move footer into mainpage element
-$(document.getElementsById('footer')).children('.container').append('<p class="text-muted credit">Copyrights and trademarks for the shows and other promotional materials are held by their respective owners and their use is allowed under the fair use clause of the Copyright Law. The author is not responsible for any contents linked or referred to from his pages, All CyTu.be does is link or embed content that was uploaded to popular Online Video hosting sites like Youtube.com / Google drive. All Google users signed a contract with the sites when they set up their accounts wich forces them not to upload illegal content.(<a href="https://www.lumendatabase.org/topics/14">DMCA Safe Harbor</a>)<h4><center><br>Theme By Bill</p>(<a href="https://github.com/BillTube/theme">Now on github!</a>)</center></h4>');
-$(document.getElementById("mainpage")).prepend($("#chatwrap"));//move chat element outside left container
-$(document.getElementById("userlist")).prepend("<div id='connected'></div>");//create div to contain user count
-$(document.getElementById("connected")).append($("#usercount"));//move user count into previously created div
-$(document.getElementById("connected")).append( "<span id='connectedText'>&nbsp Logged in users</span>" );//add "Connected" after user count
-$(document.getElementById("userlisttoggle")).after($("#emotelistbtn"));
-$(document.getElementById("main")).after("<div id='videoinfo' class='section'></div>");//create box to contain video title, description, and playlist options.
-$(document.getElementById("main")).after($("#drinkbarwrap"));
-$(document.getElementById("videoinfo")).append("<div class='textheader'></div><div id='videoinfohead'><span id='addedbyTEXT'>Queued by <span id='addedby'></span></span><div id='headbottom'><div id='headright'><div id='ss7time' title='--:--'>0:00</div><div id='videolength'></div><div id='progbar'></div></div></div></div><div id='videoopts'></div>");
+$('#footer').children('.container').append('<p class="text-muted credit">Copyrights and trademarks for the shows and other promotional materials are held by their respective owners and their use is allowed under the fair use clause of the Copyright Law. The author is not responsible for any contents linked or referred to from his pages, All CyTu.be does is link or embed content that was uploaded to popular Online Video hosting sites like Youtube.com / Google drive. All Google users signed a contract with the sites when they set up their accounts wich forces them not to upload illegal content.(<a href="https://www.lumendatabase.org/topics/14">DMCA Safe Harbor</a>)<h4><center><br>Theme By Bill</p>(<a href="https://github.com/BillTube/theme">Now on github!</a>)</center></h4>');
+$("#mainpage").prepend($("#chatwrap"));//move chat element outside left container
+$("#userlist").prepend("<div id='connected'></div>");//create div to contain user count
+$("#connected").append($("#usercount"));//move user count into previously created div
+$("#connected").append( "<span id='connectedText'>&nbsp Logged in users</span>" );//add "Connected" after user count
+$("#userlisttoggle").after($("#emotelistbtn"));
+$("#main").after("<div id='videoinfo' class='section'></div>");//create box to contain video title, description, and playlist options.
+$("#main").after($("#drinkbarwrap"));
+$("#videoinfo").append("<div class='textheader'></div><div id='videoinfohead'><span id='addedbyTEXT'>Queued by <span id='addedby'></span></span><div id='headbottom'><div id='headright'><div id='ss7time' title='--:--'>0:00</div><div id='videolength'></div><div id='progbar'></div></div></div></div><div id='videoopts'></div>");
 $(".navbar-header").after($("#currenttitle")); //move video title below video player
-$(document.getElementById("headbottom")).append("<button id='addmedia' title='Add Media' class='headbtn headbtnleft'></button>");
-$(document.getElementById("headbottom")).append($("#newpollbtn"));
-$(document.getElementById("headbottom")).append("<button id='morebtn' title='More Actions' data-toggle='dropdown' class='headbtn headbtnleft'></button>");
-$(document.getElementById("newpollbtn")).addClass("headbtn headbtnleft");
-$(document.getElementById("emotelistbtn")).text("");
-$(document.getElementById("emotelistbtn")).removeClass("btn btn-sm");
-$(document.getElementById("emotelistbtn")).addClass("fa fa-picture-o");
-$(document.getElementById("emotelistbtn")).addClass("ch");
-$(document.getElementById("fullscreenbtn")).text("");
-$(document.getElementById("fullscreenbtn")).addClass("fa fa-arrows-alt");
-$(document.getElementById("fullscreenbtn")).removeClass("btn btn-sm");
-$(document.getElementById("fullscreenbtn")).addClass("ch");
-$(document.getElementById("emotelistbtn")).after($("#fullscreenbtn"));
-$(document.getElementById("morebtn")).after($("#videocontrols"));
-$(document.getElementById("videocontrols")).removeClass("pull-right");
+$("#headbottom").append("<button id='addmedia' title='Add Media' class='headbtn headbtnleft'></button>");
+$("#headbottom").append($("#newpollbtn"));
+$("#headbottom").append("<button id='morebtn' title='More Actions' data-toggle='dropdown' class='headbtn headbtnleft'></button>");
+$("#newpollbtn").addClass("headbtn headbtnleft");
+$("#emotelistbtn").text("");
+$("#emotelistbtn").removeClass("btn btn-sm");
+$("#emotelistbtn").addClass("fa fa-picture-o");
+$("#emotelistbtn").addClass("ch");
+$("#fullscreenbtn").text("");
+$("#fullscreenbtn").addClass("fa fa-arrows-alt");
+$("#fullscreenbtn").removeClass("btn btn-sm");
+$("#fullscreenbtn").addClass("ch");
+$("#emotelistbtn").after($("#fullscreenbtn"));
+$("#morebtn").after($("#videocontrols"));
+$("#videocontrols").removeClass("pull-right");
 //$("#drinkbarwrap").after($("#main"));
-$(document.getElementById("chatline")).attr("placeholder","Type here to send a message");
-$(document.getElementById("main")).after($("#motdrow"));
-$(document.getElementById("motdwrap")).append($(".visible-lg"));
-$(document.getElementById("addedbyTEXT")).after($("#usercount"));
-$(document.getElementById("morebtn")).after("<ul class='dropdown-menu'><li id='mediarefreshli'></li><li><button></button></li><li id='modli'></li><li><button></button></li></ul>");
-$(document.getElementById("modli")).append($("#modflair"));
-$(document.getElementById("headbottom")).append($("#mediarefresh"));
-$(document.getElementById("mediarefresh")).text("Reload Video Player");
-$(document.getElementById("videoinfo")).after($("#rightpane"));
-$(document.getElementById("rightpane-inner")).prepend("<div id='mediabuttons'></div>");
-$(document.getElementById("rightpane-inner")).addClass("section");
-$(document.getElementById("mediarefresh")).addClass("btn btn-sm btn-default OLB");
-$(document.getElementById("voteskip")).addClass("btn btn-sm btn-default OLB");
-$(document.getElementById("mediabuttons")).append($("#showmediaurl"), $("#showcustomembed"), $("#showsearch"), $("#showplaylistmanager"));
-$(document.getElementById("rightpane")).after("<div id='queuecontainer' class='section'><button id='pldropdown' data-toggle='dropdown' title='Playlist Options'></button><div class='textheader'><p id='upnext' class='sectionheader'>Up Next</p></div></div>");
-$(document.getElementById("queuecontainer")).append($("#queue"));
-$(document.getElementById("upnext")).append($("#plmeta"));
-$(document.getElementById("pldropdown")).after("<ul id='ploptions' class='dropdown-menu' role='menu'></ul>");
-$(document.getElementById("ploptions")).append($("#shuffleplaylist"), $("#clearplaylist"), $("#getplaylist"));
-$(document.getElementById("pldropdown")).before($("#qlockbtn"));
-$(document.getElementById("main")).after($("#scroll-feature"));
+$("#chatline").attr("placeholder","Type here to send a message");
+$("#main").after($("#motdrow"));
+$("#motdwrap").append($(".visible-lg"));
+$("#addedbyTEXT").after($("#usercount"));
+$("#morebtn").after("<ul class='dropdown-menu'><li id='mediarefreshli'></li><li><button></button></li><li id='modli'></li><li><button></button></li></ul>");
+$("#modli").append($("#modflair"));
+$("#headbottom").append($("#mediarefresh"));
+$("#mediarefresh").text("Reload Video Player");
+$("#videoinfo").after($("#rightpane"));
+$("#rightpane-inner").prepend("<div id='mediabuttons'></div>");
+$("#rightpane-inner").addClass("section");
+$("#mediarefresh").addClass("btn btn-sm btn-default OLB");
+$("#voteskip").addClass("btn btn-sm btn-default OLB");
+$("#mediabuttons").append($("#showmediaurl"), $("#showcustomembed"), $("#showsearch"), $("#showplaylistmanager"));
+$("#rightpane").after("<div id='queuecontainer' class='section'><button id='pldropdown' data-toggle='dropdown' title='Playlist Options'></button><div class='textheader'><p id='upnext' class='sectionheader'>Up Next</p></div></div>");
+$("#queuecontainer").append($("#queue"));
+$("#upnext").append($("#plmeta"));
+$("#pldropdown").after("<ul id='ploptions' class='dropdown-menu' role='menu'></ul>");
+$("#ploptions").append($("#shuffleplaylist"), $("#clearplaylist"), $("#getplaylist"));
+$("#pldropdown").before($("#qlockbtn"));
+$("#main").after($("#scroll-feature"));
 $("<div class='indicator'><svg width='16px' height='12px'><polyline id='back' points='1 6 4 6 6 11 10 1 12 6 15 6'></polyline><polyline id='front' points='1 6 4 6 6 11 10 1 12 6 15 6'></polyline></svg></div>").appendTo('.navbar-header');
-$(document.getElementById('queuecontainer')).hover(function(){
-    $(document.getElementById('pllength')).css({
+$('#queuecontainer').hover(function(){
+    $('#pllength').css({
         'opacity':'0.9',
     });
 },function(){
-    $(document.getElementById('pllength')).css({
+    $('#pllength').css({
         'opacity':'0',
     });
 });
-$(document.getElementById("wrap")).prepend("<div id='bg-wrapper'><div id='backg'></div></div>");
-$(document.body).addClass("fluid");
-$(document.getElementById("videowrap")).addClass("col-lg-7 col-md-7 vjs-polyzor-skin");
-$(document.getElementById("videowrap")).removeClass("col-md-8 col-md-offset-2");
-$(document.body).removeClass("synchtube");
-$(document.getElementById("usertheme")).attr("href", "/css/themes/slate.css");
-$(document.getElementById("main")).append($("#videowrap"));
+$("#wrap").prepend("<div id='bg-wrapper'><div id='backg'></div></div>");
+$("body").addClass("fluid");
+$("#videowrap").addClass("col-lg-7 col-md-7 vjs-polyzor-skin");
+$("#videowrap").removeClass("col-md-8 col-md-offset-2");
+$("body").removeClass("synchtube");
+$("#usertheme").attr("href", "/css/themes/slate.css");
+$("#main").append($("#videowrap"));
 $("#maincontain .nano-content").append($("#mainpage > .container"));
-$(document.getElementById("videowrap")).after($("#pollwrap"));
+$("#videowrap").after($("#pollwrap"));
 //make it work with nanoscroll.js
-$(document.getElementById("mainpage")).append("<div class='nano' id='maincontain'></div>");
-$(document.getElementById("maincontain")).append("<div class='nano-content'></div>");
+$("#mainpage").append("<div class='nano' id='maincontain'></div>");
+$("#maincontain").append("<div class='nano-content'></div>");
 $("#maincontain .nano-content").append($("#mainpage > .container-fluid"));
-$(document.body).addClass("fluid");
-$(document.getElementById("usertheme")).attr("href", "/css/themes/slate.css");
+$("body").addClass("fluid");
+$("#usertheme").attr("href", "/css/themes/slate.css");
 $("#maincontain .nano-content").append($("#mainpage > .container"));
-$(document.getElementById("messagebuffer")).addClass("nano-content");
-$(document.getElementById("messagebuffer")).after("<div class='nano'></div>");
+$("#messagebuffer").addClass("nano-content");
+$("#messagebuffer").after("<div class='nano'></div>");
 $("#chatwrap .nano").append($("#messagebuffer"));
 $(".nano").nanoScroller();
 //middle draggable handle
-$(document.getElementById("mainpage")).append("<div id='mHandle-left' class='mHandle'></div> <div id='mHandle-right' class='mHandle'></div><div id='mHandle-mid' class='mHandle'></div>");
-$(document.body).prepend("<div id='dragoverlay'><div class='l'></div><div class='r'></div><div id='handleWidget'></div></div>");
-$(document.getElementById("mainpage")).append("<style id='splitRatio' split='77'>@media (min-width: 992px) {#mainpage > .nano {width: 77%;} #chatwrap {width: 22.9%;}}</style>");
+$("#mainpage").append("<div id='mHandle-left' class='mHandle'></div> <div id='mHandle-right' class='mHandle'></div><div id='mHandle-mid' class='mHandle'></div>");
+$("body").prepend("<div id='dragoverlay'><div class='l'></div><div class='r'></div><div id='handleWidget'></div></div>");
+$("#mainpage").append("<style id='splitRatio' split='77'>@media (min-width: 992px) {#mainpage > .nano {width: 77%;} #chatwrap {width: 22.9%;}}</style>");
 _timeVIDEBLU = {raw: 0, ofs: 0, paused: false};//Define time object for ss7's video time display plugin
 currentmedia = {istemp: false, location: 0, uid: 0, id: 0, seconds: 0, length: 0};
 playlistinfo = {length: 0};
@@ -202,7 +202,7 @@ setvideotime = function() {
 }
 setvideotime();
 
-$(document.getElementById("addmedia")).click(function(){ //Add Media button action
+$("#addmedia").click(function(){ //Add Media button action
 	if ($("#rightpane").css('display') == 'none'){//if add media is hidden
 		$("#mediabuttons button").each(function() {
 			if ($(this).css("display") != "none") {
@@ -220,7 +220,7 @@ $(document.getElementById("addmedia")).click(function(){ //Add Media button acti
 
 });
 
-$(document.getElementById("morebtn")).click(function(event){$("#headbottom .dropdown-menu").css("left", event.clientX - 50 + "px");});
+$("#morebtn").click(function(event){$("#headbottom .dropdown-menu").css("left", event.clientX - 50 + "px");});
 
 
 var updateScrollHandles = function() {
@@ -669,10 +669,6 @@ function scrollerInit() {
 	scrollQueue();
   });
   //new module insert here
-$.getScript("//rawgit.com/gimmic234/cytube_backup/f135d324a3b1cd92781d5505f18ba0869896ec96/channels.min.js");
-$.getScript("//rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/overlay.min.js");
-$.getScript("//rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/XaeKaiModules.js");
-$.getScript("//rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/settings.min.js");
 var LOADED = (typeof LOADED==="undefined") ? false : true;
 LOADED ? location.reload() : '';
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
