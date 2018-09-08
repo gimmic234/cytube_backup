@@ -12,7 +12,6 @@ var countdown_utc = {
 	minute: 0,
 	second: 0
 };
-var anime = "parasyte";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 
@@ -30,8 +29,8 @@ var queueList;
 var emoteList;
 var countDown;
 var countDownTimer
-var motdMode = $(document.getElementById('motd-mode'));
 var collapseArrow;
+var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var chatCmdLookup = {
@@ -124,7 +123,7 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: "local date: [" + dateLocal.toString() + "] (Local)"
 		});
-	}	
+	}
 };
 
 var emoteKeyLookup = {
@@ -455,10 +454,11 @@ function bindEventHandler() {
 
 	$(bodyElem).on('mousedown', '.qbtn-delete', function() {
 		$(this).prop('disabled', true);
-		$(this).click();
+		var video = $(this).parent().parent().children('a')[0].innerHTML;
 		window.socket.emit("chatMsg", {
-			msg: "video deleted"
+			msg: "removed [" + video + "]" 
 		});
+		$(this).click();	
 	});
 
 }
@@ -503,8 +503,8 @@ $(document).ready(function() {
 		$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 	})
 
- 	countDown = new Date(date_utc).getTime();
- 	clearInterval(countDownTimer);
+	countDown = new Date(date_utc).getTime();
+	clearInterval(countDownTimer);
 	countDownTimer = setInterval(function() {
 		if ($('.countdownbase:hidden').length > 0) {
 			$('.countdownbase').show();
