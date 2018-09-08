@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = "https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var background_img = "http://i.imgur.com/FXGe5Fq.jpg";
+var background_img = 'http://i.imgur.com/R4vXIoV.jpg';
 var autostart_msg = ":excited: start!";
 var countdown_utc = {
 	year: 2018,
@@ -12,6 +12,7 @@ var countdown_utc = {
 	minute: 0,
 	second: 0
 };
+var anime = "parasyte";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 
@@ -49,20 +50,18 @@ var chatCmdLookup = {
 			if (new_mode == "true") {
 				list.each(function(index, value) {
 					$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
-					$(value).attr('data-keep', 'false');
 				})
 				window.socket.emit("chatMsg", {
-					msg: "autostart on"
+					msg: "[autostart on]"
 				});
 			} else {
 				queueList.find("button.btn-auto-keep").remove();
 				list.each(function(index, value) {
-					$(value).removeAttr('data-keep');
 					$(value).removeClass('list-keep');
 				})
 				motdMode.attr('data-value', 'false');
 				window.socket.emit("chatMsg", {
-					msg: "autostart off"
+					msg: "[autostart off]"
 				});
 			}
 		}
@@ -109,7 +108,19 @@ var chatCmdLookup = {
 			clearInterval(x);
 			$(document.getElementById('cs-jssubmit')).click();
 		}
-	}
+	},
+	'/dateutc': function() {
+		var date = countdown_utc.year + "-" + pad(countdown_utc.month) + "-" + pad(countdown_utc.date) + " " + pad(countdown_utc.hour) + ":" + pad(countdown_utc.minute);
+		window.socket.emit("chatMsg", {
+			msg: "stream date: [" + date + "] (UTC)"
+		});
+	},
+	'/datelocal': function() {
+		var dateLocal = new Date(date_utc);
+		window.socket.emit("chatMsg", {
+			msg: "stream date: [" + dateLocal.toString() + "] (Local)"
+		});
+	}	
 };
 
 var emoteKeyLookup = {
@@ -234,6 +245,7 @@ var editJs = function(fieldIndex, chatCmdText) {
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(' = ') + 1);
 		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + "= '" + chatCmdText[1].replace(/['"]+/g, '').trim() + "';");
 		jsTextField.val(textField);
+		clearInterval(x);
 		$(document.getElementById('cs-jssubmit')).click();
 	}
 }
@@ -247,6 +259,10 @@ var waitForEl = function(selector, callback) {
 		}, 100);
 	}
 };
+
+function pad(d) {
+	return (d < 10) ? '0' + d.toString() : d.toString();
+}
 
 function chatHandler(e) {
 
@@ -292,7 +308,6 @@ function cleanAutoStart() {
 	let list = queueList.children(":visible");
 	queueList.find("button.btn-auto-keep").remove();
 	list.each(function(index, value) {
-		$(value).removeAttr('data-keep');
 		$(value).removeClass('list-keep');
 	})
 }
@@ -322,7 +337,6 @@ function autoStartHandler() {
 		let list = queueList.children(":visible");
 		list.each(function(index, value) {
 			$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
-			$(value).attr('data-keep', 'false');
 		})
 	}
 }
@@ -399,21 +413,17 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.btn-auto-keep', function() {
 		let listElem = $(this).closest('li');
 		let list = queueList.children(":visible");
-		let toggle = listElem.attr('data-keep');
-
-		toggle = (toggle == 'false') ? 'true' : 'false';
+		let toggle = listElem.hasClass('list-keep');
 
 		list.each(function(index, value) {
-			$(value).attr('data-keep', 'false');
 			$(value).removeClass('list-keep');
 		});
 
-		if (toggle == 'false') {
+		if (toggle) {
 			listElem.removeClass('list-keep');
 		} else {
 			listElem.addClass('list-keep');
 		}
-		listElem.attr('data-keep', toggle);
 		let name = listElem.find('a.qe_title')[0].innerHTML;
 		window.socket.emit("chatMsg", {
 			msg: "Autostart - [" + name + "]"
@@ -447,6 +457,7 @@ function bindEventHandler() {
 			msg: "video deleted"
 		});
 	});
+
 }
 
 $(document).ready(function() {
@@ -588,7 +599,7 @@ let countDown = new Date(date_utc).getTime(),
 			$('.countdownbase').hide();
 			let mode = motdMode.attr('data-value');
 			if (mode == 'true') {
-				let selectedList = $("li.queue_entry[data-keep='true']");
+				let selectedList = $("li.list-keep");
 				if (selectedList.length != 0) {
 					let delList = selectedList.prevAll();
 					deleteAllPlaylist(delList);
