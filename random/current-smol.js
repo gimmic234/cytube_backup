@@ -55,7 +55,7 @@ var chatCmdLookup = {
 					$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
 				})
 				window.socket.emit("chatMsg", {
-					msg: "[autostart on]"
+					msg: "autostart [on]"
 				});
 			} else {
 				queueList.find("button.btn-auto-keep").remove();
@@ -64,7 +64,7 @@ var chatCmdLookup = {
 				})
 				motdMode.attr('data-value', 'false');
 				window.socket.emit("chatMsg", {
-					msg: "[autostart off]"
+					msg: "autostart [off]"
 				});
 			}
 		}
@@ -124,6 +124,10 @@ var chatCmdLookup = {
 		});
 	}
 };
+
+$(window).focus(function(e) {
+	$(document.getElementById('chatline')).focus();
+});
 
 /*!
  **|   XaeMae Sequenced Module Loader
