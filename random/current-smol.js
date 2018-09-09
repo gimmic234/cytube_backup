@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = "https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var background_img = 'http://i.imgur.com/R4vXIoV.jpg';
+var background_img = 'http://i.imgur.com/JYf9dgm.jpg';
 var autostart_msg = ":excited: start!";
 var countdown_utc = {
 	year: 2018,
@@ -125,10 +125,6 @@ var chatCmdLookup = {
 	}
 };
 
-$(window).focus(function(e) {
-	$(document.getElementById('chatline')).focus();
-});
-
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -177,6 +173,15 @@ window[CHANNEL.name].sequencerLoader = function() {
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
+				$(window).focus(function(e) {
+					$(document.getElementById('chatline')).focus();
+				});
+				$(document).on('keydown', function(e) {
+					if( (document.activeElement.classList.contains('nano-content')) && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
+						e.preventDefault();
+						$(document.getElementById('chatline')).focus();
+					}
+				})
 			}
 
 			waitForEl('#club_redirect', function() {
