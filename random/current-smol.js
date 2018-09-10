@@ -7,8 +7,8 @@ var autostart_msg = ":excited: start!";
 var countdown_utc = {
 	year: 2018,
 	month: 9,
-	day: 9,
-	hour: 19,
+	day: 12,
+	hour: 23,
 	minute: 0,
 	second: 0
 };
@@ -98,8 +98,8 @@ var chatCmdLookup = {
 			var month = textFieldArray[8].substr(0, textFieldArray[8].lastIndexOf(': '));
 			textField = isNaN(chatCmdText[2]) ? textField : textField.replace(textFieldArray[8], month + ": " + chatCmdText[2].replace(/['"]+/g, '').trim() + ",");
 
-			var date = textFieldArray[9].substr(0, textFieldArray[9].lastIndexOf(': '));
-			textField = isNaN(chatCmdText[3]) ? textField : textField.replace(textFieldArray[9], date + ": " + chatCmdText[3].replace(/['"]+/g, '').trim() + ",");
+			var day = textFieldArray[9].substr(0, textFieldArray[9].lastIndexOf(': '));
+			textField = isNaN(chatCmdText[3]) ? textField : textField.replace(textFieldArray[9], day + ": " + chatCmdText[3].replace(/['"]+/g, '').trim() + ",");
 
 			var hour = textFieldArray[10].substr(0, textFieldArray[10].lastIndexOf(': '));
 			textField = isNaN(chatCmdText[4]) ? textField : textField.replace(textFieldArray[10], hour + ": " + chatCmdText[4].replace(/['"]+/g, '').trim() + ",");
@@ -108,6 +108,10 @@ var chatCmdLookup = {
 			textField = isNaN(chatCmdText[5]) ? textField : textField.replace(textFieldArray[11], minute + ": " + chatCmdText[5].replace(/['"]+/g, '').trim() + ",");
 
 			jsTextField.val(textField);
+
+			window.socket.emit("chatMsg", {
+				msg: "countdown date updated"
+			});
 			$(document.getElementById('cs-jssubmit')).click();
 		}
 	},
@@ -122,6 +126,41 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: "[" + dateLocal.toString() + "] (Local)"
 		});
+	},
+	'/cdlocal': function(chatCmdText) {
+		if (chatCmdText.length > 5 && window.CLIENT.rank >= 2) {
+			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
+				window.socket.emit("chatMsg", {
+					msg: "error: invalid countdown input"
+				});
+				return false;
+			}
+
+			var date = new Date(chatCmdText[1], chatCmdText[2], chatCmdText[3], chatCmdText[4], chatCmdText[5]);
+			var textField = jsTextField.val();
+			var textFieldArray = textField.split("\n");
+
+			var year = textFieldArray[7].substr(0, textFieldArray[7].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[7], year + ": " + date.getUTCFullYear() + ",");
+
+			var month = textFieldArray[8].substr(0, textFieldArray[8].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[8], month + ": " + date.getUTCMonth() + ",");
+
+			var day = textFieldArray[9].substr(0, textFieldArray[9].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[9], day + ": " + date.getUTCDate() + ",");
+
+			var hour = textFieldArray[10].substr(0, textFieldArray[10].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[10], hour + ": " + date.getUTCHours() + ",");
+
+			var minute = textFieldArray[11].substr(0, textFieldArray[11].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[11], minute + ": " + date.getUTCMinutes() + ",");
+
+			jsTextField.val(textField);
+			window.socket.emit("chatMsg", {
+				msg: "countdown date updated"
+			});
+			$(document.getElementById('cs-jssubmit')).click();
+		}
 	}
 };
 
@@ -177,7 +216,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 					$(document.getElementById('chatline')).focus();
 				});
 				$(document).on('keydown', function(e) {
-					if( (document.activeElement.classList.contains('nano-content')) && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
+					if ((document.activeElement.classList.contains('nano-content')) && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
 						e.preventDefault();
 						$(document.getElementById('chatline')).focus();
 					}
