@@ -172,7 +172,20 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "new emote added " + emote
 			});
-			emoteArray.push({name: emote, image: chatCmdText[2]});
+			emoteArray.push({
+				name: emote,
+				image: chatCmdText[2]
+			});
+		}
+	},
+
+	'/img': function(chatCmdText) {
+		if (chatCmdText.length == 2) {
+			var url = chatCmdText[1].replace('https:', '');
+			url = url.replace('http:', '');
+			window.socket.emit("chatMsg", {
+				msg: "@" + url + "@"
+			});
 		}
 	}
 };
