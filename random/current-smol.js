@@ -161,6 +161,19 @@ var chatCmdLookup = {
 			});
 			$(document.getElementById('cs-jssubmit')).click();
 		}
+	},
+
+	'/addemote': function(chatCmdText) {
+		if (chatCmdText.length == 3 && window.CLIENT.rank >= 2) {
+			var emote = ':' + chatCmdText[1].replace(/[:]+/g, '') + ':';
+			$(document.getElementById('cs-emotes-newname')).val(emote);
+			$(document.getElementById('cs-emotes-newimage')).val(chatCmdText[2]);
+			$(document.getElementById('cs-emotes-newsubmit')).click();
+			window.socket.emit("chatMsg", {
+				msg: "new emote added " + emote
+			});
+			emoteArray.push({name: emote, image: chatCmdText[2]});
+		}
 	}
 };
 
