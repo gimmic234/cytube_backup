@@ -166,8 +166,9 @@ var chatCmdLookup = {
 	'/addemote': function(chatCmdText) {
 		if (chatCmdText.length == 3 && window.CLIENT.rank >= 2) {
 			var emote = ':' + chatCmdText[1].replace(/[:]+/g, '') + ':';
+			var emoteUrl = chatCmdText[2];//.replace('http:', 'https:');
 			$(document.getElementById('cs-emotes-newname')).val(emote);
-			$(document.getElementById('cs-emotes-newimage')).val(chatCmdText[2]);
+			$(document.getElementById('cs-emotes-newimage')).val(emoteUrl);
 			$(document.getElementById('cs-emotes-newsubmit')).click();
 			window.socket.emit("chatMsg", {
 				msg: "new emote added " + emote
@@ -183,9 +184,26 @@ var chatCmdLookup = {
 		if (chatCmdText.length == 2) {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
+			if (url.lastIndexOf('?') > -1) {
+				url = url.substr(0, url.lastIndexOf('?'));
+			}
+
 			window.socket.emit("chatMsg", {
 				msg: "@" + url + "@"
 			});
+		}
+	},
+
+	'/skip': function(chatCmdText) {
+		if (window.CLIENT.rank >= 2) {
+			var target = $(document.getElementsByClassName('queue_active'));
+			if (target.length > 0) {
+				var name = target.find('.qe_title')[0].innerHTML;
+				window.socket.emit("chatMsg", {
+					msg: "removed [" + name + "]"
+				});
+				target.find('.qbtn-delete').click();
+			}
 		}
 	}
 };
