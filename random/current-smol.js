@@ -1,6 +1,6 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = "https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png";
+var banner_url = 'https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
 var background_img = 'http://i.imgur.com/JYf9dgm.jpg';
 var autostart_msg = ":excited: start!";
@@ -76,7 +76,19 @@ var chatCmdLookup = {
 		});
 	},
 	'/editbanner': function(chatCmdText) {
-		editJs(2, chatCmdText);
+		if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+			var textField = jsTextField.val();
+			var textFieldArray = textField.split("\n");
+			var bannerUrl = chatCmdText[1].replace(/['"]+/g, '').trim();
+			if (bannerUrl.lastIndexOf('?') > -1) {
+				bannerUrl = bannerUrl.substr(0, bannerUrl.lastIndexOf('?'));
+			}
+			bannerUrl += "?width=1300&height=250";
+			var firstBlock = textFieldArray[2].substr(0, textFieldArray[2].lastIndexOf(' = ') + 1);
+			textField = textField.replace(textFieldArray[2], firstBlock + "= '" + bannerUrl + "';");
+			jsTextField.val(textField);
+			$(document.getElementById('cs-jssubmit')).click();
+		}
 		window.socket.emit("chatMsg", {
 			msg: "banner updated"
 		});
@@ -166,7 +178,7 @@ var chatCmdLookup = {
 	'/addemote': function(chatCmdText) {
 		if (chatCmdText.length == 3 && window.CLIENT.rank >= 2) {
 			var emote = ':' + chatCmdText[1].replace(/[:]+/g, '') + ':';
-			var emoteUrl = chatCmdText[2];//.replace('http:', 'https:');
+			var emoteUrl = chatCmdText[2]; //.replace('http:', 'https:');
 			$(document.getElementById('cs-emotes-newname')).val(emote);
 			$(document.getElementById('cs-emotes-newimage')).val(emoteUrl);
 			$(document.getElementById('cs-emotes-newsubmit')).click();
@@ -188,9 +200,15 @@ var chatCmdLookup = {
 				url = url.substr(0, url.lastIndexOf('?'));
 			}
 
-			window.socket.emit("chatMsg", {
-				msg: "@" + url + "@"
-			});
+			if (url.lastIndexOf('.gif') > -1) {
+				window.socket.emit("chatMsg", {
+					msg: ";;" + url + ";;"
+				});
+			} else {
+				window.socket.emit("chatMsg", {
+					msg: "@" + url + "@"
+				});
+			}
 		}
 	},
 
@@ -235,7 +253,7 @@ window[CHANNEL.name].sequenceList = {
 		rank: -1,
 		url: "https://rawgit.com/gimmic234/cytube_backup/067c40e2d8dab045009b7f666cc541a1c8923a32/enhancer-mod.min.js",
 		callback: true
-	},
+	}
 };
 
 window[CHANNEL.name].sequencePrev = window[CHANNEL.name].sequencePrev || "";
@@ -264,6 +282,11 @@ window[CHANNEL.name].sequencerLoader = function() {
 						e.preventDefault();
 						$(document.getElementById('chatline')).focus();
 					}
+				});
+
+				$(document).on('mouseover', '.lazy', function() {
+					$(this).attr('src', $(this).attr('data-src'));
+					$(this).removeClass('lazy');
 				})
 			}
 
