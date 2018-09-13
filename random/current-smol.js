@@ -7,8 +7,8 @@ var autostart_msg = ":excited: start!";
 var countdown_utc = {
 	year: 2018,
 	month: 9,
-	day: 12,
-	hour: 23,
+	day: 16,
+	hour: 19,
 	minute: 0,
 	second: 0
 };
@@ -200,7 +200,10 @@ var chatCmdLookup = {
 				url = url.substr(0, url.lastIndexOf('?'));
 			}
 
-			if (url.lastIndexOf('.gif') > -1) {
+			window.socket.emit("chatMsg", {
+				msg: "@" + url + "@"
+			});
+			/*if (url.lastIndexOf('.gif') > -1) {
 				window.socket.emit("chatMsg", {
 					msg: ";;" + url + ";;"
 				});
@@ -208,7 +211,7 @@ var chatCmdLookup = {
 				window.socket.emit("chatMsg", {
 					msg: "@" + url + "@"
 				});
-			}
+			}*/
 		}
 	},
 
@@ -278,7 +281,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 					$(document.getElementById('chatline')).focus();
 				});
 				$(document).on('keydown', function(e) {
-					if ((document.activeElement.classList.contains('nano-content')) && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
+					if (!document.activeElement.classList.contains('form-control') && !document.getElementById('channeloptions').classList.contains('in') && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
 						e.preventDefault();
 						$(document.getElementById('chatline')).focus();
 					}
