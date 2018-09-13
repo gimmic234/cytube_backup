@@ -70,6 +70,8 @@ var chatCmdLookup = {
 		}
 	},
 	'/editbg': function(chatCmdText) {
+		var url = chatCmdText[1].replace('https:', 'http:');
+		chatCmdText[1] = url;
 		editJs(4, chatCmdText);
 		window.socket.emit("chatMsg", {
 			msg: "background updated"
@@ -80,6 +82,7 @@ var chatCmdLookup = {
 			var textField = jsTextField.val();
 			var textFieldArray = textField.split("\n");
 			var bannerUrl = chatCmdText[1].replace(/['"]+/g, '').trim();
+			bannerUrl = bannerUrl.replace('https:', 'http:');
 			if (bannerUrl.lastIndexOf('?') > -1) {
 				bannerUrl = bannerUrl.substr(0, bannerUrl.lastIndexOf('?'));
 			}
@@ -277,20 +280,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
-				$(window).focus(function(e) {
-					$(document.getElementById('chatline')).focus();
-				});
-				$(document).on('keydown', function(e) {
-					if (!document.activeElement.classList.contains('form-control') && !document.getElementById('channeloptions').classList.contains('in') && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
-						e.preventDefault();
-						$(document.getElementById('chatline')).focus();
-					}
-				});
-
-				$(document).on('mouseover', '.lazy', function() {
-					$(this).attr('src', $(this).attr('data-src'));
-					$(this).removeClass('lazy');
-				})
 			}
 
 			waitForEl('#club_redirect', function() {

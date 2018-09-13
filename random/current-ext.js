@@ -328,9 +328,24 @@ function bindEventHandler() {
 		$(this).prop('disabled', true);
 		var video = $(this).parent().parent().children('a')[0].innerHTML;
 		window.socket.emit("chatMsg", {
-			msg: "removed [" + video + "]" 
+			msg: "removed [" + video + "]"
 		});
-		$(this).click();	
+		$(this).click();
 	});
+
+	$(window).focus(function(e) {
+		$(document.getElementById('chatline')).focus();
+	});
+	$(bodyElem).on('keydown', function(e) {
+		if (!document.activeElement.classList.contains('form-control') && !document.getElementById('channeloptions').classList.contains('in') && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
+			e.preventDefault();
+			$(document.getElementById('chatline')).focus();
+		}
+	});
+
+	$(bodyElem).on('mouseover', '.lazy', function() {
+		$(this).attr('src', $(this).attr('data-src'));
+		$(this).removeClass('lazy');
+	})
 
 }
