@@ -277,6 +277,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 	if (window[CHANNEL.name].sequenceState >= window[CHANNEL.name].sequenceIndex.length) {
 		return (function() {
 
+			console.log(window[CHANNEL.name]);
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
