@@ -9,10 +9,10 @@ var emoteKeyLookup = {
 			if (next.length > 0) {
 				selectedPopover = next.addClass('active');
 			} else {
-				selectedPopover = selectedPopover.parent().eq(0).addClass('active');
+				selectedPopover = $('.emote-table tbody').children().first().addClass('active');
 			}
 		} else {
-			selectedPopover = selectedPopover.parent().eq(0).addClass('active');
+			selectedPopover = $('.emote-table tbody').children().first().addClass('active');
 		}
 	},
 	38: function(e) {
@@ -22,10 +22,10 @@ var emoteKeyLookup = {
 			if (next.length > 0) {
 				selectedPopover = next.addClass('active');
 			} else {
-				selectedPopover = selectedPopover.parent().last().addClass('active');
+				selectedPopover = $('.emote-table tbody').children().last().addClass('active');
 			}
 		} else {
-			selectedPopover = selectedPopover.parent().last().addClass('active');
+			selectedPopover = $('.emote-table tbody').children().last().addClass('active');
 		}
 	},
 	9: function(e) {
