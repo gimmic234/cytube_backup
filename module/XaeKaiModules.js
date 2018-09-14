@@ -413,10 +413,10 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!window[CHANNEL.name].audioNotice.Squee.toggleState) {
 			return
 		}
-		if (!CHANNEL.opts.chat_antiflood) {
+		/*if (!CHANNEL.opts.chat_antiflood) {
 			console.info();
 			return
-		}
+		}*/
 		//if (Date.now() - window[CHANNEL.name].audioNotice.Squee.timeSinceLast < 7e3) return;
 		squee = $(".nick-highlight:not( .parsed )");
 		if (!squee.length) return;
