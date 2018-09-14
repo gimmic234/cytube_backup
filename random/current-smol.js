@@ -229,6 +229,15 @@ var chatCmdLookup = {
 				target.find('.qbtn-delete').click();
 			}
 		}
+	},
+
+	'/macro': function() {
+		setInterval(function() {
+			window.socket.emit("chatMsg", {
+				msg: "gimmic"
+			});
+		}, 2000)
+
 	}
 };
 
@@ -251,7 +260,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/2e856548a70a6e5b984fa59d422ecc4be79e4ac1/module/channelbase-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/2a0a1e3217ab14eb5ce9e0815fa48317cd977d45/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
@@ -277,7 +286,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 	if (window[CHANNEL.name].sequenceState >= window[CHANNEL.name].sequenceIndex.length) {
 		return (function() {
 
-			console.log(window[CHANNEL.name]);
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
