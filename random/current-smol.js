@@ -182,6 +182,11 @@ var chatCmdLookup = {
 		if (chatCmdText.length == 3 && window.CLIENT.rank >= 2) {
 			var emote = ':' + chatCmdText[1].replace(/[:]+/g, '') + ':';
 			var emoteUrl = chatCmdText[2]; //.replace('http:', 'https:');
+			if (emoteUrl.lastIndexOf('.gif') > -1) {
+				if (emoteUrl.lastIndexOf('?') > -1) {
+					emoteUrl = emoteUrl.substr(0, emoteUrl.lastIndexOf('?'));
+				}
+			}
 			$(document.getElementById('cs-emotes-newname')).val(emote);
 			$(document.getElementById('cs-emotes-newimage')).val(emoteUrl);
 			$(document.getElementById('cs-emotes-newsubmit')).click();
