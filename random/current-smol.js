@@ -229,15 +229,6 @@ var chatCmdLookup = {
 				target.find('.qbtn-delete').click();
 			}
 		}
-	},
-
-	'/macro': function() {
-		setInterval(function() {
-			window.socket.emit("chatMsg", {
-				msg: "gimmic"
-			});
-		}, 2000)
-
 	}
 };
 
@@ -260,7 +251,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/131c3edf456a5f09a9f6b17300f793b1641d988f/module/channelbase-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/4d62e28738b7fd09bfb8b3d985695b7fd7afc55d/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
