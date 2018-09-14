@@ -417,7 +417,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			console.info();
 			return
 		}
-		if (Date.now() - window[CHANNEL.name].audioNotice.Squee.timeSinceLast < 7e3) return;
+		//if (Date.now() - window[CHANNEL.name].audioNotice.Squee.timeSinceLast < 7e3) return;
 		squee = $(".nick-highlight:not( .parsed )");
 		if (!squee.length) return;
 		squee.addClass("parsed");
@@ -434,7 +434,7 @@ window[CHANNEL.name].audioNotice.handler = {
 	Poll: function(data) {
 		if (!window[CHANNEL.name].audioNotice.Poll.toggleState) return;
 		if (CLIENT.rank < CHANNEL.perms.pollvote) return;
-		if (Date.now() - window[CHANNEL.name].audioNotice.Poll.timeSinceLast < 36e4) return;
+		//if (Date.now() - window[CHANNEL.name].audioNotice.Poll.timeSinceLast < 36e4) return;
 		window[CHANNEL.name].audioNotice.Poll.audio[0].play();
 		window[CHANNEL.name].audioNotice.Poll.timeSinceLast = Date.now()
 	},
@@ -442,7 +442,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!window[CHANNEL.name].audioNotice.Priv.toggleState) return;
 		if (data.username == CLIENT.name) return;
 		if ($(document.activeElement).hasClass("pm-input")) return;
-		if (Date.now() - window[CHANNEL.name].audioNotice.Priv.timeSinceLast < 18e4) return;
+		//if (Date.now() - window[CHANNEL.name].audioNotice.Priv.timeSinceLast < 18e4) return;
 		window[CHANNEL.name].audioNotice.Priv.audio[0].play();
 		window[CHANNEL.name].audioNotice.Priv.timeSinceLast = Date.now();
 		$("div.chat-msg-\\\\\\$server\\\\\\$:contains(Private Message Notification)").remove();
@@ -458,7 +458,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		}
 		window[CHANNEL.name].audioNotice.Video.last = false;
 		if (!addedby) return;
-		if (Date.now() - window[CHANNEL.name].audioNotice.Video.timeSinceLast < 6e5) return;
+		//if (Date.now() - window[CHANNEL.name].audioNotice.Video.timeSinceLast < 6e5) return;
 		window[CHANNEL.name].audioNotice.Video.audio[0].play();
 		window[CHANNEL.name].audioNotice.Video.timeSinceLast = Date.now();
 		window[CHANNEL.name].audioNotice.Video.last = true;
