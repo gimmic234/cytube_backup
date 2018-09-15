@@ -9,10 +9,10 @@ var emoteKeyLookup = {
 			if (next.length > 0) {
 				selectedPopover = next.addClass('active');
 			} else {
-				selectedPopover = selectedPopover.eq(0).addClass('active');
+				selectedPopover = $('.emote-table tbody').children().first().addClass('active');
 			}
 		} else {
-			selectedPopover = selectedPopover.eq(0).addClass('active');
+			selectedPopover = $('.emote-table tbody').children().first().addClass('active');
 		}
 	},
 	38: function(e) {
@@ -22,10 +22,10 @@ var emoteKeyLookup = {
 			if (next.length > 0) {
 				selectedPopover = next.addClass('active');
 			} else {
-				selectedPopover = selectedPopover.last().addClass('active');
+				selectedPopover = $('.emote-table tbody').children().last().addClass('active');
 			}
 		} else {
-			selectedPopover = selectedPopover.last().addClass('active');
+			selectedPopover = $('.emote-table tbody').children().last().addClass('active');
 		}
 	},
 	9: function(e) {
@@ -99,6 +99,46 @@ var chatKeyLookup = {
 
 		e.preventDefault();
 		return false;
+	}
+}
+
+function setAutobg() {
+	let textArray = [0, background_img_auto];
+	editJs(4, textArray);
+}
+
+function countdownMsg(totalSeconds) {
+	if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+		window.socket.emit("chatMsg", {
+			msg: totalSeconds + "..."
+		});
+	}
+
+	if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+		totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
+		window.socket.emit("chatMsg", {
+			msg: "the stream will start in " + totalSeconds
+		});
+	}
+}
+
+function countdownComplete() {
+	let mode = motdMode.attr('data-value');
+	if (mode == 'true') {
+		let selectedList = $("li.list-keep");
+
+		setAutobg();
+
+		if (selectedList.length != 0) {
+			let delList = selectedList.prevAll();
+			deleteAllPlaylist(delList);
+			selectedList.find('button.qbtn-play').click();
+			window.socket.emit("chatMsg", {
+				msg: autostart_msg
+			});
+		}
+		cleanAutoStart();
+		motdMode.attr('data-value', 'false');
 	}
 }
 
@@ -328,9 +368,24 @@ function bindEventHandler() {
 		$(this).prop('disabled', true);
 		var video = $(this).parent().parent().children('a')[0].innerHTML;
 		window.socket.emit("chatMsg", {
-			msg: "removed [" + video + "]" 
+			msg: "removed [" + video + "]"
 		});
-		$(this).click();	
+		$(this).click();
 	});
+
+	$(window).focus(function(e) {
+		$(document.getElementById('chatline')).focus();
+	});
+	$(bodyElem).on('keydown', function(e) {
+		if (!document.activeElement.classList.contains('form-control') && !document.getElementById('channeloptions').classList.contains('in') && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
+			e.preventDefault();
+			$(document.getElementById('chatline')).focus();
+		}
+	});
+
+	$(bodyElem).on('mouseover', '.lazy', function() {
+		$(this).attr('src', $(this).attr('data-src'));
+		$(this).removeClass('lazy');
+	})
 
 }
