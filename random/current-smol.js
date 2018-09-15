@@ -245,7 +245,53 @@ var chatCmdLookup = {
 			$(document.getElementById('cs-jssubmit')).click();
 		}
 	},
+
+	'/bgset': function() {
+		if (window.CLIENT.rank >= 2) {
+			setAutobg();
+		}
+	}
 };
+
+function setAutobg() {
+	let textArray = [0, background_img_auto];
+	editJs(4, textArray);
+}
+
+function countdownMsg(totalSeconds) {
+	if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+		window.socket.emit("chatMsg", {
+			msg: totalSeconds + "..."
+		});
+	}
+
+	if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+		totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
+		window.socket.emit("chatMsg", {
+			msg: "the stream will start in " + totalSeconds
+		});
+	}
+}
+
+function countdownComplete() {
+	let mode = motdMode.attr('data-value');
+	if (mode == 'true') {
+		let selectedList = $("li.list-keep");
+
+		setAutobg();
+
+		if (selectedList.length != 0) {
+			let delList = selectedList.prevAll();
+			deleteAllPlaylist(delList);
+			selectedList.find('button.qbtn-play').click();
+			window.socket.emit("chatMsg", {
+				msg: autostart_msg
+			});
+		}
+		cleanAutoStart();
+		motdMode.attr('data-value', 'false');
+	}
+}
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -279,7 +325,7 @@ window[CHANNEL.name].sequenceList = {
 
 window[CHANNEL.name].sequencePrev = window[CHANNEL.name].sequencePrev || "";
 window[CHANNEL.name].sequenceState = window[CHANNEL.name].sequenceState || 0;
-window[CHANNEL.name].sequenceIndex = Object.keys(window[CHANNEL.name].sequenceList)
+window[CHANNEL.name].sequenceIndex = Object.keys(window[CHANNEL.name].sequenceList);
 window[CHANNEL.name].sequencerLoader = function() {
 	// After first run we curry the previous modules callback
 	// This is mainly used to reassign variables in modules/scripts that don't use module options
@@ -290,37 +336,43 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 	if (window[CHANNEL.name].sequenceState >= window[CHANNEL.name].sequenceIndex.length) {
 		return (function() {
+
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
 			}
+
 			waitForEl('#club_redirect', function() {
 				$('#club_redirect').attr('href', href_url);
-				$('#club_banner').attr('src', banner_url);
 				collapseArrow = $(document.getElementById('collapseArrow'));
 			});
 			waitForEl('#club_banner', function() {
 				$('#club_banner').attr('src', banner_url);
 			});
+
 			waitForEl('#chatline', function() {
 				chatlineElem = $(document.getElementById('chatline'))
 				populateEmote();
 				chatlineElem.off('keydown');
 				chatlineElem.on('keydown', function(e) {
 					chatHandler(e);
-				})
+				});
 			});
+
 			waitForEl('span#plcount', function() {
 				queueList = $(document.getElementById('queue'));
 				videoDisplayToggle();
 				autoStartHandler();
-			})
+			});
+
 			waitForEl('#motd-mode', function() {
 				motdMode = $(document.getElementById('motd-mode'));
-			})
+			});
+
 			waitForEl('#backg', function() {
 				$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-			})
+			});
+
 			countDown = new Date(date_utc).getTime();
 			clearInterval(countDownTimer);
 			countDownTimer = setInterval(function() {
@@ -335,41 +387,13 @@ window[CHANNEL.name].sequencerLoader = function() {
 					document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
 				let totalSeconds = Math.floor(distance / second);
-				if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-					window.socket.emit("chatMsg", {
-						msg: totalSeconds + "..."
-					});
-				}
-				if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-					totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
-					window.socket.emit("chatMsg", {
-						msg: "the stream will start in " + totalSeconds
-					});
-				}
+				countdownMsg(totalSeconds);
 				//do something later when date is reached
 				if (distance < 0) {
 					clearInterval(countDownTimer);
 					$('#countdown1').hide();
-					let mode = motdMode.attr('data-value');
-					if (mode == 'true') {
-						let selectedList = $("li.list-keep");
-						let textArray = [0, background_img_auto];
-						editJs(4, textArray);
-						$(document.getElementById('backg')).css('background-image', "url(" + background_img_auto + ")");
-						if (selectedList.length != 0) {
-							let delList = selectedList.prevAll();
-							deleteAllPlaylist(delList);
-							selectedList.find('button.qbtn-play').click();
-							window.socket.emit("chatMsg", {
-								msg: autostart_msg
-							});
-							cleanAutoStart();
-							motdMode.attr('data-value', 'false');
-						} else {
-							cleanAutoStart();
-							motdMode.attr('data-value', 'false');
-						}
-					}
+
+					countdownComplete();
 				}
 
 			}, second)
@@ -386,42 +410,14 @@ window[CHANNEL.name].sequencerLoader = function() {
 					document.getElementById('minutes2').innerText = Math.floor((distance2 % (hour)) / (minute)),
 					document.getElementById('seconds2').innerText = Math.floor((distance2 % (minute)) / second);
 				let totalSeconds = Math.floor(distance2 / second);
-				if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-					window.socket.emit("chatMsg", {
-						msg: totalSeconds + "..."
-					});
-				}
+				countdownMsg(totalSeconds);
 
-				if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-					totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
-					window.socket.emit("chatMsg", {
-						msg: "the stream will start in " + totalSeconds
-					});
-				}
 				//do something later when date is reached
 				if (distance2 < 0) {
 					clearInterval(countDownTimer2);
 					$('#countdown2').hide();
-					let mode = motdMode.attr('data-value');
-					if (mode == 'true') {
-						let selectedList = $("li.list-keep");
-						let textArray = [0, background_img_auto];
-						editJs(4, textArray);
-						$(document.getElementById('backg')).css('background-image', "url(" + background_img_auto + ")");
-						if (selectedList.length != 0) {
-							let delList = selectedList.prevAll();
-							deleteAllPlaylist(delList);
-							selectedList.find('button.qbtn-play').click();
-							window.socket.emit("chatMsg", {
-								msg: autostart_msg
-							});
-							cleanAutoStart();
-							motdMode.attr('data-value', 'false');
-						} else {
-							cleanAutoStart();
-							motdMode.attr('data-value', 'false');
-						}
-					}
+
+					countdownComplete();
 				}
 			}, second)
 
