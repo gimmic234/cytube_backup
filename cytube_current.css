@@ -114,3 +114,17 @@ span#days, span#hours, span#minutes, span#seconds, span#days2, span#hours2, span
     max-width: 100%;
     max-height: 200px;
 }
+
+.countdownbaseActive {
+    height: auto !important;
+    width: auto;
+    line-height: 5px;
+    margin: 0px auto 0;
+    padding: 0 50px;
+    background: #00000030;
+    color: #f2ea57;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0 7px #2220;
+    text-shadow: 0 0 3px #fff;
+}

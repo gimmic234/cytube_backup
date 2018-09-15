@@ -41,7 +41,7 @@ var countDownTimer;
 var countDown2;
 var countDownTimer2;
 var collapseArrow;
-var rankMod = 2, rankAdmin = 3;;
+var rankMod = (window.CLIENT.rank >= 2), rankAdmin = (window.CLIENT.rank >= 3);
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
@@ -56,7 +56,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/autostart': function() {
-		if (window.CLIENT.rank >= rankAdmin) {
+		if (rankAdmin) {
 			let toggle_mode = motdMode.attr('data-value');
 			toggle_mode = (toggle_mode == "true") ? "false" : "true";
 			motdMode.attr('data-value', toggle_mode);
@@ -82,7 +82,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/editbg': function(chatCmdText) {
-		if (chatCmdText.length > 1 && window.CLIENT.rank >= rankAdmin) {
+		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(4, chatCmdText);
@@ -92,7 +92,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/autobg': function(chatCmdText) {
-		if (chatCmdText.length > 1 && window.CLIENT.rank >= rankAdmin) {
+		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(22, chatCmdText);
@@ -102,7 +102,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/editbanner': function(chatCmdText) {
-		if (chatCmdText.length > 1 && window.CLIENT.rank >= rankAdmin) {
+		if (chatCmdText.length > 1 && rankAdmin) {
 			var textField = jsTextField.val();
 			var textFieldArray = textField.split("\n");
 			var bannerUrl = chatCmdText[1].replace(/['"]+/g, '').trim();
@@ -139,7 +139,7 @@ var chatCmdLookup = {
 		});
 	},
 	'/cdlocal': function(chatCmdText) {
-		if (chatCmdText.length > 5 && window.CLIENT.rank >= rankAdmin) {
+		if (chatCmdText.length > 5 && rankAdmin) {
 			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
 				window.socket.emit("chatMsg", {
 					msg: "error: invalid countdown input"
@@ -169,7 +169,7 @@ var chatCmdLookup = {
 	},
 
 	'/addemote': function(chatCmdText) {
-		if (chatCmdText.length == 3 && window.CLIENT.rank >= rankMod) {
+		if (chatCmdText.length == 3 && rankMod) {
 			var emote = ':' + chatCmdText[1].replace(/[:]+/g, '') + ':';
 			var emoteUrl = chatCmdText[2]; //.replace('http:', 'https:');
 			if (emoteUrl.lastIndexOf('.gif') > -1) {
@@ -205,7 +205,7 @@ var chatCmdLookup = {
 	},
 
 	'/skip': function(chatCmdText) {
-		if (window.CLIENT.rank >= rankMod) {
+		if (rankMod) {
 			var target = $(document.getElementsByClassName('queue_active'));
 			if (target.length > 0) {
 				var name = target.find('.qe_title')[0].innerHTML;
@@ -217,7 +217,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/cdlocal2': function(chatCmdText) {
-		if (chatCmdText.length > 5 && window.CLIENT.rank >= rankAdmin) {
+		if (chatCmdText.length > 5 && rankAdmin) {
 			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
 				window.socket.emit("chatMsg", {
 					msg: "error: invalid countdown2 input"
@@ -248,7 +248,7 @@ var chatCmdLookup = {
 	},
 
 	'/setbg': function() {
-		if (window.CLIENT.rank >= rankAdmin) {
+		if (rankAdmin) {
 			setAutobg();
 		}
 	}
@@ -268,7 +268,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/57fad9188974c7b8c8fd0ab35942327c8ab34690/random/current-ext.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/47a389745a61d2cf9d094ce4ebc39f07b80803a0/random/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -349,6 +349,17 @@ window[CHANNEL.name].sequencerLoader = function() {
 					document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
 				let totalSeconds = Math.floor(distance / second);
+
+				if (!document.getElementById('countdown1').classList.contains('countdownbaseActive') && totalSeconds < 86400) {
+					$(document.getElementById('countdown1')).removeClass('countdownbase');
+					$(document.getElementById('countdown1')).addClass('countdownbaseActive');
+				}
+
+				if (document.getElementById('countdown1').classList.contains('countdownbaseActive') && totalSeconds > 86400) {
+					$(document.getElementById('countdown1')).removeClass('countdownbaseActive');
+					$(document.getElementById('countdown1')).addClass('countdownbase');
+				}
+
 				countdownMsg(totalSeconds);
 				//do something later when date is reached
 				if (distance < 0) {
@@ -372,6 +383,17 @@ window[CHANNEL.name].sequencerLoader = function() {
 					document.getElementById('minutes2').innerText = Math.floor((distance2 % (hour)) / (minute)),
 					document.getElementById('seconds2').innerText = Math.floor((distance2 % (minute)) / second);
 				let totalSeconds = Math.floor(distance2 / second);
+
+				if (!document.getElementById('countdown2').classList.contains('countdownbaseActive') && totalSeconds < 86400) {
+					$(document.getElementById('countdown2')).removeClass('countdownbase');
+					$(document.getElementById('countdown2')).addClass('countdownbaseActive');
+				}
+
+				if (document.getElementById('countdown2').classList.contains('countdownbaseActive') && totalSeconds > 86400) {
+					$(document.getElementById('countdown2')).removeClass('countdownbaseActive');
+					$(document.getElementById('countdown2')).addClass('countdownbase');
+				}
+
 				countdownMsg(totalSeconds);
 
 				//do something later when date is reached
