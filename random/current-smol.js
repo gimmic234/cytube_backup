@@ -3,15 +3,24 @@
 var banner_url = 'https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
 var background_img = 'http://i.imgur.com/JYf9dgm.jpg';
-var autostart_msg = ":excited: start!";
+var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 9,
 	day: 16,
 	hour: 19,
 	minute: 0,
-	second: 0
+	second: 0,
 };
+var countdown_utc2 = {
+	year2: 2018,
+	month2: 9,
+	day2: 21,
+	hour2: 23,
+	minute2: 0,
+	second2: 0
+};
+var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 const second = 1000,
@@ -23,11 +32,14 @@ var selectedPopover;
 var emoteTable = false;
 var handlerKeydown;
 var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.day, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
+var date_utc2 = Date.UTC(countdown_utc2.year2, countdown_utc2.month2 - 1, countdown_utc2.day2, countdown_utc2.hour2, countdown_utc2.minute2, countdown_utc2.second2);
 var chatlineElem;
 var queueList;
 var emoteList;
 var countDown;
 var countDownTimer;
+var countDown2;
+var countDownTimer2;
 var collapseArrow;
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
@@ -47,7 +59,6 @@ var chatCmdLookup = {
 			let toggle_mode = motdMode.attr('data-value');
 			toggle_mode = (toggle_mode == "true") ? "false" : "true";
 			motdMode.attr('data-value', toggle_mode);
-
 			let list = queueList.children(":visible");
 			let new_mode = motdMode.attr('data-value');
 			if (new_mode == "true") {
@@ -70,12 +81,24 @@ var chatCmdLookup = {
 		}
 	},
 	'/editbg': function(chatCmdText) {
-		var url = chatCmdText[1].replace('https:', 'http:');
-		chatCmdText[1] = url;
-		editJs(4, chatCmdText);
-		window.socket.emit("chatMsg", {
-			msg: "background updated"
-		});
+		if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(4, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "background updated"
+			});
+		}
+	},
+	'/autobg': function(chatCmdText) {
+		if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(22, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "autostart background set to " + url
+			});
+		}
 	},
 	'/editbanner': function(chatCmdText) {
 		if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
@@ -102,42 +125,14 @@ var chatCmdLookup = {
 			deleteAllPlaylist(list);
 		}
 	},
-	'/countdown': function(chatCmdText) {
-		if (chatCmdText.length > 5 && window.CLIENT.rank >= 2) {
-			var textField = jsTextField.val();
-			var textFieldArray = textField.split("\n");
-
-			var year = textFieldArray[7].substr(0, textFieldArray[7].lastIndexOf(': '));
-			textField = isNaN(chatCmdText[1]) ? textField : textField.replace(textFieldArray[7], year + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ",");
-
-			var month = textFieldArray[8].substr(0, textFieldArray[8].lastIndexOf(': '));
-			textField = isNaN(chatCmdText[2]) ? textField : textField.replace(textFieldArray[8], month + ": " + chatCmdText[2].replace(/['"]+/g, '').trim() + ",");
-
-			var day = textFieldArray[9].substr(0, textFieldArray[9].lastIndexOf(': '));
-			textField = isNaN(chatCmdText[3]) ? textField : textField.replace(textFieldArray[9], day + ": " + chatCmdText[3].replace(/['"]+/g, '').trim() + ",");
-
-			var hour = textFieldArray[10].substr(0, textFieldArray[10].lastIndexOf(': '));
-			textField = isNaN(chatCmdText[4]) ? textField : textField.replace(textFieldArray[10], hour + ": " + chatCmdText[4].replace(/['"]+/g, '').trim() + ",");
-
-			var minute = textFieldArray[11].substr(0, textFieldArray[11].lastIndexOf(': '));
-			textField = isNaN(chatCmdText[5]) ? textField : textField.replace(textFieldArray[11], minute + ": " + chatCmdText[5].replace(/['"]+/g, '').trim() + ",");
-
-			jsTextField.val(textField);
-
-			window.socket.emit("chatMsg", {
-				msg: "countdown date updated"
-			});
-			$(document.getElementById('cs-jssubmit')).click();
-		}
-	},
-	'/dateutc': function() {
-		var date = countdown_utc.year + "-" + pad(countdown_utc.month) + "-" + pad(countdown_utc.day) + " " + pad(countdown_utc.hour) + ":" + pad(countdown_utc.minute);
+	'/date': function() {
+		var dateLocal = new Date(date_utc);
 		window.socket.emit("chatMsg", {
-			msg: "[" + date + "] (UTC)"
+			msg: "[" + dateLocal.toString() + "] (Local)"
 		});
 	},
-	'/datelocal': function() {
-		var dateLocal = new Date(date_utc);
+	'/date2': function() {
+		var dateLocal = new Date(date_utc2);
 		window.socket.emit("chatMsg", {
 			msg: "[" + dateLocal.toString() + "] (Local)"
 		});
@@ -150,23 +145,17 @@ var chatCmdLookup = {
 				});
 				return false;
 			}
-
 			var date = new Date(chatCmdText[1], chatCmdText[2], chatCmdText[3], chatCmdText[4], chatCmdText[5]);
 			var textField = jsTextField.val();
 			var textFieldArray = textField.split("\n");
-
 			var year = textFieldArray[7].substr(0, textFieldArray[7].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[7], year + ": " + date.getUTCFullYear() + ",");
-
 			var month = textFieldArray[8].substr(0, textFieldArray[8].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[8], month + ": " + date.getUTCMonth() + ",");
-
 			var day = textFieldArray[9].substr(0, textFieldArray[9].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[9], day + ": " + date.getUTCDate() + ",");
-
 			var hour = textFieldArray[10].substr(0, textFieldArray[10].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[10], hour + ": " + date.getUTCHours() + ",");
-
 			var minute = textFieldArray[11].substr(0, textFieldArray[11].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[11], minute + ": " + date.getUTCMinutes() + ",");
 
@@ -211,15 +200,6 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "@" + url + "@"
 			});
-			/*if (url.lastIndexOf('.gif') > -1) {
-				window.socket.emit("chatMsg", {
-					msg: ";;" + url + ";;"
-				});
-			} else {
-				window.socket.emit("chatMsg", {
-					msg: "@" + url + "@"
-				});
-			}*/
 		}
 	},
 
@@ -234,7 +214,37 @@ var chatCmdLookup = {
 				target.find('.qbtn-delete').click();
 			}
 		}
-	}
+	},
+	'/cdlocal2': function(chatCmdText) {
+		if (chatCmdText.length > 5 && window.CLIENT.rank >= 2) {
+			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
+				window.socket.emit("chatMsg", {
+					msg: "error: invalid countdown2 input"
+				});
+				return false;
+			}
+
+			var date = new Date(chatCmdText[1], chatCmdText[2], chatCmdText[3], chatCmdText[4], chatCmdText[5]);
+			var textField = jsTextField.val();
+			var textFieldArray = textField.split("\n");
+			var year = textFieldArray[15].substr(0, textFieldArray[15].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[15], year + ": " + date.getUTCFullYear() + ",");
+			var month = textFieldArray[16].substr(0, textFieldArray[16].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[16], month + ": " + date.getUTCMonth() + ",");
+			var day = textFieldArray[17].substr(0, textFieldArray[17].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[17], day + ": " + date.getUTCDate() + ",");
+			var hour = textFieldArray[18].substr(0, textFieldArray[18].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[18], hour + ": " + date.getUTCHours() + ",");
+			var minute = textFieldArray[19].substr(0, textFieldArray[19].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[19], minute + ": " + date.getUTCMinutes() + ",");
+
+			jsTextField.val(textField);
+			window.socket.emit("chatMsg", {
+				msg: "countdown2 date updated"
+			});
+			$(document.getElementById('cs-jssubmit')).click();
+		}
+	},
 };
 
 /*!
@@ -270,7 +280,6 @@ window[CHANNEL.name].sequenceList = {
 window[CHANNEL.name].sequencePrev = window[CHANNEL.name].sequencePrev || "";
 window[CHANNEL.name].sequenceState = window[CHANNEL.name].sequenceState || 0;
 window[CHANNEL.name].sequenceIndex = Object.keys(window[CHANNEL.name].sequenceList)
-
 window[CHANNEL.name].sequencerLoader = function() {
 	// After first run we curry the previous modules callback
 	// This is mainly used to reassign variables in modules/scripts that don't use module options
@@ -281,22 +290,18 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 	if (window[CHANNEL.name].sequenceState >= window[CHANNEL.name].sequenceIndex.length) {
 		return (function() {
-
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
 			}
-
 			waitForEl('#club_redirect', function() {
 				$('#club_redirect').attr('href', href_url);
 				$('#club_banner').attr('src', banner_url);
 				collapseArrow = $(document.getElementById('collapseArrow'));
 			});
-
 			waitForEl('#club_banner', function() {
 				$('#club_banner').attr('src', banner_url);
 			});
-
 			waitForEl('#chatline', function() {
 				chatlineElem = $(document.getElementById('chatline'))
 				populateEmote();
@@ -305,37 +310,82 @@ window[CHANNEL.name].sequencerLoader = function() {
 					chatHandler(e);
 				})
 			});
-
 			waitForEl('span#plcount', function() {
 				queueList = $(document.getElementById('queue'));
 				videoDisplayToggle();
 				autoStartHandler();
 			})
-
 			waitForEl('#motd-mode', function() {
 				motdMode = $(document.getElementById('motd-mode'));
 			})
-
 			waitForEl('#backg', function() {
 				$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			})
-
 			countDown = new Date(date_utc).getTime();
 			clearInterval(countDownTimer);
 			countDownTimer = setInterval(function() {
-				if ($('.countdownbase:hidden').length > 0) {
-					$('.countdownbase').show();
+				if ($('#countdown1:hidden').length > 0) {
+					$('#countdown1').show();
 				}
 				let now = new Date().getTime(),
 					distance = countDown - now;
-
 				document.getElementById('days').innerText = Math.floor(distance / (day)),
 					document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
 					document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
 					document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
 				let totalSeconds = Math.floor(distance / second);
+				if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+					window.socket.emit("chatMsg", {
+						msg: totalSeconds + "..."
+					});
+				}
+				if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+					totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
+					window.socket.emit("chatMsg", {
+						msg: "the stream will start in " + totalSeconds
+					});
+				}
+				//do something later when date is reached
+				if (distance < 0) {
+					clearInterval(countDownTimer);
+					$('#countdown1').hide();
+					let mode = motdMode.attr('data-value');
+					if (mode == 'true') {
+						let selectedList = $("li.list-keep");
+						let textArray = [0, background_img_auto];
+						editJs(4, textArray);
+						$(document.getElementById('backg')).css('background-image', "url(" + background_img_auto + ")");
+						if (selectedList.length != 0) {
+							let delList = selectedList.prevAll();
+							deleteAllPlaylist(delList);
+							selectedList.find('button.qbtn-play').click();
+							window.socket.emit("chatMsg", {
+								msg: autostart_msg
+							});
+							cleanAutoStart();
+							motdMode.attr('data-value', 'false');
+						} else {
+							cleanAutoStart();
+							motdMode.attr('data-value', 'false');
+						}
+					}
+				}
 
+			}, second)
+			countDown2 = new Date(date_utc2).getTime();
+			clearInterval(countDownTimer2);
+			countDownTimer2 = setInterval(function() {
+				if ($('#countdown2:hidden').length > 0) {
+					$('#countdown2').show();
+				}
+				let now2 = new Date().getTime(),
+					distance2 = countDown2 - now2;
+				document.getElementById('days2').innerText = Math.floor(distance2 / (day)),
+					document.getElementById('hours2').innerText = Math.floor((distance2 % (day)) / (hour)),
+					document.getElementById('minutes2').innerText = Math.floor((distance2 % (hour)) / (minute)),
+					document.getElementById('seconds2').innerText = Math.floor((distance2 % (minute)) / second);
+				let totalSeconds = Math.floor(distance2 / second);
 				if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
 					window.socket.emit("chatMsg", {
 						msg: totalSeconds + "..."
@@ -348,14 +398,16 @@ window[CHANNEL.name].sequencerLoader = function() {
 						msg: "the stream will start in " + totalSeconds
 					});
 				}
-
 				//do something later when date is reached
-				if (distance < 0) {
-					clearInterval(countDownTimer);
-					$('.countdownbase').hide();
+				if (distance2 < 0) {
+					clearInterval(countDownTimer2);
+					$('#countdown2').hide();
 					let mode = motdMode.attr('data-value');
 					if (mode == 'true') {
 						let selectedList = $("li.list-keep");
+						let textArray = [0, background_img_auto];
+						editJs(4, textArray);
+						$(document.getElementById('backg')).css('background-image', "url(" + background_img_auto + ")");
 						if (selectedList.length != 0) {
 							let delList = selectedList.prevAll();
 							deleteAllPlaylist(delList);
@@ -366,17 +418,12 @@ window[CHANNEL.name].sequencerLoader = function() {
 							cleanAutoStart();
 							motdMode.attr('data-value', 'false');
 						} else {
-							window.socket.emit("chatMsg", {
-								msg: "error: the video was not selected"
-							});
 							cleanAutoStart();
 							motdMode.attr('data-value', 'false');
 						}
 					}
 				}
-
 			}, second)
-
 
 		})()
 	}

@@ -2,14 +2,21 @@
   <img src width="100%" height="100%" id="club_banner" />
 </a>
 
-<div class="countdownbase">
+<div class="countdownbase" id="countdown1">
 <div class="container"> 
-  <h1 id="head">Next Stream starts in..</h1> 
+  <h1 id="head">Next Club Stream starts in...</h1> 
   <div class="countdown"> 
     <span id="days"></span>days<span id="hours"></span>Hours<span id="minutes"></span>Minutes<span id="seconds"></span>Seconds
   </div> 
 </div></div>
 
+<div class="countdownbase" id="countdown2">
+<div class="container"> 
+  <h1 id="head">Next HxH Stream starts in...</h1> 
+  <div class="countdown"> 
+    <span id="days2"></span>days<span id="hours2"></span>Hours<span id="minutes2"></span>Minutes<span id="seconds2"></span>Seconds
+  </div> 
+</div></div>
 
 <div>
   <a class="btn btn-default expand-arrow" data-toggle="collapse" href="#collapseMessage" role="button" aria-expanded="false" aria-controls="collapseMessage">
@@ -24,21 +31,22 @@
         All
         <ul>
           <li>/addq [url_1] [url_2] ... - adds urls to the playlist</li>
-          <li>/dateutc - stream time in utc</li>
-          <li>/datelocal - stream time in the local timezone</li>
           <li>/img [url] - posts image/gif</li>
+          <li>/date - stream time in the local timezone</li>
+          <li>/date2 - stream time2 in the local timezone</li>
         </ul>
       </div>
       <div class="col-sm-6">
         Admin
       <ul>
         <li>/autostart - toggle autostart on countdown = 0</li>
+        <li>/autobg [url] - sets background image for autostart</li>
         <li>/editbg [url] - changes background image</li>
         <li>/editbanner [url] - changes banner</li>
         <li>/purge - delete playlist</li>
         <li>/clear - clears chat</li>
-        <li>/countdown [year] [month] [day] [hour] [minute] - set countdown date (utc)</li>
         <li>/cdlocal [year] [month] [day] [hour] [minute] - set countdown date (local)</li>
+        <li>/cdlocal2 [year] [month] [day] [hour] [minute] - set countdown2 date (local)</li>
         <li>/addemote [tag] [url]</li>
         <li>/skip - remove current video</li>
       </ul>
