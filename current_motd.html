@@ -20,14 +20,14 @@
 
 <div>
   <a class="btn btn-default expand-arrow" data-toggle="collapse" href="#collapseMessage" role="button" aria-expanded="false" aria-controls="collapseMessage">
-    <span id="collapseArrow" class="glyphicon glyphicon-chevron-down"></span>
+    <span id="collapseArrow" class="glyphicon glyphicon-chevron-up"></span>
   </a> 
 </div>
-<div class="collapse" id="collapseMessage">
+<div class="collapse in" id="collapseMessage">
   <div class="card card-body">
     <h4>Chat commands</h4>
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         All
         <ul>
           <li>/addq [url_1] [url_2] ... - adds urls to the playlist</li>
@@ -36,20 +36,25 @@
           <li>/date2 - stream time2 in the local timezone</li>
         </ul>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
+        Mod
+        <ul>
+          <li>/purge - delete playlist</li>
+          <li>/clear - clears chat</li>
+          <li>/skip - remove current video</li>
+          <li>/addemote [tag] [url]</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
         Admin
       <ul>
         <li>/autostart - toggle autostart on countdown = 0</li>
         <li>/autobg [url] - saves background image for autostart</li>
-        <li>/bgset [url] - changes background image to autobg</li>
+        <li>/setbg [url] - changes background image to autobg</li>
         <li>/editbg [url] - changes background image</li>
         <li>/editbanner [url] - changes banner</li>
-        <li>/purge - delete playlist</li>
-        <li>/clear - clears chat</li>
-        <li>/cdlocal [year] [month] [day] [hour] [minute] - set countdown date (local)</li>
-        <li>/cdlocal2 [year] [month] [day] [hour] [minute] - set countdown2 date (local)</li>
-        <li>/addemote [tag] [url]</li>
-        <li>/skip - remove current video</li>
+        <li>/cdlocal [year] [month] [day] [hour] [minute]</li>
+        <li>/cdlocal2 [year] [month] [day] [hour] [minute]</li>
       </ul>
       </div>
     </div>

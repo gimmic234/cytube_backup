@@ -102,6 +102,46 @@ var chatKeyLookup = {
 	}
 }
 
+function setAutobg() {
+	let textArray = [0, background_img_auto];
+	editJs(4, textArray);
+}
+
+function countdownMsg(totalSeconds) {
+	if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+		window.socket.emit("chatMsg", {
+			msg: totalSeconds + "..."
+		});
+	}
+
+	if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
+		totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
+		window.socket.emit("chatMsg", {
+			msg: "the stream will start in " + totalSeconds
+		});
+	}
+}
+
+function countdownComplete() {
+	let mode = motdMode.attr('data-value');
+	if (mode == 'true') {
+		let selectedList = $("li.list-keep");
+
+		setAutobg();
+
+		if (selectedList.length != 0) {
+			let delList = selectedList.prevAll();
+			deleteAllPlaylist(delList);
+			selectedList.find('button.qbtn-play').click();
+			window.socket.emit("chatMsg", {
+				msg: autostart_msg
+			});
+		}
+		cleanAutoStart();
+		motdMode.attr('data-value', 'false');
+	}
+}
+
 var emoteSelectSubmit = function(e) {
 	if (selectedPopover) {
 		e.preventDefault();

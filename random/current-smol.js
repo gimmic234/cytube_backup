@@ -41,6 +41,7 @@ var countDownTimer;
 var countDown2;
 var countDownTimer2;
 var collapseArrow;
+var rankMod = 2, rankAdmin = 3;;
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
@@ -55,7 +56,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/autostart': function() {
-		if (window.CLIENT.rank >= 2) {
+		if (window.CLIENT.rank >= rankAdmin) {
 			let toggle_mode = motdMode.attr('data-value');
 			toggle_mode = (toggle_mode == "true") ? "false" : "true";
 			motdMode.attr('data-value', toggle_mode);
@@ -81,7 +82,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/editbg': function(chatCmdText) {
-		if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+		if (chatCmdText.length > 1 && window.CLIENT.rank >= rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(4, chatCmdText);
@@ -91,7 +92,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/autobg': function(chatCmdText) {
-		if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+		if (chatCmdText.length > 1 && window.CLIENT.rank >= rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(22, chatCmdText);
@@ -101,7 +102,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/editbanner': function(chatCmdText) {
-		if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+		if (chatCmdText.length > 1 && window.CLIENT.rank >= rankAdmin) {
 			var textField = jsTextField.val();
 			var textFieldArray = textField.split("\n");
 			var bannerUrl = chatCmdText[1].replace(/['"]+/g, '').trim();
@@ -120,7 +121,7 @@ var chatCmdLookup = {
 		});
 	},
 	'/purge': function() {
-		if (window.CLIENT.rank >= 2) {
+		if (window.CLIENT.rank >= rankMod) {
 			let list = queueList.children(":visible");
 			deleteAllPlaylist(list);
 		}
@@ -138,7 +139,7 @@ var chatCmdLookup = {
 		});
 	},
 	'/cdlocal': function(chatCmdText) {
-		if (chatCmdText.length > 5 && window.CLIENT.rank >= 2) {
+		if (chatCmdText.length > 5 && window.CLIENT.rank >= rankAdmin) {
 			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
 				window.socket.emit("chatMsg", {
 					msg: "error: invalid countdown input"
@@ -168,7 +169,7 @@ var chatCmdLookup = {
 	},
 
 	'/addemote': function(chatCmdText) {
-		if (chatCmdText.length == 3 && window.CLIENT.rank >= 2) {
+		if (chatCmdText.length == 3 && window.CLIENT.rank >= rankMod) {
 			var emote = ':' + chatCmdText[1].replace(/[:]+/g, '') + ':';
 			var emoteUrl = chatCmdText[2]; //.replace('http:', 'https:');
 			if (emoteUrl.lastIndexOf('.gif') > -1) {
@@ -204,7 +205,7 @@ var chatCmdLookup = {
 	},
 
 	'/skip': function(chatCmdText) {
-		if (window.CLIENT.rank >= 2) {
+		if (window.CLIENT.rank >= rankMod) {
 			var target = $(document.getElementsByClassName('queue_active'));
 			if (target.length > 0) {
 				var name = target.find('.qe_title')[0].innerHTML;
@@ -216,7 +217,7 @@ var chatCmdLookup = {
 		}
 	},
 	'/cdlocal2': function(chatCmdText) {
-		if (chatCmdText.length > 5 && window.CLIENT.rank >= 2) {
+		if (chatCmdText.length > 5 && window.CLIENT.rank >= rankAdmin) {
 			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
 				window.socket.emit("chatMsg", {
 					msg: "error: invalid countdown2 input"
@@ -246,52 +247,13 @@ var chatCmdLookup = {
 		}
 	},
 
-	'/bgset': function() {
-		if (window.CLIENT.rank >= 2) {
+	'/setbg': function() {
+		if (window.CLIENT.rank >= rankAdmin) {
 			setAutobg();
 		}
 	}
 };
 
-function setAutobg() {
-	let textArray = [0, background_img_auto];
-	editJs(4, textArray);
-}
-
-function countdownMsg(totalSeconds) {
-	if (totalSeconds <= 5 && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-		window.socket.emit("chatMsg", {
-			msg: totalSeconds + "..."
-		});
-	}
-
-	if ((totalSeconds === 600 || totalSeconds === 300 || totalSeconds === 60 || totalSeconds === 30) && totalSeconds > 0 && motdMode.attr('data-value') == "true") {
-		totalSeconds = (totalSeconds >= 60) ? (totalSeconds / 60) + " minute(s)" : totalSeconds + " seconds";
-		window.socket.emit("chatMsg", {
-			msg: "the stream will start in " + totalSeconds
-		});
-	}
-}
-
-function countdownComplete() {
-	let mode = motdMode.attr('data-value');
-	if (mode == 'true') {
-		let selectedList = $("li.list-keep");
-
-		setAutobg();
-
-		if (selectedList.length != 0) {
-			let delList = selectedList.prevAll();
-			deleteAllPlaylist(delList);
-			selectedList.find('button.qbtn-play').click();
-			window.socket.emit("chatMsg", {
-				msg: autostart_msg
-			});
-		}
-		cleanAutoStart();
-		motdMode.attr('data-value', 'false');
-	}
-}
 
 /*!
  **|   XaeMae Sequenced Module Loader
