@@ -455,7 +455,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 				}
 			}, second)
 
-		})()
+		})();
 	}
 
 	var currKey = window[CHANNEL.name].sequenceIndex[window[CHANNEL.name].sequenceState];
