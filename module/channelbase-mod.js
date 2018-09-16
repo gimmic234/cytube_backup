@@ -131,7 +131,7 @@ Callbacks.queue = function(data) {//currently for debugging purposes only. Doesn
 	console.log("Called Callbacks.queue");
 	console.log(data);
 	window.socket.emit("chatMsg", {
-		msg: "[" + data.media.title + "] queued by " + data.queueby
+		msg: "[" + data.item.media.title + "(" + data.item.media.duration + ")] queued by " + data.item.queueby
 	});
 }
 
