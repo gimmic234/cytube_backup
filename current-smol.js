@@ -314,13 +314,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/2d69376dfb8839c00058c6ac005aa9b85f412aa8/current-ext.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/713e6d6df547c15cd5fb2007825cfac46a83fec8/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/f50835db1e10246f2ff22f338b5eefa43ad22158/module/channelbase-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/713e6d6df547c15cd5fb2007825cfac46a83fec8/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
