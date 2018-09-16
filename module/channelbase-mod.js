@@ -128,11 +128,11 @@ if (typeof(_mediaupdateVIDEBLU) == 'undefined') { _mediaUpdateVIDEBLU = Callback
 
 Callbacks.queue = function(data) {//currently for debugging purposes only. Doesn't do anything.
 	_queueVIDEBLU(data);
-	window.socket.emit("chatMsg", {
-		msg: "[" + data.media.title + "] queued by " + data.queueby
-	})
 	console.log("Called Callbacks.queue");
 	console.log(data);
+	window.socket.emit("chatMsg", {
+		msg: "[" + data.media.title + "] queued by " + data.queueby
+	});
 }
 
 Callbacks.playlist = function(data) {//currently for debugging purposes only. Doesn't do anything.
