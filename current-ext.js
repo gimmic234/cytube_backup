@@ -194,6 +194,16 @@ function chatHandler(e) {
 	return true;
 };
 
+function getAutoPosition() {
+	if (mode == "true") {
+		var target = $("li.list-keep");
+		if (target.length > 0) {
+			autoPosition = queueList.children().index(target);
+			console.log(autoPosition);
+		}
+	}
+}
+
 function preloadImages(array) {
 	if (!preloadImages.list) {
 		preloadImages.list = [];
@@ -221,6 +231,7 @@ function deleteAllPlaylist(delList) {
 function cleanAutoStart() {
 	let list = queueList.children(":visible");
 	queueList.find("button.btn-auto-keep").remove();
+	autoPosition = -1;
 	list.each(function(index, value) {
 		$(value).removeClass('list-keep');
 	})
@@ -251,7 +262,8 @@ function autoStartHandler() {
 		let list = queueList.children(":visible");
 		list.each(function(index, value) {
 			$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
-		})
+		});
+		getAutoPosition();
 	}
 }
 
@@ -331,22 +343,23 @@ function bindEventHandler() {
 
 		list.each(function(index, value) {
 			$(value).removeClass('list-keep');
+			autoPosition = -1;
 		});
 
-		if (toggle) {
-			listElem.removeClass('list-keep');
-		} else {
+		if (!toggle) {
 			listElem.addClass('list-keep');
+			getAutoPosition();
+			let name = listElem.find('a.qe_title')[0].innerHTML;
+			window.socket.emit("chatMsg", {
+				msg: "Autostart - [" + name + "]"
+			});
 		}
-		let name = listElem.find('a.qe_title')[0].innerHTML;
-		window.socket.emit("chatMsg", {
-			msg: "Autostart - [" + name + "]"
-		});
 	});
 
 	$(bodyElem).on('DOMSubtreeModified', '#plcount', function(e) {
 		videoDisplayToggle();
 		autoStartHandler();
+		getAutoPosition();
 	});
 
 	$(bodyElem).on('click', '.export', function() {

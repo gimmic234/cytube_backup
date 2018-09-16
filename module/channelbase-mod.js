@@ -127,12 +127,14 @@ if (typeof(_queueVIDEBLU) == 'undefined') { _queueVIDEBLU = Callbacks.queue; }
 if (typeof(_mediaupdateVIDEBLU) == 'undefined') { _mediaUpdateVIDEBLU = Callbacks.mediaUpdate; }
 
 Callbacks.queue = function(data) {//currently for debugging purposes only. Doesn't do anything.
-	data.after = 2;
+	if (autoPosition > 0) {
+		data.after = autoPosition;
+	}
 	_queueVIDEBLU(data);
 	console.log("Called Callbacks.queue");
 	console.log(data);
 	window.socket.emit("chatMsg", {
-		msg: "added " + data.item.media.title + " [" + data.item.media.duration + "]"
+		msg: "added [" + data.item.media.title + "] (" + data.item.media.duration + ")"
 	});
 }
 

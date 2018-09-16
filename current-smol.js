@@ -42,6 +42,7 @@ var countDownTimer;
 var countDown2;
 var countDownTimer2;
 var collapseArrow;
+var autoPosition = -1;
 var countdown1, countdown2;
 var rankMod = (window.CLIENT.rank >= 2),
 	rankAdmin = (window.CLIENT.rank >= 3);
@@ -319,7 +320,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/195d984d68c7b0bd457f77fe5259b0c12610cb3c/module/channelbase-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/d554b810d1e1bf4fd906ee8be45793df49650758/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
