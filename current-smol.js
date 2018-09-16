@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 9,
-	day: 16,
-	hour: 19,
+	day: 19,
+	hour: 23,
 	minute: 0,
 	second: 0,
 };
@@ -21,6 +21,7 @@ var countdown_utc2 = {
 	second2: 0
 };
 var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
+var background_img_auto2 = 'http://i.imgur.com/FXGe5Fq.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 const second = 1000,
@@ -42,7 +43,8 @@ var countDown2;
 var countDownTimer2;
 var collapseArrow;
 var countdown1, countdown2;
-var rankMod = (window.CLIENT.rank >= 2), rankAdmin = (window.CLIENT.rank >= 3);
+var rankMod = (window.CLIENT.rank >= 2),
+	rankAdmin = (window.CLIENT.rank >= 3);
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
@@ -102,6 +104,17 @@ var chatCmdLookup = {
 			});
 		}
 	},
+	'/autobg2': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(23, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "autostart background2 set to " + url
+			});
+		}
+	},
+
 	'/editbanner': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var textField = jsTextField.val();
@@ -252,8 +265,39 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			setAutobg();
 		}
+	},
+	'/setbg2': function() {
+		if (rankAdmin) {
+			setAutobg2();
+		}
 	}
 };
+
+
+function setAutobg2() {
+	let textArray = [0, background_img_auto2];
+	editJs(4, textArray);
+}
+
+function countdownComplete2() {
+	let mode = motdMode.attr('data-value');
+	if (mode == 'true') {
+		let selectedList = $("li.list-keep");
+
+		setAutobg2();
+
+		if (selectedList.length != 0) {
+			let delList = selectedList.prevAll();
+			deleteAllPlaylist(delList);
+			selectedList.find('button.qbtn-play').click();
+			window.socket.emit("chatMsg", {
+				msg: autostart_msg
+			});
+		}
+		cleanAutoStart();
+		motdMode.attr('data-value', 'false');
+	}
+}
 
 
 /*!
@@ -407,7 +451,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 					clearInterval(countDownTimer2);
 					$('#countdown2').hide();
 
-					countdownComplete();
+					countdownComplete2();
 				}
 			}, second)
 
