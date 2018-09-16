@@ -41,6 +41,7 @@ var countDownTimer;
 var countDown2;
 var countDownTimer2;
 var collapseArrow;
+var countdown1, countdown2;
 var rankMod = (window.CLIENT.rank >= 2), rankAdmin = (window.CLIENT.rank >= 3);
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
@@ -335,6 +336,11 @@ window[CHANNEL.name].sequencerLoader = function() {
 				$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			});
 
+			waitForEl('#countdown1', function() {
+				countdown1 = document.getElementById('countdown1');
+				countdown2 = document.getElementById('countdown2');
+			});
+
 			countDown = new Date(date_utc).getTime();
 			clearInterval(countDownTimer);
 			countDownTimer = setInterval(function() {
@@ -350,14 +356,14 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 				let totalSeconds = Math.floor(distance / second);
 
-				if (!document.getElementById('countdown1').classList.contains('countdownbaseActive') && totalSeconds < 86400) {
-					$(document.getElementById('countdown1')).removeClass('countdownbase');
-					$(document.getElementById('countdown1')).addClass('countdownbaseActive');
+				if (totalSeconds < 86400 && !countdown1.classList.contains('countdownbaseActive')) {
+					$(countdown1).removeClass('countdownbase');
+					$(countdown1).addClass('countdownbaseActive');
 				}
 
-				if (document.getElementById('countdown1').classList.contains('countdownbaseActive') && totalSeconds > 86400) {
-					$(document.getElementById('countdown1')).removeClass('countdownbaseActive');
-					$(document.getElementById('countdown1')).addClass('countdownbase');
+				if (totalSeconds > 86400 && countdown1.classList.contains('countdownbaseActive')) {
+					$(countdown1).removeClass('countdownbaseActive');
+					$(countdown1).addClass('countdownbase');
 				}
 
 				countdownMsg(totalSeconds);
@@ -384,14 +390,14 @@ window[CHANNEL.name].sequencerLoader = function() {
 					document.getElementById('seconds2').innerText = Math.floor((distance2 % (minute)) / second);
 				let totalSeconds = Math.floor(distance2 / second);
 
-				if (!document.getElementById('countdown2').classList.contains('countdownbaseActive') && totalSeconds < 86400) {
-					$(document.getElementById('countdown2')).removeClass('countdownbase');
-					$(document.getElementById('countdown2')).addClass('countdownbaseActive');
+				if (totalSeconds < 86400 && !countdown2.classList.contains('countdownbaseActive')) {
+					$(countdown2).removeClass('countdownbase');
+					$(countdown2).addClass('countdownbaseActive');
 				}
 
-				if (document.getElementById('countdown2').classList.contains('countdownbaseActive') && totalSeconds > 86400) {
-					$(document.getElementById('countdown2')).removeClass('countdownbaseActive');
-					$(document.getElementById('countdown2')).addClass('countdownbase');
+				if (totalSeconds > 86400 && countdown2.classList.contains('countdownbaseActive')) {
+					$(countdown2).removeClass('countdownbaseActive');
+					$(countdown2).addClass('countdownbase');
 				}
 
 				countdownMsg(totalSeconds);
