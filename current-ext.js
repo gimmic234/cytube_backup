@@ -195,6 +195,7 @@ function chatHandler(e) {
 };
 
 function getAutoPosition() {
+	let mode = motdMode.attr('data-value');
 	if (mode == "true") {
 		var target = $("li.list-keep");
 		if (target.length > 0) {
