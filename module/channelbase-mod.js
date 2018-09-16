@@ -127,9 +127,9 @@ if (typeof(_queueVIDEBLU) == 'undefined') { _queueVIDEBLU = Callbacks.queue; }
 if (typeof(_mediaupdateVIDEBLU) == 'undefined') { _mediaUpdateVIDEBLU = Callbacks.mediaUpdate; }
 
 Callbacks.queue = function(data) {//currently for debugging purposes only. Doesn't do anything.
-	if (autoPosition > 0) {
+	/*if (autoPosition > 0) {
 		data.after = autoPosition;
-	}
+	}*/
 	_queueVIDEBLU(data);
 	console.log("Called Callbacks.queue");
 	console.log(data);
