@@ -128,3 +128,25 @@ span#days, span#hours, span#minutes, span#seconds, span#days2, span#hours2, span
     box-shadow: 0 0 7px #2220;
     text-shadow: 0 0 3px #fff;
 }
+
+
+.spoiler-img-inside {
+    color: #a2a2a2;
+    background: rgba(0, 0, 0, 0.08);
+    filter: blur(70px);
+    -webkit-filter: blur(70px);
+    -moz-filter: blur(70px);
+    -o-filter: blur(70px);
+    -ms-filter: blur(70px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='5');
+    transform: scale(1.001);
+}
+
+.spoiler-img:hover {
+    cursor: pointer;
+}
+
+.imgContainer {
+    border: solid 1px white;
+    overflow: hidden;
+}

@@ -216,6 +216,20 @@ var chatCmdLookup = {
 		}
 	},
 
+	'/spimg': function(chatCmdText) {
+		if (chatCmdText.length == 2) {
+			var url = chatCmdText[1].replace('https:', '');
+			url = url.replace('http:', '');
+			if (url.lastIndexOf('?') > -1) {
+				url = url.substr(0, url.lastIndexOf('?'));
+			}
+
+			window.socket.emit("chatMsg", {
+				msg: ";;" + url + ";;"
+			});
+		}
+	},
+
 	'/skip': function(chatCmdText) {
 		if (rankMod) {
 			var target = $(document.getElementsByClassName('queue_active'));
@@ -358,6 +372,17 @@ window[CHANNEL.name].sequencerLoader = function() {
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
+				$(document.body).on('click', '.spoiler-img', function() {
+					if ($(this).find('img').css('filter') != 'blur(0px)') {
+						$(this).find('img').css('filter', 'blur(0px)');
+						$(this).parent().removeClass('imgContainer');
+						$(this).attr('title', '');
+						var elem = $(this);
+						setTimeout(function() {
+							elem.attr('href', elem.find('img').attr('src'));
+						}, 1000)
+					}
+				});
 			}
 
 			waitForEl('#club_redirect', function() {
