@@ -262,18 +262,24 @@ var chatCmdLookup = {
 	'/setbg': function() {
 		if (rankAdmin) {
 			setAutobg();
+			window.socket.emit("chatMsg", {
+				msg: "loading bg1"
+			});
 		}
 	},
 	'/setbg2': function() {
 		if (rankAdmin) {
 			setAutobg2();
+			window.socket.emit("chatMsg", {
+				msg: "loading bg2"
+			});
 		}
 	},
 
 	'/addmsg': function() {
 		if (rankMod) {
 			var msg = (addVidMsg == "true") ? "false" : "true";
-			editJs(24, msg);
+			editJs(24, [0, msg]);
 		}
 	}
 };
