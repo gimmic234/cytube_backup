@@ -295,6 +295,12 @@ var chatCmdLookup = {
 			var msg = (addVidMsg == "true") ? "false" : "true";
 			editJs(24, [0, msg]);
 		}
+	},
+
+	'/log': function() {
+		if (rankAdmin) {
+			$(document.getElementById('export-btn')).find('button').click();
+		}
 	}
 };
 
