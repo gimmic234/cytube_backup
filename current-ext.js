@@ -400,6 +400,18 @@ function bindEventHandler() {
 	$(bodyElem).on('mouseover', '.lazy', function() {
 		$(this).attr('src', $(this).attr('data-src'));
 		$(this).removeClass('lazy');
-	})
+	});
+
+	window.socket.on('updateEmote', function() {
+		fetchEmote();
+	});
+
+	window.socket.on('removeEmote', function() {
+		fetchEmote();
+	});
+
+	window.socket.on('renameEmote', function() {
+		fetchEmote();
+	});
 
 }

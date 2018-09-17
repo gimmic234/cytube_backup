@@ -269,7 +269,7 @@ var chatCmdLookup = {
 			setAutobg2();
 		}
 	},
-	'/addMsg': function() {
+	'/addmsg': function() {
 		if (rankMod) {
 			var msg = (addVidMsg == "true") ? "false" : "true";
 			editJs(24, msg);
@@ -323,7 +323,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/713e6d6df547c15cd5fb2007825cfac46a83fec8/module/channelbase-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/b2d6878d08ed9937fe3323855f22fa6c80b6d2c8/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
@@ -351,17 +351,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
-				window.socket.on('updateEmote', function() {
-					fetchEmote();
-				});
-
-				window.socket.on('removeEmote', function() {
-					fetchEmote();
-				});
-
-				window.socket.on('renameEmote', function() {
-					fetchEmote();
-				});
 			}
 
 			waitForEl('#club_redirect', function() {
