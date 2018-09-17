@@ -269,6 +269,7 @@ var chatCmdLookup = {
 			setAutobg2();
 		}
 	},
+
 	'/addmsg': function() {
 		if (rankMod) {
 			var msg = (addVidMsg == "true") ? "false" : "true";
@@ -317,7 +318,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/713e6d6df547c15cd5fb2007825cfac46a83fec8/current-ext.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/54b8f18e1949384a916ae0fca4568981c7e8997e/current-ext.js",
 		callback: true
 	},
 	'layout': {
