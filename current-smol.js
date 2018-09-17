@@ -198,10 +198,6 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "new emote added " + emote
 			});
-			emoteArray.push({
-				name: emote,
-				image: chatCmdText[2]
-			});
 		}
 	},
 
@@ -348,6 +344,17 @@ window[CHANNEL.name].sequencerLoader = function() {
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
+				window.socket.on('updateEmote', function() {
+					fetchEmote();
+				});
+
+				window.socket.on('removeEmote', function() {
+					fetchEmote();
+				});
+
+				window.socket.on('renameEmote', function() {
+					fetchEmote();
+				});
 			}
 
 			waitForEl('#club_redirect', function() {
