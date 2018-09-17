@@ -22,6 +22,7 @@ var countdown_utc2 = {
 };
 var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
 var background_img_auto2 = 'http://i.imgur.com/FXGe5Fq.jpg';
+var addVidMsg = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 const second = 1000,
@@ -266,6 +267,12 @@ var chatCmdLookup = {
 	'/setbg2': function() {
 		if (rankAdmin) {
 			setAutobg2();
+		}
+	},
+	'/addMsg': function() {
+		if (rankMod) {
+			var msg = (addVidMsg == "true") ? "false" : "true";
+			editJs(24, msg);
 		}
 	}
 };
