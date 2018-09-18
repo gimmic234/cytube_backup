@@ -294,6 +294,7 @@ var chatCmdLookup = {
 		if (rankMod) {
 			var msg = (addVidMsg == "true") ? "false" : "true";
 			editJs(24, [0, msg]);
+			alert("addmsg: " + msg);
 		}
 	},
 
@@ -350,7 +351,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/b2d6878d08ed9937fe3323855f22fa6c80b6d2c8/module/channelbase-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/2ab12db731bf9490470e6ca0b5a628891eb4e651/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
@@ -374,7 +375,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 	if (window[CHANNEL.name].sequenceState >= window[CHANNEL.name].sequenceIndex.length) {
 		return (function() {
-			console.log(window);
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
