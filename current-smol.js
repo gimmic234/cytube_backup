@@ -374,16 +374,16 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 	if (window[CHANNEL.name].sequenceState >= window[CHANNEL.name].sequenceIndex.length) {
 		return (function() {
-
+			console.log(window);
 			if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();
-				$(document.body).on('click', '.spoiler-img', function() {
+				$(document.body).on('click', '.imgContainer', function() {
 					if ($(this).find('img').css('filter') != 'blur(0px)') {
 						$(this).find('img').css('filter', 'blur(0px)');
-						$(this).parent().removeClass('imgContainer');
+						$(this).removeClass('imgContainer');
 						$(this).attr('title', '');
-						var elem = $(this);
+						var elem = $(this).find('a');
 						setTimeout(function() {
 							elem.attr('href', elem.find('img').attr('src'));
 						}, 1000)

@@ -142,7 +142,7 @@ span#days, span#hours, span#minutes, span#seconds, span#days2, span#hours2, span
     transform: scale(1.001);
 }
 
-.spoiler-img:hover {
+.imgContainer:hover {
     cursor: pointer;
 }
 

@@ -135,9 +135,11 @@ Callbacks.queue = function(data) {//currently for debugging purposes only. Doesn
 	console.log(data);
 
 	if (addVidMsg == "true") {
-		window.socket.emit("chatMsg", {
-			msg: "added [" + data.item.media.title + "] (" + data.item.media.duration + ")"
-		});
+		if (data.item.queueby == window.CLIENT.name) {
+			window.socket.emit("chatMsg", {
+				msg: "added [" + data.item.media.title + "] (" + data.item.media.duration + ")"
+			});
+		}
 	}
 }
 
