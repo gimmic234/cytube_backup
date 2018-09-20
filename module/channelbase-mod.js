@@ -133,14 +133,6 @@ Callbacks.queue = function(data) {//currently for debugging purposes only. Doesn
 	_queueVIDEBLU(data);
 	console.log("Called Callbacks.queue");
 	console.log(data);
-
-	if (addVidMsg == "true") {
-		if (data.item.queueby == window.CLIENT.name) {
-			window.socket.emit("chatMsg", {
-				msg: "added [" + data.item.media.title + "] (" + data.item.media.duration + ")"
-			});
-		}
-	}
 }
 
 Callbacks.playlist = function(data) {//currently for debugging purposes only. Doesn't do anything.

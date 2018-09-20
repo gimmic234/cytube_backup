@@ -22,7 +22,6 @@ var countdown_utc2 = {
 };
 var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
 var background_img_auto2 = 'http://i.imgur.com/FXGe5Fq.jpg';
-var addVidMsg = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 const second = 1000,
@@ -287,14 +286,6 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "loading bg2"
 			});
-		}
-	},
-
-	'/addmsg': function() {
-		if (rankMod) {
-			var msg = (addVidMsg == "true") ? "false" : "true";
-			editJs(24, [0, msg]);
-			alert("addmsg: " + msg);
 		}
 	},
 
