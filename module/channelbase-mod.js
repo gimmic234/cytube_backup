@@ -189,7 +189,7 @@ function requeue (data) {
 setvideotime = function() {
 	var t = _timeVIDEBLU.paused ? _timeVIDEBLU.raw : (new Date()).getTime()/1000 + _timeVIDEBLU.ofs; //
 	var percenttime = Math.round(t * 100 / currentmedia.seconds);
-	var ss7Time = $(document.body.getElementById('ss7time'));
+	var ss7Time = $(document.getElementById('ss7time'));
 	if (percenttime > 100) {percenttime = 0}
 	$("#progbar").css("width", percenttime + "%");
 	setTimeout(setvideotime, 1000*(Math.round(t)+1 - t)); //Update time every second
@@ -685,6 +685,8 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-53755606-1', 'auto');
 ga('send', 'pageview');*/
+
+var bgColorArray = [],
 
 var vplayer = videojs("ytapiplayer")
 vplayer.on('error', function(e){
