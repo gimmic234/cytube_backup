@@ -129,13 +129,7 @@ this[CHANNEL.name].audioLibrary.emotes = function() {
  **@preserve
  */
 
-/*!  
-**|  Enhanced Tab Completion by Xaekai
-**|  Original function by Cyzon
-**|
-**@preserve
-if(!$("#emote_suggest").length){$("#chatwrap").append('<div style="white-space: pre;" id="emote_suggest"></div>')}function emoteSuggest(targets){console.log("emoteSuggest");var possibles="";for(i=0;i<Math.min(10,targets.length);i++){possibles+=targets[i]+"   "}possibles.trim();$("#emote_suggest").stop(true,true);$("#emote_suggest").html(possibles).fadeIn(0,function(){$(this).delay(3e3).fadeOut(1e3)})}function doTabCompletion(words,current,rawTargets,targets,restline){emoteSuggest(targets);var min=Math.min.apply(Math,targets.map(function(name){return name.length}));targets=targets.map(function(name){return name.substring(0,min)});var changed=true;var iter=21;while(changed){changed=false;var first=targets[0];for(var i=1;i<targets.length;i++){if(targets[i]!==first){changed=true;break}}if(changed){targets=targets.map(function(name){return name.substring(0,name.length-1)})}if(--iter<0){break}}current=targets[0].substring(0,min);for(var i=0;i<rawTargets.length;i++){if(rawTargets[i].toLowerCase()===current){current=rawTargets[i];break}}if(targets.length===1){if(words.length===1&&current[0].match(/[\w]/)){current+=":"}current+=" "}words[words.length-1]=current;var finishline=words.join(" ")+restline;if(finishline==$("#chatline")[0].value){return}$("#chatline").val(finishline);$("#chatline")[0].selectionStart=$("#chatline")[0].value.length-restline.length;$("#chatline")[0].selectionEnd=$("#chatline")[0].value.length-restline.length}function chatTabComplete(){var midline=$("#chatline")[0].value;var restline="";if($("#chatline")[0].selectionStart==$("#chatline")[0].selectionEnd){midline=$("#chatline")[0].value.slice(0,$("#chatline")[0].selectionStart);restline=$("#chatline")[0].value.slice($("#chatline")[0].selectionStart)}var words=midline.split(" ");var current=words[words.length-1].toLowerCase();if(!current.match(/^[\w-]{1,20}$/)){return emoteTabComplete(words,current,restline)}var __slice=Array.prototype.slice;var usersWithCap=__slice.call($("#userlist").children()).map(function(elem){return elem.children[1].innerHTML});var users=__slice.call(usersWithCap).map(function(user){return user.toLowerCase()}).filter(function(name){return name.indexOf(current)===0});if(users.length===0){return}return doTabCompletion(words,current,usersWithCap,users,restline)}function emoteTabComplete(words,current,restline){console.log(current);if(!CHANNEL.emotes||CHANNEL.emotes.length==0)return;var emotesMaster=[];for(i=0;i<CHANNEL.emotes.length;i++){if(CHANNEL.emotes[i].name[0].match(/^[^\w]/)){emotesMaster.push(CHANNEL.emotes[i].name)}}var __slice=Array.prototype.slice;var emotes=__slice.call(emotesMaster).map(function(emote){return emote.toLowerCase()}).filter(function(emote){return emote.indexOf(current)===0});if(emotes.length===0){return}return doTabCompletion(words,current,emotesMaster,emotes,restline)}
-*/
+
 /*|  CyTube Custom Channel Settings Modal
  **|  Version: 2015-02-05
  **|  Written by Xaekai. Copyright 2014-2015.
@@ -217,19 +211,8 @@ $('#Notif').click(function() {
 	$(this).toggleClass('active');
 	$('#customSettingsStaging').toggleClass('show');
 });
-/*!
- **|  Cytube Playlist Enhancements
- **|  Written by Xaekai except where noted
- **|  Version 2016.01.31.0056
- **|  Copyright 2014-2016
- **|
- **@preserve
- */
-/*!
-**|  Playlist Helper
-**@preserve
-function playlist(active){var __selector="#queue > .queue_entry";var _playlist=[];if(active){__selector+=".queue_active"}$(__selector).each(function(){var data=$(this).data();var addedby;if($(this).attr("data-original-title")){addedby=$(this).attr("data-original-title").match(/: ([-\w\u00c0-\u00ff]{1,20})$/)[1]}else{addedby=$(this).attr("title").match(/: ([-\w\u00c0-\u00ff]{1,20})$/)[1]}_playlist.push({uid:data.uid,media:data.media,temp:data.temp,active:$(this).hasClass("queue_active"),addedby:addedby})});return active&&_playlist[0]||_playlist}function generateThumbnailPopover(target){var css="playlist-thumbnail";var type=target.data().media.type;var id=target.data().media.id;var DOM='<img src="__url" class="__class">'.replace(/__class/,css);function applyPopover(thumb){target.popover({html:true,placement:function(){return!USEROPTS.layout.match(/synchtube/)?"top":"right"},trigger:"hover",content:thumb})}function genThumb(url){var thumb=DOM.replace(/__url/,url);return applyPopover(thumb)}if(type=="yt"){var url="http://img.youtube.com/vi/__id/0.jpg".replace(/__id/,id);genThumb(url);return target.addClass("thumbed")}if(type=="vi"){var api="http://vimeo.com/api/v2/video/__id.json".replace(/__id/,id);$.getJSON(api,function(data){var url=data[0].thumbnail_medium;genThumb(url)});return target.addClass("thumbed")}if(type=="dm"){var url="http://www.dailymotion.com/thumbnail/video/__id".replace(/__id/,id);genThumb(url);return target.addClass("thumbed")}if(type=="gd"){var url="http://thumbs.pink.horse/drive/__id".replace(/__id/,id);genThumb(url);return target.addClass("thumbed")}if(type=="gp"){var url="http://thumbs.pink.horse/picasa/__id".replace(/__id/,id);genThumb(url);return target.addClass("thumbed")}}function playlist_scan(){$("#queue > .queue_entry:not(.thumbed)").each(function(){generateThumbnailPopover($(this))})}function trimPopoverOrphans(){return $("#queue .popover").remove()}if(!CLIENT.thumbnail_scanner){CLIENT.thumbnail_scanner=true;$("head").append($("<style>").prop("id","thumbnailStyle").text(".playlist-thumbnail { max-height: 180px; max-width: 240px; border-radius: 4px; }"));playlist_scan();socket.on("queue",playlist_scan);socket.on("playlist",playlist_scan);socket.on("delete",function(){trimPopoverOrphans()});$("#queue").on("mouseleave",trimPopoverOrphans)}(function(){if(CLIENT.playlistInline){return}CLIENT.playlistInline=true;window.makeQueueEntry=function(item,addbtns){var video=item.media;var li=$("<li/>");li.addClass("queue_entry");li.addClass("pluid-"+item.uid);li.data("uid",item.uid);li.data("media",video);li.data("temp",item.temp);li.data("blame",item.queueby);if(video.thumb){$("<img/>").attr("src",video.thumb.url).css("float","left").css("clear","both").appendTo(li)}var title=$("<a/>").addClass("qe_title").appendTo(li).text(video.title).attr("href",formatURL(video)).attr("target","_blank");var time=$("<span/>").addClass("qe_time").appendTo(li);time.text(video.duration);var blame=$("<span/>").addClass("qe_blame").appendTo(li);blame.text(item.queueby+" | ");var clear=$("<div/>").addClass("qe_clear").appendTo(li);if(item.temp){li.addClass("queue_temp")}if(addbtns)addQueueButtons(li);return li};setTimeout(function(){socket.emit("requestPlaylist")},61e3)})();/*!
-*/
+
+
 /*!
  **|  Cytube Playlist Time
  **|  Written by Spoon
@@ -449,10 +432,9 @@ window[CHANNEL.name].audioNotice.handler = {
 		$("div.chat-msg-\\\\\\$server\\\\\\$:contains(Private Message Notification)").remove();
 	},
 	Video: function(data) {
-		var addedby;
+		var addedby = false;
 		if (!window[CHANNEL.name].audioNotice.Video.toggleState) return;
 		if (CLIENT.rank < CHANNEL.perms.seeplaylist) return;
-		addedby = playlist(true).addedby == CLIENT.name;
 		if (addedby && window[CHANNEL.name].audioNotice.Video.last) {
 			window[CHANNEL.name].audioNotice.Video.timeSinceLast = Date.now();
 			return
