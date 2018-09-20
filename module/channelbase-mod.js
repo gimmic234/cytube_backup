@@ -189,6 +189,7 @@ function requeue (data) {
 setvideotime = function() {
 	var t = _timeVIDEBLU.paused ? _timeVIDEBLU.raw : (new Date()).getTime()/1000 + _timeVIDEBLU.ofs; //
 	var percenttime = Math.round(t * 100 / currentmedia.seconds);
+	var ss7Time = $(document.body.getElementById('ss7time'));
 	if (percenttime > 100) {percenttime = 0}
 	$("#progbar").css("width", percenttime + "%");
 	setTimeout(setvideotime, 1000*(Math.round(t)+1 - t)); //Update time every second
@@ -199,9 +200,9 @@ setvideotime = function() {
 	if (s < 10) { s = '0'+s; }//9:9:9   ->  9:9:09
 	if (m < 10) { m = '0'+m; }//9:9:09  ->  9:09:09
 	if (h < 10) { h = '0'+h; }//9:09:09 ->  09:09:09
-	if (currentmedia.seconds > 3598) {$('#ss7time').text(h+':'+m+':'+s);}//if media is longer than an hour
-	else if (h == 0) {$('#ss7time').text(m+':'+s);}//if less than an hour do not display hour metric
-	else if (currentmedia.length == "--:--") {$('#ss7time').text("Live")}// if "--:--" is length, set duration to "Live"
+	if (currentmedia.seconds > 3598) {ss7Time.text(h+':'+m+':'+s);}//if media is longer than an hour
+	else if (h == 0) {ss7Time.text(m+':'+s);}//if less than an hour do not display hour metric
+	else if (currentmedia.length == "--:--") {ss7Time.text("Live")}// if "--:--" is length, set duration to "Live"
 }
 setvideotime();
 
@@ -678,17 +679,13 @@ $.getScript("https://rawgit.com/gimmic234/cytube_backup/7efe0f6b14d6d387a4482a86
 $.getScript("//rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/settings.min.js");
 var LOADED = (typeof LOADED==="undefined") ? false : true;
 LOADED ? location.reload() : '';
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+/*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-53755606-1', 'auto');
-ga('send', 'pageview');
+ga('send', 'pageview');*/
 
-var bgColorArray = [],
-
-selectBG = bgColorArray[Math.floor(Math.random() * bgColorArray.length)];
-$('#backg').css('background', 'url(' + selectBG + ')')
 var vplayer = videojs("ytapiplayer")
 vplayer.on('error', function(e){
 window.setInterval(function(){

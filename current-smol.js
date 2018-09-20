@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var background_img = 'http://i.imgur.com/JYf9dgm.jpg';
+var background_img = 'http://i.imgur.com/FXGe5Fq.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 9,
-	day: 19,
-	hour: 23,
+	day: 23,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
@@ -342,7 +342,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/2ab12db731bf9490470e6ca0b5a628891eb4e651/module/channelbase-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/50b4dabb8bfd6597cfcf69e8e1fc6c1314517e34/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
