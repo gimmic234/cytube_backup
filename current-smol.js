@@ -24,6 +24,7 @@ var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
 var background_img_auto2 = 'http://i.imgur.com/FXGe5Fq.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
+console.log = function(){}
 const second = 1000,
 	minute = second * 60,
 	hour = minute * 60,
@@ -342,7 +343,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/a5cf9628852ae84011b57a046e777febad5a1497/module/channelbase-mod.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/ccd73a8e74e57496e7f15f9dea133d6f02045963/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
@@ -443,13 +444,13 @@ window[CHANNEL.name].sequencerLoader = function() {
 					$(countdown1).addClass('countdownbase');
 				}
 
-				countdownMsg(totalSeconds);
+				//countdownMsg(totalSeconds);
 				//do something later when date is reached
 				if (distance < 0) {
 					clearInterval(countDownTimer);
 					$('#countdown1').hide();
 
-					countdownComplete();
+					//countdownComplete();
 				}
 
 			}, second)
@@ -477,14 +478,14 @@ window[CHANNEL.name].sequencerLoader = function() {
 					$(countdown2).addClass('countdownbase');
 				}
 
-				countdownMsg(totalSeconds);
+				//countdownMsg(totalSeconds);
 
 				//do something later when date is reached
 				if (distance2 < 0) {
 					clearInterval(countDownTimer2);
 					$('#countdown2').hide();
 
-					countdownComplete2();
+					//countdownComplete2();
 				}
 			}, second)
 
