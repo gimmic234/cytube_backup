@@ -381,9 +381,9 @@ function bindEventHandler() {
 	$(bodyElem).on('mousedown', '.qbtn-delete', function() {
 		$(this).prop('disabled', true);
 		var video = $(this).parent().parent().children('a')[0].innerHTML;
-		window.socket.emit("chatMsg", {
+		/*window.socket.emit("chatMsg", {
 			msg: "removed [" + video + "]"
-		});
+		});*/
 		$(this).click();
 	});
 

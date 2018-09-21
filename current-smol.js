@@ -209,9 +209,9 @@ var chatCmdLookup = {
 			var target = $(document.getElementsByClassName('queue_active'));
 			if (target.length > 0) {
 				var name = target.find('.qe_title')[0].innerHTML;
-				window.socket.emit("chatMsg", {
+				/*window.socket.emit("chatMsg", {
 					msg: "removed [" + name + "]"
-				});
+				});*/
 				target.find('.qbtn-delete').click();
 			}
 		}
