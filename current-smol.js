@@ -60,32 +60,6 @@ var chatCmdLookup = {
 			})
 		}
 	},
-	'/autostart': function() {
-		if (rankAdmin) {
-			let toggle_mode = motdMode.attr('data-value');
-			toggle_mode = (toggle_mode == "true") ? "false" : "true";
-			motdMode.attr('data-value', toggle_mode);
-			let list = queueList.children(":visible");
-			let new_mode = motdMode.attr('data-value');
-			if (new_mode == "true") {
-				list.each(function(index, value) {
-					$(value).find("button.qbtn-next").before("<button class='btn btn-xs btn-default btn-auto-keep'><span class='glyphicon glyphicon-ok'></span>AutoStart</button>");
-				})
-				window.socket.emit("chatMsg", {
-					msg: "autostart [on]"
-				});
-			} else {
-				queueList.find("button.btn-auto-keep").remove();
-				list.each(function(index, value) {
-					$(value).removeClass('list-keep');
-				})
-				motdMode.attr('data-value', 'false');
-				window.socket.emit("chatMsg", {
-					msg: "autostart [off]"
-				});
-			}
-		}
-	},
 	'/editbg': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
