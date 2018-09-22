@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2018,
 	month2: 9,
-	day2: 21,
+	day2: 28,
 	hour2: 23,
 	minute2: 0,
 	second2: 0
@@ -167,15 +167,7 @@ var chatCmdLookup = {
 
 	'/img': function(chatCmdText) {
 		if (chatCmdText.length == 2) {
-			var url = chatCmdText[1].replace('https:', '');
-			url = url.replace('http:', '');
-			if (url.lastIndexOf('?') > -1) {
-				url = url.substr(0, url.lastIndexOf('?'));
-			}
-
-			window.socket.emit("chatMsg", {
-				msg: "@" + url + "@"
-			});
+			imgEmote(chatCmdText[1]);
 		}
 	},
 
@@ -257,46 +249,20 @@ var chatCmdLookup = {
 			$(document.getElementById('export-btn')).find('button').click();
 		}
 	},
-	'!schwing': function() {
-		window.socket.emit("chatMsg", {
-			msg: "@//qph.fs.quoracdn.net/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0@"
-		});
-	},
 	'/muteall': function() {
-		chatMute = (chatMute == "false") ? "true" : "false";
-		editJs(24, [0, chatMute]);
-		window.socket.emit("chatMsg", {
-			msg: "chatMute: " + chatMute
-		});	
-	}
-};
-
-
-function setAutobg2() {
-	let textArray = [0, background_img_auto2];
-	editJs(4, textArray);
-}
-
-function countdownComplete2() {
-	let mode = motdMode.attr('data-value');
-	if (mode == 'true') {
-		let selectedList = $("li.list-keep");
-
-		setAutobg2();
-
-		if (selectedList.length != 0) {
-			let delList = selectedList.prevAll();
-			deleteAllPlaylist(delList);
-			selectedList.find('button.qbtn-play').click();
+		if (rankAdmin) {
+			chatMute = (chatMute == "false") ? "true" : "false";
+			editJs(24, [0, chatMute]);
 			window.socket.emit("chatMsg", {
-				msg: autostart_msg
+				msg: "chatMute: " + chatMute
 			});
 		}
-		cleanAutoStart();
-		motdMode.attr('data-value', 'false');
-	}
-}
+	},
 
+	'!schwing': function() {
+		imgEmote('//qph.fs.quoracdn.net/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0');
+	}
+};
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -311,7 +277,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/60786f328afb4eb072beb3503d99e046b51d695b/current-ext.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/f0894b91583ec742c13196f7cf173cdfa8ad8a87/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -420,13 +386,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 					$(countdown1).addClass('countdownbase');
 				}
 
-				//countdownMsg(totalSeconds);
-				//do something later when date is reached
 				if (distance < 0) {
 					clearInterval(countDownTimer);
 					$('#countdown1').hide();
-
-					//countdownComplete();
 				}
 
 			}, second)
@@ -454,14 +416,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 					$(countdown2).addClass('countdownbase');
 				}
 
-				//countdownMsg(totalSeconds);
-
-				//do something later when date is reached
 				if (distance2 < 0) {
 					clearInterval(countDownTimer2);
 					$('#countdown2').hide();
-
-					//countdownComplete2();
 				}
 			}, second)
 

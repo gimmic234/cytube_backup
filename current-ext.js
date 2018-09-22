@@ -102,6 +102,24 @@ var chatKeyLookup = {
 	}
 }
 
+
+function imgEmote(imageUrl) {
+	var url = imageUrl.replace('https:', '');
+	url = url.replace('http:', '');
+	if (url.lastIndexOf('?') > -1) {
+		url = url.substr(0, url.lastIndexOf('?'));
+	}
+
+	window.socket.emit("chatMsg", {
+		msg: "@" + url + "@"
+	});
+}
+
+function setAutobg2() {
+	let textArray = [0, background_img_auto2];
+	editJs(4, textArray);
+}
+
 function setAutobg() {
 	let textArray = [0, background_img_auto];
 	editJs(4, textArray);
@@ -119,26 +137,6 @@ function countdownMsg(totalSeconds) {
 		window.socket.emit("chatMsg", {
 			msg: "the stream will start in " + totalSeconds
 		});
-	}
-}
-
-function countdownComplete() {
-	let mode = motdMode.attr('data-value');
-	if (mode == 'true') {
-		let selectedList = $("li.list-keep");
-
-		setAutobg();
-
-		if (selectedList.length != 0) {
-			let delList = selectedList.prevAll();
-			deleteAllPlaylist(delList);
-			selectedList.find('button.qbtn-play').click();
-			window.socket.emit("chatMsg", {
-				msg: autostart_msg
-			});
-		}
-		cleanAutoStart();
-		motdMode.attr('data-value', 'false');
 	}
 }
 
