@@ -22,16 +22,17 @@ var countdown_utc2 = {
 };
 var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
+var chatMute = false;
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
+var emoteTable = "false";
 const second = 1000,
 	minute = second * 60,
 	hour = minute * 60,
 	day = hour * 24;
 var emoteArray = [];
 var selectedPopover;
-var emoteTable = false;
 var handlerKeydown;
 var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.day, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
 var date_utc2 = Date.UTC(countdown_utc2.year2, countdown_utc2.month2 - 1, countdown_utc2.day2, countdown_utc2.hour2, countdown_utc2.minute2, countdown_utc2.second2);
@@ -43,7 +44,6 @@ var countDownTimer;
 var countDown2;
 var countDownTimer2;
 var collapseArrow;
-var chatMute = false;
 var autoPosition = -1;
 var countdown1, countdown2;
 var rankMod = (window.CLIENT.rank >= 2),
@@ -262,8 +262,9 @@ var chatCmdLookup = {
 			msg: "@//qph.fs.quoracdn.net/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0@"
 		});
 	},
-	'/muteAll': function() {
-		chatMute = !chatMute;
+	'/muteall': function() {
+		chatMute = (chatMute == "false") ? "true" : "false";
+		editJs(24, [0, chatMute]);
 		window.socket.emit("chatMsg", {
 			msg: "chatMute: " + chatMute
 		});	
@@ -310,7 +311,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/2c91927eeeb36558f310009225eb76bdf2285ba1/current-ext.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/60786f328afb4eb072beb3503d99e046b51d695b/current-ext.js",
 		callback: true
 	},
 	'layout': {
