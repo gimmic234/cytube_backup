@@ -35,7 +35,7 @@ var emoteKeyLookup = {
 
 var chatKeyLookup = {
 	13: function(e) {
-		if (window.CHATTHROTTLE) {
+		if (window.CHATTHROTTLE || (window.CLIENT.rank < 2 && chatMute)) {
 			return;
 		}
 

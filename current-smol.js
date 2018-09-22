@@ -24,7 +24,7 @@ var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
-console.log = function(){}
+console.log = function() {}
 const second = 1000,
 	minute = second * 60,
 	hour = minute * 60,
@@ -43,6 +43,7 @@ var countDownTimer;
 var countDown2;
 var countDownTimer2;
 var collapseArrow;
+var chatMute = false;
 var autoPosition = -1;
 var countdown1, countdown2;
 var rankMod = (window.CLIENT.rank >= 2),
@@ -234,7 +235,6 @@ var chatCmdLookup = {
 			$(document.getElementById('cs-jssubmit')).click();
 		}
 	},
-
 	'/setbg': function() {
 		if (rankAdmin) {
 			setAutobg();
@@ -256,6 +256,17 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			$(document.getElementById('export-btn')).find('button').click();
 		}
+	},
+	'!schwing': function() {
+		window.socket.emit("chatMsg", {
+			msg: "@//qph.fs.quoracdn.net/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0@"
+		});
+	},
+	'/muteAll': function() {
+		chatMute = !chatMute;
+		window.socket.emit("chatMsg", {
+			msg: "chatMute: " + chatMute
+		});	
 	}
 };
 
