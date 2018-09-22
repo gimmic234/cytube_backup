@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var background_img = 'http://i.imgur.com/FXGe5Fq.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -21,7 +21,7 @@ var countdown_utc2 = {
 	second2: 0
 };
 var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
-var background_img_auto2 = 'http://i.imgur.com/FXGe5Fq.jpg';
+var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function(){}
@@ -70,7 +70,7 @@ var chatCmdLookup = {
 			});
 		}
 	},
-	'/autobg': function(chatCmdText) {
+	'/savebg': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
@@ -80,7 +80,7 @@ var chatCmdLookup = {
 			});
 		}
 	},
-	'/autobg2': function(chatCmdText) {
+	'/savebg2': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
@@ -115,18 +115,6 @@ var chatCmdLookup = {
 			let list = queueList.children(":visible");
 			deleteAllPlaylist(list);
 		}
-	},
-	'/date': function() {
-		var dateLocal = new Date(date_utc);
-		window.socket.emit("chatMsg", {
-			msg: "[" + dateLocal.toString() + "] (Local)"
-		});
-	},
-	'/date2': function() {
-		var dateLocal = new Date(date_utc2);
-		window.socket.emit("chatMsg", {
-			msg: "[" + dateLocal.toString() + "] (Local)"
-		});
 	},
 	'/cdlocal': function(chatCmdText) {
 		if (chatCmdText.length > 5 && rankAdmin) {
@@ -311,7 +299,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/54b8f18e1949384a916ae0fca4568981c7e8997e/current-ext.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/2c91927eeeb36558f310009225eb76bdf2285ba1/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -390,7 +378,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 			waitForEl('#countdown1', function() {
 				countdown1 = document.getElementById('countdown1');
+				$(document.getElementById('date1')).html(new Date(date_utc).toString());
 				countdown2 = document.getElementById('countdown2');
+				$(document.getElementById('date2')).html(new Date(date_utc2).toString());
 			});
 
 			countDown = new Date(date_utc).getTime();
