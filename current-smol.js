@@ -71,7 +71,7 @@ var chatCmdLookup = {
 			});
 		}
 	},
-	'/savebg': function(chatCmdText) {
+	'/savebg1': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
@@ -117,7 +117,7 @@ var chatCmdLookup = {
 			deleteAllPlaylist(list);
 		}
 	},
-	'/cdlocal': function(chatCmdText) {
+	'/cdlocal1': function(chatCmdText) {
 		if (chatCmdText.length > 5 && rankAdmin) {
 			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
 				window.socket.emit("chatMsg", {
@@ -227,7 +227,7 @@ var chatCmdLookup = {
 			$(document.getElementById('cs-jssubmit')).click();
 		}
 	},
-	'/setbg': function() {
+	'/setbg1': function() {
 		if (rankAdmin) {
 			setAutobg();
 			window.socket.emit("chatMsg", {
@@ -251,14 +251,22 @@ var chatCmdLookup = {
 	},
 	'/muteall': function() {
 		if (rankAdmin) {
-			chatMute = (chatMute == "false") ? "true" : "false";
+			chatMute = "false";
 			editJs(24, [0, chatMute]);
 			window.socket.emit("chatMsg", {
 				msg: "chatMute: " + chatMute
 			});
 		}
 	},
-
+	'/unmuteall': function() {
+		if (rankAdmin) {
+			chatMute = "true";
+			editJs(24, [0, chatMute]);
+			window.socket.emit("chatMsg", {
+				msg: "chatMute: " + chatMute
+			});
+		}
+	},
 	'!schwing': function() {
 		imgEmote('//qph.fs.quoracdn.net/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0');
 	}
@@ -277,7 +285,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/f0894b91583ec742c13196f7cf173cdfa8ad8a87/current-ext.js",
+		url: "https://rawgit.com/gimmic234/cytube_backup/266e64019aca11d7c69051ce2308096b5bbecf46/current-ext.js",
 		callback: true
 	},
 	'layout': {
