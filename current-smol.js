@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
+var background_img = 'http://i.imgur.com/JYf9dgm.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -244,11 +244,6 @@ var chatCmdLookup = {
 		}
 	},
 
-	'/log': function() {
-		if (rankAdmin) {
-			$(document.getElementById('export-btn')).find('button').click();
-		}
-	},
 	'/muteall': function() {
 		if (rankAdmin) {
 			chatMute = "false";
@@ -269,6 +264,12 @@ var chatCmdLookup = {
 	},
 	'!schwing': function() {
 		imgEmote('//qph.fs.quoracdn.net/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0');
+	},
+	'!rigged': function() {
+		imgEmote('https://images-ext-2.discordapp.net/external/A29xgZ_hAwsgSPzak5tlWkMJwUnYH7kFnixuX2zGWZ8/https/bit.ly/2CX6c8G?width=400&height=225');
+	},
+	'!piano': function() {
+		imgEmote('https://cdn.discordapp.com/attachments/420183063562027008/451551850433478656/2bbhq2.png');
 	}
 };
 
