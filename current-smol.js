@@ -1,14 +1,14 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'https://media.discordapp.net/attachments/434458202957021186/486312458034741249/For_Hearts.png?width=1300&height=250';
+var banner_url = 'http://media.discordapp.net/attachments/420183063562027008/493488211926974475/anime_club_banner_uncropped.jpg?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var background_img = 'http://i.imgur.com/JYf9dgm.jpg';
+var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 9,
-	day: 23,
-	hour: 19,
+	day: 30,
+	hour: 23,
 	minute: 0,
 	second: 0,
 };
@@ -23,6 +23,7 @@ var countdown_utc2 = {
 var background_img_auto = 'http://i.imgur.com/JYf9dgm.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var chatMute = false;
+var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -88,6 +89,17 @@ var chatCmdLookup = {
 			editJs(23, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "autostart background2 set to " + url
+			});
+		}
+	},
+
+	'/savebg3': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(25, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "autostart background3 set to " + url
 			});
 		}
 	},
@@ -244,6 +256,16 @@ var chatCmdLookup = {
 		}
 	},
 
+	'/setbg3': function() {
+		if (rankAdmin) {
+			let textArray = [0, background_img_auto3];
+			editJs(4, textArray);
+			window.socket.emit("chatMsg", {
+				msg: "loading bg3"
+			});
+		}
+	},
+
 	'/muteall': function() {
 		if (rankAdmin) {
 			chatMute = "false";
@@ -270,6 +292,46 @@ var chatCmdLookup = {
 	},
 	'!piano': function() {
 		imgEmote('https://cdn.discordapp.com/attachments/420183063562027008/451551850433478656/2bbhq2.png');
+	},
+	'!rule1': function() {
+		window.socket.emit("chatMsg", {
+				msg: "Club rule #1 - *You will never, ever be picked.  Just accept it.*"
+		});
+	},
+	'!rule2': function() {
+		window.socket.emit("chatMsg", {
+				msg: "Club rule #2 - *Don't make Mareepy angry.*"
+		});
+	},
+	'!rule3': function() {
+		window.socket.emit("chatMsg", {
+				msg: "Club rule #3 - *All server rules still apply. In short, don't be a jerk.*"
+		});
+	},
+	'!rule4': function() {
+		window.socket.emit("chatMsg", {
+				msg: "Club rule #4 - *It's fine to dislike a show and voice your opinion on it, but provide constructive criticism on why it's bad rather than \"OMG lul, this show bad\"*"
+		});
+	},
+	'!rule5': function() {
+		window.socket.emit("chatMsg", {
+				msg: "Club rule #5 - *You must watch/rewatch the whole series AND discuss it in the server chatroom to qualify for a ticket.*"
+		});
+	},
+	'!rule6': function() {
+		window.socket.emit("chatMsg", {
+				msg: "Club rule #6 - *Lying about your participation will be severely penalized, possibly with a suspension from the club.*"
+		});
+	},
+	'!rule7': function() {
+		window.socket.emit("chatMsg", {
+				msg: "Club rule #7 - *Don't talk trash about a club pick until we've at least started watching it. Try to give everything a fair chance.*"
+		});
+	},
+	'!rule8': function() {
+		window.socket.emit("chatMsg", {
+				msg: "Club rule #8 - Pat Poes for good luck!"
+		});
 	}
 };
 
