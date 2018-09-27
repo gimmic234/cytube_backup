@@ -159,3 +159,7 @@ span#days, span#hours, span#minutes, span#seconds, span#days2, span#hours2, span
     text-transform: uppercase;
     padding: 0 50px;
 }
+
+.underline {
+    text-decoration: underline;
+}

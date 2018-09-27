@@ -295,42 +295,42 @@ var chatCmdLookup = {
 	},
 	'!rule1': function() {
 		window.socket.emit("chatMsg", {
-				msg: "Club rule #1 - *You will never, ever be picked.  Just accept it.*"
+				msg: "Club rule #1 - |You will never, ever be picked.  Just accept it.|"
 		});
 	},
 	'!rule2': function() {
 		window.socket.emit("chatMsg", {
-				msg: "Club rule #2 - *Don't make Mareepy angry.*"
+				msg: "Club rule #2 - |Don't make Mareepy angry.|"
 		});
 	},
 	'!rule3': function() {
 		window.socket.emit("chatMsg", {
-				msg: "Club rule #3 - *All server rules still apply. In short, don't be a jerk.*"
+				msg: "Club rule #3 - |All server rules still apply. In short, don't be a jerk.|"
 		});
 	},
 	'!rule4': function() {
 		window.socket.emit("chatMsg", {
-				msg: "Club rule #4 - *It's fine to dislike a show and voice your opinion on it, but provide constructive criticism on why it's bad rather than \"OMG lul, this show bad\"*"
+				msg: "Club rule #4 - |It's fine to dislike a show and voice your opinion on it, but provide constructive criticism on why it's bad rather than \"OMG lul, this show bad\"|"
 		});
 	},
 	'!rule5': function() {
 		window.socket.emit("chatMsg", {
-				msg: "Club rule #5 - *You must watch/rewatch the whole series AND discuss it in the server chatroom to qualify for a ticket.*"
+				msg: "Club rule #5 - |You must watch/rewatch the whole series AND discuss it in the server chatroom to qualify for a ticket.|"
 		});
 	},
 	'!rule6': function() {
 		window.socket.emit("chatMsg", {
-				msg: "Club rule #6 - *Lying about your participation will be severely penalized, possibly with a suspension from the club.*"
+				msg: "Club rule #6 - |Lying about your participation will be severely penalized, possibly with a suspension from the club.|"
 		});
 	},
 	'!rule7': function() {
 		window.socket.emit("chatMsg", {
-				msg: "Club rule #7 - *Don't talk trash about a club pick until we've at least started watching it. Try to give everything a fair chance.*"
+				msg: "Club rule #7 - |Don't talk trash about a club pick until we've at least started watching it. Try to give everything a fair chance.|"
 		});
 	},
 	'!rule8': function() {
 		window.socket.emit("chatMsg", {
-				msg: "Club rule #8 - Pat Poes for good luck!"
+				msg: "Club rule #8 - |Pat Poes for good luck!|"
 		});
 	}
 };
