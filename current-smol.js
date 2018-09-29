@@ -1,8 +1,8 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/420183063562027008/493488211926974475/anime_club_banner_uncropped.jpg?width=1300&height=250';
-var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit?usp=sharing";
-var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
+var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -14,8 +14,8 @@ var countdown_utc = {
 };
 var countdown_utc2 = {
 	year2: 2018,
-	month2: 9,
-	day2: 28,
+	month2: 10,
+	day2: 5,
 	hour2: 23,
 	minute2: 0,
 	second2: 0
@@ -137,13 +137,13 @@ var chatCmdLookup = {
 				});
 				return false;
 			}
-			var date = new Date(chatCmdText[1], chatCmdText[2], chatCmdText[3], chatCmdText[4], chatCmdText[5]);
+			var date = new Date(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5]);
 			var textField = jsTextField.val();
 			var textFieldArray = textField.split("\n");
 			var year = textFieldArray[7].substr(0, textFieldArray[7].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[7], year + ": " + date.getUTCFullYear() + ",");
 			var month = textFieldArray[8].substr(0, textFieldArray[8].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[8], month + ": " + date.getUTCMonth() + ",");
+			textField = textField.replace(textFieldArray[8], month + ": " + (date.getUTCMonth()+1) + ",");
 			var day = textFieldArray[9].substr(0, textFieldArray[9].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[9], day + ": " + date.getUTCDate() + ",");
 			var hour = textFieldArray[10].substr(0, textFieldArray[10].lastIndexOf(': '));
@@ -218,13 +218,13 @@ var chatCmdLookup = {
 				return false;
 			}
 
-			var date = new Date(chatCmdText[1], chatCmdText[2], chatCmdText[3], chatCmdText[4], chatCmdText[5]);
+			var date = new Date(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5]);
 			var textField = jsTextField.val();
 			var textFieldArray = textField.split("\n");
 			var year = textFieldArray[15].substr(0, textFieldArray[15].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[15], year + ": " + date.getUTCFullYear() + ",");
 			var month = textFieldArray[16].substr(0, textFieldArray[16].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[16], month + ": " + date.getUTCMonth() + ",");
+			textField = textField.replace(textFieldArray[16], month + ": " + (date.getUTCMonth()+1) + ",");
 			var day = textFieldArray[17].substr(0, textFieldArray[17].lastIndexOf(': '));
 			textField = textField.replace(textFieldArray[17], day + ": " + date.getUTCDate() + ",");
 			var hour = textFieldArray[18].substr(0, textFieldArray[18].lastIndexOf(': '));
