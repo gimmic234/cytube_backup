@@ -383,7 +383,12 @@ var name = $("<span/>");
 if (!skip) {
 name.appendTo(div);
 }
-$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", stringToColour(data.username)).appendTo(name);
+
+if (window.CLIENT.profile.text.indexOf("#") != 0) {
+	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", stringToColour(data.username)).appendTo(name);
+} else {
+	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", window.CLIENT.profile.text).appendTo(name);
+}
 
 
 if (data.meta.modflair) 

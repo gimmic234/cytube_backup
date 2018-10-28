@@ -1,28 +1,28 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://cdn.discordapp.com/attachments/434458202957021186/493488035120283668/For_Hearts.png?width=1300&height=250';
+var banner_url = 'http://cdn.discordapp.com/attachments/428195862963814413/506140754574442504/inprogress.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/428195862963814413/499025330401705984/shiki_wallpaper_take_1.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/423966721020395525/504644028445229056/houroumusuko_bg3.png';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 10,
-	day: 17,
-	hour: 23,
+	day: 28,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2018,
-	month2: 10,
-	day2: 19,
+	month2: 11,
+	day2: 2,
 	hour2: 23,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto = 'http://cdn.discordapp.com/attachments/428195862963814413/499025330401705984/shiki_wallpaper_take_1.jpg';
+var background_img_auto = 'http://cdn.discordapp.com/attachments/423966721020395525/504644028445229056/houroumusuko_bg3.png';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
-var chatMute = false;
+var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
