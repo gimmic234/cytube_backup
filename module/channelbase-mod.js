@@ -383,11 +383,12 @@ var name = $("<span/>");
 if (!skip) {
 name.appendTo(div);
 }
-console.log(data);
+
+var profileText = findUserlistItem(CLIENT.name).data("profile").text;
 if (window.CLIENT.profile.text.indexOf("#") != 0) {
 	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", stringToColour(data.username)).appendTo(name);
 } else {
-	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", window.CLIENT.profile.text).appendTo(name);
+	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", profileText).appendTo(name);
 }
 
 
