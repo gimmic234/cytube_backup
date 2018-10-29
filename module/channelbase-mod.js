@@ -384,10 +384,9 @@ if (!skip) {
 name.appendTo(div);
 }
 
-var profileText = findUserlistItem(data.username).data("profile").text;
-console.log(profileText);
-if (profileText.indexOf("#") == 0 && profileText.length <= 10) {
-	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", profileText).appendTo(name);
+var profileTextColor = findUserlistItem(data.username).data("profile").text;
+if (profileTextColor.indexOf("#") == 0 && profileTextColor.length <= 10 && !skip) {
+	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", profileTextColor).appendTo(name);
 } else {
 	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", stringToColour(data.username)).appendTo(name);
 }
