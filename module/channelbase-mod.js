@@ -386,7 +386,12 @@ name.appendTo(div);
 
 $("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", stringToColour(data.username)).appendTo(name);
 
-
+if (!skip) {
+	var profileTextColor = findUserlistItem(data.username).data("profile").text;
+	if (profileTextColor.indexOf("#") == 0 && profileTextColor.length <= 10) {
+		$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", profileTextColor).appendTo(name);
+	} 
+}
 
 if (data.meta.modflair) 
 {
