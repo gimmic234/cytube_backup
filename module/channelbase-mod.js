@@ -385,10 +385,11 @@ name.appendTo(div);
 }
 
 var profileText = findUserlistItem(data.username).data("profile").text;
-if (profileText.indexOf("#") != 0) {
-	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", stringToColour(data.username)).appendTo(name);
-} else {
+profileText = trim(profileText);
+if (profileText.indexOf("#") == 0 && profileText.length <= 10) {
 	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", profileText).appendTo(name);
+} else {
+	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", stringToColour(data.username)).appendTo(name);
 }
 
 
