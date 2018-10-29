@@ -386,6 +386,7 @@ name.appendTo(div);
 
 var profileText = findUserlistItem(data.username).data("profile").text;
 profileText = trim(profileText);
+console.log(profileText);
 if (profileText.indexOf("#") == 0 && profileText.length <= 10) {
 	$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", profileText).appendTo(name);
 } else {
