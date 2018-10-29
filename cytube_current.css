@@ -163,3 +163,6 @@ span#days, span#hours, span#minutes, span#seconds, span#days2, span#hours2, span
 .underline {
     text-decoration: underline;
 }
+.headbtn {
+ color: white !important;
+}
