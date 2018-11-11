@@ -546,6 +546,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		return window[CHANNEL.name].audioNotice.handler["Priv"](data)
 	});
 	socket.on("changeMedia", function(data) {
+		console.log("change media");
 		return window[CHANNEL.name].audioNotice.handler["Video"](data)
 	});
 	console.log("INFO: AudioNotice System Initialized");
