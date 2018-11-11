@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/508982831586738176/banner_new_11-04-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/419692699986165770/507305871307440138/date-a-live_v5.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -366,7 +366,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/e6acb4329f7ca3181b75a068a71f540e7b2b0f18/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/b159b829ebec8a4842e785d1e26a98542c6ec66a/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {

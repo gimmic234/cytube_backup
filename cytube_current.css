@@ -164,5 +164,19 @@ span#days, span#hours, span#minutes, span#seconds, span#days2, span#hours2, span
     text-decoration: underline;
 }
 .headbtn {
- color: white !important;
+    color: white !important;
+}
+
+#voteskipwrap {
+    width: 200px;
+    height: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
+    left: 80%;
+    right: 0;
+    top: 45px;
+    position: absolute;
+    opacity: 0.5;
+    color:red;
 }
