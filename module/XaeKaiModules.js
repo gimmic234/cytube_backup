@@ -97,6 +97,11 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: "//resources.pink.horse/sounds/undertale_mousehole.ogg",
 		emote: true,
 		squee: true
+	},
+	gross: {
+		url: "https://cdn.discordapp.com/attachments/409829343263719427/511086292847558656/maji.wav",
+		emote: true,
+		squee: true
 	}
 };
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -354,7 +359,7 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Poll: "Poll",
 	Priv: "Private Message",
 	Video: "Queued Video",
-	Skip: "Voted Skip",
+	Skip: "Voted Skip"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
@@ -459,14 +464,17 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Poll"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Priv"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Video"].toggleState = true;
+	window[CHANNEL.name].audioNotice["Skip"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Squee"].id = "squee";
 	window[CHANNEL.name].audioNotice["Poll"].id = "votingpoll";
 	window[CHANNEL.name].audioNotice["Priv"].id = "uhoh";
 	window[CHANNEL.name].audioNotice["Video"].id = "fairywand";
+	window[CHANNEL.name].audioNotice["Skip"].id = "bzzzt";
 	window[CHANNEL.name].audioNotice["Squee"].volume = .6;
 	window[CHANNEL.name].audioNotice["Poll"].volume = .3;
 	window[CHANNEL.name].audioNotice["Priv"].volume = .35;
 	window[CHANNEL.name].audioNotice["Video"].volume = .35;
+	window[CHANNEL.name].audioNotice["Skip"].volume = .1;
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -474,7 +482,8 @@ window[CHANNEL.name].audioNotice.handler = {
 			squee: "//resources.pink.horse/sounds/squee.ogg",
 			votingpoll: "//resources.pink.horse/sounds/votingpoll.ogg",
 			uhoh: "//resources.pink.horse/sounds/uhoh.ogg",
-			fairywand: "//resources.pink.horse/sounds/fairy_wand.ogg"
+			fairywand: "//resources.pink.horse/sounds/fairy_wand.ogg",
+			bzzzt: "https://cdn.discordapp.com/attachments/409829343263719427/511086292847558656/maji.wav",
 		}
 	}
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {
@@ -525,6 +534,9 @@ window[CHANNEL.name].audioNotice.handler = {
 	});
 	socket.on("changeMedia", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Video"](data)
+	});
+	socket.on("voteskip", function(data) {
+		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
 	});
 	console.log("INFO: AudioNotice System Initialized");
 	window[CHANNEL.name].audioNotice.controls = $('<div id="AudioNoticeControls" class="customSettings" data-title="Audio Notifications Settings"/>').appendTo("#customSettingsStaging");

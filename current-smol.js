@@ -287,8 +287,9 @@ var chatCmdLookup = {
 		}
 	},
 	'/voteskip': function(chatCmdText) {
+		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 		socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
-	}
+	},
 	'!schwing': function() {
 		imgEmote('http://cdn.discordapp.com/attachments/409829343263719427/497929642347331585/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0.png');
 	},
@@ -359,7 +360,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/55dce5ddbbe95a0d1dd320dc4d1e7fc04a7c37d9/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/4c121898fd0a931f045fe3ec9f4f6f3c973ad260/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
