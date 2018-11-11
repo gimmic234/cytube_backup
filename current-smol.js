@@ -1,26 +1,26 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://cdn.discordapp.com/attachments/428195862963814413/506140754574442504/inprogress.png?width=1300&height=250';
+var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/508982831586738176/banner_new_11-04-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/423966721020395525/504644028445229056/houroumusuko_bg3.png';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
-	month: 10,
-	day: 31,
-	hour: 23,
+	month: 11,
+	day: 11,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2018,
 	month2: 11,
-	day2: 2,
-	hour2: 23,
+	day2: 17,
+	hour2: 0,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto = 'http://cdn.discordapp.com/attachments/423966721020395525/504644028445229056/houroumusuko_bg3.png';
+var background_img_auto = 'http://cdn.discordapp.com/attachments/419692699986165770/507305871307440138/date-a-live_v5.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -254,22 +254,41 @@ var chatCmdLookup = {
 
 	'/muteall': function() {
 		if (rankAdmin) {
-			chatMute = "false";
+			chatMute = "true";
 			editJs(24, [0, chatMute]);
 			window.socket.emit("chatMsg", {
-				msg: "chatMute: " + chatMute
+				msg: "chat is muted." 
 			});
 		}
 	},
 	'/unmuteall': function() {
 		if (rankAdmin) {
-			chatMute = "true";
+			chatMute = "false";
 			editJs(24, [0, chatMute]);
 			window.socket.emit("chatMsg", {
-				msg: "chatMute: " + chatMute
+				msg: "chat is unmuted."
 			});
 		}
 	},
+	'/maxq': function(chatCmdText) {
+		if (rankAdmin) {
+			var e = {};
+		    try {
+		       e['playlist_max_duration_per_user'] = parseTimeout(chatCmdText[1]);
+		    } catch (e) {
+		       var t = "Invalid timespan value '" + i + "'.  Please use the format HH:MM:SS or enter a single number for the number of seconds.";
+		       alert(t);
+		       return;
+		    }
+			socket.emit("setOptions", e)
+			window.socket.emit("chatMsg", {
+				msg: "max queue time set to " + chatCmdText[1]
+			});
+		}
+	},
+	'/voteskip': function(chatCmdText) {
+		socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
+	}
 	'!schwing': function() {
 		imgEmote('http://cdn.discordapp.com/attachments/409829343263719427/497929642347331585/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0.png');
 	},

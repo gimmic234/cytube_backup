@@ -344,13 +344,17 @@ if (!window[CHANNEL.name].audioNotice) {
 	};
 	window[CHANNEL.name].audioNotice.Video = {
 		timeSinceLast: 0
-	}
+	};
+	window[CHANNEL.name].audioNotice.Skip = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
 	Poll: "Poll",
 	Priv: "Private Message",
-	Video: "Queued Video"
+	Video: "Queued Video",
+	Skip: "Voted Skip",
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
