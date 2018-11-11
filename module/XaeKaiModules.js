@@ -404,6 +404,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
 		if (CLIENT.rank < CHANNEL.perms.voteskip) return;
 		if (Date.now() - window[CHANNEL.name].audioNotice.Poll.timeSinceLast < 10000) return;
+		$('#voteskipwrap').append("<h1 class='skip'>vote skip count: "+data.count+"<br> need: "+data.need+"</h1>");
 		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 		window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
 	},
@@ -448,6 +449,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		$("div.chat-msg-\\\\\\$server\\\\\\$:contains(Private Message Notification)").remove();
 	},
 	Video: function(data) {
+		$('#voteskipwrap').html('');
 		var addedby = false;
 		if (!window[CHANNEL.name].audioNotice.Video.toggleState) return;
 		if (CLIENT.rank < CHANNEL.perms.seeplaylist) return;
@@ -481,7 +483,7 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Poll"].volume = .3;
 	window[CHANNEL.name].audioNotice["Priv"].volume = .35;
 	window[CHANNEL.name].audioNotice["Video"].volume = .35;
-	window[CHANNEL.name].audioNotice["Skip"].volume = .1;
+	window[CHANNEL.name].audioNotice["Skip"].volume = 1;
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -543,6 +545,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		return window[CHANNEL.name].audioNotice.handler["Video"](data)
 	});
 	socket.on("voteskip", function(data) {
+		console.log(data);
 		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
 	});
 	console.log("INFO: AudioNotice System Initialized");
