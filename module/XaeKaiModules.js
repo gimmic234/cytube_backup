@@ -542,7 +542,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		return window[CHANNEL.name].audioNotice.handler["Priv"](data)
 	});
 	socket.on("changeMedia", function(data) {
-		return window[CHANNEL.name].audioNotice.handler["Video"](data)
+		//return window[CHANNEL.name].audioNotice.handler["Video"](data)
 	});
 	socket.on("voteskip", function(data) {
 		console.log(data);
