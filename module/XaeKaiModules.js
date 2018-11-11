@@ -532,10 +532,6 @@ window[CHANNEL.name].audioNotice.handler = {
 	if (!window[CHANNEL.name].audioNotice.Squee.toggleState) {
 		window[CHANNEL.name].audioNotice.Squee.toggleButton.removeClass("label-info").addClass("")
 	}
-	socket.on("voteskip", function(data) {
-		console.log(data);
-		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
-	});
 	socket.on("chatMsg", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Squee"](data)
 	});
@@ -547,6 +543,10 @@ window[CHANNEL.name].audioNotice.handler = {
 	});
 	socket.on("changeMedia", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Video"](data)
+	});
+	socket.on("voteskip", function(data) {
+		console.log(data);
+		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
 	});
 	console.log("INFO: AudioNotice System Initialized");
 	window[CHANNEL.name].audioNotice.controls = $('<div id="AudioNoticeControls" class="customSettings" data-title="Audio Notifications Settings"/>').appendTo("#customSettingsStaging");
