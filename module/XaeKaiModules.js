@@ -400,6 +400,13 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
 };
 window[CHANNEL.name].audioNotice.handler = {
+	Skip: function(data) {
+		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
+		if (CLIENT.rank < CHANNEL.perms.voteskip) return;
+		if (Date.now() - window[CHANNEL.name].audioNotice.Poll.timeSinceLast < 10000) return;
+		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
+		window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
+	},
 	Squee: function(data) {
 		var squee;
 		if (!window[CHANNEL.name].audioNotice.Squee.toggleState) {
