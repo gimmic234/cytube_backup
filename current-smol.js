@@ -46,6 +46,7 @@ var countDown2;
 var countDownTimer2;
 var collapseArrow;
 var autoPosition = -1;
+var voteskipMsg = "BZZZZT!";
 var countdown1, countdown2;
 var rankMod = (window.CLIENT.rank >= 2),
 	rankAdmin = (window.CLIENT.rank >= 3);
@@ -287,7 +288,13 @@ var chatCmdLookup = {
 		}
 	},
 	'/voteskip': function(chatCmdText) {
+		window.socket.emit("chatMsg", {
+			msg: voteskipMsg
+		});
 		socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
+	},
+	'/skipclear': function() {
+		$('#voteskipwrap').html('');
 	},
 	'!schwing': function() {
 		imgEmote('http://cdn.discordapp.com/attachments/409829343263719427/497929642347331585/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0.png');
@@ -359,7 +366,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/62706e220b61b9a500d2bef6bcf234461e01805a/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/e6acb4329f7ca3181b75a068a71f540e7b2b0f18/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {

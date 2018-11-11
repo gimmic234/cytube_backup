@@ -248,6 +248,7 @@ function fetchEmote() {
 function videoDisplayToggle() {
 	let next = $(document.getElementById('plcount'))[0].innerHTML;
 	if (next == "0 items") {
+		$(document.getElementById('voteskipwrap')).html('');
 		$(document.getElementById('videowrap')).hide();
 	} else {
 		$(document.getElementById('videowrap')).show();
@@ -374,6 +375,13 @@ function bindEventHandler() {
 	$(bodyElem).on('show.bs.collapse', '#collapseMessage', function() {
 		collapseArrow[0].classList.remove('glyphicon-chevron-down');
 		collapseArrow[0].classList.add('glyphicon-chevron-up');
+	});
+
+	$(bodyElem).on('mousedown', '#voteskip', function() {
+		window.socket.emit("chatMsg", {
+			msg: voteskipMsg
+		});
+		$(this).click();
 	});
 
 	$(bodyElem).on('mousedown', '.qbtn-delete', function() {
