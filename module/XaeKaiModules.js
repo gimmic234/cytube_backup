@@ -401,12 +401,10 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 };
 window[CHANNEL.name].audioNotice.handler = {
 	Skip: function(data) {
-		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
 		$('#voteskipwrap').html("<h1 class='skip'>vote skip <br>count: "+data.count+"<br>need: "+data.need+"</h1>");
-		//window[CHANNEL.name].audioNotice.Skip.audio[0].play();
-		window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
+		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 	},
 	Squee: function(data) {
 		var squee;
