@@ -271,6 +271,19 @@ var chatCmdLookup = {
 			});
 		}
 	},
+	'/voteratio': function(chatCmdText) {
+		if (rankAdmin) {
+			var ratio = chatCmdText[1];
+			var e = {};
+		    if (!isNaN(ratio)) {
+		       e['voteskip_ratio'] = ratio;
+		       socket.emit("setOptions", e)
+				window.socket.emit("chatMsg", {
+					msg: "voteskip ratio set to " + ratio
+				});
+		    }
+		}
+	},
 	'/maxq': function(chatCmdText) {
 		if (rankAdmin) {
 			var e = {};
@@ -366,7 +379,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/93b1f79fff578b3eb8927cb8d18f7551bc3beae1/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/811520bfe11c2978547a142ea305cfd144c49cd9/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {

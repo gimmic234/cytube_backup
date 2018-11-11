@@ -351,7 +351,8 @@ if (!window[CHANNEL.name].audioNotice) {
 		timeSinceLast: 0
 	};
 	window[CHANNEL.name].audioNotice.Skip = {
-		timeSinceLast: 0
+		timeSinceLast: 0,
+		previousNeed: 0
 	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
@@ -403,6 +404,10 @@ window[CHANNEL.name].audioNotice.handler = {
 	Skip: function(data) {
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
 		$('#voteskipwrap').html("<h1 class='skip'>vote skip: "+data.count+"/"+data.need+"</h1>");
+		if (window[CHANNEL.name].audioNotice.Skip.previousNeed != data.need) {
+			window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
+			return;
+		}
 		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
 		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 	},
