@@ -404,12 +404,15 @@ window[CHANNEL.name].audioNotice.handler = {
 	Skip: function(data) {
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
 		$('#voteskipwrap').html("<h1 class='skip'>vote skip: "+data.count+"/"+data.need+"</h1>");
+		if (window[CHANNEL.name].audioNotice.Skip.previousNeed != 0) {
 		if (window[CHANNEL.name].audioNotice.Skip.previousNeed != data.need) {
-			window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
-			return;
+				window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
+				return;
+			}
 		}
 		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
 		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
+		window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
 	},
 	Squee: function(data) {
 		var squee;
