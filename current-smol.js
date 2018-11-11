@@ -287,7 +287,6 @@ var chatCmdLookup = {
 		}
 	},
 	'/voteskip': function(chatCmdText) {
-		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 		socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
 	},
 	'!schwing': function() {
@@ -360,7 +359,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/4c90aa5c70700c6a74a3ff5fe0b8643912a19ef5/module/channelbase-mod.js",
+		url: "https://github.com/gimmic234/cytube_backup/blob/3dd5a4e8d33673b792e8847e01a923286d138f0f/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
