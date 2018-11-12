@@ -272,6 +272,7 @@ var chatCmdLookup = {
 				msg: voteskipMsgFinal
 			});
 			setTimeout(function() {
+				window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
 				socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
 			}, 4000);
 		} else {
