@@ -362,6 +362,9 @@ if (!window[CHANNEL.name].audioNotice) {
 		previousUser: CHANNEL.usercount,
 		active: false,
 	};
+	window[CHANNEL.name].audioNotice.Gross = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
