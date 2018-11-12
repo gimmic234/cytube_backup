@@ -182,15 +182,14 @@ span#days, span#hours, span#minutes, span#seconds, span#days2, span#hours2, span
 }
 
 #voteskipNope {
-    width: 100%;
+    width: 60%;
     height: auto;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
-    left: 0;
+    left: 21%;
     right: 0;
-    top: -100px;
+    top: -50px;
     position: absolute;
     opacity: 0.7;
-    color:red;
 }
