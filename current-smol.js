@@ -28,6 +28,7 @@ var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/0
 //ControlBlockEnd
 console.log = function() {}
 var emoteTable = "false";
+var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
 const second = 1000,
 	minute = second * 60,
 	hour = minute * 60,
@@ -74,7 +75,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/8dfc463d5eeb7061c727b2bcd0ddbdc18fb04424/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/cc71cbd0eb5d6df781099284f739196b498faf4f/module/channelbase-mod.js",
 		callback: true
 	},
 	'xaekai': {
