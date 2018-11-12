@@ -565,10 +565,11 @@ window[CHANNEL.name].audioNotice.handler = {
 	});
 	socket.on("onPreMediaChange", function(data) {
 		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && window[CHANNEL.name].audioNotice.Skip.previousCount == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
+			e.stopImmediatePropagation();
 			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 			$(document.getElementById('voteskipNope')).show();
 			setTimeout(function() {
-				
+				socket.emit("voteskip");
 			}, 2000);
 		}
 	});
