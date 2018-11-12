@@ -422,7 +422,7 @@ window[CHANNEL.name].audioNotice.handler = {
 	Skip: function(data) {
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
 		$('#voteskipwrap').html("<h1 class='skip'>vote skip: "+data.count+"/"+data.need+"</h1>");
-		if (window[CHANNEL.name].audioNotice.Skip.previousNeed > 1) {
+		if (window[CHANNEL.name].audioNotice.Skip.previousNeed != 0) {
 			if (window[CHANNEL.name].audioNotice.Skip.previousNeed != data.need && window[CHANNEL.name].audioNotice.Skip.previousUser != CHANNEL.usercount) {
 				window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
 				window[CHANNEL.name].audioNotice.Skip.previousCount = data.count;
