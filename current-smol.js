@@ -47,6 +47,7 @@ var countDownTimer2;
 var collapseArrow;
 var autoPosition = -1;
 var voteskipMsg = "==BZZZZT!==";
+var voteskipMsgFinal = "``BZZZZT!``";
 var countdown1, countdown2;
 var rankMod = (window.CLIENT.rank >= 2),
 	rankAdmin = (window.CLIENT.rank >= 3);
@@ -301,11 +302,19 @@ var chatCmdLookup = {
 		}
 	},
 	'/voteskip': function(chatCmdText) {
-		window.socket.emit("chatMsg", {
+		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
+			window.socket.emit("chatMsg", {
+				msg: voteskipMsgFinal
+			});
+			setTimeout(function() {
+				socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
+			}, 3000);
+		} else {
+			window.socket.emit("chatMsg", {
 			msg: voteskipMsg
-		});
-		socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
-	
+			});
+			socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
+		}
 	},
 	'/skipclear': function() {
 		$('#voteskipwrap').html('');
@@ -380,7 +389,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/02873444d34feff293c3740d0bde7b440d71401f/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/f603edb3644204e25706ffca1773c20bfa28ef0a/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {

@@ -355,7 +355,7 @@ if (!window[CHANNEL.name].audioNotice) {
 		previousNeed: 0,
 		previousCount: 0,
 		previousUser: CHANNEL.usercount,
-		active: false
+		active: false,
 	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
@@ -443,6 +443,14 @@ window[CHANNEL.name].audioNotice.handler = {
 		}() : window[CHANNEL.name].audioNotice.Squee.audio[0].play();*/
 		window[CHANNEL.name].audioNotice.Squee.audio[0].play();
 		window[CHANNEL.name].audioNotice.Squee.timeSinceLast = Date.now()
+	},
+	VoteFinal: function(data) {
+		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
+			let final = $(".final:not( .parsed )");
+			final.addClass("parsed");
+			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
+			$(document.getElementById('voteskipNope')).show();
+		}
 	},
 	Poll: function(data) {
 		if (!window[CHANNEL.name].audioNotice.Poll.toggleState) return;
@@ -557,6 +565,9 @@ window[CHANNEL.name].audioNotice.handler = {
 	socket.on("chatMsg", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Squee"](data)
 	});
+	socket.on("chatMsg", function(data) {
+		return window[CHANNEL.name].audioNotice.handler["VoteFinal"](data)
+	});
 	socket.on("newPoll", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Poll"](data)
 	});
@@ -567,7 +578,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && window[CHANNEL.name].audioNotice.Skip.previousCount == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
 			e.stopImmediatePropagation();
 			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
-			$(document.getElementById('voteskipNope')).show();
+			
 			setTimeout(function() {
 				socket.emit("voteskip");
 			}, 2000);
