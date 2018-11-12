@@ -414,12 +414,10 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 };
 window[CHANNEL.name].audioNotice.handler = {
 	Gross: function(data) {
-		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
-			let gross = $(".gross:not( .parsed )");
-			if (!gross.length) return;
-			gross.addClass("parsed");
-			window[CHANNEL.name].audioNotice.Gross.audio[0].play();
-		}
+		let gross = $(".gross:not( .parsed )");
+		if (!gross.length) return;
+		gross.addClass("parsed");
+		window[CHANNEL.name].audioNotice.Gross.audio[0].play();
 	},
 	Skip: function(data) {
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
@@ -525,7 +523,7 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Priv"].id = "uhoh";
 	window[CHANNEL.name].audioNotice["Video"].id = "fairywand";
 	window[CHANNEL.name].audioNotice["Skip"].id = "bzzzt";
-	window[CHANNEL.name].audioNotice["Gross"].id = "bzzzt";
+	window[CHANNEL.name].audioNotice["Gross"].id = "gross";
 	window[CHANNEL.name].audioNotice["Squee"].volume = .6;
 	window[CHANNEL.name].audioNotice["Poll"].volume = .3;
 	window[CHANNEL.name].audioNotice["Priv"].volume = .35;
