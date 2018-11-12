@@ -460,7 +460,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.Squee.timeSinceLast = Date.now()
 	},
 	VoteFinal: function(data) {
-		if (window[CHANNEL.name].audioNotice.Skip.previousNeed == 0 || (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
+		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
 			let final = $(".final:not( .parsed )");
 			if (!final.length) return;
 			final.addClass("parsed");
