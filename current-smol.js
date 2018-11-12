@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/508982831586738176/banner_new_11-04-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511339393714225213/Mawaru.Penguindrum.full.881359.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511365244849881091/Mawaru.Penguindrum.full.881359.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -20,7 +20,7 @@ var countdown_utc2 = {
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto = 'http://cdn.discordapp.com/attachments/419692699986165770/507305871307440138/date-a-live_v5.jpg';
+var background_img_auto = 'http://cdn.discordapp.com/attachments/463192738846867456/511365244849881091/Mawaru.Penguindrum.full.881359.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -47,7 +47,7 @@ var countDownTimer2;
 var collapseArrow;
 var autoPosition = -1;
 var voteskipMsg = "==BZZZZT!==";
-var voteskipMsgFinal = "``BZZZZT!``";
+var voteskipMsgFinal = "---BZZZZT!---";
 var countdown1, countdown2;
 var rankMod = (window.CLIENT.rank >= 2),
 	rankAdmin = (window.CLIENT.rank >= 3);
@@ -301,6 +301,26 @@ var chatCmdLookup = {
 			});
 		}
 	},
+	'/vson': function() {
+		if (rankAdmin) {
+	    	o = {};
+	  		o['allow_voteskip'] = true;
+	  		socket.emit("setOptions", o);
+	  		window.socket.emit("chatMsg", {
+				msg: "voteskip on"
+			});
+  		}
+	},
+	'/vsoff': function() {
+		if (rankAdmin) {
+			o = {};
+	  		o['allow_voteskip'] = false;
+	  		socket.emit("setOptions", o);
+	  		window.socket.emit("chatMsg", {
+				msg: "voteskip off"
+			});
+  		}
+	},
 	'/voteskip': function(chatCmdText) {
 		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
 			window.socket.emit("chatMsg", {
@@ -308,7 +328,7 @@ var chatCmdLookup = {
 			});
 			setTimeout(function() {
 				socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
-			}, 3000);
+			}, 4000);
 		} else {
 			window.socket.emit("chatMsg", {
 			msg: voteskipMsg
@@ -389,7 +409,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/f603edb3644204e25706ffca1773c20bfa28ef0a/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/b0a7c740a78d1a5edef9809f9301b2f0a999f180/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
