@@ -447,6 +447,7 @@ window[CHANNEL.name].audioNotice.handler = {
 	VoteFinal: function(data) {
 		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
 			let final = $(".final:not( .parsed )");
+			if (!final.length) return;
 			final.addClass("parsed");
 			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 			$(document.getElementById('voteskipNope')).show();

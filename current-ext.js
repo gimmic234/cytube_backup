@@ -284,6 +284,7 @@ var chatCmdLookup = {
 	},
 	'/skipclear': function() {
 		$('#voteskipwrap').html('');
+		$('#voteskipNope').hide();
 	},
 	'!schwing': function() {
 		imgEmote('http://cdn.discordapp.com/attachments/409829343263719427/497929642347331585/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0.png');
