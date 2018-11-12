@@ -304,6 +304,12 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: voteskipMsg
 		});
+		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && window[CHANNEL.name].audioNotice.Skip.previousCount == (window[CHANNEL.name].audioNotice.Skip.previousNeed + 1)) {
+			setTimeout(function() {
+				window[CHANNEL.name].audioNotice.Skip.audio[0].play();
+				$(document.getElementById('voteskipNope')).show();
+			}, 2000);
+		}
 		socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
 	},
 	'/skipclear': function() {

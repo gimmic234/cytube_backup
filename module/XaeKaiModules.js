@@ -353,7 +353,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.Skip = {
 		timeSinceLast: 0,
 		previousNeed: 0,
+		previousCount: 0,
 		previousUser: CHANNEL.usercount,
+		active: false
 	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
@@ -408,12 +410,15 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (window[CHANNEL.name].audioNotice.Skip.previousNeed != 0) {
 			if (window[CHANNEL.name].audioNotice.Skip.previousNeed != data.need && window[CHANNEL.name].audioNotice.Skip.previousUser != CHANNEL.usercount) {
 				window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
+				window[CHANNEL.name].audioNotice.Skip.previousCount = data.count;
 				return;
 			}
 		}
 		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
 		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
+		window[CHANNEL.name].audioNotice.Skip.active = true;
 		window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
+		window[CHANNEL.name].audioNotice.Skip.previousCount = data.count;
 	},
 	Squee: function(data) {
 		var squee;
@@ -457,7 +462,13 @@ window[CHANNEL.name].audioNotice.handler = {
 	},
 	Video: function(data) {
 		$('#voteskipwrap').html('');
+		if (window[CHANNEL.name].audioNotice.Skip.active) {
+			window[CHANNEL.name].audioNotice.Skip.previousCount = 0;
+			window[CHANNEL.name].audioNotice.Skip.previousNeed = 0;
+		}
+		$('#voteskipNope').hide();
 		window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
+		window[CHANNEL.name].audioNotice.Skip.active = false;
 		var addedby = false;
 		if (!window[CHANNEL.name].audioNotice.Video.toggleState) return;
 		if (CLIENT.rank < CHANNEL.perms.seeplaylist) return;

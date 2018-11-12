@@ -249,6 +249,7 @@ function videoDisplayToggle() {
 	let next = $(document.getElementById('plcount'))[0].innerHTML;
 	if (next == "0 items") {
 		$(document.getElementById('voteskipwrap')).html('');
+		$(document.getElementById('voteskipNope')).hide();
 		$(document.getElementById('videowrap')).hide();
 	} else {
 		$(document.getElementById('videowrap')).show();
