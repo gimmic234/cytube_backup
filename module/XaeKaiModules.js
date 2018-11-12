@@ -465,6 +465,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			if (!final.length) return;
 			final.addClass("parsed");
 			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
+			window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
 			$(document.getElementById('voteskipNope')).show();
 		}
 	},
