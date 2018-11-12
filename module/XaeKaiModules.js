@@ -357,7 +357,7 @@ if (!window[CHANNEL.name].audioNotice) {
 	};
 	window[CHANNEL.name].audioNotice.Skip = {
 		timeSinceLast: 0,
-		previousNeed: Math.floor((CHANNEL.usercount * CHANNEL.opts.voteskip_ratio)),
+		previousNeed: ((CHANNEL.usercount == 1) ? 1 : Math.floor((CHANNEL.usercount * CHANNEL.opts.voteskip_ratio))), 
 		previousCount: 0,
 		previousUser: CHANNEL.usercount,
 		active: false,

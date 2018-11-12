@@ -82,7 +82,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/a91d4739c4b4072165fe1d3fe76a365ec75e85b2/module/XaeKaiModules.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/80deb4724d6f29c37d945c13e1d3cd00eee55e7f/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -124,9 +124,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 			waitForEl('#messagebuffer', function() {
 				var buff = $('#messagebuffer');
-				buff.find(".gross:not( .parsed )").addClass('.parsed');
-				buff.find(".final:not( .parsed )").addClass('.parsed');
-				buff.find(".nick-highlight:not( .parsed )").addClass('.parsed');
+				buff.find(".gross:not( .parsed )").addClass('parsed');
+				buff.find(".final:not( .parsed )").addClass('parsed');
+				buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
 			});
 
 			waitForEl('#club_redirect', function() {
