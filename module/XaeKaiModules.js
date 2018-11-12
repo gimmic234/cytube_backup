@@ -102,6 +102,11 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: "https://cdn.discordapp.com/attachments/409829343263719427/511204681293234177/Wrong-answer-sound-effect.mp3",
 		emote: true,
 		squee: true
+	},
+	gross: {
+		url: "https://cdn.discordapp.com/attachments/409829343263719427/511673298472534016/maji.wav",
+		emote: true,
+		squee: true	
 	}
 };
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -352,7 +357,7 @@ if (!window[CHANNEL.name].audioNotice) {
 	};
 	window[CHANNEL.name].audioNotice.Skip = {
 		timeSinceLast: 0,
-		previousNeed: 0,
+		previousNeed: Math.floor((CHANNEL.usercount * CHANNEL.opts.voteskip_ratio)),
 		previousCount: 0,
 		previousUser: CHANNEL.usercount,
 		active: false,
@@ -363,7 +368,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Poll: "Poll",
 	Priv: "Private Message",
 	Video: "Queued Video",
-	Skip: "Voted Skip"
+	Skip: "Voted Skip",
+	Gross: "Gross"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
@@ -404,6 +410,14 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
 };
 window[CHANNEL.name].audioNotice.handler = {
+	Gross: function(data) {
+		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
+			let gross = $(".gross:not( .parsed )");
+			if (!gross.length) return;
+			gross.addClass("parsed");
+			window[CHANNEL.name].audioNotice.Gross.audio[0].play();
+		}
+	},
 	Skip: function(data) {
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
 		$('#voteskipwrap').html("<h1 class='skip'>vote skip: "+data.count+"/"+data.need+"</h1>");
@@ -502,16 +516,19 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Priv"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Video"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Skip"].toggleState = true;
+	window[CHANNEL.name].audioNotice["Gross"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Squee"].id = "squee";
 	window[CHANNEL.name].audioNotice["Poll"].id = "votingpoll";
 	window[CHANNEL.name].audioNotice["Priv"].id = "uhoh";
 	window[CHANNEL.name].audioNotice["Video"].id = "fairywand";
 	window[CHANNEL.name].audioNotice["Skip"].id = "bzzzt";
+	window[CHANNEL.name].audioNotice["Gross"].id = "bzzzt";
 	window[CHANNEL.name].audioNotice["Squee"].volume = .6;
 	window[CHANNEL.name].audioNotice["Poll"].volume = .3;
 	window[CHANNEL.name].audioNotice["Priv"].volume = .35;
 	window[CHANNEL.name].audioNotice["Video"].volume = .35;
 	window[CHANNEL.name].audioNotice["Skip"].volume = .35;
+	window[CHANNEL.name].audioNotice["Gross"].volume = .4;
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -521,6 +538,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			uhoh: "//resources.pink.horse/sounds/uhoh.ogg",
 			fairywand: "//resources.pink.horse/sounds/fairy_wand.ogg",
 			bzzzt: "https://cdn.discordapp.com/attachments/409829343263719427/511204681293234177/Wrong-answer-sound-effect.mp3",
+			gross: "https://cdn.discordapp.com/attachments/409829343263719427/511673298472534016/maji.wav",
 		}
 	}
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {
@@ -568,6 +586,9 @@ window[CHANNEL.name].audioNotice.handler = {
 	});
 	socket.on("chatMsg", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["VoteFinal"](data)
+	});
+	socket.on("chatMsg", function(data) {
+		return window[CHANNEL.name].audioNotice.handler["Gross"](data)
 	});
 	socket.on("newPoll", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Poll"](data)

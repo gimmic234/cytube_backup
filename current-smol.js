@@ -28,6 +28,7 @@ var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/0
 //ControlBlockEnd
 console.log = function() {}
 var emoteTable = "false";
+var grossimg = 'https://media.discordapp.net/attachments/409829343263719427/511679530499309588/gross2.jpg';
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
 const second = 1000,
 	minute = second * 60,
@@ -120,6 +121,13 @@ window[CHANNEL.name].sequencerLoader = function() {
 					}
 				});
 			}
+
+			waitForEl('#messagebuffer', function() {
+				var buff = $('#messagebuffer');
+				buff.find(".gross:not( .parsed )").addClass('.parsed');
+				buff.find(".final:not( .parsed )").addClass('.parsed');
+				buff.find(".nick-highlight:not( .parsed )").addClass('.parsed');
+			});
 
 			waitForEl('#club_redirect', function() {
 				$('#club_redirect').attr('href', href_url);

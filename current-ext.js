@@ -285,6 +285,13 @@ var chatCmdLookup = {
 		$('#voteskipwrap').html('');
 		$('#voteskipNope').hide();
 	},
+	'/skiphide': function() {
+		$('#voteskipwrap').hide();
+		$('#voteskipNope').hide();
+	},
+	'/skipshow': function() {
+		$('#voteskipwrap').show();
+	}
 	'!schwing': function() {
 		imgEmote('http://cdn.discordapp.com/attachments/409829343263719427/497929642347331585/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0.png');
 	},
@@ -333,6 +340,11 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #8 - |Pat Poes for good luck!|"
 		});
+	},
+	'!gross': function() {
+		window.socket.emit("chatMsg", {
+			msg: "grossimg" + grossimg + "grossimg"
+		});	
 	}
 };
 
