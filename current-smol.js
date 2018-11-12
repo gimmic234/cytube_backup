@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/508982831586738176/banner_new_11-04-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511338646901620736/Mawaru.Penguindrum.full.881359.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511339393714225213/Mawaru.Penguindrum.full.881359.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -304,7 +304,7 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: voteskipMsg
 		});
-		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && window[CHANNEL.name].audioNotice.Skip.previousCount == (window[CHANNEL.name].audioNotice.Skip.previousNeed + 1)) {
+		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
 			setTimeout(function() {
 				window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 				$(document.getElementById('voteskipNope')).show();
@@ -385,7 +385,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/da06e179792ab5918003cd035dd6a0a19d43844b/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/2cccb2c663c2de15d2b3bccf9a7f6962cbf9ab21/module/channelbase-mod.js",
 		callback: true
 	},
 	'channel': {
