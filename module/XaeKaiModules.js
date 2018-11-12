@@ -352,7 +352,8 @@ if (!window[CHANNEL.name].audioNotice) {
 	};
 	window[CHANNEL.name].audioNotice.Skip = {
 		timeSinceLast: 0,
-		previousNeed: 0
+		previousNeed: 0,
+		previousUser: CHANNEL.usercount,
 	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
@@ -405,7 +406,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
 		$('#voteskipwrap').html("<h1 class='skip'>vote skip: "+data.count+"/"+data.need+"</h1>");
 		if (window[CHANNEL.name].audioNotice.Skip.previousNeed != 0) {
-		if (window[CHANNEL.name].audioNotice.Skip.previousNeed != data.need) {
+			if (window[CHANNEL.name].audioNotice.Skip.previousNeed != data.need && window[CHANNEL.name].audioNotice.Skip.previousUser != CHANNEL.usercount) {
 				window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
 				return;
 			}
@@ -490,7 +491,7 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Poll"].volume = .3;
 	window[CHANNEL.name].audioNotice["Priv"].volume = .35;
 	window[CHANNEL.name].audioNotice["Video"].volume = .35;
-	window[CHANNEL.name].audioNotice["Skip"].volume = .6;
+	window[CHANNEL.name].audioNotice["Skip"].volume = .35;
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
