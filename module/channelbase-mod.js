@@ -711,4 +711,3 @@ window.setInterval(function(){
 var myElement = document.querySelector("#videowrap");
 myElement.style.display = "block";
 $("body").addClass('fluid');
-$.getScript("https://raw.githack.com/gimmic234/cytube_backup/923e6b61a122a550935fa413b8a534f0c79a69f5/module/XaeKaiModules.js");

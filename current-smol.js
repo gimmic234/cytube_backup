@@ -74,7 +74,13 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/14fa78fa3f68f243ec41bfe475dfc8b14d219482/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/505d741cf6e85e87f5ba96a65843e6600650956c/module/channelbase-mod.js",
+		callback: true
+	},
+	'xaekai': {
+		active: 1,
+		rank: -1,
+		url: "https://raw.githack.com/gimmic234/cytube_backup/923e6b61a122a550935fa413b8a534f0c79a69f5/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
