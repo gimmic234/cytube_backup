@@ -382,12 +382,6 @@ function bindEventHandler() {
 		window.socket.emit("chatMsg", {
 			msg: voteskipMsg
 		});
-		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
-			setTimeout(function() {
-				window[CHANNEL.name].audioNotice.Skip.audio[0].play();
-				$(document.getElementById('voteskipNope')).show();
-			}, 2000);
-		}
 		$(this).click();
 	});
 
