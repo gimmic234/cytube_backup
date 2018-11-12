@@ -563,16 +563,17 @@ window[CHANNEL.name].audioNotice.handler = {
 	socket.on("pm", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Priv"](data)
 	});
-	socket.on("changeMedia", function(data) {
+	socket.on("onPreMediaChange", function(data) {
 		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && window[CHANNEL.name].audioNotice.Skip.previousCount == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
 			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 			$(document.getElementById('voteskipNope')).show();
 			setTimeout(function() {
-				return window[CHANNEL.name].audioNotice.handler["Video"](data)
+				
 			}, 2000);
-		} else {
-			return window[CHANNEL.name].audioNotice.handler["Video"](data)
 		}
+	});
+	socket.on("changeMedia", function(data) {
+		return window[CHANNEL.name].audioNotice.handler["Video"](data)
 	});
 	console.log("INFO: AudioNotice System Initialized");
 	window[CHANNEL.name].audioNotice.controls = $('<div id="AudioNoticeControls" class="customSettings" data-title="Audio Notifications Settings"/>').appendTo("#customSettingsStaging");
