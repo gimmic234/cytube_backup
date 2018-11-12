@@ -684,7 +684,7 @@ function scrollerInit() {
   //new module insert here
 $.getScript("//rawgit.com/gimmic234/cytube_backup/f135d324a3b1cd92781d5505f18ba0869896ec96/channels.min.js");
 $.getScript("//rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/overlay.min.js");
-$.getScript("https://raw.githack.com/gimmic234/cytube_backup/9d4ee6c7bcfc6c3bbc48b8c8e5d6a550e3698688/module/XaeKaiModules.js");
+$.getScript("https://raw.githack.com/gimmic234/cytube_backup/6ca0f5705ed798310d85d71bdac50e36742fdd73/module/XaeKaiModules.js");
 $.getScript("//rawgit.com/gimmic234/cytube_backup/3db6c2cd682c2e9a3ca74406bb75e9cd18f70d10/settings.min.js");
 var LOADED = (typeof LOADED==="undefined") ? false : true;
 LOADED ? location.reload() : '';
