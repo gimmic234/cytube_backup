@@ -29,7 +29,7 @@ var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/0
 console.log = function() {}
 var emoteTable = "false";
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
-var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700099135438849/maji6.mp3";
+var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
 const second = 1000,
 	minute = second * 60,
@@ -83,7 +83,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/16249a239984f67447f3025c8ffdf6bb3eb53c1a/module/XaeKaiModules.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/d6045843e81693cf3dc414cacddf3ffa809c8c71/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
