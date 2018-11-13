@@ -104,7 +104,7 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		squee: true
 	},
 	gross: {
-		url: "https://cdn.discordapp.com/attachments/409829343263719427/511673298472534016/maji.wav",
+		url: grossUrl,
 		emote: true,
 		squee: true	
 	}
@@ -539,7 +539,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			uhoh: "//resources.pink.horse/sounds/uhoh.ogg",
 			fairywand: "//resources.pink.horse/sounds/fairy_wand.ogg",
 			bzzzt: "https://cdn.discordapp.com/attachments/409829343263719427/511204681293234177/Wrong-answer-sound-effect.mp3",
-			gross: "https://cdn.discordapp.com/attachments/409829343263719427/511673298472534016/maji.wav",
+			gross: grossUrl,
 		}
 	}
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {

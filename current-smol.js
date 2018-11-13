@@ -29,6 +29,7 @@ var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/0
 console.log = function() {}
 var emoteTable = "false";
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
+var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700099135438849/maji6.mp3";
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
 const second = 1000,
 	minute = second * 60,
