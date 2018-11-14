@@ -84,7 +84,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/194b331e17f10d51c3ecb72b4e283f3afed32f3e/module/XaeKaiModules.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/3a0bc7df8d288c519055dfe8ccc7e29d0b15b651/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
