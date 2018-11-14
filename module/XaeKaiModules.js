@@ -414,11 +414,11 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 };
 window[CHANNEL.name].audioNotice.handler = {
 	Gross: function(data) {
-		if (!grossActive) return;
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Gross.timeSinceLast) < 10000) return;
 		let gross = $(".gross:not( .parsed )");
 		if (!gross.length) return;
 		gross.addClass("parsed");
+		if (!grossActive) return;
 		window[CHANNEL.name].audioNotice.Gross.audio[0].play();
 		window[CHANNEL.name].audioNotice.Gross.timeSinceLast = Date.now()
 	},
