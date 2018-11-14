@@ -30,6 +30,7 @@ console.log = function() {}
 var emoteTable = "false";
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
 var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
+var grossActive = true;
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
 const second = 1000,
 	minute = second * 60,
@@ -71,7 +72,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/9e72cb525b700ce12ceb82edc1a155b5aa2c1bd9/current-ext.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/a94a59fa9716ffb0ed6d6bcaaa5caa563f4ab85d/current-ext.js",
 		callback: true
 	},
 	'layout': {

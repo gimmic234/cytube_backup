@@ -414,10 +414,13 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 };
 window[CHANNEL.name].audioNotice.handler = {
 	Gross: function(data) {
+		if (!grossActive) return;
+		if ((Date.now() - window[CHANNEL.name].audioNotice.Gross.timeSinceLast) < 10000) return;
 		let gross = $(".gross:not( .parsed )");
 		if (!gross.length) return;
 		gross.addClass("parsed");
 		window[CHANNEL.name].audioNotice.Gross.audio[0].play();
+		window[CHANNEL.name].audioNotice.Gross.timeSinceLast = Date.now()
 	},
 	Skip: function(data) {
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
@@ -431,7 +434,6 @@ window[CHANNEL.name].audioNotice.handler = {
 		}
 		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
 		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
-		window[CHANNEL.name].audioNotice.Skip.active = true;
 		window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
 		window[CHANNEL.name].audioNotice.Skip.previousCount = data.count;
 	},
@@ -466,6 +468,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			final.addClass("parsed");
 			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 			$(document.getElementById('voteskipNope')).show();
+			window[CHANNEL.name].audioNotice.Skip.active = true;
 		}
 	},
 	Poll: function(data) {
