@@ -368,6 +368,29 @@ var chatCmdLookup = {
 				msg: "gross sound on"
 			});
   		}
+	},
+	'!penguin': function() {
+		if (rankMod) {
+			window.socket.emit("chatMsg", {
+				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
+			});	
+		}
+	},
+	'/penguinoff': function() {
+		if (rankAdmin) {
+			penguinActive = false;
+	  		window.socket.emit("chatMsg", {
+				msg: "penguin sound off"
+			});
+  		}
+	},
+	'/penguinon': function() {
+		if (rankAdmin) {
+			penguinActive = true;
+	  		window.socket.emit("chatMsg", {
+				msg: "penguin sound on"
+			});
+  		}
 	}
 };
 

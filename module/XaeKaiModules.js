@@ -107,6 +107,11 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: grossUrl,
 		emote: true,
 		squee: true	
+	},
+	survival_strategy: {
+		url: penguinUrl,
+		emote: true,
+		squee: true
 	}
 };
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -365,6 +370,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.Gross = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.SurvivalStrategy = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
@@ -372,7 +380,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Priv: "Private Message",
 	Video: "Queued Video",
 	Skip: "Voted Skip",
-	Gross: "Gross"
+	Gross: "Gross",
+	SurvivalStrategy: "Survival Strategy"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
@@ -413,6 +422,13 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
 };
 window[CHANNEL.name].audioNotice.handler = {
+	SurvivalStrategy: function(data) {
+		let survival = $(".survival:not( .parsed )");
+		if (!survival.length) return;
+		survival.addClass("parsed");
+		if (!survivalActive) return;
+		window[CHANNEL.name].audioNotice.SurvivalStrategy.audio[0].play();
+	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");
 		if (!gross.length) return;
@@ -519,18 +535,21 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Video"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Skip"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Gross"].toggleState = true;
+	window[CHANNEL.name].audioNotice["SurvivalStrategy"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Squee"].id = "squee";
 	window[CHANNEL.name].audioNotice["Poll"].id = "votingpoll";
 	window[CHANNEL.name].audioNotice["Priv"].id = "uhoh";
 	window[CHANNEL.name].audioNotice["Video"].id = "fairywand";
 	window[CHANNEL.name].audioNotice["Skip"].id = "bzzzt";
 	window[CHANNEL.name].audioNotice["Gross"].id = "gross";
+	window[CHANNEL.name].audioNotice["SurvivalStrategy"].id = "survivalStrategy";
 	window[CHANNEL.name].audioNotice["Squee"].volume = .6;
 	window[CHANNEL.name].audioNotice["Poll"].volume = .3;
 	window[CHANNEL.name].audioNotice["Priv"].volume = .35;
 	window[CHANNEL.name].audioNotice["Video"].volume = .35;
 	window[CHANNEL.name].audioNotice["Skip"].volume = .35;
 	window[CHANNEL.name].audioNotice["Gross"].volume = .4;
+	window[CHANNEL.name].audioNotice["SurvivalStrategy"].volume = .3;
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -541,6 +560,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			fairywand: "//resources.pink.horse/sounds/fairy_wand.ogg",
 			bzzzt: "https://cdn.discordapp.com/attachments/409829343263719427/511204681293234177/Wrong-answer-sound-effect.mp3",
 			gross: grossUrl,
+			survivalStrategy: penguinUrl
 		}
 	}
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {
@@ -582,6 +602,9 @@ window[CHANNEL.name].audioNotice.handler = {
 	}
 	socket.on("voteskip", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
+	});
+	socket.on("chatMsg", function(data) {
+		return window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"](data)
 	});
 	socket.on("chatMsg", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Squee"](data)
