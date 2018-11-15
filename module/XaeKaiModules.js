@@ -108,7 +108,7 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		emote: true,
 		squee: true	
 	},
-	survival_strategy: {
+	survivalStrategy: {
 		url: penguinUrl,
 		emote: true,
 		squee: true
@@ -549,7 +549,7 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Video"].volume = .35;
 	window[CHANNEL.name].audioNotice["Skip"].volume = .35;
 	window[CHANNEL.name].audioNotice["Gross"].volume = .4;
-	window[CHANNEL.name].audioNotice["SurvivalStrategy"].volume = .3;
+	window[CHANNEL.name].audioNotice["SurvivalStrategy"].volume = .6;
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
