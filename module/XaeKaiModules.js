@@ -535,21 +535,21 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Video"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Skip"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Gross"].toggleState = true;
-	window[CHANNEL.name].audioNotice["SurvivalStrategy"].toggleState = true;
+	window[CHANNEL.name].audioNotice["survivalStrategy"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Squee"].id = "squee";
 	window[CHANNEL.name].audioNotice["Poll"].id = "votingpoll";
 	window[CHANNEL.name].audioNotice["Priv"].id = "uhoh";
 	window[CHANNEL.name].audioNotice["Video"].id = "fairywand";
 	window[CHANNEL.name].audioNotice["Skip"].id = "bzzzt";
 	window[CHANNEL.name].audioNotice["Gross"].id = "gross";
-	window[CHANNEL.name].audioNotice["SurvivalStrategy"].id = "survivalStrategy";
+	window[CHANNEL.name].audioNotice["survivalStrategy"].id = "survivalStrategy";
 	window[CHANNEL.name].audioNotice["Squee"].volume = .6;
 	window[CHANNEL.name].audioNotice["Poll"].volume = .3;
 	window[CHANNEL.name].audioNotice["Priv"].volume = .35;
 	window[CHANNEL.name].audioNotice["Video"].volume = .35;
 	window[CHANNEL.name].audioNotice["Skip"].volume = .35;
 	window[CHANNEL.name].audioNotice["Gross"].volume = .4;
-	window[CHANNEL.name].audioNotice["SurvivalStrategy"].volume = .6;
+	window[CHANNEL.name].audioNotice["survivalStrategy"].volume = .6;
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
