@@ -433,7 +433,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		let gross = $(".gross:not( .parsed )");
 		if (!gross.length) return;
 		gross.addClass("parsed");
-		if (!grossActive) return;
+		if (!grossActive == "true") return;
 		window[CHANNEL.name].audioNotice.Gross.audio[0].play();
 	},
 	Skip: function(data) {

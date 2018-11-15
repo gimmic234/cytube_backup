@@ -355,7 +355,8 @@ var chatCmdLookup = {
 	},
 	'/grossoff': function() {
 		if (rankAdmin) {
-			grossActive = false;
+			grossActive = "false";
+			editJs(26, [0, grossActive]);
 	  		window.socket.emit("chatMsg", {
 				msg: "gross sound off"
 			});
@@ -363,7 +364,8 @@ var chatCmdLookup = {
 	},
 	'/grosson': function() {
 		if (rankAdmin) {
-			grossActive = true;
+			grossActive = "true";
+			editJs(26, [0, grossActive]);
 	  		window.socket.emit("chatMsg", {
 				msg: "gross sound on"
 			});
