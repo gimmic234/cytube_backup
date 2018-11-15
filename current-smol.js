@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 11,
-	day: 15,
-	hour: 0,
+	day: 18,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
@@ -30,7 +30,7 @@ console.log = function() {}
 var emoteTable = "false";
 var penguinImg = '//media.discordapp.net/attachments/409829343263719427/512466656061292555/mawaru1.png';
 var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512462604522749952/01_ROCK_OVER_JAPAN.mp3";
-var penguinActive = true;
+var survivalActive = true;
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
 var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
 var grossActive = true;
@@ -87,7 +87,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/f9c137265fa8da4ef2a338c3bdc938149da74dcd/module/XaeKaiModules.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/a3f7b0eb94ec9e63de01d861b9a61ef2429249d5/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

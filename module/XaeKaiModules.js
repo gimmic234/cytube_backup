@@ -370,7 +370,7 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.Gross = {
 		timeSinceLast: 0
 	};
-	window[CHANNEL.name].audioNotice.SurvivalStrategy = {
+	window[CHANNEL.name].audioNotice.survivalStrategy = {
 		timeSinceLast: 0
 	};
 }
@@ -381,7 +381,7 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Video: "Queued Video",
 	Skip: "Voted Skip",
 	Gross: "Gross",
-	SurvivalStrategy: "Survival Strategy"
+	survivalStrategy: "Survival Strategy"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
@@ -427,7 +427,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!survival.length) return;
 		survival.addClass("parsed");
 		if (!survivalActive) return;
-		window[CHANNEL.name].audioNotice.SurvivalStrategy.audio[0].play();
+		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
 	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");
