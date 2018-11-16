@@ -426,15 +426,15 @@ window[CHANNEL.name].audioNotice.handler = {
 		let survival = $(".survival:not( .parsed )");
 		if (!survival.length) return;
 		survival.addClass("parsed");
-		if (!survivalActive) return;
+		if (!noiseActive == "true") return;
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
 	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");
 		if (!gross.length) return;
 		gross.addClass("parsed");
-		if (!grossActive == "true") return;
-		window[CHANNEL.name].audioNotice.Gross.audio[0].play();
+		if (!noiseActive == "true") return;
+		window[CHANNEL.name].audioNotice.Gross.audio[0].cloneNode(true).play();
 	},
 	Skip: function(data) {
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
@@ -447,7 +447,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			}
 		}
 		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
-		window[CHANNEL.name].audioNotice.Skip.audio[0].play();
+		window[CHANNEL.name].audioNotice.Skip.audio[0].cloneNode(true).play();
 		window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
 		window[CHANNEL.name].audioNotice.Skip.previousCount = data.count;
 	},

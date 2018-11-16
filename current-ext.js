@@ -353,21 +353,21 @@ var chatCmdLookup = {
 			msg: "grossimg" + grossimg + "grossimg"
 		});	
 	},
-	'/grossoff': function() {
+	'/noiseoff': function() {
 		if (rankAdmin) {
-			grossActive = "false";
-			editJs(26, [0, grossActive]);
+			noiseActive = "false";
+			editJs(26, [0, noiseActive]);
 	  		window.socket.emit("chatMsg", {
-				msg: "gross sound off"
+				msg: "emote sound off"
 			});
   		}
 	},
-	'/grosson': function() {
+	'/noiseon': function() {
 		if (rankAdmin) {
-			grossActive = "true";
-			editJs(26, [0, grossActive]);
+			noiseActive = "true";
+			editJs(26, [0, noiseActive]);
 	  		window.socket.emit("chatMsg", {
-				msg: "gross sound on"
+				msg: "emote sound on"
 			});
   		}
 	},
@@ -377,22 +377,6 @@ var chatCmdLookup = {
 				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
 			});	
 		}
-	},
-	'/penguinoff': function() {
-		if (rankAdmin) {
-			penguinActive = false;
-	  		window.socket.emit("chatMsg", {
-				msg: "penguin sound off"
-			});
-  		}
-	},
-	'/penguinon': function() {
-		if (rankAdmin) {
-			penguinActive = true;
-	  		window.socket.emit("chatMsg", {
-				msg: "penguin sound on"
-			});
-  		}
 	}
 };
 
