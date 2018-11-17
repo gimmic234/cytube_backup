@@ -432,7 +432,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
 		$(document.getElementById('disco')).show();
 		setTimeout(function() {
-			$(document.getElementById('disco')).show();
+			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 		}, 20000);
 	},
