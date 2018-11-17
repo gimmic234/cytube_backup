@@ -434,7 +434,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		setTimeout(function() {
 			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-		}, 20000);
+		}, penguinTimeout);
 	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");

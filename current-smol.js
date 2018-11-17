@@ -1,6 +1,6 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/508982831586738176/banner_new_11-04-2018.png?width=1300&height=250';
+var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/513195230733008896/banner_new_11-16-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
 var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var autostart_msg = "start!";
@@ -30,8 +30,9 @@ var noiseActive = 'true';
 console.log = function() {}
 var emoteTable = "false";
 var penguinImg = '//media.discordapp.net/attachments/409829343263719427/513194565206016041/survivalstrategy.JPG';
+var penguinTimeout = 20000;
 var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512470545581998080/01_ROCK_OVER_JAPAN_smol.mp3";
-var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513194548726333484/welcometo.JPG';
+var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
 var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
@@ -63,6 +64,36 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/513187129514262529/unnamed.gif';
 
+function countdowner(countdown, destination,index) {
+	if ($('#countdown'+index+':hidden').length > 0) {
+		$('#countdown'+index).show();
+	}
+	let now = new Date().getTime(),
+		distance = destination - now;
+	document.getElementById('days'+index).innerText = Math.floor(distance / (day)),
+		document.getElementById('hours'+index).innerText = Math.floor((distance % (day)) / (hour)),
+		document.getElementById('minutes'+index).innerText = Math.floor((distance % (hour)) / (minute)),
+		document.getElementById('seconds'+index).innerText = Math.floor((distance % (minute)) / second);
+
+	let totalSeconds = Math.floor(distance / second);
+
+	if (totalSeconds < 86400 && !countdown.classList.contains('countdownbaseActive')) {
+		$(countdown).removeClass('countdownbase');
+		$(countdown).addClass('countdownbaseActive');
+	}
+
+	if (totalSeconds > 86400 && countdown.classList.contains('countdownbaseActive')) {
+		$(countdown).removeClass('countdownbaseActive');
+		$(countdown).addClass('countdownbase');
+	}
+
+	if (distance < 0) {
+		clearInterval(countDownTimer);
+		$('#countdown' + index).hide();
+	}
+
+}
+
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -88,7 +119,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/f45a1d20ea6d5113ea66d1d11761ef3c0070ad72/module/XaeKaiModules.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/4b4a3d2bf69ced08987a2666d6c6f06821701432/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -175,65 +206,11 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 			countDown = new Date(date_utc).getTime();
 			clearInterval(countDownTimer);
-			countDownTimer = setInterval(function() {
-				if ($('#countdown1:hidden').length > 0) {
-					$('#countdown1').show();
-				}
-				let now = new Date().getTime(),
-					distance = countDown - now;
-				document.getElementById('days').innerText = Math.floor(distance / (day)),
-					document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-					document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-					document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+			countDownTimer = setInterval(function() {countdowner(countdown1, countDown, 1)}, second);
 
-				let totalSeconds = Math.floor(distance / second);
-
-				if (totalSeconds < 86400 && !countdown1.classList.contains('countdownbaseActive')) {
-					$(countdown1).removeClass('countdownbase');
-					$(countdown1).addClass('countdownbaseActive');
-				}
-
-				if (totalSeconds > 86400 && countdown1.classList.contains('countdownbaseActive')) {
-					$(countdown1).removeClass('countdownbaseActive');
-					$(countdown1).addClass('countdownbase');
-				}
-
-				if (distance < 0) {
-					clearInterval(countDownTimer);
-					$('#countdown1').hide();
-				}
-
-			}, second)
 			countDown2 = new Date(date_utc2).getTime();
 			clearInterval(countDownTimer2);
-			countDownTimer2 = setInterval(function() {
-				if ($('#countdown2:hidden').length > 0) {
-					$('#countdown2').show();
-				}
-				let now2 = new Date().getTime(),
-					distance2 = countDown2 - now2;
-				document.getElementById('days2').innerText = Math.floor(distance2 / (day)),
-					document.getElementById('hours2').innerText = Math.floor((distance2 % (day)) / (hour)),
-					document.getElementById('minutes2').innerText = Math.floor((distance2 % (hour)) / (minute)),
-					document.getElementById('seconds2').innerText = Math.floor((distance2 % (minute)) / second);
-				let totalSeconds = Math.floor(distance2 / second);
-
-				if (totalSeconds < 86400 && !countdown2.classList.contains('countdownbaseActive')) {
-					$(countdown2).removeClass('countdownbase');
-					$(countdown2).addClass('countdownbaseActive');
-				}
-
-				if (totalSeconds > 86400 && countdown2.classList.contains('countdownbaseActive')) {
-					$(countdown2).removeClass('countdownbaseActive');
-					$(countdown2).addClass('countdownbase');
-				}
-
-				if (distance2 < 0) {
-					clearInterval(countDownTimer2);
-					$('#countdown2').hide();
-				}
-			}, second)
-
+			countDownTimer2 = setInterval(function() {countdowner(countdown2, countDown2,  2)}, second);
 		})();
 	}
 
