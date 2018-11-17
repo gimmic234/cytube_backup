@@ -363,7 +363,7 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
 			});	
-			setTimout(function() {
+			setTimeout(function() {
 				$(document.getElementById('disco')).show();
 				$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			}, 20000);
