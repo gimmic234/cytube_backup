@@ -661,7 +661,7 @@ function appendEmote(elem) {
 	let text = chatlineElem.val();
 	let index = text.lastIndexOf(" ");
 	chatlineElem.val("");
-	chatlineElem.val(text.substr(0, index + 1) + elem.attr('data-value'));
+	chatlineElem.val(text.substr(0, index + 1) + elem.attr('data-value') + " ");
 	chatlineElem.focus();
 }
 
