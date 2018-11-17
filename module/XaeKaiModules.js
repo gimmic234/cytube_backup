@@ -506,7 +506,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			setTimeout(function() {
 				$(document.getElementById('voteskipFinal')).show();
 				window[CHANNEL.name].audioNotice.skipFinal.audio[0].play();
-			}, 2800);
+			}, 2000);
 			if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
 			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 		}
