@@ -36,6 +36,8 @@ var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
 var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
+var voteskipFinalImg = 'https://media.discordapp.net/attachments/409829343263719427/513465042797068341/1-2-fail-stamp-picture-thumb.png';
+var voteskipFinalUrl = 'https://cdn.discordapp.com/attachments/409829343263719427/513466170897072129/Judges_Gavel-SoundBible.com-1321455227.wav';
 const second = 1000,
 	minute = second * 60,
 	hour = minute * 60,
@@ -119,7 +121,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/4b4a3d2bf69ced08987a2666d6c6f06821701432/module/XaeKaiModules.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/bde3aab000fac57930508019424da3972fe11309/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

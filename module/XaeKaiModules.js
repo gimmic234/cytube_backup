@@ -112,6 +112,11 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: penguinUrl,
 		emote: true,
 		squee: true
+	},
+	skipFinal: {
+		url: voteskipFinalUrl,
+		emote: true,
+		squee: true
 	}
 };
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -373,6 +378,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.survivalStrategy = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.skipFinal = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
@@ -381,7 +389,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Video: "Queued Video",
 	Skip: "Voted Skip",
 	Gross: "Gross",
-	survivalStrategy: "Survival Strategy"
+	survivalStrategy: "Survival Strategy",
+	skipFinal: "Skip Final"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
@@ -488,12 +497,16 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.Squee.timeSinceLast = Date.now()
 	},
 	VoteFinal: function(data) {
-		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
+		if (CHANNEL.usercount == 1 || (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed)) {
 			let final = $(".final:not( .parsed )");
 			if (!final.length) return;
 			final.addClass("parsed");
 			window[CHANNEL.name].audioNotice.Skip.active = true;
 			$(document.getElementById('voteskipNope')).show();
+			setTimeout(function() {
+				$(document.getElementById('voteskipFinal')).show();
+				window[CHANNEL.name].audioNotice.skipFinal.audio[0].play();
+			}, 3000);
 			if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
 			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 		}
@@ -542,27 +555,39 @@ window[CHANNEL.name].audioNotice.handler = {
 (function() {
 	if (window[CHANNEL.name].audioNotice.initialized) return;
 	window[CHANNEL.name].audioNotice.initialized = true;
+
 	window[CHANNEL.name].audioNotice["Squee"].toggleState = true;
-	window[CHANNEL.name].audioNotice["Poll"].toggleState = true;
-	window[CHANNEL.name].audioNotice["Priv"].toggleState = true;
-	window[CHANNEL.name].audioNotice["Video"].toggleState = true;
-	window[CHANNEL.name].audioNotice["Skip"].toggleState = true;
-	window[CHANNEL.name].audioNotice["Gross"].toggleState = true;
-	window[CHANNEL.name].audioNotice["survivalStrategy"].toggleState = true;
 	window[CHANNEL.name].audioNotice["Squee"].id = "squee";
-	window[CHANNEL.name].audioNotice["Poll"].id = "votingpoll";
-	window[CHANNEL.name].audioNotice["Priv"].id = "uhoh";
-	window[CHANNEL.name].audioNotice["Video"].id = "fairywand";
-	window[CHANNEL.name].audioNotice["Skip"].id = "bzzzt";
-	window[CHANNEL.name].audioNotice["Gross"].id = "gross";
-	window[CHANNEL.name].audioNotice["survivalStrategy"].id = "survivalStrategy";
 	window[CHANNEL.name].audioNotice["Squee"].volume = .6;
+
+	window[CHANNEL.name].audioNotice["Poll"].toggleState = true;
+	window[CHANNEL.name].audioNotice["Poll"].id = "votingpoll";
 	window[CHANNEL.name].audioNotice["Poll"].volume = .3;
+
+	window[CHANNEL.name].audioNotice["Priv"].toggleState = true;
+	window[CHANNEL.name].audioNotice["Priv"].id = "uhoh";
 	window[CHANNEL.name].audioNotice["Priv"].volume = .35;
+
+	window[CHANNEL.name].audioNotice["Video"].toggleState = true;
+	window[CHANNEL.name].audioNotice["Video"].id = "fairywand";
 	window[CHANNEL.name].audioNotice["Video"].volume = .35;
+
+	window[CHANNEL.name].audioNotice["Skip"].toggleState = true;
+	window[CHANNEL.name].audioNotice["Skip"].id = "bzzzt";
 	window[CHANNEL.name].audioNotice["Skip"].volume = .35;
+
+	window[CHANNEL.name].audioNotice["Gross"].toggleState = true;
+	window[CHANNEL.name].audioNotice["Gross"].id = "gross";
 	window[CHANNEL.name].audioNotice["Gross"].volume = .4;
+
+	window[CHANNEL.name].audioNotice["survivalStrategy"].toggleState = true;
+	window[CHANNEL.name].audioNotice["survivalStrategy"].id = "survivalStrategy";
 	window[CHANNEL.name].audioNotice["survivalStrategy"].volume = .6;
+
+	window[CHANNEL.name].audioNotice["skipFinal"].toggleState = true;
+	window[CHANNEL.name].audioNotice["skipFinal"].id = "skipFinal";
+	window[CHANNEL.name].audioNotice["skipFinal"].volume = .8;
+
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -573,7 +598,8 @@ window[CHANNEL.name].audioNotice.handler = {
 			fairywand: "//resources.pink.horse/sounds/fairy_wand.ogg",
 			bzzzt: "https://cdn.discordapp.com/attachments/409829343263719427/511204681293234177/Wrong-answer-sound-effect.mp3",
 			gross: grossUrl,
-			survivalStrategy: penguinUrl
+			survivalStrategy: penguinUrl,
+			skipFinal: voteskipFinalUrl
 		}
 	}
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {

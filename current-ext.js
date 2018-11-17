@@ -271,10 +271,12 @@ var chatCmdLookup = {
 	'/skipclear': function() {
 		$('#voteskipwrap').html('');
 		$('#voteskipNope').hide();
+		$('#voteskipFinal').hide();
 	},
 	'/skiphide': function() {
 		$('#voteskipwrap').hide();
 		$('#voteskipNope').hide();
+		$('#voteskipFinal').hide();
 	},
 	'/skipshow': function() {
 		$('#voteskipwrap').show();
@@ -473,14 +475,14 @@ var chatKeyLookup = {
 function voteskipMod() {
 	if ($("#voteskip").attr("disabled")) return;
 	if (window[CHANNEL.name].audioNotice.Skip.active) return;
-	if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
+	if (CHANNEL.usercount == 1 || (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed)) {
 		window.socket.emit("chatMsg", {
 			msg: voteskipMsgFinal
 		});
 		setTimeout(function() {
 			window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
 			socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
-		}, 4000);
+		}, 5000);
 	} else {
 		window.socket.emit("chatMsg", {
 		msg: voteskipMsg
@@ -636,6 +638,7 @@ function videoDisplayToggle() {
 	if (next == "0 items") {
 		$(document.getElementById('voteskipwrap')).html('');
 		$(document.getElementById('voteskipNope')).hide();
+		$(document.getElementById('voteskipFinal')).hide();
 		$(document.getElementById('videowrap')).hide();
 	} else {
 		$(document.getElementById('videowrap')).show();
