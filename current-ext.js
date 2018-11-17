@@ -482,7 +482,7 @@ function voteskipMod() {
 		setTimeout(function() {
 			window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
 			socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
-		}, 5000);
+		}, 4000);
 	} else {
 		window.socket.emit("chatMsg", {
 		msg: voteskipMsg
