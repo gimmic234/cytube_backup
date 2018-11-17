@@ -266,22 +266,7 @@ var chatCmdLookup = {
   		}
 	},
 	'/voteskip': function(chatCmdText) {
-		if ($("#voteskip").attr("disabled")) return;
-		if (window[CHANNEL.name].audioNotice.Skip.active) return;
-		if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
-			window.socket.emit("chatMsg", {
-				msg: voteskipMsgFinal
-			});
-			setTimeout(function() {
-				window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
-				socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
-			}, 4000);
-		} else {
-			window.socket.emit("chatMsg", {
-			msg: voteskipMsg
-			});
-			socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
-		}
+		voteskipMod();
 	},
 	'/skipclear': function() {
 		$('#voteskipwrap').html('');
@@ -484,6 +469,25 @@ var chatKeyLookup = {
 	}
 }
 
+
+function voteskipMod() {
+	if ($("#voteskip").attr("disabled")) return;
+	if (window[CHANNEL.name].audioNotice.Skip.active) return;
+	if (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed) {
+		window.socket.emit("chatMsg", {
+			msg: voteskipMsgFinal
+		});
+		setTimeout(function() {
+			window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
+			socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
+		}, 4000);
+	} else {
+		window.socket.emit("chatMsg", {
+		msg: voteskipMsg
+		});
+		socket.emit("voteskip"), $("#voteskip").attr("disabled", !0);
+	}
+}
 
 function imgEmote(imageUrl) {
 	var url = imageUrl.replace('https:', '');
@@ -761,10 +765,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('mousedown', '#voteskip', function() {
-		window.socket.emit("chatMsg", {
-			msg: voteskipMsg
-		});
-		$(this).click();
+		voteskipMod();
 	});
 
 	$(bodyElem).on('mousedown', '.qbtn-delete', function() {

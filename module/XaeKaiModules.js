@@ -486,9 +486,10 @@ window[CHANNEL.name].audioNotice.handler = {
 			let final = $(".final:not( .parsed )");
 			if (!final.length) return;
 			final.addClass("parsed");
-			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
-			$(document.getElementById('voteskipNope')).show();
 			window[CHANNEL.name].audioNotice.Skip.active = true;
+			$(document.getElementById('voteskipNope')).show();
+			if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
+			window[CHANNEL.name].audioNotice.Skip.audio[0].play();
 		}
 	},
 	Poll: function(data) {
