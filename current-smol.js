@@ -109,19 +109,19 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/48d55a7999620dcacb021c70be1e720d9810c166/current-ext.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/4102feaf9b84700b143a05c7673f377c59b20e4d/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/b698a6c8ce976303e338790935d8dfba9fcd604a/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/4102feaf9b84700b143a05c7673f377c59b20e4d/module/channelbase-mod.js",
 		callback: true
 	},
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/bde3aab000fac57930508019424da3972fe11309/module/XaeKaiModules.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/4102feaf9b84700b143a05c7673f377c59b20e4d/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -164,6 +164,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#messagebuffer', function() {
 				var buff = $('#messagebuffer');
 				buff.find(".gross:not( .parsed )").addClass('parsed');
+				buff.find(".survival:not( .parsed )").addClass('parsed');
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
 			});

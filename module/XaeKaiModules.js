@@ -534,6 +534,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			window[CHANNEL.name].audioNotice.Skip.previousNeed = 0;
 		}
 		$('#voteskipNope').hide();
+		$('#voteskipFinal').hide();
 		window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
 		window[CHANNEL.name].audioNotice.Skip.active = false;
 		var addedby = false;

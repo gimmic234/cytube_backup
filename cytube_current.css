@@ -182,14 +182,14 @@ span#days1, span#hours1, span#minutes1, span#seconds1, span#days2, span#hours2, 
 }
 
 #voteskipNope {
-    width: 60%;
+    width: 50%;
     height: auto;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
-    left: 21%;
+    left: 28%;
     right: 0;
-    top: -2%;
+    top: -1%;
     position: absolute;
     opacity: 0.7;
 }
@@ -202,5 +202,18 @@ span#days1, span#hours1, span#minutes1, span#seconds1, span#days2, span#hours2, 
     right: 0;
     left: 15%;
     position: absolute;
-z-index: 9999;
+    z-index: 9999;
+}
+
+#voteskipFinal {
+    width: 20%;
+    height: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
+    left: 43%;
+    right: 0;
+    top: 21%;
+    position: absolute;
+    opacity: 0.7;
 }
