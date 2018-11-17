@@ -429,6 +429,12 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!window[CHANNEL.name].audioNotice.survivalStrategy.toggleState) return;
 		if (!(noiseActive == "true")) return;
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
+		$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
+		$(document.getElementById('disco')).show();
+		setTimeout(function() {
+			$(document.getElementById('disco')).show();
+			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
+		}, 20000);
 	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");

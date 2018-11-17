@@ -358,15 +358,9 @@ var chatCmdLookup = {
 	},
 	'!penguin': function() {
 		if (rankMod) {
-			$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
-			$(document.getElementById('disco')).show();
 			window.socket.emit("chatMsg", {
 				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
 			});	
-			setTimeout(function() {
-				$(document.getElementById('disco')).show();
-				$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-			}, 20000);
 		}
 	}
 };
@@ -665,6 +659,7 @@ function populateEmote() {
 	chatlineElem.before("<div id='emote-data-field' hidden></div>");
 	emoteList = $(document.getElementById('emote-data-field'));
 	preloadImages(emoteArray.map(emote => emote.image));
+	preloadImages([penguinBg, penguinImg, grossimg];
 }
 
 function appendEmote(elem) {
