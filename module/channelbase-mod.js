@@ -44,6 +44,8 @@ $("#main").after("<div id='videoinfo' class='section'></div>");//create box to c
 $("#main").after($("#drinkbarwrap"));
 $("#drinkbarwrap").after("<div id='voteskipwrap'></div>");
 $("#voteskipwrap").after("<img id='voteskipNope' src='"+voteskipImg+"' hidden>");
+$('#chatheader').append("<div id='disco'></div>");
+$('#disco').html("<img src='"+discoGif+"'>")
 $("#videoinfo").append("<div class='textheader'></div><div id='videoinfohead'><span id='addedbyTEXT'>Queued by <span id='addedby'></span></span><div id='headbottom'><div id='headright'><div id='ss7time' title='--:--'>0:00</div><div id='videolength'></div><div id='progbar'></div></div></div></div><div id='videoopts'></div>");
 $(".navbar-header").after($("#currenttitle")); //move video title below video player
 $("#headbottom").append("<button id='addmedia' title='Add Media' class='headbtn headbtnleft'></button>");

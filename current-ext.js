@@ -358,9 +358,15 @@ var chatCmdLookup = {
 	},
 	'!penguin': function() {
 		if (rankMod) {
+			$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
+			$(document.getElementById('disco')).show();
 			window.socket.emit("chatMsg", {
 				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
 			});	
+			setTimout(function() {
+				$(document.getElementById('disco')).show();
+				$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
+			}, 20000);
 		}
 	}
 };

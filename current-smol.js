@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/508982831586738176/banner_new_11-04-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511365244849881091/Mawaru.Penguindrum.full.881359.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2018,
 	month2: 11,
-	day2: 17,
+	day2: 24,
 	hour2: 0,
 	minute2: 0,
 	second2: 0
@@ -24,13 +24,14 @@ var background_img_auto = 'http://cdn.discordapp.com/attachments/463192738846867
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
-var noiseActive = "true";
+var noiseActive = 'true';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
 var emoteTable = "false";
 var penguinImg = '//media.discordapp.net/attachments/409829343263719427/512466656061292555/mawaru1.png';
 var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512470545581998080/01_ROCK_OVER_JAPAN_smol.mp3";
+var penguinBg = 'https://media.discordapp.net/attachments/409829343263719427/513189878234873872/dance.gif';
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
 var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
@@ -60,6 +61,7 @@ var rankMod = (window.CLIENT.rank >= 2),
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
+var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/513187129514262529/unnamed.gif';
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -74,7 +76,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/46b99f7830bfae59976cd0582dbb45911511666e/current-ext.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/117aa2fdaaf25c43e11e723a5eec78e79264e7f4/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -86,7 +88,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/cb96e05e2150bc6c7a2323b8ba664dfbe8704bea/module/XaeKaiModules.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/117aa2fdaaf25c43e11e723a5eec78e79264e7f4/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
