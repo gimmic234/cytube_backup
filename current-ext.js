@@ -636,6 +636,7 @@ function fetchEmote() {
 function videoDisplayToggle() {
 	let next = $(document.getElementById('plcount'))[0].innerHTML;
 	if (next == "0 items") {
+		window[CHANNEL.name].audioNotice.Skip.active = true;
 		$(document.getElementById('voteskipwrap')).html('');
 		$(document.getElementById('voteskipNope')).hide();
 		$(document.getElementById('voteskipFinal')).hide();
