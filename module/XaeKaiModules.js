@@ -426,14 +426,14 @@ window[CHANNEL.name].audioNotice.handler = {
 		let survival = $(".survival:not( .parsed )");
 		if (!survival.length) return;
 		survival.addClass("parsed");
-		if (!noiseActive == "true") return;
+		if (!(noiseActive == "true")) return;
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
 	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");
 		if (!gross.length) return;
 		gross.addClass("parsed");
-		if (!noiseActive == "true") return;
+		if (!(noiseActive == "true")) return;
 		let audioplay = window[CHANNEL.name].audioNotice.Gross.audio[0].cloneNode(true);
 		audioplay.volume = window[CHANNEL.name].audioNotice.Gross.volume;
 		audioplay.play();

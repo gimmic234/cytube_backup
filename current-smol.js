@@ -24,7 +24,7 @@ var background_img_auto = 'http://cdn.discordapp.com/attachments/463192738846867
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
-var noiseActive = true;
+var noiseActive = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -74,7 +74,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/24f02d20e19dff59c82f47e8ee89791b95eb99f5/current-ext.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/46b99f7830bfae59976cd0582dbb45911511666e/current-ext.js",
 		callback: true
 	},
 	'layout': {
