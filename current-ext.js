@@ -50,6 +50,17 @@ var chatCmdLookup = {
 		}
 	},
 
+	'/savebg4': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(27, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "bg4 saved " + url
+			});
+		}
+	},
+
 	'/editbanner': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var textField = jsTextField.val();
@@ -171,6 +182,38 @@ var chatCmdLookup = {
 			$(document.getElementById('cs-jssubmit')).click();
 		}
 	},
+
+	'/cdlocal3': function(chatCmdText) {
+		if (chatCmdText.length > 5 && rankAdmin) {
+			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
+				window.socket.emit("chatMsg", {
+					msg: "error: invalid countdown3 input"
+				});
+				return false;
+			}
+
+			var date = new Date(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5]);
+			var textField = jsTextField.val();
+			var textFieldArray = textField.split("\n");
+			var year = textFieldArray[29].substr(0, textFieldArray[29].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[29], year + ": " + date.getUTCFullYear() + ",");
+			var month = textFieldArray[30].substr(0, textFieldArray[30].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[30], month + ": " + (date.getUTCMonth()+1) + ",");
+			var day = textFieldArray[31].substr(0, textFieldArray[31].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[31], day + ": " + date.getUTCDate() + ",");
+			var hour = textFieldArray[32].substr(0, textFieldArray[32].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[32], hour + ": " + date.getUTCHours() + ",");
+			var minute = textFieldArray[33].substr(0, textFieldArray[33].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[33], minute + ": " + date.getUTCMinutes() + ",");
+
+			jsTextField.val(textField);
+			window.socket.emit("chatMsg", {
+				msg: "countdown3 date updated"
+			});
+			$(document.getElementById('cs-jssubmit')).click();
+		}
+	},
+
 	'/setbg1': function() {
 		if (rankAdmin) {
 			setAutobg();
@@ -194,6 +237,16 @@ var chatCmdLookup = {
 			editJs(4, textArray);
 			window.socket.emit("chatMsg", {
 				msg: "loading bg3"
+			});
+		}
+	},
+
+	'/setbg4': function() {
+		if (rankAdmin) {
+			let textArray = [0, background_img_auto4];
+			editJs(4, textArray);
+			window.socket.emit("chatMsg", {
+				msg: "loading bg4"
 			});
 		}
 	},

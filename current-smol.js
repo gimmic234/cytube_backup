@@ -25,6 +25,15 @@ var background_img_auto2 = 'http://cdn.discordapp.com/attachments/46638631976619
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var noiseActive = 'true';
+var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/513373632085360643/new_index_pape.png';
+var countdown_utc2 = {
+	year2: 2018,
+	month2: 11,
+	day2: 24,
+	hour2: 0,
+	minute2: 0,
+	second2: 0
+};
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -47,6 +56,7 @@ var selectedPopover;
 var handlerKeydown;
 var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.day, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
 var date_utc2 = Date.UTC(countdown_utc2.year2, countdown_utc2.month2 - 1, countdown_utc2.day2, countdown_utc2.hour2, countdown_utc2.minute2, countdown_utc2.second2);
+var date_utc3 = Date.UTC(countdown_utc3.year3, countdown_utc3.month3 - 1, countdown_utc3.day3, countdown_utc3.hour3, countdown_utc3.minute3, countdown_utc3.second3);
 var chatlineElem;
 var queueList;
 var emoteList;
@@ -115,7 +125,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/5f7f7a9e0698ad551600535ea0e08803942a682a/module/channelbase-mod.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/b48b0772cc61f977f5090c02132429b7856c1415/module/channelbase-mod.js",
 		callback: true
 	},
 	'xaekai': {

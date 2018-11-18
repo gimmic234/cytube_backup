@@ -213,7 +213,7 @@ span#days1, span#hours1, span#minutes1, span#seconds1, span#days2, span#hours2, 
     float: left;
     left: 43.5%;
     right: 0;
-    top: 612px;
+    top: 600px;
     position: absolute;
     opacity: 0.7;
 }
