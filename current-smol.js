@@ -26,13 +26,13 @@ var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/513373632085360643/new_index_pape.png';
-var countdown_utc2 = {
-	year2: 2018,
-	month2: 11,
-	day2: 24,
-	hour2: 0,
-	minute2: 0,
-	second2: 0
+var countdown_utc3 = {
+	year3: 2018,
+	month3: 11,
+	day3: 24,
+	hour3: 16,
+	minute3: 0,
+	second3: 0
 };
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
@@ -64,6 +64,8 @@ var countDown;
 var countDownTimer;
 var countDown2;
 var countDownTimer2;
+var countDown3;
+var countDownTimer3;
 var collapseArrow;
 var autoPosition = -1;
 var voteskipMsg = "==BZZZZT!==";
@@ -119,7 +121,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/f72f5b92f9142b0461cb0dbc8433cfec693daa9f/current-ext.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/18edad552da0f45105fee97415d7634811abedb6/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -215,6 +217,8 @@ window[CHANNEL.name].sequencerLoader = function() {
 				$(document.getElementById('date1')).html(new Date(date_utc).toString());
 				countdown2 = document.getElementById('countdown2');
 				$(document.getElementById('date2')).html(new Date(date_utc2).toString());
+				countdown3 = document.getElementById('countdown3');
+				$(document.getElementById('date3')).html(new Date(date_utc3).toString());
 			});
 
 			countDown = new Date(date_utc).getTime();
@@ -224,6 +228,10 @@ window[CHANNEL.name].sequencerLoader = function() {
 			countDown2 = new Date(date_utc2).getTime();
 			clearInterval(countDownTimer2);
 			countDownTimer2 = setInterval(function() {countdowner(countdown2, countDown2,  2)}, second);
+
+			countDown3 = new Date(date_utc3).getTime();
+			clearInterval(countDownTimer3);
+			countDownTimer3 = setInterval(function() {countdowner(countdown3, countDown3,  3)}, second);
 		})();
 	}
 

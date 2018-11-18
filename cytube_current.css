@@ -86,7 +86,7 @@
     text-shadow: 0 0 3px #fff;
 }
 
-span#days1, span#hours1, span#minutes1, span#seconds1, span#days2, span#hours2, span#minutes2, span#seconds2 {
+.cd_time {
     display: inline-block;
     font-size: 4.5rem;
     height: 0px;
