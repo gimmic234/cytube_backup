@@ -524,35 +524,6 @@ var chatKeyLookup = {
 	}
 }
 
-function countdowner(countdown, destination,index) {
-	if ($('#countdown'+index+':hidden').length > 0) {
-		$('#countdown'+index).show();
-	}
-	let now = new Date().getTime(),
-		distance = destination - now;
-	document.getElementById('days'+index).innerText = Math.floor(distance / (day)),
-		document.getElementById('hours'+index).innerText = Math.floor((distance % (day)) / (hour)),
-		document.getElementById('minutes'+index).innerText = Math.floor((distance % (hour)) / (minute)),
-		document.getElementById('seconds'+index).innerText = Math.floor((distance % (minute)) / second);
-
-	let totalSeconds = Math.floor(distance / second);
-
-	if (totalSeconds < 86400 && !countdown.classList.contains('countdownbaseActive')) {
-		$(countdown).removeClass('countdownbase');
-		$(countdown).addClass('countdownbaseActive');
-	}
-
-	if (totalSeconds > 86400 && countdown.classList.contains('countdownbaseActive')) {
-		$(countdown).removeClass('countdownbaseActive');
-		$(countdown).addClass('countdownbase');
-	}
-
-	if (distance < 0) {
-		clearInterval(countDownTimer);
-		$('#countdown' + index).hide();
-	}
-
-}
 
 function voteskipMod() {
 	if ($("#voteskip").attr("disabled")) return;

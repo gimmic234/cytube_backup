@@ -39,7 +39,7 @@ var countdown_utc3 = {
 console.log = function() {}
 var emoteTable = "false";
 var penguinImg = '//media.discordapp.net/attachments/409829343263719427/513194565206016041/survivalstrategy.JPG';
-var penguinTimeout = 20000;
+var penguinTimeout = 19000;
 var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512470545581998080/01_ROCK_OVER_JAPAN_smol.mp3";
 var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
@@ -121,7 +121,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/18edad552da0f45105fee97415d7634811abedb6/current-ext.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/42f90b7b44dbff8809b4bb1ecb10783c64cf8057/current-ext.js",
 		callback: true
 	},
 	'layout': {
