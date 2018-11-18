@@ -45,8 +45,7 @@ $("#main").after($("#drinkbarwrap"));
 $("#drinkbarwrap").after("<div id='voteskipwrap'></div>");
 $("#voteskipwrap").after("<img id='voteskipNope' src='"+voteskipImg+"' hidden>");
 $("#voteskipwrap").after("<img id='voteskipFinal' src='"+voteskipFinalImg+"' hidden>");
-$('#messagebuffer').append("<div id='disco' hidden></div>");
-$('#disco').html("<img src='"+discoGif+"'>")
+$('#messagebuffer').html("<img id='disco' src='"+discoGif+"' hidden>")
 $("#videoinfo").append("<div class='textheader'></div><div id='videoinfohead'><span id='addedbyTEXT'>Queued by <span id='addedby'></span></span><div id='headbottom'><div id='headright'><div id='ss7time' title='--:--'>0:00</div><div id='videolength'></div><div id='progbar'></div></div></div></div><div id='videoopts'></div>");
 $(".navbar-header").after($("#currenttitle")); //move video title below video player
 $("#headbottom").append("<button id='addmedia' title='Add Media' class='headbtn headbtnleft'></button>");
