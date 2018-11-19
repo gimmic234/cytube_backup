@@ -741,7 +741,8 @@ function bindEventHandler() {
 		let chat = $(this);
 		if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
 			emoteList[0].innerHTML = "";
-			let filteredEmote = emoteArray.filter(emote => (emote.name.indexOf(lastText.substr(1, lastText.length)) > -1));
+			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+			let filteredEmote = emoteArray.filter(emote => (emote.name.toLowerCase().indexOf(emoteText) > -1));
 			if (lastText.substr(lastText.length - 1) == ':' || filteredEmote.length == 0) {
 				emoteList.hide();
 				selectedPopover = null;
