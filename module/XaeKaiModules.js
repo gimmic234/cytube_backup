@@ -456,6 +456,9 @@ window[CHANNEL.name].audioNotice.handler = {
 		audioplay.play();
 	},
 	Skip: function(data) {
+		$('#voteskipNope').hide();
+		$('#voteskipFinal').hide();
+		window[CHANNEL.name].audioNotice.Skip.active = false;
 		if ((Date.now() - window[CHANNEL.name].audioNotice.Skip.timeSinceLast) < 1000) return;
 		$('#voteskipwrap').html("<h1 class='skip'>vote skip: "+data.count+"/"+data.need+"</h1>");
 		if (window[CHANNEL.name].audioNotice.Skip.previousNeed != 0) {
@@ -535,8 +538,8 @@ window[CHANNEL.name].audioNotice.handler = {
 		}
 		$('#voteskipNope').hide();
 		$('#voteskipFinal').hide();
-		window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
 		window[CHANNEL.name].audioNotice.Skip.active = false;
+		window[CHANNEL.name].audioNotice.Skip.timeSinceLast = Date.now();
 		var addedby = false;
 		if (!window[CHANNEL.name].audioNotice.Video.toggleState) return;
 		if (CLIENT.rank < CHANNEL.perms.seeplaylist) return;
