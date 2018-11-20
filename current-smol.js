@@ -34,14 +34,14 @@ var countdown_utc3 = {
 	minute3: 0,
 	second3: 0
 };
+var penguinImg = '//media.discordapp.net/attachments/409829343263719427/513194565206016041/survivalstrategy.JPG';
+var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512470545581998080/01_ROCK_OVER_JAPAN_smol.mp3";
+var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
 var emoteTable = "false";
-var penguinImg = '//media.discordapp.net/attachments/409829343263719427/513194565206016041/survivalstrategy.JPG';
 var penguinTimeout = 19000;
-var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512470545581998080/01_ROCK_OVER_JAPAN_smol.mp3";
-var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
 var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
@@ -121,7 +121,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/31cdbb1de03f229e1b9f707066e7863c9ae53ea8/current-ext.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/779154c33a6f63de2c1080d855cf21a18a00c037/current-ext.js",
 		callback: true
 	},
 	'layout': {

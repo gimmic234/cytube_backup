@@ -424,13 +424,34 @@ var chatCmdLookup = {
 			});
   		}
 	},
-	'!penguin': function() {
+	'!event1': function() {
 		if (rankMod) {
 			window.socket.emit("chatMsg", {
 				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
 			});	
 		}
-	}
+	},
+	'/event1bg': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(38, chatCmdText);
+		}
+	},
+	'/event1music': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(37, chatCmdText);
+		}
+	},
+	'/event1img': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(36, chatCmdText);
+		}
+	},
 };
 
 var emoteKeyLookup = {
