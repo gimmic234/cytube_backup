@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/513195230733008896/banner_new_11-16-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/513373632085360643/new_index_pape.png';
+var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511365244849881091/Mawaru.Penguindrum.full.881359.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 11,
-	day: 18,
-	hour: 20,
+	day: 22,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
@@ -121,7 +121,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/e0b4520f77d5269f9fdc9d348d702f95ce356539/current-ext.js",
+		url: "https://raw.githack.com/gimmic234/cytube_backup/b1f854300e4e184a0f6aae4a4b920c96364e42f8/current-ext.js",
 		callback: true
 	},
 	'layout': {
