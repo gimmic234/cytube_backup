@@ -122,7 +122,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/822317942cc9596b425a665cd3df0f85c464fa91/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2565ff4b1af8cfb2abd95bf6aace94f23a66c76b/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -254,6 +254,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 window[CHANNEL.name].sequencerLoader();
 if (updateCmd == "true") {
 	$.getScript(window[CHANNEL.name].sequenceList['event-ext'].url);
+	$.getScript(window[CHANNEL.name].sequenceList['xaekai'].url);
 }
 
 $(".navbar-brand").text("Anime Club");
