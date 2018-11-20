@@ -425,7 +425,7 @@ var chatCmdLookup = {
   		}
 	},
 	'!event1': function() {
-		if (rankMod) {
+		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
 				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
 			});	
