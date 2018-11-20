@@ -443,7 +443,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		setTimeout(function() {
 			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-		}, window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].duration);
+		}, window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].duration * 1000);
 	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");
