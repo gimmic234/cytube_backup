@@ -433,23 +433,29 @@ var chatCmdLookup = {
 	},
 	'/event1bg': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
-			var url = chatCmdText[1].replace('https:', 'http:');
+			var url = chatCmdText[1].replace('https:', '');
+			url = chatCmdText[1].replace('http:', '');
 			chatCmdText[1] = url;
 			editJs(38, chatCmdText);
+			alert("saved event1 bg");
 		}
 	},
 	'/event1music': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
-			var url = chatCmdText[1].replace('https:', 'http:');
+			var url = chatCmdText[1].replace('https:', '');
+			url = chatCmdText[1].replace('http:', '');
 			chatCmdText[1] = url;
 			editJs(37, chatCmdText);
+			alert("saved event1 music");
 		}
 	},
 	'/event1img': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
-			var url = chatCmdText[1].replace('https:', 'http:');
+			var url = chatCmdText[1].replace('https:', '');
+			url = chatCmdText[1].replace('http:', '');
 			chatCmdText[1] = url;
 			editJs(36, chatCmdText);
+			alert("saved event1 img")
 		}
 	},
 };
