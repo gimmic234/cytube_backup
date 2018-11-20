@@ -431,6 +431,15 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
 };
 window[CHANNEL.name].audioNotice.handler = {
+	stopEvent: function(data) {
+		let event1 = $(".stope1:not( .parsed )");
+		if (!event1.length) return;
+		event1.addClass("parsed");
+		$(document.getElementById('disco')).hide();
+		$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
+		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].pause();
+		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].currentTime = 0;
+	},
 	SurvivalStrategy: function(data) {
 		let survival = $(".survival:not( .parsed )");
 		if (!survival.length) return;
@@ -645,6 +654,9 @@ window[CHANNEL.name].audioNotice.handler = {
 	}
 	socket.on("voteskip", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
+	});
+	socket.on("chatMsg", function(data) {
+		return window[CHANNEL.name].audioNotice.handler["stopEvent"](data)
 	});
 	socket.on("chatMsg", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"](data)
