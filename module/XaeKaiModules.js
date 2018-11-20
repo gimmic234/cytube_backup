@@ -389,7 +389,7 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Video: "Queued Video",
 	Skip: "Voted Skip",
 	Gross: "Gross",
-	survivalStrategy: "Survival Strategy",
+	survivalStrategy: "Event 1",
 	skipFinal: "Skip Final"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
