@@ -461,17 +461,9 @@ var chatCmdLookup = {
 	'/updateCmd': function() {
 		if (rankAdmin) {
 			editJs(39, "true");
-			editJs(39, "false");
-		}
-	},
-	'/stope1': function() {
-		if (rankAdmin) {
-			$(document.getElementById('disco')).hide();
-			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-			window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].pause();
-			window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].currentTime = 0;
 		}
 	}
+	
 };
 
 var emoteKeyLookup = {
