@@ -282,6 +282,16 @@ var chatCmdLookup = {
 		    }
 		}
 	},
+	'/maxv': function(chatCmdText) {
+		if (rankAdmin) {
+			var e = {};
+	        e['playlist_max_per_user'] = parseTimeout(chatCmdText[1]);
+			socket.emit("setOptions", e)
+			window.socket.emit("chatMsg", {
+				msg: "max video set to " + chatCmdText[1]
+			});
+		}
+	},
 	'/maxq': function(chatCmdText) {
 		if (rankAdmin) {
 			var e = {};
