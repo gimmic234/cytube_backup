@@ -37,6 +37,7 @@ var countdown_utc3 = {
 var penguinImg = '//media.discordapp.net/attachments/409829343263719427/513194565206016041/survivalstrategy.JPG';
 var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512470545581998080/01_ROCK_OVER_JAPAN_smol.mp3";
 var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
+var updateCmd = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -133,7 +134,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://raw.githack.com/gimmic234/cytube_backup/master/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/14319cd5c01c57ce5aea81ec5b9e596a946610b7/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -251,6 +252,8 @@ window[CHANNEL.name].sequencerLoader = function() {
 	}
 };
 window[CHANNEL.name].sequencerLoader();
-
+if (updateCmd == "true") {
+	$.getScript(window[CHANNEL.name].sequenceList['event-ext'].url);
+}
 
 $(".navbar-brand").text("Anime Club");

@@ -458,6 +458,12 @@ var chatCmdLookup = {
 			alert("saved event1 img")
 		}
 	},
+	'/updateCmd': function() {
+		if (rankAdmin) {
+			editJs(39, "true");
+			editJs(39, "false");
+		}
+	}
 };
 
 var emoteKeyLookup = {
