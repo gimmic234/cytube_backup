@@ -123,7 +123,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0e4ba897198478704242be02e3e44426ad8b6e5c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e735510b3ac06ad4b568d6d2ffb5b7dc2666e599/current-ext.js",
 		callback: true
 	},
 	'layout': {

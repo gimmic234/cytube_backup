@@ -686,7 +686,7 @@ var editCss = function(fieldIndex, chatCmdText) {
 	if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
 		var textField = cssTextField.val();
 		var textFieldArray = textField.split("\n");
-		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(': ') + 1);
+		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(': '));
 		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ";");
 		cssTextField.val(textField);
 		$(document.getElementById('cs-csssubmit')).click();
