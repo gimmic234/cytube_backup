@@ -38,6 +38,7 @@ var penguinImg = '//media.discordapp.net/attachments/409829343263719427/51319456
 var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512470545581998080/01_ROCK_OVER_JAPAN_smol.mp3";
 var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
 var updateCmd = "false";
+var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/513187129514262529/unnamed.gif';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -76,8 +77,8 @@ var rankMod = (window.CLIENT.rank >= 2),
 	rankAdmin = (window.CLIENT.rank >= 3);
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
+var cssTextField = $(document.getElementById('cs-csstext'));
 var bodyElem = document.body;
-var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/513187129514262529/unnamed.gif';
 
 function countdowner(countdown, destination,index) {
 	if ($('#countdown'+index+':hidden').length > 0) {
@@ -122,7 +123,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9dc5516cae2169fadc22f7b2a2d8ad5cfcc46e76/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a12783c1a2c9b006a2ce294950599adf41e66b4a/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -134,7 +135,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/14319cd5c01c57ce5aea81ec5b9e596a946610b7/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a12783c1a2c9b006a2ce294950599adf41e66b4a/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -254,7 +255,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 window[CHANNEL.name].sequencerLoader();
 if (updateCmd == "true") {
 	$.getScript(window[CHANNEL.name].sequenceList['event-ext'].url);
-	$.getScript(window[CHANNEL.name].sequenceList['xaekai'].url);
 }
 
 $(".navbar-brand").text("Anime Club");

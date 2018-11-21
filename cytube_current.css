@@ -1,3 +1,17 @@
+/* CONTROL BLOCK */
+#disco {
+    top: 0;
+    left: 0;
+    height: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
+    position: absolute;
+    z-index: 9999;
+}
+
+/* CONTROL BLOCK END */
+
 #scroll-feature, .discordoverlay {
     display: none !important;
 }
@@ -192,17 +206,6 @@
     top: -1%;
     position: absolute;
     opacity: 0.7;
-}
-
-#disco {
-    height: auto;
-    margin-left: 0px;
-    margin-right: 0px;
-    float: left;
-    right: 0;
-    left: 15%;
-    position: absolute;
-    z-index: 9999;
 }
 
 #voteskipFinal {

@@ -458,6 +458,28 @@ var chatCmdLookup = {
 			alert("saved event1 img")
 		}
 	},
+	'/event1effect': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', '');
+			url = url.replace('http:', '');
+			chatCmdText[1] = url;
+			editJs(40, chatCmdText);
+			alert("saved event1 chat effect")
+		}
+	},
+	'/event1effectedit': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			let elem = $('#disco');
+			elem.show();
+			elem.draggable();
+		}
+	},
+	'/event1effectsave': function() {
+		let left = $('#disco')[0].offsetLeft;
+		let top = $('#disco')[0].offsetTop;
+		editCss(2, [0, top + "px"]);
+		editCss(3, [0, left + "px"]);
+	}
 	'/updateCmd': function() {
 		if (rankAdmin) {
 			editJs(39, [0, "true"]);
@@ -655,6 +677,17 @@ var editJs = function(fieldIndex, chatCmdText) {
 		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + "= '" + chatCmdText[1].replace(/['"]+/g, '').trim() + "';");
 		jsTextField.val(textField);
 		$(document.getElementById('cs-jssubmit')).click();
+	}
+}
+
+var editCss = function(fieldIndex, chatCmdText) {
+	if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+		var textField = cssTextField.val();
+		var textFieldArray = textField.split("\n");
+		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(': ') + 1);
+		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ";");
+		cssTextField.val(textField);
+		$(document.getElementById('cs-csssubmit')).click();
 	}
 }
 
