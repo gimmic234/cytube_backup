@@ -479,7 +479,7 @@ var chatCmdLookup = {
 		let top = $('#disco')[0].offsetTop;
 		editCss(2, [0, top + "px"]);
 		editCss(3, [0, left + "px"]);
-	}
+	},
 	'/updateCmd': function() {
 		if (rankAdmin) {
 			editJs(39, [0, "true"]);
