@@ -478,6 +478,7 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			let left = $('#disco')[0].offsetLeft;
 			let top = $('#disco')[0].offsetTop;
+			$('#disco').hide();
 			editCss(2, [0, top + "px"]);
 			editCss(3, [0, left + "px"]);
 		}
