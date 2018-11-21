@@ -123,7 +123,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/aadb1490a3b77a1d968ee88cafc6333ea171a905/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8d1b405bf9b14355733f625fc648a1bc6cc26758/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -174,6 +174,10 @@ window[CHANNEL.name].sequencerLoader = function() {
 					}
 				});
 			}
+
+			waitForEl('#disco', function() {
+				$('#disco').find('img').attr("src", discoGif);
+			});
 
 			waitForEl('#messagebuffer', function() {
 				var buff = $('#messagebuffer');
