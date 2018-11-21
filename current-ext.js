@@ -468,17 +468,19 @@ var chatCmdLookup = {
 		}
 	},
 	'/event1effectedit': function(chatCmdText) {
-		if (chatCmdText.length > 1 && rankAdmin) {
+		if (rankAdmin) {
 			let elem = $('#disco');
 			elem.show();
 			elem.draggable();
 		}
 	},
 	'/event1effectsave': function() {
-		let left = $('#disco')[0].offsetLeft;
-		let top = $('#disco')[0].offsetTop;
-		editCss(2, [0, top + "px"]);
-		editCss(3, [0, left + "px"]);
+		if (rankAdmin) {
+			let left = $('#disco')[0].offsetLeft;
+			let top = $('#disco')[0].offsetTop;
+			editCss(2, [0, top + "px"]);
+			editCss(3, [0, left + "px"]);
+		}
 	},
 	'/updateCmd': function() {
 		if (rankAdmin) {
