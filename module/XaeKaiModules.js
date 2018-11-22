@@ -448,12 +448,14 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!(noiseActive == "true")) return;
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio = $("<audio>").prop("id", "AudioNotice" + window[CHANNEL.name].audioNotice.typeNames["survivalStrategy"].split(" ")[0]).appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice['survivalStrategy'].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
+		let duration = window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].duration;
+		console.log(duration);
 		$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
 		$(document.getElementById('disco')).show();
 		setTimeout(function() {
 			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-		}, window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].duration * 1000);
+		},  (duration * 1000));
 	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");
