@@ -435,8 +435,9 @@ var chatCmdLookup = {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
-			penguinBg = url;
 			chatCmdText[1] = url;
+			editJs(38, chatCmdText);
+			alert("saved event1 bg");
 		}
 	},
 	'/event1music': function(chatCmdText) {
@@ -444,7 +445,8 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
 			chatCmdText[1] = url;
-			penguinUrl = url;
+			editJs(37, chatCmdText);
+			alert("saved event1 music");
 		}
 	},
 	'/event1img': function(chatCmdText) {
@@ -452,7 +454,8 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
 			chatCmdText[1] = url;
-			penguinImg = url;
+			editJs(36, chatCmdText);
+			alert("saved event1 img")
 		}
 	},
 	'/event1effect': function(chatCmdText) {
@@ -460,10 +463,11 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
 			chatCmdText[1] = url;
-			discoGif = url;
+			editJs(40, chatCmdText);
+			alert("saved event1 chat effect")
 		}
 	},
-	'/event1edit': function(chatCmdText) {
+	'/effect1edit': function(chatCmdText) {
 		if (rankAdmin) {
 			let elem = $('#disco');
 			elem.show();
@@ -472,7 +476,7 @@ var chatCmdLookup = {
 			$(document.getElementById('disco')).show();
 		}
 	},
-	'/event1save': function() {
+	'/effect1save': function() {
 		if (rankAdmin) {
 			let left = $('#disco')[0].offsetLeft;
 			let top = $('#disco')[0].offsetTop;
@@ -481,10 +485,6 @@ var chatCmdLookup = {
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			editCss(2, [0, top + "px"]);
 			editCss(3, [0, left + "px"]);
-			editJs(38, [0, penguinBg]);
-			editJs(37, [0, penguinUrl]);
-			editJs(36, [0, penguinImg]);
-			editJs(40, [0, discoGif]);
 		}
 	},
 	'/updateCmd': function() {
