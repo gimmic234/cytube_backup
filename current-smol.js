@@ -43,6 +43,7 @@ var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/5131
 //ControlBlockEnd
 console.log = function() {}
 var emoteTable = "false";
+var event1timeout;
 var penguinTimeout = 19000;
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
 var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
@@ -123,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/07e32bf76001c6ff91b2b2c7512263b22bc80f43/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c35e7f410eaf3aff6f805f013a1bc0f0236c6372/current-ext.js",
 		callback: true
 	},
 	'layout': {
