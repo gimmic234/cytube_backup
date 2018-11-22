@@ -446,7 +446,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		survival.addClass("parsed");
 		if (!window[CHANNEL.name].audioNotice.survivalStrategy.toggleState) return;
 		if (!(noiseActive == "true")) return;
-		window[CHANNEL.name].audioNotice.survivalStrategy.audio = $("<audio>").prop("id", "AudioNotice" + window[CHANNEL.name].audioNotice.typeNames["survivalStrategy"].split(" ")[0]).appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice['survivalStrategy'].volume).append($("<source>").attr("src", window[CHANNEL.name].audioNotice['survivalStrategy'].file).attr("type", "audio/ogg"));
+		window[CHANNEL.name].audioNotice.survivalStrategy.audio = $("<audio>").prop("id", "AudioNotice" + window[CHANNEL.name].audioNotice.typeNames["survivalStrategy"].split(" ")[0]).appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice['survivalStrategy'].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
 		$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
 		$(document.getElementById('disco')).show();
