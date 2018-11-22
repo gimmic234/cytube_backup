@@ -446,7 +446,6 @@ window[CHANNEL.name].audioNotice.handler = {
 		survival.addClass("parsed");
 		if (!window[CHANNEL.name].audioNotice.survivalStrategy.toggleState) return;
 		if (!(noiseActive == "true")) return;
-		$('#AudioNoticeEvent1').find('source').attr('src', penguinUrl);
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
 		let duration = window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].duration;
 		console.log(duration);

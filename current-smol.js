@@ -135,7 +135,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cd580bb678577f9634cbc60720a58adbec681795/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/84d0d2ab7b4448893dfdfcfed817e3ca82be87f5/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -203,7 +203,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 					chatHandler(e);
 				});
 			});
-
+			waitForEl('#AudioNoticeEvent1', function() {
+				$('#AudioNoticeEvent1').find('source').attr('src', penguinUrl);
+			}
 			waitForEl('span#plcount', function() {
 				queueList = $(document.getElementById('queue'));
 				videoDisplayToggle();
