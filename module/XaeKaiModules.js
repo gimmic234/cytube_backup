@@ -389,7 +389,7 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Video: "Queued Video",
 	Skip: "Voted Skip",
 	Gross: "Gross",
-	survivalStrategy: "Event 1",
+	survivalStrategy: "Event1",
 	skipFinal: "Skip Final"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
@@ -446,7 +446,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		survival.addClass("parsed");
 		if (!window[CHANNEL.name].audioNotice.survivalStrategy.toggleState) return;
 		if (!(noiseActive == "true")) return;
-		window[CHANNEL.name].audioNotice.survivalStrategy.audio = $("<audio>").prop("id", "AudioNotice" + window[CHANNEL.name].audioNotice.typeNames["survivalStrategy"].split(" ")[0]).appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice['survivalStrategy'].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
+		window[CHANNEL.name].audioNotice.survivalStrategy.audio = $('#AudioNoticeEvent1').find('source').attr('src', penguinUrl);
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
 		let duration = window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].duration;
 		console.log(duration);
