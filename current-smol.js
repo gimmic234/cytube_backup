@@ -132,16 +132,34 @@ window[CHANNEL.name].sequenceList = {
 		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3fd5b16819131235646fdc68d390f9c6c90a1116/module/channelbase-mod.js",
 		callback: true
 	},
+	'settings': {
+		active: 1,
+		rank: -1,
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/settings.js",
+		callback: true
+	},
+	'overlay': {
+		active: 1,
+		rank: -1,
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/overlay.js",
+		callback: true
+	},
+	'channels': {
+		active: 1,
+		rank: -1,
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/channels.js",
+		callback: true
+	},
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/84d0d2ab7b4448893dfdfcfed817e3ca82be87f5/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "https://rawgit.com/gimmic234/cytube_backup/067c40e2d8dab045009b7f666cc541a1c8923a32/enhancer-mod.min.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/enhancer-mod.js",
 		callback: true
 	}
 };
@@ -203,9 +221,11 @@ window[CHANNEL.name].sequencerLoader = function() {
 					chatHandler(e);
 				});
 			});
+
 			waitForEl('#AudioNoticeEvent1', function() {
-				$('#AudioNoticeEvent1').find('source').attr('src', penguinUrl);
-			}
+				window[CHANNEL.name].audioNotice["survivalStrategy"].audio = $("<audio>").prop("id", "AudioNoticeEvent1").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["survivalStrategy"].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
+			});
+
 			waitForEl('span#plcount', function() {
 				queueList = $(document.getElementById('queue'));
 				videoDisplayToggle();
