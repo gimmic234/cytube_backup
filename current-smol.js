@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 11,
-	day: 22,
-	hour: 0,
+	day: 25,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
@@ -129,7 +129,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3fd5b16819131235646fdc68d390f9c6c90a1116/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7aa54b145fef57b161798040147dc47c623c19ab/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {

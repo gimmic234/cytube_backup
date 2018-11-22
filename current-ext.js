@@ -435,9 +435,8 @@ var chatCmdLookup = {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
+			penguinBg = url;
 			chatCmdText[1] = url;
-			editJs(38, chatCmdText);
-			alert("saved event1 bg");
 		}
 	},
 	'/event1music': function(chatCmdText) {
@@ -445,8 +444,7 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
 			chatCmdText[1] = url;
-			editJs(37, chatCmdText);
-			alert("saved event1 music");
+			penguinUrl = url;
 		}
 	},
 	'/event1img': function(chatCmdText) {
@@ -454,8 +452,7 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
 			chatCmdText[1] = url;
-			editJs(36, chatCmdText);
-			alert("saved event1 img")
+			penguinImg = url;
 		}
 	},
 	'/event1effect': function(chatCmdText) {
@@ -463,24 +460,31 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', '');
 			url = url.replace('http:', '');
 			chatCmdText[1] = url;
-			editJs(40, chatCmdText);
-			alert("saved event1 chat effect")
+			discoGif = url;
 		}
 	},
-	'/event1effectedit': function(chatCmdText) {
+	'/event1edit': function(chatCmdText) {
 		if (rankAdmin) {
 			let elem = $('#disco');
 			elem.show();
 			elem.draggable();
+			$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
+			$(document.getElementById('disco')).show();
 		}
 	},
-	'/event1effectsave': function() {
+	'/event1save': function() {
 		if (rankAdmin) {
 			let left = $('#disco')[0].offsetLeft;
 			let top = $('#disco')[0].offsetTop;
 			$('#disco').hide();
+			$(document.getElementById('disco')).hide();
+			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			editCss(2, [0, top + "px"]);
 			editCss(3, [0, left + "px"]);
+			editJs(38, [0, penguinBg]);
+			editJs(37, [0, penguinUrl]);
+			editJs(36, [0, penguinImg]);
+			editJs(40, [0, discoGif]);
 		}
 	},
 	'/updateCmd': function() {
