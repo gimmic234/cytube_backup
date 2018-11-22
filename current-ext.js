@@ -471,7 +471,7 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			let elem = $('#disco');
 			elem.show();
-			elem.draggable();
+			elem.draggable('enable');
 			$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
 			$(document.getElementById('disco')).show();
 		}
@@ -481,6 +481,7 @@ var chatCmdLookup = {
 			let left = $('#disco')[0].offsetLeft;
 			let top = $('#disco')[0].offsetTop;
 			$('#disco').hide();
+			$('#disco').draggable('disable');
 			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			editCss(2, [0, top + "px"]);
