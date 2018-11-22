@@ -467,7 +467,7 @@ var chatCmdLookup = {
 			alert("saved event1 chat effect")
 		}
 	},
-	'/effect1edit': function(chatCmdText) {
+	'/event1effectedit': function(chatCmdText) {
 		if (rankAdmin) {
 			let elem = $('#disco');
 			elem.show();
@@ -476,7 +476,7 @@ var chatCmdLookup = {
 			$(document.getElementById('disco')).show();
 		}
 	},
-	'/effect1save': function() {
+	'/event1effectsave': function() {
 		if (rankAdmin) {
 			let left = $('#disco')[0].offsetLeft;
 			let top = $('#disco')[0].offsetTop;
