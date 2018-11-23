@@ -465,7 +465,6 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(40, chatCmdText);
 			alert("saved event1 chat effect")
-			elem.draggable('enable');
 		}
 	},
 	'/event1effectedit': function(chatCmdText) {
@@ -920,7 +919,7 @@ function bindEventHandler() {
 		collapseArrow[0].classList.add('glyphicon-chevron-up');
 	});
 
-	$(bodyElem).on('mousedown', '#voteskip', function() {
+	$(bodyElem).on('click', '#voteskip', function() {
 		voteskipMod();
 	});
 
