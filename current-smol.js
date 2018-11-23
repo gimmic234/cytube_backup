@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c35e7f410eaf3aff6f805f013a1bc0f0236c6372/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cedcabdb7a80f8d2d5ca750a0e5b7c04066c88a8/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -195,7 +195,11 @@ window[CHANNEL.name].sequencerLoader = function() {
 			}
 
 			waitForEl('#disco', function() {
-				$('#disco').find('img').attr("src", discoGif);
+				let elem = $('#disco');
+				elem.find('img').attr("src", discoGif);
+				elem.draggable();
+				elem.draggable('disable');
+				elem.css('opacity','1')
 			});
 
 			waitForEl('#messagebuffer', function() {

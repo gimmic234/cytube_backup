@@ -465,6 +465,7 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(40, chatCmdText);
 			alert("saved event1 chat effect")
+			elem.draggable('enable');
 		}
 	},
 	'/event1effectedit': function(chatCmdText) {
