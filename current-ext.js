@@ -919,8 +919,10 @@ function bindEventHandler() {
 		collapseArrow[0].classList.add('glyphicon-chevron-up');
 	});
 
-	$(bodyElem).on('mousedown', '#voteskip', function(e) {
+	$(bodyElem).on('click', '#voteskip', function(e) {
+		e.stopPropagation();
 		e.stopImmediatePropagation();
+		e.preventDefault();
 		voteskipMod();
 	});
 
