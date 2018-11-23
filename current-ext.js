@@ -920,7 +920,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('mousedown', '#voteskip', function(e) {
-		e.preventDefault();
+		e.stopImmediatePropagation();
 		voteskipMod();
 	});
 
