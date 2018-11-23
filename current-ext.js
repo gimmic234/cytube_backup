@@ -919,12 +919,10 @@ function bindEventHandler() {
 		collapseArrow[0].classList.add('glyphicon-chevron-up');
 	});
 
-	/*$(bodyElem).on('click', '#voteskip', function(e) {
-		e.stopPropagation();
-		e.stopImmediatePropagation();
-		e.preventDefault();
+	$('#voteskip').off();
+	$(bodyElem).on('click', '#voteskip', function(e) {
 		voteskipMod();
-	});*/
+	});
 
 	$(bodyElem).on('mousedown', '.qbtn-delete', function() {
 		$(this).prop('disabled', true);
