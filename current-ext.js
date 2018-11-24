@@ -502,6 +502,12 @@ var chatCmdLookup = {
 				msg: "event1stop" + penguinImg + "event1stop"
 			});	
 		}
+	},
+	'!coin': function() {
+		let toss = (Math.random() >= 0.5) ? "head" : "tail";
+		window.socket.emit("chatMsg", {
+			msg: toss
+		});	
 	}
 };
 

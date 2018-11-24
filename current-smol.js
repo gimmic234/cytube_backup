@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/513195230733008896/banner_new_11-16-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511365244849881091/Mawaru.Penguindrum.full.881359.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -64,7 +64,7 @@ var chatlineElem;
 var queueList;
 var emoteList;
 var countDown;
-var countDownTimer;
+var countDownTimer1;
 var countDown2;
 var countDownTimer2;
 var countDown3;
@@ -105,7 +105,7 @@ function countdowner(countdown, destination,index) {
 	}
 
 	if (distance < 0) {
-		clearInterval(countDownTimer);
+		clearInterval(eval("countDownTimer" + index));
 		$('#countdown' + index).hide();
 	}
 
@@ -225,6 +225,11 @@ window[CHANNEL.name].sequencerLoader = function() {
 				chatlineElem.on('keydown', function(e) {
 					chatHandler(e);
 				});
+				if (chatMute == "true" && !rankMod) {
+					chatlineElem.prop("disabled", true);
+				} else {
+					chatlineElem.prop("disabled", false);
+				}
 			});
 
 			waitForEl('#AudioNoticeEvent1', function() {
@@ -255,8 +260,8 @@ window[CHANNEL.name].sequencerLoader = function() {
 			});
 
 			countDown = new Date(date_utc).getTime();
-			clearInterval(countDownTimer);
-			countDownTimer = setInterval(function() {countdowner(countdown1, countDown, 1)}, second);
+			clearInterval(countDownTimer1);
+			countDownTimer1 = setInterval(function() {countdowner(countdown1, countDown, 1)}, second);
 
 			countDown2 = new Date(date_utc2).getTime();
 			clearInterval(countDownTimer2);
