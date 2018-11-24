@@ -80,6 +80,8 @@ var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var cssTextField = $(document.getElementById('cs-csstext'));
 var bodyElem = document.body;
+var coinHead = "head";
+var coinTail = "tail";
 
 function countdowner(countdown, destination,index) {
 	if ($('#countdown'+index+':hidden').length > 0) {
@@ -124,7 +126,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e599c32540ca52f89d5f3945eae11a755cecb3d6/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9d6fa843992f43f914b582f53904ee3a95abe4ef/current-ext.js",
 		callback: true
 	},
 	'layout': {
