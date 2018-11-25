@@ -471,7 +471,7 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			let elem = $('#disco');
 			elem.show();
-			elem.draggable('enable');
+			elem.draggable();
 			$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
 			$(document.getElementById('disco')).show();
 		}

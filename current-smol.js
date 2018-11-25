@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/513195230733008896/banner_new_11-16-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
+var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -14,8 +14,8 @@ var countdown_utc = {
 };
 var countdown_utc2 = {
 	year2: 2018,
-	month2: 11,
-	day2: 24,
+	month2: 12,
+	day2: 1,
 	hour2: 0,
 	minute2: 0,
 	second2: 0
@@ -28,8 +28,8 @@ var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/513373632085360643/new_index_pape.png';
 var countdown_utc3 = {
 	year3: 2018,
-	month3: 11,
-	day3: 24,
+	month3: 12,
+	day3: 1,
 	hour3: 16,
 	minute3: 0,
 	second3: 0
@@ -80,8 +80,8 @@ var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var cssTextField = $(document.getElementById('cs-csstext'));
 var bodyElem = document.body;
-var coinHead = "head";
-var coinTail = "tail";
+var coinHead = "cointossHEADcointoss";
+var coinTail = "cointossTAILcointoss";
 
 function countdowner(countdown, destination,index) {
 	if ($('#countdown'+index+':hidden').length > 0) {
@@ -126,7 +126,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9d6fa843992f43f914b582f53904ee3a95abe4ef/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/eebe22554193fff1adbcb9e6fdeeb31167de63fb/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -227,11 +227,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 				chatlineElem.on('keydown', function(e) {
 					chatHandler(e);
 				});
-				if (chatMute == "true" && !rankMod) {
-					chatlineElem.prop("disabled", true);
-				} else {
-					chatlineElem.prop("disabled", false);
-				}
 			});
 
 			waitForEl('#AudioNoticeEvent1', function() {

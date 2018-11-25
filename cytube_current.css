@@ -1,7 +1,7 @@
 /* CONTROL BLOCK */
 #disco {
-    top: 0;
-    left: 0;
+    top: 44px;
+    left: 1549px;
     height: auto;
     margin-left: 0px;
     margin-right: 0px;
@@ -219,4 +219,8 @@
     top: 600px;
     position: absolute;
     opacity: 0.7;
+}
+
+.toss {
+    color: #ffbf35;
 }
