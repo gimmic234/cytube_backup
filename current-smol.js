@@ -70,6 +70,7 @@ var countDownTimer2;
 var countDown3;
 var countDownTimer3;
 var collapseArrow;
+var emotePreload = "false";
 var autoPosition = -1;
 var voteskipMsg = "==BZZZZT!==";
 var voteskipMsgFinal = "---BZZZZT!---";
@@ -126,7 +127,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/eebe22554193fff1adbcb9e6fdeeb31167de63fb/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9af552f858b40e659535e602fbafc210a5142d52/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -195,14 +196,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 					}
 				});
 			}
-
-			waitForEl('#disco', function() {
-				let elem = $('#disco');
-				elem.find('img').attr("src", discoGif);
-				elem.draggable();
-				elem.draggable('disable');
-				elem.css('opacity','1')
-			});
 
 			waitForEl('#messagebuffer', function() {
 				var buff = $('#messagebuffer');

@@ -817,7 +817,9 @@ function populateEmote() {
 	fetchEmote();
 	chatlineElem.before("<div id='emote-data-field' hidden></div>");
 	emoteList = $(document.getElementById('emote-data-field'));
-	//preloadImages(emoteArray.map(emote => emote.image));
+	if (emotePreload == "true") {
+		preloadImages(emoteArray.map(emote => emote.image));
+	}
 	preloadImages([penguinBg, penguinImg, grossimg]);
 }
 
