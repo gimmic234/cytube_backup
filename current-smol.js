@@ -42,6 +42,7 @@ var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/5131
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
+var event1Volume = .5;
 var emoteTable = "false";
 var event1timeout;
 var penguinTimeout = 19000;
@@ -127,7 +128,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a4caca99ccba4ee29a03cfa81d93c81c41a20d2a/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3687f1c21a910452bcc25adc90101a3fcbc280b7/current-ext.js",
 		callback: true
 	},
 	'layout': {

@@ -598,7 +598,7 @@ window[CHANNEL.name].audioNotice.handler = {
 
 	window[CHANNEL.name].audioNotice["survivalStrategy"].toggleState = true;
 	window[CHANNEL.name].audioNotice["survivalStrategy"].id = "survivalStrategy";
-	window[CHANNEL.name].audioNotice["survivalStrategy"].volume = .6;
+	window[CHANNEL.name].audioNotice["survivalStrategy"].volume = event1Volume;
 
 	window[CHANNEL.name].audioNotice["skipFinal"].toggleState = true;
 	window[CHANNEL.name].audioNotice["skipFinal"].id = "skipFinal";
