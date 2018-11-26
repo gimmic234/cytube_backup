@@ -512,6 +512,7 @@ var chatCmdLookup = {
 	"!sun": function() {
 		imgEmote('https://media.discordapp.net/attachments/452943717708595211/516433260268617758/praise_the_sun_banner_by_mrwallas79-d53gonb.png');
 	}
+};
 
 var emoteKeyLookup = {
 	13: function(e) {
