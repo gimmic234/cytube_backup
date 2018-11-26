@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/513195230733008896/banner_new_11-16-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511365244849881091/Mawaru.Penguindrum.full.881359.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 11,
-	day: 25,
-	hour: 20,
+	day: 29,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
@@ -35,9 +35,9 @@ var countdown_utc3 = {
 	second3: 0
 };
 var penguinImg = '//media.discordapp.net/attachments/409829343263719427/513194565206016041/survivalstrategy.JPG';
-var penguinUrl = "https://cdn.discordapp.com/attachments/409829343263719427/512470545581998080/01_ROCK_OVER_JAPAN_smol.mp3";
+var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/515347622802751488/09._Ano_Toki_Bokutachi_Ha.mp3';
 var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
-var updateCmd = "false";
+var updateCmd = 'false';
 var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/513187129514262529/unnamed.gif';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
@@ -127,7 +127,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9af552f858b40e659535e602fbafc210a5142d52/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b8389a7fc4b30f096de67f8fd5a01f68f3b4f639/current-ext.js",
 		callback: true
 	},
 	'layout': {
