@@ -570,14 +570,14 @@ window[CHANNEL.name].audioNotice.handler = {
 };
 
 function imgRenderHandlerHide() {
-	let event1 = $(".img1BubbleHide:not( .parsed )");
+	let event1 = $(".img1hide:not( .parsed )");
 	if (!event1.length) return;
 	event1.addClass("parsed");
 	$(document.getElementById('img1')).hide();
 }
 
 function imgRenderHandlerShow() {
-	let event1 = $(".img1Bubble:not( .parsed )");
+	let event1 = $(".img1show:not( .parsed )");
 	if (!event1.length) return;
 	event1.addClass("parsed");
 	$(document.getElementById('img1')).show();

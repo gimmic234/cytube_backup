@@ -522,7 +522,7 @@ var chatCmdLookup = {
 	"/img1hide": function() {
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "img1BubbleHide" + "img1 hide" + "img1BubbleHide"
+				msg: "img1Hide" + "img1 hide" + "img1Hide"
 			});	
 		}
 	},
