@@ -515,14 +515,14 @@ var chatCmdLookup = {
 	"!img1": function() {
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "img1Bubble" + img1 show + "img1Bubble"
+				msg: "img1Bubble" + "img1 show" + "img1Bubble"
 			});	
 		}
 	},
 	"/img1hide": function() {
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "img1BubbleHide" + img1 hide + "img1BubbleHide"
+				msg: "img1BubbleHide" + "img1 hide" + "img1BubbleHide"
 			});	
 		}
 	},
