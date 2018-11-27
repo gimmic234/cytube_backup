@@ -159,7 +159,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6486b7110785deb21c768251488b0b54a0fcd317/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a86d81aedeb9db9e935cb5d9ce26b273c69bf7f7/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -225,7 +225,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#imgBubble', function() {
 				let elem = $('#imgBubble');
 				elem.attr("src", imgBubble);
-				elem.draggable();
 			});
 
 			waitForEl('#chatline', function() {

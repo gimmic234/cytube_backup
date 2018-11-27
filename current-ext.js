@@ -473,7 +473,6 @@ var chatCmdLookup = {
 			elem.show();
 			elem.draggable();
 			$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
-			$(document.getElementById('disco')).show();
 		}
 	},
 	'/event1effectsave': function() {
@@ -482,7 +481,6 @@ var chatCmdLookup = {
 			let top = $('#disco')[0].offsetTop;
 			$('#disco').hide();
 			$('#disco').draggable('disable');
-			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			editCss(2, [0, top + "px"]);
 			editCss(3, [0, left + "px"]);
@@ -540,15 +538,13 @@ var chatCmdLookup = {
 			let elem = $('#imgBubble');
 			elem.show();
 			elem.draggable();
-			$(document.getElementById('imgBubble')).show();
+			alert("img1 edit enabled");
 		}
 	},
 	'/img1save': function() {
 		if (rankAdmin) {
 			let left = $('#imgBubble')[0].offsetLeft;
 			let top = $('#imgBubble')[0].offsetTop;
-			$('#imgBubble').hide();
-			$(document.getElementById('imgBubble')).hide();
 			editCss(14, [0, top + "px"]);
 			editCss(15, [0, left + "px"]);
 		}
