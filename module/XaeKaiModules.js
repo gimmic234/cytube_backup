@@ -437,6 +437,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		event1.addClass("parsed");
 		$(document.getElementById('disco')).hide();
 		$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
+		$('.well').css("opacity") = 0.7;
 		clearTimeout(event1timeout);
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].pause();
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].currentTime = 0;
@@ -452,6 +453,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		console.log(duration);
 		$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
 		$(document.getElementById('disco')).show();
+		$('.well').css("opacity") = 0.3;
 		event1timeout = setTimeout(function() {
 			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
