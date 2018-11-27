@@ -1,7 +1,19 @@
 /* CONTROL BLOCK */
 #disco {
-    top: 44px;
-    left: 1549px;
+    top: 46px;
+    left: 1550px;
+    height: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
+    position: absolute;
+    z-index: 3;
+    opacity: 1;
+}
+
+#imgBubble {
+    top: 46px;
+    left: 1550px;
     height: auto;
     margin-left: 0px;
     margin-right: 0px;

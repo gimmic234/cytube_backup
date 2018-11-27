@@ -511,6 +511,47 @@ var chatCmdLookup = {
 	},
 	"!sun": function() {
 		imgEmote('https://media.discordapp.net/attachments/452943717708595211/516433260268617758/praise_the_sun_banner_by_mrwallas79-d53gonb.png');
+	},
+	"!img1": function() {
+		if (rankAdmin) {
+			window.socket.emit("chatMsg", {
+				msg: "img1Bubble" + img1 show + "img1Bubble"
+			});	
+		}
+	},
+	"/img1hide": function() {
+		if (rankAdmin) {
+			window.socket.emit("chatMsg", {
+				msg: "img1BubbleHide" + img1 hide + "img1BubbleHide"
+			});	
+		}
+	},
+	'/img1': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', '');
+			url = url.replace('http:', '');
+			chatCmdText[1] = url;
+			editJs(41, chatCmdText);
+			alert("saved img1")
+		}
+	},
+	"/img1edit": function() {
+		if (rankAdmin) {
+			let elem = $('#imgBubble');
+			elem.show();
+			elem.draggable();
+			$(document.getElementById('imgBubble')).show();
+		}
+	},
+	'/img1save': function() {
+		if (rankAdmin) {
+			let left = $('#imgBubble')[0].offsetLeft;
+			let top = $('#imgBubble')[0].offsetTop;
+			$('#imgBubble').hide();
+			$(document.getElementById('imgBubble')).hide();
+			editCss(14, [0, top + "px"]);
+			editCss(15, [0, left + "px"]);
+		}
 	}
 };
 

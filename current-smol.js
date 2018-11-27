@@ -39,6 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/5153476228
 var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
 var updateCmd = 'false';
 var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/513187129514262529/unnamed.gif';
+var imgBubble = 'https://cdn.discordapp.com/emojis/426018091785519116.png';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -158,7 +159,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/278a76623d92cdf206fedbedc9111cf2cde52686/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/88c43083350c74eef5c7437429c23ffb2251cba4/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -204,6 +205,8 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".survival:not( .parsed )").addClass('parsed');
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
+				buff.find(".img1Bubble:not( .parsed )").addClass('parsed');
+				buff.find(".img1BubbleHide:not( .parsed )").addClass('parsed');
 			});
 
 			waitForEl('#club_redirect', function() {
@@ -213,6 +216,12 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#club_banner', function() {
 				$('#club_banner').attr('src', banner_url);
 			});
+
+			waitForEl('#disco', function() {
+				let elem = $('#disco');
+				elem.find('img').attr("src", discoGif);
+			});
+
 
 			waitForEl('#chatline', function() {
 				chatlineElem = $(document.getElementById('chatline'))

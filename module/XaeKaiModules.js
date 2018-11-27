@@ -568,6 +568,21 @@ window[CHANNEL.name].audioNotice.handler = {
 		$("div.chat-msg-\\\\\\$server\\\\\\$:contains(Video Notification)").remove();
 	}
 };
+
+function imgRenderHandlerHide() {
+	let event1 = $(".img1BubbleHide:not( .parsed )");
+	if (!event1.length) return;
+	event1.addClass("parsed");
+	$(document.getElementById('img1')).hide();
+}
+
+function imgRenderHandlerShow() {
+	let event1 = $(".img1Bubble:not( .parsed )");
+	if (!event1.length) return;
+	event1.addClass("parsed");
+	$(document.getElementById('img1')).show();
+}
+
 (function() {
 	if (window[CHANNEL.name].audioNotice.initialized) return;
 	window[CHANNEL.name].audioNotice.initialized = true;
@@ -659,19 +674,13 @@ window[CHANNEL.name].audioNotice.handler = {
 		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
 	});
 	socket.on("chatMsg", function(data) {
-		return window[CHANNEL.name].audioNotice.handler["stopEvent"](data)
-	});
-	socket.on("chatMsg", function(data) {
-		return window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"](data)
-	});
-	socket.on("chatMsg", function(data) {
-		return window[CHANNEL.name].audioNotice.handler["Squee"](data)
-	});
-	socket.on("chatMsg", function(data) {
-		return window[CHANNEL.name].audioNotice.handler["VoteFinal"](data)
-	});
-	socket.on("chatMsg", function(data) {
-		return window[CHANNEL.name].audioNotice.handler["Gross"](data)
+		window[CHANNEL.name].audioNotice.handler["stopEvent"](data);
+		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"](data);
+		window[CHANNEL.name].audioNotice.handler["Squee"](data);
+		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
+		window[CHANNEL.name].audioNotice.handler["Gross"](data);
+		imgRenderHandlerShow();
+		imgRenderHandlerHide();
 	});
 	socket.on("newPoll", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Poll"](data)
