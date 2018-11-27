@@ -34,12 +34,12 @@ var countdown_utc3 = {
 	minute3: 0,
 	second3: 0
 };
-var penguinImg = '//media.discordapp.net/attachments/409829343263719427/513194565206016041/survivalstrategy.JPG';
-var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/515347622802751488/09._Ano_Toki_Bokutachi_Ha.mp3';
-var penguinBg = '//media.discordapp.net/attachments/409829343263719427/513198007961911296/AKB0048_Next_Stage_-_04_-_Large_06.jpg';
+var penguinImg = '//media.discordapp.net/attachments/452943717708595211/516790955421204480/2253.jpg?width=868&height=615';
+var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/516787430590906368/04_Kotatsu_Kara_Nagameru_Sekai_Chizu_Off_vocal_ver._online-audio-converter.com.mp3';
+var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/516791021598670850/denpa-onna-to-seishun-otoko-wallpaper-hd-1440x900-195400.jpg';
 var updateCmd = 'false';
-var discoGif = 'https://media.discordapp.net/attachments/409829343263719427/513187129514262529/unnamed.gif';
-var imgBubble = 'https://cdn.discordapp.com/emojis/426018091785519116.png';
+var discoGif = '//media.discordapp.net/attachments/452943717708595211/516790975155273768/tumblr_lsv5y45tDO1qlvuq8o1_500.gif';
+var imgBubble = '//images-ext-2.discordapp.net/external/M5XSIHXHedm3S17aQI7vfAphH60gjKcFY1KdKwjo4qI/%3Fv%3D1/https/cdn.discordapp.com/emojis/426018091785519116.png';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -129,7 +129,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6486b7110785deb21c768251488b0b54a0fcd317/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/682542e85208bb5d4f13fe93beba36fd53854fd7/current-ext.js",
 		callback: true
 	},
 	'layout': {

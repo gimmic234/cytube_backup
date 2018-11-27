@@ -480,7 +480,6 @@ var chatCmdLookup = {
 			let left = $('#disco')[0].offsetLeft;
 			let top = $('#disco')[0].offsetTop;
 			$('#disco').hide();
-			$('#disco').draggable('disable');
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			editCss(2, [0, top + "px"]);
 			editCss(3, [0, left + "px"]);
