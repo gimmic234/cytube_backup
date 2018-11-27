@@ -129,13 +129,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/00989b9bb9481146cdafbef060f5020a8831cd60/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6486b7110785deb21c768251488b0b54a0fcd317/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7aa54b145fef57b161798040147dc47c623c19ab/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/bc7ed40c1a62ade1f5f1069cf1fd123b2335b264/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
@@ -159,7 +159,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/bc7ed40c1a62ade1f5f1069cf1fd123b2335b264/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6486b7110785deb21c768251488b0b54a0fcd317/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -222,6 +222,11 @@ window[CHANNEL.name].sequencerLoader = function() {
 				elem.find('img').attr("src", discoGif);
 			});
 
+			waitForEl('#imgBubble', function() {
+				let elem = $('#imgBubble');
+				elem.attr("src", imgBubble);
+				elem.draggable();
+			});
 
 			waitForEl('#chatline', function() {
 				chatlineElem = $(document.getElementById('chatline'))
