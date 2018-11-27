@@ -35,15 +35,16 @@ var countdown_utc3 = {
 	second3: 0
 };
 var penguinImg = '//media.discordapp.net/attachments/452943717708595211/516790955421204480/2253.jpg?width=868&height=615';
-var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/516787430590906368/04_Kotatsu_Kara_Nagameru_Sekai_Chizu_Off_vocal_ver._online-audio-converter.com.mp3';
-var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/516793904855777300/denpa_onna.jpg';
+var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/516786713574506546/02_Kotatsu_Kara_Nagameru_Sekai_Chizu_online-audio-converter.com.mp3';
+var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/516440366015184906/thumb-1920-599178.png';
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/452943717708595211/516794340954341376/8497908bc597fc0ca8cbf6ac09663b43.png?width=1027&height=615';
 var imgBubble = '//images-ext-2.discordapp.net/external/M5XSIHXHedm3S17aQI7vfAphH60gjKcFY1KdKwjo4qI/%3Fv%3D1/https/cdn.discordapp.com/emojis/426018091785519116.png';
+var event1 = 'false';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
-var event1Volume = .5;
+var event1Volume = .4;
 var emoteTable = "false";
 var event1timeout;
 var penguinTimeout = 19000;
@@ -159,7 +160,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7413aefcafb2fddf145bc68ebe10f973e38f7f0c/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9fa6ff51675eaeab13eeacd1b8d18674d8313547/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -251,7 +252,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 			});
 
 			waitForEl('#backg', function() {
-				$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
+				if (event1 == "false") {
+					$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
+				}
 			});
 
 			waitForEl('#countdown1', function() {

@@ -441,6 +441,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		clearTimeout(event1timeout);
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].pause();
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].currentTime = 0;
+		editJs(42, [0, "false"]);
 	},
 	SurvivalStrategy: function(data) {
 		let survival = $(".survival:not( .parsed )");
@@ -458,6 +459,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			$('.well').css("background", "rgba(0,0,0,.7)");
+			editJs(42, [0, "false"]);
 		},  (duration * 1000));
 	},
 	Gross: function(data) {
