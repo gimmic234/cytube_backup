@@ -426,7 +426,6 @@ var chatCmdLookup = {
 	},
 	'!event1': function() {
 		if (rankAdmin) {
-			editJs(42, [0, "true"]);
 			window.socket.emit("chatMsg", {
 				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
 			});	

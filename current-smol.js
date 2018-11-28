@@ -40,7 +40,6 @@ var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/51644036601
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/452943717708595211/516794340954341376/8497908bc597fc0ca8cbf6ac09663b43.png?width=1027&height=615';
 var imgBubble = '//images-ext-2.discordapp.net/external/M5XSIHXHedm3S17aQI7vfAphH60gjKcFY1KdKwjo4qI/%3Fv%3D1/https/cdn.discordapp.com/emojis/426018091785519116.png';
-var event1 = 'false';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -252,7 +251,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 			});
 
 			waitForEl('#backg', function() {
-				if (event1 == "false") {
+				if ($(document.getElementById('backg')).css('background-image') != "url(\"https:" + penguinBg + "\")") {
 					$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 				}
 			});
