@@ -536,14 +536,14 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			let elem = $('#imgBubble');
 			elem.show();
-			elem.draggable(
+			elem.draggable({
 				stop: function() {
 					let left = $('#imgBubble')[0].offsetLeft;
 					let top = $('#imgBubble')[0].offsetTop;
 					editCss(14, [0, top + "px"]);
 					editCss(15, [0, left + "px"]);
   				}
-			);
+			});
 			alert("img1 edit enabled");
 		}
 	},
