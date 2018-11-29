@@ -536,8 +536,16 @@ var chatCmdLookup = {
 				stop: function() {
 					let left = $('#imgBubble')[0].offsetLeft;
 					let top = $('#imgBubble')[0].offsetTop;
-					editCss(14, [0, top + "px"]);
-					editCss(15, [0, left + "px"]);
+					editCss(15, [0, top + "px"]);
+					editCss(16, [0, left + "px"]);
+  				}
+			});
+			elem.resizeable({
+				stop: function() {
+					let width = $('#imgBubble')[0].width;
+					let height = $('#imgBubble')[0].height;
+					editCss(17, [0, height + "px"]);
+					editCss(18, [0, width + "px"]);
   				}
 			});
 			alert("img1 edit enabled");

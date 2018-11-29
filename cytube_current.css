@@ -1,8 +1,9 @@
 /* CONTROL BLOCK */
 #disco {
-    top: 322px;
-    left: -582px;
+    top: 258px;
+    left: -89px;
     height: auto;
+    width: auto;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -12,9 +13,10 @@
 }
 
 #imgBubble {
-    top: 83px;
-    left: 1578px;
+    top: -37px;
+    left: 695px;
     height: auto;
+    width: auto;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
