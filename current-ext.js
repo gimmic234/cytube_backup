@@ -544,8 +544,8 @@ var chatCmdLookup = {
 				stop: function() {
 					let width = $('#imgBubble')[0].width;
 					let height = $('#imgBubble')[0].height;
-					editCss(26, [0, height + "px"]);
-					editCss(27, [0, width + "px"]);
+					editCss(28, [0, height + "px"]);
+					editCss(29, [0, width + "px"]);
   				}
 			});
 			alert("img1 edit enabled");

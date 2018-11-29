@@ -21,6 +21,8 @@
     position: absolute;
     z-index: 3;
     opacity: 1;
+    height: auto;
+    width: auto;
 }
 
 #imgBubble {
