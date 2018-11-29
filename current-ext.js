@@ -530,22 +530,22 @@ var chatCmdLookup = {
 	},
 	"/img1edit": function() {
 		if (rankAdmin) {
-			let elem = $('#imgBubble');
+			let elem = $('#imgWrap');
 			elem.show();
 			elem.draggable({
 				stop: function() {
-					let left = $('#imgBubble')[0].offsetLeft;
-					let top = $('#imgBubble')[0].offsetTop;
+					let left = $('#imgWrap')[0].offsetLeft;
+					let top = $('#imgWrap')[0].offsetTop;
 					editCss(15, [0, top + "px"]);
 					editCss(16, [0, left + "px"]);
   				}
 			});
-			elem.resizable({
+			$('#imgWrap').resizable({
 				stop: function() {
 					let width = $('#imgBubble')[0].width;
 					let height = $('#imgBubble')[0].height;
-					editCss(17, [0, height + "px"]);
-					editCss(18, [0, width + "px"]);
+					editCss(26, [0, height + "px"]);
+					editCss(27, [0, width + "px"]);
   				}
 			});
 			alert("img1 edit enabled");

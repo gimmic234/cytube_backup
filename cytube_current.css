@@ -12,17 +12,20 @@
     opacity: 1;
 }
 
-#imgBubble {
+#imgWrap {
     top: -37px;
     left: 695px;
-    height: auto;
-    width: auto;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
     position: absolute;
     z-index: 3;
     opacity: 1;
+}
+
+#imgBubble {
+    height: auto;
+    width: auto;
 }
 
 /* CONTROL BLOCK END */
