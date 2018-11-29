@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/513195230733008896/banner_new_11-16-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/463192738846867456/511365244849881091/Mawaru.Penguindrum.full.881359.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/420183063562027008/517468532548567045/denpa_bg_v2.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
-	month: 11,
-	day: 29,
-	hour: 0,
+	month: 12,
+	day: 2,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
@@ -159,7 +159,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9fa6ff51675eaeab13eeacd1b8d18674d8313547/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a0a726905a7c11f3d0353c48ed99001824012f8f/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

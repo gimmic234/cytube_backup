@@ -876,7 +876,25 @@ function bindEventHandler() {
 		appendEmote($(e.target).closest('tr'));
 		emoteList.hide();
 		emoteTable = false;
-	})
+	});
+
+	$(bodyElem).on("drop", "#disco",function(e) {
+		if (rankAdmin) {
+			let left = $('#disco')[0].offsetLeft;
+			let top = $('#disco')[0].offsetTop;
+			editCss(2, [0, top + "px"]);
+			editCss(3, [0, left + "px"]);
+		}
+	});
+
+	$(bodyElem).on("drop", "#imgBubble",function(e) {
+		if (rankAdmin) {
+			let left = $('#imgBubble')[0].offsetLeft;
+			let top = $('#imgBubble')[0].offsetTop;
+			editCss(14, [0, top + "px"]);
+			editCss(15, [0, left + "px"]);
+		}
+	});
 
 	$(bodyElem).on('input', '#chatline', function(e) {
 		let index = this.value.lastIndexOf(" ");
