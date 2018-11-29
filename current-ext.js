@@ -479,6 +479,14 @@ var chatCmdLookup = {
 					editCss(3, [0, left + "px"]);
   				}
 			});
+			$('#discoimg').resizable({
+				stop: function() {
+					let width = $('#discoimg')[0].width;
+					let height = $('#discoimg')[0].height;
+					editCss(34, [0, height + "px"]);
+					editCss(35, [0, width + "px"]);
+  				}
+			});
 		}
 	},
 	'/updateCmd': function() {

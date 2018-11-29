@@ -30,6 +30,11 @@
     width: auto;
 }
 
+#discoimg {
+    height: auto;
+    width: auto;   
+}
+
 /* CONTROL BLOCK END */
 
 #scroll-feature, .discordoverlay {
