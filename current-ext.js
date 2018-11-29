@@ -471,18 +471,14 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			let elem = $('#disco');
 			elem.show();
-			elem.draggable();
-			$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
-		}
-	},
-	'/event1effectsave': function() {
-		if (rankAdmin) {
-			let left = $('#disco')[0].offsetLeft;
-			let top = $('#disco')[0].offsetTop;
-			$('#disco').hide();
-			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-			editCss(2, [0, top + "px"]);
-			editCss(3, [0, left + "px"]);
+			elem.draggable({
+				stop: function() {
+					let left = $('#disco')[0].offsetLeft;
+					let top = $('#disco')[0].offsetTop;
+					editCss(2, [0, top + "px"]);
+					editCss(3, [0, left + "px"]);
+  				}
+			});
 		}
 	},
 	'/updateCmd': function() {
@@ -545,14 +541,6 @@ var chatCmdLookup = {
   				}
 			});
 			alert("img1 edit enabled");
-		}
-	},
-	'/img1save': function() {
-		if (rankAdmin) {
-			let left = $('#imgBubble')[0].offsetLeft;
-			let top = $('#imgBubble')[0].offsetTop;
-			editCss(14, [0, top + "px"]);
-			editCss(15, [0, left + "px"]);
 		}
 	}
 };
@@ -883,24 +871,6 @@ function bindEventHandler() {
 		appendEmote($(e.target).closest('tr'));
 		emoteList.hide();
 		emoteTable = false;
-	});
-
-	$(bodyElem).on("drop", "#disco",function(e) {
-		if (rankAdmin) {
-			let left = $('#disco')[0].offsetLeft;
-			let top = $('#disco')[0].offsetTop;
-			editCss(2, [0, top + "px"]);
-			editCss(3, [0, left + "px"]);
-		}
-	});
-
-	$(bodyElem).on("drop", "#imgBubble",function(e) {
-		if (rankAdmin) {
-			let left = $('#imgBubble')[0].offsetLeft;
-			let top = $('#imgBubble')[0].offsetTop;
-			editCss(14, [0, top + "px"]);
-			editCss(15, [0, left + "px"]);
-		}
 	});
 
 	$(bodyElem).on('input', '#chatline', function(e) {
