@@ -540,7 +540,7 @@ var chatCmdLookup = {
 					editCss(16, [0, left + "px"]);
   				}
 			});
-			$('#imgWrap').resizable({
+			$('#imgBubble').resizable({
 				stop: function() {
 					let width = $('#imgBubble')[0].width;
 					let height = $('#imgBubble')[0].height;
