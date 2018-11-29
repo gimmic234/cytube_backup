@@ -578,14 +578,14 @@ function imgRenderHandlerHide() {
 	let event1 = $(".img1hide:not( .parsed )");
 	if (!event1.length) return;
 	event1.addClass("parsed");
-	$(document.getElementById('imgBubble')).hide();
+	$(document.getElementById('imgWrap')).hide();
 }
 
 function imgRenderHandlerShow() {
 	let event1 = $(".img1show:not( .parsed )");
 	if (!event1.length) return;
 	event1.addClass("parsed");
-	$(document.getElementById('imgBubble')).show();
+	$(document.getElementById('imgWrap')).show();
 }
 
 (function() {
