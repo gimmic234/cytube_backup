@@ -136,7 +136,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4b7c2c33abe4b02baa374f87d2ed5b422fec9dca/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/763d6172e532f6011d08aa38090c9dbcc5b74c66/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
@@ -279,6 +279,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 			countDown3 = new Date(date_utc3).getTime();
 			clearInterval(countDownTimer3);
 			countDownTimer3 = setInterval(function() {countdowner(countdown3, countDown3,  3)}, second);
+
+			$("#leader").removeClass("btn-default");
+			$("#Notif").removeClass("btn-default");
 		})();
 	}
 

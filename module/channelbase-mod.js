@@ -56,8 +56,6 @@ $("#headbottom").append($("#newpollbtn"));
 $("#headbottom").append("<button id='morebtn' title='More Actions' data-toggle='dropdown' class='headbtn headbtnleft'></button>");
 $("#newpollbtn").addClass("headbtn headbtnleft");
 $("#newpollbtn").removeClass("btn-default");
-$("#leader").removeClass("btn-default");
-$("#Notif").removeClass("btn-default");
 $("#emotelistbtn").text("");
 $("#emotelistbtn").removeClass("btn btn-sm");
 $("#emotelistbtn").addClass("fa fa-picture-o");
