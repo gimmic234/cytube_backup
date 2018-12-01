@@ -2,8 +2,8 @@
 #disco {
     top: 258px;
     left: -89px;
-    height: auto;
-    width: auto;
+    height: 449px;
+    width: 753px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: -37px;
-    left: 695px;
+    top: 86px;
+    left: 573px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -36,12 +36,12 @@
 }
 
 #imgWrapFixed1 {
-    top: 104px;
-    left: 751px;
+    top: 103px;
+    left: 432px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
-    position: relative;
+    position: absolute;
     z-index: 99;
     opacity: 1;
     height: auto;
@@ -289,9 +289,9 @@
 .section, .well, #controlsrow{
     background: rgba(178, 186, 187 , 0.7) !important;
 }
-
-
 */
+
+
 
 /* Christmas Theme */
 /*
