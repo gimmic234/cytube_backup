@@ -12,7 +12,7 @@
     opacity: 1;
 }
 
-#imgWrap {
+#imgWrap1 {
     top: -37px;
     left: 695px;
     margin-left: 0px;
@@ -36,8 +36,8 @@
 }
 
 #imgWrapFixed1 {
-    top: -37px;
-    left: 695px;
+    top: 104px;
+    left: 751px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;

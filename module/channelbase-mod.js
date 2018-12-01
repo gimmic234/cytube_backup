@@ -49,8 +49,6 @@ $('#wrap').append("<div id='disco' hidden></div>");
 $('#disco').html("<img id='discoimg' src='"+discoGif+"'>");
 $('#wrap').append("<div id='imgWrap1' hidden></div>");
 $('#imgWrap1').append("<img id='imgBubble' src='"+imgBubble+"'>");
-$('#maincontain').find('.container-fluid').append("<div id='imgWrapFixed1' hidden></div>");
-$('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
 $("#videoinfo").append("<div class='textheader'></div><div id='videoinfohead'><span id='addedbyTEXT'>Queued by <span id='addedby'></span></span><div id='headbottom'><div id='headright'><div id='ss7time' title='--:--'>0:00</div><div id='videolength'></div><div id='progbar'></div></div></div></div><div id='videoopts'></div>");
 $(".navbar-header").after($("#currenttitle")); //move video title below video player
 $("#headbottom").append("<button id='addmedia' title='Add Media' class='headbtn headbtnleft'></button>");
@@ -120,6 +118,10 @@ $("#messagebuffer").addClass("nano-content");
 $("#messagebuffer").after("<div class='nano'></div>");
 $("#chatwrap .nano").append($("#messagebuffer"));
 $(".nano").nanoScroller();
+$('#maincontain').find('.container-fluid').append("<div id='imgWrapFixed1' hidden></div>");
+$('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
+
+
 //middle draggable handle
 $("#mainpage").append("<div id='mHandle-left' class='mHandle'></div> <div id='mHandle-right' class='mHandle'></div><div id='mHandle-mid' class='mHandle'></div>");
 $("body").prepend("<div id='dragoverlay'><div class='l'></div><div class='r'></div><div id='handleWidget'></div></div>");
