@@ -242,7 +242,7 @@ var updateScrollHandles = function() {
 	$("#mHandle-mid").attr("style", "transform: translate(" + (0 - scrollbar.width() - 1) + "px, " + (scrollbarOffset + $("#mHandle-mid").height()/2) + "px);");
 	$(".mHandle").css("left", $("#splitRatio").attr("split") + "%");
 	//$("#imgWrap").css("top", $("#imgWrap")[0].offsetTop - scrollbarOffset);
-	$("#imgWrap").attr("style", "transform: translate('0px', " + (scrollbarOffset + $("#imgWrap").height()/2) + "px);");
+	//$("#imgWrap").attr("style", "transform: translate('0px', " + (scrollbarOffset + $("#imgWrap").height()/2) + "px);");
 }
 
 $("#mainpage > .nano .nano-pane").hover(function(eventData) {
