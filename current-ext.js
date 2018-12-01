@@ -426,6 +426,22 @@ var chatCmdLookup = {
 	},
 	'!event1': function() {
 		if (rankAdmin) {
+			$('#disco').draggable({
+				stop: function() {
+					let left = $('#disco')[0].offsetLeft;
+					let top = $('#disco')[0].offsetTop;
+					editCss(2, [0, top + "px"]);
+					editCss(3, [0, left + "px"]);
+  				}
+			});
+			$('#discoimg').resizable({
+				stop: function() {
+					let width = $('#discoimg')[0].width;
+					let height = $('#discoimg')[0].height;
+					editCss(33, [0, height + "px"]);
+					editCss(34, [0, width + "px"]);
+  				}
+			});
 			window.socket.emit("chatMsg", {
 				msg: "seizonsenryaku" + penguinImg + "seizonsenryaku"
 			});	
@@ -483,8 +499,8 @@ var chatCmdLookup = {
 				stop: function() {
 					let width = $('#discoimg')[0].width;
 					let height = $('#discoimg')[0].height;
-					editCss(34, [0, height + "px"]);
-					editCss(35, [0, width + "px"]);
+					editCss(33, [0, height + "px"]);
+					editCss(34, [0, width + "px"]);
   				}
 			});
 		}

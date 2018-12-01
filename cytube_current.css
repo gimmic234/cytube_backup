@@ -13,44 +13,44 @@
 }
 
 #imgWrap1 {
-    top: 86px;
-    left: 573px;
+    top: 113px;
+    left: -120px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
     position: absolute;
     z-index: 99;
     opacity: 1;
-    height: auto;
-    width: auto;
+    height: 308px;
+    width: 395px;
 }
 
 #imgBubble {
-    height: auto;
-    width: auto;
+    height: 447px;
+    width: 785px;
 }
 
 #discoimg {
-    height: auto;
-    width: auto;   
+    height: 242px;
+    width: 283px;   
 }
 
 #imgWrapFixed1 {
-    top: 103px;
-    left: 432px;
+    top: 58px;
+    left: 935px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
     position: absolute;
     z-index: 99;
     opacity: 1;
-    height: auto;
-    width: auto;
+    height: 339px;
+    width: 414px;
 }
 
 #imgBubble2 {
-    height: auto;
-    width: auto;
+    height: 128px;
+    width: 143px;
 }
 
 /* CONTROL BLOCK END */
@@ -269,7 +269,7 @@
 }
 
 
-/*
+
 #footer {
     background: rgba(153,33,20, 0.9) !important;
 }
@@ -287,9 +287,11 @@
 }
 
 .section, .well, #controlsrow{
-    background: rgba(178, 186, 187 , 0.7) !important;
+    background: rgba(47,79,79 , 0.7) !important;
 }
-*/
+div#messagebuffer, div#userlist {
+    background: rgba(47,79,79, 0.7) !important;
+}
 
 
 
