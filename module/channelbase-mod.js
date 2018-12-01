@@ -241,7 +241,7 @@ var updateScrollHandles = function() {
 	$("#mHandle-right").attr("style", "transform: translate(-1px, "+ (scrollbarOffset + $("#mHandle-right").height()/2) + "px);");
 	$("#mHandle-mid").attr("style", "transform: translate(" + (0 - scrollbar.width() - 1) + "px, " + (scrollbarOffset + $("#mHandle-mid").height()/2) + "px);");
 	$(".mHandle").css("left", $("#splitRatio").attr("split") + "%");
-	$("#imgWrap").css("top", $("#imgWrap")[].offsetTop - scrollbarOffset);
+	$("#imgWrap").css("top", $("#imgWrap")[0].offsetTop - scrollbarOffset);
 }
 
 $("#mainpage > .nano .nano-pane").hover(function(eventData) {
