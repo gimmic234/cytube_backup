@@ -698,8 +698,10 @@ function imgRenderHandlerShow(imgNum) {
 		window[CHANNEL.name].audioNotice.handler["Squee"](data);
 		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
 		window[CHANNEL.name].audioNotice.handler["Gross"](data);
-		imgRenderHandlerShow();
-		imgRenderHandlerHide();
+		imgRenderHandlerShow(1);
+		imgRenderHandlerHide(1);
+		fixedImgRenderHandlerShow(1)
+		fixedImgRenderHandlerHide(1)
 	});
 	socket.on("newPoll", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Poll"](data)
