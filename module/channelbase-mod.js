@@ -238,10 +238,10 @@ var updateScrollHandles = function() {
 	var scrollbar = $("#mainpage > .nano .nano-slider");
 	var scrollbarOffset = scrollbar.height()/2 + Number(scrollbar.attr("style").match(/\d+(?:.\d+)*(?=px\))/));
 	$("#mHandle-left").attr("style", "transform: translate(" + (0 - $("#mHandle-left").width() - scrollbar.width() - 1) + "px, " + (scrollbarOffset + $("#mHandle-left").height()/2) + "px);");
-	$("#imgWrap").attr("style", "transform: translate(" + (0 - $("#imgWrap").width() - scrollbar.width() - 1) + "px, " + (scrollbarOffset + $("#imgWrap").height()/2) + "px);");
 	$("#mHandle-right").attr("style", "transform: translate(-1px, "+ (scrollbarOffset + $("#mHandle-right").height()/2) + "px);");
 	$("#mHandle-mid").attr("style", "transform: translate(" + (0 - scrollbar.width() - 1) + "px, " + (scrollbarOffset + $("#mHandle-mid").height()/2) + "px);");
 	$(".mHandle").css("left", $("#splitRatio").attr("split") + "%");
+	$("#imgWrap").css("top", $("#imgWrap")[].offsetTop - scrollbarOffset);
 }
 
 $("#mainpage > .nano .nano-pane").hover(function(eventData) {
