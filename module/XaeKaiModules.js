@@ -574,18 +574,32 @@ window[CHANNEL.name].audioNotice.handler = {
 	}
 };
 
-function imgRenderHandlerHide() {
-	let event1 = $(".img1hide:not( .parsed )");
+function fixedImgRenderHandlerHide(imgNum) {
+	let event1 = $(".fixedimg"+imgNum+"hide:not( .parsed )");
 	if (!event1.length) return;
 	event1.addClass("parsed");
-	$(document.getElementById('imgWrap')).hide();
+	$(document.getElementById('imgWrapFixed'+imgNum)).hide();
 }
 
-function imgRenderHandlerShow() {
-	let event1 = $(".img1show:not( .parsed )");
+function fixedImgRenderHandlerShow(imgNum) {
+	let event1 = $(".fixedimg"+imgNum+"show:not( .parsed )");
 	if (!event1.length) return;
 	event1.addClass("parsed");
-	$(document.getElementById('imgWrap')).show();
+	$(document.getElementById('imgWrapFixed'+imgNum)).show();
+}
+
+function imgRenderHandlerHide(imgNum) {
+	let event1 = $(".img"+imgNum+"hide:not( .parsed )");
+	if (!event1.length) return;
+	event1.addClass("parsed");
+	$(document.getElementById('imgWrap'+imgNum)).hide();
+}
+
+function imgRenderHandlerShow(imgNum) {
+	let event1 = $(".img"+imgNum+"show:not( .parsed )");
+	if (!event1.length) return;
+	event1.addClass("parsed");
+	$(document.getElementById('imgWrap'+imgNum)).show();
 }
 
 (function() {

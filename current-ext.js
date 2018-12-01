@@ -538,12 +538,12 @@ var chatCmdLookup = {
 	},
 	"/img1edit": function() {
 		if (rankAdmin) {
-			let elem = $('#imgWrap');
+			let elem = $('#imgWrap1');
 			elem.show();
 			elem.draggable({
 				stop: function() {
-					let left = $('#imgWrap')[0].offsetLeft;
-					let top = $('#imgWrap')[0].offsetTop;
+					let left = $('#imgWrap1')[0].offsetLeft;
+					let top = $('#imgWrap1')[0].offsetTop;
 					editCss(15, [0, top + "px"]);
 					editCss(16, [0, left + "px"]);
   				}
@@ -558,7 +558,54 @@ var chatCmdLookup = {
 			});
 			alert("img1 edit enabled");
 		}
+	},
+	"!img1fixed": function() {
+		if (rankAdmin) {
+			window.socket.emit("chatMsg", {
+				msg: "fixedImg1Bubble" + "fixed img1 show" + "fixedImg1Bubble"
+			});	
+		}
+	},
+	"/img1fixedhide": function() {
+		if (rankAdmin) {
+			window.socket.emit("chatMsg", {
+				msg: "fixedImg1Hide" + "fixed img1 hide" + "fixedImg1Hide"
+			});	
+		}
+	},
+	'/img1fixed': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', '');
+			url = url.replace('http:', '');
+			chatCmdText[1] = url;
+			editJs(42, chatCmdText);
+			alert("saved fixed img1")
+		}
+	},
+	"/img1fixededit": function() {
+		if (rankAdmin) {
+			let elem = $('#imgWrapFixed1');
+			elem.show();
+			elem.draggable({
+				stop: function() {
+					let left = $('#imgWrapFixed1')[0].offsetLeft;
+					let top = $('#imgWrapFixed1')[0].offsetTop;
+					editCss(38, [0, top + "px"]);
+					editCss(39, [0, left + "px"]);
+  				}
+			});
+			$('#imgBubble2').resizable({
+				stop: function() {
+					let width = $('#imgBubble2')[0].width;
+					let height = $('#imgBubble2')[0].height;
+					editCss(51, [0, height + "px"]);
+					editCss(52, [0, width + "px"]);
+  				}
+			});
+			alert("img1 edit enabled");
+		}
 	}
+
 };
 
 var emoteKeyLookup = {

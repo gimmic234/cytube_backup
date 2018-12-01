@@ -35,6 +35,24 @@
     width: auto;   
 }
 
+#imgWrapFixed1 {
+    top: -37px;
+    left: 695px;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: left;
+    position: relative;
+    z-index: 3;
+    opacity: 1;
+    height: auto;
+    width: auto;
+}
+
+#imgBubble2 {
+    height: auto;
+    width: auto;
+}
+
 /* CONTROL BLOCK END */
 
 #scroll-feature, .discordoverlay {
