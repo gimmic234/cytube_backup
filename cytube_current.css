@@ -19,7 +19,7 @@
     margin-right: 0px;
     float: left;
     position: absolute;
-    z-index: 3;
+    z-index: 99;
     opacity: 1;
     height: auto;
     width: auto;
@@ -42,7 +42,7 @@
     margin-right: 0px;
     float: left;
     position: relative;
-    z-index: 3;
+    z-index: 99;
     opacity: 1;
     height: auto;
     width: auto;
