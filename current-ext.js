@@ -515,6 +515,22 @@ var chatCmdLookup = {
 	},
 	"!img1": function() {
 		if (rankAdmin) {
+			$('#imgWrap1').draggable({
+				stop: function() {
+					let left = $('#imgWrap1')[0].offsetLeft;
+					let top = $('#imgWrap1')[0].offsetTop;
+					editCss(15, [0, top + "px"]);
+					editCss(16, [0, left + "px"]);
+  				}
+			});
+			$('#imgBubble').resizable({
+				stop: function() {
+					let width = $('#imgBubble')[0].width;
+					let height = $('#imgBubble')[0].height;
+					editCss(28, [0, height + "px"]);
+					editCss(29, [0, width + "px"]);
+  				}
+			});
 			window.socket.emit("chatMsg", {
 				msg: "img1Bubble" + "img1 show" + "img1Bubble"
 			});	
@@ -561,6 +577,22 @@ var chatCmdLookup = {
 	},
 	"!img1fixed": function() {
 		if (rankAdmin) {
+			$('#imgWrapFixed1').draggable({
+				stop: function() {
+					let left = $('#imgWrapFixed1')[0].offsetLeft;
+					let top = $('#imgWrapFixed1')[0].offsetTop;
+					editCss(38, [0, top + "px"]);
+					editCss(39, [0, left + "px"]);
+  				}
+			});
+			$('#imgBubble2').resizable({
+				stop: function() {
+					let width = $('#imgBubble2')[0].width;
+					let height = $('#imgBubble2')[0].height;
+					editCss(51, [0, height + "px"]);
+					editCss(52, [0, width + "px"]);
+  				}
+			});
 			window.socket.emit("chatMsg", {
 				msg: "Img1fixedBubble" + "fixed img1 show" + "Img1fixedBubble"
 			});	
