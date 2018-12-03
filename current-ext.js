@@ -654,7 +654,7 @@ var chatCmdLookup = {
 		}
 	},
 	"/christmason": function() {
-		editCssFull(272, [0, ""]);
+		editCssFull(272, [0, "/**/"]);
 	},
 	"/christmasoff": function() {
 		editCssFull(272, [0, "/*"]);
