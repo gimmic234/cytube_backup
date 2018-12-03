@@ -24,7 +24,7 @@ var background_img_auto = 'http://cdn.discordapp.com/attachments/463192738846867
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
-var noiseActive = 'false';
+var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
 var countdown_utc3 = {
 	year3: 2018,
@@ -40,7 +40,7 @@ var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/51644036601
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/452943717708595211/516794340954341376/8497908bc597fc0ca8cbf6ac09663b43.png?width=1027&height=615';
 var imgBubble = '//i.pinimg.com/originals/de/98/3b/de983b9c233df11841f80bbfd2a3fda6.gif';
-var imgBubble2 = '//images-ext-2.discordapp.net/external/M5XSIHXHedm3S17aQI7vfAphH60gjKcFY1KdKwjo4qI/%3Fv%3D1/https/cdn.discordapp.com/emojis/426018091785519116.png';
+var imgBubble2 = '//cdn.discordapp.com/attachments/466386319766192138/518867919724085284/Touwa.Erio.full.808667.png';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -136,7 +136,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/763d6172e532f6011d08aa38090c9dbcc5b74c66/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6588174bcd25baea8bbf487c9597bc592803b683/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
@@ -228,6 +228,11 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#imgBubble', function() {
 				let elem = $('#imgBubble');
 				elem.attr("src", imgBubble);
+			});
+
+			waitForEl('#imgBubble2', function() {
+				let elem = $('#imgBubble2');
+				elem.attr("src", imgBubble2);
 			});
 
 			waitForEl('#chatline', function() {

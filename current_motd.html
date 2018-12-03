@@ -43,16 +43,21 @@
 <div class="collapse in" id="collapseMessage">
   <div class="card card-body">
     <h4>Chat commands</h4>
-    <div class="row">
+    <div class="row col-sm-12">
       <div class="col-sm-4">
-        All
+        All (system)
         <ul>
-         <li>/addq [url_1] [url_2] ... - adds urls to the playlist</li>
+          <li>/addq [url_1] [url_2] ... - adds urls to the playlist</li>
           <li>/img [url] - posts image/gif</li>
           <li>/voteskip - vote to skip this video</li>
           <li>/skipclear - remove voteskip counter</li>
           <li>/skiphide - do not display voteskip counter</li>
           <li>/skipshow - display voteskip counter</li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        All (chat fluff)
+        <ul>
           <li>!rule[1-8]</li>
           <li>!schwing</li>
           <li>!rigged</li>
@@ -62,7 +67,7 @@
           <li>!sun</li>
         </ul>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-5">
         Mod
         <ul>
           <li>/purge - delete playlist</li>
@@ -72,8 +77,10 @@
           <li>!sc - location of sound notice control</li>
         </ul>
       </div>
-      <div class="col-sm-5">
-        Admin
+    </div>
+    <div class="row col-sm-12">
+      <div class="col-sm-6">
+        Admin (system)
       <ul>
         <li>/savebg[1-4] [url] - save url of background (1-3)</li>
         <li>/setbg[1-4] [url] - load saved bg (1-3)</li>
@@ -87,23 +94,38 @@
         <li>/voteratio [ratio] - changes voteskip ratio</li>
         <li>/vs[on/off] - turn on voteskip</li>
         <li>/noise[on/off] - turn on emote notice</li>
-        <li>!event1 - will last for the duration of the music</li>
-        <li>/stope1 - cancel event1</li>
-        <li>/event1bg [image url] - set event1 bg</li>
-        <li>/event1music [audio url] - set event1 music</li>
-        <li>/event1img [image url] - set event1 img</li>
-        <li>/event1effect [image url] - set event1 effect</li>
-        <li>/event1effectedit - enable edit effect1 position</li>
-        <li>!img1 - shows img1 on the screen</li>
-        <li>/img1 [image/gif url] - set img1</li>
-        <li>/img1hide - hide img1</li>
-        <li>/img1edit - enable edit</li>
-        <li>!img1fixed - shows fixed img1 on the screen</li>
       </ul>
+      </div>
+      <div class="col-sm-6">
+        Admin (screen fluff)
+        <ul>
+          <li>!event1 - will last for the duration of the music</li>
+          <li>/stope1 - cancel event1</li>
+          <li>/event1bg [image url] - set event1 bg</li>
+          <li>/event1music [audio url] - set event1 music</li>
+          <li>/event1img [image url] - set event1 img</li>
+          <li>/event1effect [image url] - set event1 effect</li>
+          <li>/event1effectedit - enable edit effect1 position</li>
+          <li>!img1 - shows img1 on the screen</li>
+          <li>/img1 [image/gif url] - set img1</li>
+          <li>/img1hide - hide img1</li>
+          <li>/img1edit - enable edit</li>
+          <li>!img1fixed - shows fixed img1 on the screen</li>
+        </ul>
       </div>
     </div>
   </div>
+  <div class="row col-sm-12">
+    <h4>Misc.</h4>
+    <ul>
+      <li>
+        <h5>Name color change: add color hex code to your profile text</h5>
+      </li>
+      <li>
+        <h5>"Admin" commands require permission to change js and css</h5>
+      </li>
+    </ul>
+  </div>
 </div>
-<h4>Name color change: add color hex code to your profile text</h4>
 <div id="motd-mode" data-value="false"></div>
 

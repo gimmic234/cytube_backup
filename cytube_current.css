@@ -269,8 +269,9 @@
 }
 
 
+/* Christmas Theme */
 /*
-#footer {
+#footer div.container{
     background: rgba(153,33,20, 0.9) !important;
 }
 
@@ -280,10 +281,12 @@
 
 .btn-default {
     background-color: rgba(26,49,18, 0.81) !important;
+    background-color: rgba(197,164,54, 0.81) !important;
 }
 
 .btn-default:hover {
     background-color: rgba(12, 24, 9, 0.81) !important;
+    background-color: rgba(177,147,48, 0.81) !important;
 }
 
 .section, .well, #controlsrow{
@@ -293,31 +296,6 @@ div#messagebuffer, div#userlist {
     background: rgba(47,79,79, 0.7) !important;
 }
 
-
-
-/* Christmas Theme */
-/*
-.section, .well, #controlsrow{
-    background: rgba(26,49,18, 0.7) !important;
-}
-
-#footer {
-    background: rgba(153,33,20, 0.9) !important;
-}
-
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    background: rgba(153,33,20, 0.77) !important;
-}
-
-div#messagebuffer, div#userlist {
-    border: 0px solid hsl(0, 0%, 18%);
-    background: rgba(26,49,18, 0.7) !important;
-}
-
-.btn-default {
-    background-color: rgba(197,164,54, 0.81) !important;
-}
-
-.btn-default:hover {
-    background-color: rgba(137, 112, 30, 0.81) !important;
+input#chatline {
+    background-color: rgba(44,47,51, 0.81) !important;
 }

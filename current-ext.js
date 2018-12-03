@@ -652,6 +652,12 @@ var chatCmdLookup = {
 			});
 			alert("fixed img1 edit enabled");
 		}
+	},
+	"/christmason": function() {
+		editCss(272, [0, ""]);
+	},
+	"/christmasoff": function() {
+		editCss(272, [0, "/*"]);
 	}
 
 };
