@@ -23,6 +23,7 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(22, chatCmdText);
+			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg1 saved " + url
 			});
@@ -33,6 +34,7 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(23, chatCmdText);
+			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg2 saved " + url
 			});
@@ -44,6 +46,7 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(25, chatCmdText);
+			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg3 saved " + url
 			});
@@ -55,6 +58,7 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(27, chatCmdText);
+			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg4 saved " + url
 			});
