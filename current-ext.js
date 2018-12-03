@@ -661,7 +661,7 @@ var chatCmdLookup = {
 		editCssFull(55, [0, "/*"]);
 		editCssFull(82, [0, "*/"]);
 	},
-	"/themebuttons": function(chatCmdText) {
+	"/themebutton": function(chatCmdText) {
 		if (rankAdmin) {
 			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
 			editCss(65, chatCmdText);
