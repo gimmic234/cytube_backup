@@ -671,10 +671,10 @@ var chatCmdLookup = {
 			chatCmdText = [0, "rgba(0,0,0, 0.9) !important"];
 			editCss(57, chatCmdText);
 			editCss(61, chatCmdText);
+			editCss(76, chatCmdText);
 			chatCmdText = [0, "rgba(0,0,0, 0.81) !important"];
 			editCss(80, chatCmdText);
 			chatCmdText = [0, "rgba(0,0,0, 0.7) !important"];
-			editCss(76, chatCmdText);
 			editCss(73, chatCmdText);
 		}
 	},
