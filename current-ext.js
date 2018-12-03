@@ -700,7 +700,7 @@ var chatCmdLookup = {
 	},
 	"/themechatinput": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.7) !important";
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.9) !important";
 			editCss(76, chatCmdText);
 		}
 	},
