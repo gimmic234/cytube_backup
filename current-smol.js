@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/518880481312374796/denpa_bg_v2.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 12,
-	day: 2,
-	hour: 20,
+	day: 6,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
@@ -20,7 +20,7 @@ var countdown_utc2 = {
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto = 'http://cdn.discordapp.com/attachments/463192738846867456/511365244849881091/Mawaru.Penguindrum.full.881359.jpg';
+var background_img_auto = 'http://cdn.discordapp.com/attachments/466386319766192138/518880481312374796/denpa_bg_v2.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -130,7 +130,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/272597cc3358e6082f31288c0490cd7a562f5999/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/043de61b319c0d2e38ab509db041543ae550383c/current-ext.js",
 		callback: true
 	},
 	'layout': {

@@ -654,10 +654,10 @@ var chatCmdLookup = {
 		}
 	},
 	"/christmason": function() {
-		editCss(272, [0, ""]);
+		editCssFull(272, [0, ""]);
 	},
 	"/christmasoff": function() {
-		editCss(272, [0, "/*"]);
+		editCssFull(272, [0, "/*"]);
 	}
 
 };
@@ -851,6 +851,16 @@ var editCss = function(fieldIndex, chatCmdText) {
 		var textFieldArray = textField.split("\n");
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(': '));
 		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ";");
+		cssTextField.val(textField);
+		$(document.getElementById('cs-csssubmit')).click();
+	}
+}
+
+var editCssFull = function(fieldIndex, chatCmdText) {
+	if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+		var textField = cssTextField.val();
+		var textFieldArray = textField.split("\n");
+		textField = textField.replace(textFieldArray[fieldIndex], chatCmdText[1].replace(/['"]+/g, '').trim());
 		cssTextField.val(textField);
 		$(document.getElementById('cs-csssubmit')).click();
 	}

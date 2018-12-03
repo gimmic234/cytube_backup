@@ -1,7 +1,7 @@
-/* CONTROL BLOCK */
+: ; CONTROL BLOCK */
 #disco {
-    top: 258px;
-    left: -89px;
+    top: 424px;
+    left: -293px;
     height: 449px;
     width: 753px;
     margin-left: 0px;
@@ -31,13 +31,13 @@
 }
 
 #discoimg {
-    height: 242px;
-    width: 283px;   
+    height: 412px;
+    width: 604px;
 }
 
 #imgWrapFixed1 {
-    top: 58px;
-    left: 935px;
+    top: 161px;
+    left: 696px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -49,8 +49,8 @@
 }
 
 #imgBubble2 {
-    height: 128px;
-    width: 143px;
+    height: 179px;
+    width: 148px;
 }
 
 /* CONTROL BLOCK END */
