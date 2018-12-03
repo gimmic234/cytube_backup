@@ -26,6 +26,7 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "bg1 saved " + url
 			});
+			setAutobg(1);
 		}
 	},
 	'/savebg2': function(chatCmdText) {
@@ -36,6 +37,7 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "bg2 saved " + url
 			});
+			setAutobg(2);
 		}
 	},
 
@@ -47,6 +49,7 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "bg3 saved " + url
 			});
+			setAutobg(3);
 		}
 	},
 
@@ -58,6 +61,7 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "bg4 saved " + url
 			});
+			setAutobg(4);
 		}
 	},
 
@@ -216,7 +220,7 @@ var chatCmdLookup = {
 
 	'/setbg1': function() {
 		if (rankAdmin) {
-			setAutobg();
+			setAutobg(1);
 			window.socket.emit("chatMsg", {
 				msg: "loading bg1"
 			});
@@ -224,7 +228,7 @@ var chatCmdLookup = {
 	},
 	'/setbg2': function() {
 		if (rankAdmin) {
-			setAutobg2();
+			setAutobg(2);
 			window.socket.emit("chatMsg", {
 				msg: "loading bg2"
 			});
@@ -233,8 +237,7 @@ var chatCmdLookup = {
 
 	'/setbg3': function() {
 		if (rankAdmin) {
-			let textArray = [0, background_img_auto3];
-			editJs(4, textArray);
+			setAutobg(3);
 			window.socket.emit("chatMsg", {
 				msg: "loading bg3"
 			});
@@ -243,8 +246,7 @@ var chatCmdLookup = {
 
 	'/setbg4': function() {
 		if (rankAdmin) {
-			let textArray = [0, background_img_auto4];
-			editJs(4, textArray);
+			setAutobg(4);
 			window.socket.emit("chatMsg", {
 				msg: "loading bg4"
 			});
@@ -831,13 +833,8 @@ function imgEmote(imageUrl) {
 	});
 }
 
-function setAutobg2() {
-	let textArray = [0, background_img_auto2];
-	editJs(4, textArray);
-}
-
-function setAutobg() {
-	let textArray = [0, background_img_auto];
+function setAutobg(index) {
+	let textArray = [0, eval("background_img_auto" + index)];
 	editJs(4, textArray);
 }
 
