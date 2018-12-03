@@ -26,7 +26,6 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "bg1 saved " + url
 			});
-			setTimeout(setAutobg(1), 1000);
 		}
 	},
 	'/savebg2': function(chatCmdText) {
@@ -37,7 +36,6 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "bg2 saved " + url
 			});
-			setTimeout(setAutobg(2), 1000);
 		}
 	},
 
@@ -49,7 +47,6 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "bg3 saved " + url
 			});
-			setTimeout(setAutobg(3), 1000);
 		}
 	},
 
@@ -61,7 +58,6 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "bg4 saved " + url
 			});
-			setTimeout(setAutobg(4), 1000);
 		}
 	},
 
