@@ -653,13 +653,46 @@ var chatCmdLookup = {
 			alert("fixed img1 edit enabled");
 		}
 	},
-	"/christmason": function() {
-		editCssFull(272, [0, "/**/"]);
+	"/themeon": function() {
+		editCssFull(55, [0, "/**/"]);
+		editCssFull(82, [0, "/**/"]);
 	},
-	"/christmasoff": function() {
-		editCssFull(272, [0, "/*"]);
+	"/themeoff": function() {
+		editCssFull(55, [0, "/*"]);
+		editCssFull(82, [0, "*/"]);
+	},
+	"/themebuttons": function(chatCmdText) {
+		if (rankAdmin) {
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			editCss(65, chatCmdText);
+			editCss(69, chatCmdText);
+		}
+	},
+	"/themetop": function(chatCmdText) {
+		if (rankAdmin) {
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			editCss(57, chatCmdText);
+			editCss(61, chatCmdText);
+		}
+	},
+	"/themesection": function(chatCmdText) {
+		if (rankAdmin) {
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			editCss(73, chatCmdText);
+		}
+	},
+	"/themechatinput": function(chatCmdText) {
+		if (rankAdmin) {
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			editCss(76, chatCmdText);
+		}
+	},
+	"/themechat": function(chatCmdText) {
+		if (rankAdmin) {
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			editCss(80, chatCmdText);
+		}
 	}
-
 };
 
 var emoteKeyLookup = {
@@ -875,6 +908,12 @@ var waitForEl = function(selector, callback) {
 		}, 100);
 	}
 };
+
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? (parseInt(result[1], 16) + "," + parseInt(result[2], 16) + "," + parseInt(result[3], 16))
+     : null;
+}
 
 function pad(d) {
 	return (d < 10) ? '0' + d.toString() : d.toString();
