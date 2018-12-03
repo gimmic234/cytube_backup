@@ -663,6 +663,21 @@ var chatCmdLookup = {
 		editCssFull(55, [0, "/*"]);
 		editCssFull(82, [0, "*/"]);
 	},
+	"/themereset": function() {
+		if (rankAdmin) {
+			chatCmdText = [0, "rgba(19, 18, 18, 0.81) !important";
+			editCss(65, chatCmdText);
+			editCss(69, chatCmdText);
+			chatCmdText = [0, "rgba(0,0,0, 0.9) !important";
+			editCss(57, chatCmdText);
+			editCss(61, chatCmdText);
+			chatCmdText = [0, "rgba(0,0,0, 0.81) !important";
+			editCss(80, chatCmdText);
+			chatCmdText = [0, "rgba(0,0,0, 0.7) !important";
+			editCss(76, chatCmdText);
+			editCss(73, chatCmdText);
+		}
+	},
 	"/themebutton": function(chatCmdText) {
 		if (rankAdmin) {
 			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
@@ -672,20 +687,20 @@ var chatCmdLookup = {
 	},
 	"/themetop": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.9) !important";
 			editCss(57, chatCmdText);
 			editCss(61, chatCmdText);
 		}
 	},
 	"/themesection": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.7) !important";
 			editCss(73, chatCmdText);
 		}
 	},
 	"/themechatinput": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.7) !important";
 			editCss(76, chatCmdText);
 		}
 	},

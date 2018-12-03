@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/518880481312374796/denpa_bg_v2.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/519006861140426753/Coalgirls_Hunter_X_Hunter_105_1920x1080_Blu-ray_FLAC_73EF030B.mkv_snapshot_02.12_2018.12.02_22.17.25.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -130,7 +130,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3bdced978cc033a767b6166c5e95ad8e7d863297/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c96ed0dcefad55ccb12279183ed9ac7d93fdad70/current-ext.js",
 		callback: true
 	},
 	'layout': {
