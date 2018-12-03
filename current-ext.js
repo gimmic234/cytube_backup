@@ -860,8 +860,8 @@ var editCssFull = function(fieldIndex, chatCmdText) {
 	if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
 		var textField = cssTextField.val();
 		var textFieldArray = textField.split("\n");
-		textField = textField.replace(textFieldArray[fieldIndex], chatCmdText[1].replace(/['"]+/g, '').trim());
-		cssTextField.val(textField);
+		textFieldArray[fieldIndex] = chatCmdText[1].replace(/['"]+/g, '').trim()
+		cssTextField.val(textFieldArray.join("\n"));
 		$(document.getElementById('cs-csssubmit')).click();
 	}
 }
