@@ -34,11 +34,11 @@ var countdown_utc3 = {
 	minute3: 0,
 	second3: 0
 };
-var penguinImg = '//media.discordapp.net/attachments/452943717708595211/516790955421204480/2253.jpg?width=868&height=615';
-var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/516786713574506546/02_Kotatsu_Kara_Nagameru_Sekai_Chizu_online-audio-converter.com.mp3';
-var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/516440366015184906/thumb-1920-599178.png';
+var penguinImg = '//media.discordapp.net/attachments/452943717708595211/520094085889916938/52186.jpg?width=1092&height=615';
+var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/520088742204276736/02_Kiwamete_ari_gachi_na.mp3';
+var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/518985499646492692/1715497.jpg';
 var updateCmd = 'false';
-var discoGif = '//media.discordapp.net/attachments/452943717708595211/516794340954341376/8497908bc597fc0ca8cbf6ac09663b43.png?width=1027&height=615';
+var discoGif = '//media.discordapp.net/attachments/452943717708595211/520090990954938381/tumblr_o9suhkgmJn1u6i8k5o1_400.gif';
 var imgBubble = '//cdn.discordapp.com/emojis/426018091785519116.png?v=1';
 var imgBubble2 = '//cdn.discordapp.com/attachments/466386319766192138/518867919724085284/Touwa.Erio.full.808667.png';
 var chatImg = 'false';
@@ -133,7 +133,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0ef58abb1f5e0e303b40ed5b8f2c14092975c2db/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3282513e0f8fc94b2a8f498b27ce771ae8c005d5/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -237,9 +237,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 				let elem = $('#imgBubble');
 				elem.attr("src", imgBubble);
 				if (img1show == "true") {
-					$('imgWrap1').show();
+					$('#imgWrap1').show();
 				} else {
-					$('imgWrap1').hide();
+					$('#imgWrap1').hide();
 				}
 			});
 
@@ -247,9 +247,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 				let elem = $('#imgBubble2');
 				elem.attr("src", imgBubble2);
 				if (img1fixedshow == "true") {
-					$('imgWrapFixed1').show();
+					$('#imgWrapFixed1').show();
 				} else {
-					$('imgWrapFixed1').hide();
+					$('#imgWrapFixed1').hide();
 				}
 			});
 

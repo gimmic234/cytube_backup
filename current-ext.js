@@ -560,9 +560,6 @@ var chatCmdLookup = {
   				}
 			});
 			editJs(44, [0, "true"]);
-			window.socket.emit("chatMsg", {
-				msg: "img1Bubble" + "img1 show" + "img1Bubble"
-			});	
 		}
 	},
 	"/img1hide": function() {
@@ -624,9 +621,6 @@ var chatCmdLookup = {
   				}
 			});
 			editJs(45, [0, "true"]);
-			window.socket.emit("chatMsg", {
-				msg: "Img1fixedBubble" + "fixed img1 show" + "Img1fixedBubble"
-			});	
 		}
 	},
 	"/img1fixedhide": function() {
