@@ -8,6 +8,16 @@ var chatCmdLookup = {
 			})
 		}
 	},
+	'/chatimg': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(43, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "chat image updated"
+			});
+		}
+	},
 	'/editbg': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');

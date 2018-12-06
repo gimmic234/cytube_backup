@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/519006861140426753/Coalgirls_Hunter_X_Hunter_105_1920x1080_Blu-ray_FLAC_73EF030B.mkv_snapshot_02.12_2018.12.02_22.17.25.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/520011075165356042/katanagatari_bg4.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 12,
-	day: 6,
-	hour: 0,
+	day: 9,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
@@ -39,8 +39,9 @@ var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/5167867135
 var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/516440366015184906/thumb-1920-599178.png';
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/452943717708595211/516794340954341376/8497908bc597fc0ca8cbf6ac09663b43.png?width=1027&height=615';
-var imgBubble = '//i.pinimg.com/originals/de/98/3b/de983b9c233df11841f80bbfd2a3fda6.gif';
+var imgBubble = '//cdn.discordapp.com/emojis/426018091785519116.png?v=1';
 var imgBubble2 = '//cdn.discordapp.com/attachments/466386319766192138/518867919724085284/Touwa.Erio.full.808667.png';
+var chatImg = '//images-ext-1.discordapp.net/external/d5QOozw6BjN8NwRNx4umpfdV04AvRrF2wgcsGa6EK1g/https/static.zerochan.net/Katanagatari.full.816095.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -130,7 +131,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/01316e49b79c5c3774f2b7a2b301d8abc37d0251/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/065708c37f72426db7b9cc28ab609f6ca322a7e8/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -210,6 +211,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".img1hide:not( .parsed )").addClass('parsed');
 				buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
 				buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
+				if (chatImg != 'false') {
+					buff.css('background', "linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('"+chatImg+"')")
+				}
 			});
 
 			waitForEl('#club_redirect', function() {

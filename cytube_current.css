@@ -74,7 +74,7 @@
     background: rgba(47,79,79 , 0.7) !important;
 }
 div#messagebuffer, div#userlist {
-    background: rgba(47,79,79, 0.7) !important;
+    background: rgba(47,79,79, 0.9) !important;
 }
 
 input#chatline {
