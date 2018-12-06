@@ -41,7 +41,9 @@ var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/452943717708595211/516794340954341376/8497908bc597fc0ca8cbf6ac09663b43.png?width=1027&height=615';
 var imgBubble = '//cdn.discordapp.com/emojis/426018091785519116.png?v=1';
 var imgBubble2 = '//cdn.discordapp.com/attachments/466386319766192138/518867919724085284/Touwa.Erio.full.808667.png';
-var chatImg = '//images-ext-1.discordapp.net/external/d5QOozw6BjN8NwRNx4umpfdV04AvRrF2wgcsGa6EK1g/https/static.zerochan.net/Katanagatari.full.816095.jpg';
+var chatImg = 'false';
+var img1show = 'false';
+var img1fixedshow = 'false';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -131,7 +133,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/065708c37f72426db7b9cc28ab609f6ca322a7e8/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2935da3135b439f85e11d2958935c58217764c13/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -212,7 +214,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
 				buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
 				if (chatImg != 'false') {
-					buff.css('background', "linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('"+chatImg+"')")
+					buff.css('background-iamge', "linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('"+chatImg+"')");
+				} else {
+					buff.css('background-iamge', '');
 				}
 			});
 
@@ -232,11 +236,21 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#imgBubble', function() {
 				let elem = $('#imgBubble');
 				elem.attr("src", imgBubble);
+				if (img1show == "true") {
+					$('imgWrap1').show();
+				} else {
+					$('imgWrap1').hide();
+				}
 			});
 
 			waitForEl('#imgBubble2', function() {
 				let elem = $('#imgBubble2');
 				elem.attr("src", imgBubble2);
+				if (img1fixedshow == "true") {
+					$('imgWrapFixed1').show();
+				} else {
+					$('imgWrapFixed1').hide();
+				}
 			});
 
 			waitForEl('#chatline', function() {

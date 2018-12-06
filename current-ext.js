@@ -559,6 +559,7 @@ var chatCmdLookup = {
 					editCss(29, [0, width + "px"]);
   				}
 			});
+			editJs(44, "true");
 			window.socket.emit("chatMsg", {
 				msg: "img1Bubble" + "img1 show" + "img1Bubble"
 			});	
@@ -566,6 +567,7 @@ var chatCmdLookup = {
 	},
 	"/img1hide": function() {
 		if (rankAdmin) {
+			editJs(44, "false");
 			window.socket.emit("chatMsg", {
 				msg: "img1Hide" + "img1 hide" + "img1Hide"
 			});	
@@ -621,6 +623,7 @@ var chatCmdLookup = {
 					editCss(52, [0, width + "px"]);
   				}
 			});
+			editJs(45, "true");
 			window.socket.emit("chatMsg", {
 				msg: "Img1fixedBubble" + "fixed img1 show" + "Img1fixedBubble"
 			});	
@@ -628,6 +631,7 @@ var chatCmdLookup = {
 	},
 	"/img1fixedhide": function() {
 		if (rankAdmin) {
+			editJs(45, "false");
 			window.socket.emit("chatMsg", {
 				msg: "Img1fixedHide" + "fixed img1 hide" + "Img1fixedHide"
 			});	
