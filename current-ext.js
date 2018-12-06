@@ -565,9 +565,6 @@ var chatCmdLookup = {
 	"/img1hide": function() {
 		if (rankAdmin) {
 			editJs(44, [0, "false"]);
-			window.socket.emit("chatMsg", {
-				msg: "img1Hide" + "img1 hide" + "img1Hide"
-			});	
 		}
 	},
 	'/img1': function(chatCmdText) {
@@ -626,9 +623,6 @@ var chatCmdLookup = {
 	"/img1fixedhide": function() {
 		if (rankAdmin) {
 			editJs(45, [0, "false"]);
-			window.socket.emit("chatMsg", {
-				msg: "Img1fixedHide" + "fixed img1 hide" + "Img1fixedHide"
-			});	
 		}
 	},
 	'/img1fixed': function(chatCmdText) {
