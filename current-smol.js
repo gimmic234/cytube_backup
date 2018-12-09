@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/521383553846607872/katanagatari_pape_ep_5.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/521383604622852100/katanagatari_pape_ep_6.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 12,
-	day: 9,
-	hour: 20,
+	day: 13,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
