@@ -48,6 +48,7 @@ var img1fixedshow = 'false';
 //ControlBlockEnd
 console.log = function() {}
 var event1Volume = .4;
+var cheerio = "https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg";
 var emoteTable = "false";
 var event1timeout;
 var penguinTimeout = 19000;
