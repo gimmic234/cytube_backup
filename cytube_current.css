@@ -1,7 +1,7 @@
 /* CONTROL BLOCK */
 #disco {
-    top: 424px;
-    left: -293px;
+    top: 144px;
+    left: 1540px;
     height: 449px;
     width: 753px;
     margin-left: 0px;
@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: 113px;
-    left: -120px;
+    top: 81px;
+    left: 1486px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -26,18 +26,18 @@
 }
 
 #imgBubble {
-    height: 459px;
-    width: 635px;
+    height: 232px;
+    width: 393px;
 }
 
 #discoimg {
-    height: 412px;
-    width: 604px;
+    height: 183px;
+    width: 351px;
 }
 
 #imgWrapFixed1 {
-    top: 161px;
-    left: 696px;
+    top: 1208px;
+    left: 1103px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -49,8 +49,8 @@
 }
 
 #imgBubble2 {
-    height: 179px;
-    width: 148px;
+    height: 248px;
+    width: 137px;
 }
 
 /*
@@ -78,7 +78,7 @@ div#messagebuffer, div#userlist {
 }
 
 input#chatline {
-    background-color: rgba(44,47,51, 0.81) !important;
+    background-color: rgba(44,47,51, 0.6) !important;
 }
 */
 
@@ -295,4 +295,8 @@ input#chatline {
 
 .toss {
     color: #ffbf35;
+}
+
+#messagebuffer {
+   background-position:center bottom !important;
 }

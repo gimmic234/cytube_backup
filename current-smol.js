@@ -133,7 +133,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/32db1ff26b48030463374529a98ce047adea73e4/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d1a613230b60b18cedd65c3c96eb0f85388c3cc1/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -214,9 +214,9 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
 				buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
 				if (chatImg != 'false') {
-					buff.css('background-iamge', "linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('"+chatImg+"')");
+					buff.css('background-image', "linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('"+chatImg+"')");
 				} else {
-					buff.css('background-iamge', '');
+					buff.css('background-image', '');
 				}
 			});
 

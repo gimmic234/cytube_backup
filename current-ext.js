@@ -674,7 +674,7 @@ var chatCmdLookup = {
 			editCss(57, chatCmdText);
 			editCss(61, chatCmdText);
 			editCss(76, chatCmdText);
-			chatCmdText = [0, "rgba(0,0,0, 0.81) !important"];
+			chatCmdText = [0, "rgba(0,0,0, 0.6) !important"];
 			editCss(80, chatCmdText);
 			chatCmdText = [0, "rgba(0,0,0, 0.7) !important"];
 			editCss(73, chatCmdText);
@@ -682,33 +682,53 @@ var chatCmdLookup = {
 	},
 	"/themebutton": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			let opacity = 0.81;
+			if (chatCmdText[2] != null) {
+				opacity = chatCmdText[2];
+			}
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
 			editCss(65, chatCmdText);
 			editCss(69, chatCmdText);
 		}
 	},
 	"/themetop": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.9) !important";
+			let opacity = 0.9;
+			if (chatCmdText[2] != null) {
+				opacity = chatCmdText[2];
+			}
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
 			editCss(57, chatCmdText);
 			editCss(61, chatCmdText);
 		}
 	},
 	"/themesection": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.7) !important";
+			let opacity = 0.7;
+			if (chatCmdText[2] != null) {
+				opacity = chatCmdText[2];
+			}
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
 			editCss(73, chatCmdText);
 		}
 	},
 	"/themechatinput": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.9) !important";
+			let opacity = 0.9;
+			if (chatCmdText[2] != null) {
+				opacity = chatCmdText[2];
+			}
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
 			editCss(76, chatCmdText);
 		}
 	},
 	"/themechat": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", 0.81) !important";
+			let opacity = 0.81;
+			if (chatCmdText[2] != null) {
+				opacity = chatCmdText[2];
+			}
+			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
 			editCss(80, chatCmdText);
 		}
 	}
