@@ -722,7 +722,7 @@ var chatCmdLookup = {
 				opacity = chatCmdText[2];
 			}
 			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
-			editCss(76, chatCmdText);
+			editCss(80, chatCmdText);
 		}
 	},
 	"/themechat": function(chatCmdText) {
@@ -732,7 +732,7 @@ var chatCmdLookup = {
 				opacity = chatCmdText[2];
 			}
 			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
-			editCss(80, chatCmdText);
+			editCss(76, chatCmdText);
 		}
 	}
 };
