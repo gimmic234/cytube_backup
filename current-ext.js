@@ -364,6 +364,9 @@ var chatCmdLookup = {
 	'!schwing': function() {
 		imgEmote('http://cdn.discordapp.com/attachments/409829343263719427/497929642347331585/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0.png');
 	},
+	'!cheerio': function() {
+		imgEmote('https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg');
+	},
 	'!police': function() {
 		imgEmote('https://media.discordapp.net/attachments/409829343263719427/514239004778954764/8gVw7EKcadlPK8oHrFXcixcWMYwIfuAvNxBl8BMDyKR0yp8j-I6myzF3pAS-5mf96xDi5uvNQhqwJe7syKaz0Lxan4qIJo3Gcf2Z.gif');
 	},

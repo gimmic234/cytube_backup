@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/520011075165356042/katanagatari_bg4.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/521383517121282049/katanagatari_pape_ep_4.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -15,13 +15,13 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2018,
 	month2: 12,
-	day2: 8,
+	day2: 15,
 	hour2: 0,
 	minute2: 0,
 	second2: 0
 };
 var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/518880481312374796/denpa_bg_v2.jpg';
-var background_img_auto2 = 'http://cdn.discordapp.com/attachments/466386319766192138/482682073799196674/hxh_wallpaper_4.jpg';
+var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var noiseActive = 'true';
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2018,
 	month3: 12,
-	day3: 8,
+	day3: 15,
 	hour3: 16,
 	minute3: 0,
 	second3: 0
@@ -40,7 +40,7 @@ var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/51898549964
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/452943717708595211/520090990954938381/tumblr_o9suhkgmJn1u6i8k5o1_400.gif';
 var imgBubble = '//cdn.discordapp.com/emojis/426018091785519116.png?v=1';
-var imgBubble2 = '//cdn.discordapp.com/attachments/466386319766192138/518867919724085284/Touwa.Erio.full.808667.png';
+var imgBubble2 = '//media.discordapp.net/attachments/409829343263719427/520742371617669201/56a83919daa9fc23389977a7c38fca35.gif';
 var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
@@ -133,7 +133,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d1a613230b60b18cedd65c3c96eb0f85388c3cc1/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/707fd74c6431d7c8ef028ab73584c1e88ae17812/current-ext.js",
 		callback: true
 	},
 	'layout': {
