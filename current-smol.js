@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/521383604622852100/katanagatari_pape_ep_6.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/433418317265502218/518952254946934840/Katanagatari.full.556676.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
@@ -86,7 +86,6 @@ var rankMod = (window.CLIENT.rank >= 2),
 	rankAdmin = (window.CLIENT.rank >= 3);
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
-var cssTextField = $(document.getElementById('cs-csstext'));
 var bodyElem = document.body;
 var coinHead = "cointossHEADcointoss";
 var coinTail = "cointossTAILcointoss";
@@ -134,7 +133,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a4c529860dcf4497cae17a8dbf6d8f9d90d6308/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cfd71ac302e5da70a975442f5ef56f6f740d153e/current-ext.js",
 		callback: true
 	},
 	'layout': {

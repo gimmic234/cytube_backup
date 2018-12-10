@@ -917,6 +917,7 @@ var editJs = function(fieldIndex, chatCmdText) {
 
 var editCss = function(fieldIndex, chatCmdText) {
 	if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+		var cssTextField = $(document.getElementById('cs-csstext'));
 		var textField = cssTextField.val();
 		var textFieldArray = textField.split("\n");
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(': '));
@@ -928,6 +929,7 @@ var editCss = function(fieldIndex, chatCmdText) {
 
 var editCssFull = function(fieldIndex, chatCmdText) {
 	if (chatCmdText.length > 1 && window.CLIENT.rank >= 2) {
+		var cssTextField = $(document.getElementById('cs-csstext'));
 		var textField = cssTextField.val();
 		var textFieldArray = textField.split("\n");
 		textFieldArray[fieldIndex] = chatCmdText[1].replace(/['"]+/g, '').trim()
