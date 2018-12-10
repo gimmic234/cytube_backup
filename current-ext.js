@@ -727,7 +727,7 @@ var chatCmdLookup = {
 	},
 	"/themechat": function(chatCmdText) {
 		if (rankAdmin) {
-			let opacity = 0.81;
+			let opacity = 0.6;
 			if (chatCmdText[2] != null) {
 				opacity = chatCmdText[2];
 			}
