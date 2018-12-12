@@ -520,7 +520,7 @@ var chatCmdLookup = {
 			});
 		}
 	},
-	'/updateCmd': function() {
+	'/updatecmd': function() {
 		if (rankAdmin) {
 			editJs(39, [0, "true"]);
 			setTimeout(function() {
@@ -796,7 +796,7 @@ var chatKeyLookup = {
 			}
 
 			var chatCmdText = msg.split(" ");
-
+			chatCmdText[0] = chatCmdText[0].toLowerCase();
 			if (chatCmdLookup.hasOwnProperty(chatCmdText[0])) {
 				chatCmdLookup[chatCmdText[0]](chatCmdText);
 			} else {

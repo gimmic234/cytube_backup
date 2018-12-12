@@ -55,26 +55,26 @@
 
 /**/
 #footer div.container {
-    background: rgba(0,0,0, 0.6) !important;
+    background-color: rgba(0,0,0, 0.9) !important;
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    background: rgba(0,0,0, 0.9) !important;
+    background-color: rgba(0,0,0, 0.9) !important;
 }
 
-.btn-default {
+#userlisttoggle, #emotelistbtn, #fullscreenbtn, #settings, #hidesettings {
     background-color: rgba(19, 18, 18, 0.81) !important;
 }
 
-.btn-default:hover {
+#userlisttoggle:hover, #emotelistbtn:hover, #fullscreenbtn:hover, #settings:hover, #hidesettings:hover {
     background-color: rgba(19, 18, 18, 0.81) !important;
 }
 
 .section, .well, #controlsrow{
-    background: rgba(0,0,0, 0.7) !important;
+    background-color: rgba(0,0,0, 0.7) !important;
 }
 div#messagebuffer, div#userlist {
-    background: rgba(0,0,0, 0.9) !important;
+    background-color: rgba(0,0,0, 0.8) !important;
 }
 
 input#chatline {
@@ -299,4 +299,6 @@ input#chatline {
 
 #messagebuffer {
    background-position:center bottom !important;
+   background-repeat: no-repeat !important;  
+   background-size: 100% !important;
 }
