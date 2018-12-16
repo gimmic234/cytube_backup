@@ -734,6 +734,12 @@ var chatCmdLookup = {
 			chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
 			editCss(76, chatCmdText);
 		}
+	},
+	"/jikan": function(chatCmdText) {
+		let iteration = Math.log(chatCmdText[2])/chatCmdText[1] * Math.log(1.1);
+		window.socket.emit("chatMsg", {
+			msg: (iteration*10) + " seconds until bankruptcy"
+		});	
 	}
 };
 

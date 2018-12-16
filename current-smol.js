@@ -2,20 +2,20 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/433418317265502218/518952254946934840/Katanagatari.full.556676.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2018,
 	month: 12,
-	day: 13,
-	hour: 0,
+	day: 16,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2018,
 	month2: 12,
-	day2: 15,
+	day2: 22,
 	hour2: 0,
 	minute2: 0,
 	second2: 0
@@ -29,18 +29,18 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2018,
 	month3: 12,
-	day3: 15,
+	day3: 22,
 	hour3: 16,
 	minute3: 0,
 	second3: 0
 };
-var penguinImg = '//media.discordapp.net/attachments/452943717708595211/520094085889916938/52186.jpg?width=1092&height=615';
+var penguinImg = '//media.discordapp.net/attachments/452943717708595211/520094673704976404/top_banner_31.jpg';
 var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/520088742204276736/02_Kiwamete_ari_gachi_na.mp3';
 var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/518985499646492692/1715497.jpg';
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/452943717708595211/520090990954938381/tumblr_o9suhkgmJn1u6i8k5o1_400.gif';
 var imgBubble = '//cdn.discordapp.com/emojis/426018091785519116.png?v=1';
-var imgBubble2 = '//media.discordapp.net/attachments/409829343263719427/520742371617669201/56a83919daa9fc23389977a7c38fca35.gif';
+var imgBubble2 = '//media.discordapp.net/attachments/409829343263719427/522197739283677186/1540094313986.png';
 var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
@@ -133,7 +133,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/957e76853ba46d4989d8b57d55ba261ec6b301a5/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/56c5f76a183657c5c1f4b61776f0687788b6ae55/current-ext.js",
 		callback: true
 	},
 	'layout': {
