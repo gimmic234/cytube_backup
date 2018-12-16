@@ -738,7 +738,7 @@ var chatCmdLookup = {
 	"/jikan": function(chatCmdText) {
 		let iteration = Math.log(chatCmdText[2]/chatCmdText[1])/Math.log(1.1);
 		window.socket.emit("chatMsg", {
-			msg: Math.round(iteration*10) + " seconds until bankruptcy"
+			msg: Math.round(iteration)*10 + " seconds until bankruptcy"
 		});	
 	}
 };
