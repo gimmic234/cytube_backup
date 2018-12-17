@@ -439,6 +439,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 		$('.well').css("background", "rgba(0,0,0,.7)");
 		clearTimeout(event1timeout);
+		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].loop = false;
 		$('audio').each(function(){
 		    this.pause(); 
 		    this.currentTime = 0;

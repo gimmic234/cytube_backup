@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/523969185064419353/49936_katanagatari.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
-	year: 2018,
-	month: 12,
-	day: 16,
-	hour: 20,
+	year: 2019,
+	month: 1,
+	day: 3,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
@@ -22,7 +22,7 @@ var countdown_utc2 = {
 };
 var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/518880481312374796/denpa_bg_v2.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
-var chatMute = 'true';
+var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
@@ -40,7 +40,7 @@ var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/51898549964
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/452943717708595211/520090990954938381/tumblr_o9suhkgmJn1u6i8k5o1_400.gif';
 var imgBubble = '//cdn.discordapp.com/emojis/426018091785519116.png?v=1';
-var imgBubble2 = '//media.discordapp.net/attachments/409829343263719427/522197739283677186/1540094313986.png';
+var imgBubble2 = '//media.discordapp.net/attachments/409829343263719427/523948409506234398/2000px-Bright_anime_eye.svg.png';
 var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
@@ -163,7 +163,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0ef58abb1f5e0e303b40ed5b8f2c14092975c2db/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f1817df699371613891637df811d2ad3636eb101/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -206,8 +206,10 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#messagebuffer', function() {
 				var buff = $('#messagebuffer');
 				buff.find(".gross:not( .parsed )").addClass('parsed');
-				buff.find(".survival:not( .parsed )").addClass('parsed');
+				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');
+				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
+				window[CHANNEL.name].audioNotice.handler["stopEvent"]();
 				buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
 				buff.find(".img1show:not( .parsed )").addClass('parsed');
 				buff.find(".img1hide:not( .parsed )").addClass('parsed');
