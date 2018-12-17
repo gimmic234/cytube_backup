@@ -450,17 +450,18 @@ window[CHANNEL.name].audioNotice.handler = {
 		survival.addClass("parsed");
 		if (!window[CHANNEL.name].audioNotice.survivalStrategy.toggleState) return;
 		if (!(noiseActive == "true")) return;
+		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].loop = true;
 		window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].play();
 		let duration = window[CHANNEL.name].audioNotice.survivalStrategy.audio[0].duration;
 		console.log(duration);
 		$(document.getElementById('backg')).css('background-image', "url(" + penguinBg + ")");
 		$(document.getElementById('disco')).show();
 		$('.well').css("background", "rgba(0,0,0,.3)");
-		event1timeout = setTimeout(function() {
+		/*event1timeout = setTimeout(function() {
 			$(document.getElementById('disco')).hide();
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			$('.well').css("background", "rgba(0,0,0,.7)");
-		},  (duration * 1000));
+		},  (duration * 1000));*/
 	},
 	Gross: function(data) {
 		let gross = $(".gross:not( .parsed )");

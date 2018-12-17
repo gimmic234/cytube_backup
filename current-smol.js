@@ -22,7 +22,7 @@ var countdown_utc2 = {
 };
 var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/518880481312374796/denpa_bg_v2.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
-var chatMute = 'false';
+var chatMute = 'true';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
@@ -133,7 +133,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/511d6b953cc00d61bcb8dbabfd6966cd212ff274/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/00dda6ee2cea0594099c5761c06186ba39e4a4ce/current-ext.js",
 		callback: true
 	},
 	'layout': {
