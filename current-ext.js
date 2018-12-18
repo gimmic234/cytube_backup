@@ -759,9 +759,6 @@ var chatCmdLookup = {
 	},
 	"/setchatlimit": function(chatCmdText) {
 		if (rankAdmin)  {
-			if (isNaN(chatCmdText[1])) {
-				return;
-			}
 			editJs(47, [0, parseInt(chatCmdText[1])]);
 			window.socket.emit("chatMsg", {
 				msg: "chat limit was set to " + chatCmdText[1] + " seconds."
