@@ -740,7 +740,34 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: ":jikandess: " + Math.round(iteration)*10 + " seconds remaining"
 		});	
-	}
+	},
+	"/limitChatOn": function() {
+		if (rankAdmin) {
+			editJs(46, [0, "true"]);
+			window.socket.emit("chatMsg", {
+				msg: "chat message limit is on: " + chatDelay + " seconds."
+			});	
+		}
+	},
+	"/limitChatOff": function() {
+		if (rankAdmin) {
+			editJs(46, [0, "false"]);
+			window.socket.emit("chatMsg", {
+				msg: "chat message limit is off"
+			});	
+		}
+	},
+	"/setChatLimit": function(chatCmdText) {
+		if (rankAdmin)  {
+			if (isNaN(chatCmdText[1])) {
+				return;
+			}
+			editJs(47, [0, parseInt(chatCmdText[1])]);
+			window.socket.emit("chatMsg", {
+				msg: "chat limit was set to " + chatCmdText[1] + " seconds."
+			});	
+		}
+	},
 };
 
 var emoteKeyLookup = {
@@ -783,7 +810,10 @@ var chatKeyLookup = {
 		if (window.CHATTHROTTLE || (window.CLIENT.rank < 2 && chatMute == "true")) {
 			return;
 		}
-
+		if (!rankMod && chatLimit == "true" && (Date.now() - window[CHANNEL.name].lastChat) < (chatDelay * 1000)) {
+			return;
+		}
+		window[CHANNEL.name].lastChat = Date.now();
 		var msg = chatlineElem.val().trim();
 
 		if (msg !== '') {
