@@ -741,7 +741,7 @@ var chatCmdLookup = {
 			msg: ":jikandess: " + Math.round(iteration)*10 + " seconds remaining"
 		});	
 	},
-	"/limitchaton": function() {
+	"/chatlimiton": function() {
 		if (rankAdmin) {
 			editJs(46, [0, "true"]);
 			window.socket.emit("chatMsg", {
@@ -749,7 +749,7 @@ var chatCmdLookup = {
 			});	
 		}
 	},
-	"/limitchatoff": function() {
+	"/chatlimitoff": function() {
 		if (rankAdmin) {
 			editJs(46, [0, "false"]);
 			window.socket.emit("chatMsg", {
@@ -757,7 +757,7 @@ var chatCmdLookup = {
 			});	
 		}
 	},
-	"/setchatimit": function(chatCmdText) {
+	"/setchatlimit": function(chatCmdText) {
 		if (rankAdmin)  {
 			if (isNaN(chatCmdText[1])) {
 				return;
