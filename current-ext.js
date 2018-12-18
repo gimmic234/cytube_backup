@@ -767,7 +767,7 @@ var chatCmdLookup = {
 				msg: "chat limit was set to " + chatCmdText[1] + " seconds."
 			});	
 		}
-	},
+	}
 };
 
 var emoteKeyLookup = {
