@@ -757,9 +757,12 @@ var chatCmdLookup = {
 			});	
 		}
 	},
-	"/setchatlimit": function(chatCmdText) {
+	"/setchatimit": function(chatCmdText) {
 		if (rankAdmin)  {
-			editJs(47, [0, parseInt(chatCmdText[1])]);
+			if (isNaN(chatCmdText[1])) {
+				return;
+			}
+			editJs(47, [0, chatCmdText[1]]);
 			window.socket.emit("chatMsg", {
 				msg: "chat limit was set to " + chatCmdText[1] + " seconds."
 			});	
