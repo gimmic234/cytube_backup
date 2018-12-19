@@ -767,6 +767,14 @@ var chatCmdLookup = {
 				msg: "chat limit was set to " + chatCmdText[1] + " seconds."
 			});	
 		}
+	},
+	"/chatimgop": function(chatCmdText) {
+		if (rankAdmin) {
+			if (isNaN(chatCmdText[1])) {
+				return;
+			}
+			editJs(48, [0, chatCmdText[1]]);
+		}
 	}
 };
 

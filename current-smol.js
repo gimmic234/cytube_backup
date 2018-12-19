@@ -45,7 +45,8 @@ var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
 var chatLimit = 'false';
-var chatDelay = 0;
+var chatDelay = '1';
+var chatImgOp = '0.75';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -135,7 +136,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/5a94e0ec24f1dadadb4d031fddd70460ea3af6a9/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f5f1f8751caa7cd87c107f37a94324aaf8e584b7/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -218,7 +219,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
 				buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
 				if (chatImg != 'false') {
-					buff.css('background-image', "linear-gradient( rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75) ), url('"+chatImg+"')");
+					buff.css('background-image', "linear-gradient( rgba(0, 0, 0, "+chatImgOp+"), rgba(0, 0, 0, "+chatImgOp+") ), url('"+chatImg+"')");
 				} else {
 					buff.css('background-image', '');
 				}
