@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
+var background_img = 'http://static.giantbomb.com/uploads/original/8/84102/2515247-vlcsnap-2013-07-14-03h09m10s126.png';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -136,7 +136,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/75959a79e4e569d80390a032da9aba4286aa406c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ca931f9d2f3f8e31049393637bbac64555b33588/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -209,7 +209,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#messagebuffer', function() {
 				var buff = $('#messagebuffer');
 				buff.find(".gross:not( .parsed )").addClass('parsed');
-				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
 				window[CHANNEL.name].audioNotice.handler["stopEvent"]();

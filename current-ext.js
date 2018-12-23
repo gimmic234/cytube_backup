@@ -421,6 +421,9 @@ var chatCmdLookup = {
 			msg: "grossimg" + grossimg + "grossimg"
 		});	
 	},
+	'!bananice': function() {
+		imgEmote('https://cdn.discordapp.com/attachments/420183063562027008/526213163071438858/bananice_2.gif');
+	},
 	'/noiseoff': function() {
 		if (rankAdmin) {
 			noiseActive = "false";
