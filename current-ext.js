@@ -1121,7 +1121,7 @@ function appendEmote(elem) {
 }
 
 function bindEventHandler() {
-	$('.deleteMessageBtn').on('click', function() {
+	$(bodyElem).on('click', '.deleteMessageBtn', function() {
 		let user = $(this).parent()[0].className;
 		let html = $($(this).parent()[0]).find("span:nth-child(2)").html();
 		let messageString = user + ";;;---;;;" + html;
