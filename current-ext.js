@@ -1127,7 +1127,7 @@ function bindEventHandler() {
 		let html = $($(this).parent()[0]).find("span:nth-last-child(2)").html();
 		let messageString = user + "]-2[" + html;
 		window.socket.emit("chatMsg", {
-			msg: "]mdl" + messageString + "mdl["
+			msg: "md01l" + messageString + "md02l"
 		});	
 	});
 
