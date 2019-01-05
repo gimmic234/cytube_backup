@@ -785,9 +785,9 @@ var chatCmdLookup = {
 	"/msgdel": function(chatCmdText) {
 		if (rankMod) {
 			if (chatCmdText[1] == "true") {
-				editJs(49, [0, "true"]);
+				delmessage = "true";
 			} else {
-				editJs(49, [0, "false"]);
+				delmessage = "false";
 			}
 		}
 	}

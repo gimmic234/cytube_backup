@@ -437,11 +437,11 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!rankMod) {
 			return;
 		}
-		let message = $('#messagebuffer').children("div:not(.parsedm):not(.fa):not(.chat-msg-$server$)");
+		let message = $('#messagebuffer').children("div:not(.parsedm):not(.fa):not(.chat-msg-\\$server\\$)");
 		if(!message.length) return;
 		$.each(message, function(m) {
 			$(message[m]).addClass("parsedm");
-			if ($(message[m]).find(".delm").length == 0) {
+			if ($(message[m]).find(".delm").length == 0 && $(message[m]).find(".server-whisper").length == 0) {
 				$(message[m]).append("<button class='btn btn-sm btn-default deleteMessageBtn'>x</button>");
 			}
 		});
