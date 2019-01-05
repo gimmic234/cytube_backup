@@ -699,6 +699,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
 		window[CHANNEL.name].audioNotice.handler["Gross"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
+		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
 	});
 	socket.on("newPoll", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Poll"](data)
