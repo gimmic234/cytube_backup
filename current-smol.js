@@ -49,7 +49,7 @@ var chatDelay = '1';
 var chatImgOp = '0.75';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
-console.log = function() {}
+//console.log = function() {}
 var event1Volume = .8;
 var cheerio = "https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg";
 var emoteTable = "false";
@@ -166,7 +166,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/383207783d908054d6c7b53b605c84ede42f228c/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/50bec2cb8fb9d523108d75f85299031dd81e200f/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
