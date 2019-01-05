@@ -166,7 +166,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d97ad33792f4df687eea50bb83a6cef00583d13a/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ea7b48f4113b6caf59cbf1f68b2d4e7c57ad157f/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -209,6 +209,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#messagebuffer', function() {
 				var buff = $('#messagebuffer');
 				window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
+				window[CHANNEL.name].chatNotice.handler["deleteButton"]();
 				buff.find(".gross:not( .parsed )").addClass('parsed');
 				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');

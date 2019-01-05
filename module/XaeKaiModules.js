@@ -451,10 +451,10 @@ window[CHANNEL.name].chatNotice.handler = {
 			let targetMessages = $(deleteMessage[m]).attr("data-value");
 			targetMessages = targetMessages.split("]-2[");
 			let toDelete = $('.' + targetMessages[0]).find("span").filter(function() {
-				if ($(this).find("img").length > 0) {
-					return $(this).find("img").attr("src") === "http://" + targetMessages[1];
+				if ($(this).find("img:not(.channel-emote)").length > 0) {
+					return ($(this).find("img:not(.channel-emote)").attr("src") === "http://" + targetMessages[1] || $(this).find("img").attr("src") === "https://" + targetMessages[1]);
 				} else {
-					return $(this).html() === targetMessages[1];
+					return $(this).text() === targetMessages[1];
 				}
 			});
 

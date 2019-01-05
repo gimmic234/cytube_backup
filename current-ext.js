@@ -1128,11 +1128,12 @@ function bindEventHandler() {
 		let user = $(this).parent()[0].className;
 		user = user.split(" ")[0];
 		let html = $($(this).parent()[0]).find("span:nth-last-child(2)");
-		if (html.find('img').length > 0) {
-			html = html.find('img').attr("src");
+		if (html.find('img:not(.channel-emote)').length > 0) {
+			html = html.find('img:not(.channel-emote)').attr("src");
+			html = html.replace("https://", '');
 			html = html.replace("http://", '');
 		} else {
-			html = html.html();
+			html = html.text();
 		}
 		let messageString = user + "]-2[" + html;
 		window.socket.emit("chatMsg", {
