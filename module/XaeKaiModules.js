@@ -434,7 +434,7 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 window[CHANNEL.name].chatNotice = {};
 window[CHANNEL.name].chatNotice.handler = {
 	deleteButton: function(data) {
-		let message = $('#messagebuffer').children("div:not(.parsed):not(.fa)");
+		let message = $('#messagebuffer').children("div:not(.parsed):not(.fa):not(.delm)");
 		if(!message.length) return;
 		$.each(message, function(m) {
 			$(message[m]).addClass("parsed");
@@ -704,7 +704,9 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
 		window[CHANNEL.name].audioNotice.handler["Gross"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
-		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
+		if (rankMod) {
+			window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
+		}
 	});
 	socket.on("newPoll", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Poll"](data)

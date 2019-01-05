@@ -2,20 +2,20 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://static.zerochan.net/Sabagebu%21.full.1856191.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/530100597794406440/1546428622652.png';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 1,
-	day: 3,
-	hour: 0,
+	day: 6,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
-	year2: 2018,
-	month2: 12,
-	day2: 29,
+	year2: 2019,
+	month2: 1,
+	day2: 19,
 	hour2: 0,
 	minute2: 0,
 	second2: 0
@@ -27,9 +27,9 @@ var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/0
 var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
 var countdown_utc3 = {
-	year3: 2018,
-	month3: 12,
-	day3: 29,
+	year3: 2019,
+	month3: 1,
+	day3: 5,
 	hour3: 16,
 	minute3: 0,
 	second3: 0
@@ -40,16 +40,16 @@ var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//media.discordapp.net/attachments/515347492511023113/526188455751843851/71e.gif';
-var imgBubble2 = '//media.discordapp.net/attachments/515347492511023113/525858579870253056/HairyGroundedBaiji-small.gif';
-var chatImg = 'http://cdn.discordapp.com/attachments/466386319766192138/526227408626384897/Sabagebu.full.1846267.jpg';
+var imgBubble2 = '//media.discordapp.net/attachments/409829343263719427/530168303721644034/jc2a1u2dqkh11.jpg';
+var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
 var chatLimit = 'false';
 var chatDelay = '1';
-var chatImgOp = '0.75';
+var chatImgOp = '.8';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
-//console.log = function() {}
+console.log = function() {}
 var event1Volume = .8;
 var cheerio = "https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg";
 var emoteTable = "false";
@@ -166,7 +166,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3b7203fb6797480bfedee0b5d237c7c22576a19c/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/91db4fa3e72ad40180f4d4b8b161799b999c4fc9/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
