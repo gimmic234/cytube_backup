@@ -789,6 +789,11 @@ var chatCmdLookup = {
 			} else {
 				delmessage = "false";
 			}
+			if (delmessage == "true") {
+				$(".deleteMessageBtn").show();
+			} else {
+				$(".deleteMessageBtn").hide();
+			}
 		}
 	}
 };
