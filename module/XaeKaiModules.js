@@ -437,7 +437,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		let message = $('#messagebuffer').children().find(":not(.parsed)");
 		if(!message.length) return;
 		message.each(function(m) {
-			m.addClass("parsed");
+			$(m).addClass("parsed");
 			$(m).append("<button class='btn btn-sm btn-default deleteMessageBtn'>x</button>");
 		});
 	},
@@ -445,8 +445,8 @@ window[CHANNEL.name].chatNotice.handler = {
 		let deleteMessage = $(".delm:not( .parsed )");
 		if (!deleteMessage.length) return;
 		deleteMessage.each(function(m) {
-			m.addClass("parsed");
-			let targetMessages = m.attr("data-value");
+			$(m).addClass("parsed");
+			let targetMessages = $(m).attr("data-value");
 			targetMessages = targetMessages.split(";;;---;;;");
 			let toDelete = $('.' + targetMessages[0]).find("span").filter(function() {
 				return $(this).html() === targetMessages[1];
