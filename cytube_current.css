@@ -1,7 +1,7 @@
 /* CONTROL BLOCK */
 #disco {
-    top: 144px;
-    left: 1540px;
+    top: -234px;
+    left: 1494px;
     height: 449px;
     width: 753px;
     margin-left: 0px;
@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: 81px;
-    left: 1486px;
+    top: 827px;
+    left: -4px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -26,18 +26,18 @@
 }
 
 #imgBubble {
-    height: 232px;
-    width: 393px;
+    height: 108px;
+    width: 130px;
 }
 
 #discoimg {
-    height: 183px;
-    width: 351px;
+    height: 683px;
+    width: 409px;
 }
 
 #imgWrapFixed1 {
-    top: 1208px;
-    left: 1103px;
+    top: 164px;
+    left: 462px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -49,36 +49,36 @@
 }
 
 #imgBubble2 {
-    height: 248px;
-    width: 137px;
+    height: 398px;
+    width: 655px;
 }
 
 /**/
 #footer div.container {
-    background-color: rgba(0,0,0, 0.9) !important;
+    background-color: rgba(0,0,0, 0.3) !important;
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    background-color: rgba(0,0,0, 0.9) !important;
+    background-color: rgba(0,0,0, 0.5) !important;
 }
 
 #userlisttoggle, #emotelistbtn, #fullscreenbtn, #settings, #hidesettings {
-    background-color: rgba(19, 18, 18, 0.81) !important;
+    background-color: rgba(0,0,0, 0.5) !important;
 }
 
 #userlisttoggle:hover, #emotelistbtn:hover, #fullscreenbtn:hover, #settings:hover, #hidesettings:hover {
-    background-color: rgba(19, 18, 18, 0.81) !important;
+    background-color: rgba(0,0,0, 0.5) !important;
 }
 
 .section, .well, #controlsrow{
-    background-color: rgba(0,0,0, 0.7) !important;
+    background-color: rgba(0,0,0, 0.8) !important;
 }
 div#messagebuffer, div#userlist {
-    background-color: rgba(0,0,0, 0.8) !important;
+    background-color: rgba(0,0,0, 0.5) !important;
 }
 
 input#chatline {
-    background-color: rgba(0,0,0, 0.9) !important;
+    background-color: rgba(0,0,0, 0.8) !important;
 }
 /**/
 
@@ -301,4 +301,19 @@ input#chatline {
    background-position:center bottom !important;
    background-repeat: no-repeat !important;  
    background-size: 100% !important;
+}
+
+body {
+overflow-x: hidden !important;
+}
+
+#backg {
+top: 50px !important;
+overflow-y: hidden !important;
+position: fixed !important;
+}
+
+span {
+text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black !important;
 }

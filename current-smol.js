@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://static.giantbomb.com/uploads/original/8/84102/2515247-vlcsnap-2013-07-14-03h09m10s126.png';
+var background_img = 'http://static.zerochan.net/Sabagebu%21.full.1856191.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2018,
 	month2: 12,
-	day2: 22,
+	day2: 29,
 	hour2: 0,
 	minute2: 0,
 	second2: 0
@@ -29,19 +29,19 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2018,
 	month3: 12,
-	day3: 22,
+	day3: 29,
 	hour3: 16,
 	minute3: 0,
 	second3: 0
 };
-var penguinImg = '//media.discordapp.net/attachments/452943717708595211/520094673704976404/top_banner_31.jpg';
-var penguinUrl = '//cdn.discordapp.com/attachments/515347492511023113/520088742204276736/02_Kiwamete_ari_gachi_na.mp3';
-var penguinBg = '//cdn.discordapp.com/attachments/452943717708595211/518985499646492692/1715497.jpg';
+var penguinImg = '//media.discordapp.net/attachments/515347492511023113/525863422840274944/DSciEJcVAAAe6rY.jpg';
+var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/525845582934310922/Intermission.mp3';
+var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = 'false';
-var discoGif = '//media.discordapp.net/attachments/452943717708595211/520090990954938381/tumblr_o9suhkgmJn1u6i8k5o1_400.gif';
-var imgBubble = '//cdn.discordapp.com/emojis/426018091785519116.png?v=1';
-var imgBubble2 = '//media.discordapp.net/attachments/409829343263719427/523948409506234398/2000px-Bright_anime_eye.svg.png';
-var chatImg = 'false';
+var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
+var imgBubble = '//media.discordapp.net/attachments/515347492511023113/526188455751843851/71e.gif';
+var imgBubble2 = '//media.discordapp.net/attachments/515347492511023113/525858579870253056/HairyGroundedBaiji-small.gif';
+var chatImg = 'http://cdn.discordapp.com/attachments/466386319766192138/526227408626384897/Sabagebu.full.1846267.jpg';
 var img1show = 'false';
 var img1fixedshow = 'false';
 var chatLimit = 'false';
@@ -50,7 +50,7 @@ var chatImgOp = '0.75';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
-var event1Volume = .4;
+var event1Volume = .8;
 var cheerio = "https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg";
 var emoteTable = "false";
 var event1timeout;
@@ -136,7 +136,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ca931f9d2f3f8e31049393637bbac64555b33588/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2211435e826bc1b7b23cf63b9238c4bf6dc0a1d7/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -209,6 +209,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#messagebuffer', function() {
 				var buff = $('#messagebuffer');
 				buff.find(".gross:not( .parsed )").addClass('parsed');
+				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
 				window[CHANNEL.name].audioNotice.handler["stopEvent"]();

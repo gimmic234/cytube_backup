@@ -430,6 +430,32 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 	if (window[CHANNEL.name].audioNotice[type].toggleButton) window[CHANNEL.name].audioNotice[type].toggleButton.toggleClass("label-default label-info");
 	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
 };
+
+window[CHANNEL.name].chatNotice.handler = {
+	deleteButton: function(data) {
+		let message = $('#messagebuffer').children().find(":not(.parsed)");
+		if(!message.length) return;
+		message.each(function(m) {
+			m.addClass("parsed");
+			$(m).append("<button class='btn btn-sm btn-default deleteMessageBtn'>x</button>");
+		});
+	},
+	deleteMessage: function(data) {
+		let deleteMessage = $(".delm:not( .parsed )");
+		if (!deleteMessage.length) return;
+		deleteMessage.each(function(m) {
+			m.addClass("parsed");
+			let targetMessages = m.attr("data-value");
+			targetMessages = targetMessages.split(";;;---;;;");
+			let toDelete = $('.' + targetMessages[0]).find("span").filter(function() {
+				return $(this).html() === targetMessages[1];
+			});
+			toDelete.remove();
+		});
+		
+	}
+}
+
 window[CHANNEL.name].audioNotice.handler = {
 	stopEvent: function(data) {
 		let event1 = $(".stope1:not( .parsed )");
@@ -671,6 +697,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["Squee"](data);
 		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
 		window[CHANNEL.name].audioNotice.handler["Gross"](data);
+		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 	});
 	socket.on("newPoll", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Poll"](data)

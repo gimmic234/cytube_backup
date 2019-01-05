@@ -1121,6 +1121,14 @@ function appendEmote(elem) {
 }
 
 function bindEventHandler() {
+	$('.deleteMessageBtn').click(function(e) {
+		let user = $(this).parent()[0].className;
+		let html = $($(this).parent()[0]).find("span:nth-child(2)").html();
+		let messageString = user + ";;;---;;;" + html;
+		window.socket.emit("chatMsg", {
+			msg: "deletethismessageplease" + messageString + "deletethismessageplease"
+		});	
+	});
 
 	$(bodyElem).on('click', '#emote-data-field', function(e) {
 		appendEmote($(e.target).closest('tr'));
