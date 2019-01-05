@@ -1123,6 +1123,7 @@ function appendEmote(elem) {
 function bindEventHandler() {
 	$(bodyElem).on('click', '.deleteMessageBtn', function() {
 		let user = $(this).parent()[0].className;
+		user = user.split(" ")[0];
 		let html = $($(this).parent()[0]).find("span:nth-child(2)").html();
 		let messageString = user + "thisfuckingsymbolawer" + html;
 		window.socket.emit("chatMsg", {
