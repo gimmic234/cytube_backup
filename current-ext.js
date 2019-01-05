@@ -1127,6 +1127,7 @@ function bindEventHandler() {
 		let html = $($(this).parent()[0]).find("span:nth-last-child(2)");
 		if (html.find('img').length > 0) {
 			html = html.find('img').attr("src");
+			html = html.replace("http://", '');
 		} else {
 			html = html.html();
 		}
