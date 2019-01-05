@@ -437,7 +437,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!rankMod) {
 			return;
 		}
-		let message = $('#messagebuffer').children("div:not(.parsedm):not(.fa):not(.chat-msg-\\$server\\$)");
+		let message = $('#messagebuffer').children("div:not(.parsedm):not(.fa):not(.chat-msg-$server$)");
 		if(!message.length) return;
 		$.each(message, function(m) {
 			$(message[m]).addClass("parsedm");
