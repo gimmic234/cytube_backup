@@ -447,7 +447,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		$.each(deleteMessage, function(m) {
 			$(deleteMessage[m]).addClass("parsed");
 			let targetMessages = $(deleteMessage[m]).attr("data-value");
-			targetMessages = targetMessages.split("@@@@@@");
+			targetMessages = targetMessages.split("thisfuckingsymbolawer");
 			let toDelete = $('.' + targetMessages[0]).find("span").filter(function() {
 				return $(this).html() === targetMessages[1];
 			});
