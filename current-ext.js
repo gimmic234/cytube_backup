@@ -781,6 +781,15 @@ var chatCmdLookup = {
 			}
 			editJs(48, [0, chatCmdText[1]]);
 		}
+	},
+	"/msgdel": function(chatCmdText) {
+		if (rankMod) {
+			if (chatCmdText[1] == "true") {
+				editJs(49, [0, "true"]);
+			} else {
+				editJs(49, [0, "false"]);
+			}
+		}
 	}
 };
 

@@ -437,20 +437,25 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!rankMod) {
 			return;
 		}
-		let message = $('#messagebuffer').children("div:not(.parsed):not(.fa)");
+		let message = $('#messagebuffer').children("div:not(.parsedm):not(.fa):not(.chat-msg-\$server\$)");
 		if(!message.length) return;
 		$.each(message, function(m) {
-			$(message[m]).addClass("parsed");
+			$(message[m]).addClass("parsedm");
 			if ($(message[m]).find(".delm").length == 0) {
 				$(message[m]).append("<button class='btn btn-sm btn-default deleteMessageBtn'>x</button>");
 			}
 		});
+		if (delmessage == "true") {
+			$(".deleteMessageBtn").show();
+		} else {
+			$(".deleteMessageBtn").hide();
+		}
 	},
 	deleteMessage: function(data) {
-		let deleteMessage = $(".delm:not( .parsed )");
+		let deleteMessage = $(".delm:not( .parsedm )");
 		if (!deleteMessage.length) return;
 		$.each(deleteMessage, function(m) {
-			$(deleteMessage[m]).addClass("parsed");
+			$(deleteMessage[m]).addClass("parsedm");
 			let targetMessages = $(deleteMessage[m]).attr("data-value");
 			targetMessages = targetMessages.split("]-2[");
 			let toDelete = $('.' + targetMessages[0]).find("span").filter(function() {
