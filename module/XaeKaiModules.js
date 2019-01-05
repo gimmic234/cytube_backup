@@ -448,10 +448,8 @@ window[CHANNEL.name].chatNotice.handler = {
 			$(deleteMessage[m]).addClass("parsed");
 			let targetMessages = $(deleteMessage[m]).attr("data-value");
 			targetMessages = targetMessages.split("]-2[");
-			let toDelete = $('.' + targetMessages[0]).find("span").filter(function() {
-				return $(this).html() === targetMessages[1];
-			});
-			toDelete.remove();
+			let toDelete = $('.' + targetMessages[0]).find("span:contains("+targetMessages[1]+")");
+			toDelete.parent().remove();
 		});
 		
 	}
