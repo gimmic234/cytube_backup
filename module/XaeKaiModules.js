@@ -454,7 +454,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		});
 		
 	}
-}
+};
 
 window[CHANNEL.name].audioNotice.handler = {
 	stopEvent: function(data) {
