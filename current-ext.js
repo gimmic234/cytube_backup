@@ -1124,7 +1124,7 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.deleteMessageBtn', function() {
 		let user = $(this).parent()[0].className;
 		let html = $($(this).parent()[0]).find("span:nth-child(2)").html();
-		let messageString = user + ";;;---;;;" + html;
+		let messageString = user + "@@@@@@" + html;
 		window.socket.emit("chatMsg", {
 			msg: "deletethismessageplease" + messageString + "deletethismessageplease"
 		});	
