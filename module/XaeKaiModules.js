@@ -434,11 +434,13 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 window[CHANNEL.name].chatNotice = {};
 window[CHANNEL.name].chatNotice.handler = {
 	deleteButton: function(data) {
-		let message = $('#messagebuffer').children("div:not(.parsed):not(.fa):not(.delm)");
+		let message = $('#messagebuffer').children("div:not(.parsed):not(.fa)");
 		if(!message.length) return;
 		$.each(message, function(m) {
 			$(message[m]).addClass("parsed");
-			$(message[m]).append("<button class='btn btn-sm btn-default deleteMessageBtn'>x</button>");
+			if ($(message[m]).find(".delm").length == 0) {
+				$(message[m]).append("<button class='btn btn-sm btn-default deleteMessageBtn'>x</button>");
+			}
 		});
 	},
 	deleteMessage: function(data) {
