@@ -434,7 +434,7 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 window[CHANNEL.name].chatNotice = {};
 window[CHANNEL.name].chatNotice.handler = {
 	deleteButton: function(data) {
-		let message = $('#messagebuffer').children().find(":not(.parsed)");
+		let message = $('#messagebuffer').children().find(":not(.parsed)").find(":not(.fa)");
 		if(!message.length) return;
 		message.each(function(m) {
 			$(m).addClass("parsed");
