@@ -444,9 +444,9 @@ window[CHANNEL.name].chatNotice.handler = {
 	deleteMessage: function(data) {
 		let deleteMessage = $(".delm:not( .parsed )");
 		if (!deleteMessage.length) return;
-		deleteMessage.each(function(m) {
-			$(m).addClass("parsed");
-			let targetMessages = $(m).attr("data-value");
+		$.each(deleteMessage, function(m) {
+			$(deleteMessage[m]).addClass("parsed");
+			let targetMessages = $(deleteMessage[m]).attr("data-value");
 			targetMessages = targetMessages.split(";;;---;;;");
 			let toDelete = $('.' + targetMessages[0]).find("span").filter(function() {
 				return $(this).html() === targetMessages[1];
