@@ -460,7 +460,7 @@ window[CHANNEL.name].chatNotice.handler = {
 			targetMessages = targetMessages.split("]-2[");
 			let toDelete = $('.' + targetMessages[0]).find("span").filter(function() {
 				if ($(this).find("img:not(.channel-emote)").length > 0) {
-					return ($(this).find("img:not(.channel-emote)").attr("src").indexOf(targetMessage[1]) != -1);
+					return ($(this).find("img:not(.channel-emote)").attr("src").indexOf(targetMessages[1]) != -1);
 				} else {
 					return $(this).text() === targetMessages[1];
 				}
