@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 1,
-	day: 6,
-	hour: 20,
+	day: 10,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
@@ -137,7 +137,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ef047291428d31b7be0fb8df95faf5771c6ebe41/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f80d1787bba8506e98d2facb9c775560ab268940/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -167,7 +167,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ac4c4bf41967502048d89b9ced22554b3fea7fc1/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f80d1787bba8506e98d2facb9c775560ab268940/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
