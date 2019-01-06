@@ -1147,6 +1147,7 @@ function bindEventHandler() {
 		let html = $($(this).parent()[0]).find("span:nth-last-child(2)");
 		if (html.find('img:not(.channel-emote)').length > 0) {
 			html = html.find('img:not(.channel-emote)').attr("src");
+			html = html.(0, 120);
 			html = html.replace("https://", '');
 			html = html.replace("http://", '');
 		} else {

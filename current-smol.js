@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/530969199175008297/mob_psycho_bg.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/530100597794406440/1546428622652.png';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -137,7 +137,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/45ea3c593b272ef234d4b68cf5218461a80f5ec4/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ef047291428d31b7be0fb8df95faf5771c6ebe41/current-ext.js",
 		callback: true
 	},
 	'layout': {
