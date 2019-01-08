@@ -228,6 +228,68 @@ var chatCmdLookup = {
 		}
 	},
 
+	'/cdlocal4': function(chatCmdText) {
+		if (chatCmdText.length > 5 && rankAdmin) {
+			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
+				window.socket.emit("chatMsg", {
+					msg: "error: invalid countdown4 input"
+				});
+				return false;
+			}
+
+			var date = new Date(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5]);
+			var textField = jsTextField.val();
+			var textFieldArray = textField.split("\n");
+			var year = textFieldArray[51].substr(0, textFieldArray[51].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[51], year + ": " + date.getUTCFullYear() + ",");
+			var month = textFieldArray[52].substr(0, textFieldArray[52].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[52], month + ": " + (date.getUTCMonth()+1) + ",");
+			var day = textFieldArray[53].substr(0, textFieldArray[53].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[53], day + ": " + date.getUTCDate() + ",");
+			var hour = textFieldArray[54].substr(0, textFieldArray[54].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[54], hour + ": " + date.getUTCHours() + ",");
+			var minute = textFieldArray[55].substr(0, textFieldArray[55].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[55], minute + ": " + date.getUTCMinutes() + ",");
+
+			jsTextField.val(textField);
+			window.socket.emit("chatMsg", {
+				msg: "countdown4 date updated"
+			});
+			$(document.getElementById('cs-jssubmit')).click();
+		}
+	},
+
+	'/cdlocal5': function(chatCmdText) {
+		if (chatCmdText.length > 5 && rankAdmin) {
+			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
+				window.socket.emit("chatMsg", {
+					msg: "error: invalid countdown4 input"
+				});
+				return false;
+			}
+
+			var date = new Date(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5]);
+			var textField = jsTextField.val();
+			var textFieldArray = textField.split("\n");
+			var year = textFieldArray[58].substr(0, textFieldArray[58].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[58], year + ": " + date.getUTCFullYear() + ",");
+			var month = textFieldArray[59].substr(0, textFieldArray[59].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[59], month + ": " + (date.getUTCMonth()+1) + ",");
+			var day = textFieldArray[60].substr(0, textFieldArray[60].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[60], day + ": " + date.getUTCDate() + ",");
+			var hour = textFieldArray[61].substr(0, textFieldArray[61].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[61], hour + ": " + date.getUTCHours() + ",");
+			var minute = textFieldArray[62].substr(0, textFieldArray[62].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[62], minute + ": " + date.getUTCMinutes() + ",");
+
+			jsTextField.val(textField);
+			window.socket.emit("chatMsg", {
+				msg: "countdown4 date updated"
+			});
+			$(document.getElementById('cs-jssubmit')).click();
+		}
+	},
+
 	'/setbg1': function() {
 		if (rankAdmin) {
 			setAutobg(1);
@@ -1151,7 +1213,7 @@ function bindEventHandler() {
 			html = html.replace("https://", '');
 			html = html.replace("http://", '');
 		} else {
-			html = html.text();
+			html = html.text().substring(0, 120);
 		}
 		let messageString = user + "]-2[" + html;
 		window.socket.emit("chatMsg", {

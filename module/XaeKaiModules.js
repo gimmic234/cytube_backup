@@ -462,7 +462,7 @@ window[CHANNEL.name].chatNotice.handler = {
 				if ($(this).find("img:not(.channel-emote)").length > 0) {
 					return ($(this).find("img:not(.channel-emote)").attr("src").indexOf(targetMessages[1]) != -1);
 				} else {
-					return $(this).text() === targetMessages[1];
+					return $(this).text().substring(0, 120) === targetMessages[1];
 				}
 			});
 

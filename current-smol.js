@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/530100597794406440/1546428622652.png';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/530969199175008297/mob_psycho_bg.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -48,6 +48,22 @@ var chatLimit = 'false';
 var chatDelay = '1';
 var chatImgOp = '.8';
 var delmessage = "false";
+var countdown_utc4 = {
+	year4: 2019,
+	month4: 1,
+	day4: 12,
+	hour4: 16,
+	minute4: 0,
+	second4: 0
+};
+var countdown_utc5 = {
+	year5: 2019,
+	month5: 1,
+	day5: 12,
+	hour5: 16,
+	minute5: 0,
+	second5: 0
+};
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -80,6 +96,10 @@ var countDown2;
 var countDownTimer2;
 var countDown3;
 var countDownTimer3;
+var countDown4;
+var countDownTimer4;
+var countDown5;
+var countDownTimer5;
 var collapseArrow;
 var emotePreload = "false";
 var autoPosition = -1;
@@ -167,7 +187,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/552a04c177f0e645fed6529afbdaff01d142f252/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a6b4c984789c9ae2678620d21e3ff33405309a4d/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -297,6 +317,10 @@ window[CHANNEL.name].sequencerLoader = function() {
 				$(document.getElementById('date2')).html(new Date(date_utc2).toString());
 				countdown3 = document.getElementById('countdown3');
 				$(document.getElementById('date3')).html(new Date(date_utc3).toString());
+				countdown4 = document.getElementById('countdown4');
+				$(document.getElementById('date4')).html(new Date(date_utc4).toString());
+				countdown5 = document.getElementById('countdown5');
+				$(document.getElementById('date5')).html(new Date(date_utc5).toString());
 			});
 
 			countDown = new Date(date_utc).getTime();
@@ -310,6 +334,14 @@ window[CHANNEL.name].sequencerLoader = function() {
 			countDown3 = new Date(date_utc3).getTime();
 			clearInterval(countDownTimer3);
 			countDownTimer3 = setInterval(function() {countdowner(countdown3, countDown3,  3)}, second);
+
+			countDown4 = new Date(date_utc4).getTime();
+			clearInterval(countDownTimer4);
+			countDownTimer4 = setInterval(function() {countdowner(countdown4, countDown4,  4)}, second);
+
+			countDown5 = new Date(date_utc5).getTime();
+			clearInterval(countDownTimer5);
+			countDownTimer5 = setInterval(function() {countdowner(countdown5, countDown5,  5)}, second);
 
 			$("#leader").removeClass("btn-default");
 			$("#Notif").removeClass("btn-default");
