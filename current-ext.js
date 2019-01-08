@@ -271,20 +271,20 @@ var chatCmdLookup = {
 			var date = new Date(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5]);
 			var textField = jsTextField.val();
 			var textFieldArray = textField.split("\n");
-			var year = textFieldArray[58].substr(0, textFieldArray[58].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[58], year + ": " + date.getUTCFullYear() + ",");
-			var month = textFieldArray[59].substr(0, textFieldArray[59].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[59], month + ": " + (date.getUTCMonth()+1) + ",");
-			var day = textFieldArray[60].substr(0, textFieldArray[60].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[60], day + ": " + date.getUTCDate() + ",");
-			var hour = textFieldArray[61].substr(0, textFieldArray[61].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[61], hour + ": " + date.getUTCHours() + ",");
-			var minute = textFieldArray[62].substr(0, textFieldArray[62].lastIndexOf(': '));
-			textField = textField.replace(textFieldArray[62], minute + ": " + date.getUTCMinutes() + ",");
+			var year = textFieldArray[59].substr(0, textFieldArray[59].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[59], year + ": " + date.getUTCFullYear() + ",");
+			var month = textFieldArray[60].substr(0, textFieldArray[60].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[60], month + ": " + (date.getUTCMonth()+1) + ",");
+			var day = textFieldArray[61].substr(0, textFieldArray[61].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[61], day + ": " + date.getUTCDate() + ",");
+			var hour = textFieldArray[62].substr(0, textFieldArray[62].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[62], hour + ": " + date.getUTCHours() + ",");
+			var minute = textFieldArray[63].substr(0, textFieldArray[63].lastIndexOf(': '));
+			textField = textField.replace(textFieldArray[63], minute + ": " + date.getUTCMinutes() + ",");
 
 			jsTextField.val(textField);
 			window.socket.emit("chatMsg", {
-				msg: "countdown4 date updated"
+				msg: "countdown5 date updated"
 			});
 			$(document.getElementById('cs-jssubmit')).click();
 		}

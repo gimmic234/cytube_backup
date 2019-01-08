@@ -87,6 +87,8 @@ var handlerKeydown;
 var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.day, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
 var date_utc2 = Date.UTC(countdown_utc2.year2, countdown_utc2.month2 - 1, countdown_utc2.day2, countdown_utc2.hour2, countdown_utc2.minute2, countdown_utc2.second2);
 var date_utc3 = Date.UTC(countdown_utc3.year3, countdown_utc3.month3 - 1, countdown_utc3.day3, countdown_utc3.hour3, countdown_utc3.minute3, countdown_utc3.second3);
+var date_utc4 = Date.UTC(countdown_utc4.year4, countdown_utc4.month4 - 1, countdown_utc4.day4, countdown_utc4.hour4, countdown_utc4.minute4, countdown_utc4.second4);
+var date_utc5 = Date.UTC(countdown_utc5.year5, countdown_utc5.month5 - 1, countdown_utc5.day5, countdown_utc5.hour5, countdown_utc5.minute5, countdown_utc5.second5);
 var chatlineElem;
 var queueList;
 var emoteList;
@@ -157,7 +159,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7b064b8fa192895afde1acf2b993eb147ba79730/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/df24a5a65e685e6398cc2f5ca137606bec1fae37/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -187,7 +189,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a6b4c984789c9ae2678620d21e3ff33405309a4d/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/df24a5a65e685e6398cc2f5ca137606bec1fae37/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
