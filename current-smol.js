@@ -2,25 +2,25 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/530969199175008297/mob_psycho_bg.jpg';
+var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 1,
-	day: 10,
-	hour: 0,
+	day: 13,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 1,
-	day2: 19,
-	hour2: 0,
+	day2: 12,
+	hour2: 22,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/518880481312374796/denpa_bg_v2.jpg';
+var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/530100597794406440/1546428622652.png';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -29,8 +29,8 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 1,
-	day3: 12,
-	hour3: 16,
+	day3: 19,
+	hour3: 0,
 	minute3: 0,
 	second3: 0
 };
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
 	month4: 1,
-	day4: 12,
+	day4: 19,
 	hour4: 16,
 	minute4: 0,
 	second4: 0
@@ -59,8 +59,8 @@ var countdown_utc4 = {
 var countdown_utc5 = {
 	year5: 2019,
 	month5: 1,
-	day5: 12,
-	hour5: 16,
+	day5: 15,
+	hour5: 0,
 	minute5: 0,
 	second5: 0
 };
@@ -103,6 +103,7 @@ var countDownTimer4;
 var countDown5;
 var countDownTimer5;
 var collapseArrow;
+var collapseArrow2;
 var emotePreload = "false";
 var autoPosition = -1;
 var voteskipMsg = "==BZZZZT!==";
@@ -115,6 +116,10 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var coinHead = "cointossHEADcointoss";
 var coinTail = "cointossTAILcointoss";
+
+function getTimeZone() {
+    return /\((.*)\)/.exec(new Date().toString())[1];
+}
 
 function countdowner(countdown, destination,index) {
 	if ($('#countdown'+index+':hidden').length > 0) {
@@ -159,7 +164,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/df24a5a65e685e6398cc2f5ca137606bec1fae37/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8966b1b8c397500f2b2f1ca74d1823c25b783e76/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -253,6 +258,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#club_redirect', function() {
 				$('#club_redirect').attr('href', href_url);
 				collapseArrow = $(document.getElementById('collapseArrow'));
+				collapseArrow2 = $(document.getElementById('collapseArrow2'));
 			});
 			waitForEl('#club_banner', function() {
 				$('#club_banner').attr('src', banner_url);
@@ -313,16 +319,17 @@ window[CHANNEL.name].sequencerLoader = function() {
 			});
 
 			waitForEl('#countdown1', function() {
+				$('#timez').html(getTimeZone());
 				countdown1 = document.getElementById('countdown1');
-				$(document.getElementById('date1')).html(new Date(date_utc).toString());
+				$(document.getElementById('date1')).html(new Date(date_utc).toString().split('(')[0]);
 				countdown2 = document.getElementById('countdown2');
-				$(document.getElementById('date2')).html(new Date(date_utc2).toString());
+				$(document.getElementById('date2')).html(new Date(date_utc2).toString().split('(')[0]);
 				countdown3 = document.getElementById('countdown3');
-				$(document.getElementById('date3')).html(new Date(date_utc3).toString());
+				$(document.getElementById('date3')).html(new Date(date_utc3).toString().split('(')[0]);
 				countdown4 = document.getElementById('countdown4');
-				$(document.getElementById('date4')).html(new Date(date_utc4).toString());
+				$(document.getElementById('date4')).html(new Date(date_utc4).toString().split('(')[0]);
 				countdown5 = document.getElementById('countdown5');
-				$(document.getElementById('date5')).html(new Date(date_utc5).toString());
+				$(document.getElementById('date5')).html(new Date(date_utc5).toString().split('(')[0]);
 			});
 
 			countDown = new Date(date_utc).getTime();

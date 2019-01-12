@@ -1315,6 +1315,17 @@ function bindEventHandler() {
 		collapseArrow[0].classList.add('glyphicon-chevron-up');
 	});
 
+
+	$(bodyElem).on('hidden.bs.collapse', '#collapseSchedule', function() {
+		collapseArrow2[0].classList.remove('glyphicon-chevron-up');
+		collapseArrow2[0].classList.add('glyphicon-chevron-down');
+	});
+
+	$(bodyElem).on('show.bs.collapse', '#collapseSchedule', function() {
+		collapseArrow2[0].classList.remove('glyphicon-chevron-down');
+		collapseArrow2[0].classList.add('glyphicon-chevron-up');
+	});
+
 	$('#voteskip').off();
 	$(bodyElem).on('click', '#voteskip', function(e) {
 		voteskipMod();
