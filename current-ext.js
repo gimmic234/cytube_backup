@@ -606,6 +606,9 @@ var chatCmdLookup = {
 			msg: toss
 		});	
 	},
+	"!spiderman": function(chatCmdText) {
+		imgEmote('https://media.discordapp.net/attachments/515347492511023113/534135567970205737/C-658VsXoAo3ovC.jpg');
+	},
 	"!lolice": function(chatCmdText) {
 		imgEmote('https://media.discordapp.net/attachments/515347492511023113/531560069888999434/iWqHzBm.gif');
 	},

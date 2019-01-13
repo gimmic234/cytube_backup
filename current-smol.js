@@ -1,8 +1,8 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/518525268038778892/banner_new_12-1-2018.png?width=1300&height=250';
+var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/533751099836989440/banner_new_1-14-2019.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/530100597794406440/1546428622652.png';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 1,
-	day2: 12,
+	day2: 19,
 	hour2: 22,
 	minute2: 0,
 	second2: 0
@@ -40,7 +40,7 @@ var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//media.discordapp.net/attachments/515347492511023113/526188455751843851/71e.gif';
-var imgBubble2 = '//media.discordapp.net/attachments/409829343263719427/530168303721644034/jc2a1u2dqkh11.jpg';
+var imgBubble2 = '//media.discordapp.net/attachments/515347492511023113/533750086086295562/1467414381705.png';
 var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
@@ -164,7 +164,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8966b1b8c397500f2b2f1ca74d1823c25b783e76/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/75f39cb884b301d6c03938fa93769c3a936a3bcd/current-ext.js",
 		callback: true
 	},
 	'layout': {
