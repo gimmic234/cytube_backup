@@ -66,6 +66,7 @@ var countdown_utc5 = {
 };
 var bgm1url = "https://cdn.discordapp.com/attachments/515347492511023113/516768449314291722/20_Os-Uchuujin_TV_size.mp3";
 var bgm1condition = "false";
+var bgmoff = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -167,7 +168,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b6023c204c3cb4f2f95bdaaf14dc4813d1a034f2/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a80c7359e0fc14bd3849d94fea1996a7dfaa3147/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -197,7 +198,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/46f44bd55b4e172b7caed980a866e5ac90b8b0fe/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a80c7359e0fc14bd3849d94fea1996a7dfaa3147/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

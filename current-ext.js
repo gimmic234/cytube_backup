@@ -872,6 +872,11 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			editJs(67, [0, chatCmdText[1]]);
 		}	
+	},
+	"/bgmauto": function(chatCmdText) {
+		if (rankAdmin) {
+			editJs(68, [0, chatCmdText[1]]);
+		}
 	}
 };
 
@@ -1183,6 +1188,12 @@ function videoDisplayToggle() {
 		$(document.getElementById('voteskipFinal')).hide();
 		$(document.getElementById('videowrap')).hide();
 	} else {
+		if (bgmoff == "true") {
+			$('audio').each(function(){
+			    this.pause(); 
+			    this.currentTime = 0;
+			}); 
+		}
 		$(document.getElementById('videowrap')).show();
 	}
 }
