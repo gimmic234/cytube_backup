@@ -96,8 +96,7 @@ var chatCmdLookup = {
 	},
 	'/purge': function() {
 		if (window.CLIENT.rank >= rankMod) {
-			let list = queueList.children(":visible");
-			deleteAllPlaylist(list).delay(500);
+			confirm("Are you sure you want to clear the playlist?") && socket.emit("clearPlaylist");
 		}
 	},
 	'/cdlocal1': function(chatCmdText) {
@@ -1133,16 +1132,6 @@ function preloadImages(array) {
 		list.push(img);
 		img.src = array[i];
 	}
-}
-
-function deleteAllPlaylist(delList) {
-	var time = 500;
-	delList.each(function(index, elem) {
-		setTimeout(function() {
-			$(elem).find('button.qbtn-delete').click();
-		}, time);
-		time += 500;		
-	})
 }
 
 function cleanAutoStart() {
