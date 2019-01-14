@@ -97,7 +97,7 @@ var chatCmdLookup = {
 	'/purge': function() {
 		if (window.CLIENT.rank >= rankMod) {
 			let list = queueList.children(":visible");
-			deleteAllPlaylist(list);
+			deleteAllPlaylist(list).delay(500);
 		}
 	},
 	'/cdlocal1': function(chatCmdText) {
