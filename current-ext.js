@@ -865,6 +865,10 @@ var chatCmdLookup = {
 	},
 	"/setbgm1": function(chatCmdText) {
 		if (rankAdmin) {
+			$('audio').each(function(){
+			    this.pause(); 
+			    this.currentTime = 0;
+			}); 
 			editJs(66, [0, chatCmdText[1]]);
 		}
 	},
@@ -1111,8 +1115,10 @@ window[CHANNEL.name].audioFunction.playbgm1 = function(condition) {
 		audioplay.volume = window[CHANNEL.name].audioNotice.bgm1play.volume;
 		audioplay.play();
 	} else {
-		audioplay.pause(); 
-	    audioplay.currentTime = 0;
+		$('audio').each(function(){
+		    this.pause(); 
+		    this.currentTime = 0;
+		}); 
 	}
 };
 
