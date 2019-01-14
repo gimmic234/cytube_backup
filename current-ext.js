@@ -863,12 +863,12 @@ var chatCmdLookup = {
 			}
 		}
 	},
-	"setbgm1": function(chatCmdText) {
+	"/setbgm1": function(chatCmdText) {
 		if (rankAdmin) {
 			editJs(66, [0, chatCmdText[1]]);
 		}
 	},
-	"playbgm1": function(chatCmdText) {
+	"/playbgm1": function(chatCmdText) {
 		if (rankAdmin) {
 			editJs(67, [0, chatCmdText[1]]);
 		}	

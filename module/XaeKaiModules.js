@@ -662,6 +662,10 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["skipFinal"].id = "skipFinal";
 	window[CHANNEL.name].audioNotice["skipFinal"].volume = .8;
 
+	window[CHANNEL.name].audioNotice["bgm1play"].toggleState = true;
+	window[CHANNEL.name].audioNotice["bgm1play"].id = "bgm1play";
+	window[CHANNEL.name].audioNotice["bgm1play"].volume = bgm1volume;
+
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {

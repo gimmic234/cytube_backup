@@ -70,6 +70,7 @@ var bgm1condition = "false";
 //ControlBlockEnd
 console.log = function() {}
 var event1Volume = .8;
+var bgm1volume = .5;
 var cheerio = "https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg";
 var emoteTable = "false";
 var event1timeout;
@@ -166,7 +167,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/05ec298ebd7234d05fc649d68ca89d3088184db6/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b6023c204c3cb4f2f95bdaaf14dc4813d1a034f2/current-ext.js",
 		callback: true
 	},
 	'layout': {
