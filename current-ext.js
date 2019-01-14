@@ -1136,8 +1136,12 @@ function preloadImages(array) {
 }
 
 function deleteAllPlaylist(delList) {
+	var time = 500;
 	delList.each(function(index, elem) {
-		$(elem).find('button.qbtn-delete').click();
+		setTimeout(function() {
+			$(elem).find('button.qbtn-delete').click();
+		}, time);
+		time += 500;		
 	})
 }
 
