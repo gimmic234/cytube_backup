@@ -1099,6 +1099,7 @@ function pad(d) {
 	return (d < 10) ? '0' + d.toString() : d.toString();
 }
 
+window[CHANNEL.name].audioFunction = {};
 window[CHANNEL.name].audioFunction.playbgm1 = function(condition) {
 	let audioplay = window[CHANNEL.name].audioNotice.bgm1play.audio[0];
 	if (condition) {
