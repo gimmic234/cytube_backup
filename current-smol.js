@@ -166,7 +166,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f2d8fac4128dee5a1980a0bc750b788bbae6fec9/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/46f44bd55b4e172b7caed980a866e5ac90b8b0fe/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -196,7 +196,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/df24a5a65e685e6398cc2f5ca137606bec1fae37/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/46f44bd55b4e172b7caed980a866e5ac90b8b0fe/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -305,7 +305,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#AudioNoticeEvent1', function() {
 				window[CHANNEL.name].audioNotice["survivalStrategy"].audio = $("<audio>").prop("id", "AudioNoticeEvent1").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["survivalStrategy"].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
 				window[CHANNEL.name].audioNotice["bgm1play"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["bgm1play"].volume).append($("<source>").attr("src", bgm1url).attr("type", "audio/ogg"));
-				playbgm1(bgm1condition == "true");
+				window[CHANNEL.name].audioFunction.playbgm1(bgm1condition == "true");
 			});
 
 			waitForEl('span#plcount', function() {
