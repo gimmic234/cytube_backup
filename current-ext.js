@@ -1108,7 +1108,7 @@ window[CHANNEL.name].audioFunction.playbgm1 = function(condition) {
 		audioplay.pause(); 
 	    audioplay.currentTime = 0;
 	}
-}
+};
 
 function chatHandler(e) {
 
