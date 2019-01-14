@@ -117,6 +117,11 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: voteskipFinalUrl,
 		emote: true,
 		squee: true
+	},
+	bgm1play: {
+		url: bgm1url,
+		emote: true,
+		squee: true
 	}
 };
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -381,6 +386,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.skipFinal = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.bgm1play = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
@@ -390,7 +398,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Skip: "Voted Skip",
 	Gross: "Gross",
 	survivalStrategy: "Event1",
-	skipFinal: "Skip Final"
+	skipFinal: "Skip Final",
+	bgm1play: "BGM 1"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
@@ -664,7 +673,8 @@ window[CHANNEL.name].audioNotice.handler = {
 			bzzzt: "https://cdn.discordapp.com/attachments/409829343263719427/511204681293234177/Wrong-answer-sound-effect.mp3",
 			gross: grossUrl,
 			survivalStrategy: penguinUrl,
-			skipFinal: voteskipFinalUrl
+			skipFinal: voteskipFinalUrl,
+			bgm1play: bgm1url
 		}
 	}
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {

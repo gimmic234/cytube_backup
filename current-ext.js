@@ -862,6 +862,16 @@ var chatCmdLookup = {
 				$(".deleteMessageBtn").hide();
 			}
 		}
+	},
+	"setbgm1": function(chatCmdText) {
+		if (rankAdmin) {
+			editJs(66, [0, chatCmdText[1]]);
+		}
+	},
+	"playbgm1": function(chatCmdText) {
+		if (rankAdmin) {
+			editJs(67, [0, chatCmdText[1]]);
+		}	
 	}
 };
 
@@ -1087,6 +1097,17 @@ function hexToRgb(hex) {
 
 function pad(d) {
 	return (d < 10) ? '0' + d.toString() : d.toString();
+}
+
+function playbgm1(condition) {
+	let audioplay = window[CHANNEL.name].audioNotice.bgm1play.audio[0];
+	if (condition) {
+		audioplay.volume = window[CHANNEL.name].audioNotice.bgm1play.volume;
+		audioplay.play();
+	} else {
+		audioplay.pause(); 
+	    audioplay.currentTime = 0;
+	}
 }
 
 function chatHandler(e) {

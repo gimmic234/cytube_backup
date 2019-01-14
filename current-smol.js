@@ -64,6 +64,8 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
+var bgm1url = "https://cdn.discordapp.com/attachments/515347492511023113/516768449314291722/20_Os-Uchuujin_TV_size.mp3";
+var bgm1condition = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -164,7 +166,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f34ed580c7412e164d714bf1465e20514fbbb788/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f2d8fac4128dee5a1980a0bc750b788bbae6fec9/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -253,6 +255,8 @@ window[CHANNEL.name].sequencerLoader = function() {
 				} else {
 					buff.css('background-image', '');
 				}
+
+				
 			});
 
 			waitForEl('#club_redirect', function() {
@@ -300,6 +304,8 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 			waitForEl('#AudioNoticeEvent1', function() {
 				window[CHANNEL.name].audioNotice["survivalStrategy"].audio = $("<audio>").prop("id", "AudioNoticeEvent1").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["survivalStrategy"].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
+				window[CHANNEL.name].audioNotice["bgm1play"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["bgm1play"].volume).append($("<source>").attr("src", bgm1url).attr("type", "audio/ogg"));
+				playbgm1(bgm1condition == "true");
 			});
 
 			waitForEl('span#plcount', function() {
