@@ -881,6 +881,11 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			editJs(68, [0, chatCmdText[1]]);
 		}
+	},
+	"!utsu": function(chatCmdText) {
+		window.socket.emit("chatMsg", {
+			msg: "utsuimg" + utsuimg + "utsuimg"
+		});	
 	}
 };
 
