@@ -171,7 +171,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ad0050539efd25a527d42e4810a18f4b43210c10/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0720cdfd9022edd3410e431dfa23cb5a733afd7c/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -201,7 +201,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a80c7359e0fc14bd3849d94fea1996a7dfaa3147/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0720cdfd9022edd3410e431dfa23cb5a733afd7c/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -246,6 +246,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 				window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 				window[CHANNEL.name].chatNotice.handler["deleteButton"]();
 				buff.find(".gross:not( .parsed )").addClass('parsed');
+				buff.find(".utsu:not( .parsed )").addClass('parsed');
 				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
