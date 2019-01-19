@@ -1138,6 +1138,7 @@ window[CHANNEL.name].audioFunction.playbgm1 = function(condition) {
 	let audioplay = window[CHANNEL.name].audioNotice.bgm1play.audio[0];
 	if (condition) {
 		audioplay.volume = window[CHANNEL.name].audioNotice.bgm1play.volume;
+		audioplay.loop = true;
 		audioplay.play();
 	} else {
 		$('audio').each(function(){

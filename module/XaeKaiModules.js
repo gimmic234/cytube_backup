@@ -531,7 +531,6 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!window[CHANNEL.name].audioNotice.utsu.toggleState) return;
 		if (!(noiseActive == "true")) return;
 		let audioplay = window[CHANNEL.name].audioNotice.utsu.audio[0].cloneNode(true);
-		audioplay.loop = true;
 		audioplay.volume = window[CHANNEL.name].audioNotice.utsu.volume;
 		audioplay.play();
 	},
