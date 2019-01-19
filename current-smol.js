@@ -67,7 +67,7 @@ var countdown_utc5 = {
 var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/516393332750942211/01_ROCK_OVER_JAPAN.mp3';
 var bgm1condition = 'false';
 var bgmoff = "true";
-var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/530100597794406440/1546428622652.png';
+var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
@@ -172,7 +172,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0720cdfd9022edd3410e431dfa23cb5a733afd7c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/64c84178863b4c2e1e065589b35ba32874fcdd38/current-ext.js",
 		callback: true
 	},
 	'layout': {
