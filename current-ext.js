@@ -74,6 +74,17 @@ var chatCmdLookup = {
 			});
 		}
 	},
+	'/savebg5': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(69, chatCmdText);
+			editJs(4, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "bg5 saved " + url
+			});
+		}
+	},
 
 	'/editbanner': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
@@ -320,6 +331,15 @@ var chatCmdLookup = {
 			setAutobg(4);
 			window.socket.emit("chatMsg", {
 				msg: "loading bg4"
+			});
+		}
+	},
+
+	'/setbg5': function() {
+		if (rankAdmin) {
+			setAutobg(5);
+			window.socket.emit("chatMsg", {
+				msg: "loading bg5"
 			});
 		}
 	},

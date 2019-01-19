@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/533751099836989440/banner_new_1-14-2019.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/419686033689673759/535233339993620480/Ichinose.Hajime.full.1574244.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 1,
-	day3: 19,
+	day3: 26,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -67,13 +67,14 @@ var countdown_utc5 = {
 var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/516393332750942211/01_ROCK_OVER_JAPAN.mp3';
 var bgm1condition = 'false';
 var bgmoff = "true";
+var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/530100597794406440/1546428622652.png';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 console.log = function() {}
 var event1Volume = .8;
 var utsuvolume = .8;
 var utsuurl = "https://cdn.discordapp.com/attachments/452943717708595211/535601343436554244/utsu.ogg";
-var utsuimg = "//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg";
+var utsuimg = "//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png";
 var bgm1volume = .5;
 var cheerio = "https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg";
 var emoteTable = "false";
@@ -201,7 +202,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0720cdfd9022edd3410e431dfa23cb5a733afd7c/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7b1823c62d53eb83fb30b43a8fe28b20f5b1f020/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
