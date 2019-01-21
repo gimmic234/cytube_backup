@@ -290,17 +290,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 				}
 			});
 
-			waitForEl('#queue_next', function() {
-				var btnNext = $('#queue_next');
-				var btnEnd = $('#queue_end');
-				btnNext.hide();
-				btnEnd.hide();
-				if (!$('#queue_next_title').length) {
-					btnNext.parent().append("<button id='queue_next_title' class='btn btn-default'>Next</button>");
-					btnEnd.parent().append("<button id='queue_end_title' class='btn btn-default'>End</button>");
-				}
-			});
-
 			waitForEl('#imgBubble2', function() {
 				let elem = $('#imgBubble2');
 				elem.attr("src", imgBubble2);
