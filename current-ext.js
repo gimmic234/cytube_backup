@@ -1407,11 +1407,18 @@ function bindEventHandler() {
 		$(document.getElementById('chatline')).focus();
 	});
 
-	
+
 	$(bodyElem).on('keydown', function(e) {
 		if (!document.activeElement.classList.contains('form-control') && !document.activeElement.classList.contains('btn') && !document.activeElement.classList.contains('add-temp') && !document.getElementById('channeloptions').classList.contains('in') && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
 			e.preventDefault();
 			$(document.getElementById('chatline')).focus();
+		}
+	});
+
+	$(bodyElem).on('keydown', '#mediaurl',function(e) {
+		if (e.which == 9 && $('#addfromurl-title-val').length > 0) {
+			e.preventDefault();
+			$(document.getElementById('addfromurl-title-val')).focus();
 		}
 	});
 

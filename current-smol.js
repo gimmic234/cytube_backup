@@ -7,7 +7,7 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 1,
-	day: 20,
+	day: 27,
 	hour: 20,
 	minute: 0,
 	second: 0,
@@ -64,7 +64,7 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/516768449314291722/20_Os-Uchuujin_TV_size.mp3';
+var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/536293566020976650/mix.ogg';
 var bgm1condition = 'false';
 var bgmoff = "true";
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
@@ -72,7 +72,7 @@ var background_img_auto5 = 'http://cdn.discordapp.com/attachments/46638631976619
 //ControlBlockEnd
 console.log = function() {}
 var event1Volume = .8;
-var utsuvolume = .6;
+var utsuvolume = .4;
 var utsuurl = "https://cdn.discordapp.com/attachments/515347492511023113/536618471002341376/utsu.ogg";
 var utsuimg = "//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png";
 var bgm1volume = .5;
@@ -172,7 +172,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9a4ecbb34f48934f868141b59962bad39554caba/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ed1bf40888e39200c8127f2fede7ad3a02dd6ea0/current-ext.js",
 		callback: true
 	},
 	'layout': {
