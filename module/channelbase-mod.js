@@ -81,7 +81,7 @@ $("#rightpane-inner").prepend("<div id='mediabuttons'></div>");
 $("#rightpane-inner").addClass("section");
 $("#mediarefresh").addClass("btn btn-sm btn-default OLB");
 $("#voteskip").addClass("btn btn-sm btn-default OLB");
-$("#mediabuttons").append($("#showmediaurl"), $('showmediaurltitle'), $("#showcustomembed"), $("#showsearch"), $("#showplaylistmanager"));
+$("#mediabuttons").append($("#showmediaurl"), $("#showcustomembed"), $("#showsearch"), $("#showplaylistmanager"));
 $("#rightpane").after("<div id='queuecontainer' class='section'><button id='pldropdown' data-toggle='dropdown' title='Playlist Options'></button><div class='textheader'><p id='upnext' class='sectionheader'>Up Next</p></div></div>");
 $("#queuecontainer").append($("#queue"));
 $("#upnext").append($("#plmeta"));

@@ -1263,6 +1263,54 @@ function appendEmote(elem) {
 }
 
 function bindEventHandler() {
+	$(bodyElem).on('click', '#queue_next_title', function(o, e) {
+	  if (e || (e = "url"), "customembed" === e) {
+	    var t = $("#customembed-title").val();
+	    t || (t = !1);
+	    var a = $("#customembed-content").val();
+	    socket.emit("queue", {
+	      id: a,
+	      title: t,
+	      pos: o,
+	      type: "cu",
+	      temp: $(".add-temp").prop("checked")
+	    })
+	  } else {
+	    var s = $("#mediaurl").val().split(",http").map(function(e, t) {
+	      return 0 < t ? "http" + e : e
+	    });
+	    "next" === o && (s = s.reverse()), "next" === o && 0 === $("#queue li").length && s.unshift(s.pop());
+	    var i = [],
+	      l = $(".add-temp").prop("checked"),
+	      n = document.getElementById("addfromurl-queue");
+	    n || ((n = document.createElement("div")).id = "addfromurl-queue", document.getElementById("addfromurl").appendChild(n)), s.forEach(function(e) {
+	      var t = parseMediaLink(e),
+	        a = void 0;
+	      if ("fi" === t.type) a = $("#addfromurl-title-val").val();
+	      else if ("vm" === t.type) return void Callbacks.queueFail({
+	        link: e,
+	        msg: "As of December 2017, vid.me is no longer in service."
+	      });
+	      null == t.id || null == t.type ? makeAlert("Error", "Failed to parse link " + e + ".  Please check that it is correct", "alert-danger", !0).insertAfter($("#addfromurl")) : i.push({
+	        id: t.id,
+	        type: t.type,
+	        pos: o,
+	        duration: void 0,
+	        title: a,
+	        temp: l,
+	        link: e
+	      })
+	    });
+	    var r = 1020;
+	    ! function e() {
+	      var t = i.shift();
+	      if (!t) return $("#mediaurl").val(""), void $("#addfromurl-title").remove();
+	      t.link;
+	      delete t.link, socket.emit("queue", t), startQueueSpinner(t), 0 < i.length ? n.textContent = "Waiting to queue " + i[0].link : n.textContent = "", setTimeout(e, r)
+	    }()
+	  }
+	});
+
 	$(bodyElem).on('click', '.deleteMessageBtn', function() {
 		if (!confirm("delete this message?")) {
 			return;

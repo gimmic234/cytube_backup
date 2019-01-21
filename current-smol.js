@@ -172,7 +172,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d5d522062794e4ca0fb516f89966ac36df6bacce/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8dd3b972805941f0bdd7430d97b276d8588816a9/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -289,6 +289,17 @@ window[CHANNEL.name].sequencerLoader = function() {
 					$('#imgWrap1').hide();
 				}
 			});
+
+			waitForEl('#queue_next', function() {
+				var btnNext = $('#queue_next');
+				var btnEnd = $('#queue_end');
+				btnNext.hide();
+				btnEnd.hide();
+				if (!$('#queue_next_title').length) {
+					btnNext.parent().append("<button id='queue_next_title' class='btn btn-default'>Next</button>");
+					btnEnd.parent().append("<button id='queue_end_title' class='btn btn-default'>End</button>");
+				}
+			}
 
 			waitForEl('#imgBubble2', function() {
 				let elem = $('#imgBubble2');
