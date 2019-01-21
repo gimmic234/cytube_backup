@@ -1406,8 +1406,10 @@ function bindEventHandler() {
 	$(window).focus(function(e) {
 		$(document.getElementById('chatline')).focus();
 	});
+
+	
 	$(bodyElem).on('keydown', function(e) {
-		if (!document.activeElement.classList.contains('form-control') && !document.activeElement.classList.contains('btn') && !document.activeElement.classList.contains('checkbox') && !document.getElementById('channeloptions').classList.contains('in') && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
+		if (!document.activeElement.classList.contains('form-control') && !document.activeElement.classList.contains('btn') && !document.activeElement.classList.contains('add-temp') && !document.getElementById('channeloptions').classList.contains('in') && (document.activeElement != document.getElementById('chatline')) && (e.which == 13 || e.which == 9)) {
 			e.preventDefault();
 			$(document.getElementById('chatline')).focus();
 		}
