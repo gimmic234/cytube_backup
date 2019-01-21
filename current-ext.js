@@ -1219,6 +1219,8 @@ function videoDisplayToggle() {
 		$(document.getElementById('voteskipNope')).hide();
 		$(document.getElementById('voteskipFinal')).hide();
 		$(document.getElementById('videowrap')).hide();
+		var title = $('.queue_active').find('.qe_title').html();
+		$('#currenttitle').html(title);
 	} else {
 		if (bgmoff == "true") {
 			$('audio').each(function(){
