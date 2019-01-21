@@ -172,7 +172,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8dd3b972805941f0bdd7430d97b276d8588816a9/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cfdfc78a45aa27a40ef8fe83a8bc3669e379cef1/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -299,7 +299,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 					btnNext.parent().append("<button id='queue_next_title' class='btn btn-default'>Next</button>");
 					btnEnd.parent().append("<button id='queue_end_title' class='btn btn-default'>End</button>");
 				}
-			}
+			});
 
 			waitForEl('#imgBubble2', function() {
 				let elem = $('#imgBubble2');
