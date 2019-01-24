@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 1,
-	day: 27,
-	hour: 20,
+	day: 24,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
@@ -64,17 +64,18 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/536293566020976650/mix.ogg';
+var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm1condition = 'false';
 var bgmoff = "true";
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
-console.log = function() {}
+//console.log = function() {}
 var event1Volume = .8;
 var utsuvolume = .4;
 var utsuurl = "https://cdn.discordapp.com/attachments/515347492511023113/536618471002341376/utsu.ogg";
-var utsuimg = "//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png";
+var utsunotvolume = .8;
+var utsunoturl = "https://cdn.discordapp.com/attachments/515347492511023113/537831049712107520/14min.mp3";
 var bgm1volume = .5;
 var cheerio = "https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg";
 var emoteTable = "false";
@@ -172,7 +173,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ed1bf40888e39200c8127f2fede7ad3a02dd6ea0/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/14136912990d3266fad27634ffefb2234a55bc17/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -248,6 +249,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 				window[CHANNEL.name].chatNotice.handler["deleteButton"]();
 				buff.find(".gross:not( .parsed )").addClass('parsed');
 				buff.find(".utsu:not( .parsed )").addClass('parsed');
+				buff.find(".utsunot:not( .parsed )").addClass('parsed');
 				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
@@ -312,7 +314,15 @@ window[CHANNEL.name].sequencerLoader = function() {
 			waitForEl('#AudioNoticeEvent1', function() {
 				window[CHANNEL.name].audioNotice["survivalStrategy"].audio = $("<audio>").prop("id", "AudioNoticeEvent1").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["survivalStrategy"].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
 				window[CHANNEL.name].audioNotice["bgm1play"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["bgm1play"].volume).append($("<source>").attr("src", bgm1url).attr("type", "audio/ogg"));
-				window[CHANNEL.name].audioFunction.playbgm1(bgm1condition == "true");
+				let inPlay = false;
+				$('audio').each(function(){
+				    if (!this.paused) {
+			    		inPlay = true;
+				    }
+				});
+				if (!inPlay) {
+					window[CHANNEL.name].audioFunction.playbgm1(bgm1condition == "true");
+				}
 			});
 
 			waitForEl('span#plcount', function() {

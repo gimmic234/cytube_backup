@@ -903,9 +903,23 @@ var chatCmdLookup = {
 		}
 	},
 	"!utsu": function(chatCmdText) {
-		window.socket.emit("chatMsg", {
-			msg: "utsuimg" + utsuimg + "utsuimg"
-		});	
+		var utsulist = [
+			"//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png",
+			"//media.discordapp.net/attachments/514955949136674856/537825629014458439/utsutsu-52079.jpg",
+			"//media.discordapp.net/attachments/514955949136674856/537825650506203156/66e8c7aad2f13f9fc0cd8335479dc0e2e58d405d_hq.gif",
+			"//media.discordapp.net/attachments/514955949136674856/537825673050324993/utsu4.png",
+			"not"
+		];
+		var utsuimg = utsulist[Math.floor(Math.random() * utsulist.length)];
+		if (utsuimg == "not") {
+			window.socket.emit("chatMsg", {
+				msg: "utsunotimg" + "//media.discordapp.net/attachments/515347492511023113/537831145707143169/large.jpg" + "utsunotimg"
+			});	
+		} else {
+			window.socket.emit("chatMsg", {
+				msg: "utsuimg" + utsuimg + "utsuimg"
+			});	
+		}
 	}
 };
 

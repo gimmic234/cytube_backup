@@ -127,6 +127,11 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: utsuurl,
 		emote: true,
 		squee: true
+	},
+	utsunot: {
+		url: utsunoturl,
+		emote: true,
+		squee: true
 	}
 };
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -397,6 +402,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.utsu = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.utsunot = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
@@ -408,7 +416,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	survivalStrategy: "Event1",
 	skipFinal: "Skip Final",
 	bgm1play: "BGM 1",
-	utsu: "Utsutsu"
+	utsu: "Utsutsu",
+	utsunot: "Utsunot"
 };
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
@@ -532,6 +541,16 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!(noiseActive == "true")) return;
 		let audioplay = window[CHANNEL.name].audioNotice.utsu.audio[0].cloneNode(true);
 		audioplay.volume = window[CHANNEL.name].audioNotice.utsu.volume;
+		audioplay.play();
+	},
+	utsunot: function(data) {
+		let utsu = $(".utsunot:not( .parsed )");
+		if (!utsu.length) return;
+		utsu.addClass("parsed");
+		if (!window[CHANNEL.name].audioNotice.utsunot.toggleState) return;
+		if (!(noiseActive == "true")) return;
+		let audioplay = window[CHANNEL.name].audioNotice.utsunot.audio[0].cloneNode(true);
+		audioplay.volume = window[CHANNEL.name].audioNotice.utsunot.volume;
 		audioplay.play();
 	},
 	Gross: function(data) {
@@ -689,6 +708,10 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["utsu"].id = "utsu";
 	window[CHANNEL.name].audioNotice["utsu"].volume = utsuvolume;
 
+	window[CHANNEL.name].audioNotice["utsunot"].toggleState = true;
+	window[CHANNEL.name].audioNotice["utsunot"].id = "utsunot";
+	window[CHANNEL.name].audioNotice["utsunot"].volume = utsunotvolume;
+
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -702,7 +725,8 @@ window[CHANNEL.name].audioNotice.handler = {
 			survivalStrategy: penguinUrl,
 			skipFinal: voteskipFinalUrl,
 			bgm1play: bgm1url,
-			utsu: utsuurl
+			utsu: utsuurl,
+			utsunot: utsunoturl
 		}
 	}
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {
@@ -752,6 +776,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
 		window[CHANNEL.name].audioNotice.handler["Gross"](data);
 		window[CHANNEL.name].audioNotice.handler["utsu"](data);
+		window[CHANNEL.name].audioNotice.handler["utsunot"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
 	});
