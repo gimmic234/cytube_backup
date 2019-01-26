@@ -505,6 +505,9 @@ var chatCmdLookup = {
 	'!bananice': function() {
 		imgEmote('https://cdn.discordapp.com/attachments/420183063562027008/526213163071438858/bananice_2.gif');
 	},
+	'!ping': function() {
+		imgEmote('http://media.discordapp.net/attachments/535985255815970828/538788119604887552/ping.gif');
+	},
 	'/noiseoff': function() {
 		if (rankAdmin) {
 			noiseActive = "false";

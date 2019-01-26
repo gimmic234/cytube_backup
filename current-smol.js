@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/533751099836989440/banner_new_1-14-2019.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/419686033689673759/535233339993620480/Ichinose.Hajime.full.1574244.jpg';
+var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 1,
-	day: 24,
-	hour: 0,
+	day: 27,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
@@ -28,8 +28,8 @@ var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
 var countdown_utc3 = {
 	year3: 2019,
-	month3: 1,
-	day3: 26,
+	month3: 2,
+	day3: 2,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -41,12 +41,12 @@ var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//media.discordapp.net/attachments/515347492511023113/526188455751843851/71e.gif';
 var imgBubble2 = '//media.discordapp.net/attachments/515347492511023113/533750086086295562/1467414381705.png';
-var chatImg = 'false';
+var chatImg = 'http://cdn.discordapp.com/attachments/466386319766192138/538831329911898162/1547064374451.jpg';
 var img1show = 'false';
 var img1fixedshow = 'false';
 var chatLimit = 'false';
 var chatDelay = '1';
-var chatImgOp = '.8';
+var chatImgOp = '.7';
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
@@ -64,7 +64,7 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
+var bgm1url = 'https://cdn.discordapp.com/attachments/535985255815970828/538536478670848010/06._Negai_ga_Kanau_Basho.mp3';
 var bgm1condition = 'false';
 var bgmoff = "true";
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
@@ -173,7 +173,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/952a91df3a44e15ac91fb370aac8491462fd72e6/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/655125be938ce5b0c93280c6417c50b95f09df3a/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -320,7 +320,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 			    		inPlay = true;
 				    }
 				});
-				if (!inPlay) {
+				if (!inPlay || bgm1condition == "false") {
 					window[CHANNEL.name].audioFunction.playbgm1(bgm1condition == "true");
 				}
 			});
