@@ -913,6 +913,7 @@ var chatCmdLookup = {
 			"//media.discordapp.net/attachments/514955949136674856/537825673050324993/utsu4.png",
 			"//media.discordapp.net/attachments/501103378714329100/537833306071367682/utsu6.jpg",
 			"//media.discordapp.net/attachments/501103378714329100/537833322215243776/utsu5.jpg",
+			"//media.discordapp.net/attachments/501103378714329100/539210465059012627/utsu8.png",
 			"not"
 		];
 		var utsuimg = utsulist[Math.floor(Math.random() * utsulist.length)];
