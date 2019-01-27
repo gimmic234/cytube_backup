@@ -446,7 +446,7 @@ return div;
 
 $(document).ready(function() {
 
-.appendTo("head");});
+});
 
 // The HorizontalScroller Class accepts a jQuery object as its only argument
 // The argument is the parent container of the scrolling element
