@@ -905,6 +905,11 @@ var chatCmdLookup = {
 			editJs(68, [0, chatCmdText[1]]);
 		}
 	},
+	"/lock": function() {
+		if (rankMod) {
+			socket.emit("togglePlaylistLock");
+		}
+	},
 	"!utsu": function(chatCmdText) {
 		var utsulist = [
 			"//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png",

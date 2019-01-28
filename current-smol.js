@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 1,
-	day: 27,
-	hour: 20,
+	day: 31,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
@@ -173,7 +173,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f8151697a04f974f1f20ceed060b9e21befc027d/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6b985592f2b9bd661d4d832cc320226bd22d1075/current-ext.js",
 		callback: true
 	},
 	'layout': {
