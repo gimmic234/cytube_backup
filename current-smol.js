@@ -1,14 +1,14 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://cdn.discordapp.com/attachments/420183063562027008/533751099836989440/banner_new_1-14-2019.png?width=1300&height=250';
+var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/541343399597309953/current_test.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/419686033689673759/535233339993620480/Ichinose.Hajime.full.1574244.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
-	month: 1,
-	day: 31,
-	hour: 0,
+	month: 2,
+	day: 3,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
@@ -20,7 +20,7 @@ var countdown_utc2 = {
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = 'http://cdn.discordapp.com/attachments/419686033689673759/535233339993620480/Ichinose.Hajime.full.1574244.jpg';
+var background_img_auto1 = 'http://raikou2.donmai.us/26/f7/__kitashirakawa_tamako_tamako_love_story_and_etc__26f7eb0ed9d35c9390a9816ade9af145.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 2,
-	day3: 2,
+	day3: 9,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -51,21 +51,21 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
 	month4: 2,
-	day4: 2,
+	day4: 9,
 	hour4: 16,
 	minute4: 0,
 	second4: 0
 };
 var countdown_utc5 = {
 	year5: 2019,
-	month5: 1,
-	day5: 22,
+	month5: 2,
+	day5: 5,
 	hour5: 0,
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/535985255815970828/538536478670848010/06._Negai_ga_Kanau_Basho.mp3';
-var bgm1condition = 'false';
+var bgm1url = 'https://www.youtube.com/watch?v=vdk_76z38bA';
+var bgm1condition = 'true';
 var bgmoff = "true";
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -173,7 +173,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6b985592f2b9bd661d4d832cc320226bd22d1075/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/072b784ff9f42c5a71fe4202c7a626d69340ead8/current-ext.js",
 		callback: true
 	},
 	'layout': {
