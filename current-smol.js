@@ -64,8 +64,8 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://www.youtube.com/watch?v=vdk_76z38bA';
-var bgm1condition = 'true';
+var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/539973573322997760/02._Roaring_Tide1.mp3';
+var bgm1condition = 'false';
 var bgmoff = "true";
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -173,7 +173,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/072b784ff9f42c5a71fe4202c7a626d69340ead8/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4f20dbfd9133c6c8a72ae3ef8a89c8efea128213/current-ext.js",
 		callback: true
 	},
 	'layout': {
