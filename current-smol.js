@@ -75,7 +75,7 @@ var event1Volume = .8;
 var utsuvolume = .4;
 var nyanpasuurl = "https://cdn.discordapp.com/attachments/501103378714329100/541702107305082893/nyanpasu.mp3";
 var nyanpasuvolume = .8;
-var nyanpasuimg = "https://media.discordapp.net/attachments/501103378714329100/541701798994509883/Nyanpasu.png";
+var nyanpasuimg = "//media.discordapp.net/attachments/501103378714329100/541701798994509883/Nyanpasu.png";
 var utsuurl = "https://cdn.discordapp.com/attachments/515347492511023113/536618471002341376/utsu.ogg";
 var utsunotvolume = .8;
 var utsunoturl = "https://cdn.discordapp.com/attachments/515347492511023113/537831049712107520/14min.mp3";
@@ -176,7 +176,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ad4250fb58e477810117ade45c47caa09cbea4a6/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8a8cf7793d251842e69576f22ec4995482cd246c/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -206,7 +206,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d7e93067a03289b3f64dd63e447b2822c89b58c3/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8a8cf7793d251842e69576f22ec4995482cd246c/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -401,7 +401,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 window[CHANNEL.name].sequencerLoader();
 if (updateCmd == "true") {
 	$.getScript(window[CHANNEL.name].sequenceList['event-ext'].url);
-	$.getScript(window[CHANNEL.name].sequenceList['xaekai'].url);
 }
 
 $(".navbar-brand").text("Anime Club");

@@ -139,6 +139,65 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		squee: true
 	}
 };
+
+if (!window[CHANNEL.name].audioNotice) {
+	window[CHANNEL.name].audioNotice = {};
+	window[CHANNEL.name].audioNotice.Squee = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.Poll = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.Priv = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.Video = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.Skip = {
+		timeSinceLast: 0,
+		previousNeed: 0, 
+		previousCount: 0,
+		previousUser: CHANNEL.usercount,
+		active: false,
+	};
+	window[CHANNEL.name].audioNotice.Gross = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.survivalStrategy = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.skipFinal = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.bgm1play = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.utsu = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.utsunot = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.nyanpasu = {
+		timeSinceLast: 0
+	};
+}
+window[CHANNEL.name].audioNotice.typeNames = {
+	Squee: "Username",
+	Poll: "Poll",
+	Priv: "Private Message",
+	Video: "Queued Video",
+	Skip: "Voted Skip",
+	Gross: "Gross",
+	survivalStrategy: "Event1",
+	skipFinal: "Skip Final",
+	bgm1play: "BGM 1",
+	utsu: "Utsutsu",
+	utsunot: "Utsunot",
+	nyanpasu: "Nyanpasu"
+};
+
 this[CHANNEL.name].audioLibrary.squees = function() {
 	var keys = Object.keys(this[CHANNEL.name].audioLibrary.sounds);
 	var squees = {};
@@ -371,63 +430,6 @@ if (!window[CHANNEL.name]) window[CHANNEL.name] = {};
 if (!$("#customSettingsStaging").length) {
 	$("<div/>").prop("id", "customSettingsStaging").hide().insertAfter("#useroptions")
 }
-if (!window[CHANNEL.name].audioNotice) {
-	window[CHANNEL.name].audioNotice = {};
-	window[CHANNEL.name].audioNotice.Squee = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.Poll = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.Priv = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.Video = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.Skip = {
-		timeSinceLast: 0,
-		previousNeed: 0, 
-		previousCount: 0,
-		previousUser: CHANNEL.usercount,
-		active: false,
-	};
-	window[CHANNEL.name].audioNotice.Gross = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.survivalStrategy = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.skipFinal = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.bgm1play = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.utsu = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.utsunot = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.nyanpasu = {
-		timeSinceLast: 0
-	};
-}
-window[CHANNEL.name].audioNotice.typeNames = {
-	Squee: "Username",
-	Poll: "Poll",
-	Priv: "Private Message",
-	Video: "Queued Video",
-	Skip: "Voted Skip",
-	Gross: "Gross",
-	survivalStrategy: "Event1",
-	skipFinal: "Skip Final",
-	bgm1play: "BGM 1",
-	utsu: "Utsutsu",
-	utsunot: "Utsunot",
-	nyanpasu: "Nyanpasu"
-};
 window[CHANNEL.name].audioNotice.pushNoticeChange = function(change) {
 	var type, id, silent;
 	type = change.type;
@@ -753,6 +755,20 @@ window[CHANNEL.name].audioNotice.handler = {
 			nyanpasu: nyanpasuurl
 		}
 	}
+
+	socket.on("chatMsg", function(data) {
+		window[CHANNEL.name].audioNotice.handler["stopEvent"](data);
+		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"](data);
+		window[CHANNEL.name].audioNotice.handler["Squee"](data);
+		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
+		window[CHANNEL.name].audioNotice.handler["Gross"](data);
+		window[CHANNEL.name].audioNotice.handler["utsu"](data);
+		window[CHANNEL.name].audioNotice.handler["utsunot"](data);
+		window[CHANNEL.name].audioNotice.handler["nyanpasu"](data);
+		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
+		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
+	});
+
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {
 		var choices = Object.keys(window[CHANNEL.name].modulesOptions.audioNotice.choices);
 		var notices = Object.keys(window[CHANNEL.name].modulesOptions.audioNotice.notices);
@@ -792,18 +808,6 @@ window[CHANNEL.name].audioNotice.handler = {
 	}
 	socket.on("voteskip", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
-	});
-	socket.on("chatMsg", function(data) {
-		window[CHANNEL.name].audioNotice.handler["stopEvent"](data);
-		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"](data);
-		window[CHANNEL.name].audioNotice.handler["Squee"](data);
-		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
-		window[CHANNEL.name].audioNotice.handler["Gross"](data);
-		window[CHANNEL.name].audioNotice.handler["utsu"](data);
-		window[CHANNEL.name].audioNotice.handler["utsunot"](data);
-		window[CHANNEL.name].audioNotice.handler["nyanpasu"](data);
-		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
-		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
 	});
 	socket.on("newPoll", function(data) {
 		return window[CHANNEL.name].audioNotice.handler["Poll"](data)
