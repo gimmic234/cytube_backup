@@ -913,6 +913,11 @@ var chatCmdLookup = {
 	"!die": function() {
 		imgEmote('//media.discordapp.net/attachments/501103378714329100/541368546131705867/peopledie.jpg');
 	},
+	"!nyanpasu": function() {
+		window.socket.emit("chatMsg", {
+			msg: "nyanpasuimg" + nyanpasuimg + "nyanpasuimg"
+		});	
+	},
 	"!utsu": function(chatCmdText) {
 		var utsulist = [
 			"//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png",

@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/541343399597309953/current_test.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
+var background_img = 'http://raikou2.donmai.us/26/f7/__kitashirakawa_tamako_tamako_love_story_and_etc__26f7eb0ed9d35c9390a9816ade9af145.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 2,
-	day2: 2,
+	day2: 9,
 	hour2: 22,
 	minute2: 0,
 	second2: 0
@@ -73,6 +73,9 @@ var background_img_auto5 = 'http://cdn.discordapp.com/attachments/46638631976619
 //console.log = function() {}
 var event1Volume = .8;
 var utsuvolume = .4;
+var nyanpasuurl = "https://cdn.discordapp.com/attachments/501103378714329100/541702107305082893/nyanpasu.mp3";
+var nyanpasuvolume = .8;
+var nyanpasuimg = "https://media.discordapp.net/attachments/501103378714329100/541701798994509883/Nyanpasu.png";
 var utsuurl = "https://cdn.discordapp.com/attachments/515347492511023113/536618471002341376/utsu.ogg";
 var utsunotvolume = .8;
 var utsunoturl = "https://cdn.discordapp.com/attachments/515347492511023113/537831049712107520/14min.mp3";
@@ -173,7 +176,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/708abbee49915098c8f2946dbd606d00402177db/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ad4250fb58e477810117ade45c47caa09cbea4a6/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -398,6 +401,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 window[CHANNEL.name].sequencerLoader();
 if (updateCmd == "true") {
 	$.getScript(window[CHANNEL.name].sequenceList['event-ext'].url);
+	$.getScript(window[CHANNEL.name].sequenceList['xaekai'].url);
 }
 
 $(".navbar-brand").text("Anime Club");
