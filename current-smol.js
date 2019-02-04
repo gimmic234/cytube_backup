@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 2,
-	day: 3,
-	hour: 20,
+	day: 7,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };

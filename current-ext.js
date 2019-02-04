@@ -918,6 +918,9 @@ var chatCmdLookup = {
 			msg: "nyanpasuimg" + nyanpasuimg + "nyanpasuimg"
 		});	
 	},
+	"!rain": function() {
+		imgEmote("//media.discordapp.net/attachments/501103378714329100/542127546884554762/4a45887411c5c959ba01948960c93788aaae63ee_hq.gif");
+	},
 	"!utsu": function(chatCmdText) {
 		var utsulist = [
 			"//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png",
