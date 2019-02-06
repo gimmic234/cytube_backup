@@ -59,13 +59,13 @@ var countdown_utc4 = {
 var countdown_utc5 = {
 	year5: 2019,
 	month5: 2,
-	day5: 5,
+	day5: 12,
 	hour5: 0,
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/539973573322997760/02._Roaring_Tide1.mp3';
-var bgm1condition = 'false';
+var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/542519514693238814/25._.mp3';
+var bgm1condition = 'true';
 var bgmoff = "true";
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -176,7 +176,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8a8cf7793d251842e69576f22ec4995482cd246c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b0115bc3ff6c7c4444bcd5d4235ef8a7c097e994/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -253,6 +253,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".gross:not( .parsed )").addClass('parsed');
 				buff.find(".utsu:not( .parsed )").addClass('parsed');
 				buff.find(".utsunot:not( .parsed )").addClass('parsed');
+				buff.find(".nyanpasu:not( .parsed )").addClass('parsed');
 				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
