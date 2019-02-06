@@ -925,14 +925,13 @@ var chatCmdLookup = {
 		var oralist = [
 			"//media.discordapp.net/attachments/501103378714329100/542532366808121354/Oraoraora_on_Dan.gif",
 			"//media.discordapp.net/attachments/501103378714329100/542532310109650996/tumblr_inline_omxr364yyC1syzm21_500.gif",
-			"//media.discordapp.net/attachments/501103378714329100/542531947633836053/1wb4XCj.gif",
+			"//media.discordapp.net/attachments/501103378714329100/542531843904503809/835a67405ca87781da420a7bc18fa0ba060a2508_00.gif",
 		];
 		var oraimg = oralist[Math.floor(Math.random() * oralist.length)];
 		imgEmote(oraimg);
 	},
 	"!atatata": function() {
 		var atalist = [
-			"//media.discordapp.net/attachments/501103378714329100/542533679130345472/ViciousShimmeringClingfish-small.gif",
 			"//media.discordapp.net/attachments/501103378714329100/542533820281520128/tumblr_ntvhzrvZj81uw4l7wo1_500.gif",
 			"//media.discordapp.net/attachments/501103378714329100/542531798606020638/RectangularTintedHoopoe-size_restricted.gif",
 			"//media.discordapp.net/attachments/501103378714329100/542531843904503809/835a67405ca87781da420a7bc18fa0ba060a2508_00.gif",
