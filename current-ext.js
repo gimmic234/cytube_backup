@@ -937,7 +937,7 @@ var chatCmdLookup = {
 			"//media.discordapp.net/attachments/501103378714329100/542531798606020638/RectangularTintedHoopoe-size_restricted.gif",
 			"//media.discordapp.net/attachments/501103378714329100/542531843904503809/835a67405ca87781da420a7bc18fa0ba060a2508_00.gif",
 		];
-		var ataimg = oralist[Math.floor(Math.random() * atalist.length)];
+		var ataimg = atalist[Math.floor(Math.random() * atalist.length)];
 		imgEmote(ataimg);
 	},
 	"!utsu": function(chatCmdText) {
