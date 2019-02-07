@@ -131,12 +131,10 @@ var coinHead = "cointossHEADcointoss";
 var coinTail = "cointossTAILcointoss";
 
 window.scrollChat = function() {
-	if (parseInt($('#messagebuffer').prop('scrollTop')) > parseInt($('#messagebuffer').prop('scrollHeight') * 0.55)) { 
-		setTimeout(
-			function() {
+	if ((parseInt($('#messagebuffer').prop('scrollHeight')) - parseInt($('#messagebuffer').prop('scrollTop')) - parseInt($('#messagebuffer').height())) < 350 || parseInt($('#messagebuffer').prop('scrollHeight')) < 2500) { 
+		setTimeout(function() {
 				$('#messagebuffer').prop('scrollTop', $('#messagebuffer').prop('scrollHeight'));
-			}
-		, 200)
+		}, 50);
 	}
 }
 
@@ -187,7 +185,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/728d4b5729df8af92ad6a7bb685dbf275c68c2b9/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/71e4c0ec912fa8ba623d25606a36e40e69d9ca2f/current-ext.js",
 		callback: true
 	},
 	'layout': {
