@@ -897,7 +897,7 @@ if (typeof _addChatMessage == "undefined") {
 			data.msg = match[2];
 		}
 		if (Math.floor(Math.random() * 1) == 0) {
-			//scrollChat();
+			scrollChat();
 		}
 		_addChatMessage(data);
 		data.username = username;

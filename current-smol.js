@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/541343399597309953/current_test.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://raikou2.donmai.us/26/f7/__kitashirakawa_tamako_tamako_love_story_and_etc__26f7eb0ed9d35c9390a9816ade9af145.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 2,
-	day: 7,
-	hour: 0,
+	day: 10,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
@@ -64,13 +64,14 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/542519514693238814/25._.mp3';
+var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/539973573322997760/02._Roaring_Tide1.mp3';
 var bgm1condition = 'true';
-var bgmoff = "true";
+var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
+//function scrollChat() {}
 var event1Volume = .8;
 var utsuvolume = .4;
 var nyanpasuurl = "https://cdn.discordapp.com/attachments/501103378714329100/541702107305082893/nyanpasu.mp3";
@@ -128,6 +129,16 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var coinHead = "cointossHEADcointoss";
 var coinTail = "cointossTAILcointoss";
+
+window.scrollChat = function() {
+	if (parseInt($('#messagebuffer').prop('scrollTop')) > parseInt($('#messagebuffer').prop('scrollHeight') * 0.55)) { 
+		setTimeout(
+			function() {
+				$('#messagebuffer').prop('scrollTop', $('#messagebuffer').prop('scrollHeight'));
+			}
+		, 200)
+	}
+}
 
 function getTimeZone() {
     return /\((.*)\)/.exec(new Date().toString())[1];
@@ -268,8 +279,6 @@ window[CHANNEL.name].sequencerLoader = function() {
 				} else {
 					buff.css('background-image', '');
 				}
-
-				
 			});
 
 			waitForEl('#club_redirect', function() {

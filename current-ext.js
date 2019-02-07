@@ -910,6 +910,9 @@ var chatCmdLookup = {
 			socket.emit("togglePlaylistLock");
 		}
 	},
+	"!war": function() {
+		imgEmote("//cdn.discordapp.com/attachments/501103378714329100/542889185569406976/1445878662497.gif");
+	},
 	"!die": function() {
 		imgEmote('//media.discordapp.net/attachments/501103378714329100/541368546131705867/peopledie.jpg');
 	},
