@@ -1,8 +1,8 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/541343399597309953/current_test.png?width=1300&height=250';
+var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/543964062355161128/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
+var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 2,
-	day2: 9,
+	day2: 16,
 	hour2: 22,
 	minute2: 0,
 	second2: 0
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 2,
-	day3: 9,
+	day3: 16,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -40,18 +40,18 @@ var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//media.discordapp.net/attachments/515347492511023113/526188455751843851/71e.gif';
-var imgBubble2 = '//media.discordapp.net/attachments/515347492511023113/533750086086295562/1467414381705.png';
-var chatImg = 'false';
+var imgBubble2 = '//media.discordapp.net/attachments/420183063562027008/543913337973375006/tamako.png';
+var chatImg = 'http://cdn.discordapp.com/attachments/420183063562027008/544230672609443861/pape.jpg';
 var img1show = 'false';
 var img1fixedshow = 'false';
 var chatLimit = 'false';
 var chatDelay = '1';
-var chatImgOp = '.7';
+var chatImgOp = '.8';
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
 	month4: 2,
-	day4: 9,
+	day4: 16,
 	hour4: 16,
 	minute4: 0,
 	second4: 0
@@ -64,8 +64,8 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/539973573322997760/02._Roaring_Tide1.mp3';
-var bgm1condition = 'true';
+var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
+var bgm1condition = 'false';
 var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -134,7 +134,7 @@ window.scrollChat = function() {
 	if ((parseInt($('#messagebuffer').prop('scrollHeight')) - parseInt($('#messagebuffer').prop('scrollTop')) - parseInt($('#messagebuffer').height())) < 350 || parseInt($('#messagebuffer').prop('scrollHeight')) < 2500) { 
 		setTimeout(function() {
 				$('#messagebuffer').prop('scrollTop', $('#messagebuffer').prop('scrollHeight'));
-		}, 50);
+		}, 20);
 	}
 }
 
