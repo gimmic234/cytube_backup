@@ -889,9 +889,7 @@ var chatCmdLookup = {
 	"/mail": function(chatCmdText) {
 		if (rankAdmin) {
 			chatCmdText.shift();
-			console.log(chatCmdText);
 			let msgText = chatCmdText.join(" ");
-			console.log(msgText);
 			let msg = {
 				name: CLIENT.name,
 				message: msgText
@@ -1095,7 +1093,7 @@ function sendMsg(sendData) {
 		method: "POST",
 		data: {
 			name: sendData.name,
-			message: sendData.message
+			message: "'" + sendData.message + "'"
 		},
 		dataType: "json",
 		success: function(result) {
