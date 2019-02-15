@@ -886,6 +886,15 @@ var chatCmdLookup = {
 			}
 		}
 	},
+	"/message": function(chatCmdText) {
+		if (rankAdmin) {
+			let msg = {
+				name: data.username,
+				message: chatCmdText
+			}
+			sendMsg(msg);
+		}
+	},
 	"/setbgm1": function(chatCmdText) {
 		if (rankAdmin) {
 			$('audio').each(function(){
@@ -1075,6 +1084,23 @@ var chatKeyLookup = {
 	}
 }
 
+
+function sendMsg(sendData) {
+	$.ajax({
+		url: "https://hooks.zapier.com/hooks/catch/4506865/p4fsf1/",
+		method: "POST",
+		data: {
+			name: sendData.name,
+			message: sendData.message
+		},
+		dataType: "json",
+		success: function(result) {
+			window.socket.emit("chatMsg", {
+				msg: "message has been sent"
+			});	
+		}
+	});
+}
 
 function voteskipMod() {
 	if ($("#voteskip").attr("disabled")) return;

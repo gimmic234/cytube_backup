@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/543964062355161128/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/545393608178532352/GUP_wall.png';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 2,
-	day: 10,
+	day: 17,
 	hour: 20,
 	minute: 0,
 	second: 0,
@@ -20,7 +20,7 @@ var countdown_utc2 = {
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = 'http://raikou2.donmai.us/26/f7/__kitashirakawa_tamako_tamako_love_story_and_etc__26f7eb0ed9d35c9390a9816ade9af145.jpg';
+var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/545393608178532352/GUP_wall.png';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -41,7 +41,7 @@ var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//media.discordapp.net/attachments/515347492511023113/526188455751843851/71e.gif';
 var imgBubble2 = '//media.discordapp.net/attachments/420183063562027008/543913337973375006/tamako.png';
-var chatImg = 'http://cdn.discordapp.com/attachments/420183063562027008/544230672609443861/pape.jpg';
+var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
 var chatLimit = 'false';
@@ -59,7 +59,7 @@ var countdown_utc4 = {
 var countdown_utc5 = {
 	year5: 2019,
 	month5: 2,
-	day5: 12,
+	day5: 19,
 	hour5: 0,
 	minute5: 0,
 	second5: 0
