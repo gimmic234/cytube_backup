@@ -891,6 +891,7 @@ var chatCmdLookup = {
 			chatCmdText.shift();
 			console.log(chatCmdText);
 			let msgText = chatCmdText.join(" ");
+			console.log(msgText);
 			let msg = {
 				name: CLIENT.name,
 				message: msgText
