@@ -888,10 +888,11 @@ var chatCmdLookup = {
 	},
 	"/mail": function(chatCmdText) {
 		if (rankAdmin) {
-			chatCmdText.shift()
+			chatCmdText.shift();
+			console.log(chatCmdText);
 			let msg = {
 				name: CLIENT.name,
-				message: chatCmdText.replace(',', ' ')
+				message: chatCmdText.join("-")
 			}
 			sendMsg(msg);
 		}
