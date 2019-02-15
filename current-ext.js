@@ -890,9 +890,7 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			chatCmdText.shift();
 			let msgText = '';
-			chatCmdText.forEach(function(s) {
-				msgText += s + ' ';
-			})
+			msgText = chatCmdText.join(' ');
 			let msg = {
 				name: CLIENT.name,
 				message: msgText
@@ -1096,7 +1094,7 @@ function sendMsg(sendData) {
 		method: "POST",
 		data: {
 			name: sendData.name,
-			message: "'" + sendData.message + "'"
+			message: sendData.message
 		},
 		dataType: "json",
 		success: function(result) {
