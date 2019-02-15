@@ -890,7 +890,7 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			let msg = {
 				name: CLIENT.name,
-				message: chatCmdText
+				message: chatCmdText.shift().join(' ')
 			}
 			sendMsg(msg);
 		}
