@@ -891,7 +891,7 @@ var chatCmdLookup = {
 			chatCmdText.shift()
 			let msg = {
 				name: CLIENT.name,
-				message: chatCmdText.join(' ')
+				message: chatCmdText.replace(',', ' ')
 			}
 			sendMsg(msg);
 		}
@@ -1096,9 +1096,7 @@ function sendMsg(sendData) {
 		},
 		dataType: "json",
 		success: function(result) {
-			window.socket.emit("chatMsg", {
-				msg: "message has been sent"
-			});	
+
 		}
 	});
 }
