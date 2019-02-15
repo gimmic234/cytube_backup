@@ -85,7 +85,28 @@ var chatCmdLookup = {
 			});
 		}
 	},
-
+	'/savebg6': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(70, chatCmdText);
+			editJs(4, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "bg6 saved " + url
+			});
+		}
+	},
+	'/savebg7': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(71, chatCmdText);
+			editJs(4, chatCmdText);
+			window.socket.emit("chatMsg", {
+				msg: "bg7 saved " + url
+			});
+		}
+	},
 	'/editbanner': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var textField = jsTextField.val();
@@ -340,6 +361,22 @@ var chatCmdLookup = {
 			setAutobg(5);
 			window.socket.emit("chatMsg", {
 				msg: "loading bg5"
+			});
+		}
+	},
+	'/setbg6': function() {
+		if (rankAdmin) {
+			setAutobg(6);
+			window.socket.emit("chatMsg", {
+				msg: "loading bg6"
+			});
+		}
+	},
+	'/setbg7': function() {
+		if (rankAdmin) {
+			setAutobg(7);
+			window.socket.emit("chatMsg", {
+				msg: "loading bg7"
 			});
 		}
 	},

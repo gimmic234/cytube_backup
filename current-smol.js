@@ -68,6 +68,8 @@ var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/5370456
 var bgm1condition = 'false';
 var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
+var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
+var background_img_auto7 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -185,7 +187,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7d8e6e5778393f93ffd4da746d1823e6a2fc17d1/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/21d9d08708f3dd2ef6f5278bc2bbc1548e22d257/current-ext.js",
 		callback: true
 	},
 	'layout': {
