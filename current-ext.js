@@ -888,9 +888,10 @@ var chatCmdLookup = {
 	},
 	"/mail": function(chatCmdText) {
 		if (rankAdmin) {
+			chatCmdText.shift()
 			let msg = {
 				name: CLIENT.name,
-				message: chatCmdText.shift().join(' ')
+				message: chatCmdText.join(' ')
 			}
 			sendMsg(msg);
 		}
