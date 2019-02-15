@@ -890,9 +890,10 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			chatCmdText.shift();
 			console.log(chatCmdText);
+			let msgText = chatCmdText.join(" ");
 			let msg = {
 				name: CLIENT.name,
-				message: chatCmdText.join("-")
+				message: msgText
 			}
 			sendMsg(msg);
 		}
