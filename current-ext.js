@@ -886,7 +886,7 @@ var chatCmdLookup = {
 			}
 		}
 	},
-	"/message": function(chatCmdText) {
+	"/mail": function(chatCmdText) {
 		if (rankAdmin) {
 			let msg = {
 				name: data.username,
