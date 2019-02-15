@@ -889,10 +889,13 @@ var chatCmdLookup = {
 	"/mail": function(chatCmdText) {
 		if (rankAdmin) {
 			chatCmdText.shift();
-			let msgText = chatCmdText.join(" ");
+			let msgText = '';
+			chatCmdText.forEach(function(s) {
+				msgText += s + ' ';
+			})
 			let msg = {
 				name: CLIENT.name,
-				message: msgText.toString()
+				message: msgText
 			}
 			sendMsg(msg);
 		}
