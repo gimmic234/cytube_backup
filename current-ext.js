@@ -889,7 +889,7 @@ var chatCmdLookup = {
 	"/mail": function(chatCmdText) {
 		if (rankAdmin) {
 			let msg = {
-				name: data.username,
+				name: CLIENT.name,
 				message: chatCmdText
 			}
 			sendMsg(msg);
