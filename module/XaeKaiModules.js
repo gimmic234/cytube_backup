@@ -123,6 +123,26 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		emote: true,
 		squee: true
 	},
+	bgm2play: {
+		url: bgm2url,
+		emote: true,
+		squee: true
+	},
+	bgm3play: {
+		url: bgm3url,
+		emote: true,
+		squee: true
+	},
+	bgm4play: {
+		url: bgm4url,
+		emote: true,
+		squee: true
+	},
+	bgm5play: {
+		url: bgm5url,
+		emote: true,
+		squee: true
+	},
 	utsu: {
 		url: utsuurl,
 		emote: true,
@@ -173,6 +193,18 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.bgm1play = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.bgm2play = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.bgm3play = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.bgm4play = {
+		timeSinceLast: 0
+	};
+	window[CHANNEL.name].audioNotice.bgm5play = {
+		timeSinceLast: 0
+	};
 	window[CHANNEL.name].audioNotice.utsu = {
 		timeSinceLast: 0
 	};
@@ -193,6 +225,10 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	survivalStrategy: "Event1",
 	skipFinal: "Skip Final",
 	bgm1play: "BGM 1",
+	bgm2play: "BGM 2",
+	bgm3play: "BGM 3",
+	bgm4play: "BGM 4",
+	bgm5play: "BGM 5",
 	utsu: "Utsutsu",
 	utsunot: "Utsunot",
 	nyanpasu: "Nyanpasu"
@@ -724,6 +760,22 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["bgm1play"].toggleState = true;
 	window[CHANNEL.name].audioNotice["bgm1play"].id = "bgm1play";
 	window[CHANNEL.name].audioNotice["bgm1play"].volume = bgm1volume;
+
+	window[CHANNEL.name].audioNotice["bgm2play"].toggleState = true;
+	window[CHANNEL.name].audioNotice["bgm2play"].id = "bgm2play";
+	window[CHANNEL.name].audioNotice["bgm2play"].volume = bgm2volume;
+
+	window[CHANNEL.name].audioNotice["bgm3play"].toggleState = true;
+	window[CHANNEL.name].audioNotice["bgm3play"].id = "bgm3play";
+	window[CHANNEL.name].audioNotice["bgm3play"].volume = bgm3volume;
+
+	window[CHANNEL.name].audioNotice["bgm4play"].toggleState = true;
+	window[CHANNEL.name].audioNotice["bgm4play"].id = "bgm4play";
+	window[CHANNEL.name].audioNotice["bgm4play"].volume = bgm4volume;
+
+	window[CHANNEL.name].audioNotice["bgm5play"].toggleState = true;
+	window[CHANNEL.name].audioNotice["bgm5play"].id = "bgm5play";
+	window[CHANNEL.name].audioNotice["bgm5play"].volume = bgm5volume;
 
 	window[CHANNEL.name].audioNotice["utsu"].toggleState = true;
 	window[CHANNEL.name].audioNotice["utsu"].id = "utsu";

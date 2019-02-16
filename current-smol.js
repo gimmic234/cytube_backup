@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/543964062355161128/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/545393608178532352/GUP_wall.png';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 2,
-	day3: 16,
+	day3: 23,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -39,7 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = '//media.discordapp.net/attachments/515347492511023113/526188455751843851/71e.gif';
+var imgBubble = '//media.discordapp.net/attachments/528150212875649065/538485021367992389/123.gif';
 var imgBubble2 = '//media.discordapp.net/attachments/420183063562027008/543913337973375006/tamako.png';
 var chatImg = 'false';
 var img1show = 'false';
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
 	month4: 2,
-	day4: 16,
+	day4: 23,
 	hour4: 16,
 	minute4: 0,
 	second4: 0
@@ -64,12 +64,17 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
-var bgm1condition = 'false';
+var bgm1url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
+var playbgmCondition = 'true';
 var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
+var bgm2url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
+var bgm3url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
+var bgm4url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
+var bgm5url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
+var bgmSelect = "1";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -83,6 +88,10 @@ var utsuurl = "https://cdn.discordapp.com/attachments/515347492511023113/5366184
 var utsunotvolume = .8;
 var utsunoturl = "https://cdn.discordapp.com/attachments/515347492511023113/537831049712107520/14min.mp3";
 var bgm1volume = .5;
+var bgm2volume = .5;
+var bgm3volume = .5;
+var bgm4volume = .5;
+var bgm5volume = .5;
 var cheerio = "https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg";
 var emoteTable = "false";
 var event1timeout;
@@ -187,7 +196,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/21d9d08708f3dd2ef6f5278bc2bbc1548e22d257/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/eb6e3950ad9fe35fc13622d4cea1e763f709090a/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -325,16 +334,17 @@ window[CHANNEL.name].sequencerLoader = function() {
 			});
 
 			waitForEl('#AudioNoticeEvent1', function() {
+				let currentBgm = eval("bgm" + bgmSelect + "url");
 				window[CHANNEL.name].audioNotice["survivalStrategy"].audio = $("<audio>").prop("id", "AudioNoticeEvent1").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["survivalStrategy"].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
-				window[CHANNEL.name].audioNotice["bgm1play"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["bgm1play"].volume).append($("<source>").attr("src", bgm1url).attr("type", "audio/ogg"));
+				window[CHANNEL.name].audioNotice["bgm1play"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["bgm" + bgmSelect + "url"].volume).append($("<source>").attr("src", currentBgm).attr("type", "audio/ogg"));
 				let inPlay = false;
 				$('audio').each(function(){
 				    if (!this.paused) {
 			    		inPlay = true;
 				    }
 				});
-				if (!inPlay || bgm1condition == "false") {
-					window[CHANNEL.name].audioFunction.playbgm1(bgm1condition == "true");
+				if (!inPlay || playbgmCondition == "false") {
+					window[CHANNEL.name].audioFunction.playbgm1(playbgmCondition == "true");
 				}
 			});
 

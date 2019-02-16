@@ -942,11 +942,72 @@ var chatCmdLookup = {
 			    this.currentTime = 0;
 			}); 
 			editJs(66, [0, chatCmdText[1]]);
+			editJs(76, [0, "1"]);
+		}
+	},
+	"/setbgm2": function(chatCmdText) {
+		if (rankAdmin) {
+			$('audio').each(function(){
+			    this.pause(); 
+			    this.currentTime = 0;
+			}); 
+			editJs(72, [0, chatCmdText[1]]);
+			editJs(76, [0, "2"]);
+		}
+	},
+	"/setbgm3": function(chatCmdText) {
+		if (rankAdmin) {
+			$('audio').each(function(){
+			    this.pause(); 
+			    this.currentTime = 0;
+			}); 
+			editJs(73, [0, chatCmdText[1]]);
+			editJs(76, [0, "3"]);
+		}
+	},
+	"/setbgm4": function(chatCmdText) {
+		if (rankAdmin) {
+			$('audio').each(function(){
+			    this.pause(); 
+			    this.currentTime = 0;
+			}); 
+			editJs(74, [0, chatCmdText[1]]);
+			editJs(76, [0, "4"]);
+		}
+	},
+	"/setbgm5": function(chatCmdText) {
+		if (rankAdmin) {
+			$('audio').each(function(){
+			    this.pause(); 
+			    this.currentTime = 0;
+			}); 
+			editJs(75, [0, chatCmdText[1]]);
+			editJs(76, [0, "5"]);
 		}
 	},
 	"/playbgm1": function(chatCmdText) {
 		if (rankAdmin) {
 			editJs(67, [0, chatCmdText[1]]);
+		}	
+	},
+	"/playbgm2": function(chatCmdText) {
+		if (rankAdmin) {
+			editJs(72, [0, chatCmdText[1]]);
+		}	
+	},
+	"/playbgm3": function(chatCmdText) {
+		if (rankAdmin) {
+			editJs(73, [0, chatCmdText[1]]);
+		}	
+	},
+	"/playbgm4": function(chatCmdText) {
+		if (rankAdmin) {
+			editJs(74, [0, chatCmdText[1]]);
+		}	
+	},
+	"/playbgm5": function(chatCmdText) {
+		if (rankAdmin) {
+			editJs(75, [0, chatCmdText[1]]);
 		}	
 	},
 	"/bgmauto": function(chatCmdText) {
