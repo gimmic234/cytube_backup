@@ -937,75 +937,115 @@ var chatCmdLookup = {
 	},
 	"/setbgm1": function(chatCmdText) {
 		if (rankAdmin) {
-			$('audio').each(function(){
-			    this.pause(); 
-			    this.currentTime = 0;
-			}); 
+			if (bgmSelect == "1") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(66, [0, chatCmdText[1]]);
 		}
 	},
 	"/setbgm2": function(chatCmdText) {
 		if (rankAdmin) {
-			$('audio').each(function(){
-			    this.pause(); 
-			    this.currentTime = 0;
-			}); 
+			if (bgmSelect == "2") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(72, [0, chatCmdText[1]]);
 		}
 	},
 	"/setbgm3": function(chatCmdText) {
 		if (rankAdmin) {
-			$('audio').each(function(){
-			    this.pause(); 
-			    this.currentTime = 0;
-			}); 
+			if (bgmSelect == "3") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(73, [0, chatCmdText[1]]);
 		}
 	},
 	"/setbgm4": function(chatCmdText) {
 		if (rankAdmin) {
-			$('audio').each(function(){
-			    this.pause(); 
-			    this.currentTime = 0;
-			}); 
+			if (bgmSelect == "4") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(74, [0, chatCmdText[1]]);
 		}
 	},
 	"/setbgm5": function(chatCmdText) {
 		if (rankAdmin) {
-			$('audio').each(function(){
-			    this.pause(); 
-			    this.currentTime = 0;
-			}); 
+			if (bgmSelect == "5") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(75, [0, chatCmdText[1]]);
 		}
 	},
 	"/playbgm1": function(chatCmdText) {
 		if (rankAdmin) {
+			if (bgmSelect != "1") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(67, [0, chatCmdText[1]]);
 			editJs(76, [0, "1"]);
 		}	
 	},
 	"/playbgm2": function(chatCmdText) {
 		if (rankAdmin) {
+			if (bgmSelect != "2") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(72, [0, chatCmdText[1]]);
 			editJs(76, [0, "2"]);
 		}	
 	},
 	"/playbgm3": function(chatCmdText) {
 		if (rankAdmin) {
+			if (bgmSelect != "3") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(73, [0, chatCmdText[1]]);
 			editJs(76, [0, "3"]);
 		}	
 	},
 	"/playbgm4": function(chatCmdText) {
 		if (rankAdmin) {
+			if (bgmSelect != "4") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(74, [0, chatCmdText[1]]);
 			editJs(76, [0, "4"]);
 		}	
 	},
 	"/playbgm5": function(chatCmdText) {
 		if (rankAdmin) {
+			if (bgmSelect != "5") {
+				$('audio').each(function(){
+				    this.pause(); 
+				    this.currentTime = 0;
+				}); 
+			}
 			editJs(75, [0, chatCmdText[1]]);
 			editJs(76, [0, "5"]);
 		}	
