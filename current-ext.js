@@ -946,7 +946,8 @@ var chatCmdLookup = {
 			];
 			let bgmString = "":
 			bgmArray.forEach(function(bgm) {
-				bgmString += bgm.split('/').last() + "\n";
+				let tempArray = bgm.split('/');
+				bgmString += tempArray[tempArray.length-1] + "\n";
 			});
 			alert(bgmString);
 		}
