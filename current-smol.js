@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/543964062355161128/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
+var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -196,7 +196,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/53c0cc8026b02b3470c7efd56955157687a9acc4/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/61a3690aa399919ed9fc7fc7df8aa5f71ba0952c/current-ext.js",
 		callback: true
 	},
 	'layout': {
