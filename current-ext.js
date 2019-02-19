@@ -945,9 +945,11 @@ var chatCmdLookup = {
 				bgm5url
 			];
 			let bgmString = "";
+			let count = 0;
 			bgmArray.forEach(function(bgm) {
+				count++;
 				let tempArray = bgm.split('/');
-				bgmString += tempArray[tempArray.length-1] + "\n";
+				bgmString += count + ": " + tempArray[tempArray.length-1] + "\n";
 			});
 			alert(bgmString);
 		}
