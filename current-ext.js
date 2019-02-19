@@ -944,7 +944,7 @@ var chatCmdLookup = {
 				bgm4url,
 				bgm5url
 			];
-			let bgmString = "":
+			let bgmString = "";
 			bgmArray.forEach(function(bgm) {
 				let tempArray = bgm.split('/');
 				bgmString += tempArray[tempArray.length-1] + "\n";
