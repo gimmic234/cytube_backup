@@ -1134,6 +1134,9 @@ var chatCmdLookup = {
 				msg: "utsuimg" + utsuimg + "utsuimg"
 			});	
 		}
+	},
+	"!crabrave": function() {
+		imgEmote("//media.discordapp.net/attachments/501103378714329100/547226414785495081/f5a.gif");
 	}
 };
 
