@@ -7,15 +7,15 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 2,
-	day: 21,
-	hour: 0,
+	day: 24,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
-	month2: 2,
-	day2: 23,
+	month2: 3,
+	day2: 2,
 	hour2: 22,
 	minute2: 0,
 	second2: 0
@@ -28,8 +28,8 @@ var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
 var countdown_utc3 = {
 	year3: 2019,
-	month3: 2,
-	day3: 23,
+	month3: 3,
+	day3: 2,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -50,8 +50,8 @@ var chatImgOp = '.8';
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
-	month4: 2,
-	day4: 23,
+	month4: 3,
+	day4: 2,
 	hour4: 16,
 	minute4: 0,
 	second4: 0
@@ -72,15 +72,18 @@ var background_img_auto6 = 'http://cdn.discordapp.com/attachments/46638631976619
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var bgm2url = 'https://cdn.discordapp.com/attachments/515347492511023113/545077465383436298/raw.ogg';
 var bgm3url = 'https://cdn.discordapp.com/attachments/515347492511023113/547214014107877386/Girls_und_panzer_ost_Panzer_Vor.mp3';
-var bgm4url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
+var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
-var bgmSelect = '3';
+var bgmSelect = '1';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
 //function scrollChat() {}
 var event1Volume = .8;
 var utsuvolume = .4;
+var jokeurl = "https://cdn.discordapp.com/attachments/515347492511023113/549315202391474210/its_joke.mp3";
+var jokevolume = .8;
+var itsjokeimg = "//cdn.discordapp.com/attachments/501103378714329100/549317289405579275/flat550x550075f.u2.jpg";
 var nyanpasuurl = "https://cdn.discordapp.com/attachments/501103378714329100/541702107305082893/nyanpasu.mp3";
 var nyanpasuvolume = .8;
 var nyanpasuimg = "//media.discordapp.net/attachments/501103378714329100/541701798994509883/Nyanpasu.png";
@@ -196,7 +199,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/aab76d4e8d34f4b6390a7e411b23609eb5191c9f/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/25c2ad25c45178d0597126f2c3136e0004402ea6/current-ext.js",
 		callback: true
 	},
 	'layout': {
