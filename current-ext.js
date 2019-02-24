@@ -1011,7 +1011,7 @@ var chatCmdLookup = {
 	},
 	"/playbgm1": function(chatCmdText) {
 		if (rankAdmin) {
-			editJs(67, [0, chatCmdText[1]]);
+			editJs(67, [0, "true"]);
 			if (bgmSelect != "1") {
 				$('audio').each(function(){
 				    this.pause(); 
@@ -1023,7 +1023,7 @@ var chatCmdLookup = {
 	},
 	"/playbgm2": function(chatCmdText) {
 		if (rankAdmin) {
-			editJs(67, [0, chatCmdText[1]]);
+			editJs(67, [0, "true"]);
 			if (bgmSelect != "2") {
 				$('audio').each(function(){
 				    this.pause(); 
@@ -1035,7 +1035,7 @@ var chatCmdLookup = {
 	},
 	"/playbgm3": function(chatCmdText) {
 		if (rankAdmin) {
-			editJs(67, [0, chatCmdText[1]]);
+			editJs(67, [0, "true"]);
 			if (bgmSelect != "3") {
 				$('audio').each(function(){
 				    this.pause(); 
@@ -1047,7 +1047,7 @@ var chatCmdLookup = {
 	},
 	"/playbgm4": function(chatCmdText) {
 		if (rankAdmin) {
-			editJs(67, [0, chatCmdText[1]]);
+			editJs(67, [0, "true"]);
 			if (bgmSelect != "4") {
 				$('audio').each(function(){
 				    this.pause(); 
@@ -1059,15 +1059,20 @@ var chatCmdLookup = {
 	},
 	"/playbgm5": function(chatCmdText) {
 		if (rankAdmin) {
+			editJs(67, [0, "true"]);
 			if (bgmSelect != "5") {
 				$('audio').each(function(){
 				    this.pause(); 
 				    this.currentTime = 0;
 				}); 
 			}
-			editJs(75, [0, chatCmdText[1]]);
 			editJs(76, [0, "5"]);
 		}	
+	},
+	"/bgmoff": function() {
+		if (rankAdmin) {
+			editJs(67, [0, "false"]);
+		}
 	},
 	"/bgmauto": function(chatCmdText) {
 		if (rankAdmin) {

@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/543964062355161128/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/545393608178532352/GUP_wall.png';
+var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 2,
-	day: 24,
-	hour: 20,
+	day: 28,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
@@ -199,7 +199,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/25c2ad25c45178d0597126f2c3136e0004402ea6/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/df9f825c3a46dc112ee9fa9cd183137ae425c972/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -229,7 +229,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/45d1969945ffd5f33c0b25721907a12617a210e9/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/df9f825c3a46dc112ee9fa9cd183137ae425c972/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
@@ -277,6 +277,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".utsu:not( .parsed )").addClass('parsed');
 				buff.find(".utsunot:not( .parsed )").addClass('parsed');
 				buff.find(".nyanpasu:not( .parsed )").addClass('parsed');
+				buff.find(".joke:not( .parsed )").addClass('parsed');
 				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
