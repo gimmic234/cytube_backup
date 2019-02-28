@@ -162,6 +162,11 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: jokeurl,
 		emote: true,
 		squee: true
+	},
+	rewind: {
+		url: rewindurl,
+		emote: true,
+		squee: true
 	}
 };
 
@@ -222,6 +227,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.joke = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.rewind = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
@@ -240,7 +248,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	utsu: "Utsutsu",
 	utsunot: "Utsunot",
 	nyanpasu: "Nyanpasu",
-	joke: "Joke"
+	joke: "Joke",
+	rewind: "Rewind"
 };
 
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -599,6 +608,16 @@ window[CHANNEL.name].audioNotice.handler = {
 		audioplay.volume = window[CHANNEL.name].audioNotice.utsu.volume;
 		audioplay.play();
 	},
+	rewind: function(data) {
+		let rewind = $(".rewind:not( .parsed )");
+		if (!rewind.length) return;
+		rewind.addClass("parsed");
+		if (!window[CHANNEL.name].audioNotice.rewind.toggleState) return;
+		if (!(noiseActive == "true")) return;
+		let audioplay = window[CHANNEL.name].audioNotice.rewind.audio[0].cloneNode(true);
+		audioplay.volume = window[CHANNEL.name].audioNotice.rewind.volume;
+		audioplay.play();
+	},
 	nyanpasu: function(data) {
 		let nyanpasu = $(".nyanpasu:not( .parsed )");
 		if (!nyanpasu.length) return;
@@ -812,6 +831,10 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["joke"].id = "joke";
 	window[CHANNEL.name].audioNotice["joke"].volume = jokevolume;
 
+	window[CHANNEL.name].audioNotice["rewind"].toggleState = true;
+	window[CHANNEL.name].audioNotice["rewind"].id = "rewind";
+	window[CHANNEL.name].audioNotice["rewind"].volume = rewindvolume;
+
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -828,7 +851,8 @@ window[CHANNEL.name].audioNotice.handler = {
 			utsu: utsuurl,
 			utsunot: utsunoturl,
 			nyanpasu: nyanpasuurl,
-			joke: jokeurl
+			joke: jokeurl,
+			rewind: rewindurl
 		}
 	}
 
@@ -842,6 +866,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["utsunot"](data);
 		window[CHANNEL.name].audioNotice.handler["nyanpasu"](data);
 		window[CHANNEL.name].audioNotice.handler["joke"](data);
+		window[CHANNEL.name].audioNotice.handler["rewind"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
 	});

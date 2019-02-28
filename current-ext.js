@@ -1147,6 +1147,11 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: "itsjokeimg" + itsjokeimg + "itsjokeimg"
 		});	
+	},
+	"!rewind": function() {
+		window.socket.emit("chatMsg", {
+			msg: "rewindtimeimg" + rewindimg + "rewindtimeimg"
+		});		
 	}
 };
 

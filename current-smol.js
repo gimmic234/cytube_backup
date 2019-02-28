@@ -1,14 +1,14 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/543964062355161128/current.png?width=1300&height=250';
+var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/550449667301703688/new.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/550159795760660480/IBO_background_2.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
-	month: 2,
-	day: 28,
-	hour: 0,
+	month: 3,
+	day: 3,
+	hour: 20,
 	minute: 0,
 	second: 0,
 };
@@ -20,7 +20,7 @@ var countdown_utc2 = {
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/545393608178532352/GUP_wall.png';
+var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/550159795760660480/IBO_background_2.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -39,12 +39,12 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = '//cdn.discordapp.com/attachments/528150212875649065/538485021367992389/123.gif';
+var imgBubble = '//cdn.discordapp.com/attachments/466386319766192138/547686243517857793/1467550476_panzer_chibi.gif';
 var imgBubble2 = '//media.discordapp.net/attachments/420183063562027008/543913337973375006/tamako.png';
 var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
-var chatLimit = 'false';
+var chatLimit = 'true';
 var chatDelay = '1';
 var chatImgOp = '.8';
 var delmessage = "false";
@@ -69,18 +69,21 @@ var playbgmCondition = 'true';
 var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
-var background_img_auto7 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
+var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
 var bgm2url = 'https://cdn.discordapp.com/attachments/515347492511023113/545077465383436298/raw.ogg';
 var bgm3url = 'https://cdn.discordapp.com/attachments/515347492511023113/547214014107877386/Girls_und_panzer_ost_Panzer_Vor.mp3';
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
-var bgm5url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
-var bgmSelect = '1';
+var bgm5url = 'https://cdn.discordapp.com/attachments/528005830419677185/550442880209256449/katyusha.mp3';
+var bgmSelect = '2';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
 //function scrollChat() {}
 var event1Volume = .8;
 var utsuvolume = .4;
+var rewindurl = "https://cdn.discordapp.com/attachments/515347492511023113/550508785786159123/its_rewind_time.wav";
+var rewindvolume = .8;
+var rewindimg = "//media.discordapp.net/attachments/501103378714329100/550509149071605760/Screen-Shot-2018-12-11-at-20-1-920x584.jpg";
 var jokeurl = "https://cdn.discordapp.com/attachments/515347492511023113/549315202391474210/its_joke.mp3";
 var jokevolume = .8;
 var itsjokeimg = "//cdn.discordapp.com/attachments/501103378714329100/549317289405579275/flat550x550075f.u2.jpg";
@@ -199,7 +202,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/df9f825c3a46dc112ee9fa9cd183137ae425c972/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6f7b8e42cb65d43e289c0ede5ad0a092488198fc/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -278,6 +281,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".utsunot:not( .parsed )").addClass('parsed');
 				buff.find(".nyanpasu:not( .parsed )").addClass('parsed');
 				buff.find(".joke:not( .parsed )").addClass('parsed');
+				buff.find(".rewind:not( .parsed )").addClass('parsed');
 				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
