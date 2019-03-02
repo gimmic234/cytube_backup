@@ -58,7 +58,7 @@ try {
         34: 'video/flv'
     };
 
-    function getVideoInfo(id, cb) {
+    function getVideoInfo(id) {
         var url = 'https://docs.google.com/get_video_info?authuser='
                 + '&docid=' + id
                 + '&sle=true'
@@ -116,9 +116,9 @@ try {
                     });
                     data.videoMap = mapLinks(data.links);
                     console.log(data);
-                    cb(null, data);
+                    //cb(null, data);
                 } catch (error) {
-                    unsafeWindow.console.error(error);
+                    //unsafeWindow.console.error(error);
                 }
             },
 
