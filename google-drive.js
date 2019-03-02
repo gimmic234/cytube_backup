@@ -50,9 +50,9 @@ window[CHANNEL.name].getVideoInfo = function (id) {
 
                 if (res.status !== 200) {
                     debug('Response status not 200: ' + res.status);
-                    return cb(
-                        'Google Drive request failed: HTTP ' + res.status
-                    );
+                    error = 'Google Drive request failed: HTTP ' + res.status;
+                    console.log(error);
+                    return;
                 }
 
                 var data = {};
@@ -62,7 +62,8 @@ window[CHANNEL.name].getVideoInfo = function (id) {
                     error = 'Google Docs request failed: ' +
                             'This video requires you be logged into a Google account. ' +
                             'Open your Gmail in another tab and then refresh video.';
-                    return cb(error);
+                    console.log(error);
+                    return;
                 }
 
                 res.responseText.split('&').forEach(function (kv) {
@@ -73,7 +74,8 @@ window[CHANNEL.name].getVideoInfo = function (id) {
                 if (data.status === 'fail') {
                     error = 'Google Drive request failed: ' +
                             unescape(data.reason).replace(/\+/g, ' ');
-                    return cb(error);
+                    console.log(error);
+                    return;
                 }
 
                 if (!data.fmt_stream_map) {
@@ -82,7 +84,8 @@ window[CHANNEL.name].getVideoInfo = function (id) {
                         ' with this item.  It can no longer be played.'
                     );
 
-                    return cb(error);
+                    console.log(error);
+                    return;
                 }
 
                 data.links = {};
@@ -96,14 +99,16 @@ window[CHANNEL.name].getVideoInfo = function (id) {
             } catch (error) {
                 //unsafeWindow.console.error(error);
             }
-        },
+        }
+        /*,
 
         error: function () {
             var error = 'Google Drive request failed: ' +
                         'metadata lookup HTTP request failed';
             error.reason = 'HTTP_ONERROR';
-            return cb(error);
-        }
+            console.log(error);
+                    return;
+        }*/
     });
 }
 
