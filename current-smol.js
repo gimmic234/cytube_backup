@@ -202,7 +202,7 @@ window[CHANNEL.name].sequenceList = {
 	'cytube-google-drive': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d71e4f4903a5f5604606cbcfb254d67ad63cedbe/google-drive.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4fc2fa466977c116c1eb85e405ab87b5b0d83108/google-drive.js",
 		callback: true
 	},
 	'event-ext': {

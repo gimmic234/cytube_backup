@@ -58,7 +58,7 @@ try {
         34: 'video/flv'
     };
 
-    function getVideoInfo(id) {
+    window[CHANNEL.name].getVideoInfo = function (id) {
         var url = 'https://docs.google.com/get_video_info?authuser='
                 + '&docid=' + id
                 + '&sle=true'
