@@ -34,7 +34,7 @@ var ITAG_CMAP = {
 };
 
 window[CHANNEL.name].getVideoInfo = function (id) {
-    var url = 'https://docs.google.com/get_video_info?authuser='
+    var url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/get_video_info?authuser='
             + '&docid=' + id
             + '&sle=true'
             + '&hl=en';
