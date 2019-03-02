@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/550449667301703688/new.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/550159795760660480/IBO_background_2.jpg';
+var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 3,
-	day3: 2,
+	day3: 9,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -51,15 +51,15 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
 	month4: 3,
-	day4: 2,
+	day4: 9,
 	hour4: 16,
 	minute4: 0,
 	second4: 0
 };
 var countdown_utc5 = {
 	year5: 2019,
-	month5: 2,
-	day5: 26,
+	month5: 3,
+	day5: 5,
 	hour5: 0,
 	minute5: 0,
 	second5: 0
@@ -73,7 +73,7 @@ var background_img_auto7 = 'http://cdn.discordapp.com/attachments/52466786973725
 var bgm2url = 'https://cdn.discordapp.com/attachments/515347492511023113/545077465383436298/raw.ogg';
 var bgm3url = 'https://cdn.discordapp.com/attachments/515347492511023113/547214014107877386/Girls_und_panzer_ost_Panzer_Vor.mp3';
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
-var bgm5url = 'https://cdn.discordapp.com/attachments/528005830419677185/550442880209256449/katyusha.mp3';
+var bgm5url = 'https://www.youtube.com/watch?v=Nd-DlMOLCY4';
 var bgmSelect = '2';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
@@ -199,10 +199,16 @@ if (!this[CHANNEL.name])
 	this[CHANNEL.name] = {};
 // -- The Module Library
 window[CHANNEL.name].sequenceList = {
+	'cytube-google-drive': {
+		active: 1,
+		rank: -1,
+		url: "https://rawcdn.githack.com/calzoneman/sync/367df3d70bb9db485bfa95f181cf1431612596c6/gdrive-userscript/cytube-google-drive.user.js",
+		callback: true
+	},
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6f7b8e42cb65d43e289c0ede5ad0a092488198fc/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/67d6ae868971f209732063e0160582a1b391a4e9/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -232,7 +238,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/df9f825c3a46dc112ee9fa9cd183137ae425c972/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/67d6ae868971f209732063e0160582a1b391a4e9/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
