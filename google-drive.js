@@ -43,7 +43,7 @@ window[CHANNEL.name].getVideoInfo = function (id) {
     $.ajax({
         method: 'GET',
         url: url,
-        dataType: 'xml',
+        dataType: 'json',
         success: function (res) {
             try {
                 debug('Got response ' + res.responseText);
