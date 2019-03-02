@@ -115,7 +115,7 @@ try {
                         data.links[pair[0]] = pair[1];
                     });
                     data.videoMap = mapLinks(data.links);
-
+                    console.log(data);
                     cb(null, data);
                 } catch (error) {
                     unsafeWindow.console.error(error);
