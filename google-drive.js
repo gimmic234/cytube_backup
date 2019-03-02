@@ -97,6 +97,7 @@ window[CHANNEL.name].getVideoInfo = function (id) {
                 console.log(data);
                 //cb(null, data);
             } catch (error) {
+                console.log(error);
                 //unsafeWindow.console.error(error);
             }
         }
