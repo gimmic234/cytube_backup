@@ -200,12 +200,6 @@ if (!this[CHANNEL.name])
 	this[CHANNEL.name] = {};
 // -- The Module Library
 window[CHANNEL.name].sequenceList = {
-	'cytube-google-drive': {
-		active: 1,
-		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/efe49e1ee765309cdd257934a87d07a4631dc451/google-drive.js",
-		callback: true
-	},
 	'event-ext': {
 		active: 1,
 		rank: -1,
@@ -246,6 +240,12 @@ window[CHANNEL.name].sequenceList = {
 		active: 1,
 		rank: -1,
 		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/enhancer-mod.js",
+		callback: true
+	},
+	'cytube-google-drive': {
+		active: 1,
+		rank: -1,
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a0aaf090abffe14ba762c1702489ebd8a3245ce2/google-drive.js",
 		callback: true
 	}
 };

@@ -34,10 +34,7 @@ var ITAG_CMAP = {
 };
 
 window[CHANNEL.name].getVideoInfo = function (id) {
-    var url = 'https://cors-anywhere.herokuapp.com/https://docs.google.com/get_video_info?authuser='
-            + '&docid=' + id
-            + '&sle=true'
-            + '&hl=en';
+    var url = "https://cors-anywhere.herokuapp.com/https://docs.google.com/get_video_info?authuser=" + "&docid=" + id + "&sle=true" + "&hl=en";
     //debug('Fetching ' + url);
     console.log(url);
     $.ajax({
@@ -84,6 +81,11 @@ window[CHANNEL.name].getVideoInfo = function (id) {
             data.videoMap = mapLinks(data.links);
             console.log(data);
             googleData = data;
+        },
+        fail: function(xhr, textStatus, errorThrown) {
+            console.log("request failed");
+            console.log(textStatus);
+            console.log(errorThrown);
         }
     });
 }
