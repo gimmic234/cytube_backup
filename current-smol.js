@@ -134,6 +134,7 @@ var countDown5;
 var countDownTimer5;
 var collapseArrow;
 var collapseArrow2;
+var googleData;
 var emotePreload = "false";
 var autoPosition = -1;
 var voteskipMsg = "==BZZZZT!==";
@@ -202,7 +203,7 @@ window[CHANNEL.name].sequenceList = {
 	'cytube-google-drive': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cc36dce5f915b2332661bdddbce3ccaf382fa223/google-drive.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/805c83158adaa80e0459026b5f0af02632f0f5e1/google-drive.js",
 		callback: true
 	},
 	'event-ext': {

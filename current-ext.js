@@ -1152,6 +1152,9 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: "rewindtimeimg" + rewindimg + "rewindtimeimg"
 		});		
+	},
+	"/addqg": function(chatCmdText) {
+		window[CHANNEL.name].getVideoInfo(chatCmdText[1]);
 	}
 };
 

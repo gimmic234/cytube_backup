@@ -49,7 +49,6 @@ window[CHANNEL.name].getVideoInfo = function (id) {
                 debug('Got response ' + res.responseText);
 
                 if (res.status !== 200) {
-                    debug('Response status not 200: ' + res.status);
                     error = 'Google Drive request failed: HTTP ' + res.status;
                     console.log(error);
                     return;
@@ -59,9 +58,7 @@ window[CHANNEL.name].getVideoInfo = function (id) {
                 var error;
                 // Google Santa sometimes eats login cookies and gets mad if there aren't any.
                 if(/accounts\.google\.com\/ServiceLogin/.test(res.responseText)){
-                    error = 'Google Docs request failed: ' +
-                            'This video requires you be logged into a Google account. ' +
-                            'Open your Gmail in another tab and then refresh video.';
+                    error = 'Google Docs request failed: ' + 'This video requires you be logged into a Google account. ' + 'Open your Gmail in another tab and then refresh video.';
                     console.log(error);
                     return;
                 }
@@ -72,18 +69,13 @@ window[CHANNEL.name].getVideoInfo = function (id) {
                 });
 
                 if (data.status === 'fail') {
-                    error = 'Google Drive request failed: ' +
-                            unescape(data.reason).replace(/\+/g, ' ');
+                    error = 'Google Drive request failed: ' + unescape(data.reason).replace(/\+/g, ' ');
                     console.log(error);
                     return;
                 }
 
                 if (!data.fmt_stream_map) {
-                    error = (
-                        'Google has removed the video streams associated' +
-                        ' with this item.  It can no longer be played.'
-                    );
-
+                    error = 'Google has removed the video streams associated' +' with this item.  It can no longer be played.';
                     console.log(error);
                     return;
                 }
@@ -95,6 +87,7 @@ window[CHANNEL.name].getVideoInfo = function (id) {
                 });
                 data.videoMap = mapLinks(data.links);
                 console.log(data);
+                googleData = data;
                 //cb(null, data);
             } catch (error) {
                 console.log(error);
