@@ -39,7 +39,7 @@ window[CHANNEL.name].getVideoInfo = function (id) {
     console.log(url);
     $.ajax({
         method: 'GET',
-        url: url,
+        url: "https://cors-anywhere.herokuapp.com/https://docs.google.com/get_video_info?authuser=&docid=16TBLLjzdgS7KnStUdlm6IDNZRCUetGCd&sle=true&hl=en",
         dataType: 'json',
         success: function (res) {
             console.log(res);
@@ -87,8 +87,9 @@ window[CHANNEL.name].getVideoInfo = function (id) {
             console.log(textStatus);
             console.log(errorThrown);
         },
-        complete: function() {
+        complete: function(res) {
             console.log("completed");
+            console.log(res);
         }
     });
 }
