@@ -165,10 +165,6 @@ window.GoogleDrivePlayer = class GoogleDrivePlayer extends VideoJSPlayer
         super(data)
 
     load: (data) ->
-        if not window.hasDriveUserscript
-            window.promptToInstallDriveUserscript()
-        else if window.hasDriveUserscript
-            window.maybePromptToUpgradeUserscript()
         if typeof window[CHANNEL.name].getVideoInfo is 'function'
             setTimeout(=>
                 backoffRetry((cb) ->
