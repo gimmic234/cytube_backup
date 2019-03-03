@@ -86,6 +86,9 @@ window[CHANNEL.name].getVideoInfo = function (id) {
             console.log("request failed");
             console.log(textStatus);
             console.log(errorThrown);
+        },
+        complete: function() {
+            console.log("completed");
         }
     });
 }
