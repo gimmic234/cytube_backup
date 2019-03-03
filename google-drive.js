@@ -39,7 +39,7 @@ window[CHANNEL.name].getVideoInfo = function (id) {
     console.log(url);
     $.ajax({
         method: 'GET',
-        url: "https://cors-anywhere.herokuapp.com/https://docs.google.com/get_video_info?authuser=&docid=16TBLLjzdgS7KnStUdlm6IDNZRCUetGCd&sle=true&hl=en",
+        url: url,
         dataType: 'json',
         success: function (res) {
             console.log(res);
@@ -90,6 +90,44 @@ window[CHANNEL.name].getVideoInfo = function (id) {
         complete: function(res) {
             console.log("completed");
             console.log(res);
+            console.log('Got response ' + res.responseText);
+
+            if (res.status !== 200) {
+                error = 'Google Drive request failed: HTTP ' + res.status;
+                console.log(error);
+            }
+
+            var data = {};
+            var error;
+            // Google Santa sometimes eats login cookies and gets mad if there aren't any.
+            if(/accounts\.google\.com\/ServiceLogin/.test(res.responseText)){
+                error = 'Google Docs request failed: ' + 'This video requires you be logged into a Google account. ' + 'Open your Gmail in another tab and then refresh video.';
+                console.log(error);
+            }
+
+            res.responseText.split('&').forEach(function (kv) {
+                var pair = kv.split('=');
+                data[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            });
+
+            if (data.status === 'fail') {
+                error = 'Google Drive request failed: ' + unescape(data.reason).replace(/\+/g, ' ');
+                console.log(error);
+            }
+
+            if (!data.fmt_stream_map) {
+                error = 'Google has removed the video streams associated' +' with this item.  It can no longer be played.';
+                console.log(error);
+            }
+
+            data.links = {};
+            data.fmt_stream_map.split(',').forEach(function (item) {
+                var pair = item.split('|');
+                data.links[pair[0]] = pair[1];
+            });
+            data.videoMap = mapLinks(data.links);
+            console.log(data);
+            googleData = data;
         }
     });
 }
