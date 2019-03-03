@@ -38,71 +38,53 @@ window[CHANNEL.name].getVideoInfo = function (id) {
             + '&docid=' + id
             + '&sle=true'
             + '&hl=en';
-    debug('Fetching ' + url);
-
+    //debug('Fetching ' + url);
+    console.log(url);
     $.ajax({
         method: 'GET',
         url: url,
         dataType: 'json',
         success: function (res) {
-            try {
-                debug('Got response ' + res.responseText);
+            console.log(res);
+            console.log('Got response ' + res.responseText);
 
-                if (res.status !== 200) {
-                    error = 'Google Drive request failed: HTTP ' + res.status;
-                    console.log(error);
-                    return;
-                }
-
-                var data = {};
-                var error;
-                // Google Santa sometimes eats login cookies and gets mad if there aren't any.
-                if(/accounts\.google\.com\/ServiceLogin/.test(res.responseText)){
-                    error = 'Google Docs request failed: ' + 'This video requires you be logged into a Google account. ' + 'Open your Gmail in another tab and then refresh video.';
-                    console.log(error);
-                    return;
-                }
-
-                res.responseText.split('&').forEach(function (kv) {
-                    var pair = kv.split('=');
-                    data[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-                });
-
-                if (data.status === 'fail') {
-                    error = 'Google Drive request failed: ' + unescape(data.reason).replace(/\+/g, ' ');
-                    console.log(error);
-                    return;
-                }
-
-                if (!data.fmt_stream_map) {
-                    error = 'Google has removed the video streams associated' +' with this item.  It can no longer be played.';
-                    console.log(error);
-                    return;
-                }
-
-                data.links = {};
-                data.fmt_stream_map.split(',').forEach(function (item) {
-                    var pair = item.split('|');
-                    data.links[pair[0]] = pair[1];
-                });
-                data.videoMap = mapLinks(data.links);
-                console.log(data);
-                googleData = data;
-                //cb(null, data);
-            } catch (error) {
+            if (res.status !== 200) {
+                error = 'Google Drive request failed: HTTP ' + res.status;
                 console.log(error);
-                //unsafeWindow.console.error(error);
             }
-        }
-        /*,
 
-        error: function () {
-            var error = 'Google Drive request failed: ' +
-                        'metadata lookup HTTP request failed';
-            error.reason = 'HTTP_ONERROR';
-            console.log(error);
-                    return;
-        }*/
+            var data = {};
+            var error;
+            // Google Santa sometimes eats login cookies and gets mad if there aren't any.
+            if(/accounts\.google\.com\/ServiceLogin/.test(res.responseText)){
+                error = 'Google Docs request failed: ' + 'This video requires you be logged into a Google account. ' + 'Open your Gmail in another tab and then refresh video.';
+                console.log(error);
+            }
+
+            res.responseText.split('&').forEach(function (kv) {
+                var pair = kv.split('=');
+                data[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            });
+
+            if (data.status === 'fail') {
+                error = 'Google Drive request failed: ' + unescape(data.reason).replace(/\+/g, ' ');
+                console.log(error);
+            }
+
+            if (!data.fmt_stream_map) {
+                error = 'Google has removed the video streams associated' +' with this item.  It can no longer be played.';
+                console.log(error);
+            }
+
+            data.links = {};
+            data.fmt_stream_map.split(',').forEach(function (item) {
+                var pair = item.split('|');
+                data.links[pair[0]] = pair[1];
+            });
+            data.videoMap = mapLinks(data.links);
+            console.log(data);
+            googleData = data;
+        }
     });
 }
 

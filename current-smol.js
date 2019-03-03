@@ -203,13 +203,13 @@ window[CHANNEL.name].sequenceList = {
 	'cytube-google-drive': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/805c83158adaa80e0459026b5f0af02632f0f5e1/google-drive.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/efe49e1ee765309cdd257934a87d07a4631dc451/google-drive.js",
 		callback: true
 	},
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/67d6ae868971f209732063e0160582a1b391a4e9/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/efe49e1ee765309cdd257934a87d07a4631dc451/current-ext.js",
 		callback: true
 	},
 	'layout': {
