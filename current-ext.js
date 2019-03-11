@@ -1153,6 +1153,21 @@ var chatCmdLookup = {
 			msg: "rewindtimeimg" + rewindimg + "rewindtimeimg"
 		});		
 	},
+	"!club": function() {
+		let clublist = [
+			"//media.discordapp.net/attachments/420183063562027008/554607523760570388/Club_Anniversary_Image.jpg",
+			"//media.discordapp.net/attachments/420183063562027008/550536585532276756/zbD1RND.jpg",
+			"//media.discordapp.net/attachments/420183063562027008/439766717065986049/TopGearAnimeClub.png",
+			"//media.discordapp.net/attachments/420183063562027008/463065926854639627/Screenshot_2018-07-01_14.29.24.png",
+			"//media.discordapp.net/attachments/420183063562027008/516349602945957898/4928942.png",
+			"//media.discordapp.net/attachments/420183063562027008/511236805475958785/bbwerwtwtwer.png",
+			"//media.discordapp.net/attachments/420183063562027008/507280654459994113/unknown.png",
+			"//media.discordapp.net/attachments/420183063562027008/462836619888558080/Anime_Club_at_its_current_state.png",
+			"//media.discordapp.net/attachments/420183063562027008/451551850433478656/2bbhq2.png"
+		];
+		var clubimg = clublist[Math.floor(Math.random() * clublist.length)];
+		imgEmote(clubimg);
+	},
 	"/addqg": function(chatCmdText) {
 		window[CHANNEL.name].getVideoInfo(chatCmdText[1]);
 	}

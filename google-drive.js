@@ -184,5 +184,4 @@ window.GoogleDrivePlayer = class GoogleDrivePlayer extends VideoJSPlayer
                     delay: 1000
                     factor: 1.2
                     jitter: 500
-                })
-, Math.random() * 1000)
+                }), Math.random() * 1000)

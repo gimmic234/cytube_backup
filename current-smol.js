@@ -1,21 +1,21 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/550449667301703688/new.png?width=1300&height=250';
-var href_url = "https://docs.google.com/spreadsheets/d/1C8yBViojH0E839tlS9kZLCRN99B-6UYh2hGKAB_QTAI/edit#gid=1605247657";
-var background_img = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
+var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
+var background_img = 'http://images.alphacoders.com/993/thumb-1920-993046.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 3,
-	day: 3,
-	hour: 20,
+	day: 10,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 3,
-	day2: 2,
+	day2: 9,
 	hour2: 22,
 	minute2: 0,
 	second2: 0
@@ -29,8 +29,8 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 3,
-	day3: 9,
-	hour3: 0,
+	day3: 22,
+	hour3: 23,
 	minute3: 0,
 	second3: 0
 };
@@ -59,22 +59,22 @@ var countdown_utc4 = {
 var countdown_utc5 = {
 	year5: 2019,
 	month5: 3,
-	day5: 5,
-	hour5: 0,
+	day5: 11,
+	hour5: 23,
 	minute5: 0,
 	second5: 0
 };
 var bgm1url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
-var playbgmCondition = 'true';
+var playbgmCondition = 'false';
 var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = 'https://cdn.discordapp.com/attachments/515347492511023113/545077465383436298/raw.ogg';
-var bgm3url = 'https://cdn.discordapp.com/attachments/515347492511023113/547214014107877386/Girls_und_panzer_ost_Panzer_Vor.mp3';
+var bgm2url = 'true';
+var bgm3url = 'true';
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
-var bgm5url = 'https://www.youtube.com/watch?v=Nd-DlMOLCY4';
-var bgmSelect = '2';
+var bgm5url = 'https://cdn.discordapp.com/attachments/515347492511023113/552285589987393566/Mobile_Suit_Gundam_Iron-Blooded_Orphans_ED1_-_Orphans_no_Namida_Fingerstyle_Guitar_Cover.mp3';
+var bgmSelect = '1';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -134,7 +134,6 @@ var countDown5;
 var countDownTimer5;
 var collapseArrow;
 var collapseArrow2;
-var googleData;
 var emotePreload = "false";
 var autoPosition = -1;
 var voteskipMsg = "==BZZZZT!==";
@@ -203,7 +202,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/efe49e1ee765309cdd257934a87d07a4631dc451/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/67d6ae868971f209732063e0160582a1b391a4e9/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -240,12 +239,6 @@ window[CHANNEL.name].sequenceList = {
 		active: 1,
 		rank: -1,
 		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/enhancer-mod.js",
-		callback: true
-	},
-	'cytube-google-drive': {
-		active: 1,
-		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1d69c69064d00adab44d70523cc85a20e066be0f/google-drive.js",
 		callback: true
 	}
 };
