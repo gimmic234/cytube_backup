@@ -167,6 +167,11 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: rewindurl,
 		emote: true,
 		squee: true
+	},
+	nipah: {
+		url: nipahurl,
+		emote: true,
+		squee: true	
 	}
 };
 
@@ -230,6 +235,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.rewind = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.nipah = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
@@ -249,7 +257,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	utsunot: "Utsunot",
 	nyanpasu: "Nyanpasu",
 	joke: "Joke",
-	rewind: "Rewind"
+	rewind: "Rewind",
+	nipah: "Nipah"
 };
 
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -618,6 +627,16 @@ window[CHANNEL.name].audioNotice.handler = {
 		audioplay.volume = window[CHANNEL.name].audioNotice.rewind.volume;
 		audioplay.play();
 	},
+	nipah: function(data) {
+		let nipah = $(".nipah:not( .parsed )");
+		if (!nipah.length) return;
+		nipah.addClass("parsed");
+		if (!window[CHANNEL.name].audioNotice.nipah.toggleState) return;
+		if (!(noiseActive == "true")) return;
+		let audioplay = window[CHANNEL.name].audioNotice.nipah.audio[0].cloneNode(true);
+		audioplay.volume = window[CHANNEL.name].audioNotice.nipah.volume;
+		audioplay.play();
+	},
 	nyanpasu: function(data) {
 		let nyanpasu = $(".nyanpasu:not( .parsed )");
 		if (!nyanpasu.length) return;
@@ -835,6 +854,10 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["rewind"].id = "rewind";
 	window[CHANNEL.name].audioNotice["rewind"].volume = rewindvolume;
 
+	window[CHANNEL.name].audioNotice["nipah"].toggleState = true;
+	window[CHANNEL.name].audioNotice["nipah"].id = "nipah";
+	window[CHANNEL.name].audioNotice["nipah"].volume = nipahvolume;
+
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -852,7 +875,8 @@ window[CHANNEL.name].audioNotice.handler = {
 			utsunot: utsunoturl,
 			nyanpasu: nyanpasuurl,
 			joke: jokeurl,
-			rewind: rewindurl
+			rewind: rewindurl,
+			nipah: nipahurl,
 		}
 	}
 
@@ -867,6 +891,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["nyanpasu"](data);
 		window[CHANNEL.name].audioNotice.handler["joke"](data);
 		window[CHANNEL.name].audioNotice.handler["rewind"](data);
+		window[CHANNEL.name].audioNotice.handler["nipah"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
 	});

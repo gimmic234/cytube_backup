@@ -1153,6 +1153,11 @@ var chatCmdLookup = {
 			msg: "rewindtimeimg" + rewindimg + "rewindtimeimg"
 		});		
 	},
+	"!nipah": function() {
+		window.socket.emit("chatMsg", {
+			msg: "nipahimg" + nipahimg + "nipahimg"
+		});		
+	},
 	"!club": function() {
 		let clublist = [
 			"//media.discordapp.net/attachments/420183063562027008/554607523760570388/Club_Anniversary_Image.jpg",

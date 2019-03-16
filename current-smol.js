@@ -2,25 +2,25 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/550449667301703688/new.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = 'http://images.alphacoders.com/993/thumb-1920-993046.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/554509882372390926/claymore_pape.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 3,
-	day: 10,
-	hour: 19,
+	day: 13,
+	hour: 23,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 3,
-	day2: 9,
-	hour2: 22,
+	day2: 16,
+	hour2: 21,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/550159795760660480/IBO_background_2.jpg';
+var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/554509882372390926/claymore_pape.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -40,19 +40,19 @@ var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289
 var updateCmd = 'false';
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//cdn.discordapp.com/attachments/466386319766192138/547686243517857793/1467550476_panzer_chibi.gif';
-var imgBubble2 = '//media.discordapp.net/attachments/420183063562027008/543913337973375006/tamako.png';
+var imgBubble2 = '//cdn.discordapp.com/attachments/428195862963814413/554417601418362900/PNG_Image_693_653_pixels.png';
 var chatImg = 'false';
 var img1show = 'false';
 var img1fixedshow = 'false';
-var chatLimit = 'true';
+var chatLimit = 'false';
 var chatDelay = '1';
 var chatImgOp = '.8';
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
 	month4: 3,
-	day4: 9,
-	hour4: 16,
+	day4: 16,
+	hour4: 15,
 	minute4: 0,
 	second4: 0
 };
@@ -65,7 +65,7 @@ var countdown_utc5 = {
 	second5: 0
 };
 var bgm1url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
-var playbgmCondition = 'false';
+var playbgmCondition = 'true';
 var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
@@ -74,7 +74,7 @@ var bgm2url = 'true';
 var bgm3url = 'true';
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = 'https://cdn.discordapp.com/attachments/515347492511023113/552285589987393566/Mobile_Suit_Gundam_Iron-Blooded_Orphans_ED1_-_Orphans_no_Namida_Fingerstyle_Guitar_Cover.mp3';
-var bgmSelect = '1';
+var bgmSelect = '5';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -84,6 +84,9 @@ var utsuvolume = .4;
 var rewindurl = "https://cdn.discordapp.com/attachments/515347492511023113/550508785786159123/its_rewind_time.wav";
 var rewindvolume = .8;
 var rewindimg = "//media.discordapp.net/attachments/501103378714329100/550509149071605760/Screen-Shot-2018-12-11-at-20-1-920x584.jpg";
+var nipahurl = "//cdn.discordapp.com/attachments/515347492511023113/556499252910489600/nipah.mp3";
+var nipahvolume = .8;
+var nipahimg = "//media.discordapp.net/attachments/501103378714329100/556499296090980392/nipah.JPG";
 var jokeurl = "https://cdn.discordapp.com/attachments/515347492511023113/549315202391474210/its_joke.mp3";
 var jokevolume = .8;
 var itsjokeimg = "//cdn.discordapp.com/attachments/501103378714329100/549317289405579275/flat550x550075f.u2.jpg";
@@ -202,7 +205,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/67d6ae868971f209732063e0160582a1b391a4e9/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0114de13a95a7e48a5c980e899c84e4589296790/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -282,7 +285,7 @@ window[CHANNEL.name].sequencerLoader = function() {
 				buff.find(".nyanpasu:not( .parsed )").addClass('parsed');
 				buff.find(".joke:not( .parsed )").addClass('parsed');
 				buff.find(".rewind:not( .parsed )").addClass('parsed');
-				/*buff.find(".survival:not( .parsed )").addClass('parsed');*/
+				buff.find(".nipah:not( .parsed )").addClass('parsed');
 				buff.find(".final:not( .parsed )").addClass('parsed');
 				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
 				window[CHANNEL.name].audioNotice.handler["stopEvent"]();
