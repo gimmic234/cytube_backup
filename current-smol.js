@@ -151,14 +151,6 @@ var bodyElem = document.body;
 var coinHead = "cointossHEADcointoss";
 var coinTail = "cointossTAILcointoss";
 
-window.scrollChat = function() {
-	if ((parseInt($('#messagebuffer').prop('scrollHeight')) - parseInt($('#messagebuffer').prop('scrollTop')) - parseInt($('#messagebuffer').height())) < 350 || parseInt($('#messagebuffer').prop('scrollHeight')) < 2500) { 
-		setTimeout(function() {
-				$('#messagebuffer').prop('scrollTop', $('#messagebuffer').prop('scrollHeight'));
-		}, 20);
-	}
-}
-
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -172,7 +164,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/71ed9f041b5e990194bb27ff3038323c20da2767/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b9c406321da7ffb3a691bb65c60c59fb32ca1518/current-ext.js",
 		callback: true
 	},
 	'layout': {

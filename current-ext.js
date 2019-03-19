@@ -1192,7 +1192,7 @@ var chatCmdLookup = {
 			curr_alist[chatCmdText[1]].push(chatCmdText[2]);
 		}
 		let curr_alist_string = JSON.stringify(curr_alist);
-		editJs(77, curr_alist_string);
+		editJs(77, [0, curr_alist_string]);
 	},
 };
 
@@ -1562,6 +1562,14 @@ function appendEmote(elem) {
 	chatlineElem.val("");
 	chatlineElem.val(text.substr(0, index + 1) + elem.attr('data-value') + " ");
 	chatlineElem.focus();
+}
+
+window.scrollChat = function() {
+	if ((parseInt($('#messagebuffer').prop('scrollHeight')) - parseInt($('#messagebuffer').prop('scrollTop')) - parseInt($('#messagebuffer').height())) < 350 || parseInt($('#messagebuffer').prop('scrollHeight')) < 2500) { 
+		setTimeout(function() {
+				$('#messagebuffer').prop('scrollTop', $('#messagebuffer').prop('scrollHeight'));
+		}, 20);
+	}
 }
 
 window.getTimeZone = function() {
