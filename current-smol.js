@@ -1,13 +1,13 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/550449667301703688/new.png?width=1300&height=250';
+var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/556581936064102411/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
 var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/554509882372390926/claymore_pape.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 3,
-	day: 13,
+	day: 20,
 	hour: 23,
 	minute: 0,
 	second: 0,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 3,
-	day2: 16,
+	day2: 23,
 	hour2: 21,
 	minute2: 0,
 	second2: 0
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
 	month4: 3,
-	day4: 16,
+	day4: 23,
 	hour4: 15,
 	minute4: 0,
 	second4: 0
@@ -70,11 +70,11 @@ var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = 'true';
-var bgm3url = 'true';
+var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/556217613852868629/Kaneda.mp3';
+var bgm3url = 'https://cdn.discordapp.com/attachments/528005830419677185/555047194726760458/Guardians_At_the_Gate_-_Audiomachine.mp3';
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = 'https://cdn.discordapp.com/attachments/515347492511023113/552285589987393566/Mobile_Suit_Gundam_Iron-Blooded_Orphans_ED1_-_Orphans_no_Namida_Fingerstyle_Guitar_Cover.mp3';
-var bgmSelect = '5';
+var bgmSelect = '3';
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -205,7 +205,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0114de13a95a7e48a5c980e899c84e4589296790/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e2c96ddaaea48d2b8e15f1a76d60e8ca9d419988/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -235,7 +235,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/67d6ae868971f209732063e0160582a1b391a4e9/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e2c96ddaaea48d2b8e15f1a76d60e8ca9d419988/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
