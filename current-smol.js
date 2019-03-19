@@ -149,7 +149,7 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var coinHead = "cointossHEADcointoss";
 var coinTail = "cointossTAILcointoss";
-
+console.log(localStorage);
 window.scrollChat = function() {
 	if ((parseInt($('#messagebuffer').prop('scrollHeight')) - parseInt($('#messagebuffer').prop('scrollTop')) - parseInt($('#messagebuffer').height())) < 350 || parseInt($('#messagebuffer').prop('scrollHeight')) < 2500) { 
 		setTimeout(function() {
@@ -436,4 +436,3 @@ if (updateCmd == "true") {
 }
 
 $(".navbar-brand").text("Anime Club");
-console.log($(this));

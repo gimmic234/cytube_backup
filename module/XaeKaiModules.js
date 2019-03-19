@@ -960,9 +960,6 @@ window[CHANNEL.name].audioNotice.handler = {
 	for (var i = 0; i < types.length; i++) {
 		var TYPE = types[i];
 		(function() {
-			console.log($(this));
-			console.log($(this).parent());
-			console.log($(this).parent().data());
 			var form = $("<form>").prop("action", "javascript:void(0)").addClass("form-horizontal");
 			var wrapper = $("<div>").addClass("form-group").prop("id", "AudioNoticeControls" + TYPE).appendTo(form);
 			window[CHANNEL.name].audioNotice.controls.append(form);

@@ -1179,13 +1179,10 @@ var chatCmdLookup = {
 		window[CHANNEL.name].getVideoInfo(chatCmdText[1]);
 	},
 	"/testsave": function() {
-		if (!window[CHANNEL.name].testSave) {
-			window[CHANNEL.name].testSave = {};
-			window[CHANNEL.name].testSave.ss = "yop";
-		}	
+		localStorage['test'] = "true";
 	},
 	"/testsave2": function() {
-		window[CHANNEL.name].testSave.ss = "yopuuu";
+		localStorage['test'] = "false";
 	}
 };
 
