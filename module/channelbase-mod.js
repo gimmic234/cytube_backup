@@ -397,7 +397,7 @@ name.appendTo(div);
 }
 
 if (!skip) {
-	var profileTextColor = findUserlistItem(data.username).data("profile").text;
+	var profileTextColor = localStorage['profile_color'];
 	if (profileTextColor.indexOf("#") == 0 && profileTextColor.length <= 10) {
 		$("<strong/>").addClass("username clr_" + data.username).text(data.username + ": ").css("color", profileTextColor).appendTo(name);
 	} else {
