@@ -1178,7 +1178,7 @@ var chatCmdLookup = {
 	"/addqg": function(chatCmdText) {
 		window[CHANNEL.name].getVideoInfo(chatCmdText[1]);
 	},
-	"/nameColor": function(chatCmdText) {
+	"/pcolor": function(chatCmdText) {
 		localStorage['profile_color'] = chatCmdText[1];
 	},
 	"/testsave": function() {

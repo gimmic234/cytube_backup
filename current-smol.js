@@ -149,7 +149,7 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var coinHead = "cointossHEADcointoss";
 var coinTail = "cointossTAILcointoss";
-console.log(localStorage);
+
 window.scrollChat = function() {
 	if ((parseInt($('#messagebuffer').prop('scrollHeight')) - parseInt($('#messagebuffer').prop('scrollTop')) - parseInt($('#messagebuffer').height())) < 350 || parseInt($('#messagebuffer').prop('scrollHeight')) < 2500) { 
 		setTimeout(function() {
@@ -205,7 +205,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a8cbc858bec10354578fd69bf28c2d28a1101254/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4401c8a1fa366df9ddf5d4596c838a46486b290a/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -229,7 +229,7 @@ window[CHANNEL.name].sequenceList = {
 	'channels': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/channels.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4401c8a1fa366df9ddf5d4596c838a46486b290a/module/channelbase-mod.js",
 		callback: true
 	},
 	'xaekai': {
