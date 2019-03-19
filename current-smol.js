@@ -158,40 +158,6 @@ window.scrollChat = function() {
 	}
 }
 
-function getTimeZone() {
-    return /\((.*)\)/.exec(new Date().toString())[1];
-}
-
-function countdowner(countdown, destination,index) {
-	if ($('#countdown'+index+':hidden').length > 0) {
-		$('#countdown'+index).show();
-	}
-	let now = new Date().getTime(),
-		distance = destination - now;
-	document.getElementById('days'+index).innerText = Math.floor(distance / (day)),
-		document.getElementById('hours'+index).innerText = Math.floor((distance % (day)) / (hour)),
-		document.getElementById('minutes'+index).innerText = Math.floor((distance % (hour)) / (minute)),
-		document.getElementById('seconds'+index).innerText = Math.floor((distance % (minute)) / second);
-
-	let totalSeconds = Math.floor(distance / second);
-
-	if (totalSeconds < 86400 && !countdown.classList.contains('countdownbaseActive')) {
-		$(countdown).removeClass('countdownbase');
-		$(countdown).addClass('countdownbaseActive');
-	}
-
-	if (totalSeconds > 86400 && countdown.classList.contains('countdownbaseActive')) {
-		$(countdown).removeClass('countdownbaseActive');
-		$(countdown).addClass('countdownbase');
-	}
-
-	if (distance < 0) {
-		clearInterval(eval("countDownTimer" + index));
-		$('#countdown' + index).hide();
-	}
-
-}
-
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -205,7 +171,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4401c8a1fa366df9ddf5d4596c838a46486b290a/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e2c96ddaaea48d2b8e15f1a76d60e8ca9d419988/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -229,7 +195,7 @@ window[CHANNEL.name].sequenceList = {
 	'channels': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4401c8a1fa366df9ddf5d4596c838a46486b290a/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/channels.js",
 		callback: true
 	},
 	'xaekai': {

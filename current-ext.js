@@ -1178,15 +1178,13 @@ var chatCmdLookup = {
 	"/addqg": function(chatCmdText) {
 		window[CHANNEL.name].getVideoInfo(chatCmdText[1]);
 	},
-	"/pcolor": function(chatCmdText) {
-		localStorage['profile_color'] = chatCmdText[1];
+	"/tag": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length == 3) {
+			window.socket.emit("chatMsg", {
+				msg: chatCmdText[1] + " gained the title addachievement" + chatCmdText[2] + "addachievement"
+			});				
+		}
 	},
-	"/testsave": function() {
-		localStorage['test'] = "true";
-	},
-	"/testsave2": function() {
-		localStorage['test'] = "false";
-	}
 };
 
 var emoteKeyLookup = {
@@ -1556,6 +1554,41 @@ function appendEmote(elem) {
 	chatlineElem.val(text.substr(0, index + 1) + elem.attr('data-value') + " ");
 	chatlineElem.focus();
 }
+
+window.getTimeZone = function() {
+    return /\((.*)\)/.exec(new Date().toString())[1];
+}
+
+window.countdowner = function(countdown, destination,index) {
+	if ($('#countdown'+index+':hidden').length > 0) {
+		$('#countdown'+index).show();
+	}
+	let now = new Date().getTime(),
+		distance = destination - now;
+	document.getElementById('days'+index).innerText = Math.floor(distance / (day)),
+		document.getElementById('hours'+index).innerText = Math.floor((distance % (day)) / (hour)),
+		document.getElementById('minutes'+index).innerText = Math.floor((distance % (hour)) / (minute)),
+		document.getElementById('seconds'+index).innerText = Math.floor((distance % (minute)) / second);
+
+	let totalSeconds = Math.floor(distance / second);
+
+	if (totalSeconds < 86400 && !countdown.classList.contains('countdownbaseActive')) {
+		$(countdown).removeClass('countdownbase');
+		$(countdown).addClass('countdownbaseActive');
+	}
+
+	if (totalSeconds > 86400 && countdown.classList.contains('countdownbaseActive')) {
+		$(countdown).removeClass('countdownbaseActive');
+		$(countdown).addClass('countdownbase');
+	}
+
+	if (distance < 0) {
+		clearInterval(eval("countDownTimer" + index));
+		$('#countdown' + index).hide();
+	}
+
+}
+
 
 function bindEventHandler() {
 	$(bodyElem).on('click', '.deleteMessageBtn', function() {
