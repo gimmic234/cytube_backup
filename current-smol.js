@@ -75,6 +75,7 @@ var bgm3url = 'https://cdn.discordapp.com/attachments/528005830419677185/5550471
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = 'https://cdn.discordapp.com/attachments/515347492511023113/552285589987393566/Mobile_Suit_Gundam_Iron-Blooded_Orphans_ED1_-_Orphans_no_Namida_Fingerstyle_Guitar_Cover.mp3';
 var bgmSelect = '3';
+var achievementList = "{}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -171,7 +172,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/5e91f83dda70c8843a878f4fd04b7cab8e4c02ee/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/71ed9f041b5e990194bb27ff3038323c20da2767/current-ext.js",
 		callback: true
 	},
 	'layout': {

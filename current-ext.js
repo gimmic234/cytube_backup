@@ -1184,6 +1184,15 @@ var chatCmdLookup = {
 				msg: chatCmdText[1] + " gained the title addachievement" + chatCmdText[2] + "addachievement"
 			});				
 		}
+		let curr_alist = JSON.parse(achievementList);
+		if (!curr_alist[chatCmdText[1]]) {
+			curr_alist[chatCmdText[1]] = [];
+			curr_alist[chatCmdText[1]].push(chatCmdText[2]);
+		} else {
+			curr_alist[chatCmdText[1]].push(chatCmdText[2]);
+		}
+		let curr_alist_string = JSON.stringify(curr_alist);
+		editJs(77, curr_alist_string);
 	},
 };
 
