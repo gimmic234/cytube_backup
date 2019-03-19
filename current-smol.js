@@ -205,7 +205,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e2c96ddaaea48d2b8e15f1a76d60e8ca9d419988/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/5f66328602ec12a0d377086f8264ec831721871a/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -436,3 +436,4 @@ if (updateCmd == "true") {
 }
 
 $(".navbar-brand").text("Anime Club");
+console.log($(this));
