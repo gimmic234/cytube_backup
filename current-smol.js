@@ -171,7 +171,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e2c96ddaaea48d2b8e15f1a76d60e8ca9d419988/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/5e91f83dda70c8843a878f4fd04b7cab8e4c02ee/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -358,23 +358,23 @@ window[CHANNEL.name].sequencerLoader = function() {
 
 			countDown = new Date(date_utc).getTime();
 			clearInterval(countDownTimer1);
-			countDownTimer1 = setInterval(function() {countdowner(countdown1, countDown, 1)}, second);
+			countDownTimer1 = setInterval(function() {window.countdowner(countdown1, countDown, 1)}, second);
 
 			countDown2 = new Date(date_utc2).getTime();
 			clearInterval(countDownTimer2);
-			countDownTimer2 = setInterval(function() {countdowner(countdown2, countDown2,  2)}, second);
+			countDownTimer2 = setInterval(function() {window.countdowner(countdown2, countDown2,  2)}, second);
 
 			countDown3 = new Date(date_utc3).getTime();
 			clearInterval(countDownTimer3);
-			countDownTimer3 = setInterval(function() {countdowner(countdown3, countDown3,  3)}, second);
+			countDownTimer3 = setInterval(function() {window.countdowner(countdown3, countDown3,  3)}, second);
 
 			countDown4 = new Date(date_utc4).getTime();
 			clearInterval(countDownTimer4);
-			countDownTimer4 = setInterval(function() {countdowner(countdown4, countDown4,  4)}, second);
+			countDownTimer4 = setInterval(function() {window.countdowner(countdown4, countDown4,  4)}, second);
 
 			countDown5 = new Date(date_utc5).getTime();
 			clearInterval(countDownTimer5);
-			countDownTimer5 = setInterval(function() {countdowner(countdown5, countDown5,  5)}, second);
+			countDownTimer5 = setInterval(function() {window.countdowner(countdown5, countDown5,  5)}, second);
 
 			$("#leader").removeClass("btn-default");
 			$("#Notif").removeClass("btn-default");

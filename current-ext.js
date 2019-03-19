@@ -1560,6 +1560,10 @@ window.getTimeZone = function() {
 }
 
 window.countdowner = function(countdown, destination,index) {
+	let second = 1000,
+	minute = second * 60,
+	hour = minute * 60,
+	day = hour * 24;
 	if ($('#countdown'+index+':hidden').length > 0) {
 		$('#countdown'+index).show();
 	}
