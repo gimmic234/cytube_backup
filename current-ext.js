@@ -2054,15 +2054,7 @@ function bindEventHandler() {
 					content += block;
 				});
 			}
-
-			$("#customSettingsStaging .customSettings").each(function() {
-				var panel = $("<div/>").addClass("panel panel-primary");
-				//var heading = $("<div/>").addClass("panel-heading").appendTo(panel);
-				var body = $("<div/>").addClass("panel-body").appendTo(panel);
-				panel.appendTo($("#achievementWrap"));
-				//heading.text($(this).data().title);
-				body.html(content);
-			})
+			$("#achievementWrap").html(content);
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#achievementModal").remove()
