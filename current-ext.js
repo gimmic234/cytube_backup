@@ -1185,15 +1185,43 @@ var chatCmdLookup = {
 			});				
 		}
 		let curr_alist = JSON.parse(achievementList);
-		if (!curr_alist[chatCmdText[1]]) {
-			curr_alist[chatCmdText[1]] = [];
-			curr_alist[chatCmdText[1]].push(chatCmdText[2]);
+		if (chatCmdText[1] == "all") {
+			let connectedUsers = $('#userlist').find('strong');
+			connectedUsers.each(function(userc) {
+				if (!curr_alist[userc.innerText]) {
+				curr_alist[userc.innerText] = [];
+					curr_alist[userc.innerText].push(chatCmdText[2]);
+				} else {
+					curr_alist[userc.innerText].push(chatCmdText[2]);
+				}	
+			});
 		} else {
-			curr_alist[chatCmdText[1]].push(chatCmdText[2]);
+			if (!curr_alist[chatCmdText[1]]) {
+				curr_alist[chatCmdText[1]] = [];
+				curr_alist[chatCmdText[1]].push(chatCmdText[2]);
+			} else {
+				curr_alist[chatCmdText[1]].push(chatCmdText[2]);
+			}
 		}
 		let curr_alist_string = JSON.stringify(curr_alist);
 		editJs(77, [0, curr_alist_string]);
 	},
+	"/untag": function(chatCmdText) {
+
+	},
+	"/taglist": function(chatCmdText) {
+		let curr_alist = JSON.parse(achievementList);
+		if (!curr_alist[chatCmdText[1]]) {
+			window.socket.emit("chatMsg", {
+				msg: "the user " + chatCmdText[1] + " has nothing!"
+			});		
+		} else {
+			let tagItems = curr_alist[chatCmdText[1]].join(',');
+			window.socket.emit("chatMsg", {
+				msg: "the list of tags for the user " + chatCmdText[1] + ": " + tagItems
+			});		
+		}
+	}
 };
 
 var emoteKeyLookup = {
