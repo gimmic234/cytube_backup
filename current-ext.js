@@ -1623,6 +1623,42 @@ function appendEmote(elem) {
 	chatlineElem.focus();
 }
 
+function createModal(data) {
+	var title = data.title || "Empty Modal";
+	var title_m = !!data.titleIsMarkup;
+	var wrap = $("<div/>").addClass("modal fade").attr("tabindex", "-1");
+	var dialog = $("<div/>").addClass("modal-dialog").appendTo(wrap);
+	var content = $("<div/>").addClass("modal-content").appendTo(dialog);
+	var head = $("<div/>").addClass("modal-header").appendTo(content);
+	var body = $("<div/>").addClass("modal-body").appendTo(content);
+	var foot = $("<div/>").addClass("modal-footer");
+	$("<button/>").addClass("close").attr("data-dismiss", "modal").attr("data-hidden", "true").html("&times;").appendTo(head);
+	$("<button/>").addClass("btn btn-default").attr("data-dismiss", "modal").prop("type", "button").html("Close").appendTo(foot);
+	if (title_m) {
+		$("<h4/>").addClass("modal-title").html(title).appendTo(head)
+	} else {
+		$("<h4/>").addClass("modal-title").text(title).appendTo(head)
+	}
+	if (data.wrap_id) {
+		wrap.prop("id", data.wrap_id)
+	}
+	if (data.body_id) {
+		body.prop("id", data.body_id)
+	}
+	if (data.footer) {
+		foot.appendTo(content)
+	}
+	if (data.destroy) {
+		wrap.on("hidden.bs.modal", function() {
+			wrap.remove()
+		})
+	}
+	if (data.attach) {
+		wrap.appendTo(data.attach)
+	}
+	return wrap
+}
+
 window.scrollChat = function() {
 	if ((parseInt($('#messagebuffer').prop('scrollHeight')) - parseInt($('#messagebuffer').prop('scrollTop')) - parseInt($('#messagebuffer').height())) < 350 || parseInt($('#messagebuffer').prop('scrollHeight')) < 2500) { 
 		setTimeout(function() {
@@ -1990,6 +2026,47 @@ function bindEventHandler() {
 	$(bodyElem).on('mouseover', '.lazy', function() {
 		$(this).attr('src', $(this).attr('data-src'));
 		$(this).removeClass('lazy');
+	});
+
+	$(bodyElem).on('click', '#medallist', function(e) {
+		createModal({
+			title: "achievements(?) for " + window.CLIENT.name,
+			wrap_id: "achievementModal",
+			body_id: "achievementWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let curr_alist = JSON.parse(achievementList);
+			let username = window.CLIENT.name;
+			if (!curr_alist[username]) {
+				window.socket.emit("chatMsg", {
+					msg: "\*" + username + "\* has nothing!"
+				});		
+			} else {
+				let userList = $.map(curr_alist[username], function(n, i) {
+					return n;
+				});
+
+				let content = '';
+				curr_alist[username].each(function(i, title) {
+					let block = "<div>";
+					block += title;
+					block += "</div>";
+					content += block;
+				});
+			}
+
+			$("#customSettingsStaging .customSettings").each(function() {
+				var panel = $("<div/>").addClass("panel panel-primary");
+				//var heading = $("<div/>").addClass("panel-heading").appendTo(panel);
+				var body = $("<div/>").addClass("panel-body").appendTo(panel);
+				panel.appendTo($("#achievementWrap"));
+				//heading.text($(this).data().title);
+				content.appendTo(body);
+			})
+		}).on("hidden.bs.modal", function(event) {
+			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			$("#achievementModal").remove()
+		}).insertAfter("#useroptions").modal()
 	});
 
 	window.socket.on('updateEmote', function() {
