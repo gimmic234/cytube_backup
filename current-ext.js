@@ -2061,7 +2061,7 @@ function bindEventHandler() {
 				var body = $("<div/>").addClass("panel-body").appendTo(panel);
 				panel.appendTo($("#achievementWrap"));
 				//heading.text($(this).data().title);
-				content.appendTo(body);
+				body.html(content);
 			})
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
