@@ -1193,7 +1193,7 @@ var chatCmdLookup = {
 					curr_alist[userc.innerText] = [];
 					curr_alist[userc.innerText].push(stringItem);
 				} else {
-					if (curr_alist[userc.innerText].includes(stringItem)) {
+					if (!curr_alist[userc.innerText].includes(stringItem)) {
 						curr_alist[userc.innerText].push(stringItem);
 					}
 				}	
@@ -1203,7 +1203,7 @@ var chatCmdLookup = {
 				curr_alist[chatCmdText[1]] = [];
 				curr_alist[chatCmdText[1]].push(stringItem);
 			} else {
-				if (curr_alist[chatCmdText[1]].includes(stringItem)) {
+				if (!curr_alist[chatCmdText[1]].includes(stringItem)) {
 					curr_alist[chatCmdText[1]].push(stringItem);
 				}
 			}
@@ -1213,7 +1213,7 @@ var chatCmdLookup = {
 		var textField = jsTextField.val();
 		var textFieldArray = textField.split("\n");
 		var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
-		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\'").trim() + "\";");
+		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";");
 		jsTextField.val(textField);
 		$(document.getElementById('cs-jssubmit')).click();
 	},
