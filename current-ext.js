@@ -2048,8 +2048,11 @@ function bindEventHandler() {
 
 				let content = '';
 				curr_alist[username].each(function(title,i) {
-					let block = "<div>";
-					block += title;
+					let block = "<div class='row'>";
+					block += "<div class='emote-preview-container'>";
+					block += "<img class='emote-preview' src='https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png'>";
+					block += "</div>";
+					block += "<b class='yellow'>"+ title + "</b>";
 					block += "</div>";
 					content += block;
 				});
