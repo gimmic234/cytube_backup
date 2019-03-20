@@ -2038,9 +2038,7 @@ function bindEventHandler() {
 			let curr_alist = JSON.parse(achievementList);
 			let username = window.CLIENT.name;
 			if (!curr_alist[username]) {
-				window.socket.emit("chatMsg", {
-					msg: "\*" + username + "\* has nothing!"
-				});		
+				$("#achievementWrap").html('');
 			} else {
 				let userList = $.map(curr_alist[username], function(n, i) {
 					return n;
@@ -2056,8 +2054,8 @@ function bindEventHandler() {
 					block += "</div>";
 					listcontent += block;
 				});
+				$("#achievementWrap").html(listcontent);
 			}
-			$("#achievementWrap").html(listcontent);
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#achievementModal").remove()
