@@ -1183,12 +1183,12 @@ var chatCmdLookup = {
 		let stringItem = chatCmdText.slice(2).join(' ');
 		if (rankAdmin && chatCmdText.length >= 3) {
 			window.socket.emit("chatMsg", {
-				msg: chatCmdText[1] + " gained the title addachievement" + stringItem + "addachievement"
+				msg: chatCmdText[1] + " gained addachievement" + stringItem + "addachievement"
 			});				
 		}
 		if (chatCmdText[1] == "all") {
 			let connectedUsers = $('#userlist').find('strong');
-			connectedUsers.each(function(userc) {
+			connectedUsers.each(function(index, userc) {
 				if (!curr_alist[userc.innerText]) {
 					curr_alist[userc.innerText] = [];
 					curr_alist[userc.innerText].push(stringItem.toString());
@@ -1223,9 +1223,9 @@ var chatCmdLookup = {
 				msg: "the user " + chatCmdText[1] + " has nothing!"
 			});		
 		} else {
-			let tagItems = curr_alist[chatCmdText[1]].join(',');
+			let tagItems = curr_alist[chatCmdText[1]].join(', ');
 			window.socket.emit("chatMsg", {
-				msg: "the list of tags for the user " + chatCmdText[1] + ": " + tagItems
+				msg: chatCmdText[1] + " has: " + tagItems
 			});		
 		}
 	}
