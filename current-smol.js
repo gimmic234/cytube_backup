@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/556581936064102411/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/554509882372390926/claymore_pape.jpg';
+var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/557714741527576588/pape.jpg';
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -20,7 +20,7 @@ var countdown_utc2 = {
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/554509882372390926/claymore_pape.jpg';
+var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/557714741527576588/pape.jpg';
 var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
@@ -164,7 +164,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d8933fbe4c8793b2c15014c59f573191884fc966/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6c2bf238496e8dc8cf92621d2eaa4da4a4a4708f/current-ext.js",
 		callback: true
 	},
 	'layout': {

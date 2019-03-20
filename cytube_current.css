@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: 827px;
-    left: -4px;
+    top: 841px;
+    left: 2px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -26,8 +26,8 @@
 }
 
 #imgBubble {
-    height: 108px;
-    width: 130px;
+    height: 146px;
+    width: 163px;
 }
 
 #discoimg {
@@ -36,8 +36,8 @@
 }
 
 #imgWrapFixed1 {
-    top: 286px;
-    left: 595px;
+    top: 48px;
+    left: 277px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -49,36 +49,36 @@
 }
 
 #imgBubble2 {
-    height: 200px;
-    width: 278px;
+    height: 702px;
+    width: 855px;
 }
 
 /**/
 #footer div.container {
-    background-color: rgba(0,0,0, .8) !important;
+    background-color: rgba(0,0,0, 0.75) !important;
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    background-color: rgba(0,0,0, .8) !important;
+    background-color: rgba(0,0,0, 0.75) !important;
 }
 
 #userlisttoggle, #emotelistbtn, #fullscreenbtn, #settings, #hidesettings {
-    background-color: rgba(0,0,0, 0.9) !important;
+    background-color: rgba(0,0,0, 0.85) !important;
 }
 
 #userlisttoggle:hover, #emotelistbtn:hover, #fullscreenbtn:hover, #settings:hover, #hidesettings:hover {
-    background-color: rgba(0,0,0, 0.9) !important;
+    background-color: rgba(0,0,0, 0.85) !important;
 }
 
 .section, .well, #controlsrow{
     background-color: rgba(null, 0.6) !important;
 }
 div#messagebuffer, div#userlist {
-    background-color: rgba(0,0,0, .8) !important;
+    background-color: rgba(0,0,0, 0.85) !important;
 }
 
 input#chatline {
-    background-color: rgba(null, 0.9) !important;
+    background-color: rgba(0,0,0, 0.7) !important;
 }
 /**/
 
@@ -321,4 +321,8 @@ div span {
 .deleteMessageBtn {
 padding: 2.5px 5px !important;
 font-size: 8px !important;
+}
+
+.yellow {
+    color: #FFFF33;   
 }
