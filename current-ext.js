@@ -1180,7 +1180,7 @@ var chatCmdLookup = {
 	},
 	"/tag": function(chatCmdText) {
 		let curr_alist = JSON.parse(achievementList);
-		let stringItem = chatCmdText.slice(2).join(' ');
+		let stringItem = chatCmdText.slice(2).join(' ').toString();
 		if (rankAdmin && chatCmdText.length >= 3) {
 			window.socket.emit("chatMsg", {
 				msg: "\*" + chatCmdText[1] + "\* gained addachievement" + stringItem + "addachievement"
@@ -1191,17 +1191,21 @@ var chatCmdLookup = {
 			connectedUsers.each(function(index, userc) {
 				if (!curr_alist[userc.innerText]) {
 					curr_alist[userc.innerText] = [];
-					curr_alist[userc.innerText].push(stringItem.toString());
+					curr_alist[userc.innerText].push(stringItem);
 				} else {
-					curr_alist[userc.innerText].push(stringItem.toString());
+					if (!$.inArray(curr_alist[userc.innerText], stringItem)) {
+						curr_alist[userc.innerText].push(stringItem);
+					}
 				}	
 			});
 		} else {
 			if (!curr_alist[chatCmdText[1]]) {
 				curr_alist[chatCmdText[1]] = [];
-				curr_alist[chatCmdText[1]].push(stringItem.toString());
+				curr_alist[chatCmdText[1]].push(stringItem);
 			} else {
-				curr_alist[chatCmdText[1]].push(stringItem.toString());
+				if (!$.inArray(curr_alist[chatCmdText[1]], stringItem)) {
+					curr_alist[chatCmdText[1]].push(stringItem);
+				}
 			}
 		}
 		let curr_alist_string = JSON.stringify(curr_alist);
@@ -1224,11 +1228,11 @@ var chatCmdLookup = {
 			});		
 		} else {
 			let userList = $.map(curr_alist[chatCmdText[1]], function(n, i) {
-				return "ye11" + n+"ye11";
+				return n;
 			});
 			let tagItems = userList.join(', ');
 			window.socket.emit("chatMsg", {
-				msg: "\*" + chatCmdText[1] + "\* has " + userList.length + " tags: " + tagItems
+				msg: "\*" + chatCmdText[1] + "\* has " + userList.length + " tags: ye11" + tagItems + "ye11"
 			});		
 		}
 	}
