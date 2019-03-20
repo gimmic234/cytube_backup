@@ -1189,18 +1189,18 @@ var chatCmdLookup = {
 			let connectedUsers = $('#userlist').find('strong');
 			connectedUsers.each(function(userc) {
 				if (!curr_alist[userc.innerText]) {
-				curr_alist[userc.innerText] = [];
-					curr_alist[userc.innerText].push(chatCmdText[2]);
+					curr_alist[userc.innerText] = [];
+					curr_alist[userc.innerText].push(JSON.stringify(chatCmdText[2]));
 				} else {
-					curr_alist[userc.innerText].push(chatCmdText[2]);
+					curr_alist[userc.innerText].push(JSON.stringify(chatCmdText[2]));
 				}	
 			});
 		} else {
 			if (!curr_alist[chatCmdText[1]]) {
 				curr_alist[chatCmdText[1]] = [];
-				curr_alist[chatCmdText[1]].push(chatCmdText[2]);
+				curr_alist[chatCmdText[1]].push(JSON.stringify(chatCmdText[2]));
 			} else {
-				curr_alist[chatCmdText[1]].push(chatCmdText[2]);
+				curr_alist[chatCmdText[1]].push(JSON.stringify(chatCmdText[2]));
 			}
 		}
 		let curr_alist_string = JSON.stringify(curr_alist);
