@@ -2030,7 +2030,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#medallist', function(e) {
 		createModal({
-			title: "achievements(?) for " + window.CLIENT.name,
+			title: window.CLIENT.name + "'s achievement",
 			wrap_id: "achievementModal",
 			body_id: "achievementWrap",
 			footer: true
@@ -2046,7 +2046,7 @@ function bindEventHandler() {
 					return n;
 				});
 
-				let content = '';
+				let listcontent = '';
 				curr_alist[username].each(function(title,i) {
 					let block = "<div class='row'>";
 					block += "<div class='emote-preview-container'>";
@@ -2054,10 +2054,10 @@ function bindEventHandler() {
 					block += "</div>";
 					block += "<b class='yellow'>"+ title + "</b>";
 					block += "</div>";
-					content += block;
+					listcontent += block;
 				});
 			}
-			$("#achievementWrap").html(content);
+			$("#achievementWrap").html(listcontent);
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#achievementModal").remove()
