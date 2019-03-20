@@ -1220,19 +1220,36 @@ var chatCmdLookup = {
 	"/untag": function(chatCmdText) {
 
 	},
-	"/taglist": function(chatCmdText) {
+	"/tagme": function() {
 		let curr_alist = JSON.parse(achievementList);
-		if (!curr_alist[chatCmdText[1]]) {
+		let username = window.CLIENT.name;
+		if (!curr_alist[username]) {
 			window.socket.emit("chatMsg", {
-				msg: "\*" + chatCmdText[1] + "\* has nothing!"
+				msg: "\*" + username + "\* has nothing!"
 			});		
 		} else {
-			let userList = $.map(curr_alist[chatCmdText[1]], function(n, i) {
+			let userList = $.map(curr_alist[username], function(n, i) {
 				return n;
 			});
 			let tagItems = userList.join(', ');
 			window.socket.emit("chatMsg", {
-				msg: "\*" + chatCmdText[1] + "\* has " + userList.length + " tags: ye11" + tagItems + "ye11"
+				msg: "\*" + username + "\* has " + userList.length + " tags: ye11" + tagItems + "ye11"
+			});		
+		}
+	},
+	"/taglist": function(chatCmdText) {
+		let curr_alist = JSON.parse(achievementList);
+		if (!curr_alist[username]) {
+			window.socket.emit("chatMsg", {
+				msg: "\*" + chatCmdText[1] + "\* has nothing!"
+			});		
+		} else {
+			let userList = $.map(curr_alist[username], function(n, i) {
+				return n;
+			});
+			let tagItems = userList.join(', ');
+			window.socket.emit("chatMsg", {
+				msg: "\*" + username + "\* has " + userList.length + " tags: ye11" + tagItems + "ye11"
 			});		
 		}
 	}
@@ -1658,158 +1675,158 @@ window.loadInitializer = function() {
 	hour = minute * 60,
 	day = hour * 24;
 	if (!document.getElementById('export-btn')) {
-				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
-				bindEventHandler();
-				$(document.body).on('click', '.imgContainer', function() {
-					if ($(this).find('img').css('filter') != 'blur(0px)') {
-						$(this).find('img').css('filter', 'blur(0px)');
-						$(this).removeClass('imgContainer');
-						$(this).attr('title', '');
-						var elem = $(this).find('a');
-						setTimeout(function() {
-							elem.attr('href', elem.find('img').attr('src'));
-						}, 1000)
-					}
-				});
+		$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
+		bindEventHandler();
+		$(document.body).on('click', '.imgContainer', function() {
+			if ($(this).find('img').css('filter') != 'blur(0px)') {
+				$(this).find('img').css('filter', 'blur(0px)');
+				$(this).removeClass('imgContainer');
+				$(this).attr('title', '');
+				var elem = $(this).find('a');
+				setTimeout(function() {
+					elem.attr('href', elem.find('img').attr('src'));
+				}, 1000)
 			}
+		});
+	}
 
-			waitForEl('#messagebuffer', function() {
-				var buff = $('#messagebuffer');
-				window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
-				window[CHANNEL.name].chatNotice.handler["deleteButton"]();
-				buff.find(".gross:not( .parsed )").addClass('parsed');
-				buff.find(".utsu:not( .parsed )").addClass('parsed');
-				buff.find(".utsunot:not( .parsed )").addClass('parsed');
-				buff.find(".nyanpasu:not( .parsed )").addClass('parsed');
-				buff.find(".joke:not( .parsed )").addClass('parsed');
-				buff.find(".rewind:not( .parsed )").addClass('parsed');
-				buff.find(".nipah:not( .parsed )").addClass('parsed');
-				buff.find(".final:not( .parsed )").addClass('parsed');
-				window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
-				window[CHANNEL.name].audioNotice.handler["stopEvent"]();
-				buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
-				buff.find(".img1show:not( .parsed )").addClass('parsed');
-				buff.find(".img1hide:not( .parsed )").addClass('parsed');
-				buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
-				buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
-				if (chatImg != 'false') {
-					buff.css('background-image', "linear-gradient( rgba(0, 0, 0, "+chatImgOp+"), rgba(0, 0, 0, "+chatImgOp+") ), url('"+chatImg+"')");
-				} else {
-					buff.css('background-image', '');
-				}
-			});
+	waitForEl('#messagebuffer', function() {
+		var buff = $('#messagebuffer');
+		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
+		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
+		buff.find(".gross:not( .parsed )").addClass('parsed');
+		buff.find(".utsu:not( .parsed )").addClass('parsed');
+		buff.find(".utsunot:not( .parsed )").addClass('parsed');
+		buff.find(".nyanpasu:not( .parsed )").addClass('parsed');
+		buff.find(".joke:not( .parsed )").addClass('parsed');
+		buff.find(".rewind:not( .parsed )").addClass('parsed');
+		buff.find(".nipah:not( .parsed )").addClass('parsed');
+		buff.find(".final:not( .parsed )").addClass('parsed');
+		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
+		window[CHANNEL.name].audioNotice.handler["stopEvent"]();
+		buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
+		buff.find(".img1show:not( .parsed )").addClass('parsed');
+		buff.find(".img1hide:not( .parsed )").addClass('parsed');
+		buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
+		buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
+		if (chatImg != 'false') {
+			buff.css('background-image', "linear-gradient( rgba(0, 0, 0, "+chatImgOp+"), rgba(0, 0, 0, "+chatImgOp+") ), url('"+chatImg+"')");
+		} else {
+			buff.css('background-image', '');
+		}
+	});
 
-			waitForEl('#club_redirect', function() {
-				$('#club_redirect').attr('href', href_url);
-				collapseArrow = $(document.getElementById('collapseArrow'));
-				collapseArrow2 = $(document.getElementById('collapseArrow2'));
-			});
-			waitForEl('#club_banner', function() {
-				$('#club_banner').attr('src', banner_url);
-			});
+	waitForEl('#club_redirect', function() {
+		$('#club_redirect').attr('href', href_url);
+		collapseArrow = $(document.getElementById('collapseArrow'));
+		collapseArrow2 = $(document.getElementById('collapseArrow2'));
+	});
+	waitForEl('#club_banner', function() {
+		$('#club_banner').attr('src', banner_url);
+	});
 
-			waitForEl('#disco', function() {
-				let elem = $('#disco');
-				elem.find('img').attr("src", discoGif);
-			});
+	waitForEl('#disco', function() {
+		let elem = $('#disco');
+		elem.find('img').attr("src", discoGif);
+	});
 
-			waitForEl('#imgBubble', function() {
-				let elem = $('#imgBubble');
-				elem.attr("src", imgBubble);
-				if (img1show == "true") {
-					$('#imgWrap1').show();
-				} else {
-					$('#imgWrap1').hide();
-				}
-			});
+	waitForEl('#imgBubble', function() {
+		let elem = $('#imgBubble');
+		elem.attr("src", imgBubble);
+		if (img1show == "true") {
+			$('#imgWrap1').show();
+		} else {
+			$('#imgWrap1').hide();
+		}
+	});
 
-			waitForEl('#imgBubble2', function() {
-				let elem = $('#imgBubble2');
-				elem.attr("src", imgBubble2);
-				if (img1fixedshow == "true") {
-					$('#imgWrapFixed1').show();
-				} else {
-					$('#imgWrapFixed1').hide();
-				}
-			});
+	waitForEl('#imgBubble2', function() {
+		let elem = $('#imgBubble2');
+		elem.attr("src", imgBubble2);
+		if (img1fixedshow == "true") {
+			$('#imgWrapFixed1').show();
+		} else {
+			$('#imgWrapFixed1').hide();
+		}
+	});
 
-			waitForEl('#chatline', function() {
-				chatlineElem = $(document.getElementById('chatline'))
-				populateEmote();
-				chatlineElem.off('keydown');
-				chatlineElem.on('keydown', function(e) {
-					chatHandler(e);
-				});
-			});
+	waitForEl('#chatline', function() {
+		chatlineElem = $(document.getElementById('chatline'))
+		populateEmote();
+		chatlineElem.off('keydown');
+		chatlineElem.on('keydown', function(e) {
+			chatHandler(e);
+		});
+	});
 
-			waitForEl('#AudioNoticeEvent1', function() {
-				let currentBgm = eval("bgm" + bgmSelect + "url");
-				let currentBgmKey = "bgm" + bgmSelect + "play";
-				window[CHANNEL.name].audioNotice["survivalStrategy"].audio = $("<audio>").prop("id", "AudioNoticeEvent1").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["survivalStrategy"].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
-				window[CHANNEL.name].audioNotice["bgm1play"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice[currentBgmKey].volume).append($("<source>").attr("src", currentBgm).attr("type", "audio/ogg"));
-				let inPlay = false;
-				$('audio').each(function(){
-				    if (!this.paused) {
-			    		inPlay = true;
-				    }
-				});
-				if (!inPlay || playbgmCondition == "false") {
-					window[CHANNEL.name].audioFunction.playbgm1(playbgmCondition == "true");
-				}
-			});
+	waitForEl('#AudioNoticeEvent1', function() {
+		let currentBgm = eval("bgm" + bgmSelect + "url");
+		let currentBgmKey = "bgm" + bgmSelect + "play";
+		window[CHANNEL.name].audioNotice["survivalStrategy"].audio = $("<audio>").prop("id", "AudioNoticeEvent1").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["survivalStrategy"].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
+		window[CHANNEL.name].audioNotice["bgm1play"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice[currentBgmKey].volume).append($("<source>").attr("src", currentBgm).attr("type", "audio/ogg"));
+		let inPlay = false;
+		$('audio').each(function(){
+		    if (!this.paused) {
+	    		inPlay = true;
+		    }
+		});
+		if (!inPlay || playbgmCondition == "false") {
+			window[CHANNEL.name].audioFunction.playbgm1(playbgmCondition == "true");
+		}
+	});
 
-			waitForEl('span#plcount', function() {
-				queueList = $(document.getElementById('queue'));
-				videoDisplayToggle();
-				autoStartHandler();
-			});
+	waitForEl('span#plcount', function() {
+		queueList = $(document.getElementById('queue'));
+		videoDisplayToggle();
+		autoStartHandler();
+	});
 
-			waitForEl('#motd-mode', function() {
-				motdMode = $(document.getElementById('motd-mode'));
-			});
+	waitForEl('#motd-mode', function() {
+		motdMode = $(document.getElementById('motd-mode'));
+	});
 
-			waitForEl('#backg', function() {
-				if ($(document.getElementById('backg')).css('background-image') != "url(\"https:" + penguinBg + "\")") {
-					$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
-				}
-			});
+	waitForEl('#backg', function() {
+		if ($(document.getElementById('backg')).css('background-image') != "url(\"https:" + penguinBg + "\")") {
+			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
+		}
+	});
 
-			waitForEl('#countdown1', function() {
-				$('#timez').html(getTimeZone());
-				countdown1 = document.getElementById('countdown1');
-				$(document.getElementById('date1')).html(new Date(date_utc).toString().split('(')[0]);
-				countdown2 = document.getElementById('countdown2');
-				$(document.getElementById('date2')).html(new Date(date_utc2).toString().split('(')[0]);
-				countdown3 = document.getElementById('countdown3');
-				$(document.getElementById('date3')).html(new Date(date_utc3).toString().split('(')[0]);
-				countdown4 = document.getElementById('countdown4');
-				$(document.getElementById('date4')).html(new Date(date_utc4).toString().split('(')[0]);
-				countdown5 = document.getElementById('countdown5');
-				$(document.getElementById('date5')).html(new Date(date_utc5).toString().split('(')[0]);
-			});
+	waitForEl('#countdown1', function() {
+		$('#timez').html(getTimeZone());
+		countdown1 = document.getElementById('countdown1');
+		$(document.getElementById('date1')).html(new Date(date_utc).toString().split('(')[0]);
+		countdown2 = document.getElementById('countdown2');
+		$(document.getElementById('date2')).html(new Date(date_utc2).toString().split('(')[0]);
+		countdown3 = document.getElementById('countdown3');
+		$(document.getElementById('date3')).html(new Date(date_utc3).toString().split('(')[0]);
+		countdown4 = document.getElementById('countdown4');
+		$(document.getElementById('date4')).html(new Date(date_utc4).toString().split('(')[0]);
+		countdown5 = document.getElementById('countdown5');
+		$(document.getElementById('date5')).html(new Date(date_utc5).toString().split('(')[0]);
+	});
 
-			countDown = new Date(date_utc).getTime();
-			clearInterval(countDownTimer1);
-			countDownTimer1 = setInterval(function() {window.countdowner(countdown1, countDown, 1)}, second);
+	countDown = new Date(date_utc).getTime();
+	clearInterval(countDownTimer1);
+	countDownTimer1 = setInterval(function() {window.countdowner(countdown1, countDown, 1)}, second);
 
-			countDown2 = new Date(date_utc2).getTime();
-			clearInterval(countDownTimer2);
-			countDownTimer2 = setInterval(function() {window.countdowner(countdown2, countDown2,  2)}, second);
+	countDown2 = new Date(date_utc2).getTime();
+	clearInterval(countDownTimer2);
+	countDownTimer2 = setInterval(function() {window.countdowner(countdown2, countDown2,  2)}, second);
 
-			countDown3 = new Date(date_utc3).getTime();
-			clearInterval(countDownTimer3);
-			countDownTimer3 = setInterval(function() {window.countdowner(countdown3, countDown3,  3)}, second);
+	countDown3 = new Date(date_utc3).getTime();
+	clearInterval(countDownTimer3);
+	countDownTimer3 = setInterval(function() {window.countdowner(countdown3, countDown3,  3)}, second);
 
-			countDown4 = new Date(date_utc4).getTime();
-			clearInterval(countDownTimer4);
-			countDownTimer4 = setInterval(function() {window.countdowner(countdown4, countDown4,  4)}, second);
+	countDown4 = new Date(date_utc4).getTime();
+	clearInterval(countDownTimer4);
+	countDownTimer4 = setInterval(function() {window.countdowner(countdown4, countDown4,  4)}, second);
 
-			countDown5 = new Date(date_utc5).getTime();
-			clearInterval(countDownTimer5);
-			countDownTimer5 = setInterval(function() {window.countdowner(countdown5, countDown5,  5)}, second);
+	countDown5 = new Date(date_utc5).getTime();
+	clearInterval(countDownTimer5);
+	countDownTimer5 = setInterval(function() {window.countdowner(countdown5, countDown5,  5)}, second);
 
-			$("#leader").removeClass("btn-default");
-			$("#Notif").removeClass("btn-default");
+	$("#leader").removeClass("btn-default");
+	$("#Notif").removeClass("btn-default");
 }
 
 
