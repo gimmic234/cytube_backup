@@ -4,6 +4,35 @@
  **|
  **@preserve
  */
+
+var event1Volume = .8;
+var utsuvolume = .4;
+var rewindurl = "https://cdn.discordapp.com/attachments/515347492511023113/550508785786159123/its_rewind_time.wav";
+var rewindvolume = .8;
+var rewindimg = "//media.discordapp.net/attachments/501103378714329100/550509149071605760/Screen-Shot-2018-12-11-at-20-1-920x584.jpg";
+var nipahurl = "//cdn.discordapp.com/attachments/515347492511023113/556499252910489600/nipah.mp3";
+var nipahvolume = .8;
+var nipahimg = "//media.discordapp.net/attachments/501103378714329100/556499296090980392/nipah.JPG";
+var jokeurl = "https://cdn.discordapp.com/attachments/515347492511023113/549315202391474210/its_joke.mp3";
+var jokevolume = .8;
+var itsjokeimg = "//cdn.discordapp.com/attachments/501103378714329100/549317289405579275/flat550x550075f.u2.jpg";
+var nyanpasuurl = "https://cdn.discordapp.com/attachments/501103378714329100/541702107305082893/nyanpasu.mp3";
+var nyanpasuvolume = .8;
+var nyanpasuimg = "//media.discordapp.net/attachments/501103378714329100/541701798994509883/Nyanpasu.png";
+var utsuurl = "https://cdn.discordapp.com/attachments/515347492511023113/536618471002341376/utsu.ogg";
+var utsunotvolume = .8;
+var utsunoturl = "https://cdn.discordapp.com/attachments/515347492511023113/537831049712107520/14min.mp3";
+var bgm1volume = .5;
+var bgm2volume = .5;
+var bgm3volume = .5;
+var bgm4volume = .5;
+var bgm5volume = .5;
+var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
+var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
+var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
+var voteskipFinalImg = 'https://media.discordapp.net/attachments/409829343263719427/513465042797068341/1-2-fail-stamp-picture-thumb.png';
+var voteskipFinalUrl = 'https://cdn.discordapp.com/attachments/409829343263719427/513476476289548318/Judges_Gavel-SoundBible.com-1321455227.wav';
+
 if (!this[CHANNEL.name].audioLibrary) {
 	this[CHANNEL.name].audioLibrary = {}
 }
