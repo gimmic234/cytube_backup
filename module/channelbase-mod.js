@@ -31,7 +31,6 @@ $("body").addClass("darktheme");
 $("#userlisttoggle").removeClass("glyphicon glyphicon-chevron-down pull-left pointer");
 $("#userlisttoggle").addClass("btn-default fa fa-users ch");
 $("#userlisttoggle").text("");
-$('#userlisttoggle').after("<button id='medallist' class='btn-default fa fa-check-circle-o ch'></button>");
 $("#controlsrow").after($("#motdrow"));//move channel description (motd) below controls
 $("#controlsrow").after($("#announcements"));//move cytube announcements below controls
 $(".container-fluid").append($("#footer"));//move footer into mainpage element
@@ -122,6 +121,7 @@ $("#chatwrap .nano").append($("#messagebuffer"));
 $(".nano").nanoScroller();
 $('#maincontain').find('.container-fluid').append("<div id='imgWrapFixed1' hidden></div>");
 $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
+$('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style=''>Achievements</a></li>");
 
 
 //middle draggable handle

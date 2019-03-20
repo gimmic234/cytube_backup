@@ -2047,7 +2047,7 @@ function bindEventHandler() {
 				});
 
 				let content = '';
-				curr_alist[username].each(function(i, title) {
+				curr_alist[username].each(function(title,i) {
 					let block = "<div>";
 					block += title;
 					block += "</div>";
