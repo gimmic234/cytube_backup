@@ -1209,7 +1209,7 @@ var chatCmdLookup = {
 		var textField = jsTextField.val();
 		var textFieldArray = textField.split("\n");
 		var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
-		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/['"]+/g, '\\"').trim() + "\";");
+		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\'").trim() + "\";");
 		jsTextField.val(textField);
 		$(document.getElementById('cs-jssubmit')).click();
 	},
