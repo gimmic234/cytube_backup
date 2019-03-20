@@ -1653,6 +1653,10 @@ window.countdowner = function(countdown, destination,index) {
 }
 
 window.loadInitializer = function() {
+	let second = 1000,
+	minute = second * 60,
+	hour = minute * 60,
+	day = hour * 24;
 	if (!document.getElementById('export-btn')) {
 				$(document.getElementById('cs-chanlog')).append(" <a class='export' id='export-btn' href='#' download='chat.txt'><button class='btn btn-default'>Export</button></a>");
 				bindEventHandler();

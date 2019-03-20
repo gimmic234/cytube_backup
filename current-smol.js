@@ -111,10 +111,6 @@ var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700
 var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
 var voteskipFinalImg = 'https://media.discordapp.net/attachments/409829343263719427/513465042797068341/1-2-fail-stamp-picture-thumb.png';
 var voteskipFinalUrl = 'https://cdn.discordapp.com/attachments/409829343263719427/513476476289548318/Judges_Gavel-SoundBible.com-1321455227.wav';
-const second = 1000,
-	minute = second * 60,
-	hour = minute * 60,
-	day = hour * 24;
 var emoteArray = [];
 var selectedPopover;
 var handlerKeydown;
@@ -162,7 +158,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c025c58029451196cb678597aea3496b7d264ce1/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cf1a434cbfab90c3f68a94bf5dc40a1d5ea35f9f/current-ext.js",
 		callback: true
 	},
 	'layout': {
