@@ -80,6 +80,15 @@ var achievementList = "{}";
 //ControlBlockEnd
 //console.log = function() {}
 //function scrollChat() {}
+var bgm1volume = .5;
+var bgm2volume = .5;
+var bgm3volume = .5;
+var bgm4volume = .5;
+var bgm5volume = .5;
+var event1Volume = .8;
+var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
+var voteskipFinalImg = 'https://media.discordapp.net/attachments/409829343263719427/513465042797068341/1-2-fail-stamp-picture-thumb.png';
+var voteskipFinalUrl = 'https://cdn.discordapp.com/attachments/409829343263719427/513476476289548318/Judges_Gavel-SoundBible.com-1321455227.wav';
 var emoteTable = "false";
 var event1timeout;
 var penguinTimeout = 19000;
@@ -130,7 +139,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4ff3060899ec4897d9beb7378ad1b254c3f0d255/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f9bae2d90ae62c48e0c4d6fa36cc727d0f98a51b/current-ext.js",
 		callback: true
 	},
 	'layout': {

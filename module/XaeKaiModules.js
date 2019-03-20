@@ -5,7 +5,6 @@
  **@preserve
  */
 
-var event1Volume = .8;
 var utsuvolume = .4;
 var rewindurl = "https://cdn.discordapp.com/attachments/515347492511023113/550508785786159123/its_rewind_time.wav";
 var rewindvolume = .8;
@@ -22,16 +21,8 @@ var nyanpasuimg = "//media.discordapp.net/attachments/501103378714329100/5417017
 var utsuurl = "https://cdn.discordapp.com/attachments/515347492511023113/536618471002341376/utsu.ogg";
 var utsunotvolume = .8;
 var utsunoturl = "https://cdn.discordapp.com/attachments/515347492511023113/537831049712107520/14min.mp3";
-var bgm1volume = .5;
-var bgm2volume = .5;
-var bgm3volume = .5;
-var bgm4volume = .5;
-var bgm5volume = .5;
 var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
 var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
-var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
-var voteskipFinalImg = 'https://media.discordapp.net/attachments/409829343263719427/513465042797068341/1-2-fail-stamp-picture-thumb.png';
-var voteskipFinalUrl = 'https://cdn.discordapp.com/attachments/409829343263719427/513476476289548318/Judges_Gavel-SoundBible.com-1321455227.wav';
 
 if (!this[CHANNEL.name].audioLibrary) {
 	this[CHANNEL.name].audioLibrary = {}
