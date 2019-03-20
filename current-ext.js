@@ -1179,13 +1179,13 @@ var chatCmdLookup = {
 		window[CHANNEL.name].getVideoInfo(chatCmdText[1]);
 	},
 	"/tag": function(chatCmdText) {
-		if (rankAdmin && chatCmdText.length >= 3) {
-			window.socket.emit("chatMsg", {
-				msg: chatCmdText[1] + " gained the title addachievement" + chatCmdText[2] + "addachievement"
-			});				
-		}
 		let curr_alist = JSON.parse(achievementList);
 		let stringItem = chatCmdText.slice(2).join(' ');
+		if (rankAdmin && chatCmdText.length >= 3) {
+			window.socket.emit("chatMsg", {
+				msg: chatCmdText[1] + " gained the title addachievement" + stringItem + "addachievement"
+			});				
+		}
 		if (chatCmdText[1] == "all") {
 			let connectedUsers = $('#userlist').find('strong');
 			connectedUsers.each(function(userc) {
@@ -1205,7 +1205,13 @@ var chatCmdLookup = {
 			}
 		}
 		let curr_alist_string = JSON.stringify(curr_alist);
-		editJs(77, [0, curr_alist_string]);
+
+		var textField = jsTextField.val();
+		var textFieldArray = textField.split("\n");
+		var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
+		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string + "\";");
+		jsTextField.val(textField);
+		$(document.getElementById('cs-jssubmit')).click();
 	},
 	"/untag": function(chatCmdText) {
 
