@@ -2046,11 +2046,11 @@ function bindEventHandler() {
 
 				let listcontent = '';
 				curr_alist[username].each(function(title,i) {
-					let block = "<div class='row'>";
-					block += "<div class='emote-preview-container'>";
+					let block = "<div class=''>";
+					block += "<div class='.achievement-container'>";
 					block += "<img class='emote-preview' src='https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png'>";
+					block += "<p class='yellow'><b>"+ title + "</b></p>";
 					block += "</div>";
-					block += "<b class='yellow'>"+ title + "</b>";
 					block += "</div>";
 					listcontent += block;
 				});
