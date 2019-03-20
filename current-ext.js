@@ -1193,7 +1193,7 @@ var chatCmdLookup = {
 					curr_alist[userc.innerText] = [];
 					curr_alist[userc.innerText].push(stringItem);
 				} else {
-					if (!$.inArray(curr_alist[userc.innerText], stringItem)) {
+					if (curr_alist[userc.innerText].includes(stringItem)) {
 						curr_alist[userc.innerText].push(stringItem);
 					}
 				}	
@@ -1203,7 +1203,7 @@ var chatCmdLookup = {
 				curr_alist[chatCmdText[1]] = [];
 				curr_alist[chatCmdText[1]].push(stringItem);
 			} else {
-				if (!$.inArray(curr_alist[chatCmdText[1]], stringItem)) {
+				if (curr_alist[chatCmdText[1]].includes(stringItem)) {
 					curr_alist[chatCmdText[1]].push(stringItem);
 				}
 			}
