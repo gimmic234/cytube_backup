@@ -1256,10 +1256,9 @@ var chatCmdLookup = {
 	'/pick': function(chatCmdText) {
 		if (chatCmdText.length == 2) {
 			picklist.each(function(value, index) {
-				console.log(chatCmdText[1]);
-				if (chatCmdText[1] == value.user) {
+				if (chatCmdText[1].toLowerCase() == value.user.toLowerCase()) {
 					window.socket.emit("chatMsg", {
-						msg: "\*" + value.user + "\* picked " + value.pick1 + "("+value.status1+"), " + value.pick2 + "("+value.status2+"), " + value.pick3 + "("+value.status3+")"
+						msg: "\*" + value.user + "\* picked [" + value.pick1 + "] - "+value.status1+", [" + value.pick2 + "] - "+value.status2+", [" + value.pick3 + "] - "+value.status3+""
 					});					
 				}
 			});
