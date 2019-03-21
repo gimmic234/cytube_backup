@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/556581936064102411/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = 'http://cdn.discordapp.com/attachments/466386319766192138/557714741527576588/pape.jpg';
+var background_img = "http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 3,
-	day: 20,
-	hour: 23,
+	day: 24,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
@@ -65,7 +65,7 @@ var countdown_utc5 = {
 	second5: 0
 };
 var bgm1url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
-var playbgmCondition = 'true';
+var playbgmCondition = "true";
 var bgmoff = 'true';
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
@@ -74,7 +74,7 @@ var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/5562176
 var bgm3url = 'https://cdn.discordapp.com/attachments/528005830419677185/555047194726760458/Guardians_At_the_Gate_-_Audiomachine.mp3';
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = 'https://cdn.discordapp.com/attachments/515347492511023113/552285589987393566/Mobile_Suit_Gundam_Iron-Blooded_Orphans_ED1_-_Orphans_no_Namida_Fingerstyle_Guitar_Cover.mp3';
-var bgmSelect = '3';
+var bgmSelect = "1";
 var achievementList = "{}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
@@ -139,7 +139,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f9bae2d90ae62c48e0c4d6fa36cc727d0f98a51b/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/835a340e05e49c6a3d8f52ef419f75d4038721cd/current-ext.js",
 		callback: true
 	},
 	'layout': {

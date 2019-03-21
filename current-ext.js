@@ -1257,6 +1257,7 @@ var chatCmdLookup = {
 		if (chatCmdText.length == 2) {
 			let picklist = readSheet();
 			picklist.each(function(value, index) {
+				console.log(chatCmdText[1]);
 				if (chatCmdText[1] == value.user) {
 					window.socket.emit("chatMsg", {
 						msg: "\*" + username + "\* picked " + value.pick1 + "("+value.status1+"), " + value.pick2 + "("+value.status2+"), " + value.pick3 + "("+value.status3+")"
