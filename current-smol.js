@@ -125,6 +125,7 @@ var rankMod = (window.CLIENT.rank >= 2),
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
+var picklist;
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -139,7 +140,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/835a340e05e49c6a3d8f52ef419f75d4038721cd/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f54f2535e9592dc6952ede2c15712bb73f95657e/current-ext.js",
 		callback: true
 	},
 	'layout': {

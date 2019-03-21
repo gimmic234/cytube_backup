@@ -1255,7 +1255,6 @@ var chatCmdLookup = {
 	},
 	'/pick': function(chatCmdText) {
 		if (chatCmdText.length == 2) {
-			let picklist = readSheet();
 			picklist.each(function(value, index) {
 				console.log(chatCmdText[1]);
 				if (chatCmdText[1] == value.user) {
@@ -1765,6 +1764,7 @@ window.loadInitializer = function() {
 	}
 
 	waitForEl('#messagebuffer', function() {
+		picklist = readSheet();
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
