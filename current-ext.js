@@ -1256,7 +1256,7 @@ var chatCmdLookup = {
 	'/pick': function(chatCmdText) {
 		if (chatCmdText.length == 2) {
 			picklist.each(function(value, index) {
-				if (chatCmdText[1].toLowerCase() == value.user.toLowerCase()) {
+				if (value.user.toLowerCase().indexOf(chatCmdText[1].toLowerCase())) {
 					window.socket.emit("chatMsg", {
 						msg: "\*" + value.user + "\* picked [" + value.pick1 + "] - "+value.status1+", [" + value.pick2 + "] - "+value.status2+", [" + value.pick3 + "] - "+value.status3+""
 					});					
