@@ -1252,6 +1252,18 @@ var chatCmdLookup = {
 				msg: "\*" + username + "\* has " + userList.length + " tags: ye11" + tagItems + "ye11"
 			});		
 		}
+	},
+	'/pick': function(chatCmdText) {
+		if (chatCmdText.length == 2) {
+			let picklist = readSheet();
+			picklist.each(function(value, index) {
+				if (chatCmdText[1] == value.user) {
+					window.socket.emit("chatMsg", {
+						msg: "\*" + username + "\* picked " + value.pick1 + "("+value.status1+"), " + value.pick2 + "("+value.status2+"), " + value.pick3 + "("+value.status3+")"
+					});					
+				}
+			});
+		}
 	}
 };
 
@@ -1362,6 +1374,31 @@ var chatKeyLookup = {
 	}
 }
 
+
+function readSheet() {
+	let returnArray = [];
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1b9kK4p8SaqE2dHYhZ3sYHKldjjgXD05_UNWWcMoWbeU/od6/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			entries.each(function(value, index) {
+				let newEntry = {
+					"user": value.gsx$user.$t,
+					"pick1": value.gsx$pick1.$t,
+					"status1": value.gsx$status1.$t,
+					"pick2": value.gsx$pick2.$t,
+					"status2": value.gsx$status2.$t,
+					"pick3": value.gsx$pick3.$t,
+					"status3": value.gsx$status3.$t
+				};
+				returnArray.push(newEntry);
+			})
+		}
+	});
+	return returnArray;
+}
 
 function sendMsg(sendData) {
 	$.ajax({
