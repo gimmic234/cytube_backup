@@ -2113,7 +2113,7 @@ function bindEventHandler() {
 					let textColor = '#FFFF33';
 					let textDescription = '';
 					achievementMatch.each(function(achievement, i) {
-						if (achievement.title.indexOf(title) >= 0) {
+						if (achievement.title.toLowerCase().indexOf(title.toLowerCase()) >= 0) {
 							imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 							textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 							textDescription = achievement.description;
