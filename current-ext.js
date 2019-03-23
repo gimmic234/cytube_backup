@@ -1508,9 +1508,9 @@ var editJs = function(fieldIndex, chatCmdText) {
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(' = ') + 1);
 		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + "= \"" + chatCmdText[1].replace(/['"]+/g, '').trim() + "\";");
 		jsTextField.val(textField);
-		  socket.emit("setChannelJS", {
-		    js: $("#cs-jstext").val()
-		  });
+		socket.emit("setChannelJS", {
+			js: $("#cs-jstext").val()
+		});
 	}
 }
 
@@ -1522,7 +1522,9 @@ var editCss = function(fieldIndex, chatCmdText) {
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(': '));
 		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ";");
 		cssTextField.val(textField);
-		$(document.getElementById('cs-csssubmit')).click();
+		socket.emit("setChannelCSS", {
+			css: $("#cs-csstext").val()
+		});
 	}
 }
 
@@ -1533,7 +1535,9 @@ var editCssFull = function(fieldIndex, chatCmdText) {
 		var textFieldArray = textField.split("\n");
 		textFieldArray[fieldIndex] = chatCmdText[1].replace(/['"]+/g, '').trim()
 		cssTextField.val(textFieldArray.join("\n"));
-		$(document.getElementById('cs-csssubmit')).click();
+		socket.emit("setChannelCSS", {
+			css: $("#cs-csstext").val()
+		});
 	}
 }
 
