@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 3,
-	day3: 22,
+	day3: 29,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -66,16 +66,16 @@ var countdown_utc5 = {
 };
 var bgm1url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
 var playbgmCondition = "true";
-var bgmoff = 'true';
+var bgmoff = "true";
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
 var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/556217613852868629/Kaneda.mp3';
 var bgm3url = 'https://cdn.discordapp.com/attachments/528005830419677185/555047194726760458/Guardians_At_the_Gate_-_Audiomachine.mp3';
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
-var bgm5url = 'https://cdn.discordapp.com/attachments/515347492511023113/552285589987393566/Mobile_Suit_Gundam_Iron-Blooded_Orphans_ED1_-_Orphans_no_Namida_Fingerstyle_Guitar_Cover.mp3';
-var bgmSelect = "1";
-var achievementList = "{}";
+var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
+var bgmSelect = "5";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\"],\"Zinzoo\":[\"first blood\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"Supreme\":[\"Ruler\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -140,7 +140,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c6460a9fd0f8c5bebeb13e03c75ff390f7fed9e2/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c17c659a41b78b1fd31940c1b746d16b6593aa4f/current-ext.js",
 		callback: true
 	},
 	'layout': {

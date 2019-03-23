@@ -1374,7 +1374,7 @@ var chatKeyLookup = {
 }
 
 function renderStatus(status) {
-	return (status) ? "picked" : "pending";
+	return (status == "TRUE") ? "picked" : "pending";
 }
 
 function readSheet() {
