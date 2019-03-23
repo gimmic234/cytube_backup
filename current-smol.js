@@ -126,6 +126,7 @@ var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var picklist;
+var achievementMatch;
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -140,7 +141,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c17c659a41b78b1fd31940c1b746d16b6593aa4f/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1bf188a47a12e3061c3152f2eb6c76c6dd0cba48/current-ext.js",
 		callback: true
 	},
 	'layout': {

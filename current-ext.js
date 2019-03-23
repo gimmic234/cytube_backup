@@ -1377,6 +1377,28 @@ function renderStatus(status) {
 	return (status == "TRUE") ? "picked" : "pending";
 }
 
+function readAchievement() {
+	let returnArray = [];
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/9/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			entries.each(function(value, index) {
+				let newEntry = {
+					"title": value.gsx$title.$t,
+					"color": value.gsx$color.$t,
+					"description": value.gsx$description.$t,
+					"image": value.gsx$image.$t
+				};
+				returnArray.push(newEntry);
+			})
+		}
+	});
+	return returnArray;
+}
+
 function readSheet() {
 	let returnArray = [];
 	$.ajax({
@@ -1767,6 +1789,7 @@ window.loadInitializer = function() {
 
 	waitForEl('#messagebuffer', function() {
 		picklist = readSheet();
+		achievementMatch = readAchievement();
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
@@ -2086,10 +2109,21 @@ function bindEventHandler() {
 
 				let listcontent = '';
 				curr_alist[username].each(function(title,i) {
+					let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
+					let textColor = '#FFFF33';
+					let textDescription = '';
+					achievementMatch.each(function(achievement, i) {
+						if (achievement.title.indexOf(title) >= 0) {
+							imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
+							textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
+							textDescription = achievement.description;
+						}
+					});
+
 					let block = "<div class=''>";
-					block += "<div class='achievement-container'>";
-					block += "<img class='emote-preview' src='https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png'>";
-					block += "<p class='yellow'><b>"+ title + "</b></p>";
+					block += "<div class='achievement-container' title='"+textDescription+"'>";
+					block += "<img class='emote-preview' src='"+imageUrl+"'>";
+					block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
 					block += "</div>";
 					block += "</div>";
 					listcontent += block;
