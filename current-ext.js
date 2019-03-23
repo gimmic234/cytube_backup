@@ -1258,7 +1258,7 @@ var chatCmdLookup = {
 			picklist.each(function(value, index) {
 				if (value.user.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
 					window.socket.emit("chatMsg", {
-						msg: "\*" + value.user + "\* picked [" + value.pick1 + "] - "+value.status1+", [" + value.pick2 + "] - "+value.status2+", [" + value.pick3 + "] - "+value.status3+""
+						msg: "\*" + value.user + "\* picked [" + value.pick1 + "] - "+renderStatus(value.status1)+", [" + value.pick2 + "] - "+renderStatus(value.status2)+", [" + value.pick3 + "] - "+renderStatus(value.status3)+""
 					});					
 				}
 			});
@@ -1373,11 +1373,14 @@ var chatKeyLookup = {
 	}
 }
 
+function renderStatus(status) {
+	return (status) ? "picked" : "pending";
+}
 
 function readSheet() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1b9kK4p8SaqE2dHYhZ3sYHKldjjgXD05_UNWWcMoWbeU/od6/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/8/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
