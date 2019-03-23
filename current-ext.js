@@ -2120,7 +2120,7 @@ function bindEventHandler() {
 						}
 					});
 
-					let block = "<div class=''>";
+					let block = "<div class=''><span class='emote-preview-hax'></span>";
 					block += "<div class='achievement-container' title='"+textDescription+"'>";
 					block += "<img class='emote-preview' src='"+imageUrl+"'>";
 					block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
