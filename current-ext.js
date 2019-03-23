@@ -1508,7 +1508,9 @@ var editJs = function(fieldIndex, chatCmdText) {
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(' = ') + 1);
 		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + "= \"" + chatCmdText[1].replace(/['"]+/g, '').trim() + "\";");
 		jsTextField.val(textField);
-		$(document.getElementById('cs-jssubmit')).click();
+		  socket.emit("setChannelJS", {
+		    js: $("#cs-jstext").val()
+		  });
 	}
 }
 
