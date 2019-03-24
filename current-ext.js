@@ -1427,13 +1427,15 @@ function readSheet() {
 function readImgLookup() {
 	let returnLookup = {};
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/9/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
 			let entries = result.feed.entry;
 			entries.each(function(value, index) {
-				returnLookup[value.gsx$command.$t] = value.gsx$url.$t;
+				returnLookup[value.gsx$command.$t] =  function() {
+					imgEmote(value.gsx$url.$t);
+				}				
 			})
 		}
 	});
