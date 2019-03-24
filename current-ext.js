@@ -1995,6 +1995,10 @@ function bindEventHandler() {
 		}
 	});
 
+	$(bodyElem).on('mouseleave', '.username', function() {
+		$('.achievement-table').remove();
+	}
+
 	$(bodyElem).on('mouseover', '.username', function() {
 		let username = $(this).text().replace(': ', '');
 		let curr_alist = JSON.parse(achievementList);
@@ -2005,9 +2009,15 @@ function bindEventHandler() {
 				return n;
 			});
 			let tagItems = userList.join(', ');
-			$(this).attr('data-content', tagItems);
-			$(this).attr('data-placement', 'top');
-			$('.username').popover(); 
+			let achievementShow = "<div class='achievement-table'><ul class='list-group'>";
+			userList.each(function(item, index) {
+				achievementShow += "<li class='list-group-item'>";
+				achievementShow += item;
+				achievementShow += "<li>";
+			});
+			achievementShow += tagItems;
+			achievementShow += "</ul></div>";
+			$(this).parent().parent().append(achievementShow);
 		}
 	});
 
