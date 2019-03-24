@@ -1995,6 +1995,21 @@ function bindEventHandler() {
 		}
 	});
 
+	$(bodyElem).on('hover', '.username', function() {
+		let username = $(this).text().replace(':', '');
+		let curr_alist = JSON.parse(achievementList);
+		if (!curr_alist[username]) {
+			
+		} else {
+			let userList = $.map(curr_alist[username], function(n, i) {
+				return n;
+			});
+			let tagItems = userList.join(', ');
+			$(this).attr('data-content', tagItems);
+			$('[data-toggle="popover"]').popover(); 
+		}
+	});
+
 	$(bodyElem).on('click', '#emotelistbtn', function() {
 		fetchEmote();
 	})
