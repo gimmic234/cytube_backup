@@ -1433,7 +1433,7 @@ function readImgLookup(command) {
 			let entries = result.feed.entry;
 			entries.each(function(value, index) {
 				if (command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
-					imageEmote(value.gsx$url.$t);
+					imgEmote(value.gsx$url.$t);
 				}
 			})
 		}
