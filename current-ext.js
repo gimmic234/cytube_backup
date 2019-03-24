@@ -1362,6 +1362,23 @@ function readSheet() {
 	return returnArray;
 }
 
+function populateImgEmote() {
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			let bodyString = "<li><b>!rule[1-8]</b></li>";
+			bodyString += "<li><b>!club</b></li>";
+			entries.each(function(value, index) {
+				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+			})
+			$('#image-emote-list').html(bodyString);
+		}
+	});
+}
+
 function readImgLookup(command) {
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
@@ -1750,6 +1767,7 @@ window.loadInitializer = function() {
 	waitForEl('#messagebuffer', function() {
 		picklist = readSheet();
 		achievementMatch = readAchievement();
+		populateImgEmote();
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
