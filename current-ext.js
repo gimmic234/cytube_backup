@@ -1996,7 +1996,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('hover', '.username', function() {
-		let username = $(this).text().replace(':', '');
+		let username = $(this).text().replace(': ', '');
 		let curr_alist = JSON.parse(achievementList);
 		if (!curr_alist[username]) {
 			
@@ -2006,7 +2006,8 @@ function bindEventHandler() {
 			});
 			let tagItems = userList.join(', ');
 			$(this).attr('data-content', tagItems);
-			$('[data-toggle="popover"]').popover(); 
+			$(this).attr('data-placement', 'left');
+			$('.username').popover(); 
 		}
 	});
 

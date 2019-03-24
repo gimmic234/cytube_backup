@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/556581936064102411/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/557714741527576588/pape.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 3,
-	day2: 23,
+	day2: 30,
 	hour2: 21,
 	minute2: 0,
 	second2: 0
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 3,
-	day3: 29,
+	day3: 26,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
 	month4: 3,
-	day4: 23,
+	day4: 30,
 	hour4: 15,
 	minute4: 0,
 	second4: 0
@@ -74,8 +74,8 @@ var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/5562176
 var bgm3url = 'https://cdn.discordapp.com/attachments/528005830419677185/555047194726760458/Guardians_At_the_Gate_-_Audiomachine.mp3';
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "5";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\"],\"Zinzoo\":[\"first blood\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"Supreme\":[\"Ruler\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
+var bgmSelect = "3";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\"],\"Zinzoo\":[\"first blood\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -141,7 +141,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c65eb66e649c6c25ee273b03dcee5481abef3ae0/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9059be1ba2e3ef15cbef5e4b97a48abc70675526/current-ext.js",
 		callback: true
 	},
 	'layout': {
