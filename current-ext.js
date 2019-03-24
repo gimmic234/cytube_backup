@@ -479,21 +479,6 @@ var chatCmdLookup = {
 			imgEmote('https://media.discordapp.net/attachments/409829343263719427/512051181946929152/sound_control.JPG');
 		}
 	},
-	'!schwing': function() {
-		imgEmote('http://cdn.discordapp.com/attachments/409829343263719427/497929642347331585/main-qimg-bdbe459c69a03bbd0859657a0c96f9e0.png');
-	},
-	'!cheerio': function() {
-		imgEmote('https://media.discordapp.net/attachments/452943717708595211/521439055041527819/Togame-Cheerio-Katanagatari-600x375_large-400x250.jpg');
-	},
-	'!police': function() {
-		imgEmote('https://media.discordapp.net/attachments/409829343263719427/514239004778954764/8gVw7EKcadlPK8oHrFXcixcWMYwIfuAvNxBl8BMDyKR0yp8j-I6myzF3pAS-5mf96xDi5uvNQhqwJe7syKaz0Lxan4qIJo3Gcf2Z.gif');
-	},
-	'!rigged': function() {
-		imgEmote('https://images-ext-2.discordapp.net/external/A29xgZ_hAwsgSPzak5tlWkMJwUnYH7kFnixuX2zGWZ8/https/bit.ly/2CX6c8G?width=400&height=225');
-	},
-	'!piano': function() {
-		imgEmote('https://cdn.discordapp.com/attachments/420183063562027008/451551850433478656/2bbhq2.png');
-	},
 	'!rule1': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #1 - |You will never, ever be picked.  Just accept it.|"
@@ -538,12 +523,6 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: "grossimg" + grossimg + "grossimg"
 		});	
-	},
-	'!bananice': function() {
-		imgEmote('https://cdn.discordapp.com/attachments/420183063562027008/526213163071438858/bananice_2.gif');
-	},
-	'!ping': function() {
-		imgEmote('http://media.discordapp.net/attachments/535985255815970828/538788119604887552/ping.gif');
 	},
 	'/noiseoff': function() {
 		if (rankAdmin) {
@@ -664,18 +643,6 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: toss
 		});	
-	},
-	"!spiderman": function(chatCmdText) {
-		imgEmote('https://media.discordapp.net/attachments/515347492511023113/534135567970205737/C-658VsXoAo3ovC.jpg');
-	},
-	"!lolice": function(chatCmdText) {
-		imgEmote('https://media.discordapp.net/attachments/515347492511023113/531560069888999434/iWqHzBm.gif');
-	},
-	"!sun": function() {
-		imgEmote('https://media.discordapp.net/attachments/452943717708595211/516433260268617758/praise_the_sun_banner_by_mrwallas79-d53gonb.png');
-	},
-	"!heart": function() {
-		imgEmote('https://media.discordapp.net/attachments/515347492511023113/525114550589194261/heart.jpg');
 	},
 	"!img1": function() {
 		if (rankAdmin) {
@@ -1084,37 +1051,10 @@ var chatCmdLookup = {
 			socket.emit("togglePlaylistLock");
 		}
 	},
-	"!war": function() {
-		imgEmote("//cdn.discordapp.com/attachments/501103378714329100/542889185569406976/1445878662497.gif");
-	},
-	"!die": function() {
-		imgEmote('//media.discordapp.net/attachments/501103378714329100/541368546131705867/peopledie.jpg');
-	},
 	"!nyanpasu": function() {
 		window.socket.emit("chatMsg", {
 			msg: "nyanpasuimg" + nyanpasuimg + "nyanpasuimg"
 		});	
-	},
-	"!rain": function() {
-		imgEmote("//media.discordapp.net/attachments/501103378714329100/542127546884554762/4a45887411c5c959ba01948960c93788aaae63ee_hq.gif");
-	},
-	"!ora": function() {
-		var oralist = [
-			"//media.discordapp.net/attachments/501103378714329100/542532366808121354/Oraoraora_on_Dan.gif",
-			"//media.discordapp.net/attachments/501103378714329100/542532310109650996/tumblr_inline_omxr364yyC1syzm21_500.gif",
-			"//media.discordapp.net/attachments/501103378714329100/542531843904503809/835a67405ca87781da420a7bc18fa0ba060a2508_00.gif",
-		];
-		var oraimg = oralist[Math.floor(Math.random() * oralist.length)];
-		imgEmote(oraimg);
-	},
-	"!atatata": function() {
-		var atalist = [
-			"//media.discordapp.net/attachments/501103378714329100/542533820281520128/tumblr_ntvhzrvZj81uw4l7wo1_500.gif",
-			"//media.discordapp.net/attachments/501103378714329100/542531798606020638/RectangularTintedHoopoe-size_restricted.gif",
-			"//media.discordapp.net/attachments/501103378714329100/542531843904503809/835a67405ca87781da420a7bc18fa0ba060a2508_00.gif",
-		];
-		var ataimg = atalist[Math.floor(Math.random() * atalist.length)];
-		imgEmote(ataimg);
 	},
 	"!utsu": function(chatCmdText) {
 		var utsulist = [
@@ -1139,9 +1079,6 @@ var chatCmdLookup = {
 				msg: "utsuimg" + utsuimg + "utsuimg"
 			});	
 		}
-	},
-	"!crabrave": function() {
-		imgEmote("//media.discordapp.net/attachments/501103378714329100/547226414785495081/f5a.gif");
 	},
 	"!joke": function() {
 		window.socket.emit("chatMsg", {
