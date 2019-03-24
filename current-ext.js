@@ -1433,9 +1433,7 @@ function readImgLookup() {
 		success: function(result) {
 			let entries = result.feed.entry;
 			entries.each(function(value, index) {
-				returnLookup[value.gsx$command.$t] =  function() {
-					imgEmote(value.gsx$url.$t);
-				}				
+				returnLookup[value.gsx$command.$t] = value.gsx$url.$t;
 			})
 		}
 	});
@@ -1608,7 +1606,7 @@ function chatHandler(e) {
 		}
 
 		if (imgLookup.hasOwnProperty(e.which)) {
-			imgLookup[e.which](e);
+			imgEmote(imgLookup[e.which]);
 		}
 	}
 
