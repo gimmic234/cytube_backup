@@ -2009,9 +2009,20 @@ function bindEventHandler() {
 				return n;
 			});
 			let tagItems = userList.join(', ');
-			let achievementShow = "<div class='achievement-container' style='position:relative'><div class='achievement-table'><ul class='list-group'>";
+			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
+			let textColor = '#FFFF33';
+			let textDescription = '';
+			achievementMatch.each(function(achievement, i) {
+				if (achievement.title.toLowerCase().indexOf(title.toLowerCase()) >= 0) {
+					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
+					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
+					textDescription = achievement.description;
+				}
+			});
+			let achievementShow = "<div class='achievement-container' style='position:fixed'><div class='achievement-table'><ul class='list-group'>";
 			userList.each(function(item, index) {
-				achievementShow += "<li class='list-group-item'>";
+				achievementShow += "<li class='list-group-item' style='color="+textColor+"'>";
+				achievementShow += "<img src='"+imageUrl+"' class='smol-emote'>";
 				achievementShow += item;
 				achievementShow += "</li>";
 			});
