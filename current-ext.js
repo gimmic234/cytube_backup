@@ -2016,7 +2016,7 @@ function bindEventHandler() {
 				achievementShow += "</li>";
 			});
 			achievementShow += "</ul></div></div>";
-			$(this).parent().append(achievementShow);
+			$(this).parent().after(achievementShow);
 		}
 	});
 
