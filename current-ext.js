@@ -1996,7 +1996,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('mouseleave', '.chat-avatar', function() {
-		$('.achievement-container').remove();
+		$('.achievement-container-small').remove();
 	});
 
 	$(bodyElem).on('mouseover', '.chat-avatar', function() {
