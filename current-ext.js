@@ -2009,7 +2009,7 @@ function bindEventHandler() {
 				return n;
 			});
 			
-			let achievementShow = "<div class='achievement-container'><table class='table table-sm table-hover achievement-table'><thead><th><td></td><td>"+username+"'s Achievements</td></th></thead><tbody>";
+			let achievementShow = "<div class='achievement-container'><table class='table table-sm table-hover achievement-table'><thead><th><td col=2>"+username+"'s Achievements</td></th></thead><tbody>";
 			userList.each(function(item, index) {
 				let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 				let textColor = '#FFFF33';
