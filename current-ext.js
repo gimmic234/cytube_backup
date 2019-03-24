@@ -1336,7 +1336,7 @@ var chatKeyLookup = {
 					msg: msg,
 					meta: meta
 				});
-				readImgLookup(e.which);
+				readImgLookup(chatCmdText[0]);
 			}
 
 
