@@ -2009,14 +2009,14 @@ function bindEventHandler() {
 				return n;
 			});
 			let tagItems = userList.join(', ');
-			let achievementShow = "<div class='achievement-table'><ul class='list-group'>";
+			let achievementShow = "<div style='position:relative'><div class='achievement-table'><ul class='list-group'>";
 			userList.each(function(item, index) {
 				achievementShow += "<li class='list-group-item'>";
 				achievementShow += item;
 				achievementShow += "</li>";
 			});
-			achievementShow += "</ul></div>";
-			$(this).parent().parent().append(achievementShow);
+			achievementShow += "</ul></div></div>";
+			$(this).parent().apppend(achievementShow);
 		}
 	});
 
