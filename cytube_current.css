@@ -339,7 +339,7 @@ font-size: 8px !important;
 .achievement-table {
     background: rgba(27, 28, 31, 0.97) !important;
     margin-bottom: 0px !important;
-    position: fixed;
+    position: relative;
     bottom: 40px;
     z-index: 10;
 }

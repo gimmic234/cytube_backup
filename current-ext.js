@@ -1997,7 +1997,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('mouseleave', '.username', function() {
 		$('.achievement-table').remove();
-	}
+	});
 
 	$(bodyElem).on('mouseover', '.username', function() {
 		let username = $(this).text().replace(': ', '');
