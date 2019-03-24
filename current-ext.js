@@ -1424,8 +1424,7 @@ function readSheet() {
 	return returnArray;
 }
 
-function readImgLookup() {
-	let returnLookup = {};
+function readImgLookup(command) {
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
 		method: "get",
@@ -1433,11 +1432,12 @@ function readImgLookup() {
 		success: function(result) {
 			let entries = result.feed.entry;
 			entries.each(function(value, index) {
-				returnLookup[value.gsx$command.$t] = value.gsx$url.$t;
+				if (command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
+					imageEmote(value.gsx$url.$t);
+				}
 			})
 		}
 	});
-	return returnLookup;
 }
 
 function sendMsg(sendData) {
@@ -1600,13 +1600,9 @@ function chatHandler(e) {
 			emoteKeyLookup[e.which](e);
 		}
 	} else {
-		imgLookup = readImgLookup();
+		readImgLookup(e.which);
 		if (chatKeyLookup.hasOwnProperty(e.which)) {
 			chatKeyLookup[e.which](e);
-		}
-
-		if (imgLookup.hasOwnProperty(e.which)) {
-			imgEmote(imgLookup[e.which]);
 		}
 	}
 
@@ -1817,7 +1813,6 @@ window.loadInitializer = function() {
 	waitForEl('#messagebuffer', function() {
 		picklist = readSheet();
 		achievementMatch = readAchievement();
-		imgLookup = readImgLookup();
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
