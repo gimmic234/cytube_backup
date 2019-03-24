@@ -2009,7 +2009,7 @@ function bindEventHandler() {
 				return n;
 			});
 			
-			let achievementShow = "<div class='achievement-container'><table class='table table-sm table-hover achievement-table'><thead><th><td col=2>Achievements</td></th></thead><tbody>";
+			let achievementShow = "<div class='achievement-container-small'><table class='table table-sm table-hover achievement-table'><thead><th><td col=2>Achievements</td></th></thead><tbody>";
 			userList.each(function(item, index) {
 				let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 				let textColor = '#FFFF33';
@@ -2023,7 +2023,7 @@ function bindEventHandler() {
 				});
 				achievementShow += "<tr class=''>";
 				achievementShow += "<td width=20%><img src='"+imageUrl+"' class='smol-emote'></td>";
-				achievementShow += "<td width=80% style='color="+textColor+"'>";
+				achievementShow += "<td width=80% style='color:"+textColor+"'>";
 				achievementShow += item;
 				achievementShow += "</td>";
 				achievementShow += "</li>";
