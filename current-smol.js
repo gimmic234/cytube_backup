@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 3,
-	day: 24,
-	hour: 19,
+	day: 27,
+	hour: 23,
 	minute: 0,
 	second: 0,
 };
@@ -127,6 +127,7 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var picklist;
 var achievementMatch;
+var imgLookup;
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -141,7 +142,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a24e875be3ee0b5b50b7913a3382cbc5dd570747/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8c50a09e593ba27a57398b9f6a504aea6f4ddb67/current-ext.js",
 		callback: true
 	},
 	'layout': {

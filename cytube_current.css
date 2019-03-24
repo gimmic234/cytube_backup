@@ -339,13 +339,12 @@ font-size: 8px !important;
 .achievement-table {
     background: rgba(27, 28, 31, 0.97) !important;
     margin-bottom: 0px !important;
-    position: relative;
+    position: absolute;
     top: -30px;
-    left: -30px;
     z-index: 99;
 }
 
-.achievement-container {
-    position: fixed;
+.achievement-container-small {
+    position: relative;
     z-index: 99;
 }
