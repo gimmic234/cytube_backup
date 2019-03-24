@@ -2021,9 +2021,9 @@ function bindEventHandler() {
 					textDescription = achievement.description;
 				}
 				});
-				achievementShow += "<tr class='' style='color="+textColor+"'>";
+				achievementShow += "<tr class=''>";
 				achievementShow += "<td width=20%><img src='"+imageUrl+"' class='smol-emote'></td>";
-				achievementShow += "<td width=80%>";
+				achievementShow += "<td width=80% style='color="+textColor+"'>";
 				achievementShow += item;
 				achievementShow += "</td>";
 				achievementShow += "</li>";
