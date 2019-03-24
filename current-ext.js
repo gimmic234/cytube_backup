@@ -2013,9 +2013,8 @@ function bindEventHandler() {
 			userList.each(function(item, index) {
 				achievementShow += "<li class='list-group-item'>";
 				achievementShow += item;
-				achievementShow += "<li>";
+				achievementShow += "</li>";
 			});
-			achievementShow += tagItems;
 			achievementShow += "</ul></div>";
 			$(this).parent().parent().append(achievementShow);
 		}
