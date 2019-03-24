@@ -2006,7 +2006,7 @@ function bindEventHandler() {
 			});
 			let tagItems = userList.join(', ');
 			$(this).attr('data-content', tagItems);
-			$(this).attr('data-placement', 'left');
+			$(this).attr('data-placement', 'top');
 			$('.username').popover(); 
 		}
 	});
