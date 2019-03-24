@@ -1336,6 +1336,7 @@ var chatKeyLookup = {
 					msg: msg,
 					meta: meta
 				});
+				readImgLookup(e.which);
 			}
 
 
@@ -1600,7 +1601,6 @@ function chatHandler(e) {
 			emoteKeyLookup[e.which](e);
 		}
 	} else {
-		readImgLookup(e.which);
 		if (chatKeyLookup.hasOwnProperty(e.which)) {
 			chatKeyLookup[e.which](e);
 		}
