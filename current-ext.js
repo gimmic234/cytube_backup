@@ -2019,14 +2019,16 @@ function bindEventHandler() {
 					textDescription = achievement.description;
 				}
 			});
-			let achievementShow = "<div class='achievement-container' style='position:fixed'><div class='achievement-table'><ul class='list-group'>";
+			let achievementShow = "<div class='achievement-container'><table class='table table-sm table-hover achievement-table'><tbody>";
 			userList.each(function(item, index) {
-				achievementShow += "<li class='list-group-item' style='color="+textColor+"'>";
-				achievementShow += "<img src='"+imageUrl+"' class='smol-emote'>";
+				achievementShow += "<tr class='' style='color="+textColor+"'>";
+				achievementShow += "<td width=20%><img src='"+imageUrl+"' class='smol-emote'></td>";
+				achievementShow += "<td width=80%>";
 				achievementShow += item;
+				achievementShow += "</td>";
 				achievementShow += "</li>";
 			});
-			achievementShow += "</ul></div></div>";
+			achievementShow += "</tbody></table></div>";
 			$(this).parent().after(achievementShow);
 		}
 	});
