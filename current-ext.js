@@ -1995,7 +1995,7 @@ function bindEventHandler() {
 		}
 	});
 
-	$(bodyElem).on('hover', '.username', function() {
+	$(bodyElem).on('mouseover', '.username', function() {
 		let username = $(this).text().replace(': ', '');
 		let curr_alist = JSON.parse(achievementList);
 		if (!curr_alist[username]) {
