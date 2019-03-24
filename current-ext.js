@@ -1995,12 +1995,12 @@ function bindEventHandler() {
 		}
 	});
 
-	$(bodyElem).on('mouseleave', '.username', function() {
-		$('.achievement-table').remove();
+	$(bodyElem).on('mouseleave', '.chat-avatar', function() {
+		$('.achievement-container').remove();
 	});
 
-	$(bodyElem).on('mouseover', '.username', function() {
-		let username = $(this).text().replace(': ', '');
+	$(bodyElem).on('mouseover', '.chat-avatar', function() {
+		let username = $(this).parent().find('.username').text().replace(': ', '');
 		let curr_alist = JSON.parse(achievementList);
 		if (!curr_alist[username]) {
 			
@@ -2009,7 +2009,7 @@ function bindEventHandler() {
 				return n;
 			});
 			let tagItems = userList.join(', ');
-			let achievementShow = "<div style='position:relative'><div class='achievement-table'><ul class='list-group'>";
+			let achievementShow = "<div class='achievement-container' style='position:relative'><div class='achievement-table'><ul class='list-group'>";
 			userList.each(function(item, index) {
 				achievementShow += "<li class='list-group-item'>";
 				achievementShow += item;
