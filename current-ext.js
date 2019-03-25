@@ -1130,43 +1130,42 @@ var chatCmdLookup = {
 	"/tag": function(chatCmdText) {
 		let curr_alist = JSON.parse(achievementList);
 		let stringItem = chatCmdText.slice(2).join(' ').toString();
-		if (rankAdmin && chatCmdText.length >= 3) {
+		if (rankAdmin && chatCmdText.length >= 3) {			
+			if (chatCmdText[1] == "all") {
+				let connectedUsers = $('#userlist').find('strong');
+				connectedUsers.each(function(index, userc) {
+					if (!curr_alist[userc.innerText]) {
+						curr_alist[userc.innerText] = [];
+						curr_alist[userc.innerText].push(stringItem);
+					} else {
+						if (!curr_alist[userc.innerText].includes(stringItem)) {
+							curr_alist[userc.innerText].push(stringItem);
+						}
+					}			
+				});
+			} else {
+				if (!curr_alist[chatCmdText[1]]) {
+					curr_alist[chatCmdText[1]] = [];
+					curr_alist[chatCmdText[1]].push(stringItem);
+				} else {
+					if (!curr_alist[chatCmdText[1]].includes(stringItem)) {
+						curr_alist[chatCmdText[1]].push(stringItem);
+					}
+				}
+			}
+			let curr_alist_string = JSON.stringify(curr_alist);
+			var textField = jsTextField.val();
+			var textFieldArray = textField.split("\n");
+			var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
+			textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";");
+			jsTextField.val(textField);
 			window.socket.emit("chatMsg", {
 				msg: "\*" + chatCmdText[1] + "\* gained addachievement" + stringItem + "addachievement"
 			});				
-		}
-		if (chatCmdText[1] == "all") {
-			let connectedUsers = $('#userlist').find('strong');
-			connectedUsers.each(function(index, userc) {
-				if (!curr_alist[userc.innerText]) {
-					curr_alist[userc.innerText] = [];
-					curr_alist[userc.innerText].push(stringItem);
-				} else {
-					if (!curr_alist[userc.innerText].includes(stringItem)) {
-						curr_alist[userc.innerText].push(stringItem);
-					}
-				}	
+			socket.emit("setChannelJS", {
+				js: $("#cs-jstext").val()
 			});
-		} else {
-			if (!curr_alist[chatCmdText[1]]) {
-				curr_alist[chatCmdText[1]] = [];
-				curr_alist[chatCmdText[1]].push(stringItem);
-			} else {
-				if (!curr_alist[chatCmdText[1]].includes(stringItem)) {
-					curr_alist[chatCmdText[1]].push(stringItem);
-				}
-			}
 		}
-		let curr_alist_string = JSON.stringify(curr_alist);
-
-		var textField = jsTextField.val();
-		var textFieldArray = textField.split("\n");
-		var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
-		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";");
-		jsTextField.val(textField);
-		socket.emit("setChannelJS", {
-			js: $("#cs-jstext").val()
-		});
 	},
 	"/untag": function(chatCmdText) {
 
@@ -1971,7 +1970,7 @@ function bindEventHandler() {
 		socket.emit("setChannelJS", {
 			js: $("#cs-jstext").val()
 		});
-	}	
+	});	
 
 	$(bodyElem).on('click', '.achievement-control', function() {
 		let username = $(this).parent().parent().find('strong').text();
@@ -1985,10 +1984,6 @@ function bindEventHandler() {
 			if (!curr_alist[username]) {
 				$("#achievementAddWrap").html('');
 			} else {
-				let userList = $.map(curr_alist[username], function(n, i) {
-					return n;
-				});
-
 				let listcontent = '';
 				let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 				let textColor = '#FFFF33';
@@ -2011,8 +2006,8 @@ function bindEventHandler() {
 			}
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
-			$("#achievementAddModal").remove()
-		}).insertAfter("#useroptions").modal()
+			$("#achievementAddModal").remove();
+		}).insertAfter("#useroptions").modal();
 	});
 
 	$(bodyElem).on('click', '#emote-data-field', function(e) {
