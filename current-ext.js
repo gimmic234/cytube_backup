@@ -1757,6 +1757,9 @@ window.countdowner = function(countdown, destination,index) {
 }
 
 window.loadInitializer = function() {
+	picklist = readSheet();
+	achievementMatch = readAchievement();
+	
 	let second = 1000,
 	minute = second * 60,
 	hour = minute * 60,
@@ -1778,8 +1781,6 @@ window.loadInitializer = function() {
 	}
 
 	waitForEl('#messagebuffer', function() {
-		picklist = readSheet();
-		achievementMatch = readAchievement();
 		populateImgEmote();
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
