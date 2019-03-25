@@ -627,6 +627,26 @@ window[CHANNEL.name].audioNotice.handler = {
 			$('.well').css("background", "rgba(0,0,0,.7)");
 		},  (duration * 1000));*/
 	},
+	coffee: function(data) {
+		let cawfee = $(".coffee:not( .coffeedone )");
+		if (!cawfee.length) return;
+		cawfee.addClass("coffeedone");
+		setTimeout(function() {
+			cawfee.fadeOut('fast', function() {
+				cawfee.attr('src', "//media.discordapp.net/attachments/501103378714329100/559871062913843223/1518855884_tumblr_n3tsi9JO1F1r9b5wlo1_500.gif").fadeIn('fast');;
+			});
+		}, 1500)
+		setTimeout(function() {
+			cawfee.fadeOut('fast', function() {
+				cawfee.attr('src', "//cdn.discordapp.com/attachments/501103378714329100/559871042429124628/6874742.GIF").fadeIn('fast');;
+			});
+		}, 4500)
+		setTimeout(function() {
+			cawfee.fadeOut('fast', function() {
+				cawfee.attr('src', "//media.discordapp.net/attachments/501103378714329100/559871034451427328/tea-ore-monogatari-12.png").fadeIn('fast');;
+			});
+		}, 6000)
+	},
 	utsu: function(data) {
 		let utsu = $(".utsu:not( .parsed )");
 		if (!utsu.length) return;
