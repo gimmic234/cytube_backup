@@ -1984,7 +1984,7 @@ function bindEventHandler() {
 			title: "Add a new achievement for " + username,
 			wrap_id: "achievementAddModal",
 			body_id: "achievementAddWrap",
-			footer: true
+			footer: false
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
 			let listcontent = '';
@@ -2199,7 +2199,7 @@ function bindEventHandler() {
 			title: window.CLIENT.name + "'s achievement",
 			wrap_id: "achievementModal",
 			body_id: "achievementWrap",
-			footer: true
+			footer: false
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
 			let username = window.CLIENT.name;
