@@ -1394,6 +1394,7 @@ function populateImgEmote() {
 			let entries = result.feed.entry;
 			let bodyString = "<li><b>!rule[1-8]</b></li>";
 			bodyString += "<li><b>!club</b></li>";
+			bodyString += "<li><b>!coffee</b></li>";
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				temp[value.gsx$command.$t] = function() {
@@ -1682,7 +1683,7 @@ function populateEmote() {
 	if (emotePreload == "true") {
 		preloadImages(emoteArray.map(emote => emote.image));
 	}
-	preloadImages([penguinBg, penguinImg, grossimg]);
+	preloadImages([penguinBg, penguinImg, grossimg, "https://media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif", "https://media.discordapp.net/attachments/501103378714329100/559871062913843223/1518855884_tumblr_n3tsi9JO1F1r9b5wlo1_500.gif", "https://media.discordapp.net/attachments/501103378714329100/559871042429124628/6874742.GIF", "https://media.discordapp.net/attachments/501103378714329100/559871034451427328/tea-ore-monogatari-12.png"]);
 }
 
 function appendEmote(elem) {

@@ -554,6 +554,26 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 
 window[CHANNEL.name].chatNotice = {};
 window[CHANNEL.name].chatNotice.handler = {
+	coffee: function(data) {
+		let cawfee = $(".coffee:not( .coffeedone )");
+		if (!cawfee.length) return;
+		cawfee.addClass("coffeedone");
+		setTimeout(function() {
+			cawfee.fadeOut('fast', function() {
+				cawfee.attr('src', "//media.discordapp.net/attachments/501103378714329100/559871062913843223/1518855884_tumblr_n3tsi9JO1F1r9b5wlo1_500.gif").fadeIn('fast');;
+			});
+		}, 1500)
+		setTimeout(function() {
+			cawfee.fadeOut('fast', function() {
+				cawfee.attr('src', "//cdn.discordapp.com/attachments/501103378714329100/559871042429124628/6874742.GIF").fadeIn('fast');;
+			});
+		}, 4500)
+		setTimeout(function() {
+			cawfee.fadeOut('fast', function() {
+				cawfee.attr('src', "//media.discordapp.net/attachments/501103378714329100/559871034451427328/tea-ore-monogatari-12.png").fadeIn('fast');;
+			});
+		}, 6000)
+	},
 	deleteButton: function(data) {
 		if (!rankMod) {
 			return;
@@ -626,26 +646,6 @@ window[CHANNEL.name].audioNotice.handler = {
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			$('.well').css("background", "rgba(0,0,0,.7)");
 		},  (duration * 1000));*/
-	},
-	coffee: function(data) {
-		let cawfee = $(".coffee:not( .coffeedone )");
-		if (!cawfee.length) return;
-		cawfee.addClass("coffeedone");
-		setTimeout(function() {
-			cawfee.fadeOut('fast', function() {
-				cawfee.attr('src', "//media.discordapp.net/attachments/501103378714329100/559871062913843223/1518855884_tumblr_n3tsi9JO1F1r9b5wlo1_500.gif").fadeIn('fast');;
-			});
-		}, 1500)
-		setTimeout(function() {
-			cawfee.fadeOut('fast', function() {
-				cawfee.attr('src', "//cdn.discordapp.com/attachments/501103378714329100/559871042429124628/6874742.GIF").fadeIn('fast');;
-			});
-		}, 4500)
-		setTimeout(function() {
-			cawfee.fadeOut('fast', function() {
-				cawfee.attr('src', "//media.discordapp.net/attachments/501103378714329100/559871034451427328/tea-ore-monogatari-12.png").fadeIn('fast');;
-			});
-		}, 6000)
 	},
 	utsu: function(data) {
 		let utsu = $(".utsu:not( .parsed )");
@@ -932,6 +932,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["joke"](data);
 		window[CHANNEL.name].audioNotice.handler["rewind"](data);
 		window[CHANNEL.name].audioNotice.handler["nipah"](data);
+		window[CHANNEL.name].chatNotice.handler["coffee"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
 	});
