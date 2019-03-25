@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/556581936064102411/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg";
+var background_img = "http://media.discordapp.net/attachments/452943717708595211/559577695952830486/AKB0048_Next_Stage_-_04_-_Large_06.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -127,6 +127,7 @@ var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var picklist;
 var achievementMatch;
+var imgLookup;
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -141,7 +142,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4d2bf3e0c7f8ed3f8c28cdef3b52c6fd2f6ccf81/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/36cbb113bb9a409708a6609eb4b1051ee22c2508/current-ext.js",
 		callback: true
 	},
 	'layout': {

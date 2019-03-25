@@ -1286,7 +1286,11 @@ var chatKeyLookup = {
 					msg: msg,
 					meta: meta
 				});
-				readImgLookup(chatCmdText[0]);
+				if (imgLookup.hasOwnProperty(chatCmdText[0])) {
+					chatCmdLookup[chatCmdText[0]]();
+				} else {
+					readImgLookup(chatCmdText[0]);
+				}
 			}
 
 
@@ -1376,6 +1380,7 @@ function readSheet() {
 }
 
 function populateImgEmote() {
+	let temp = {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
 		method: "get",
@@ -1386,13 +1391,18 @@ function populateImgEmote() {
 			bodyString += "<li><b>!club</b></li>";
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+				temp[value.gsx$command.$t] = function() {
+					imgEmote(value.gsx$url.$t);
+				}
 			})
 			$('#image-emote-list').html(bodyString);
+			imgLookup = temp;
 		}
 	});
 }
 
 function readImgLookup(command) {
+	let temp = {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
 		method: "get",
@@ -1403,7 +1413,11 @@ function readImgLookup(command) {
 				if (command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
 					imgEmote(value.gsx$url.$t);
 				}
+				temp[value.gsx$command.$t] = function() {
+					imgEmote(value.gsx$url.$t);
+				}
 			})
+			imgLookup = temp;
 		}
 	});
 }
