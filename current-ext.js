@@ -1781,9 +1781,6 @@ window.loadInitializer = function() {
 		picklist = readSheet();
 		achievementMatch = readAchievement();
 		populateImgEmote();
-		if (rankAdmin) {
-			$('.btn-group-vertical').append("<button class='btn btn-xs btn-default achievement-control'>Add Achievement</button>");
-		}
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
@@ -1942,6 +1939,13 @@ function bindEventHandler() {
 		});	
 	});
 
+	$(bodyElem).on('click', '.userlist_owner', function() {
+		if (rankAdmin) {
+			$(".achievement-control").remove();
+			$('.btn-group-vertical').append("<button class='btn btn-xs btn-default achievement-control'>Add Achievement</button>");
+		}
+	});
+
 	$(bodyElem).on('click', '.achievement-add', function() {
 		let stringItem = $(this).attr('data-title');
 		let username = $(this).attr('data-user');
@@ -1967,6 +1971,7 @@ function bindEventHandler() {
 		var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
 		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";");
 		jsTextField.val(textField);
+		$("#achievementAddModal").remove();
 		socket.emit("setChannelJS", {
 			js: $("#cs-jstext").val()
 		});
@@ -1991,10 +1996,10 @@ function bindEventHandler() {
 				textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 				textDescription = achievement.description;
 				let block = "<div class=''>";
-				block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement='"+title+"' title='"+textDescription+"'>";
+				block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement='"+achievement.title+"' title='"+textDescription+"'>";
 				block += "<span class='emote-preview-hax'></span>";
 				block += "<img class='emote-preview' src='"+imageUrl+"'>";
-				block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
+				block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
 				block += "</div>";
 				block += "</div>";
 				listcontent += block;
