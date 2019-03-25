@@ -1287,7 +1287,7 @@ var chatKeyLookup = {
 					meta: meta
 				});
 				if (imgLookup.hasOwnProperty(chatCmdText[0])) {
-					chatCmdLookup[chatCmdText[0]]();
+					imgLookup[chatCmdText[0]]();
 				} else {
 					readImgLookup(chatCmdText[0]);
 				}
