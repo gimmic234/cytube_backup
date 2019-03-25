@@ -120,7 +120,9 @@ var chatCmdLookup = {
 			var firstBlock = textFieldArray[2].substr(0, textFieldArray[2].lastIndexOf(' = ') + 1);
 			textField = textField.replace(textFieldArray[2], firstBlock + "= '" + bannerUrl + "';");
 			jsTextField.val(textField);
-			$(document.getElementById('cs-jssubmit')).click();
+			socket.emit("setChannelJS", {
+				js: $("#cs-jstext").val()
+			});
 		}
 		window.socket.emit("chatMsg", {
 			msg: "banner updated"
@@ -157,7 +159,9 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "countdown date updated"
 			});
-			$(document.getElementById('cs-jssubmit')).click();
+			socket.emit("setChannelJS", {
+				js: $("#cs-jstext").val()
+			});
 		}
 	},
 
@@ -224,7 +228,9 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "countdown2 date updated"
 			});
-			$(document.getElementById('cs-jssubmit')).click();
+			socket.emit("setChannelJS", {
+				js: $("#cs-jstext").val()
+			});
 		}
 	},
 
@@ -255,7 +261,9 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "countdown3 date updated"
 			});
-			$(document.getElementById('cs-jssubmit')).click();
+			socket.emit("setChannelJS", {
+				js: $("#cs-jstext").val()
+			});
 		}
 	},
 
@@ -286,7 +294,9 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "countdown4 date updated"
 			});
-			$(document.getElementById('cs-jssubmit')).click();
+			socket.emit("setChannelJS", {
+				js: $("#cs-jstext").val()
+			});
 		}
 	},
 
@@ -317,7 +327,9 @@ var chatCmdLookup = {
 			window.socket.emit("chatMsg", {
 				msg: "countdown5 date updated"
 			});
-			$(document.getElementById('cs-jssubmit')).click();
+			socket.emit("setChannelJS", {
+				js: $("#cs-jstext").val()
+			});
 		}
 	},
 
@@ -1152,7 +1164,9 @@ var chatCmdLookup = {
 		var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
 		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";");
 		jsTextField.val(textField);
-		$(document.getElementById('cs-jssubmit')).click();
+		socket.emit("setChannelJS", {
+			js: $("#cs-jstext").val()
+		});
 	},
 	"/untag": function(chatCmdText) {
 
@@ -1768,6 +1782,9 @@ window.loadInitializer = function() {
 		picklist = readSheet();
 		achievementMatch = readAchievement();
 		populateImgEmote();
+		if (rankAdmin) {
+			$('.btn-group-vertical').append("<button class='btn btn-xs btn-default achievement-control'>Add Achievement</button>");
+		}
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
@@ -1924,6 +1941,78 @@ function bindEventHandler() {
 		window.socket.emit("chatMsg", {
 			msg: "md01l" + messageString + "md02l"
 		});	
+	});
+
+	$(bodyElem).on('click', '.achievement-add', function() {
+		let stringItem = $(this).attr('data-title');
+		let username = $(this).attr('data-user');
+		let curr_alist = JSON.parse(achievementList);
+		if (rankAdmin) {
+			window.socket.emit("chatMsg", {
+				msg: "\*" + username + "\* gained addachievement" + stringItem + "addachievement"
+			});				
+		}
+
+		if (!curr_alist[username]) {
+			curr_alist[username] = [];
+			curr_alist[username].push(stringItem);
+		} else {
+			if (!curr_alist[username].includes(stringItem)) {
+				curr_alist[username].push(stringItem);
+			}
+		}
+
+		let curr_alist_string = JSON.stringify(curr_alist);
+		var textField = jsTextField.val();
+		var textFieldArray = textField.split("\n");
+		var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
+		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";");
+		jsTextField.val(textField);
+		socket.emit("setChannelJS", {
+			js: $("#cs-jstext").val()
+		});
+	}	
+
+	$(bodyElem).on('click', '.achievement-control', function() {
+		let username = $(this).parent().parent().find('strong').text();
+		createModal({
+			title: "Add a new achievement for " username,
+			wrap_id: "achievementAddModal",
+			body_id: "achievementAddWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let curr_alist = JSON.parse(achievementList);
+			if (!curr_alist[username]) {
+				$("#achievementAddWrap").html('');
+			} else {
+				let userList = $.map(curr_alist[username], function(n, i) {
+					return n;
+				});
+
+				let listcontent = '';
+				let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
+				let textColor = '#FFFF33';
+				let textDescription = '';
+				achievementMatch.each(function(achievement, i) {
+					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
+					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
+					textDescription = achievement.description;
+					let block = "<div class=''>";
+					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement='"+title+"' title='"+textDescription+"'>";
+					block += "<span class='emote-preview-hax'></span>";
+					block += "<img class='emote-preview' src='"+imageUrl+"'>";
+					block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
+					block += "</div>";
+					block += "</div>";
+					listcontent += block;
+				});
+
+				$("#achievementAddWrap").html(listcontent);
+			}
+		}).on("hidden.bs.modal", function(event) {
+			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			$("#achievementAddModal").remove()
+		}).insertAfter("#useroptions").modal()
 	});
 
 	$(bodyElem).on('click', '#emote-data-field', function(e) {
