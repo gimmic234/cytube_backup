@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/556581936064102411/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/557714741527576588/pape.jpg";
+var background_img = "http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -71,7 +71,7 @@ var background_img_auto5 = 'http://cdn.discordapp.com/attachments/46638631976619
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
 var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/556217613852868629/Kaneda.mp3';
-var bgm3url = 'https://cdn.discordapp.com/attachments/528005830419677185/555047194726760458/Guardians_At_the_Gate_-_Audiomachine.mp3';
+var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/559522269987209219/21_-_Yume_wa_Nando_mo_Umare_Kawaru.flac";
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "3";
@@ -141,7 +141,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7dea3acb69c730038359a30c838001ed8ac8046c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/39c68a15665a77c89e63c38c26c252214116559a/current-ext.js",
 		callback: true
 	},
 	'layout': {

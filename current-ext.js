@@ -1684,7 +1684,6 @@ function createModal(data) {
 	var body = $("<div/>").addClass("modal-body").appendTo(content);
 	var foot = $("<div/>").addClass("modal-footer");
 	$("<button/>").addClass("close").attr("data-dismiss", "modal").attr("data-hidden", "true").html("&times;").appendTo(head);
-	$("<button/>").addClass("btn btn-default").attr("data-dismiss", "modal").prop("type", "button").html("Close").appendTo(foot);
 	if (title_m) {
 		$("<h4/>").addClass("modal-title").html(title).appendTo(head)
 	} else {
@@ -1759,7 +1758,7 @@ window.countdowner = function(countdown, destination,index) {
 window.loadInitializer = function() {
 	picklist = readSheet();
 	achievementMatch = readAchievement();
-	
+
 	let second = 1000,
 	minute = second * 60,
 	hour = minute * 60,
