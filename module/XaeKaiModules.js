@@ -567,12 +567,12 @@ window[CHANNEL.name].chatNotice.handler = {
 			cawfee.fadeOut('fast', function() {
 				cawfee.attr('src', "//cdn.discordapp.com/attachments/501103378714329100/559871042429124628/6874742.GIF").fadeIn('fast');;
 			});
-		}, 3800)
+		}, 3600)
 		setTimeout(function() {
 			cawfee.fadeOut('fast', function() {
 				cawfee.attr('src', "//media.discordapp.net/attachments/501103378714329100/559871034451427328/tea-ore-monogatari-12.png").fadeIn('fast');;
 			});
-		}, 5500)
+		}, 5300)
 	},
 	deleteButton: function(data) {
 		if (!rankMod) {

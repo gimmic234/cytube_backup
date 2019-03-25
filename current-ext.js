@@ -1119,7 +1119,8 @@ var chatCmdLookup = {
 			"//media.discordapp.net/attachments/420183063562027008/462836619888558080/Anime_Club_at_its_current_state.png",
 			"//images-ext-1.discordapp.net/external/D5t_p45mDO_vAEWf_6pm3hKgguSufHPCnKTYoIF4KJE/https/cdn.discordapp.com/attachments/420183063562027008/439766717065986049/TopGearAnimeClub.png",
 			"//media.discordapp.net/attachments/420183063562027008/451551850433478656/2bbhq2.png",
-			"//media.discordapp.net/attachments/555563726669873162/556821851570176020/HorribleSubs_Lostorage_Conflated_WIXOSS_-_06_720p.mkv_snapshot_18.42_2018.05.19_09.30.07.jpg"
+			"//media.discordapp.net/attachments/555563726669873162/556821851570176020/HorribleSubs_Lostorage_Conflated_WIXOSS_-_06_720p.mkv_snapshot_18.42_2018.05.19_09.30.07.jpg",
+			"//media.discordapp.net/attachments/466386319766192138/559541320218050571/perfection.jpg"
 		];
 		var clubimg = clublist[Math.floor(Math.random() * clublist.length)];
 		imgEmote(clubimg);
