@@ -1975,7 +1975,7 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.achievement-control', function() {
 		let username = $(this).parent().parent().find('strong').text();
 		createModal({
-			title: "Add a new achievement for " username,
+			title: "Add a new achievement for " + username,
 			wrap_id: "achievementAddModal",
 			body_id: "achievementAddWrap",
 			footer: true
