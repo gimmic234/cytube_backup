@@ -1939,7 +1939,7 @@ function bindEventHandler() {
 		});	
 	});
 
-	$(bodyElem).on('click', '.userlist_owner', function() {
+	$(bodyElem).on('click', '#userlisttoggle', function() {
 		if (rankAdmin) {
 			$(".achievement-control").remove();
 			$('.btn-group-vertical').append("<button class='btn btn-xs btn-default achievement-control'>Add Achievement</button>");
@@ -1947,7 +1947,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '.achievement-add', function() {
-		let stringItem = $(this).attr('data-title');
+		let stringItem = $(this).attr('data-achievement');
 		let username = $(this).attr('data-user');
 		let curr_alist = JSON.parse(achievementList);
 		if (rankAdmin) {
@@ -1977,7 +1977,7 @@ function bindEventHandler() {
 		});
 	});	
 
-	$(bodyElem).on('click', '.achievement-control', function(e) {
+	$(bodyElem).on('mousedown', '.achievement-control', function(e) {
 		let username = $(this).parent().parent().find('strong').text();
 		console.log(username);
 		createModal({
