@@ -1674,7 +1674,7 @@ function appendEmote(elem) {
 	chatlineElem.focus();
 }
 
-function createModal(data) {
+function createModalExt(data) {
 	var title = data.title || "Empty Modal";
 	var title_m = !!data.titleIsMarkup;
 	var wrap = $("<div/>").addClass("modal fade").attr("tabindex", "-1");
@@ -1980,7 +1980,7 @@ function bindEventHandler() {
 	$(bodyElem).on('mousedown', '.achievement-control', function(e) {
 		let username = $(this).parent().parent().find('strong').text();
 		console.log(username);
-		createModal({
+		createModalExt({
 			title: "Add a new achievement for " + username,
 			wrap_id: "achievementAddModal",
 			body_id: "achievementAddWrap",
@@ -2195,7 +2195,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#medallist', function(e) {
-		createModal({
+		createModalExt({
 			title: window.CLIENT.name + "'s achievement",
 			wrap_id: "achievementModal",
 			body_id: "achievementWrap",
