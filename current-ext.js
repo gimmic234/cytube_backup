@@ -1972,8 +1972,9 @@ function bindEventHandler() {
 		});
 	});	
 
-	$(bodyElem).on('click', '.achievement-control', function() {
+	$(bodyElem).on('click', '.achievement-control', function(e) {
 		let username = $(this).parent().parent().find('strong').text();
+		console.log(username);
 		createModal({
 			title: "Add a new achievement for " + username,
 			wrap_id: "achievementAddModal",
@@ -1981,29 +1982,26 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
-			if (!curr_alist[username]) {
-				$("#achievementAddWrap").html('');
-			} else {
-				let listcontent = '';
-				let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
-				let textColor = '#FFFF33';
-				let textDescription = '';
-				achievementMatch.each(function(achievement, i) {
-					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
-					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
-					textDescription = achievement.description;
-					let block = "<div class=''>";
-					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement='"+title+"' title='"+textDescription+"'>";
-					block += "<span class='emote-preview-hax'></span>";
-					block += "<img class='emote-preview' src='"+imageUrl+"'>";
-					block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
-					block += "</div>";
-					block += "</div>";
-					listcontent += block;
-				});
+			let listcontent = '';
+			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
+			let textColor = '#FFFF33';
+			let textDescription = '';
+			achievementMatch.each(function(achievement, i) {
+				imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
+				textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
+				textDescription = achievement.description;
+				let block = "<div class=''>";
+				block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement='"+title+"' title='"+textDescription+"'>";
+				block += "<span class='emote-preview-hax'></span>";
+				block += "<img class='emote-preview' src='"+imageUrl+"'>";
+				block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
+				block += "</div>";
+				block += "</div>";
+				listcontent += block;
+			});
 
-				$("#achievementAddWrap").html(listcontent);
-			}
+			$("#achievementAddWrap").html(listcontent);
+		
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#achievementAddModal").remove();
