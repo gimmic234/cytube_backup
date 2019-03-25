@@ -1329,7 +1329,7 @@ var chatKeyLookup = {
 }
 
 function renderStatus(status) {
-	return (status == "TRUE") ? "picked" : "pending";
+	return (status == "TRUE") ? "done" : "pending";
 }
 
 function readAchievement() {
