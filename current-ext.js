@@ -1287,13 +1287,13 @@ var chatKeyLookup = {
 			if (chatCmdLookup.hasOwnProperty(chatCmdText[0])) {
 				chatCmdLookup[chatCmdText[0]](chatCmdText);
 			} else {
-				window.socket.emit("chatMsg", {
-					msg: msg,
-					meta: meta
-				});
 				if (imgLookup.hasOwnProperty(chatCmdText[0])) {
 					imgLookup[chatCmdText[0]]();
 				} else {
+					window.socket.emit("chatMsg", {
+						msg: msg,
+						meta: meta
+					});
 					readImgLookup(chatCmdText[0]);
 				}
 			}
