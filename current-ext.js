@@ -1208,8 +1208,8 @@ var chatCmdLookup = {
 			picklist.each(function(value, index) {
 				if (value.user.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
 					window.socket.emit("chatMsg", {
-						msg: "\*" + value.user + "\* picked [" + value.pick1 + "] - "+renderStatus(value.status1)+", [" + value.pick2 + "] - "+renderStatus(value.status2)+", [" + value.pick3 + "] - "+renderStatus(value.status3)+""
-					});					
+						msg: "\*" + value.user + "\* picked [" + value.pick1 + " | "+renderStatus(value.status1)+"], [" + value.pick2 + " | "+renderStatus(value.status2)+"], [" + value.pick3 + " | "+renderStatus(value.status3)+"]"
+					});
 				}
 			});
 		}
