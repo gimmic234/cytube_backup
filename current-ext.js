@@ -1224,10 +1224,9 @@ var chatCmdLookup = {
 		if (rankAdmin) {
 			$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
 			$("#ce_queue_end").click();
-			let warning = $(".alert-warning").find("button");
-			let amq = $(".alert-warning").find("a[href='https://animemusicquiz.com/'");
+			let amq = $("a[href='https://animemusicquiz.com/'");
 			if (amq.length > 0) {
-				warning.click();
+				amq.parent().find("button").click()
 			}
 		}
 	}
@@ -1814,10 +1813,9 @@ window.loadInitializer = function() {
 	}
 
 	waitForEl('#messagebuffer', function() {
-		let warning = $(".alert-warning").find("button");
-		let amq = $(".alert-warning").find("a[href='https://animemusicquiz.com/'");
+		let amq = $("a[href='https://animemusicquiz.com/'");
 		if (amq.length > 0) {
-			warning.click();
+			amq.parent().find("button").click()
 		}
 		populateImgEmote();
 		var buff = $('#messagebuffer');
