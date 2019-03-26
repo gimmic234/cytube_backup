@@ -1295,7 +1295,9 @@ var chatKeyLookup = {
 						msg: msg,
 						meta: meta
 					});
-					readImgLookup(chatCmdText[0]);
+					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
+						readImgLookup(chatCmdText[0]);
+					}
 				}
 			}
 
