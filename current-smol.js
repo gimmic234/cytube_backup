@@ -1,8 +1,8 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/556581936064102411/current_after_tankshift.png?width=1300&height=250';
+var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/560185374530601020/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://media.discordapp.net/attachments/452943717708595211/559577695952830486/AKB0048_Next_Stage_-_04_-_Large_06.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -74,7 +74,7 @@ var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/5562176
 var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/559522269987209219/21_-_Yume_wa_Nando_mo_Umare_Kawaru.flac";
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "3";
+var bgmSelect = "5";
 var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\"],\"Zinzoo\":[\"first blood\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
@@ -142,7 +142,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1de00d3e6db9bdc24a8cb61719bc9f3d28f4d7ef/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b831662bdc17547ecf207c8aa3e7841096dfc4d1/current-ext.js",
 		callback: true
 	},
 	'layout': {

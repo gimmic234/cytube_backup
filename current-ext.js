@@ -1219,6 +1219,12 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: "coffeeimg" + "//media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif" + "coffeeimg"
 		});
+	},
+	"/amq": function() {
+		if (rankAdmin) {
+			$("#customembed-content").value("<iframe src='https://animemusicquiz.com/'></iframe>");
+			$("#ce_queue_end").click();
+		}
 	}
 };
 
