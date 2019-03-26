@@ -1222,7 +1222,7 @@ var chatCmdLookup = {
 	},
 	"/amq": function() {
 		if (rankAdmin) {
-			$("#customembed-content").value("<iframe src='https://animemusicquiz.com/'></iframe>");
+			$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
 			$("#ce_queue_end").click();
 		}
 	}
