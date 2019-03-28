@@ -2106,10 +2106,12 @@ function bindEventHandler() {
 				imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 				textColor = '#FFFF33';
 				textDescription = '';
-				if ($.inArray(achievement.title, curr_alist[username]) != -1) {
-					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
-					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
-					textDescription = achievement.description;
+				achievementMatch.each(function(achievement, i) {
+					if ($.inArray(achievement.title, curr_alist[username]) != -1) {
+						imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
+						textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
+						textDescription = achievement.description;
+					}
 				}
 				let block = "<div class=''>";
 				block += "<div class='achievement-container' data-user='"+username+"' data-achievement='"+achievement.title+"' title='"+textDescription+"'>";
