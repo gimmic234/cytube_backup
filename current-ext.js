@@ -531,11 +531,6 @@ var chatCmdLookup = {
 				msg: "Club rule #8 - |Pat Poes for good luck!|"
 		});
 	},
-	'!gross': function() {
-		window.socket.emit("chatMsg", {
-			msg: "grossimg" + grossimg + "grossimg"
-		});	
-	},
 	'/noiseoff': function() {
 		if (rankAdmin) {
 			noiseActive = "false";
@@ -1063,11 +1058,6 @@ var chatCmdLookup = {
 			socket.emit("togglePlaylistLock");
 		}
 	},
-	"!nyanpasu": function() {
-		window.socket.emit("chatMsg", {
-			msg: "nyanpasuimg" + nyanpasuimg + "nyanpasuimg"
-		});	
-	},
 	"!utsu": function(chatCmdText) {
 		var utsulist = [
 			"//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png",
@@ -1091,21 +1081,6 @@ var chatCmdLookup = {
 				msg: "utsuimg" + utsuimg + "utsuimg"
 			});	
 		}
-	},
-	"!joke": function() {
-		window.socket.emit("chatMsg", {
-			msg: "itsjokeimg" + itsjokeimg + "itsjokeimg"
-		});	
-	},
-	"!rewind": function() {
-		window.socket.emit("chatMsg", {
-			msg: "rewindtimeimg" + rewindimg + "rewindtimeimg"
-		});		
-	},
-	"!nipah": function() {
-		window.socket.emit("chatMsg", {
-			msg: "nipahimg" + nipahimg + "nipahimg"
-		});		
 	},
 	"!club": function() {
 		let clublist = [
@@ -1858,14 +1833,9 @@ window.loadInitializer = function() {
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
 		buff.find(".semote:not( .parsed )").addClass('parsed');
-		buff.find(".gross:not( .parsed )").addClass('parsed');
 		buff.find(".utsu:not( .parsed )").addClass('parsed');
 		buff.find(".coffee:not( .coffeedone )").addClass('coffeedone');
 		buff.find(".utsunot:not( .parsed )").addClass('parsed');
-		buff.find(".nyanpasu:not( .parsed )").addClass('parsed');
-		buff.find(".joke:not( .parsed )").addClass('parsed');
-		buff.find(".rewind:not( .parsed )").addClass('parsed');
-		buff.find(".nipah:not( .parsed )").addClass('parsed');
 		buff.find(".final:not( .parsed )").addClass('parsed');
 		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
 		window[CHANNEL.name].audioNotice.handler["stopEvent"]();

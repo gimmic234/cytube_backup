@@ -6,23 +6,9 @@
  */
 
 var utsuvolume = .4;
-var rewindurl = "https://cdn.discordapp.com/attachments/515347492511023113/550508785786159123/its_rewind_time.wav";
-var rewindvolume = .8;
-var rewindimg = "//media.discordapp.net/attachments/501103378714329100/550509149071605760/Screen-Shot-2018-12-11-at-20-1-920x584.jpg";
-var nipahurl = "//cdn.discordapp.com/attachments/515347492511023113/556499252910489600/nipah.mp3";
-var nipahvolume = .8;
-var nipahimg = "//media.discordapp.net/attachments/501103378714329100/556499296090980392/nipah.JPG";
-var jokeurl = "https://cdn.discordapp.com/attachments/515347492511023113/549315202391474210/its_joke.mp3";
-var jokevolume = .8;
-var itsjokeimg = "//cdn.discordapp.com/attachments/501103378714329100/549317289405579275/flat550x550075f.u2.jpg";
-var nyanpasuurl = "https://cdn.discordapp.com/attachments/501103378714329100/541702107305082893/nyanpasu.mp3";
-var nyanpasuvolume = .8;
-var nyanpasuimg = "//media.discordapp.net/attachments/501103378714329100/541701798994509883/Nyanpasu.png";
 var utsuurl = "https://cdn.discordapp.com/attachments/515347492511023113/536618471002341376/utsu.ogg";
 var utsunotvolume = .8;
 var utsunoturl = "https://cdn.discordapp.com/attachments/515347492511023113/537831049712107520/14min.mp3";
-var grossimg = '//media.discordapp.net/attachments/409829343263719427/511685643580080137/1381184072836.jpg';
-var grossUrl = "https://cdn.discordapp.com/attachments/409829343263719427/511700767787450368/maji7.mp3";
 
 if (!this[CHANNEL.name].audioLibrary) {
 	this[CHANNEL.name].audioLibrary = {}
@@ -123,11 +109,6 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		emote: true,
 		squee: true
 	},
-	gross: {
-		url: grossUrl,
-		emote: true,
-		squee: true	
-	},
 	survivalStrategy: {
 		url: penguinUrl,
 		emote: true,
@@ -173,26 +154,6 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		emote: true,
 		squee: true
 	},
-	nyanpasu: {
-		url: nyanpasuurl,
-		emote: true,
-		squee: true
-	},
-	joke: {
-		url: jokeurl,
-		emote: true,
-		squee: true
-	},
-	rewind: {
-		url: rewindurl,
-		emote: true,
-		squee: true
-	},
-	nipah: {
-		url: nipahurl,
-		emote: true,
-		squee: true	
-	},
 	emote: {
 		url: nipahurl,
 		emote: true,
@@ -221,9 +182,6 @@ if (!window[CHANNEL.name].audioNotice) {
 		previousUser: CHANNEL.usercount,
 		active: false,
 	};
-	window[CHANNEL.name].audioNotice.Gross = {
-		timeSinceLast: 0
-	};
 	window[CHANNEL.name].audioNotice.survivalStrategy = {
 		timeSinceLast: 0
 	};
@@ -251,18 +209,6 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.utsunot = {
 		timeSinceLast: 0
 	};
-	window[CHANNEL.name].audioNotice.nyanpasu = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.joke = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.rewind = {
-		timeSinceLast: 0
-	};
-	window[CHANNEL.name].audioNotice.nipah = {
-		timeSinceLast: 0
-	};
 	window[CHANNEL.name].audioNotice.emote = {
 		timeSinceLast: 0
 	};
@@ -273,7 +219,6 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	Priv: "Private Message",
 	Video: "Queued Video",
 	Skip: "Voted Skip",
-	Gross: "Gross",
 	survivalStrategy: "Event1",
 	skipFinal: "Skip Final",
 	bgm1play: "BGM 1",
@@ -283,10 +228,6 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	bgm5play: "BGM 5",
 	utsu: "Utsutsu",
 	utsunot: "Utsunot",
-	nyanpasu: "Nyanpasu",
-	joke: "Joke",
-	rewind: "Rewind",
-	nipah: "Nipah",
 	emote: "Emote"
 };
 
@@ -666,16 +607,6 @@ window[CHANNEL.name].audioNotice.handler = {
 		audioplay.volume = window[CHANNEL.name].audioNotice.utsu.volume;
 		audioplay.play();
 	},
-	rewind: function(data) {
-		let rewind = $(".rewind:not( .parsed )");
-		if (!rewind.length) return;
-		rewind.addClass("parsed");
-		if (!window[CHANNEL.name].audioNotice.rewind.toggleState) return;
-		if (!(noiseActive == "true")) return;
-		let audioplay = window[CHANNEL.name].audioNotice.rewind.audio[0].cloneNode(true);
-		audioplay.volume = window[CHANNEL.name].audioNotice.rewind.volume;
-		audioplay.play();
-	},
 	emote: function(data) {
 		let emote = $(".semote:not( .parsed )");
 		if (!emote.length) return;
@@ -688,36 +619,6 @@ window[CHANNEL.name].audioNotice.handler = {
 		audioplay.volume = window[CHANNEL.name].audioNotice.emote.volume;
 		audioplay.play();
 	},
-	nipah: function(data) {
-		let nipah = $(".nipah:not( .parsed )");
-		if (!nipah.length) return;
-		nipah.addClass("parsed");
-		if (!window[CHANNEL.name].audioNotice.nipah.toggleState) return;
-		if (!(noiseActive == "true")) return;
-		let audioplay = window[CHANNEL.name].audioNotice.nipah.audio[0].cloneNode(true);
-		audioplay.volume = window[CHANNEL.name].audioNotice.nipah.volume;
-		audioplay.play();
-	},
-	nyanpasu: function(data) {
-		let nyanpasu = $(".nyanpasu:not( .parsed )");
-		if (!nyanpasu.length) return;
-		nyanpasu.addClass("parsed");
-		if (!window[CHANNEL.name].audioNotice.nyanpasu.toggleState) return;
-		if (!(noiseActive == "true")) return;
-		let audioplay = window[CHANNEL.name].audioNotice.nyanpasu.audio[0].cloneNode(true);
-		audioplay.volume = window[CHANNEL.name].audioNotice.nyanpasu.volume;
-		audioplay.play();
-	},
-	joke: function(data) {
-		let joke = $(".joke:not( .parsed )");
-		if (!joke.length) return;
-		joke.addClass("parsed");
-		if (!window[CHANNEL.name].audioNotice.joke.toggleState) return;
-		if (!(noiseActive == "true")) return;
-		let audioplay = window[CHANNEL.name].audioNotice.joke.audio[0].cloneNode(true);
-		audioplay.volume = window[CHANNEL.name].audioNotice.joke.volume;
-		audioplay.play();
-	},
 	utsunot: function(data) {
 		let utsu = $(".utsunot:not( .parsed )");
 		if (!utsu.length) return;
@@ -726,16 +627,6 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!(noiseActive == "true")) return;
 		let audioplay = window[CHANNEL.name].audioNotice.utsunot.audio[0].cloneNode(true);
 		audioplay.volume = window[CHANNEL.name].audioNotice.utsunot.volume;
-		audioplay.play();
-	},
-	Gross: function(data) {
-		let gross = $(".gross:not( .parsed )");
-		if (!gross.length) return;
-		gross.addClass("parsed");
-		if (!window[CHANNEL.name].audioNotice.Gross.toggleState) return;
-		if (!(noiseActive == "true")) return;
-		let audioplay = window[CHANNEL.name].audioNotice.Gross.audio[0].cloneNode(true);
-		audioplay.volume = window[CHANNEL.name].audioNotice.Gross.volume;
 		audioplay.play();
 	},
 	Skip: function(data) {
@@ -863,10 +754,6 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["Skip"].id = "bzzzt";
 	window[CHANNEL.name].audioNotice["Skip"].volume = .35;
 
-	window[CHANNEL.name].audioNotice["Gross"].toggleState = true;
-	window[CHANNEL.name].audioNotice["Gross"].id = "gross";
-	window[CHANNEL.name].audioNotice["Gross"].volume = .4;
-
 	window[CHANNEL.name].audioNotice["survivalStrategy"].toggleState = true;
 	window[CHANNEL.name].audioNotice["survivalStrategy"].id = "survivalStrategy";
 	window[CHANNEL.name].audioNotice["survivalStrategy"].volume = event1Volume;
@@ -903,22 +790,6 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["utsunot"].id = "utsunot";
 	window[CHANNEL.name].audioNotice["utsunot"].volume = utsunotvolume;
 
-	window[CHANNEL.name].audioNotice["nyanpasu"].toggleState = true;
-	window[CHANNEL.name].audioNotice["nyanpasu"].id = "nyanpasu";
-	window[CHANNEL.name].audioNotice["nyanpasu"].volume = nyanpasuvolume;
-
-	window[CHANNEL.name].audioNotice["joke"].toggleState = true;
-	window[CHANNEL.name].audioNotice["joke"].id = "joke";
-	window[CHANNEL.name].audioNotice["joke"].volume = jokevolume;
-
-	window[CHANNEL.name].audioNotice["rewind"].toggleState = true;
-	window[CHANNEL.name].audioNotice["rewind"].id = "rewind";
-	window[CHANNEL.name].audioNotice["rewind"].volume = rewindvolume;
-
-	window[CHANNEL.name].audioNotice["nipah"].toggleState = true;
-	window[CHANNEL.name].audioNotice["nipah"].id = "nipah";
-	window[CHANNEL.name].audioNotice["nipah"].volume = nipahvolume;
-
 	window[CHANNEL.name].audioNotice["emote"].toggleState = true;
 	window[CHANNEL.name].audioNotice["emote"].id = "emote";
 	window[CHANNEL.name].audioNotice["emote"].volume = 0.8;
@@ -932,16 +803,11 @@ window[CHANNEL.name].audioNotice.handler = {
 			uhoh: "//resources.pink.horse/sounds/uhoh.ogg",
 			fairywand: "//resources.pink.horse/sounds/fairy_wand.ogg",
 			bzzzt: "https://cdn.discordapp.com/attachments/409829343263719427/511204681293234177/Wrong-answer-sound-effect.mp3",
-			gross: grossUrl,
 			survivalStrategy: penguinUrl,
 			skipFinal: voteskipFinalUrl,
 			bgm1play: bgm1url,
 			utsu: utsuurl,
 			utsunot: utsunoturl,
-			nyanpasu: nyanpasuurl,
-			joke: jokeurl,
-			rewind: rewindurl,
-			nipah: nipahurl,
 			emote: nipahurl,
 		}
 	}
@@ -951,13 +817,8 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"](data);
 		window[CHANNEL.name].audioNotice.handler["Squee"](data);
 		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
-		window[CHANNEL.name].audioNotice.handler["Gross"](data);
 		window[CHANNEL.name].audioNotice.handler["utsu"](data);
 		window[CHANNEL.name].audioNotice.handler["utsunot"](data);
-		window[CHANNEL.name].audioNotice.handler["nyanpasu"](data);
-		window[CHANNEL.name].audioNotice.handler["joke"](data);
-		window[CHANNEL.name].audioNotice.handler["rewind"](data);
-		window[CHANNEL.name].audioNotice.handler["nipah"](data);
 		window[CHANNEL.name].audioNotice.handler["emote"](data);
 		window[CHANNEL.name].chatNotice.handler["coffee"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
