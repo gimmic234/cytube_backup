@@ -2113,7 +2113,7 @@ function bindEventHandler() {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#achievementAddModal").remove();
 		}).insertAfter("#useroptions").modal();
-	}
+	});
 
 	$(bodyElem).on('click', '#emote-data-field', function(e) {
 		appendEmote($(e.target).closest('tr'));
