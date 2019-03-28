@@ -512,7 +512,11 @@ window[CHANNEL.name].chatNotice.handler = {
 			return;
 		}
 		$("#main").parent().prepend("<div class='row amq-wrap'><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
-		$('.full').height($('#videowrap').height());
+		let height = $('#videowrap').height();
+		if (height < 100) {
+			height = 850;
+		}
+		$('.full').height(height);
 	},
 	amqclose: function() {
 		let amqembed = $(".amqclose:not( .amqclosedone )");
