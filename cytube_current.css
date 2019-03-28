@@ -363,3 +363,14 @@ position: relative;
     height: auto;
     width: auto;
 }
+
+.amq-close-btn {
+    position:absolute; 
+    top: 95%; 
+    z-index: 100; 
+    left: 70%;
+}
+
+.amq-center-wrap {
+    text-align: center;
+}

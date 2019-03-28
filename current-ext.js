@@ -1406,6 +1406,13 @@ function readSheet() {
 	return returnArray;
 }
 
+function amqclose() {
+	if (!$('.amq-wrap').length) {
+			return;
+	}
+	$(".amq-wrap").remove();
+}
+
 function populateSoundEmote(command) {
 	let temp = {};
 	let temp2 = {};
@@ -2077,7 +2084,7 @@ function bindEventHandler() {
 		let username = $(this).parent().find('.username').text().replace(': ', '');
 		console.log(username);
 		createModalExt({
-			title: "Add a new achievement for " + username,
+			title: "View " + username + "'s achievements",
 			wrap_id: "achievementAddModal",
 			body_id: "achievementAddWrap",
 			footer: true
