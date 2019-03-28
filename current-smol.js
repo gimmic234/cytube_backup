@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/560185374530601020/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/560598053296406528/kurenai_bg_v2.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -144,7 +144,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b2a8de4e3073a65031bbe28c7bd877dc70923056/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/707ff7ff600f0e19108e5bfce16eae9f3049fe99/current-ext.js",
 		callback: true
 	},
 	'layout': {
