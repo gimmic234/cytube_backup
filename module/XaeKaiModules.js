@@ -155,7 +155,7 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		squee: true
 	},
 	emote: {
-		url: nipahurl,
+		url: "",
 		emote: true,
 		squee: true	
 	},
