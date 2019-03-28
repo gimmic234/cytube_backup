@@ -2201,7 +2201,9 @@ function bindEventHandler() {
 			let userList = $.map(curr_alist[username], function(n, i) {
 				return n;
 			});
-			userList = userList.slice(1).slice(-5);
+			if (userList.length > 6) {
+				userList = userList.slice(1).slice(-5);
+			}
 			
 			let achievementShow = "<div class='achievement-container-small'><table class='table table-sm table-hover achievement-table'><thead><th><td col=2>Recent Achievements</td></th></thead><tbody>";
 			userList.each(function(item, index) {
