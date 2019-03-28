@@ -1204,6 +1204,10 @@ var chatCmdLookup = {
 				amq.parent().find("button").click()
 			}
 		}
+	},
+	"/amqi": function() {
+		$("#main").parent().prepend("<div class='row amq-wrap'><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
+		$('.full').height($('#videowrap').height())
 	}
 };
 
