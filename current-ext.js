@@ -2114,10 +2114,10 @@ function bindEventHandler() {
 					}
 				})
 				let block = "<div class=''>";
-				block += "<div class='achievement-container' data-user='"+username+"' data-achievement='"+achievement.title+"' title='"+textDescription+"'>";
+				block += "<div class='achievement-container' data-user='"+username+"' data-achievement='"+title+"' title='"+textDescription+"'>";
 				block += "<span class='emote-preview-hax'></span>";
 				block += "<img class='emote-preview' src='"+imageUrl+"'>";
-				block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
+				block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
 				block += "</div>";
 				block += "</div>";
 				viewcontent += block;
