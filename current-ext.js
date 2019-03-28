@@ -1384,9 +1384,7 @@ function populateSoundEmote(command) {
 		dataType: "json",
 		success: function(result) {
 			let entries = result.feed.entry;
-			let bodyString = "<li><b>!rule[1-8]</b></li>";
-			bodyString += "<li><b>!club</b></li>";
-			bodyString += "<li><b>!coffee</b></li>";
+			let bodyString = "<li><b>!utsu</b></li>";
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				temp[value.gsx$command.$t] = function() {
