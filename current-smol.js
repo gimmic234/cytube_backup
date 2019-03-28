@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/560185374530601020/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/560598053296406528/kurenai_bg_v2.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 3,
-	day: 27,
-	hour: 23,
+	day: 31,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
@@ -21,7 +21,7 @@ var countdown_utc2 = {
 	second2: 0
 };
 var background_img_auto1 = 'http://cdn.discordapp.com/attachments/466386319766192138/557714741527576588/pape.jpg';
-var background_img_auto2 = 'http://cdn.discordapp.com/attachments/485983742004035594/520748085836775454/hxh_ca_background.jpg';
+var background_img_auto2 = "http://media.discordapp.net/attachments/528150212875649065/560543017329623076/65bb612d175e3aa95bd8676064b81ceb.jpg?width=1248&height=702";
 var chatMute = 'false';
 var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
 var noiseActive = 'true';
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 3,
-	day3: 26,
+	day3: 29,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -37,7 +37,7 @@ var countdown_utc3 = {
 var penguinImg = '//media.discordapp.net/attachments/515347492511023113/525863422840274944/DSciEJcVAAAe6rY.jpg';
 var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/525845582934310922/Intermission.mp3';
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
-var updateCmd = 'false';
+var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//cdn.discordapp.com/attachments/466386319766192138/547686243517857793/1467550476_panzer_chibi.gif';
 var imgBubble2 = '//cdn.discordapp.com/attachments/428195862963814413/554417601418362900/PNG_Image_693_653_pixels.png';
@@ -64,7 +64,7 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = 'https://cdn.discordapp.com/attachments/528005830419677185/537728778420617226/06._Negai_ga_Kanau_Basho.mp3';
+var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/560542474247077906/27_-_Hitomi_-_A_secret_of_the_moon.flac";
 var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
@@ -74,7 +74,7 @@ var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/5562176
 var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/559522269987209219/21_-_Yume_wa_Nando_mo_Umare_Kawaru.flac";
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "5";
+var bgmSelect = "1";
 var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\"],\"Zinzoo\":[\"first blood\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
@@ -128,6 +128,8 @@ var bodyElem = document.body;
 var picklist;
 var achievementMatch;
 var imgLookup;
+var soundLookup;
+var emoteAudioList;
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -142,7 +144,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/aee5ab713ff741bcb99e77d8c02a4f40e2cfea45/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/05518953d1bc43ee3fcdfdb820fd761bf615ac44/current-ext.js",
 		callback: true
 	},
 	'layout': {

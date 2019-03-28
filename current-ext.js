@@ -1300,6 +1300,8 @@ var chatKeyLookup = {
 			} else {
 				if (imgLookup.hasOwnProperty(chatCmdText[0])) {
 					imgLookup[chatCmdText[0]]();
+				} else if (soundLookup.hasOwnProperty(chatCmdText[0])) {
+					soundLookup[chatCmdText[0]]();
 				} else {
 					window.socket.emit("chatMsg", {
 						msg: msg,
@@ -1307,6 +1309,7 @@ var chatKeyLookup = {
 					});
 					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
 						readImgLookup(chatCmdText[0]);
+						populateSoundEmote(chatCmdText[0]);
 					}
 				}
 			}
@@ -1395,6 +1398,38 @@ function readSheet() {
 		}
 	});
 	return returnArray;
+}
+
+function populateSoundEmote(command) {
+	let temp = {};
+	let temp2 = {};
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/11/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			let bodyString = "<li><b>!rule[1-8]</b></li>";
+			bodyString += "<li><b>!club</b></li>";
+			bodyString += "<li><b>!coffee</b></li>";
+			entries.each(function(value, index) {
+				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+				temp[value.gsx$command.$t] = function() {
+					imgEmote(value.gsx$image.$t);
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + value.gsx$command.$t + "soundemoteaudio"
+					});		
+				}
+				temp2[value.gsx$command.$t] = value.gsx$audio.$t;
+			})
+			$('#sound-emote-list').html(bodyString);
+			soundLookup = temp;
+			emoteAudioList = temp2;
+			if (command != '' && soundLookup.hasOwnProperty(command[0])) {
+				soundLookup[chatCmdText[0]]();
+			}
+		}
+	});
 }
 
 function populateImgEmote() {
@@ -1818,9 +1853,11 @@ window.loadInitializer = function() {
 			amq.parent().find("button").click()
 		}
 		populateImgEmote();
+		populateSoundEmote('');
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
+		buff.find(".semote:not( .parsed )").addClass('parsed');
 		buff.find(".gross:not( .parsed )").addClass('parsed');
 		buff.find(".utsu:not( .parsed )").addClass('parsed');
 		buff.find(".coffee:not( .coffeedone )").addClass('coffeedone');

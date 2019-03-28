@@ -192,7 +192,12 @@ this[CHANNEL.name].audioLibrary.sounds = {
 		url: nipahurl,
 		emote: true,
 		squee: true	
-	}
+	},
+	emote: {
+		url: nipahurl,
+		emote: true,
+		squee: true	
+	},
 };
 
 if (!window[CHANNEL.name].audioNotice) {
@@ -258,6 +263,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.nipah = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.emote = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
@@ -278,7 +286,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	nyanpasu: "Nyanpasu",
 	joke: "Joke",
 	rewind: "Rewind",
-	nipah: "Nipah"
+	nipah: "Nipah",
+	emote: "Emote"
 };
 
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -667,6 +676,18 @@ window[CHANNEL.name].audioNotice.handler = {
 		audioplay.volume = window[CHANNEL.name].audioNotice.rewind.volume;
 		audioplay.play();
 	},
+	emote: function(data) {
+		let emote = $(".semote:not( .parsed )");
+		if (!emote.length) return;
+		emote.addClass("parsed");
+		if (!window[CHANNEL.name].audioNotice.emote.toggleState) return;
+		if (!(noiseActive == "true")) return;
+		let key = emote.attr('data-value');
+		window[CHANNEL.name].audioNotice["emote"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["emote"].volume).append($("<source>").attr("src", emoteAudioList[key]).attr("type", "audio/ogg"));
+		let audioplay = window[CHANNEL.name].audioNotice.emote.audio[0].cloneNode(true);
+		audioplay.volume = window[CHANNEL.name].audioNotice.emote.volume;
+		audioplay.play();
+	},
 	nipah: function(data) {
 		let nipah = $(".nipah:not( .parsed )");
 		if (!nipah.length) return;
@@ -898,6 +919,10 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["nipah"].id = "nipah";
 	window[CHANNEL.name].audioNotice["nipah"].volume = nipahvolume;
 
+	window[CHANNEL.name].audioNotice["emote"].toggleState = true;
+	window[CHANNEL.name].audioNotice["emote"].id = "emote";
+	window[CHANNEL.name].audioNotice["emote"].volume = 0.8;
+
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
@@ -917,6 +942,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			joke: jokeurl,
 			rewind: rewindurl,
 			nipah: nipahurl,
+			emote: nipahurl,
 		}
 	}
 
@@ -932,6 +958,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["joke"](data);
 		window[CHANNEL.name].audioNotice.handler["rewind"](data);
 		window[CHANNEL.name].audioNotice.handler["nipah"](data);
+		window[CHANNEL.name].audioNotice.handler["emote"](data);
 		window[CHANNEL.name].chatNotice.handler["coffee"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
