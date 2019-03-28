@@ -2087,7 +2087,8 @@ function bindEventHandler() {
 			nav += "<li><a href='#current-achievement-list' data-toggle='tab' aria-expanded='false'>View Achievements</a></li>";
 			nav += "<li><a href='#add-new-achievement-list' data-toggle='tab' aria-expanded='false'>Add Achievements</a></li>";
 			nav += "</ul>";
-			let listcontent = '';
+			let listcontent = "<div id='add-new-achievement-list'>";
+			let viewcontent = "<div id='current-new-achievement-list'>";
 			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 			let textColor = '#FFFF33';
 			let textDescription = '';
@@ -2104,10 +2105,25 @@ function bindEventHandler() {
 					block += "</div>";
 					block += "</div>";
 					listcontent += block;
+				} else {
+					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
+					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
+					textDescription = achievement.description;
+					let block = "<div class=''>";
+					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement='"+achievement.title+"' title='"+textDescription+"'>";
+					block += "<span class='emote-preview-hax'></span>";
+					block += "<img class='emote-preview' src='"+imageUrl+"'>";
+					block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
+					block += "</div>";
+					block += "</div>";
+					viewcontent += block;
 				}
 			});
 
-			$("#achievementAddWrap").html(nav + listcontent);
+			listcontent += "</div>";
+			viewcontent += "</div>";
+
+			$("#achievementAddWrap").html(nav + listcontent + viewcontent);
 		
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
