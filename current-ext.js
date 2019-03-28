@@ -2328,6 +2328,14 @@ function bindEventHandler() {
 		$(this).removeClass('lazy');
 	});
 
+	$(bodyElem).on('click', '#amq-open', function(e) {
+		chatCmdLookup['/amqi']();
+	});
+
+	$(bodyElem).on('click', '#amq-open-all', function(e) {
+		chatCmdLookup['/amq']();
+	});
+
 	$(bodyElem).on('click', '#medallist', function(e) {
 		createModalExt({
 			title: window.CLIENT.name + "'s achievement",
