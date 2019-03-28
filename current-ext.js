@@ -2201,8 +2201,9 @@ function bindEventHandler() {
 			let userList = $.map(curr_alist[username], function(n, i) {
 				return n;
 			});
+			userList = userList.slice(1).slice(-5);
 			
-			let achievementShow = "<div class='achievement-container-small'><table class='table table-sm table-hover achievement-table'><thead><th><td col=2>Achievements</td></th></thead><tbody>";
+			let achievementShow = "<div class='achievement-container-small'><table class='table table-sm table-hover achievement-table'><thead><th><td col=2>Recent Achievements</td></th></thead><tbody>";
 			userList.each(function(item, index) {
 				let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 				let textColor = '#FFFF33';
@@ -2342,7 +2343,9 @@ function bindEventHandler() {
 				chatCmdLookup['/amqclose']();
 			}
 		} else {
-			chatCmdLookup['/amq']();
+			if (confirm("This will open amq for all logged in users. Proceed?")) {
+				chatCmdLookup['/amq']();
+			}
 		}
 	});
 
