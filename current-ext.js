@@ -2338,7 +2338,9 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#amq-open-all', function(e) {
 		if ($('.amq-wrap').length > 0) {
-			chatCmdLookup['/amqclose']();
+			if (confirm("This will close amq for everyone. Proceed?")) {
+				chatCmdLookup['/amqclose']();
+			}
 		} else {
 			chatCmdLookup['/amq']();
 		}
