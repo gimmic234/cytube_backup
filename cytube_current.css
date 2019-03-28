@@ -352,9 +352,10 @@ font-size: 8px !important;
 .full {
     height: auto;
     width: 100%;
-    position: absolute;
-z-index: 99;
-display: block;
+    position: relative;
+    z-index: 99;
+    display: block;
+    overflow: hidden;
 }
 
 .amq-wrap {

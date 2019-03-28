@@ -1221,6 +1221,12 @@ var chatCmdLookup = {
 		}
 		$("#main").parent().prepend("<div class='row amq-wrap'><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
 		$('.full').height($('#videowrap').height())
+	},
+	"/amqiclose": function() {
+		if (!$('.amq-wrap').length) {
+			return;
+		}
+		$(".amq-wrap").remove();
 	}
 };
 
