@@ -2087,8 +2087,8 @@ function bindEventHandler() {
 			nav += "<li><a href='#current-achievement-list' data-toggle='tab' aria-expanded='false'>View Achievements</a></li>";
 			nav += "<li><a href='#add-new-achievement-list' data-toggle='tab' aria-expanded='false'>Add Achievements</a></li>";
 			nav += "</ul>";
-			let listcontent = "<div id='add-new-achievement-list'>";
-			let viewcontent = "<div id='current-new-achievement-list'>";
+			let listcontent = "<div id='add-new-achievement-list' class='tab-pane'>";
+			let viewcontent = "<div id='current-new-achievement-list' class='tab-pane'>";
 			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 			let textColor = '#FFFF33';
 			let textDescription = '';
@@ -2123,7 +2123,9 @@ function bindEventHandler() {
 			listcontent += "</div>";
 			viewcontent += "</div>";
 
-			$("#achievementAddWrap").html(nav + listcontent + viewcontent);
+			let contentwrap = "<div='tab-content'>" + listcontent + viewcontent + "</div>";
+
+			$("#achievementAddWrap").html(nav + contentwrap);
 		
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
