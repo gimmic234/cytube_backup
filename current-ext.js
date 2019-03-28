@@ -1406,7 +1406,7 @@ function readSheet() {
 	return returnArray;
 }
 
-function amqclose() {
+function closeamq() {
 	if (!$('.amq-wrap').length) {
 			return;
 	}
