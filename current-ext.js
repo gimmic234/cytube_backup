@@ -1283,7 +1283,7 @@ var chatKeyLookup = {
 						meta: meta
 					});
 					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
-						readImgLookup(chatCmdText[0]);
+						populateImgEmote(chatCmdText[0]);
 						populateSoundEmote(chatCmdText[0]);
 					}
 				}
@@ -1405,7 +1405,7 @@ function populateSoundEmote(command) {
 	});
 }
 
-function populateImgEmote() {
+function populateImgEmote(command) {
 	let temp = {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
@@ -1421,29 +1421,11 @@ function populateImgEmote() {
 				temp[value.gsx$command.$t] = function() {
 					imgEmote(value.gsx$url.$t);
 				}
+				if (command != '' && command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
+					imgEmote(value.gsx$url.$t);
+				}
 			})
 			$('#image-emote-list').html(bodyString);
-			imgLookup = temp;
-		}
-	});
-}
-
-function readImgLookup(command) {
-	let temp = {};
-	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
-		method: "get",
-		dataType: "json",
-		success: function(result) {
-			let entries = result.feed.entry;
-			entries.each(function(value, index) {
-				if (command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
-					imgEmote(value.gsx$url.$t);
-				}
-				temp[value.gsx$command.$t] = function() {
-					imgEmote(value.gsx$url.$t);
-				}
-			})
 			imgLookup = temp;
 		}
 	});
@@ -1825,7 +1807,7 @@ window.loadInitializer = function() {
 		if (amq.length > 0) {
 			amq.parent().find("button").click()
 		}
-		populateImgEmote();
+		populateImgEmote('');
 		populateSoundEmote('');
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
