@@ -2125,10 +2125,11 @@ function bindEventHandler() {
 			listcontent += "</div>";
 			viewcontent += "</div>";
 
+			let contentwrap = '';
 			if (rankAdmin) {
-				let contentwrap = "<div class='tab-content'>" + listcontent + viewcontent + "</div>";
+				contentwrap = "<div class='tab-content'>" + listcontent + viewcontent + "</div>";
 			} else {
-				let contentwrap = "<div class='tab-content'>" + viewcontent + "</div>";
+				contentwrap = "<div class='tab-content'>" + viewcontent + "</div>";
 			}
 
 			$("#achievementAddWrap").html(nav + contentwrap);
