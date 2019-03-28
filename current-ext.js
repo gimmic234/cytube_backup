@@ -1195,17 +1195,21 @@ var chatCmdLookup = {
 			msg: "coffeeimg" + "//media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif" + "coffeeimg"
 		});
 	},
+	"/amqq": function() {
+		if (rankAdmin) {
+			$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
+			$("#ce_queue_end").click();
+			let amq = $("a[href='https://animemusicquiz.com/'");
+			if (amq.length > 0) {
+				amq.parent().find("button").click()
+			}
+		}
+	},
 	"/amq": function() {
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
 				msg: "amqalert amq time amqalert"
 			});	
-			/*$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
-			$("#ce_queue_end").click();
-			let amq = $("a[href='https://animemusicquiz.com/'");
-			if (amq.length > 0) {
-				amq.parent().find("button").click()
-			}*/
 		}
 	},
 	"/amqclose": function() {
@@ -1836,6 +1840,8 @@ window.loadInitializer = function() {
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
 		buff.find(".semote:not( .parsed )").addClass('parsed');
+		buff.find(".amq:not( .amqdone )").addClass('amqdone');
+		buff.find(".amqclose:not( .amqclosedone )").addClass('amqclosedone');
 		buff.find(".utsu:not( .parsed )").addClass('parsed');
 		buff.find(".coffee:not( .coffeedone )").addClass('coffeedone');
 		buff.find(".utsunot:not( .parsed )").addClass('parsed');
