@@ -2112,7 +2112,7 @@ function bindEventHandler() {
 						textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 						textDescription = achievement.description;
 					}
-				}
+				})
 				let block = "<div class=''>";
 				block += "<div class='achievement-container' data-user='"+username+"' data-achievement='"+achievement.title+"' title='"+textDescription+"'>";
 				block += "<span class='emote-preview-hax'></span>";
