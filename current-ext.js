@@ -2123,7 +2123,7 @@ function bindEventHandler() {
 			listcontent += "</div>";
 			viewcontent += "</div>";
 
-			let contentwrap = "<div='tab-content'>" + listcontent + viewcontent + "</div>";
+			let contentwrap = "<div class='tab-content'>" + listcontent + viewcontent + "</div>";
 
 			$("#achievementAddWrap").html(nav + contentwrap);
 		
