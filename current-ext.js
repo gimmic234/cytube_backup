@@ -1220,10 +1220,10 @@ var chatCmdLookup = {
 		}	
 	},
 	"/amqi": function() {
-		if ($('.amq-wrap').length) {
+		if ($('.amq-wrap').length > 0) {
 			return;
 		}
-		$("#main").parent().prepend("<div class='row amq-wrap'><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
+		$("#main").parent().prepend("<div class='row amq-wrap'><div class='amq-center-wrap'><button class='btn btn-default amq-close-btn' onclick='closeamq()'>Close AMQ</button></div><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
 		let height = $('#videowrap').height();
 		if (height < 100) {
 			height = 850;
@@ -1231,7 +1231,7 @@ var chatCmdLookup = {
 		$('.full').height(height);
 	},
 	"/amqiclose": function() {
-		if (!$('.amq-wrap').length) {
+		if (!($('.amq-wrap').length > 0)) {
 			return;
 		}
 		$(".amq-wrap").remove();
@@ -2329,11 +2329,19 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#amq-open', function(e) {
-		chatCmdLookup['/amqi']();
+		if ($('.amq-wrap').length > 0) {
+			chatCmdLookup['/amqiclose']();
+		} else {
+			chatCmdLookup['/amqi']();
+		}
 	});
 
 	$(bodyElem).on('click', '#amq-open-all', function(e) {
-		chatCmdLookup['/amq']();
+		if ($('.amq-wrap').length > 0) {
+			chatCmdLookup['/amqclose']();
+		} else {
+			chatCmdLookup['/amq']();
+		}
 	});
 
 	$(bodyElem).on('click', '#medallist', function(e) {

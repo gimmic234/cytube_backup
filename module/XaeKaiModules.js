@@ -508,7 +508,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		let amqembed = $(".amq:not( .amqdone )");
 		if (!amqembed.length) return;
 		amqembed.addClass("amqdone");
-		if ($('.amq-wrap').length) {
+		if ($('.amq-wrap').length > 0) {
 			return;
 		}
 		$("#main").parent().prepend("<div class='row amq-wrap'><div class='amq-center-wrap'><button class='btn btn-default amq-close-btn' onclick='closeamq()'>Close AMQ</button></div><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
