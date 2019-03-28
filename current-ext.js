@@ -2090,7 +2090,7 @@ function bindEventHandler() {
 			}
 			nav += "</ul>";
 			let listcontent = "<div id='add-new-achievement-list' class='tab-pane'>";
-			let viewcontent = "<div id='current-achievement-list' class='tab-pane'>";
+			let viewcontent = "<div id='current-achievement-list' class='tab-pane active'>";
 			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 			let textColor = '#FFFF33';
 			let textDescription = '';
