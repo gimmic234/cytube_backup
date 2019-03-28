@@ -122,9 +122,9 @@ $(".nano").nanoScroller();
 $('#maincontain').find('.container-fluid').append("<div id='imgWrapFixed1' hidden></div>");
 $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
 $('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style=''>Achievements</a></li>");
-$('.navbar-nav').prepend("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
+$('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
 if (rankAdmin) {
-	$('.navbar-nav').prepend("<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>");
+	$('.navbar-nav').append("<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>");
 }
 
 
