@@ -504,6 +504,25 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 
 window[CHANNEL.name].chatNotice = {};
 window[CHANNEL.name].chatNotice.handler = {
+	amq: function() {
+		let amqembed = $(".amq:not( .amqdone )");
+		if (!amqembed.length) return;
+		amqembed.addClass("amqdone");
+		if ($('.amq-wrap').length) {
+			return;
+		}
+		$("#main").parent().prepend("<div class='row amq-wrap'><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
+		$('.full').height($('#videowrap').height());
+	},
+	amqclose: function() {
+		let amqembed = $(".amqclose:not( .amqclosedone )");
+		if (!amqembed.length) return;
+		amqembed.addClass("amqclosedone");
+		if (!$('.amq-wrap').length) {
+			return;
+		}
+		$('.amq-wrap').remove();
+	},
 	coffee: function(data) {
 		let cawfee = $(".coffee:not( .coffeedone )");
 		if (!cawfee.length) return;
@@ -821,6 +840,8 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["utsunot"](data);
 		window[CHANNEL.name].audioNotice.handler["emote"](data);
 		window[CHANNEL.name].chatNotice.handler["coffee"](data);
+		window[CHANNEL.name].chatNotice.handler["amq"](data);
+		window[CHANNEL.name].chatNotice.handler["amqclose"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
 	});

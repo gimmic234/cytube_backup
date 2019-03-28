@@ -1197,15 +1197,28 @@ var chatCmdLookup = {
 	},
 	"/amq": function() {
 		if (rankAdmin) {
-			$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
+			window.socket.emit("chatMsg", {
+				msg: "amqalert amq time amqalert"
+			});	
+			/*$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
 			$("#ce_queue_end").click();
 			let amq = $("a[href='https://animemusicquiz.com/'");
 			if (amq.length > 0) {
 				amq.parent().find("button").click()
-			}
+			}*/
 		}
 	},
+	"/amqclose": function() {
+		if (rankAdmin) {
+			window.socket.emit("chatMsg", {
+				msg: "amqclosealert amq is over amqclosealert"
+			});	
+		}	
+	},
 	"/amqi": function() {
+		if ($('.amq-wrap').length) {
+			return;
+		}
 		$("#main").parent().prepend("<div class='row amq-wrap'><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
 		$('.full').height($('#videowrap').height())
 	}
