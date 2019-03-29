@@ -2362,6 +2362,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#medallist', function(e) {
+		achievementMatch = readAchievement();
 		createModalExt({
 			title: window.CLIENT.name + "'s achievement",
 			wrap_id: "achievementModal",
