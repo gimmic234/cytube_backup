@@ -74,7 +74,7 @@ var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/5562176
 var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/559522269987209219/21_-_Yume_wa_Nando_mo_Umare_Kawaru.flac";
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "1";
+var bgmSelect = "5";
 var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\"],\"Zinzoo\":[\"first blood\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
@@ -144,7 +144,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/50095685195454bf62e90ad9603435634b3b5d80/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e8cd1dd482c850827658de1c3cd0c54224eb4c8b/current-ext.js",
 		callback: true
 	},
 	'layout': {

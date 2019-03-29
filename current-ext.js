@@ -2362,7 +2362,6 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#medallist', function(e) {
-		achievementMatch = readAchievement();
 		createModalExt({
 			title: window.CLIENT.name + "'s achievement",
 			wrap_id: "achievementModal",
@@ -2404,6 +2403,7 @@ function bindEventHandler() {
 			}
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			achievementMatch = readAchievement();
 			$("#achievementModal").remove()
 		}).insertAfter("#useroptions").modal()
 	});
