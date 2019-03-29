@@ -1223,7 +1223,7 @@ var chatCmdLookup = {
 		if ($('.amq-wrap').length > 0) {
 			return;
 		}
-		$("#main").parent().prepend("<div class='row amq-wrap'><div class='amq-center-wrap'><button class='btn btn-default amq-close-btn' onclick='closeamq()'>Close AMQ</button></div><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
+		$("#main").after("<div class='row amq-wrap'><div class='amq-center-wrap'><button class='btn btn-default amq-close-btn' onclick='closeamq()'>Close AMQ</button></div><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
 		let height = $('#videowrap').height();
 		if (height < 100) {
 			height = 850;

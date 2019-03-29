@@ -75,7 +75,7 @@ var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/5595222
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "5";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\"],\"Zinzoo\":[\"first blood\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -144,7 +144,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0004a614b42afc5f1c14ab8e50ea061f7343bb70/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/006802180392241674227ccdef13aac2d3a767d8/current-ext.js",
 		callback: true
 	},
 	'layout': {
