@@ -1813,12 +1813,12 @@ window.loadInitializer = function() {
 	picklist = readSheet();
 	achievementMatch = readAchievement();
 	let streamStr1 = "Next ";
-	let streamStr2 = " starts in...";
+	let streamStr2 = " stream starts in...";
 	$('#head1').html(streamStr1 + countdownText1 + streamStr2);
-	$('#head2').html(streamStr2 + countdownText2 + streamStr2);
-	$('#head3').html(streamStr3 + countdownText3 + streamStr2);
-	$('#head4').html(streamStr4 + countdownText4 + streamStr2);
-	$('#head5').html(streamStr5 + countdownText5 + streamStr2);
+	$('#head2').html(streamStr1 + countdownText2 + streamStr2);
+	$('#head3').html(streamStr1 + countdownText3 + streamStr2);
+	$('#head4').html(streamStr1 + countdownText4 + streamStr2);
+	$('#head5').html(streamStr1 + countdownText5 + streamStr2);
 
 	let second = 1000,
 	minute = second * 60,
