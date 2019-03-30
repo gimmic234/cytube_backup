@@ -33,7 +33,6 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(22, chatCmdText);
-			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg1 saved " + url
 			});
@@ -44,7 +43,6 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(23, chatCmdText);
-			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg2 saved " + url
 			});
@@ -56,7 +54,6 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(25, chatCmdText);
-			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg3 saved " + url
 			});
@@ -68,7 +65,6 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(27, chatCmdText);
-			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg4 saved " + url
 			});
@@ -79,7 +75,6 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(69, chatCmdText);
-			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg5 saved " + url
 			});
@@ -90,7 +85,6 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(70, chatCmdText);
-			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg6 saved " + url
 			});
@@ -101,7 +95,6 @@ var chatCmdLookup = {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(71, chatCmdText);
-			editJs(4, chatCmdText);
 			window.socket.emit("chatMsg", {
 				msg: "bg7 saved " + url
 			});
@@ -2304,9 +2297,17 @@ function bindEventHandler() {
 		}
 	});
 
-	$(bodyElem).on('click', '.background-select-container', function() {
+	$(bodyElem.on('click', '.btn-bg-save', function() {
+		let cmd = $(this).attr('data-value');
+		let url = $(this).parent().find('.bg-url').val();
+		chatCmdLookup[cmd]([0, url]);
+		$("#backgroundModal").remove();
+	});
+
+	$(bodyElem).on('click', '.bg-change', function() {
 		let selectedBg = $(this).attr('data-value');
 		chatCmdLookup[selectedBg]();
+		$("#backgroundModal").remove();
 	});	
 
 	$(bodyElem).on('click', '#bg-select-option', function() {
@@ -2325,11 +2326,12 @@ function bindEventHandler() {
 
 			bgList.each(function(url, i) {
 				let block = "<div class=''>";
-				block += "<div class='background-select-container' data-value='/setbg"+(i+1)+"'>";
-				block += "<span class='emote-preview-hax'></span>";
-				block += "<img class='emote-preview' src='"+url+"'>";
+				block += "<div class='background-select-container'>";
 				block += "<p><b>background "+ (i+1) + "</b></p>";
-				block += "<input type='text' value='"+url+"'>";
+				block += "<span class='emote-preview-hax'></span>";
+				block += "<img class='emote-preview bg-change' src='"+url+"' data-value='/setbg"+(i+1)+"'>";
+				block += "<input class='form-control bg-url' type='text' value='"+url+"'>";
+				block += "<div class='input-group-append'><button class='btn btn-default btn-bg-save' type='button' data-value='/savebg"+(i+1)"' >Save</button></div>";
 				block += "</div>";
 				block += "</div>";
 				viewcontent += block;
