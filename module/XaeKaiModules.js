@@ -637,10 +637,18 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!window[CHANNEL.name].audioNotice.emote.toggleState) return;
 		if (!(noiseActive == "true")) return;
 		let key = emote.attr('data-value');
-		window[CHANNEL.name].audioNotice["emote"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["emote"].volume).append($("<source>").attr("src", emoteAudioList[key]).attr("type", "audio/ogg"));
-		let audioplay = window[CHANNEL.name].audioNotice.emote.audio[0].cloneNode(true);
-		audioplay.volume = window[CHANNEL.name].audioNotice.emote.volume;
-		audioplay.play();
+		if (emoteAudioList.includes(key)) {
+			window[CHANNEL.name].audioNotice["emote"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["emote"].volume).append($("<source>").attr("src", emoteAudioList[key]).attr("type", "audio/ogg"));
+			let audioplay = window[CHANNEL.name].audioNotice.emote.audio[0].cloneNode(true);
+			audioplay.volume = window[CHANNEL.name].audioNotice.emote.volume;
+			audioplay.play();
+		} else {
+			populateSoundEmote('');
+			window[CHANNEL.name].audioNotice["emote"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["emote"].volume).append($("<source>").attr("src", emoteAudioList[key]).attr("type", "audio/ogg"));
+			let audioplay = window[CHANNEL.name].audioNotice.emote.audio[0].cloneNode(true);
+			audioplay.volume = window[CHANNEL.name].audioNotice.emote.volume;
+			audioplay.play();
+		}
 	},
 	utsunot: function(data) {
 		let utsu = $(".utsunot:not( .parsed )");

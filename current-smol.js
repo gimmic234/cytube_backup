@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/560185374530601020/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg";
+var background_img = "http://pbs.twimg.com/media/D0cT-JMUwAAX75e.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -50,8 +50,8 @@ var chatImgOp = '.8';
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
-	month4: 3,
-	day4: 30,
+	month4: 4,
+	day4: 6,
 	hour4: 15,
 	minute4: 0,
 	second4: 0
@@ -67,7 +67,7 @@ var countdown_utc5 = {
 var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/560542474247077906/27_-_Hitomi_-_A_secret_of_the_moon.flac";
 var playbgmCondition = "true";
 var bgmoff = "true";
-var background_img_auto5 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
+var background_img_auto5 = "http://pbs.twimg.com/media/D0cT-JMUwAAX75e.jpg";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
 var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/556217613852868629/Kaneda.mp3';
@@ -75,7 +75,7 @@ var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/5595222
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "5";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\"],\"raccomunk\":[\"first blood\",\"Clannad\"],\"Madoq\":[\"first blood\",\"Clannad\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\"],\"HeartsTM\":[\"Pun Professor\"],\"NinjaPoes\":[\"Clannad\"],\"Fox_tart\":[\"Clannad\"],\"Ivvl\":[\"Clannad\"],\"Senia\":[\"Clannad\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"]}";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\"],\"raccomunk\":[\"first blood\",\"Clannad\"],\"Madoq\":[\"first blood\",\"Clannad\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\"],\"NinjaPoes\":[\"Clannad\"],\"Fox_tart\":[\"Clannad\"],\"Ivvl\":[\"Clannad\"],\"Senia\":[\"Clannad\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -129,19 +129,19 @@ window[CHANNEL.name].sequenceList = {
 	'moment.js': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4ba2bf3435705b60bce5f8aecbbf63020dbd76ba/moment.js",
+		url: "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js",
 		callback: true
 	},
 	'bootstrap-datepicker': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/426776a9a19c96ef5723245194b90cd681a80329/bootstrap-datepicker.js",
+		url: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js",
 		callback: true
 	},
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7534bcfbe1611e84f30a90d3cd62b8e4ce9e4835/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/bd621ef81e9b949bab27ffcb4eee2bc16c2d9948/current-ext.js",
 		callback: true
 	},
 	'layout': {
