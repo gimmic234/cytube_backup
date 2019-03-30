@@ -2300,11 +2300,11 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.btn-bg-save', function() {
 		let cmd = $(this).attr('data-value');
 		let url = $(this).parent().parent().find('.bg-url').val();
-		chatCmdLookup[cmd]([0, url]);
-		let imgelem = $(this).parent().parent().find('.bg-change');
+		let imgelem = $(this).parent().parent().parent().find('.bg-change');
 		imgelem.fadeOut('fast', function() {
 			imgelem.attr('src', url).fadeIn('fast');
 		});
+		chatCmdLookup[cmd]([0, url]);
 	});
 
 	$(bodyElem).on('click', '.bg-change', function() {
