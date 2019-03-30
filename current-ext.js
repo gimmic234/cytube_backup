@@ -297,7 +297,7 @@ var chatCmdLookup = {
 		if (chatCmdText.length > 5 && rankAdmin) {
 			if (!(!isNaN(chatCmdText[1]) || !isNaN(chatCmdText[2]) || !isNaN(chatCmdText[3]) || !isNaN(chatCmdText[4]) || !isNaN(chatCmdText[5]))) {
 				window.socket.emit("chatMsg", {
-					msg: "error: invalid countdown4 input"
+					msg: "error: invalid countdown5 input"
 				});
 				return false;
 			}
@@ -2357,7 +2357,8 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.btn-cd-save', function() {
 		let cmd = $(this).attr('data-value');
 		let tag = $(this).attr('data-tag');
-		let input = $(this).parent().parent().find("."+tag);
+		let input = $(this).parent().parent().find(tag);
+		console.log(cmd + " " + input.val());
 		chatCmdLookup[cmd](cmd + " " + input.val());
 	});
 
@@ -2384,10 +2385,10 @@ function bindEventHandler() {
 				let block = "<div class=''>";
 				block += "<div class='countdown-container'>";
 				block += "<p><b>countdown "+ (i+1) + "</b></p>";
-				block += "<div class='input-group input-group-sm'>";
 				block += "<span class='cd-display-text'>"+displayStr+"</span>";
-				block += "<input class='form-control cd-text"+(i+1)+"' type='text' value='' onkeydown='return false'>";
-				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-save' type='button' data-value='/cdlocal"+(i+1)+"' data-tag='cd-text"+(i+1)+"'>Save</button></div>";
+				block += "<div class='input-group input-group-sm'>";
+				block += "<input class='form-control cd-text"+(i+1)+"' type='text' value=''>";
+				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-save' type='button' data-value='/cdlocal"+(i+1)+"' data-tag='.cd-text"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
 				block += "</div>";
 				block += "</div>";
