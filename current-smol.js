@@ -141,10 +141,22 @@ if (!this[CHANNEL.name])
 	this[CHANNEL.name] = {};
 // -- The Module Library
 window[CHANNEL.name].sequenceList = {
+	'moment.js': {
+		active: 1,
+		rank: -1,
+		url: "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/en-ca.js",
+		callback: true
+	},
+	'bootstrap-datepicker': {
+		active: 1,
+		rank: -1,
+		url: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js",
+		callback: true
+	},
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4c91c9b054cbd4881248d7ad9bd598e8454bd1f4/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9f2d707c53da2bc1f5d763e94ff0f214f87d7793/current-ext.js",
 		callback: true
 	},
 	'layout': {
