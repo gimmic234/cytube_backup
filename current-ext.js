@@ -34,7 +34,7 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(22, chatCmdText);
 			window.socket.emit("chatMsg", {
-				msg: "bg1 saved " + url
+				msg: "bg1 updated"
 			});
 		}
 	},
@@ -44,7 +44,7 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(23, chatCmdText);
 			window.socket.emit("chatMsg", {
-				msg: "bg2 saved " + url
+				msg: "bg2 updated"
 			});
 		}
 	},
@@ -55,7 +55,7 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(25, chatCmdText);
 			window.socket.emit("chatMsg", {
-				msg: "bg3 saved " + url
+				msg: "bg3 updated"
 			});
 		}
 	},
@@ -66,7 +66,7 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(27, chatCmdText);
 			window.socket.emit("chatMsg", {
-				msg: "bg4 saved " + url
+				msg: "bg4 updated"
 			});
 		}
 	},
@@ -76,7 +76,7 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(69, chatCmdText);
 			window.socket.emit("chatMsg", {
-				msg: "bg5 saved " + url
+				msg: "bg5 updated"
 			});
 		}
 	},
@@ -86,7 +86,7 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(70, chatCmdText);
 			window.socket.emit("chatMsg", {
-				msg: "bg6 saved " + url
+				msg: "bg6 updated"
 			});
 		}
 	},
@@ -96,7 +96,7 @@ var chatCmdLookup = {
 			chatCmdText[1] = url;
 			editJs(71, chatCmdText);
 			window.socket.emit("chatMsg", {
-				msg: "bg7 saved " + url
+				msg: "bg7 updated"
 			});
 		}
 	},
