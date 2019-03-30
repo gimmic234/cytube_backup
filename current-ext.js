@@ -2357,8 +2357,13 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.btn-cd-save', function() {
 		let cmd = $(this).attr('data-value');
 		let tag = $(this).attr('data-tag');
+		let nameVar = $(this).attr('data-var');
 		let input = $(this).parent().parent().find(tag);
-		chatCmdLookup[cmd]((cmd + " " + input.val()).toString());
+		let string = (cmd + " " + input.val()).toString();
+		let chatCmdText = string.split(" ");
+		chatCmdLookup[cmd](chatCmdText);
+		let newDisplay = new Date(eval(nameVar)).toString().split('(')[0];
+		input.parent().parent().find('.cd-display-text').html(newDisplay);
 	});
 
 	$(bodyElem).on('click', '#countdown-option', function() {
@@ -2387,7 +2392,7 @@ function bindEventHandler() {
 				block += "<span class='cd-display-text'>"+displayStr+"</span>";
 				block += "<div class='input-group input-group-sm'>";
 				block += "<input class='form-control cd-text"+(i+1)+"' type='text' value=''>";
-				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-save' type='button' data-value='/cdlocal"+(i+1)+"' data-tag='.cd-text"+(i+1)+"'>Save</button></div>";
+				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-save' type='button' data-value='/cdlocal"+(i+1)+"' data-tag='.cd-text"+(i+1)+"' data-var='date_utc"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
 				block += "</div>";
 				block += "</div>";
