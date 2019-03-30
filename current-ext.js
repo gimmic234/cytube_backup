@@ -2331,7 +2331,7 @@ function bindEventHandler() {
 				block += "<span class='emote-preview-hax'></span>";
 				block += "<img class='emote-preview bg-change' src='"+url+"' data-value='/setbg"+(i+1)+"'>";
 				block += "<input class='form-control bg-url' type='text' value='"+url+"'>";
-				block += "<div class='input-group-append'><button class='btn btn-default btn-bg-save' type='button' data-value='/savebg"+(i+1)"' >Save</button></div>";
+				block += "<div class='input-group-append'><button class='btn btn-default btn-bg-save' type='button' data-value='/savebg"+(i+1)+"' >Save</button></div>";
 				block += "</div>";
 				block += "</div>";
 				viewcontent += block;
