@@ -2221,21 +2221,18 @@ function bindEventHandler() {
 				let textColor = '#FFFF33';
 				let textDescription = '';
 				achievementMatch.each(function(achievement, i) {
-					let tableRow = '';
-
 					if (achievement.title.toLowerCase() == item.toLowerCase()) {
 						imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 						textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 						textDescription = achievement.description;
 					}
 					});
-					tableRow += "<tr class=''>";
-					tableRow += "<td width=20%><img src='"+imageUrl+"' class='smol-emote'></td>";
-					tableRow += "<td width=80% style='color:"+textColor+"'>";
-					tableRow += item;
-					tableRow += "</td>";
-					tableRow += "</tr>";
-					achievementShow += tableRow;
+					achievementShow += "<tr class=''>";
+					achievementShow += "<td width=20%><img src='"+imageUrl+"' class='smol-emote'></td>";
+					achievementShow += "<td width=80% style='color:"+textColor+"'>";
+					achievementShow += item;
+					achievementShow += "</td>";
+					achievementShow += "</tr>";
 			});
 			achievementShow += "</tbody></table></div>";
 			$(this).parent().after(achievementShow);
