@@ -2211,28 +2211,31 @@ function bindEventHandler() {
 			let userList = $.map(curr_alist[username], function(n, i) {
 				return n;
 			});
-			if (userList.length > 6) {
+			if (userList.length > 5) {
 				userList = userList.slice(1).slice(-5);
 			}
 			
 			let achievementShow = "<div class='achievement-container-small'><table class='table table-sm table-hover achievement-table'><thead><th><td col=2>Recent Achievements</td></th></thead><tbody>";
-			userList.each(function(item, index) {
+			userList.reverse().each(function(item, index) {
 				let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 				let textColor = '#FFFF33';
 				let textDescription = '';
 				achievementMatch.each(function(achievement, i) {
-				if (achievement.title.toLowerCase() == item.toLowerCase()) {
-					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
-					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
-					textDescription = achievement.description;
-				}
-				});
-				achievementShow += "<tr class=''>";
-				achievementShow += "<td width=20%><img src='"+imageUrl+"' class='smol-emote'></td>";
-				achievementShow += "<td width=80% style='color:"+textColor+"'>";
-				achievementShow += item;
-				achievementShow += "</td>";
-				achievementShow += "</li>";
+					let tableRow = '';
+
+					if (achievement.title.toLowerCase() == item.toLowerCase()) {
+						imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
+						textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
+						textDescription = achievement.description;
+					}
+					});
+					tableRow += "<tr class=''>";
+					tableRow += "<td width=20%><img src='"+imageUrl+"' class='smol-emote'></td>";
+					tableRow += "<td width=80% style='color:"+textColor+"'>";
+					tableRow += item;
+					tableRow += "</td>";
+					tableRow += "</tr>";
+					achievementShow += tableRow;
 			});
 			achievementShow += "</tbody></table></div>";
 			$(this).parent().after(achievementShow);

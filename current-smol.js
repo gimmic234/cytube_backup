@@ -28,8 +28,8 @@ var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
 var countdown_utc3 = {
 	year3: 2019,
-	month3: 3,
-	day3: 29,
+	month3: 4,
+	day3: 5,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -37,7 +37,7 @@ var countdown_utc3 = {
 var penguinImg = '//media.discordapp.net/attachments/515347492511023113/525863422840274944/DSciEJcVAAAe6rY.jpg';
 var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/525845582934310922/Intermission.mp3';
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
-var updateCmd = "false";
+var updateCmd = "true";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//cdn.discordapp.com/attachments/466386319766192138/547686243517857793/1467550476_panzer_chibi.gif';
 var imgBubble2 = '//cdn.discordapp.com/attachments/428195862963814413/554417601418362900/PNG_Image_693_653_pixels.png';
@@ -75,7 +75,7 @@ var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/5595222
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "5";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\"],\"raccomunk\":[\"first blood\"],\"Madoq\":[\"first blood\"],\"mrmooshe\":[\"first blood\"],\"PhenomSage\":[\"Supreme Ruler\"],\"HeartsTM\":[\"Pun Professor\"]}";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\"],\"raccomunk\":[\"first blood\",\"Clannad\"],\"Madoq\":[\"first blood\",\"Clannad\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\"],\"HeartsTM\":[\"Pun Professor\"],\"NinjaPoes\":[\"Clannad\"],\"Fox_tart\":[\"Clannad\"],\"Ivvl\":[\"Clannad\"],\"Senia\":[\"Clannad\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -144,7 +144,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/37e32b36b453fa6dde23367c6a90390a05e36d7a/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/bc396733e2437fc6d7bb1c2058f754f3d1adc733/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -174,7 +174,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/37e32b36b453fa6dde23367c6a90390a05e36d7a/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/bc396733e2437fc6d7bb1c2058f754f3d1adc733/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
