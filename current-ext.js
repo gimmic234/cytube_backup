@@ -2329,10 +2329,10 @@ function bindEventHandler() {
 				block += "<div class='background-select-container'>";
 				block += "<p><b>background "+ (i+1) + "</b></p>";
 				block += "<span class='emote-preview-hax'></span>";
-				block += "<img class='emote-preview bg-change' src='"+url+"' data-value='/setbg"+(i+1)+"'>";
+				block += "<img class='bg-preview bg-change' src='"+url+"' data-value='/setbg"+(i+1)+"'>";
 				block += "<div class='input-group'>";
 				block += "<input class='form-control bg-url' type='text' value='"+url+"'>";
-				block += "<div class='input-group-append'><button class='btn btn-default btn-bg-save' type='button' data-value='/savebg"+(i+1)+"' >Save</button></div>";
+				block += "<div class='input-group-btn'><button class='btn btn-default btn-bg-save' type='button' data-value='/savebg"+(i+1)+"' >Save</button></div>";
 				block += "</div>";
 				block += "</div>";
 				block += "</div>";
