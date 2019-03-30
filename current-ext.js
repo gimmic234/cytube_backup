@@ -1812,6 +1812,13 @@ window.countdowner = function(countdown, destination,index) {
 window.loadInitializer = function() {
 	picklist = readSheet();
 	achievementMatch = readAchievement();
+	let streamStr1 = "Next ";
+	let streamStr2 = " starts in...";
+	$('#head1').html(streamStr1 + countdownText1 + streamStr2);
+	$('#head2').html(streamStr2 + countdownText2 + streamStr2);
+	$('#head3').html(streamStr3 + countdownText3 + streamStr2);
+	$('#head4').html(streamStr4 + countdownText4 + streamStr2);
+	$('#head5').html(streamStr5 + countdownText5 + streamStr2);
 
 	let second = 1000,
 	minute = second * 60,
@@ -2389,7 +2396,7 @@ function bindEventHandler() {
 				let displayStr = new Date(datetime).toString().split('(')[0];
 				let block = "<div class='row'>";
 				block += "<div class='countdown-container col-sm-5'>";
-				block += "<p><b>countdown "+ (i+1) + "</b></p>";
+				block += "<p><b>countdown "+ (i+1) + "</b> "+eval("countdownText" + (i+1))+" </p>";
 				block += "<span class='cd-display-text'>"+displayStr+"</span>";
 				block += "<div class='input-group input-group-sm'>";
 				block += "<input class='form-control cd-text cd-text"+(i+1)+"' type='text' value='' onkeydown='return false'>";

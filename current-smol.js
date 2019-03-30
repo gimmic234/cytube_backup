@@ -100,21 +100,6 @@ var date_utc2 = Date.UTC(countdown_utc2.year2, countdown_utc2.month2 - 1, countd
 var date_utc3 = Date.UTC(countdown_utc3.year3, countdown_utc3.month3 - 1, countdown_utc3.day3, countdown_utc3.hour3, countdown_utc3.minute3, countdown_utc3.second3);
 var date_utc4 = Date.UTC(countdown_utc4.year4, countdown_utc4.month4 - 1, countdown_utc4.day4, countdown_utc4.hour4, countdown_utc4.minute4, countdown_utc4.second4);
 var date_utc5 = Date.UTC(countdown_utc5.year5, countdown_utc5.month5 - 1, countdown_utc5.day5, countdown_utc5.hour5, countdown_utc5.minute5, countdown_utc5.second5);
-var chatlineElem;
-var queueList;
-var emoteList;
-var countDown;
-var countDownTimer1;
-var countDown2;
-var countDownTimer2;
-var countDown3;
-var countDownTimer3;
-var countDown4;
-var countDownTimer4;
-var countDown5;
-var countDownTimer5;
-var collapseArrow;
-var collapseArrow2;
 var emotePreload = "false";
 var autoPosition = -1;
 var voteskipMsg = "==BZZZZT!==";
@@ -125,12 +110,12 @@ var rankMod = (window.CLIENT.rank >= 2),
 var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
-var picklist;
-var achievementMatch;
-var imgLookup;
-var soundLookup;
-var emoteAudioList;
-
+var chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
+var countdownText1 = "Club";
+var countdownText2 = "Seasonal";
+var countdownText3 = "ATLA?";
+var countdownText4 = "Railgun";
+var countdownText5 = "Mob";
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -156,7 +141,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b6cf8264113ee6219b0c14f9bf283edd7f3bd403/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d8bf03f9cadbabb7e32d7d997c90929625196e38/current-ext.js",
 		callback: true
 	},
 	'layout': {
