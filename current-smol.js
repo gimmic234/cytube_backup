@@ -95,7 +95,7 @@ var penguinTimeout = 19000;
 var emoteArray = [];
 var selectedPopover;
 var handlerKeydown;
-var date_utc = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.day, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
+var date_utc1 = Date.UTC(countdown_utc.year, countdown_utc.month - 1, countdown_utc.day, countdown_utc.hour, countdown_utc.minute, countdown_utc.second);
 var date_utc2 = Date.UTC(countdown_utc2.year2, countdown_utc2.month2 - 1, countdown_utc2.day2, countdown_utc2.hour2, countdown_utc2.minute2, countdown_utc2.second2);
 var date_utc3 = Date.UTC(countdown_utc3.year3, countdown_utc3.month3 - 1, countdown_utc3.day3, countdown_utc3.hour3, countdown_utc3.minute3, countdown_utc3.second3);
 var date_utc4 = Date.UTC(countdown_utc4.year4, countdown_utc4.month4 - 1, countdown_utc4.day4, countdown_utc4.hour4, countdown_utc4.minute4, countdown_utc4.second4);
@@ -150,7 +150,7 @@ window[CHANNEL.name].sequenceList = {
 	'bootstrap-datepicker': {
 		active: 1,
 		rank: -1,
-		url: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/426776a9a19c96ef5723245194b90cd681a80329/bootstrap-datepicker.js",
 		callback: true
 	},
 	'event-ext': {

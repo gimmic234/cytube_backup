@@ -1942,7 +1942,7 @@ window.loadInitializer = function() {
 	waitForEl('#countdown1', function() {
 		$('#timez').html(getTimeZone());
 		countdown1 = document.getElementById('countdown1');
-		$(document.getElementById('date1')).html(new Date(date_utc).toString().split('(')[0]);
+		$(document.getElementById('date1')).html(new Date(date_utc1).toString().split('(')[0]);
 		countdown2 = document.getElementById('countdown2');
 		$(document.getElementById('date2')).html(new Date(date_utc2).toString().split('(')[0]);
 		countdown3 = document.getElementById('countdown3');
@@ -1953,7 +1953,7 @@ window.loadInitializer = function() {
 		$(document.getElementById('date5')).html(new Date(date_utc5).toString().split('(')[0]);
 	});
 
-	countDown = new Date(date_utc).getTime();
+	countDown = new Date(date_utc1).getTime();
 	clearInterval(countDownTimer1);
 	countDownTimer1 = setInterval(function() {window.countdowner(countdown1, countDown, 1)}, second);
 
@@ -2351,6 +2351,54 @@ function bindEventHandler() {
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#backgroundModal").remove();
+		}).insertAfter("#useroptions").modal();
+	});
+
+	$(bodyElem).on('click', '.btn-cd-save', function() {
+		let cmd = $(this).attr('data-value');
+		let tag = $(this).attr('data-tag');
+		let input = $(this).parent().parent().find(tag);
+		chatCmdLookup[cmd](cmd + " " + input.val());
+	});
+
+	$(bodyElem).on('click', '#countdown-option', function() {
+		let cdList = [date_utc1, date_utc2, date_utc3, date_utc4, date_utc5];
+		
+		createModalExt({
+			title: "Edit countdown",
+			wrap_id: "countdownModal",
+			body_id: "countdownWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let nav = "<ul class='nav nav-tabs'>"
+			nav += "<li><a href='#countdown-list' data-toggle='tab' aria-expanded='false'>Countdown</a></li>";
+			nav += "</ul>";
+			let viewcontent = "<div id='countdown-list' class='tab-pane active'>";
+			viewcontent += "</div>";
+			let contentwrap = '';
+			contentwrap = "<div class='tab-content'>" + viewcontent + "</div>";
+			$("#countdownWrap").html(nav + contentwrap);
+
+			cdList.each(function(datetime, i) {
+				//testtt
+				let block = "<div class=''>";
+				block += "<div class='countdown-container'>";
+				block += "<p><b>countdown "+ (i+1) + "</b></p>";
+				block += "<div class='input-group input-group-sm'>";
+				block += "<input class='form-control cd-text"+(i+1)+"' type='text' value=''>";
+				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-save' type='button' data-value='/cdlocal"+(i+1)+"' data-tag='cd-text"+(i+1)+"'>Save</button></div>";
+				block += "</div>";
+				block += "</div>";
+				block += "</div>";
+				$("#countdown-list").append(block);
+				$('.cd-text'+(i+1)).datetimepicker({
+					  format: 'YYYY M D H m s',
+					  date: new Date(datetime)
+				});
+			});
+		}).on("hidden.bs.modal", function(event) {
+			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			$("#countdownModal").remove();
 		}).insertAfter("#useroptions").modal();
 	});
 
