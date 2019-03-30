@@ -2387,7 +2387,7 @@ function bindEventHandler() {
 
 			cdList.each(function(datetime, i) {
 				let displayStr = new Date(datetime).toString().split('(')[0];
-				let block = "<div class=''>";
+				let block = "<div class='row'>";
 				block += "<div class='countdown-container col-sm-5'>";
 				block += "<p><b>countdown "+ (i+1) + "</b></p>";
 				block += "<span class='cd-display-text'>"+displayStr+"</span>";
