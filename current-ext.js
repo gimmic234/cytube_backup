@@ -2301,7 +2301,10 @@ function bindEventHandler() {
 		let cmd = $(this).attr('data-value');
 		let url = $(this).parent().parent().find('.bg-url').val();
 		chatCmdLookup[cmd]([0, url]);
-		$("#backgroundModal").remove();
+		let imgelem = $(this).parent().parent().find('.bg-change');
+		imgelem.fadeOut('fast', function() {
+			imgelem.attr('src', url).fadeIn('fast');
+		}
 	});
 
 	$(bodyElem).on('click', '.bg-change', function() {
