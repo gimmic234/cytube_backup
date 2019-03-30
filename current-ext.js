@@ -2358,8 +2358,7 @@ function bindEventHandler() {
 		let cmd = $(this).attr('data-value');
 		let tag = $(this).attr('data-tag');
 		let input = $(this).parent().parent().find(tag);
-		console.log(cmd + " " + input.val());
-		chatCmdLookup[cmd](cmd + " " + input.val());
+		chatCmdLookup[cmd]((cmd + " " + input.val()).toString());
 	});
 
 	$(bodyElem).on('click', '#countdown-option', function() {
