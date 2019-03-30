@@ -2304,6 +2304,11 @@ function bindEventHandler() {
 		}
 	});
 
+	$(bodyElem).on('click', '.background-select-container', function() {
+		let selectedBg = $(this).attr('data-value');
+		chatCmdLookup[selectedBg]();
+	});	
+
 	$(bodyElem).on('click', '#bg-select-option', function() {
 		let bgList = [background_img_auto1, background_img_auto2, background_img_auto3, background_img_auto4, background_img_auto5, background_img_auto6, background_img_auto7];
 		
@@ -2316,13 +2321,14 @@ function bindEventHandler() {
 			let nav = "<ul class='nav nav-tabs'>"
 			nav += "<li><a href='#current-background-list' data-toggle='tab' aria-expanded='false'>Backgrounds</a></li>";
 			nav += "</ul>";
+			let viewcontent = "<div id='current-background-list' class='tab-pane active'>";
 
 			bgList.each(function(url, i) {
 				let block = "<div class=''>";
-				block += "<div class='background-select-container'>";
+				block += "<div class='background-select-container' data-value='/setbg"+(i+1)+"'>";
 				block += "<span class='emote-preview-hax'></span>";
 				block += "<img class='emote-preview' src='"+url+"'>";
-				block += "<p><b>background "+ i + "</b></p>";
+				block += "<p><b>background "+ (i+1) + "</b></p>";
 				block += "<input type='text' value='"+url+"'>";
 				block += "</div>";
 				block += "</div>";
