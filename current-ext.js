@@ -2304,7 +2304,7 @@ function bindEventHandler() {
 		let imgelem = $(this).parent().parent().find('.bg-change');
 		imgelem.fadeOut('fast', function() {
 			imgelem.attr('src', url).fadeIn('fast');
-		}
+		});
 	});
 
 	$(bodyElem).on('click', '.bg-change', function() {
