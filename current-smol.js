@@ -144,7 +144,7 @@ window[CHANNEL.name].sequenceList = {
 	'moment.js': {
 		active: 1,
 		rank: -1,
-		url: "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/en-ca.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4ba2bf3435705b60bce5f8aecbbf63020dbd76ba/moment.js",
 		callback: true
 	},
 	'bootstrap-datepicker': {
