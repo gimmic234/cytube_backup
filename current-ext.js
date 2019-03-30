@@ -2361,9 +2361,10 @@ function bindEventHandler() {
 		let input = $(this).parent().parent().find(tag);
 		let string = (cmd + " " + input.val()).toString();
 		let chatCmdText = string.split(" ");
-		chatCmdLookup[cmd](chatCmdText);
-		let newDisplay = new Date(eval(nameVar)).toString().split('(')[0];
+		let temp_utc = Date.UTC(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5], chatCmdText[6]);
+		let newDisplay = new Date(temp_utc).toString().split('(')[0];
 		input.parent().parent().find('.cd-display-text').html(newDisplay);
+		chatCmdLookup[cmd](chatCmdText);
 	});
 
 	$(bodyElem).on('click', '#countdown-option', function() {
@@ -2387,11 +2388,11 @@ function bindEventHandler() {
 			cdList.each(function(datetime, i) {
 				let displayStr = new Date(datetime).toString().split('(')[0];
 				let block = "<div class=''>";
-				block += "<div class='countdown-container'>";
+				block += "<div class='countdown-container col-sm-5'>";
 				block += "<p><b>countdown "+ (i+1) + "</b></p>";
 				block += "<span class='cd-display-text'>"+displayStr+"</span>";
 				block += "<div class='input-group input-group-sm'>";
-				block += "<input class='form-control cd-text"+(i+1)+"' type='text' value=''>";
+				block += "<input class='form-control cd-text cd-text"+(i+1)+"' type='text' value='' onkeydown='return false'>";
 				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-save' type='button' data-value='/cdlocal"+(i+1)+"' data-tag='.cd-text"+(i+1)+"' data-var='date_utc"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
 				block += "</div>";
