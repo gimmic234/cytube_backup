@@ -2386,7 +2386,7 @@ function bindEventHandler() {
 				block += "<p><b>countdown "+ (i+1) + "</b></p>";
 				block += "<div class='input-group input-group-sm'>";
 				block += "<div class='input-group-prepend'><span class='input-group-text'>"+displayStr+"</span></div>";
-				block += "<input class='form-control cd-text"+(i+1)+"' type='text' value='' onkeydown="return false">";
+				block += "<input class='form-control cd-text"+(i+1)+"' type='text' value='' onkeydown='return false'>";
 				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-save' type='button' data-value='/cdlocal"+(i+1)+"' data-tag='cd-text"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
 				block += "</div>";
