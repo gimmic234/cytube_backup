@@ -2297,7 +2297,7 @@ function bindEventHandler() {
 		}
 	});
 
-	$(bodyElem.on('click', '.btn-bg-save', function() {
+	$(bodyElem).on('click', '.btn-bg-save', function() {
 		let cmd = $(this).attr('data-value');
 		let url = $(this).parent().find('.bg-url').val();
 		chatCmdLookup[cmd]([0, url]);
