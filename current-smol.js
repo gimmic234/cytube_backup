@@ -37,7 +37,7 @@ var countdown_utc3 = {
 var penguinImg = '//media.discordapp.net/attachments/515347492511023113/525863422840274944/DSciEJcVAAAe6rY.jpg';
 var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/525845582934310922/Intermission.mp3';
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
-var updateCmd = "true";
+var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = '//cdn.discordapp.com/attachments/466386319766192138/547686243517857793/1467550476_panzer_chibi.gif';
 var imgBubble2 = '//cdn.discordapp.com/attachments/428195862963814413/554417601418362900/PNG_Image_693_653_pixels.png';
@@ -144,13 +144,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e9c2f753f5affd01b40132cc87e385c1d0be4b5c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/25040c29ff16c59a0b19f8664f0ff343d3dace29/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/38c49b6f78a8b6f3ac09542853e09b720e6aeb9c/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/25040c29ff16c59a0b19f8664f0ff343d3dace29/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {

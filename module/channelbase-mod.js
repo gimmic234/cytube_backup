@@ -121,7 +121,7 @@ $("#chatwrap .nano").append($("#messagebuffer"));
 $(".nano").nanoScroller();
 $('#maincontain').find('.container-fluid').append("<div id='imgWrapFixed1' hidden></div>");
 $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
-let achievementMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Achievements</a><ul class='dropdown-menu'><a id='medallist' href='javascript:void(0)' style=''>View</a>";
+let achievementMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Achievements<b class='caret'></b></a><ul class='dropdown-menu'><a id='medallist' href='javascript:void(0)' style=''>View</a>";
 if (rankAdmin) {
 	achievementMenu += "<a id='medallist-add-all' href='javascript:void(0)' style=''>Add All</a>";
 }
