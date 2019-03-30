@@ -2044,7 +2044,6 @@ function bindEventHandler() {
 
 	$(bodyElem).on('mousedown', '.achievement-control', function(e) {
 		let username = $(this).parent().parent().find('strong').text();
-		console.log(username);
 		createModalExt({
 			title: "Add a new achievement for " + username,
 			wrap_id: "achievementAddModal",
@@ -2077,6 +2076,73 @@ function bindEventHandler() {
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#achievementAddModal").remove();
+		}).insertAfter("#useroptions").modal();
+	});
+
+	$(bodyElem).on('click', '.achievement-add-all', function() {
+		let stringItem = $(this).attr('data-achievement');
+		let curr_alist = JSON.parse(achievementList);
+		if (rankAdmin) {
+			window.socket.emit("chatMsg", {
+				msg: "\*all\* gained addachievement" + stringItem + "addachievement"
+			});				
+		}
+
+		let connectedUsers = $('#userlist').find('strong');
+		connectedUsers.each(function(index, userc) {
+			if (!curr_alist[userc.innerText]) {
+				curr_alist[userc.innerText] = [];
+				curr_alist[userc.innerText].push(stringItem);
+			} else {
+				if (!curr_alist[userc.innerText].includes(stringItem)) {
+					curr_alist[userc.innerText].push(stringItem);
+				}
+			}			
+		});
+
+		let curr_alist_string = JSON.stringify(curr_alist);
+		var textField = jsTextField.val();
+		var textFieldArray = textField.split("\n");
+		var firstBlock = textFieldArray[77].substr(0, textFieldArray[77].lastIndexOf(' = ') + 1);
+		textField = textField.replace(textFieldArray[77], firstBlock + "= \"" + curr_alist_string.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";");
+		jsTextField.val(textField);
+		$("#achievementAddAllModal").remove();
+		socket.emit("setChannelJS", {
+			js: $("#cs-jstext").val()
+		});
+	});	
+
+	$(bodyElem).on('click', '#medallist-add-all', function() {
+		createModalExt({
+			title: "Add a new achievement to all",
+			wrap_id: "achievementAddAllModal",
+			body_id: "achievementAddAllWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let curr_alist = JSON.parse(achievementList);
+			let listcontent = '';
+			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
+			let textColor = '#FFFF33';
+			let textDescription = '';
+			achievementMatch.each(function(achievement, i) {
+				imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
+				textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
+				textDescription = achievement.description;
+				let block = "<div class=''>";
+				block += "<div class='achievement-container achievement-add-all' data-achievement='"+achievement.title+"' title='"+textDescription+"'>";
+				block += "<span class='emote-preview-hax'></span>";
+				block += "<img class='emote-preview' src='"+imageUrl+"'>";
+				block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
+				block += "</div>";
+				block += "</div>";
+				listcontent += block;
+			});
+
+			$("#achievementAddAllWrap").html(listcontent);
+		
+		}).on("hidden.bs.modal", function(event) {
+			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			$("#achievementAddAllModal").remove();
 		}).insertAfter("#useroptions").modal();
 	});
 

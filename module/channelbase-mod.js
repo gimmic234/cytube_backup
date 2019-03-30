@@ -121,7 +121,12 @@ $("#chatwrap .nano").append($("#messagebuffer"));
 $(".nano").nanoScroller();
 $('#maincontain').find('.container-fluid').append("<div id='imgWrapFixed1' hidden></div>");
 $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
-$('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style=''>Achievements</a></li>");
+let achievementMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Achievements</a><ul class='dropdown-menu'><a id='medallist' href='javascript:void(0)' style=''>View</a>";
+if (rankAdmin) {
+	achievementMenu += "<a id='medallist-add-all' href='javascript:void(0)' style=''>Add All</a>";
+}
+achievementMenu += "</ul></li>";
+$('.navbar-nav').append(achievementMenu);
 $('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
 if (rankAdmin) {
 	$('.navbar-nav').append("<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>");
