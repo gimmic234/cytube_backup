@@ -2333,7 +2333,7 @@ function bindEventHandler() {
 				block += "<p><b>background "+ (i+1) + "</b></p>";
 				block += "<span class='emote-preview-hax'></span>";
 				block += "<img class='bg-preview bg-change' src='"+url+"' data-value='/setbg"+(i+1)+"'>";
-				block += "<div class='input-group'>";
+				block += "<div class='input-group input-group-sm'>";
 				block += "<input class='form-control bg-url' type='text' value='"+url+"'>";
 				block += "<div class='input-group-btn'><button class='btn btn-default btn-bg-save' type='button' data-value='/savebg"+(i+1)+"' >Save</button></div>";
 				block += "</div>";
