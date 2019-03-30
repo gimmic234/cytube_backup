@@ -127,6 +127,9 @@ if (rankAdmin) {
 }
 achievementMenu += "</ul></li>";
 $('.navbar-nav').append(achievementMenu);
+if (rankAdmin) {
+	$('.navbar-nav').append("<li><a id='bg-select-option' href='javascript:void(0)' style=''>BG</a></li>");
+}
 $('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
 if (rankAdmin) {
 	$('.navbar-nav').append("<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>");

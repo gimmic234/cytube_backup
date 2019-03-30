@@ -2148,7 +2148,6 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.chat-avatar', function() {
 		let username = $(this).parent().find('.username').text().replace(': ', '');
-		console.log(username);
 		createModalExt({
 			title: "View " + username + "'s achievements",
 			wrap_id: "achievementAddModal",
@@ -2303,6 +2302,43 @@ function bindEventHandler() {
 			achievementShow += "</tbody></table></div>";
 			$(this).parent().after(achievementShow);
 		}
+	});
+
+	$(bodyElem).on('click', '#bg-select-option', function() {
+		let bgList = [background_img_auto1, background_img_auto2, background_img_auto3, background_img_auto4, background_img_auto5, background_img_auto6, background_img_auto7];
+		
+		createModalExt({
+			title: "View current background",
+			wrap_id: "backgroundModal",
+			body_id: "backgroundWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let nav = "<ul class='nav nav-tabs'>"
+			nav += "<li><a href='#current-background-list' data-toggle='tab' aria-expanded='false'>Backgrounds</a></li>";
+			nav += "</ul>";
+
+			bgList.each(function(url, i) {
+				let block = "<div class=''>";
+				block += "<div class='background-select-container'>";
+				block += "<span class='emote-preview-hax'></span>";
+				block += "<img class='emote-preview' src='"+url+"'>";
+				block += "<p><b>background "+ i + "</b></p>";
+				block += "<input type='text' value='"+url+"'>";
+				block += "</div>";
+				block += "</div>";
+				viewcontent += block;
+			});
+
+			viewcontent += "</div>";
+			let contentwrap = '';
+			contentwrap = "<div class='tab-content'>" + viewcontent + "</div>";
+
+			$("#backgroundWrap").html(nav + contentwrap);
+		
+		}).on("hidden.bs.modal", function(event) {
+			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			$("#backgroundModal").remove();
+		}).insertAfter("#useroptions").modal();
 	});
 
 	$(bodyElem).on('click', '#emotelistbtn', function() {

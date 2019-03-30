@@ -327,6 +327,14 @@ font-size: 8px !important;
     color: #FFFF33;   
 }
 
+.background-select-container {
+    width: 150px;
+    height: 150px;
+    float: left;
+    text-align: center;
+    margin: 30px;
+}
+
 .achievement-container {
     width: 150px;
     height: 150px;
@@ -350,8 +358,9 @@ font-size: 8px !important;
 }
 
 .full {
+    float: right;
     height: auto;
-    width: 100%;
+    width: 99%;
     position: relative;
     z-index: 99;
     display: block;
