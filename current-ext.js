@@ -2299,7 +2299,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.btn-bg-save', function() {
 		let cmd = $(this).attr('data-value');
-		let url = $(this).parent().find('.bg-url').val();
+		let url = $(this).parent().parent().find('.bg-url').val();
 		chatCmdLookup[cmd]([0, url]);
 		$("#backgroundModal").remove();
 	});
