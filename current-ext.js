@@ -2429,7 +2429,6 @@ function bindEventHandler() {
 		let hex = $(this).parent().parent().find('.input-hex').val();
 		let opacity = $(this).parent().parent().find('.input-opacity').val();
 		chatCmdLookup[cmd]([cmd, hex, opacity]);
-		$("#themeModal").remove();
 	});
 
 	$(bodyElem).on('click', '.theme-toggle', function() {
