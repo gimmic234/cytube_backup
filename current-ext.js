@@ -2470,14 +2470,12 @@ function bindEventHandler() {
 			nav += "</ul>";
 			let viewcontent = "<div id='theme-col-list-top' class='tab-pane active'>";
 			viewcontent += "<div class='row top-margin-theme'>";
-			viewcontent += "<div class='col-sm-2'>";
-			viewcontent += "<b>Curren Status:</b>";
+			viewcontent += "<div class='col-sm-1'>";
+			viewcontent += "<b>Status:</b>";
 			viewcontent += "</div>";
 			viewcontent += "<div class='col-sm-2'>";
 			viewcontent += "<button class='btn btn-default theme-toggle theme-btn' data-status='"+toggle_status+"'>"+toggle_status+"</button>";
 			viewcontent += "</div>";
-			viewcontent += "</div>";
-			viewcontent += "<div class='row top-margin-theme'>";
 			viewcontent += "<div class='col-sm-2'>";
 			viewcontent += "<b>Reset the parameters? </b>";
 			viewcontent += "</div>";
