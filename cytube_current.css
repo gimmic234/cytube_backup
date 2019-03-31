@@ -409,3 +409,9 @@ position: relative;
 .top-margin-theme {
     margin-top: 20px;
 }
+
+.theme-menu {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px 0;   
+}
