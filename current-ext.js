@@ -2426,10 +2426,30 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.theme-col-save', function() {
 		let cmd = $(this).attr('data-value');
-		let hex = $(this).parent().parent().find('.input-hex').value();
-		let opacity = $(this).parent().parent().find('.input-opacity').value();
+		let hex = $(this).parent().parent().find('.input-hex').val();
+		let opacity = $(this).parent().parent().find('.input-opacity').val();
 		chatCmdLookup[cmd]([cmd, hex, opacity]);
 		$("#themeModal").remove();
+	});
+
+	$(bodyElem).on('click', '.theme-toggle', function() {
+		let status = $(this).attr('data-status');
+		if (status == "On") {
+			$(this).attr('data-status', "Off");
+			$(this).text("Off");
+			chatCmdLookup["themeoff"]();
+		} else {
+			$(this).attr('data-status', "On");
+			$(this).text("On");
+			chatCmdLookup["themeon"]();
+		}
+	});
+
+	$(bodyElem).on('click', '.theme-reset', function() {
+		if (confirm("this will reset all parameters")) {
+			chatCmdLookup["themereset"]();	
+			$("#themeModal").remove();
+		}
 	});
 
 	$(bodyElem).on('click', '#theme-col-option', function() {
