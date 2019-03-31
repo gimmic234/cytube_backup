@@ -405,3 +405,7 @@ position: relative;
 .amq-center-wrap {
     text-align: center;
 }
+
+.top-margin-theme {
+    margin-top: 20px;
+}
