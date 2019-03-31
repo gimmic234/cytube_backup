@@ -770,7 +770,7 @@ var chatCmdLookup = {
 	},
 	"/themereset": function() {
 		if (rankAdmin) {
-			chatCmdText = [0, "rgba(19, 18, 18, 0.81) !important"];
+			chatCmdText = [0, "rgba(19,18,18, 0.81) !important"];
 			editCss(65, chatCmdText);
 			editCss(69, chatCmdText);
 			chatCmdText = [0, "rgba(0,0,0, 0.9) !important"];
