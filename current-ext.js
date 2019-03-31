@@ -2468,7 +2468,6 @@ function bindEventHandler() {
 				let curr_op = firstBlock[1];
 				let rgb = firstBlock[0].split(',');
 				let curr_hex = rgbToHex(rgb[0], rgb[1], rgb[2]);
-				chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
 				let block = "<div class='row'>";
 				block += "<div class='countdown-container col-sm-5'>";
 				block += "<p><b>"+key+"</b></p>";
