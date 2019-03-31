@@ -2437,17 +2437,17 @@ function bindEventHandler() {
 		if (status == "On") {
 			$(this).attr('data-status', "Off");
 			$(this).text("Off");
-			chatCmdLookup["themeoff"]();
+			chatCmdLookup["/themeoff"]();
 		} else {
 			$(this).attr('data-status', "On");
 			$(this).text("On");
-			chatCmdLookup["themeon"]();
+			chatCmdLookup["/themeon"]();
 		}
 	});
 
 	$(bodyElem).on('click', '.theme-reset', function() {
 		if (confirm("this will reset all parameters")) {
-			chatCmdLookup["themereset"]();	
+			chatCmdLookup["/themereset"]();	
 			$("#themeModal").remove();
 		}
 	});
