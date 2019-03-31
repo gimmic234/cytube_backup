@@ -71,7 +71,7 @@
 }
 
 .section, .well, #controlsrow{
-    background-color: rgba(null, 0.6) !important;
+    background-color: rgba(0,0,0, 0.6) !important;
 }
 div#messagebuffer, div#userlist {
     background-color: rgba(0,0,0, 0.85) !important;

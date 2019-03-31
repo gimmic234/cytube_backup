@@ -2469,7 +2469,7 @@ function bindEventHandler() {
 				let rgb = firstBlock[0].split(',');
 				let curr_hex = rgbToHex(rgb[0], rgb[1], rgb[2]);
 				let block = "<div class='row'>";
-				block += "<div class='countdown-container col-sm-5'>";
+				block += "<div class='countdown-container row'>";
 				block += "<p><b>"+key+"</b></p>";
 				block += "<div class='row'>";
 				block += "<div class='col-sm-3'>";
