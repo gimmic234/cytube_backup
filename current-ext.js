@@ -2484,6 +2484,7 @@ function bindEventHandler() {
 			viewcontent += "<div class='col-sm-2'>";
 			viewcontent += "<button class='btn btn-default theme-reset theme-btn'>Reset</button>";
 			viewcontent += "</div>";
+			viewcontent += "</div>";
 			viewcontent += "<div id='theme-col-list' class='tab-pane active'>";
 			viewcontent += "</div>";
 			viewcontent += "</div>";
