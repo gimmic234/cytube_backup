@@ -2461,7 +2461,7 @@ function bindEventHandler() {
 
 			themeList.each(function(cmd, i) {
 				let key = Object.keys(cmd)[0];
-				let firstBlock = textFieldArray[cmd.key].substr(0, textFieldArray[cmd.key].lastIndexOf(': '));
+				let firstBlock = textFieldArray[cmd[key]].substr(0, textFieldArray[cmd[key]].lastIndexOf(': '));
 				firstBlock = firstBlock.split("rgba(")[1];
 				firstBlock = firstBlock.split(")")[0];
 				firstBlock = firstBlock.split(", ");
