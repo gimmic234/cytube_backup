@@ -2471,7 +2471,7 @@ function bindEventHandler() {
 			let viewcontent = "<div id='theme-col-list-top' class='tab-pane active'>";
 
 
-			viewcontent += "<div class='row top-margin-theme'>";
+			viewcontent += "<div class='row top-margin-theme col-sm-12'>";
 			viewcontent += "<div class='col-sm-3 theme-menu'>";
 			viewcontent += "<b>Status:</b>";
 			viewcontent += "<button class='btn btn-default theme-toggle theme-btn' data-status='"+toggle_status+"'>"+toggle_status+"</button>";
@@ -2483,7 +2483,7 @@ function bindEventHandler() {
 			viewcontent += "</div>";
 
 
-			viewcontent += "<div id='theme-col-list' class='tab-pane active'>";
+			viewcontent += "<div id='theme-col-list' class='tab-pane active col-sm-12'>";
 			viewcontent += "</div>";
 			viewcontent += "</div>";
 			let contentwrap = '';
