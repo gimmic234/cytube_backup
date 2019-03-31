@@ -2457,7 +2457,7 @@ function bindEventHandler() {
 		var cssTextField = $(document.getElementById('cs-csstext'));
 		var textField = cssTextField.val();
 		var textFieldArray = textField.split("\n");
-		let toggle_status = (textFieldArray[55] == "/**/") ? "Off" : "On"; 
+		let toggle_status = (textFieldArray[55] == "/**/") ? "On" : "Off"; 
 
 		createModalExt({
 			title: "Edit theme",

@@ -70,7 +70,7 @@ var bgmoff = "true";
 var background_img_auto5 = "http://pbs.twimg.com/media/D0cT-JMUwAAX75e.jpg";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = 'https://cdn.discordapp.com/attachments/466386319766192138/556217613852868629/Kaneda.mp3';
+var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/561718731223466004/improv_stargazer.mp3";
 var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/559522269987209219/21_-_Yume_wa_Nando_mo_Umare_Kawaru.flac";
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
@@ -141,7 +141,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/bb6579787a610b7ff613cbe8f327f96a2ca4c228/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/fa97e238747f7b6624a0700ab2618e6d62128fd7/current-ext.js",
 		callback: true
 	},
 	'layout': {
