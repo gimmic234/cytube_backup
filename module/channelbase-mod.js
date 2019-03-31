@@ -133,6 +133,9 @@ if (rankAdmin) {
 if (rankAdmin) {
 	$('.navbar-nav').append("<li><a id='countdown-option' href='javascript:void(0)' style=''>Countdown</a></li>");
 }
+if (rankAdmin) {
+	$('.navbar-nav').append("<li><a id='theme-col-option' href='javascript:void(0)' style=''>Theme</a></li>");
+}
 $('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
 if (rankAdmin) {
 	$('.navbar-nav').append("<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>");

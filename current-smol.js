@@ -75,7 +75,7 @@ var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/5595222
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "5";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\"],\"raccomunk\":[\"first blood\",\"Clannad\"],\"Madoq\":[\"first blood\",\"Clannad\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\"],\"NinjaPoes\":[\"Clannad\"],\"Fox_tart\":[\"Clannad\"],\"Ivvl\":[\"Clannad\"],\"Senia\":[\"Clannad\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"]}";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"raccomunk\":[\"first blood\",\"Clannad\"],\"Madoq\":[\"first blood\",\"Clannad\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\"],\"NinjaPoes\":[\"Clannad\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\"],\"Senia\":[\"Clannad\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"]}";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -171,7 +171,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9e0c3740a0bf85c58eebd05bbbfe43115b8a2b4b/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a312b3ba3d8262e08b77e33b7bfbfccf759923f6/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

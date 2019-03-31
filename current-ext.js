@@ -1355,7 +1355,7 @@ function renderStatus(status) {
 function readAchievement() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/9/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1377,7 +1377,7 @@ function readAchievement() {
 function readSheet() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/8/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/9/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1410,7 +1410,7 @@ function populateSoundEmote(command) {
 	let temp = {};
 	let temp2 = {};
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/11/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/12/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1439,7 +1439,7 @@ function populateSoundEmote(command) {
 function populateImgEmote(command) {
 	let temp = {};
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/11/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1761,6 +1761,15 @@ function createModalExt(data) {
 		wrap.appendTo(data.attach)
 	}
 	return wrap
+}
+
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
 window.scrollChat = function() {
@@ -2368,8 +2377,7 @@ function bindEventHandler() {
 		let input = $(this).parent().parent().find(tag);
 		let string = (cmd + " " + input.val()).toString();
 		let chatCmdText = string.split(" ");
-		let temp_utc = Date.UTC(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5], chatCmdText[6]);
-		let newDisplay = new Date(temp_utc).toString().split('(')[0];
+		let newDisplay = new Date(chatCmdText[1], chatCmdText[2]-1, chatCmdText[3], chatCmdText[4], chatCmdText[5]).toString().split('(')[0];
 		input.parent().parent().find('.cd-display-text').html(newDisplay);
 		chatCmdLookup[cmd](chatCmdText);
 	});
@@ -2413,6 +2421,76 @@ function bindEventHandler() {
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#countdownModal").remove();
+		}).insertAfter("#useroptions").modal();
+	});
+
+	$(bodyElem).on('click', '.theme-col-save', function() {
+		let cmd = $(this).attr('data-value');
+		let hex = $(this).parent().parent().find('.input-hex').value();
+		let opacity = $(this).parent().parent().find('.input-opacity').value();
+		chatCmdLookup[cmd]([cmd, hex, opacity]);
+		$("#themeModal").remove();
+	});
+
+	$(bodyElem).on('click', '#theme-col-option', function() {
+		let themeList = [{'themetop': 57}, {'themebutton': 69}, {'themechat': 76}, {'themechatinput': 80}, {'themesection': 73}];
+
+		var cssTextField = $(document.getElementById('cs-csstext'));
+		var textField = cssTextField.val();
+		var textFieldArray = textField.split("\n");
+		let toggle_status = (textFieldArray[55] == "/**/") ? "Off" : "On"; 
+
+		createModalExt({
+			title: "Edit theme",
+			wrap_id: "themeModal",
+			body_id: "themeWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let nav = "<ul class='nav nav-tabs'>"
+			nav += "<li><a href='#theme-col-list' data-toggle='tab' aria-expanded='false'>Theme and Opacity</a></li>";
+			nav += "</ul>";
+			let viewcontent = "<div id='theme-col-list-top' class='tab-pane active'>";
+			viewcontent += "<button class='btn btn-default theme-toggle theme-btn' data-status='"+toggle_status+"'>"+toggle_status+"</button>";
+			viewcontent += "<button class='btn btn-default theme-reset theme-btn'>Reset</button>";
+			viewcontent += "<div id='theme-col-list' class='tab-pane active'>";
+			viewcontent += "</div>";
+			viewcontent += "</div>";
+			let contentwrap = '';
+			contentwrap = "<div class='tab-content'>" + viewcontent + "</div>";
+			$("#themeWrap").html(nav + contentwrap);
+
+			themeList.each(function(cmd, i) {
+				let key = Object.keys(cmd)[0];
+				let firstBlock = textFieldArray[cmd.key].substr(0, textFieldArray[cmd.key].lastIndexOf(': '));
+				firstBlock = firstBlock.split("rgba(")[1];
+				firstBlock = firstBlock.split(")")[0];
+				firstBlock = firstBlock.split(", ");
+				let curr_op = firstBlock[1];
+				let rgb = firstBlock[0].split(',');
+				let curr_hex = rgbToHex(rgb[0], rgb[1], rgb[2]);
+				chatCmdText[1] = "rgba(" + hexToRgb(chatCmdText[1]) + ", "+opacity+") !important";
+				let block = "<div class='row'>";
+				block += "<div class='countdown-container col-sm-5'>";
+				block += "<p><b>"+key+"</b></p>";
+				block += "<div class='row'>";
+				block += "<div class='col-sm-3'>";
+				block += "<input class='form-control input-hex' type='text' value='"+curr_hex+"'>";
+				block += "</div>";
+				block += "<div class='col-sm-3'>";
+				block += "<input class='form-control input-opacity' type='text' value='"+curr_op+"'>";
+				block += "</div>";
+				block += "<div class='col-sm-3'>";
+				block += "<button class='btn btn-default theme-col-save' type='button' data-value='/"+key+"'>Save</button>";
+				block += "</div>";
+				block += "</div>";
+				block += "</div>";
+				block += "</div>";
+				$("#theme-col-list").append(block);
+			});
+
+		}).on("hidden.bs.modal", function(event) {
+			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			$("#themeModal").remove();
 		}).insertAfter("#useroptions").modal();
 	});
 
