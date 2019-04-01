@@ -2435,16 +2435,19 @@ function bindEventHandler() {
 				let block = "<div class='row'>";
 				let countdownString = eval("countdownText" + (i+1));
 				block += "<div class='countdown-container col-sm-5'>";
-				block += "<p><b>countdown "+ (i+1) + "</b></p>";
 				block += "<div class='input-group input-group-sm'>";
+			    block += "<div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'>countdown "+ (i+1) + "</span></div>";
 				block += "<input class='form-control cd-title' type='text' value='"+countdownString+"'>";
 				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-string-save' type='button' data-value='/cdtitle"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
+
 				block += "<span class='cd-display-text'>"+displayStr+"</span>";
+
 				block += "<div class='input-group input-group-sm'>";
 				block += "<input class='form-control cd-text cd-text"+(i+1)+"' type='text' value='' onkeydown='return false'>";
 				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-save' type='button' data-value='/cdlocal"+(i+1)+"' data-tag='.cd-text"+(i+1)+"' data-var='date_utc"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
+
 				block += "</div>";
 				block += "</div>";
 				$("#countdown-list").append(block);
