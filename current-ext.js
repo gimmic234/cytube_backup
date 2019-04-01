@@ -1228,6 +1228,36 @@ var chatCmdLookup = {
 			return;
 		}
 		$(".amq-wrap").remove();
+	},
+	"/cdtitle1": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length > 1) {
+			let stringItem = chatCmdText.slice(1).join(' ').toString();
+			editJs(78, [0, stringItem]);
+		}
+	},
+	"/cdtitle2": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length > 1) {
+			let stringItem = chatCmdText.slice(1).join(' ').toString();
+			editJs(79, [0, stringItem]);
+		}
+	},
+	"/cdtitle3": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length > 1) {
+			let stringItem = chatCmdText.slice(1).join(' ').toString();
+			editJs(80, [0, stringItem]);
+		}
+	},
+	"/cdtitle4": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length > 1) {
+			let stringItem = chatCmdText.slice(1).join(' ').toString();
+			editJs(81, [0, stringItem]);
+		}
+	},
+	"/cdtitle5": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length > 1) {
+			let stringItem = chatCmdText.slice(1).join(' ').toString();
+			editJs(81, [0, stringItem]);
+		}
 	}
 };
 

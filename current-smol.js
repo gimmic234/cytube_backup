@@ -6,9 +6,9 @@ var background_img = "http://media.discordapp.net/attachments/466386319766192138
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
-	month: 3,
-	day: 31,
-	hour: 19,
+	month: 4,
+	day: 3,
+	hour: 23,
 	minute: 0,
 	second: 0,
 };
@@ -66,7 +66,7 @@ var countdown_utc5 = {
 };
 var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/560542474247077906/27_-_Hitomi_-_A_secret_of_the_moon.flac";
 var playbgmCondition = "true";
-var bgmoff = "true";
+var bgmoff = "false";
 var background_img_auto5 = "http://pbs.twimg.com/media/D0cT-JMUwAAX75e.jpg";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
@@ -75,7 +75,12 @@ var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/5595222
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "1";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"raccomunk\":[\"first blood\",\"Clannad\"],\"Madoq\":[\"first blood\",\"Clannad\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\"],\"NinjaPoes\":[\"Clannad\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\"],\"Senia\":[\"Clannad\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"]}";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\"],\"Senia\":[\"Clannad\",\"Kurenai\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\"],\"ScrewySqrl\":[\"Kurenai\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\"],\"Mayu_Loli\":[\"Kurenai\"],\"MisterLister\":[\"Kurenai\"],\"SomeBloke\":[\"Kurenai\"],\"Tommeow\":[\"Kurenai\"],\"Urizithar\":[\"Kurenai\"],\"Bowl\":[\"Kurenai\"]}";
+var countdownText1 = "Symphogeah";
+var countdownText2 = "Seasonal";
+var countdownText3 = "ATLA";
+var countdownText4 = "Railgun";
+var countdownText5 = "Mob";
 //-----------------------------------------------------------------------------------------------------------------------------------
 //ControlBlockEnd
 //console.log = function() {}
@@ -111,11 +116,6 @@ var motdMode = $(document.getElementById('motd-mode'));
 var jsTextField = $(document.getElementById('cs-jstext'));
 var bodyElem = document.body;
 var chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
-var countdownText1 = "Club";
-var countdownText2 = "Seasonal";
-var countdownText3 = "ATLA?";
-var countdownText4 = "Railgun";
-var countdownText5 = "Mob";
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -141,7 +141,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/fa97e238747f7b6624a0700ab2618e6d62128fd7/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c4c0e8a2791140ce7bdb292cdfe0b4033703d551/current-ext.js",
 		callback: true
 	},
 	'layout': {
