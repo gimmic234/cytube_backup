@@ -2400,6 +2400,14 @@ function bindEventHandler() {
 		}).insertAfter("#useroptions").modal();
 	});
 
+	$(bodyElem).on('click', '.btn-cd-string-save', function() {
+		let cmd = $(this).attr('data-value');
+		let input = $(this).parent().parent().find('.cd-title');
+		let string = (cmd + " " + input.val()).toString();
+		let chatCmdText = string.split(" ");
+		chatCmdLookup[cmd](chatCmdText);
+	});
+
 	$(bodyElem).on('click', '.btn-cd-save', function() {
 		let cmd = $(this).attr('data-value');
 		let tag = $(this).attr('data-tag');
@@ -2441,7 +2449,7 @@ function bindEventHandler() {
 				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-string-save' type='button' data-value='/cdtitle"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
 
-				block += "<span class='cd-display-text'>"+displayStr+"</span>";
+				block += "<div class='cd-display-text'>"+displayStr+"</div>";
 
 				block += "<div class='input-group input-group-sm'>";
 				block += "<input class='form-control cd-text cd-text"+(i+1)+"' type='text' value='' onkeydown='return false'>";
