@@ -415,3 +415,8 @@ position: relative;
     vertical-align: middle;
     margin: 10px 0;   
 }
+
+.cd-display-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

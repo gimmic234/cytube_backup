@@ -2436,7 +2436,7 @@ function bindEventHandler() {
 				let countdownString = eval("countdownText" + (i+1));
 				block += "<div class='countdown-container col-sm-5'>";
 				block += "<div class='input-group input-group-sm'>";
-			    block += "<div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'>countdown "+ (i+1) + "</span></div>";
+			    block += "<div class='input-group-addon'>countdown "+ (i+1) + "</div>";
 				block += "<input class='form-control cd-title' type='text' value='"+countdownString+"'>";
 				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-string-save' type='button' data-value='/cdtitle"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
