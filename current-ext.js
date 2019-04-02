@@ -2544,7 +2544,7 @@ function bindEventHandler() {
 				block += "<div class='bgm-display-text'>"+displayStr+"</div>";
 
 				block += "<div class='input-group input-group-sm bottom-margin'>";
-			    block += "<div class='input-group-addon'>countdown "+ (i+1) + "</div>";
+			    block += "<div class='input-group-addon'>"+ displayStr + "</div>";
 				block += "<input class='form-control bgm-title' type='text' value='"+bgm+"'>";
 				block += "<div class='input-group-btn'>";
 				block += "<button class='btn btn-default btn-bgm-save' type='button' data-value='/setbgm"+(i+1)+"'>Save</button>";
