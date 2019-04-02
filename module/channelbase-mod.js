@@ -126,7 +126,7 @@ $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
 $('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style=''>Achievements</a></li>");
 
 if (rankAdmin) {
-	let adminMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Admin<b class='caret'></b></a>";
+	let adminMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Admin<b class='caret'></b></a><ul class='dropdown-menu'>";
 	adminMenu += "<li><a id='bg-select-option' href='javascript:void(0)' style=''>BG</a></li>";
 	adminMenu += "<li><a id='countdown-option' href='javascript:void(0)' style=''>Countdown</a></li>";
 	adminMenu += "<li><a id='theme-col-option' href='javascript:void(0)' style=''>Theme</a></li>";
