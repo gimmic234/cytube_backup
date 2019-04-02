@@ -2443,13 +2443,15 @@ function bindEventHandler() {
 				let block = "<div class='row'>";
 				let countdownString = eval("countdownText" + (i+1));
 				block += "<div class='countdown-container col-sm-5'>";
-				block += "<div class='input-group input-group-sm'>";
+
+				block += "<div class='cd-display-text'>"+displayStr+"</div>";
+
+				block += "<div class='input-group input-group-sm bottom-margin'>";
 			    block += "<div class='input-group-addon'>countdown "+ (i+1) + "</div>";
 				block += "<input class='form-control cd-title' type='text' value='"+countdownString+"'>";
 				block += "<div class='input-group-btn'><button class='btn btn-default btn-cd-string-save' type='button' data-value='/cdtitle"+(i+1)+"'>Save</button></div>";
 				block += "</div>";
 
-				block += "<div class='cd-display-text'>"+displayStr+"</div>";
 
 				block += "<div class='input-group input-group-sm'>";
 				block += "<input class='form-control cd-text cd-text"+(i+1)+"' type='text' value='' onkeydown='return false'>";
