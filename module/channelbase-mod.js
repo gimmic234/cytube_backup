@@ -121,26 +121,22 @@ $("#chatwrap .nano").append($("#messagebuffer"));
 $(".nano").nanoScroller();
 $('#maincontain').find('.container-fluid').append("<div id='imgWrapFixed1' hidden></div>");
 $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
-let achievementMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Achievements<b class='caret'></b></a><ul class='dropdown-menu'><li><a id='medallist' href='javascript:void(0)' style=''>View</a></li>";
+
+
+$('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style=''>Achievements</a></li>");
+
 if (rankAdmin) {
-	achievementMenu += "<li><a id='medallist-add-all' href='javascript:void(0)' style=''>Add All</a></li>";
-}
-achievementMenu += "</ul></li>";
-$('.navbar-nav').append(achievementMenu);
-if (rankAdmin) {
-	$('.navbar-nav').append("<li><a id='bg-select-option' href='javascript:void(0)' style=''>BG</a></li>");
-}
-if (rankAdmin) {
-	$('.navbar-nav').append("<li><a id='countdown-option' href='javascript:void(0)' style=''>Countdown</a></li>");
-}
-if (rankAdmin) {
-	$('.navbar-nav').append("<li><a id='theme-col-option' href='javascript:void(0)' style=''>Theme</a></li>");
-}
-$('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
-if (rankAdmin) {
-	$('.navbar-nav').append("<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>");
+	let adminMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Admin<b class='caret'></b></a>";
+	adminMenu += "<li><a id='bg-select-option' href='javascript:void(0)' style=''>BG</a></li>";
+	adminMenu += "<li><a id='countdown-option' href='javascript:void(0)' style=''>Countdown</a></li>";
+	adminMenu += "<li><a id='theme-col-option' href='javascript:void(0)' style=''>Theme</a></li>";
+	adminMenu += "<li><a id='medallist-add-all' href='javascript:void(0)' style=''>Add achievement to all</a></li>";
+	adminMenu += "<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>";
+	adminMenu += "</ul></li>";
+	$('.navbar-nav').append(adminMenu);
 }
 
+$('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
 
 //middle draggable handle
 $("#mainpage").append("<div id='mHandle-left' class='mHandle'></div> <div id='mHandle-right' class='mHandle'></div><div id='mHandle-mid' class='mHandle'></div>");
