@@ -2541,7 +2541,6 @@ function bindEventHandler() {
 				let displayStr = "BGM " + (i+1);
 				let block = "<div class='row col-sm-12'>";
 				block += "<div class='bgm-container col-sm-12'>";
-				block += "<div class='bgm-display-text'>"+displayStr+"</div>";
 
 				block += "<div class='input-group input-group-sm bottom-margin'>";
 			    block += "<div class='input-group-addon'>"+ displayStr + "</div>";
