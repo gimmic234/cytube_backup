@@ -2503,7 +2503,7 @@ function bindEventHandler() {
 		editJs(68, [0, toggle]);
 	});
 
-	$(bodyElem).on('click', '.bgm-option', function() {
+	$(bodyElem).on('click', '#bgm-option', function() {
 		let bgmList = [bgm1url, bgm2url, bgm3url, bgm4url, bgm5url];
 		
 		let bgm_status = ((bgmoff == "true") ? "On" : "Off");
