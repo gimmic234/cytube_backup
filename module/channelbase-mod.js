@@ -127,9 +127,10 @@ $('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style='
 
 if (rankAdmin) {
 	let adminMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Admin<b class='caret'></b></a><ul class='dropdown-menu'>";
-	adminMenu += "<li><a id='bg-select-option' href='javascript:void(0)' style=''>BG</a></li>";
+	adminMenu += "<li><a id='bg-select-option' href='javascript:void(0)' style=''>Backgrounds</a></li>";
 	adminMenu += "<li><a id='countdown-option' href='javascript:void(0)' style=''>Countdown</a></li>";
 	adminMenu += "<li><a id='theme-col-option' href='javascript:void(0)' style=''>Theme</a></li>";
+	adminMenu += "<li><a id='bgm-option' href='javascript:void(0)' style=''>BGM</a></li>";
 	adminMenu += "<li><a id='medallist-add-all' href='javascript:void(0)' style=''>Add achievement to all</a></li>";
 	adminMenu += "<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>";
 	adminMenu += "</ul></li>";

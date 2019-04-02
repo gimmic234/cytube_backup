@@ -2472,6 +2472,95 @@ function bindEventHandler() {
 		}).insertAfter("#useroptions").modal();
 	});
 
+	$(bodyElem).on('click', '.btn-bgm-save', function() {
+		let cmd = $(this).attr('data-value');
+		let input = $(this).parent().parent().find('.bgm-title');
+		let string = (cmd + " " + input.val()).toString();
+		let chatCmdText = string.split(" ");
+		chatCmdLookup[cmd](chatCmdText);
+	});
+
+	$(bodyElem).on('click', '.btn-bgm-play', function() {
+		let cmd = $(this).attr('data-value');
+		chatCmdLookup[cmd]();
+	});
+
+	$(bodyElem).on('click', '.bgm-toggle', function() {
+		let status = $(this).attr('data-status');
+		let toggle = ((status == "On") ? "false" : "true");
+		let newStatus = ((status == "On") ? "Off" : "On");
+		$(this).html(newStatus);
+		$(this).attr('data-status', newStatus);
+		editJs(67, [0, toggle]);
+	});
+
+	$(bodyElem).on('click', '.bgm-auto-toggle', function() {
+		let status = $(this).attr('data-status');
+		let toggle = ((status == "Yes") ? "false" : "true");
+		let newStatus = ((status == "Yes") ? "No" : "Yes");
+		$(this).html(newStatus);
+		$(this).attr('data-status', newStatus);
+		editJs(68, [0, toggle]);
+	});
+
+	$(bodyElem).on('click', '.bgm-option', function() {
+		let bgmList = [bgm1url, bgm2url, bgm3url, bgm4url, bgm5url];
+		
+		let bgm_status = ((bgmoff == "true") ? "On" : "Off");
+		let bgm_auto_status = ((playbgmCondition == "true") ? "Yes" : "No");
+
+		createModalExt({
+			title: "Edit BGM",
+			wrap_id: "bgmModal",
+			body_id: "bgmWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let nav = "<ul class='nav nav-tabs'>"
+			nav += "<li><a href='#bgm-list' data-toggle='tab' aria-expanded='false'>BGM</a></li>";
+			nav += "</ul>";
+			let viewcontent = "<div id='bgm-list' class='tab-pane active'>";
+
+			viewcontent += "<div class='row top-margin-theme col-sm-12'>";
+			viewcontent += "<div class='col-sm-3 theme-menu'>";
+			viewcontent += "<b>Status:</b>";
+			viewcontent += "<button class='btn btn-default bgm-toggle bgm-btn' data-status='"+bgm_status+"'>"+bgm_status+"</button>";
+			viewcontent += "</div>";
+			viewcontent += "<div class='col-sm-4 theme-menu'>";
+			viewcontent += "<b>Stop when the video plays: </b>";
+			viewcontent += "<button class='btn btn-default bgm-auto-toggle bgm-btn' data-status='"+bgm_auto_status+"'>"+bgm_auto_status+"</button>";
+			viewcontent += "</div>";
+			viewcontent += "</div>";
+
+			viewcontent += "</div>";
+			let contentwrap = '';
+			contentwrap = "<div class='tab-content'>" + viewcontent + "</div>";
+			$("#bgmWrap").html(nav + contentwrap);
+
+			bgmList.each(function(bgm, i) {
+
+				let displayStr = "BGM " + (i+1);
+				let block = "<div class='row col-sm-12'>";
+				block += "<div class='bgm-container col-sm-12'>";
+				block += "<div class='bgm-display-text'>"+displayStr+"</div>";
+
+				block += "<div class='input-group input-group-sm bottom-margin'>";
+			    block += "<div class='input-group-addon'>countdown "+ (i+1) + "</div>";
+				block += "<input class='form-control bgm-title' type='text' value='"+bgm+"'>";
+				block += "<div class='input-group-btn'>";
+				block += "<button class='btn btn-default btn-bgm-save' type='button' data-value='/setbgm"+(i+1)+"'>Save</button>";
+				block += "<button class='btn btn-default btn-bgm-play' type='button' data-value='/playbgm"+(i+1)+"'>Play</button>";
+				block += "</div>";
+				block += "</div>";
+
+				block += "</div>";
+				block += "</div>";
+				$("#bgm-list").append(block);
+			});
+		}).on("hidden.bs.modal", function(event) {
+			$("#bgmModal").remove();
+		}).insertAfter("#useroptions").modal();
+	});
+
 	$(bodyElem).on('click', '.theme-col-save', function() {
 		let cmd = $(this).attr('data-value');
 		let hex = $(this).parent().parent().find('.input-hex').val();
