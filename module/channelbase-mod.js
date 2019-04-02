@@ -133,7 +133,7 @@ if (rankAdmin) {
 	adminMenu += "<li><a id='medallist-add-all' href='javascript:void(0)' style=''>Add achievement to all</a></li>";
 	adminMenu += "<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>";
 	adminMenu += "</ul></li>";
-	$('.navbar-nav').prepend(adminMenu);
+	$('.navbar-nav li:first').after(adminMenu);
 }
 
 $('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
