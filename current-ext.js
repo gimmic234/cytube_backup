@@ -2306,7 +2306,7 @@ function bindEventHandler() {
 			imgArray = Object.keys(imgLookup);
 			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
 			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
-			let fullMatch = imgArray.includes(emoteText);
+			let fullMatch = imgArray.includes("!"+emoteText);
 			if (fullMatch || filteredEmote.length == 0) {
 				emoteList.hide();
 				selectedPopover = null;
@@ -2330,7 +2330,7 @@ function bindEventHandler() {
 			imgArray = Object.keys(soundLookup);
 			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
 			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
-			let fullMatch = imgArray.includes(emoteText);
+			let fullMatch = imgArray.includes("!"+emoteText);
 			if (fullMatch || filteredEmote.length == 0) {
 				emoteList.hide();
 				selectedPopover = null;
