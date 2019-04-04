@@ -900,7 +900,6 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.Squee.toggleButton.removeClass("label-info").addClass("")
 	}
 	socket.on("voteskip", function(data) {
-		console.log(data);
 		return window[CHANNEL.name].audioNotice.handler["Skip"](data)
 	});
 	socket.on("newPoll", function(data) {
