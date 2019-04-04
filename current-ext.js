@@ -2314,8 +2314,7 @@ function bindEventHandler() {
 				filteredEmote.forEach(function(value, index) {
 					let active = (index == 0) ? "active" : "";
 					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
-					emoteString += "<td width='20%'>&nbsp;</td>";
-					emoteString += "<td width='80%'>" + value + "</td>";
+					emoteString += "<td>" + value + "</td>";
 					emoteString += "</tr>";
 				})
 				emoteString += "</tbody></table>";
@@ -2338,8 +2337,7 @@ function bindEventHandler() {
 				filteredEmote.forEach(function(value, index) {
 					let active = (index == 0) ? "active" : "";
 					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
-					emoteString += "<td width='20%'>&nbsp;</td>";
-					emoteString += "<td width='80%'>" + value + "</td>";
+					emoteString += "<td>" + value + "</td>";
 					emoteString += "</tr>";
 				})
 				emoteString += "</tbody></table>";
