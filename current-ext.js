@@ -484,42 +484,42 @@ var chatCmdLookup = {
 			imgEmote('https://media.discordapp.net/attachments/409829343263719427/512051181946929152/sound_control.JPG');
 		}
 	},
-	'!rule1': function() {
+	'/rule1': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #1 - |You will never, ever be picked.  Just accept it.|"
 		});
 	},
-	'!rule2': function() {
+	'/rule2': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #2 - |Don't make Mareepy angry.|"
 		});
 	},
-	'!rule3': function() {
+	'/rule3': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #3 - |All server rules still apply. In short, don't be a jerk.|"
 		});
 	},
-	'!rule4': function() {
+	'/rule4': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #4 - |It's fine to dislike a show and voice your opinion on it, but provide constructive criticism on why it's bad rather than \"OMG lul, this show bad\"|"
 		});
 	},
-	'!rule5': function() {
+	'/rule5': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #5 - |You must watch/rewatch the whole series AND discuss it in the server chatroom to qualify for a ticket.|"
 		});
 	},
-	'!rule6': function() {
+	'/rule6': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #6 - |Lying about your participation will be severely penalized, possibly with a suspension from the club.|"
 		});
 	},
-	'!rule7': function() {
+	'/rule7': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #7 - |Don't talk trash about a club pick until we've at least started watching it. Try to give everything a fair chance.|"
 		});
 	},
-	'!rule8': function() {
+	'/rule8': function() {
 		window.socket.emit("chatMsg", {
 				msg: "Club rule #8 - |Pat Poes for good luck!|"
 		});
@@ -1339,7 +1339,7 @@ var chatKeyLookup = {
 					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
 						populateImgEmote(chatCmdText[0]);
 					}
-					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
+					if (chatCmdText[0][0] == "?" && chatCmdText[0].length > 2) {
 						populateSoundEmote(chatCmdText[0]);
 					}
 				}
@@ -1440,6 +1440,7 @@ function closeamq() {
 
 function populateSoundEmote(command) {
 	let temp = {};
+	temp["?utsu"] = function() {};
 	let temp2 = {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/12/public/values?alt=json",
@@ -1470,13 +1471,15 @@ function populateSoundEmote(command) {
 
 function populateImgEmote(command) {
 	let temp = {};
+	temp["!coffee"] = function() {};
+	temp["!club"] = function() {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/11/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
 			let entries = result.feed.entry;
-			let bodyString = "<li><b>!rule[1-8]</b></li>";
+			let bodyString = "";
 			bodyString += "<li><b>!club</b></li>";
 			bodyString += "<li><b>!coffee</b></li>";
 			entries.each(function(value, index) {
@@ -2298,7 +2301,6 @@ function bindEventHandler() {
 				emoteList.show();
 			}
 		} else if(chatText.length == 1 && lastText.substr(0, 1) == '!' && lastText.length > 2) {
-			//testt
 			emoteList[0].innerHTML = "";
 			imgArray = Object.keys(imgLookup);
 			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
@@ -2312,7 +2314,7 @@ function bindEventHandler() {
 				filteredEmote.forEach(function(value, index) {
 					let active = (index == 0) ? "active" : "";
 					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
-					emoteString += "<td width='20%'><img class='smol-emote' src='" + imgLookup[value] + "'></td>";
+					emoteString += "<td width='20%'>&nbsp;</td>";
 					emoteString += "<td width='80%'>" + value + "</td>";
 					emoteString += "</tr>";
 				})
@@ -2322,7 +2324,30 @@ function bindEventHandler() {
 				emoteTable = true;
 				emoteList.show();
 			}
-		} else {
+		} else if(chatText.length == 1 && lastText.substr(0, 1) == '?' && lastText.length > 2) {
+			emoteList[0].innerHTML = "";
+			imgArray = Object.keys(soundLookup);
+			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
+			if (filteredEmote.length == 0) {
+				emoteList.hide();
+				selectedPopover = null;
+				emoteTable = false;
+			} else {
+				let emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
+				filteredEmote.forEach(function(value, index) {
+					let active = (index == 0) ? "active" : "";
+					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
+					emoteString += "<td width='20%'>&nbsp;</td>";
+					emoteString += "<td width='80%'>" + value + "</td>";
+					emoteString += "</tr>";
+				})
+				emoteString += "</tbody></table>";
+				emoteList[0].innerHTML = emoteString;
+				selectedPopover = $('tr.active');
+				emoteTable = true;
+				emoteList.show();
+		}	else {
 			chatlineElem.on('keydown', handlerKeydown);
 			emoteList.hide();
 			selectedPopover = null;
