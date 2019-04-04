@@ -263,7 +263,7 @@ input#chatline {
     right: 0;
     top: 45px;
     position: absolute;
-    opacity: 0.5;
+    opacity: 0.8;
     color:red;
 }
 
@@ -277,7 +277,7 @@ input#chatline {
     right: 0;
     top: -1%;
     position: absolute;
-    opacity: 0.7;
+    opacity: 1;
 }
 
 #voteskipFinal {
@@ -290,7 +290,7 @@ input#chatline {
     right: 0;
     top: 600px;
     position: absolute;
-    opacity: 0.7;
+    opacity: 1;
 }
 
 .toss {

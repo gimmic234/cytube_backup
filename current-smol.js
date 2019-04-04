@@ -2,20 +2,20 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/560185374530601020/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://media.discordapp.net/attachments/466386319766192138/560598053296406528/kurenai_bg_v2.jpg?width=1248&height=702";
+var background_img = "http://static.zerochan.net/Senki.Zesshou.Symphogear.full.1547142.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 4,
-	day: 3,
-	hour: 23,
+	day: 7,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
-	month2: 3,
-	day2: 30,
+	month2: 4,
+	day2: 6,
 	hour2: 21,
 	minute2: 0,
 	second2: 0
@@ -39,10 +39,10 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = '//cdn.discordapp.com/attachments/466386319766192138/547686243517857793/1467550476_panzer_chibi.gif';
+var imgBubble = "//media.discordapp.net/attachments/562795394157903885/563469615745990657/amq.JPG";
 var imgBubble2 = '//cdn.discordapp.com/attachments/428195862963814413/554417601418362900/PNG_Image_693_653_pixels.png';
 var chatImg = 'false';
-var img1show = 'false';
+var img1show = "false";
 var img1fixedshow = 'false';
 var chatLimit = 'false';
 var chatDelay = '1';
@@ -70,13 +70,13 @@ var bgmoff = "true";
 var background_img_auto5 = "http://pbs.twimg.com/media/D0cT-JMUwAAX75e.jpg";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/561718731223466004/improv_stargazer.mp3";
+var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/542519514693238814/25._.mp3";
 var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/559522269987209219/21_-_Yume_wa_Nando_mo_Umare_Kawaru.flac";
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "1";
+var bgmSelect = "3";
 var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\"],\"Senia\":[\"Clannad\",\"Kurenai\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\"],\"ScrewySqrl\":[\"Kurenai\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\"],\"Mayu_Loli\":[\"Kurenai\"],\"MisterLister\":[\"Kurenai\"],\"SomeBloke\":[\"Kurenai\"],\"Tommeow\":[\"Kurenai\"],\"Urizithar\":[\"Kurenai\"],\"Bowl\":[\"Kurenai\"]}";
-var countdownText1 = "Club";
+var countdownText1 = "Symphogear";
 var countdownText2 = "Seasonal";
 var countdownText3 = "ATLA";
 var countdownText4 = "Railgun";
@@ -141,7 +141,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/812fb120ffd5751ba917e201389c6bc6c3f0fa74/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3c39467de01e757ca9fc63e881e935eb1f5af1d4/current-ext.js",
 		callback: true
 	},
 	'layout': {

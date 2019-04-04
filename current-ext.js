@@ -1051,7 +1051,7 @@ var chatCmdLookup = {
 			socket.emit("togglePlaylistLock");
 		}
 	},
-	"!utsu": function(chatCmdText) {
+	"?utsu": function(chatCmdText) {
 		var utsulist = [
 			"//media.discordapp.net/attachments/452943717708595211/535605359750938655/utsu2.png",
 			"//media.discordapp.net/attachments/514955949136674856/537825629014458439/utsutsu-52079.jpg",
@@ -1338,6 +1338,8 @@ var chatKeyLookup = {
 					});
 					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
 						populateImgEmote(chatCmdText[0]);
+					}
+					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
 						populateSoundEmote(chatCmdText[0]);
 					}
 				}
@@ -1445,7 +1447,7 @@ function populateSoundEmote(command) {
 		dataType: "json",
 		success: function(result) {
 			let entries = result.feed.entry;
-			let bodyString = "<li><b>!utsu</b></li>";
+			let bodyString = "<li><b>?utsu</b></li>";
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				temp[value.gsx$command.$t] = function() {
@@ -2269,6 +2271,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('input', '#chatline', function(e) {
 		let index = this.value.lastIndexOf(" ");
+		let chatText = this.value.split(" ");
 		let lastText = this.value.substr(index + 1);
 		let chat = $(this);
 		if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
@@ -2286,6 +2289,31 @@ function bindEventHandler() {
 					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value.name + "'>";
 					emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image + "'></td>";
 					emoteString += "<td width='80%'>" + value.name + "</td>";
+					emoteString += "</tr>";
+				})
+				emoteString += "</tbody></table>";
+				emoteList[0].innerHTML = emoteString;
+				selectedPopover = $('tr.active');
+				emoteTable = true;
+				emoteList.show();
+			}
+		} else if(chatText.length == 1 && lastText.substr(0, 1) == '!' && lastText.length > 2) {
+			//testt
+			emoteList[0].innerHTML = "";
+			imgArray = Object.keys(imgLookup);
+			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
+			if (filteredEmote.length == 0) {
+				emoteList.hide();
+				selectedPopover = null;
+				emoteTable = false;
+			} else {
+				let emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
+				filteredEmote.forEach(function(value, index) {
+					let active = (index == 0) ? "active" : "";
+					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
+					emoteString += "<td width='20%'><img class='smol-emote' src='" + imgLookup[value] + "'></td>";
+					emoteString += "<td width='80%'>" + value + "</td>";
 					emoteString += "</tr>";
 				})
 				emoteString += "</tbody></table>";
