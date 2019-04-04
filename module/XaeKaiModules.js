@@ -656,6 +656,16 @@ window[CHANNEL.name].audioNotice.handler = {
 		audioplay.volume = window[CHANNEL.name].audioNotice.utsunot.volume;
 		audioplay.play();
 	},
+	voteSkip: function() {
+		let vskip = $(".voteskipNotice:not( .parsed )");
+		if (!vskip.length) return;
+		vskip.addClass("parsed");
+		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
+		if (!(noiseActive == "true")) return;
+		let audioplay = window[CHANNEL.name].audioNotice.Skip.audio[0].cloneNode(true);
+		audioplay.volume = window[CHANNEL.name].audioNotice.Skip.volume;
+		audioplay.play();
+	},
 	Skip: function(data) {
 		$('#voteskipNope').hide();
 		$('#voteskipFinal').hide();
@@ -670,9 +680,6 @@ window[CHANNEL.name].audioNotice.handler = {
 			}
 		}
 		if (!window[CHANNEL.name].audioNotice.Skip.toggleState) return;
-		let audioplay = window[CHANNEL.name].audioNotice.Skip.audio[0].cloneNode(true);
-		audioplay.volume = window[CHANNEL.name].audioNotice.Skip.volume;
-		audioplay.play();
 		window[CHANNEL.name].audioNotice.Skip.previousNeed = data.need;
 		window[CHANNEL.name].audioNotice.Skip.previousCount = data.count;
 	},
@@ -843,6 +850,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["stopEvent"](data);
 		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"](data);
 		window[CHANNEL.name].audioNotice.handler["Squee"](data);
+		window[CHANNEL.name].audioNotice.handler["voteSkip"](data);
 		window[CHANNEL.name].audioNotice.handler["VoteFinal"](data);
 		window[CHANNEL.name].audioNotice.handler["utsu"](data);
 		window[CHANNEL.name].audioNotice.handler["utsunot"](data);

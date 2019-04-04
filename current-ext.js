@@ -1515,7 +1515,7 @@ function sendMsg(sendData) {
 function voteskipMod() {
 	if ($("#voteskip").attr("disabled")) return;
 	if (window[CHANNEL.name].audioNotice.Skip.active) return;
-	if (CHANNEL.usercount == 1 || window[CHANNEL.name].audioNotice.Skip.previousNeed == 0 ||(window[CHANNEL.name].audioNotice.Skip.previousCount >= 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed)) {
+	if (CHANNEL.usercount == 1 || (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed)) {
 		window.socket.emit("chatMsg", {
 			msg: voteskipMsgFinal
 		});
@@ -1894,6 +1894,7 @@ window.loadInitializer = function() {
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
+		buff.find(".voteskipNotice:not( .parsed )").addClass('parsed');
 		buff.find(".semote:not( .parsed )").addClass('parsed');
 		buff.find(".amq:not( .amqdone )").addClass('amqdone');
 		buff.find(".amqclose:not( .amqclosedone )").addClass('amqclosedone');
