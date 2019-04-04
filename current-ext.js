@@ -1515,7 +1515,7 @@ function sendMsg(sendData) {
 function voteskipMod() {
 	if ($("#voteskip").attr("disabled")) return;
 	if (window[CHANNEL.name].audioNotice.Skip.active) return;
-	if (CHANNEL.usercount == 1 || (window[CHANNEL.name].audioNotice.Skip.previousCount > 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed)) {
+	if (CHANNEL.usercount == 1 || (window[CHANNEL.name].audioNotice.Skip.previousCount >= 0 && (window[CHANNEL.name].audioNotice.Skip.previousCount+1) == window[CHANNEL.name].audioNotice.Skip.previousNeed)) {
 		window.socket.emit("chatMsg", {
 			msg: voteskipMsgFinal
 		});
