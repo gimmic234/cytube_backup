@@ -2347,7 +2347,8 @@ function bindEventHandler() {
 				selectedPopover = $('tr.active');
 				emoteTable = true;
 				emoteList.show();
-		}	else {
+			}
+		} else {
 			chatlineElem.on('keydown', handlerKeydown);
 			emoteList.hide();
 			selectedPopover = null;
