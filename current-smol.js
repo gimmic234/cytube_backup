@@ -65,7 +65,7 @@ var countdown_utc5 = {
 	second5: 0
 };
 var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/560542474247077906/27_-_Hitomi_-_A_secret_of_the_moon.flac";
-var playbgmCondition = "false";
+var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = "http://pbs.twimg.com/media/D0cT-JMUwAAX75e.jpg";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
@@ -139,7 +139,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/781158218301abfd471db40c76a6bdf1fc79ef0e/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/91d7408be0385b79196529f39ebf204cd6c9fbe8/current-ext.js",
 		callback: true
 	},
 	'layout': {

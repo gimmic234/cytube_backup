@@ -2433,6 +2433,19 @@ function bindEventHandler() {
 			nav += "</ul>";
 			let viewcontent = "<div id='current-background-list' class='tab-pane active'>";
 
+			let block = "<div class=''>";
+			block += "<div class='background-select-container'>";
+			block += "<p><b>Current background</b></p>";
+			block += "<span class='emote-preview-hax'></span>";
+			block += "<img class='bg-preview' src='"+background_img+"'>";
+			block += "<div class='input-group input-group-sm'>";
+			block += "<input class='form-control bg-url' type='text' value='"+background_img+"'>";
+			block += "<div class='input-group-btn'><button class='btn btn-default btn-bg-save' type='button' data-value='/editbg'>Save</button></div>";
+			block += "</div>";
+			block += "</div>";
+			block += "</div>";
+			viewcontent += block;
+
 			bgList.each(function(url, i) {
 				let block = "<div class=''>";
 				block += "<div class='background-select-container'>";
