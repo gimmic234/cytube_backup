@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/560185374530601020/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://static.zerochan.net/Senki.Zesshou.Symphogear.full.1547142.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/563853071541600321/atla_bg.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 4,
-	day3: 5,
+	day3: 12,
 	hour3: 23,
 	minute3: 0,
 	second3: 0

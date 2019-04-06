@@ -1889,6 +1889,7 @@ window.loadInitializer = function() {
 		if (amq.length > 0) {
 			amq.parent().find("button").click()
 		}
+		$(document.getElementById('voteskipwrap')).hide();
 		populateImgEmote('');
 		populateSoundEmote('');
 		var buff = $('#messagebuffer');
