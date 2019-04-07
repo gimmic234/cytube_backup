@@ -1260,17 +1260,17 @@ var chatCmdLookup = {
 	"/cdtitle5": function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length > 1) {
 			let stringItem = chatCmdText.slice(1).join(' ').toString();
-			editJs(81, [0, stringItem]);
+			editJs(82, [0, stringItem]);
 		}
 	},
 	"/logon": function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length > 1) {
-			editJs(81, [0, "true"]);
+			editJs(83, [0, "true"]);
 		}
 	},
 	"/logoff": function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length > 1) {
-			editJs(81, [0, "false"]);
+			editJs(83, [0, "false"]);
 		}
 	}
 };
