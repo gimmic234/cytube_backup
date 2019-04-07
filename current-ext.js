@@ -2277,7 +2277,7 @@ function bindEventHandler() {
 			listcontent += "</div>";
 			viewcontent += "</div>";
 
-			$("#customEmoteWrap").html(nav);
+			$("#customEmoteWrap").html(nav + viewcontent + listcontent);
 
 
 			let block = "<div class='row'>";
