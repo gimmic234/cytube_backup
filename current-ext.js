@@ -1564,7 +1564,7 @@ function addNewAchievement(sendData) {
 		dataType: "json",
 		success: function(result) {
 			window.socket.emit("chatMsg", {
-				msg: "updateAchievementnew sound emote was added: " + sendData.title + "updateAchievement"
+				msg: "updateAchievementnew achievement was created: " + sendData.title + "updateAchievement"
 			});	
 		}, 
 		complete: function(result) {
