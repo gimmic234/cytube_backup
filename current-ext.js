@@ -2275,7 +2275,7 @@ function bindEventHandler() {
 			let soundcontent = "<div id='sound-emote-add' class='tab-pane'>";
 			imagecontent += "</div>";
 			soundcontent += "</div>";
-			let contentwrap = "<div class='tab-content'>" + listcontent + viewcontent + "</div>";
+			let contentwrap = "<div class='tab-content'>" + imagecontent + soundcontent + "</div>";
 
 			$("#customEmoteWrap").html(nav + contentwrap);
 
