@@ -1340,6 +1340,7 @@ var chatKeyLookup = {
 						msg: msg,
 						meta: meta
 					});
+					sendMsg(msg);
 					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
 						populateImgEmote(chatCmdText[0]);
 					}
