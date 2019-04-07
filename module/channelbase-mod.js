@@ -138,6 +138,10 @@ if (rankAdmin) {
 	$('.navbar-nav li:first').after(adminMenu);
 }
 
+if (rankAdmin) {
+	$('.navbar-nav').append("<li><a id='export-chatlog' href='javascript:void(0)' style=''>Chatlog</a></li>");
+}
+
 $('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
 
 //middle draggable handle

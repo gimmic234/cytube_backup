@@ -2111,6 +2111,10 @@ window.loadInitializer = function() {
 
 
 function bindEventHandler() {
+	$(bodyElem).on('click', '#export-chatlog', function() {
+		chatCmdLookup['/export']();
+	});
+
 	$(bodyElem).on('click', '.deleteMessageBtn', function() {
 		let user = $(this).parent()[0].className;
 		user = user.split(" ")[0];
