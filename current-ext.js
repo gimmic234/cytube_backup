@@ -2271,13 +2271,13 @@ function bindEventHandler() {
 			nav += "<li><a href='#sound-emote-add' data-toggle='tab' aria-expanded='false'>Add sound emote</a></li>";
 			nav += "</ul>";
 
-			let viewcontent = "<div id='image-emote-add' class='tab-pane active'>";
-			let listcontent = "<div id='sound-emote-add' class='tab-pane'>";
+			let imagecontent = "<div id='image-emote-add' class='tab-pane active'>";
+			let soundcontent = "<div id='sound-emote-add' class='tab-pane'>";
+			imagecontent += "</div>";
+			soundcontent += "</div>";
+			let contentwrap = "<div class='tab-content'>" + listcontent + viewcontent + "</div>";
 
-			listcontent += "</div>";
-			viewcontent += "</div>";
-
-			$("#customEmoteWrap").html(nav + viewcontent + listcontent);
+			$("#customEmoteWrap").html(nav + contentwrap);
 
 
 			let block = "<div class='row'>";
