@@ -2259,6 +2259,31 @@ function bindEventHandler() {
 		}).insertAfter("#useroptions").modal();
 	});
 
+	$(bodyElem).on('click', '.btn-emote-snd-save', function() {
+		let audioe = $('#emote-snd-audio').val();
+		let cmde = $('#emote-snd-cmd').val();
+		let urle = $('#emote-snd-url').val();
+
+		if (audioe == '' || cmde == '' || urle == '') {
+			alert('invalid input was detected');
+			return;
+		}
+
+		chatCmdLookup["/addsound"]([0, cmde, urle, audioe]);
+	});
+
+	$(bodyElem).on('click', '.btn-emote-img-save', function() {
+		let cmde = $('#emote-img-cmd').val();
+		let urle = $('#emote-img-url').val();
+
+		if (cmde == '' || urle == '') {
+			alert('invalid input was detected');
+			return;
+		}
+
+		chatCmdLookup["/addimg"]([0, cmde, urle]);
+	});
+
 	$(bodyElem).on('click', '#add-custom-emote', function() {
 		createModalExt({
 			title: "add a new custom emote (this will be added to the club sheet)",
@@ -2282,19 +2307,19 @@ function bindEventHandler() {
 
 			let block = "<div class='row'>";
 			block += "<div class='image-emote-container col-sm-5'>";
-			block += "<div class='emote-display-text'>add a new image emote (cmd key: !)</div>";
+			block += "<div class='emote-display-text top-margin-theme'><h4>Add a new image emote (<b>cmd key: !</b>)</4></div>";
 
 			block += "<div class='input-group input-group-sm bottom-margin'>";
 		    block += "<div class='input-group-addon'>command:</div>";
-			block += "<input class='form-control emote-img-cmd' type='text' value=''>";
+			block += "<input class='form-control' id='emote-img-cmd' type='text' value=''>";
 			block += "</div>";
 
 			block += "<div class='input-group input-group-sm bottom-margin'>";
 		    block += "<div class='input-group-addon'>image url:</div>";
-			block += "<input class='form-control emote-img-url' type='text' value=''>";
+			block += "<input class='form-control' id='emote-img-url' type='text' value=''>";
 			block += "</div>";
 
-			block += "<button class='btn btn-default btn-emote-img-save' type='button' data-value='/addimg'>Save</button>";
+			block += "<button class='btn btn-default btn-emote-img-save' type='button'>Save</button>";
 
 			block += "</div>";
 			block += "</div>";
@@ -2303,24 +2328,24 @@ function bindEventHandler() {
 
 			block = "<div class='row'>";
 			block += "<div class='image-emote-container col-sm-5'>";
-			block += "<div class='emote-display-text'>add a new sound emote (cmd key: ?)</div>";
+			block += "<div class='emote-display-text top-margin-theme'><h4>Add a new sound emote (<b>cmd key: ?</b>)</h4></div>";
 
 			block += "<div class='input-group input-group-sm bottom-margin'>";
 		    block += "<div class='input-group-addon'>command:</div>";
-			block += "<input class='form-control emote-snd-cmd' type='text' value=''>";
+			block += "<input class='form-control' id='emote-snd-cmd' type='text' value=''>";
 			block += "</div>";
 
 			block += "<div class='input-group input-group-sm bottom-margin'>";
 		    block += "<div class='input-group-addon'>image url:</div>";
-			block += "<input class='form-control emote-snd-url' type='text' value=''>";
+			block += "<input class='form-control' id='emote-snd-url' type='text' value=''>";
 			block += "</div>";
 
 			block += "<div class='input-group input-group-sm bottom-margin'>";
 		    block += "<div class='input-group-addon'>audio url (.mp3, wav, etc):</div>";
-			block += "<input class='form-control emote-snd-audio' type='text' value=''>";
+			block += "<input class='form-control' id='emote-snd-audio' type='text' value=''>";
 			block += "</div>";
 
-			block += "<button class='btn btn-default btn-emote-snd-save' type='button' data-value='/addimg'>Save</button>";
+			block += "<button class='btn btn-default btn-emote-snd-save' type='button'>Save</button>";
 
 			block += "</div>";
 			block += "</div>";
