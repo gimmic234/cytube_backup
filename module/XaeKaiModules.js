@@ -531,7 +531,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		let updateNotice = $(".updateAchievementList:not( .parsed )");
 		if (!updateNotice.length) return;
 		updateNotice.addClass("parsed");
-		readAchievement();
+		achievementMatch = readAchievement();
 	},
 	updateImgEmote: function(data) {
 		let updateImgNotice = $(".updateImgEmote:not( .parsed )");
