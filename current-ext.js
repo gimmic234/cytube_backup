@@ -1277,7 +1277,7 @@ var chatCmdLookup = {
 	'/addimg': function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length == 3) {
 			let cmd = chatCmdText[1].replace(/[!]+/g, '');
-			cmd = '!' + chatCmdText[1].replace(/[?]+/g, '');
+			cmd = '!' + cmd.replace(/[?]+/g, '');
 			let data = {
 				command: cmd.trim(),
 				url: chatCmdText[2]
@@ -1288,7 +1288,7 @@ var chatCmdLookup = {
 	'/addsound': function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length == 4) {
 			let cmd = chatCmdText[1].replace(/[!]+/g, '');
-			cmd = '?' + chatCmdText[1].replace(/[?]+/g, '');
+			cmd = '?' + cmd.replace(/[?]+/g, '');
 			let data = {
 				command: cmd.trim(),
 				img: chatCmdText[2],
