@@ -1553,7 +1553,7 @@ function populateImgEmote(command) {
 
 function addNewAchievement(sendData) {
 	$.ajax({
-		url: "https://hooks.zapier.com/hooks/catch/4506865/7dtj3i/",
+		url: "https://hooks.zapier.com/hooks/catch/4506865/7dxfuj/",
 		method: "POST",
 		data: {
 			title: sendData.title,
