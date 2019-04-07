@@ -1276,8 +1276,9 @@ var chatCmdLookup = {
 	},
 	'/addimg': function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length == 3) {
+			let cmd = '!' + chatCmdText[1].replace(/[!]+/g, '');
 			let data = {
-				command: chatCmdText[1],
+				command: cmd.trim(),
 				url: chatCmdText[2]
 			}
 			addImgEmote(data);
@@ -1285,8 +1286,9 @@ var chatCmdLookup = {
 	},
 	'/addsound': function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length == 4) {
+			let cmd = '?' + chatCmdText[1].replace(/[!]+/g, '');
 			let data = {
-				command: chatCmdText[1],
+				command: cmd.trim(),
 				img: chatCmdText[2],
 				audio: chatCmdText[3]
 			}
@@ -2254,6 +2256,81 @@ function bindEventHandler() {
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#achievementAddAllModal").remove();
+		}).insertAfter("#useroptions").modal();
+	});
+
+	$(bodyElem).on('click', '#add-custom-emote', function() {
+		createModalExt({
+			title: "add a new custom emote (this will be added to the club sheet)",
+			wrap_id: "customEmoteModal",
+			body_id: "customEmoteWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let nav = "<ul class='nav nav-tabs'>"
+			nav += "<li><a href='#image-emote-add' data-toggle='tab' aria-expanded='false'>Add image emote</a></li>";
+			nav += "<li><a href='#sound-emote-add' data-toggle='tab' aria-expanded='false'>Add sound emote</a></li>";
+			nav += "</ul>";
+
+			let viewcontent = "<div id='image-emote-add' class='tab-pane active'>";
+			let listcontent = "<div id='sound-emote-add' class='tab-pane'>";
+
+			listcontent += "</div>";
+			viewcontent += "</div>";
+
+			$("#customEmoteWrap").html(nav);
+
+
+			let block = "<div class='row'>";
+			block += "<div class='image-emote-container col-sm-5'>";
+			block += "<div class='emote-display-text'>add a new image emote (cmd key: !)</div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>command:</div>";
+			block += "<input class='form-control emote-img-cmd' type='text' value=''>";
+			block += "</div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>image url:</div>";
+			block += "<input class='form-control emote-img-url' type='text' value=''>";
+			block += "</div>";
+
+			block += "<button class='btn btn-default btn-emote-img-save' type='button' data-value='/addimg'>Save</button>";
+
+			block += "</div>";
+			block += "</div>";
+
+			$("#image-emote-add").append(block);
+
+			let block = "<div class='row'>";
+			block += "<div class='image-emote-container col-sm-5'>";
+			block += "<div class='emote-display-text'>add a new sound emote (cmd key: ?)</div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>command:</div>";
+			block += "<input class='form-control emote-snd-cmd' type='text' value=''>";
+			block += "</div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>image url:</div>";
+			block += "<input class='form-control emote-snd-url' type='text' value=''>";
+			block += "</div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>audio url (.mp3, wav, etc):</div>";
+			block += "<input class='form-control emote-snd-audio' type='text' value=''>";
+			block += "</div>";
+
+			block += "<button class='btn btn-default btn-emote-snd-save' type='button' data-value='/addimg'>Save</button>";
+
+			block += "</div>";
+			block += "</div>";
+
+			$("#sound-emote-add").append(block);
+
+		
+		}).on("hidden.bs.modal", function(event) {
+			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			$("#customEmoteModal").remove();
 		}).insertAfter("#useroptions").modal();
 	});
 
