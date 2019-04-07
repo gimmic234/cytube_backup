@@ -81,7 +81,6 @@ var countdownText2 = "Seasonal";
 var countdownText3 = "ATLA";
 var countdownText4 = "Raildex";
 var countdownText5 = "Mob";
-var msgLog = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
 	var bgm2volume = .5;
@@ -140,7 +139,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9af18c45ad273b440878f016763446fd01f187bb/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8a72427db066efd980da99dbdb4023047faaa61e/current-ext.js",
 		callback: true
 	},
 	'layout': {

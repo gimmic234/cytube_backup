@@ -1263,14 +1263,24 @@ var chatCmdLookup = {
 			editJs(82, [0, stringItem]);
 		}
 	},
-	"/logon": function(chatCmdText) {
-		if (rankAdmin && chatCmdText.length > 1) {
-			editJs(83, [0, "true"]);
+	'/export': function() {
+		if (rankAdmin) {
+			socket.emit('readChanLog');
+			setTimeout(function() {
+				$('#cs-chanlog-filter').val("chat").change();
+				let text = $('#cs-chanlog-text').text().replace(/\n/g, "\r\n");
+				this.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(text);
+				$('#export-btn').find('.btn').click();
+			}, 1500);
 		}
 	},
-	"/logoff": function(chatCmdText) {
-		if (rankAdmin && chatCmdText.length > 1) {
-			editJs(83, [0, "false"]);
+	'/addimg': function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length == 3) {
+			let data = {
+				command: chatCmdText[1],
+				url: chatCmdText[2]
+			}
+			addImgEmote(data);
 		}
 	}
 };
@@ -1350,13 +1360,6 @@ var chatKeyLookup = {
 						msg: msg,
 						meta: meta
 					});
-					if (msgLog == "true") {
-						let msgObj = {
-							name: CLIENT.name,
-							message: msg
-						}
-						sendMsg(msgObj);
-					}
 					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
 						populateImgEmote(chatCmdText[0]);
 					}
@@ -1514,6 +1517,21 @@ function populateImgEmote(command) {
 			})
 			$('#image-emote-list').html(bodyString);
 			imgLookup = temp;
+		}
+	});
+}
+
+function addImgEmote(sendData) {
+	$.ajax({
+		url: "https://hooks.zapier.com/hooks/catch/4506865/7dt0w3/",
+		method: "POST",
+		data: {
+			name: sendData.command,
+			message: sendData.url
+		},
+		dataType: "json",
+		success: function(result) {
+
 		}
 	});
 }
