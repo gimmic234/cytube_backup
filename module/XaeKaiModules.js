@@ -527,6 +527,18 @@ window[CHANNEL.name].chatNotice.handler = {
 		}
 		$('.amq-wrap').remove();
 	},
+	updateImgEmote: function(data) {
+		let updateImgNotice = $(".updateImgEmote:not( .parsed )");
+		if (!updateImgNotice.length) return;
+		updateImgNotice.addClass("parsed");
+		populateImgEmote('');
+	},
+	updateSoundEmote: function(data) {
+		let updateSoundNotice = $(".updateSoundEmote:not( .parsed )");
+		if (!updateSoundNotice.length) return;
+		updateSoundNotice.addClass("parsed");
+		populateSoundEmote('');
+	},
 	coffee: function(data) {
 		let cawfee = $(".coffee:not( .coffeedone )");
 		if (!cawfee.length) return;
@@ -860,6 +872,8 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].chatNotice.handler["amqclose"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
+		window[CHANNEL.name].chatNotice.handler["updateImgEmote"](data);
+		window[CHANNEL.name].chatNotice.handler["updateSoundEmote"](data);
 	});
 
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {

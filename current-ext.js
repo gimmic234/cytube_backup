@@ -1547,7 +1547,7 @@ function addSoundEmote(sendData) {
 		dataType: "json",
 		success: function(result) {
 			window.socket.emit("chatMsg", {
-				msg: "new sound emote was added: " + sendData.command
+				msg: "updateSoundEmotenew sound emote was added: " + sendData.command + "updateSoundEmote"
 			});	
 		}, 
 		complete: function(result) {
@@ -1567,7 +1567,7 @@ function addImgEmote(sendData) {
 		dataType: "json",
 		success: function(result) {
 			window.socket.emit("chatMsg", {
-				msg: "new image emote was added: " + sendData.command
+				msg: "updateImageEmotenew image emote was added: " + sendData.command + "updateImageEmote"
 			});	
 		}, 
 		complete: function(result) {
@@ -1974,6 +1974,8 @@ window.loadInitializer = function() {
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
+		buff.find(".updateImgEmote:not( .parsed )").addClass('parsed');
+		buff.find(".updateSoundEmote:not( .parsed )").addClass('parsed');
 		buff.find(".voteskipNotice:not( .parsed )").addClass('parsed');
 		buff.find(".semote:not( .parsed )").addClass('parsed');
 		buff.find(".amq:not( .amqdone )").addClass('amqdone');
