@@ -2301,7 +2301,7 @@ function bindEventHandler() {
 
 			$("#image-emote-add").append(block);
 
-			let block = "<div class='row'>";
+			block = "<div class='row'>";
 			block += "<div class='image-emote-container col-sm-5'>";
 			block += "<div class='emote-display-text'>add a new sound emote (cmd key: ?)</div>";
 
