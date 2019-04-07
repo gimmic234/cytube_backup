@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/560185374530601020/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/564191035433943050/bocchi_pape.jpg";
+var background_img = "http://media.discordapp.net/attachments/239432653684736001/564238068375093248/thumb-1920-674900.png?width=1248&height=702";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -23,7 +23,7 @@ var countdown_utc2 = {
 var background_img_auto1 = "http://media.discordapp.net/attachments/466386319766192138/560598053296406528/kurenai_bg_v2.jpg?width=1248&height=702";
 var background_img_auto2 = "http://media.discordapp.net/attachments/528150212875649065/560543017329623076/65bb612d175e3aa95bd8676064b81ceb.jpg?width=1248&height=702";
 var chatMute = 'false';
-var background_img_auto3 = 'http://getreelcinemas.com//wp-content/uploads/2015/02/Background-Narrow.jpg';
+var background_img_auto3 = "http://media.discordapp.net/attachments/239432653684736001/564238068375093248/thumb-1920-674900.png?width=1248&height=702";
 var noiseActive = 'true';
 var background_img_auto4 = 'http://cdn.discordapp.com/attachments/466386319766192138/518440179246170142/misaka_cytube_pape_maybe.jpg';
 var countdown_utc3 = {
@@ -81,6 +81,7 @@ var countdownText2 = "Seasonal";
 var countdownText3 = "ATLA";
 var countdownText4 = "Raildex";
 var countdownText5 = "Mob";
+var msgLog = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
 	var bgm2volume = .5;
@@ -139,7 +140,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2e1e231786eb1b3a02b02124817052f4965af0c5/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/fd31608083f41c6253991c8ffc0729cd1533ce2e/current-ext.js",
 		callback: true
 	},
 	'layout': {

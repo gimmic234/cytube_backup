@@ -1262,6 +1262,16 @@ var chatCmdLookup = {
 			let stringItem = chatCmdText.slice(1).join(' ').toString();
 			editJs(81, [0, stringItem]);
 		}
+	},
+	"/logon": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length > 1) {
+			editJs(81, [0, "true"]);
+		}
+	},
+	"/logoff": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length > 1) {
+			editJs(81, [0, "false"]);
+		}
 	}
 };
 
@@ -1340,7 +1350,13 @@ var chatKeyLookup = {
 						msg: msg,
 						meta: meta
 					});
-					sendMsg(msg);
+					if (msgLog == "true") {
+						let msgObj = {
+							name: CLIENT.name,
+							message: msg
+						}
+					}
+					sendMsg(msgObj);
 					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
 						populateImgEmote(chatCmdText[0]);
 					}
