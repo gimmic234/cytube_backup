@@ -531,19 +531,25 @@ window[CHANNEL.name].chatNotice.handler = {
 		let updateNotice = $(".updateAchievementList:not( .parsed )");
 		if (!updateNotice.length) return;
 		updateNotice.addClass("parsed");
-		achievementMatch = readAchievement();
+		setTimeout(function() {
+			achievementMatch = readAchievement();
+		}, 2000);
 	},
 	updateImgEmote: function(data) {
 		let updateImgNotice = $(".updateImgEmote:not( .parsed )");
 		if (!updateImgNotice.length) return;
 		updateImgNotice.addClass("parsed");
-		populateImgEmote('');
+		setTimeout(function() {
+			populateImgEmote('');
+		}, 2000);
 	},
 	updateSoundEmote: function(data) {
 		let updateSoundNotice = $(".updateSoundEmote:not( .parsed )");
 		if (!updateSoundNotice.length) return;
 		updateSoundNotice.addClass("parsed");
-		populateSoundEmote('');
+		setTimeout(function() {
+			populateSoundEmote('');
+		}, 2000);
 	},
 	coffee: function(data) {
 		let cawfee = $(".coffee:not( .coffeedone )");
