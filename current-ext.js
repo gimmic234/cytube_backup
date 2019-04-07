@@ -1276,7 +1276,8 @@ var chatCmdLookup = {
 	},
 	'/addimg': function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length == 3) {
-			let cmd = '!' + chatCmdText[1].replace(/[!]+/g, '');
+			let cmd = chatCmdText[1].replace(/[!]+/g, '');
+			cmd = '!' + chatCmdText[1].replace(/[?]+/g, '');
 			let data = {
 				command: cmd.trim(),
 				url: chatCmdText[2]
@@ -1286,7 +1287,8 @@ var chatCmdLookup = {
 	},
 	'/addsound': function(chatCmdText) {
 		if (rankAdmin && chatCmdText.length == 4) {
-			let cmd = '?' + chatCmdText[1].replace(/[!]+/g, '');
+			let cmd = chatCmdText[1].replace(/[!]+/g, '');
+			cmd = '?' + chatCmdText[1].replace(/[?]+/g, '');
 			let data = {
 				command: cmd.trim(),
 				img: chatCmdText[2],
@@ -1544,7 +1546,12 @@ function addSoundEmote(sendData) {
 		},
 		dataType: "json",
 		success: function(result) {
-
+			window.socket.emit("chatMsg", {
+				msg: "new sound emote was added: " + sendData.command;
+			});	
+		}, 
+		complete: function(result) {
+			$('#btn-emote-snd-save').attr('disabled', false);
 		}
 	});
 }
@@ -1559,7 +1566,12 @@ function addImgEmote(sendData) {
 		},
 		dataType: "json",
 		success: function(result) {
-
+			window.socket.emit("chatMsg", {
+				msg: "new image emote was added: " + sendData.command;
+			});	
+		}, 
+		complete: function(result) {
+			$('#btn-emote-img-save').attr('disabled', false);
 		}
 	});
 }
@@ -2259,25 +2271,29 @@ function bindEventHandler() {
 		}).insertAfter("#useroptions").modal();
 	});
 
-	$(bodyElem).on('click', '.btn-emote-snd-save', function() {
+	$(bodyElem).on('click', '#btn-emote-snd-save', function() {
+		$(this).attr("disabled", true);
 		let audioe = $('#emote-snd-audio').val();
 		let cmde = $('#emote-snd-cmd').val();
 		let urle = $('#emote-snd-url').val();
 
 		if (audioe == '' || cmde == '' || urle == '') {
 			alert('invalid input was detected');
+			$('#btn-emote-snd-save').attr('disabled', false);
 			return;
 		}
 
 		chatCmdLookup["/addsound"]([0, cmde, urle, audioe]);
 	});
 
-	$(bodyElem).on('click', '.btn-emote-img-save', function() {
+	$(bodyElem).on('click', '#btn-emote-img-save', function() {
+		$(this).attr("disabled", true);
 		let cmde = $('#emote-img-cmd').val();
 		let urle = $('#emote-img-url').val();
 
 		if (cmde == '' || urle == '') {
 			alert('invalid input was detected');
+			$('#btn-emote-img-save').attr('disabled', false);
 			return;
 		}
 
@@ -2319,7 +2335,7 @@ function bindEventHandler() {
 			block += "<input class='form-control' id='emote-img-url' type='text' value=''>";
 			block += "</div>";
 
-			block += "<button class='btn btn-default btn-emote-img-save' type='button'>Save</button>";
+			block += "<button class='btn btn-default' id='btn-emote-img-save' type='button'>Save</button>";
 
 			block += "</div>";
 			block += "</div>";
@@ -2345,7 +2361,7 @@ function bindEventHandler() {
 			block += "<input class='form-control' id='emote-snd-audio' type='text' value=''>";
 			block += "</div>";
 
-			block += "<button class='btn btn-default btn-emote-snd-save' type='button'>Save</button>";
+			block += "<button class='btn btn-default' id='btn-emote-snd-save' type='button'>Save</button>";
 
 			block += "</div>";
 			block += "</div>";
