@@ -1280,7 +1280,7 @@ var chatCmdLookup = {
 			cmd = '!' + cmd.replace(/[?]+/g, '');
 			let data = {
 				command: cmd.trim(),
-				url: chatCmdText[2]
+				url: chatCmdText[2].trim()
 			}
 			addImgEmote(data);
 		}
@@ -1291,11 +1291,27 @@ var chatCmdLookup = {
 			cmd = '?' + cmd.replace(/[?]+/g, '');
 			let data = {
 				command: cmd.trim(),
-				img: chatCmdText[2],
-				audio: chatCmdText[3]
+				img: chatCmdText[2].trim(),
+				audio: chatCmdText[3].trim()
 			}
 			addSoundEmote(data);
 		}
+	},
+	"/createachievement": function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length == 5) {
+			let title = chatCmdText[1];
+			let image = chatCmdText[2];
+			let color = chatCmdText[3];
+			let description = chatCmdText[4];
+
+			let data = {
+				title: title.trim(),
+				img: image.trim(),
+				color: color.trim(),
+				description: description.trim()
+			}
+			addNewAchievement(data);
+		}	
 	}
 };
 
@@ -1531,6 +1547,28 @@ function populateImgEmote(command) {
 			})
 			$('#image-emote-list').html(bodyString);
 			imgLookup = temp;
+		}
+	});
+}
+
+function addNewAchievement(sendData) {
+	$.ajax({
+		url: "https://hooks.zapier.com/hooks/catch/4506865/7dtj3i/",
+		method: "POST",
+		data: {
+			title: sendData.title,
+			img: sendData.img,
+			color: sendData.color,
+			description: sendData.description
+		},
+		dataType: "json",
+		success: function(result) {
+			window.socket.emit("chatMsg", {
+				msg: "updateAchievementnew sound emote was added: " + sendData.title + "updateAchievement"
+			});	
+		}, 
+		complete: function(result) {
+			$('#btn-new-achievement-save').attr('disabled', false);
 		}
 	});
 }
@@ -1975,6 +2013,7 @@ window.loadInitializer = function() {
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
 		buff.find(".updateImgEmote:not( .parsed )").addClass('parsed');
+		buff.find(".updateAchievementList:not( .parsed )").addClass('parsed');
 		buff.find(".updateSoundEmote:not( .parsed )").addClass('parsed');
 		buff.find(".voteskipNotice:not( .parsed )").addClass('parsed');
 		buff.find(".semote:not( .parsed )").addClass('parsed');
@@ -2306,6 +2345,22 @@ function bindEventHandler() {
 		chatCmdLookup["/addimg"]([0, cmde, urle]);
 	});
 
+	$(bodyElem).on('click', '#btn-new-achievement-save', function() {
+		$(this).attr("disabled", true);
+		let title = $('#new-achievement-title').val();
+		let image = $('#new-achievement-image').val();
+		let color = $('#new-achievement-color').val();
+		let description = $('#new-achievement-description').val();
+
+		if (title == '') {
+			alert('title is required');
+			$('#btn-new-achievement-save').attr('disabled', false);
+			return;
+		}
+
+		chatCmdLookup["/createachievement"]([0, title, image, color, description]);
+	});
+
 	$(bodyElem).on('click', '#add-custom-emote', function() {
 		createModalExt({
 			title: "add a new custom emote (this will be added to the club sheet)",
@@ -2314,15 +2369,15 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let nav = "<ul class='nav nav-tabs'>"
-			nav += "<li><a href='#image-emote-add' data-toggle='tab' aria-expanded='false'>Add image emote</a></li>";
-			nav += "<li><a href='#sound-emote-add' data-toggle='tab' aria-expanded='false'>Add sound emote</a></li>";
+			nav += "<li><a href='#image-emote-add' data-toggle='tab' aria-expanded='false'>Add an image emote</a></li>";
+			nav += "<li><a href='#sound-emote-add' data-toggle='tab' aria-expanded='false'>Add a sound emote</a></li>";
+			nav += "<li><a href='#new-achievement-add' data-toggle='tab' aria-expanded='false'>Add an achievement</a></li>";
 			nav += "</ul>";
 
-			let imagecontent = "<div id='image-emote-add' class='tab-pane active'>";
-			let soundcontent = "<div id='sound-emote-add' class='tab-pane'>";
-			imagecontent += "</div>";
-			soundcontent += "</div>";
-			let contentwrap = "<div class='tab-content'>" + imagecontent + soundcontent + "</div>";
+			let imagecontent = "<div id='image-emote-add' class='tab-pane active'></div>";
+			let soundcontent = "<div id='sound-emote-add' class='tab-pane'></div>";
+			let achievementcontent = "<div id='new-achievement-add' class='tab-pane'></div>";
+			let contentwrap = "<div class='tab-content'>" + imagecontent + soundcontent + achievementcontent + "</div>";
 
 			$("#customEmoteWrap").html(nav + contentwrap);
 
@@ -2374,6 +2429,36 @@ function bindEventHandler() {
 
 			$("#sound-emote-add").append(block);
 
+			block = "<div class='row'>";
+			block += "<div class='image-emote-container col-sm-5'>";
+			block += "<div class='emote-display-text top-margin-theme'><h4>Create a new achievement (* - required)</h4></div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>title*:</div>";
+			block += "<input class='form-control' id='new-achievement-title' type='text' value=''>";
+			block += "</div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>image:</div>";
+			block += "<input class='form-control' id='new-achievement-image' type='text' value=''>";
+			block += "</div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>color(hex code):</div>";
+			block += "<input class='form-control' id='new-achievement-color' type='text' value=''>";
+			block += "</div>";
+
+			block += "<div class='input-group input-group-sm bottom-margin'>";
+		    block += "<div class='input-group-addon'>description:</div>";
+			block += "<input class='form-control' id='new-achievement-description' type='text' value=''>";
+			block += "</div>";
+
+			block += "<button class='btn btn-default' id='btn-new-achievement-save' type='button'>Save</button>";
+
+			block += "</div>";
+			block += "</div>";
+
+			$("#new-achievement-add").append(block);
 		
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));

@@ -133,7 +133,7 @@ if (rankAdmin) {
 	adminMenu += "<li><a id='bgm-option' href='javascript:void(0)' style=''>BGM</a></li>";
 	adminMenu += "<li><a id='medallist-add-all' href='javascript:void(0)' style=''>Add achievement to all</a></li>";
 	adminMenu += "<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>";
-	adminMenu += "<li><a id='add-custom-emote' href='javascript:void(0)' style=''>Add custom emote</a></li>";
+	adminMenu += "<li><a id='add-custom-emote' href='javascript:void(0)' style=''>Add custom emote/achievements</a></li>";
 	adminMenu += "</ul></li>";
 	$('.navbar-nav li:first').after(adminMenu);
 }

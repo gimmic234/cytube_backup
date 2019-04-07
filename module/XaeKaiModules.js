@@ -527,6 +527,12 @@ window[CHANNEL.name].chatNotice.handler = {
 		}
 		$('.amq-wrap').remove();
 	},
+	updateAchievementList: function(data) {
+		let updateNotice = $(".updateAchievementList:not( .parsed )");
+		if (!updateNotice.length) return;
+		updateNotice.addClass("parsed");
+		readAchievement();
+	},
 	updateImgEmote: function(data) {
 		let updateImgNotice = $(".updateImgEmote:not( .parsed )");
 		if (!updateImgNotice.length) return;
@@ -873,6 +879,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"](data);
 		window[CHANNEL.name].chatNotice.handler["deleteButton"](data);
 		window[CHANNEL.name].chatNotice.handler["updateImgEmote"](data);
+		window[CHANNEL.name].chatNotice.handler["updateAchievementList"](data);
 		window[CHANNEL.name].chatNotice.handler["updateSoundEmote"](data);
 	});
 

@@ -7,8 +7,8 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 4,
-	day: 7,
-	hour: 19,
+	day: 10,
+	hour: 23,
 	minute: 0,
 	second: 0,
 };
@@ -75,7 +75,7 @@ var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/5595222
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "3";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\"],\"Senia\":[\"Clannad\",\"Kurenai\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\"],\"ScrewySqrl\":[\"Kurenai\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\"],\"Mayu_Loli\":[\"Kurenai\"],\"MisterLister\":[\"Kurenai\"],\"SomeBloke\":[\"Kurenai\"],\"Tommeow\":[\"Kurenai\"],\"Urizithar\":[\"Kurenai\"],\"Bowl\":[\"Kurenai\"]}";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\"],\"Senia\":[\"Clannad\",\"Kurenai\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\"],\"ScrewySqrl\":[\"Kurenai\",\"Anime Club: Year 2\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\",\"Anime Club: Year 2\"],\"Mayu_Loli\":[\"Kurenai\"],\"MisterLister\":[\"Kurenai\"],\"SomeBloke\":[\"Kurenai\"],\"Tommeow\":[\"Kurenai\"],\"Urizithar\":[\"Kurenai\"],\"Bowl\":[\"Kurenai\"]}";
 var countdownText1 = "Symphogear";
 var countdownText2 = "Seasonal";
 var countdownText3 = "ATLA";
@@ -139,7 +139,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6cd68bab2f3f84f750a4189c502de54d093d1cba/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c0a64e98ec0bc20adb14186573d54a4171afb1b9/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -169,7 +169,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/e038eea55e95160138f84a98450cb6cf36b766d1/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c0a64e98ec0bc20adb14186573d54a4171afb1b9/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
