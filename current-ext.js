@@ -1355,8 +1355,8 @@ var chatKeyLookup = {
 							name: CLIENT.name,
 							message: msg
 						}
+						sendMsg(msgObj);
 					}
-					sendMsg(msgObj);
 					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
 						populateImgEmote(chatCmdText[0]);
 					}
