@@ -1547,7 +1547,7 @@ function addSoundEmote(sendData) {
 		dataType: "json",
 		success: function(result) {
 			window.socket.emit("chatMsg", {
-				msg: "new sound emote was added: " + sendData.command;
+				msg: "new sound emote was added: " + sendData.command
 			});	
 		}, 
 		complete: function(result) {
@@ -1567,7 +1567,7 @@ function addImgEmote(sendData) {
 		dataType: "json",
 		success: function(result) {
 			window.socket.emit("chatMsg", {
-				msg: "new image emote was added: " + sendData.command;
+				msg: "new image emote was added: " + sendData.command
 			});	
 		}, 
 		complete: function(result) {
