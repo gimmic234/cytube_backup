@@ -2406,7 +2406,7 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.btn-bg-save', function() {
 		let cmd = $(this).attr('data-value');
 		let url = $(this).parent().parent().find('.bg-url').val();
-		let imgelem = $(this).parent().parent().parent().find('.bg-change');
+		let imgelem = $(this).parent().parent().parent().find('.bg-preview');
 		imgelem.fadeOut('fast', function() {
 			imgelem.attr('src', url).fadeIn('fast');
 		});
