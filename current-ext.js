@@ -1282,6 +1282,16 @@ var chatCmdLookup = {
 			}
 			addImgEmote(data);
 		}
+	},
+	'/addsound': function(chatCmdText) {
+		if (rankAdmin && chatCmdText.length == 4) {
+			let data = {
+				command: chatCmdText[1],
+				img: chatCmdText[2],
+				audio: chatCmdText[3]
+			}
+			addSoundEmote(data);
+		}
 	}
 };
 
@@ -1517,6 +1527,22 @@ function populateImgEmote(command) {
 			})
 			$('#image-emote-list').html(bodyString);
 			imgLookup = temp;
+		}
+	});
+}
+
+function addSoundEmote(sendData) {
+	$.ajax({
+		url: "https://hooks.zapier.com/hooks/catch/4506865/7dtj3i/",
+		method: "POST",
+		data: {
+			name: sendData.command,
+			img: sendData.img,
+			audio: sendData.audio
+		},
+		dataType: "json",
+		success: function(result) {
+
 		}
 	});
 }
