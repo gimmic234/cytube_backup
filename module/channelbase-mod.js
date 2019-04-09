@@ -141,7 +141,7 @@ if (rankAdmin) {
 if (rankAdmin) {
 	$('.navbar-nav').append("<li><a id='export-chatlog' href='javascript:void(0)' style=''>Chatlog</a></li>");
 }
-$('.navbar-nav').append("<li><a id='member-list' href='javascript:void(0)' style=''>Club List</a></li>");
+$('.navbar-nav').append("<li><a id='member-list' href='javascript:void(0)' style=''>Club Members</a></li>");
 $('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
 
 //middle draggable handle
