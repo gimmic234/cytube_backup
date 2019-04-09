@@ -424,3 +424,11 @@ position: relative;
 .bottom-margin {
     margin-bottom: 10px;
 }
+
+.green {
+    color: green !important;
+}
+
+.red {
+    color: red !important;
+}

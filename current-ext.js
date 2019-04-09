@@ -2475,7 +2475,7 @@ function bindEventHandler() {
 		}).on("show.bs.modal", function(event) {
 			let body = '';
 			body += "<div>";
-			body += "<table>";
+			body += "<table class='table table-bordered'>";
 			body += "<thead>";
 			body += "<tr>";
 			body += "<th>Name</th>";
