@@ -2466,6 +2466,45 @@ function bindEventHandler() {
 		}).insertAfter("#useroptions").modal();
 	});
 
+	$(bodyElem).on('click', '#member-list', function() {
+		createModalExt({
+			title: "List of active anime club members",
+			wrap_id: "memberModal",
+			body_id: "memberWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let body = '';
+			body += "<div>";
+			body += "<table>";
+			body += "<thead>";
+			body += "<tr>";
+			body += "<th>Name</th>";
+			body += "<th>Pick1</th>";
+			body += "<th>Pick2</th>";
+			body += "<th>Pick3</th>";
+			body += "</tr>";
+			body += "</thead>";
+			body += "<tbody>";
+			picklist.forEach(function(item, index) {
+				let row = "<tr>";
+				row += "<td>"+item.user+"</td>";
+				row += "<td class='"+((value.status1 == "TRUE") ? "green" : "red")+"'>"+item.pick1+"</td>";
+				row += "<td class='"+((value.status2 == "TRUE") ? "green" : "red")+"'>"+item.pick2+"</td>";
+				row += "<td class='"+((value.status3 == "TRUE") ? "green" : "red")+"'>"+item.pick3+"</td>";
+				row += "</tr>";
+				body += row;
+			});
+			body += "</tbody>";
+			body += "</table>";
+			body += "</div>";
+
+			$("#memberWrap").html(nav + contentwrap);
+		}).on("hidden.bs.modal", function(event) {
+			picklist = readSheet();
+			$("#memberModal").remove();
+		}).insertAfter("#useroptions").modal();
+	});
+
 	$(bodyElem).on('click', '.chat-avatar', function() {
 		let username = $(this).parent().find('.username').text().replace(': ', '');
 		createModalExt({
