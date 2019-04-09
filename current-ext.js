@@ -2486,13 +2486,15 @@ function bindEventHandler() {
 			body += "</thead>";
 			body += "<tbody>";
 			picklist.forEach(function(item, index) {
-				let row = "<tr>";
-				row += "<td>"+item.user+"</td>";
-				row += "<td class='"+((item.status1 == "TRUE") ? "green" : "red")+"'>"+item.pick1+"</td>";
-				row += "<td class='"+((item.status2 == "TRUE") ? "green" : "red")+"'>"+item.pick2+"</td>";
-				row += "<td class='"+((item.status3 == "TRUE") ? "green" : "red")+"'>"+item.pick3+"</td>";
-				row += "</tr>";
-				body += row;
+				if (item.user != '') {
+					let row = "<tr>";
+					row += "<td class='members'>"+item.user+"</td>";
+					row += "<td class='"+((item.status1 == "TRUE") ? "green" : "red")+"'>"+item.pick1+"</td>";
+					row += "<td class='"+((item.status2 == "TRUE") ? "green" : "red")+"'>"+item.pick2+"</td>";
+					row += "<td class='"+((item.status3 == "TRUE") ? "green" : "red")+"'>"+item.pick3+"</td>";
+					row += "</tr>";
+					body += row;
+				}
 			});
 			body += "</tbody>";
 			body += "</table>";

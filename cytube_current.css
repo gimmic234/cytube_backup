@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: 841px;
-    left: 2px;
+    top: 43px;
+    left: -9px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -26,8 +26,8 @@
 }
 
 #imgBubble {
-    height: 146px;
-    width: 163px;
+    height: 58px;
+    width: 336px;
 }
 
 #discoimg {
@@ -36,8 +36,8 @@
 }
 
 #imgWrapFixed1 {
-    top: 48px;
-    left: 277px;
+    top: -3px;
+    left: -6px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -49,8 +49,8 @@
 }
 
 #imgBubble2 {
-    height: 702px;
-    width: 855px;
+    height: 57px;
+    width: 295px;
 }
 
 /**/
@@ -426,7 +426,7 @@ position: relative;
 }
 
 .green {
-    color: green !important;
+    color: #ADFF2F !important;
 }
 
 .red {
