@@ -2498,7 +2498,7 @@ function bindEventHandler() {
 			body += "</table>";
 			body += "</div>";
 
-			$("#memberWrap").html(nav + contentwrap);
+			$("#memberWrap").html(body);
 		}).on("hidden.bs.modal", function(event) {
 			picklist = readSheet();
 			$("#memberModal").remove();
