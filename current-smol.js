@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/560185374530601020/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://media.discordapp.net/attachments/239432653684736001/564238068375093248/thumb-1920-674900.png?width=1248&height=702";
+var background_img = "http://images4.alphacoders.com/843/843271.png";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 4,
-	day: 10,
-	hour: 23,
+	day: 14,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
@@ -20,7 +20,7 @@ var countdown_utc2 = {
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://media.discordapp.net/attachments/466386319766192138/560598053296406528/kurenai_bg_v2.jpg?width=1248&height=702";
+var background_img_auto1 = "http://images4.alphacoders.com/843/843271.png";
 var background_img_auto2 = "http://media.discordapp.net/attachments/528150212875649065/560543017329623076/65bb612d175e3aa95bd8676064b81ceb.jpg?width=1248&height=702";
 var chatMute = 'false';
 var background_img_auto3 = "http://media.discordapp.net/attachments/239432653684736001/564238068375093248/thumb-1920-674900.png?width=1248&height=702";
@@ -75,7 +75,7 @@ var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/5595222
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "3";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\"],\"Senia\":[\"Clannad\",\"Kurenai\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\"],\"ScrewySqrl\":[\"Kurenai\",\"Anime Club: Year 2\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\",\"Anime Club: Year 2\"],\"Mayu_Loli\":[\"Kurenai\"],\"MisterLister\":[\"Kurenai\"],\"SomeBloke\":[\"Kurenai\"],\"Tommeow\":[\"Kurenai\"],\"Urizithar\":[\"Kurenai\"],\"Bowl\":[\"Kurenai\"]}";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\"],\"mrmooshe\":[\"first blood\",\"Clannad\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\"],\"Senia\":[\"Clannad\",\"Kurenai\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\"],\"ScrewySqrl\":[\"Kurenai\",\"Anime Club: Year 2\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\",\"Anime Club: Year 2\"],\"Mayu_Loli\":[\"Kurenai\"],\"MisterLister\":[\"Kurenai\",\"Pun Professor\"],\"SomeBloke\":[\"Kurenai\"],\"Tommeow\":[\"Kurenai\"],\"Urizithar\":[\"Kurenai\"],\"Bowl\":[\"Kurenai\"]}";
 var countdownText1 = "Symphogear";
 var countdownText2 = "Seasonal";
 var countdownText3 = "ATLA";
@@ -139,7 +139,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/231792ffab0f53e3323a8d5f5d745fcb821e90a8/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/810dd70abb3cecebf6cca7dd802a89b7ad3647fb/current-ext.js",
 		callback: true
 	},
 	'layout': {
