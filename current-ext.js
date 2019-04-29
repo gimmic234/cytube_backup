@@ -1455,6 +1455,9 @@ function readAchievement() {
 				};
 				returnArray.push(newEntry);
 			})
+		},
+		error: function() {
+			returnArray = [];
 		}
 	});
 	return returnArray;
@@ -1480,6 +1483,9 @@ function readSheet() {
 				};
 				returnArray.push(newEntry);
 			})
+		},
+		error: function() {
+			returnArray = [];
 		}
 	});
 	return returnArray;
@@ -1519,6 +1525,10 @@ function populateSoundEmote(command) {
 			if (command != '' && temp.hasOwnProperty(command)) {
 				temp[command]();
 			}
+		},
+		error: function() {
+			soundLookup = {};
+			emoteAudioList = {};
 		}
 	});
 }
@@ -1547,6 +1557,9 @@ function populateImgEmote(command) {
 			})
 			$('#image-emote-list').html(bodyString);
 			imgLookup = temp;
+		},
+		error: function() {
+			imgLookup = {};
 		}
 	});
 }

@@ -55,30 +55,30 @@
 
 /**/
 #footer div.container {
-    background-color: rgba(0,0,0, 0.75) !important;
+    background-color: rgba(0,0,0, 0.7) !important;
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    background-color: rgba(0,0,0, 0.75) !important;
+    background-color: rgba(0,0,0, 0.7) !important;
 }
 
 #userlisttoggle, #emotelistbtn, #fullscreenbtn, #settings, #hidesettings {
-    background-color: rgba(0,0,0, 0.85) !important;
+    background-color: rgba(25,24,24, 0.7) !important;
 }
 
 #userlisttoggle:hover, #emotelistbtn:hover, #fullscreenbtn:hover, #settings:hover, #hidesettings:hover {
-    background-color: rgba(0,0,0, 0.85) !important;
+    background-color: rgba(25,24,24, 0.7) !important;
 }
 
 .section, .well, #controlsrow{
-    background-color: rgba(0,0,0, 0.6) !important;
+    background-color: rgba(0,0,0, 0.7) !important;
 }
 div#messagebuffer, div#userlist {
-    background-color: rgba(0,0,0, 0.85) !important;
+    background-color: rgba(0,0,0, 0.6) !important;
 }
 
 input#chatline {
-    background-color: rgba(0,0,0, 0.7) !important;
+    background-color: rgba(0,0,0, 0.9) !important;
 }
 /**/
 
