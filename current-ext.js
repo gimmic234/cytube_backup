@@ -1809,6 +1809,8 @@ function blockEmote(blockurl) {
 		let emoteHideString = JSON.stringify(emoteHideList);
 		localStorage[CHANNEL.name + "_hideEmote"] = emoteHideString.replace(/["]+/g, '\"').replace(/[']+/g, "\'").trim();
 	}
+	$(".emote-block-container").remove();
+	window[CHANNEL.name].chatNotice.handler["hideEmote"]();
 }
 
 function getAutoPosition() {
@@ -2715,7 +2717,7 @@ function bindEventHandler() {
 		let emoteUrl = $(this).attr("src");
 		let blockShow = "<div class='emote-block-container'>";
 		blockShow += "<table class='table table-sm table-hover emote-block-table'>";
-		blockShow += "<tbody><tr><td><a onclick='blockEmote(\""+emoteUrl+"\")'>Block</a></td></tr></tbody>";
+		blockShow += "<tbody><tr onclick='blockEmote(\""+emoteUrl+"\")'><td>Block</td></tr></tbody>";
 		blockShow += "</tbody></table></div>";
 		$(this).parent().after(blockShow);
 	});
