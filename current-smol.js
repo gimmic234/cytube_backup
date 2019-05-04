@@ -113,7 +113,6 @@ var countdownText5 = "Mob";
 	var jsTextField = $(document.getElementById('cs-jstext'));
 	var bodyElem = document.body;
 	var chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
-	var localEmoteHide = [];
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -140,7 +139,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/52cdc5ac5c8415ff454e4757de4037ec2be566ea/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0f492d26fcc7bdd8708990f8b70ec4717c97522b/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -170,7 +169,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/17f5ece7063b0670ba4f03b228b3445dfc0e96c9/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0f492d26fcc7bdd8708990f8b70ec4717c97522b/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

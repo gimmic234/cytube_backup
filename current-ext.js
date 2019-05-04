@@ -1803,12 +1803,12 @@ function blockEmote(blockurl) {
 		let emoteHideList = JSON.parse(localStorage[CHANNEL.name + "_hideEmote"]);
 		emoteHideList.push(blockurl);
 		let emoteHideString = JSON.stringify(emoteHideList);
-		localStorage[CHANNEL.name + "_hideEmote"] = emoteHideString.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";"
+		localStorage[CHANNEL.name + "_hideEmote"] = emoteHideString.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim();
 	} else {
 		let emoteHideList = [blockurl];
 		emoteHideList.push(blockurl);
 		let emoteHideString = JSON.stringify(emoteHideList);
-		localStorage[CHANNEL.name + "_hideEmote"] = emoteHideString.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";"
+		localStorage[CHANNEL.name + "_hideEmote"] = emoteHideString.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim();
 	}
 }
 
