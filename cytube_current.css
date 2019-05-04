@@ -379,6 +379,20 @@ font-size: 8px !important;
     z-index: 99;
 }
 
+.emote-block-container {
+    position: relative;
+    z-index: 99;
+}
+
+.emote-block-table {
+    background: rgba(27, 28, 31, 0.97) !important;
+    margin-bottom: 0px !important;
+    position: absolute;
+    top: -30px;
+    z-index: 99;
+    width: 50% !important;
+}
+
 .full {
     float: right;
     height: auto;

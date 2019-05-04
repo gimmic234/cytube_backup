@@ -1312,6 +1312,9 @@ var chatCmdLookup = {
 			}
 			addNewAchievement(data);
 		}	
+	},
+	"/unblockemote": function() {
+		localStorage[CHANNEL.name + "_hideEmote"] = "[]";
 	}
 };
 
@@ -1795,6 +1798,20 @@ function chatHandler(e) {
 	return true;
 };
 
+function blockEmote(blockurl) {
+	if (localStorage[CHANNEL.name + "_hideEmote"] != undefined) {
+		let emoteHideList = JSON.parse(localStorage[CHANNEL.name + "_hideEmote"]);
+		emoteHideList.push(blockurl);
+		let emoteHideString = JSON.stringify(emoteHideList);
+		localStorage[CHANNEL.name + "_hideEmote"] = emoteHideString.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";"
+	} else {
+		let emoteHideList = [blockurl];
+		emoteHideList.push(blockurl);
+		let emoteHideString = JSON.stringify(emoteHideList);
+		localStorage[CHANNEL.name + "_hideEmote"] = emoteHideString.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim() + "\";"
+	}
+}
+
 function getAutoPosition() {
 	let mode = motdMode.attr('data-value');
 	if (mode == "true") {
@@ -2019,12 +2036,14 @@ window.loadInitializer = function() {
 		if (amq.length > 0) {
 			amq.parent().find("button").click()
 		}
+
 		$(document.getElementById('voteskipwrap')).hide();
 		populateImgEmote('');
 		populateSoundEmote('');
 		var buff = $('#messagebuffer');
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
+		window[CHANNEL.name].chatNotice.handler["hideEmote"]();
 		buff.find(".updateImgEmote:not( .parsed )").addClass('parsed');
 		buff.find(".updateAchievementList:not( .parsed )").addClass('parsed');
 		buff.find(".updateSoundEmote:not( .parsed )").addClass('parsed');
@@ -2683,6 +2702,23 @@ function bindEventHandler() {
 			selectedPopover = null;
 			emoteTable = false;
 		}
+	});
+
+	$(document).mouseup(function(e){
+	    var container = $('.emote-block-container');
+
+	    if(!container.is(e.target) && container.has(e.target).length === 0){
+	        container.remove();
+	    }
+	});
+
+	$(bodyElem).on('click', '.channel-emote', function() {
+		let emoteUrl = $(this).attr("src");
+		let blockShow = "<div class='emote-block-container'>";
+		blockShow += "<table class='table table-sm table-hover emote-block-table'>";
+		blockShow += "<tbody><tr><td><a onclick='blockEmote("+emoteUrl+")'>Block</a></td></tr></tbody>";
+		blockShow += "</tbody></table></div>";
+		$(this).parent().after(blockShow);
 	});
 
 	$(bodyElem).on('mouseleave', '.chat-avatar', function() {

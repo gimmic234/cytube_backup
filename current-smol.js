@@ -113,6 +113,7 @@ var countdownText5 = "Mob";
 	var jsTextField = $(document.getElementById('cs-jstext'));
 	var bodyElem = document.body;
 	var chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
+	var localEmoteHide = [];
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -139,7 +140,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b12d037123ee1d660f20aebc0b1f0e6a3fb5f527/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/52cdc5ac5c8415ff454e4757de4037ec2be566ea/current-ext.js",
 		callback: true
 	},
 	'layout': {

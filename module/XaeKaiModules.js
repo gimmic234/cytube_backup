@@ -504,6 +504,15 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 
 window[CHANNEL.name].chatNotice = {};
 window[CHANNEL.name].chatNotice.handler = {
+	hideEmote: function() {
+		let emoteBlockList = [];
+		if (localStorage[CHANNEL.name + "_hideEmote"] != undefined) {
+			emoteBlockList = JSON.parse(localStorage[CHANNEL.name + "_hideEmote"]);
+		}
+		emoteBlockList.each(function(block) {
+			$('#messagebuffer').find("img[src$='" + block + "']").remove()
+		});
+	},
 	amq: function() {
 		let amqembed = $(".amq:not( .amqdone )");
 		if (!amqembed.length) return;
@@ -887,6 +896,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].chatNotice.handler["updateImgEmote"](data);
 		window[CHANNEL.name].chatNotice.handler["updateAchievementList"](data);
 		window[CHANNEL.name].chatNotice.handler["updateSoundEmote"](data);
+		window[CHANNEL.name].chatNotice.handler["hideEmote"]();
 	});
 
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {
