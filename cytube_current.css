@@ -381,7 +381,11 @@ font-size: 8px !important;
 
 .emote-block-container {
     position: relative;
-    z-index: 99;
+    z-index: 99;   
+}
+
+.emote-block-container:hover {
+    cursor: pointer !important;
 }
 
 .emote-block-table {

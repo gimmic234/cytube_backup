@@ -1315,6 +1315,14 @@ var chatCmdLookup = {
 	},
 	"/unblockemote": function() {
 		localStorage[CHANNEL.name + "_hideEmote"] = "[]";
+	},
+	'/addrandom': function() {
+		if (videoListMaster.length == 0)  {
+			return;
+		}
+		var randomVid = videoListMaster[Math.floor(Math.random() * videoListMaster.length)];
+		$(document.getElementById('mediaurl')).val(randomVid.url);
+		$(document.getElementById('queue_end')).click();
 	}
 };
 
@@ -1464,6 +1472,30 @@ function readAchievement() {
 		}
 	});
 	return returnArray;
+}
+
+function readVideoList() {
+	let returnArray = [];
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/13/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			entries.each(function(value, index) {
+				let newEntry = {
+					"title": value.gsx$title.$t,
+					"url": value.gsx$link.$t
+				};
+				returnArray.push(newEntry);
+			})
+			videoListMaster = returnArray;
+		},
+		error: function() {
+			returnArray = [];
+			videoListMaster = returnArray;
+		}
+	});
 }
 
 function readSheet() {

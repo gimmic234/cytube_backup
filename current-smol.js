@@ -2,20 +2,20 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/571723395503357955/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://static.zerochan.net/Senki.Zesshou.Symphogear.AXZ.full.2188203.png";
+var background_img = "http://images7.alphacoders.com/100/thumb-1920-1000295.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 5,
-	day: 1,
-	hour: 23,
+	day: 12,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 5,
-	day2: 4,
+	day2: 18,
 	hour2: 21,
 	minute2: 0,
 	second2: 0
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 5,
-	day3: 3,
+	day3: 17,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -64,18 +64,18 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/560542474247077906/27_-_Hitomi_-_A_secret_of_the_moon.flac";
-var playbgmCondition = "false";
+var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/575323378693701633/47_-_Wondering.mp3";
+var playbgmCondition = "true";
 var bgmoff = "true";
-var background_img_auto5 = "http://pbs.twimg.com/media/D0cT-JMUwAAX75e.jpg";
+var background_img_auto5 = "http://media.discordapp.net/attachments/528150212875649065/574332555453530131/yaiba.png?width=1248&height=702";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/542519514693238814/25._.mp3";
+var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/566391443464257556/01._Oukyo_Shul_Shagana.flac";
 var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/559522269987209219/21_-_Yume_wa_Nando_mo_Umare_Kawaru.flac";
 var bgm4url = 'https://cdn.discordapp.com/attachments/515347492511023113/537045687691378688/Dango_Daikazoku_Instrumental_OST_Clannad.mp3';
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "3";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Hula Hula!\",\"Team Kanade\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Shirabe\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Chris\",\"Team Shirabe\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Hibiki\"],\"mrmooshe\":[\"first blood\",\"Clannad\",\"Team Maria\",\"Team Miku\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\",\"Team Chris\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Kirika\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Tsubasa\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\",\"Pun Professor\",\"Team Kirika\"],\"Senia\":[\"Clannad\",\"Kurenai\",\"Team Hibiki\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\",\"Hula Hula!\",\"Team Kanade\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\",\"Pun Professor\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Maria\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\",\"Pun Professor\",\"Team Chris\"],\"ScrewySqrl\":[\"Kurenai\",\"Anime Club: Year 2\",\"Team Miku\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\",\"Anime Club: Year 2\"],\"Mayu_Loli\":[\"Kurenai\",\"Hula Hula!\",\"Team Hibiki\",\"Team Chris\"],\"MisterLister\":[\"Kurenai\",\"Pun Professor\"],\"SomeBloke\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Done\",\"Team Maria\"],\"Tommeow\":[\"Kurenai\"],\"Urizithar\":[\"Kurenai\",\"Team Chris\"],\"Bowl\":[\"Kurenai\"],\"Ningen\":[\"Hula Hula!\",\"Team Maria\"],\"Bashically\":[\"Team Hibiki\"],\"MrRound\":[\"Team Hibiki\"],\"Psyrhos\":[\"Team Chris\"]}";
+var bgmSelect = "1";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Hula Hula!\",\"Team Kanade\",\"Symphogear\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Shirabe\",\"Symphogear\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Chris\",\"Team Shirabe\",\"Symphogear\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Hibiki\",\"Symphogear\"],\"mrmooshe\":[\"first blood\",\"Clannad\",\"Team Maria\",\"Team Miku\",\"Team Elfnein\",\"Symphogear\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\",\"Team Chris\",\"Team Miku\",\"Symphogear\",\"Pun Professor\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Kirika\",\"Team Elfnein\",\"Symphogear\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Tsubasa\",\"Team Elfnein\",\"Symphogear\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\",\"Pun Professor\",\"Team Kirika\",\"Symphogear\"],\"Senia\":[\"Clannad\",\"Kurenai\",\"Team Hibiki\",\"Symphogear\"],\"Triene-Greenfort\":[\"Clannad\"],\"fiach\":[\"Clannad\",\"Hula Hula!\",\"Team Kanade\",\"Symphogear\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\",\"Pun Professor\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\",\"Symphogear\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Maria\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\",\"Pun Professor\",\"Team Chris\",\"Symphogear\"],\"ScrewySqrl\":[\"Kurenai\",\"Anime Club: Year 2\",\"Team Miku\",\"Symphogear\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\",\"Anime Club: Year 2\",\"Symphogear\"],\"Mayu_Loli\":[\"Kurenai\",\"Hula Hula!\",\"Team Hibiki\",\"Team Chris\"],\"MisterLister\":[\"Kurenai\",\"Pun Professor\"],\"SomeBloke\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Done\",\"Team Maria\",\"Team Elfnein\",\"Symphogear\"],\"Tommeow\":[\"Kurenai\"],\"Urizithar\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Symphogear\"],\"Bowl\":[\"Kurenai\",\"Symphogear\"],\"Ningen\":[\"Hula Hula!\",\"Team Maria\",\"Symphogear\"],\"Bashically\":[\"Team Hibiki\"],\"MrRound\":[\"Team Hibiki\",\"Symphogear\",\"Team Miku\",\"Team Kirika\"],\"Psyrhos\":[\"Team Chris\",\"Symphogear\"],\"Ryder-FWJ\":[\"Symphogear\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Seasonal";
 var countdownText3 = "ATLA";
@@ -112,6 +112,7 @@ var countdownText5 = "Mob";
 	var motdMode = $(document.getElementById('motd-mode'));
 	var jsTextField = $(document.getElementById('cs-jstext'));
 	var bodyElem = document.body;
+	var videoListMaster = [];
 	var chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
 
 /*!
@@ -139,7 +140,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cd98c6042299acf85f6dcf9db60eb0deaa099572/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/624effd4d2ea5d1980d443060791d20532fd8de0/current-ext.js",
 		callback: true
 	},
 	'layout': {
