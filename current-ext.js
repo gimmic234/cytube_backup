@@ -2035,6 +2035,7 @@ window.countdowner = function(countdown, destination,index) {
 
 window.loadInitializer = function() {
 	picklist = readSheet();
+	readVideoList();
 	achievementMatch = readAchievement();
 	let streamStr1 = "Next ";
 	let streamStr2 = " stream starts in...";
@@ -3187,6 +3188,11 @@ function bindEventHandler() {
 	$(bodyElem).on('show.bs.collapse', '#collapseSchedule', function() {
 		collapseArrow2[0].classList.remove('glyphicon-chevron-down');
 		collapseArrow2[0].classList.add('glyphicon-chevron-up');
+	});
+
+	$(bodyElem).on('click', '#randomVideo', function() {
+		chatCmdLookup['/addrandom']();
+		readVideoList();
 	});
 
 	$('#voteskip').off();

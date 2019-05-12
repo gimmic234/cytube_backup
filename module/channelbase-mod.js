@@ -124,6 +124,7 @@ $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
 
 
 $('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style=''>Achievements</a></li>");
+$('.navbar-nav').append("<li><a id='randomVideo' href='javascript:void(0)' style=''>Queue Random</a></li>");
 
 if (rankAdmin) {
 	let adminMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Admin<b class='caret'></b></a><ul class='dropdown-menu'>";
