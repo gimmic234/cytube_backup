@@ -1322,6 +1322,7 @@ var chatCmdLookup = {
 		}
 		var randomVid = videoListMaster[Math.floor(Math.random() * videoListMaster.length)];
 		$(document.getElementById('mediaurl')).val(randomVid.url);
+		$(document.getElementById('mediaurl')).keyup();
 		$(document.getElementById('addfromurl-title-val')).val(randomVid.title);
 		$(document.getElementById('queue_end')).click();
 	}
