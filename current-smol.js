@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/571723395503357955/current_after_tankshift.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://images7.alphacoders.com/100/thumb-1920-1000295.jpg";
+var background_img = "http://media.discordapp.net/attachments/528150212875649065/577616873651437598/thumb-1920-226483.png?width=1248&height=702";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 5,
-	day: 12,
+	day: 19,
 	hour: 19,
 	minute: 0,
 	second: 0,
@@ -20,7 +20,7 @@ var countdown_utc2 = {
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://static.zerochan.net/Kidou.Senshi.Gundam%3A.Tekketsu.no.Orphans.full.1986741.jpg";
+var background_img_auto1 = "http://media.discordapp.net/attachments/528150212875649065/577616873651437598/thumb-1920-226483.png?width=1248&height=702";
 var background_img_auto2 = "http://media.discordapp.net/attachments/528150212875649065/560543017329623076/65bb612d175e3aa95bd8676064b81ceb.jpg?width=1248&height=702";
 var chatMute = 'false';
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/563853071541600321/atla_bg.jpg";
@@ -64,7 +64,7 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/575323378693701633/47_-_Wondering.mp3";
+var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/577558806935109662/22_-_SHI-KI.mp3";
 var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = "http://media.discordapp.net/attachments/528150212875649065/574332555453530131/yaiba.png?width=1248&height=702";
@@ -140,13 +140,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8263a92d9d2b205655014fb4accc3b0f5d2a61d5/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2606fb217e801c587156895a5a328e23b36497c0/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/be4afd0b6a31618d634f66eb28c55b06223b0c57/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2606fb217e801c587156895a5a328e23b36497c0/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
