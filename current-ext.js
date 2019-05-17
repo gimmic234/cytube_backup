@@ -3197,6 +3197,11 @@ function bindEventHandler() {
 		readVideoList();
 	});
 
+	$(bodyElem).on('click', '#randomVideoSmol', function() {
+		chatCmdLookup['/addrandom']();
+		readVideoList();
+	});
+
 	$('#voteskip').off();
 	$(bodyElem).on('click', '#voteskip', function(e) {
 		voteskipMod();
