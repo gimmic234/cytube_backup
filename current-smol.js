@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 5,
-	day3: 17,
+	day3: 24,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -146,7 +146,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/35eede01d7abc35bed1c26679ee46ee76fd1c61c/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/08edf6410144eefa3c12e6519e4cc9dac811a6a2/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {

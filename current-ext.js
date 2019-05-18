@@ -3194,12 +3194,10 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#randomVideo', function() {
 		chatCmdLookup['/addrandom']();
-		readVideoList();
 	});
 
 	$(bodyElem).on('click', '#randomVideoSmol', function() {
 		chatCmdLookup['/addrandom']();
-		readVideoList();
 	});
 
 	$('#voteskip').off();
