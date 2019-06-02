@@ -1394,7 +1394,7 @@ var chatKeyLookup = {
 
 			if (chatCmdText[0].includes(".jpg") || chatCmdText[0].includes(".png") || chatCmdText[0].includes(".gif") || chatCmdText[0].includes(".webp") || chatCmdText[0].includes(".bmp")) {
 				if (chatCmdText[0].includes("http://") || chatCmdText[0].includes("https://")) {
-					chatCmdLookup["/img"](chatCmdText[0]);
+					chatCmdLookup["/img"]([0, chatCmdText[0]]);
 					window.CHATHIST.push(chatlineElem.val());
 					window.CHATHISTIDX = window.CHATHIST.length;
 					chatlineElem.val('');	
