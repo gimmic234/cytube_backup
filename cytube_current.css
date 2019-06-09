@@ -74,7 +74,7 @@
     background-color: rgba(0,0,0, 0.7) !important;
 }
 div#messagebuffer, div#userlist {
-    background-color: rgba(0,0,0, 0.6) !important;
+    background-color: rgba(0,0,0, 0.8) !important;
 }
 
 input#chatline {
@@ -449,4 +449,8 @@ position: relative;
 
 .red {
     color: red !important;
+}
+
+.audio-btn-group {
+    right: 0px !important;   
 }
