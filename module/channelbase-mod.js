@@ -137,7 +137,7 @@ if (rankAdmin) {
 	adminMenu += "<li><a id='amq-open-all' href='javascript:void(0)' style=''>AMQ all</a></li>";
 	adminMenu += "<li><a id='add-custom-emote' href='javascript:void(0)' style=''>Add custom emote/achievements</a></li>";
 	adminMenu += "</ul></li>";
-	$('.navbar-nav li:second').after(adminMenu);
+	$('.navbar-nav').append(adminMenu);
 }
 
 if (rankAdmin) {

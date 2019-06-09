@@ -146,7 +146,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/08edf6410144eefa3c12e6519e4cc9dac811a6a2/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/205e053df98fb0538d7f6f3156128b4d8f941dab/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
