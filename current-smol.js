@@ -2,20 +2,20 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/579739445448671239/current_after_tankshift_kopianobg.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/582352198327861260/583240209441882112/eva_bg_v2.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/563853071541600321/atla_bg.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 6,
-	day: 2,
-	hour: 19,
+	day: 12,
+	hour: 23,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 6,
-	day2: 8,
+	day2: 15,
 	hour2: 21,
 	minute2: 0,
 	second2: 0
@@ -29,8 +29,8 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 6,
-	day3: 7,
-	hour3: 23,
+	day3: 9,
+	hour3: 17,
 	minute3: 0,
 	second3: 0
 };
@@ -50,16 +50,16 @@ var chatImgOp = "0.7";
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2019,
-	month4: 5,
-	day4: 4,
-	hour4: 15,
+	month4: 6,
+	day4: 9,
+	hour4: 19,
 	minute4: 0,
 	second4: 0
 };
 var countdown_utc5 = {
 	year5: 2019,
-	month5: 3,
-	day5: 11,
+	month5: 6,
+	day5: 7,
 	hour5: 23,
 	minute5: 0,
 	second5: 0
@@ -67,11 +67,11 @@ var countdown_utc5 = {
 var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/577558806935109662/22_-_SHI-KI.mp3";
 var playbgmCondition = "true";
 var bgmoff = "true";
-var background_img_auto5 = "http://media.discordapp.net/attachments/466386319766192138/579406003724877852/senryuu-shoujo_thing.jpg?width=1248&height=702";
+var background_img_auto5 = "http://media.discordapp.net/attachments/528150212875649065/586157370904674305/spider-verse.png?width=1248&height=702";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
 var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/566391443464257556/01._Oukyo_Shul_Shagana.flac";
-var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/559522269987209219/21_-_Yume_wa_Nando_mo_Umare_Kawaru.flac";
+var bgm3url = "";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/584532447128190976/Kyou_no_Hi_wa_Sayounara_-_Sakurasou_no_Pet_na_Kanojo_OST_Track_25.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "4";
@@ -79,8 +79,8 @@ var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Cl
 var countdownText1 = "Club";
 var countdownText2 = "Seasonal";
 var countdownText3 = "ATLA";
-var countdownText4 = "Raildex";
-var countdownText5 = "Mob";
+var countdownText4 = "E3";
+var countdownText5 = "Movie Night";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
 	var bgm2volume = .5;
@@ -170,7 +170,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0f492d26fcc7bdd8708990f8b70ec4717c97522b/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cddda20c6e70c8ef283b8fc5f3342f28dfd4aab2/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

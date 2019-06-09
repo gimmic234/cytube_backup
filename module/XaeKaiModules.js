@@ -967,13 +967,13 @@ window[CHANNEL.name].audioNotice.handler = {
 			var wrapper = $("<div>").addClass("form-group").prop("id", "AudioNoticeControls" + TYPE).appendTo(form);
 			window[CHANNEL.name].audioNotice.controls.append(form);
 			$("<span>").addClass("label label-info col-sm-2").text(window[CHANNEL.name].audioNotice.typeNames[TYPE] + " Notice").appendTo(wrapper);
-			var buttongroup = $("<div>").addClass("btn-group audio-btn-group col-sm-9").attr("data-control", TYPE).appendTo(wrapper);
+			var buttongroup = $("<div>").addClass("btn-group col-sm-9").attr("data-control", TYPE).appendTo(wrapper);
 			var toggle = $("<button/>").prop("id", "AudioNoticeControls" + TYPE + "Toggle").addClass("btn btn-sm btn-success").attr("title", "Toggle " + window[CHANNEL.name].audioNotice.typeNames[TYPE] + " Notices").html('<span class="glyphicon glyphicon-bell"></span>').click(function() {
 				window[CHANNEL.name].audioNotice.toggle($(this).parent().data().control)
 			}).prependTo(buttongroup);
 			window[CHANNEL.name].audioNotice[TYPE].panel = toggle;
 			if (!window[CHANNEL.name].audioNotice[TYPE].toggleState) toggle.toggleClass("btn-success btn-danger");
-			var sounds = $("<div/>").addClass("btn-group").prop("id", "AudioNoticeControls" + TYPE + "Sounds").appendTo(buttongroup);
+			var sounds = $("<div/>").addClass("btn-group audio-btn-group").prop("id", "AudioNoticeControls" + TYPE + "Sounds").appendTo(buttongroup);
 			$("<button/>").prop("id", "AudioNoticeControls" + TYPE + "VolumeDown").addClass("btn btn-sm btn-default").attr("title", window[CHANNEL.name].audioNotice.typeNames[TYPE] + " Volume Down").click(function() {
 				window[CHANNEL.name].audioNotice.pushVolume({
 					type: $(this).parent().data().control,
