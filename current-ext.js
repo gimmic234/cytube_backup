@@ -2084,6 +2084,8 @@ window.loadInitializer = function() {
 			amq.parent().find("button").click()
 		}
 
+		rankMod = (window.CLIENT.rank >= 2);
+		rankAdmin = (window.CLIENT.rank >= 3);
 		$(document.getElementById('voteskipwrap')).hide();
 		populateImgEmote('');
 		populateSoundEmote('');
