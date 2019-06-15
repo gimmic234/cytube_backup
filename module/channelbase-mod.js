@@ -128,6 +128,10 @@ $('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style='
 $('.navbar-nav').append("<li><a id='randomVideo' href='javascript:void(0)' style=''>Queue Random</a></li>");
 
 if (window.CLIENT.rank >= 3) {
+	$('.navbar-nav').append("<li><a id='batchVid' href='javascript:void(0)' style=''>QueueBatch</a></li>");
+}
+
+if (window.CLIENT.rank >= 3) {
 	let adminMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Admin<b class='caret'></b></a><ul class='dropdown-menu'>";
 	adminMenu += "<li><a id='bg-select-option' href='javascript:void(0)' style=''>Backgrounds</a></li>";
 	adminMenu += "<li><a id='countdown-option' href='javascript:void(0)' style=''>Countdown</a></li>";

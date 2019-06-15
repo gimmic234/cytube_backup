@@ -1325,6 +1325,17 @@ var chatCmdLookup = {
 		$(document.getElementById('mediaurl')).keyup();
 		$(document.getElementById('addfromurl-title-val')).val(randomVid.title);
 		$(document.getElementById('queue_end')).click();
+	},
+	'/addbatch1': function() {
+		if (videoListBatch1.length == 0)  {
+			return;
+		}
+		videoListBatch1.each(function(vid) {
+			$(document.getElementById('mediaurl')).val(vid.url);
+			$(document.getElementById('mediaurl')).keyup();
+			$(document.getElementById('addfromurl-title-val')).val(vid.title);
+			$(document.getElementById('queue_end')).click();
+		});
 	}
 };
 
@@ -1507,6 +1518,30 @@ function readVideoList() {
 		error: function() {
 			returnArray = [];
 			videoListMaster = returnArray;
+		}
+	});
+}
+
+function readVideoListBatch1() {
+	let returnArray = [];
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/14/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			entries.each(function(value, index) {
+				let newEntry = {
+					"title": value.gsx$title.$t,
+					"url": value.gsx$link.$t
+				};
+				returnArray.push(newEntry);
+			})
+			videoListBatch1 = returnArray;
+		},
+		error: function() {
+			returnArray = [];
+			videoListBatch1 = returnArray;
 		}
 	});
 }
@@ -2049,6 +2084,7 @@ window.countdowner = function(countdown, destination,index) {
 window.loadInitializer = function() {
 	picklist = readSheet();
 	readVideoList();
+	readVideoListBatch1();
 	achievementMatch = readAchievement();
 	let streamStr1 = "Next ";
 	let streamStr2 = " stream starts in...";
@@ -3207,6 +3243,10 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#randomVideo', function() {
 		chatCmdLookup['/addrandom']();
+	});
+
+	$(bodyElem).on('click', '#batchVid', function() {
+		chatCmdLookup['/addbatch1']();
 	});
 
 	$(bodyElem).on('click', '#randomVideoSmol', function() {

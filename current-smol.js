@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/588496505464291341/testo.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/582352198327861260/583240209441882112/eva_bg_v2.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/423966721020395525/589120673318961173/higurashibg.png";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 6,
-	day: 12,
-	hour: 23,
+	day: 16,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 6,
-	day3: 14,
+	day3: 21,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -74,7 +74,7 @@ var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/5663914
 var bgm3url = "";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/584532447128190976/Kyou_no_Hi_wa_Sayounara_-_Sakurasou_no_Pet_na_Kanojo_OST_Track_25.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "4";
+var bgmSelect = "1";
 var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Hula Hula!\",\"Team Kanade\",\"Symphogear\",\"Elementalist\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Shirabe\",\"Symphogear\",\"Elementalist\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Chris\",\"Team Shirabe\",\"Symphogear\",\"Elementalist\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Hibiki\",\"Symphogear\"],\"mrmooshe\":[\"first blood\",\"Clannad\",\"Team Maria\",\"Team Miku\",\"Team Elfnein\",\"Symphogear\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\",\"Team Chris\",\"Team Miku\",\"Symphogear\",\"Pun Professor\",\"Elementalist\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Kirika\",\"Team Elfnein\",\"Symphogear\",\"Elementalist\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Tsubasa\",\"Team Elfnein\",\"Symphogear\",\"Elementalist\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\"],\"Ivvl\":[\"Clannad\",\"Kurenai\",\"Pun Professor\",\"Team Kirika\",\"Symphogear\",\"Elementalist\"],\"Senia\":[\"Clannad\",\"Kurenai\",\"Team Hibiki\",\"Symphogear\",\"Elementalist\"],\"Triene-Greenfort\":[\"Clannad\",\"Elementalist\"],\"fiach\":[\"Clannad\",\"Hula Hula!\",\"Team Kanade\",\"Symphogear\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\",\"Pun Professor\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\",\"Symphogear\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Maria\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\",\"Pun Professor\",\"Team Chris\",\"Symphogear\",\"Elementalist\"],\"ScrewySqrl\":[\"Kurenai\",\"Anime Club: Year 2\",\"Team Miku\",\"Symphogear\"],\"BlitZZ\":[\"Kurenai\"],\"erubas\":[\"Kurenai\"],\"Mareepy\":[\"Kurenai\",\"Anime Club: Year 2\",\"Symphogear\"],\"Mayu_Loli\":[\"Kurenai\",\"Hula Hula!\",\"Team Hibiki\",\"Team Chris\"],\"MisterLister\":[\"Kurenai\",\"Pun Professor\",\"Elementalist\"],\"SomeBloke\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Done\",\"Team Maria\",\"Team Elfnein\",\"Symphogear\"],\"Tommeow\":[\"Kurenai\",\"Elementalist\"],\"Urizithar\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Symphogear\"],\"Bowl\":[\"Kurenai\",\"Symphogear\"],\"Ningen\":[\"Hula Hula!\",\"Team Maria\",\"Symphogear\"],\"Bashically\":[\"Team Hibiki\"],\"MrRound\":[\"Team Hibiki\",\"Symphogear\",\"Team Miku\",\"Team Kirika\"],\"Psyrhos\":[\"Team Chris\",\"Symphogear\"],\"Ryder-FWJ\":[\"Symphogear\"],\"BashMartin\":[\"Team Hibiki\"],\"alkestro\":[\"Elementalist\"],\"Guinner\":[\"Elementalist\"],\"JPGer\":[\"Elementalist\"],\"King_Babar_III\":[\"Elementalist\"],\"Rento9\":[\"Elementalist\"],\"AVATARLION\":[\"Elementalist\"],\"Ginger_\":[\"Elementalist\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Seasonal";
@@ -113,6 +113,7 @@ var countdownText5 = "Movie Night";
 	var jsTextField = $(document.getElementById('cs-jstext'));
 	var bodyElem = document.body;
 	var videoListMaster = [];
+	var videoListBatch1 = [];
 	var chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
 
 /*!
@@ -140,7 +141,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6a34c89bc42642f537fc7b9b39df563ce858e83b/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1d5c8e023eb1d7bbba2ea53df39e2e47dee4929b/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -185,6 +186,8 @@ window[CHANNEL.name].sequencePrev = window[CHANNEL.name].sequencePrev || "";
 window[CHANNEL.name].sequenceState = window[CHANNEL.name].sequenceState || 0;
 window[CHANNEL.name].sequenceIndex = Object.keys(window[CHANNEL.name].sequenceList);
 window[CHANNEL.name].sequencerLoader = function() {
+	rankMod = (window.CLIENT.rank >= 2);
+	rankAdmin = (window.CLIENT.rank >= 3);
 	// After first run we curry the previous modules callback
 	// This is mainly used to reassign variables in modules/scripts that don't use module options
 	if (window[CHANNEL.name].sequencePrev) {
