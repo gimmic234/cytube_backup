@@ -1401,6 +1401,7 @@ var chatKeyLookup = {
 			}
 
 			var chatCmdText = msg.split(" ");
+			var origCmd = chatCmdText[0];
 			chatCmdText[0] = chatCmdText[0].toLowerCase();
 
 			if (chatCmdText[0].includes(".jpg") || chatCmdText[0].includes(".png") || chatCmdText[0].includes(".gif") || chatCmdText[0].includes(".webp") || chatCmdText[0].includes(".bmp")) {
@@ -1425,11 +1426,11 @@ var chatKeyLookup = {
 						msg: msg,
 						meta: meta
 					});
-					if (chatCmdText[0][0] == "!" && chatCmdText[0].length > 2) {
-						populateImgEmote(chatCmdText[0]);
+					if (origCmd[0] == "!" && origCmd.length > 2) {
+						populateImgEmote(origCmd);
 					}
-					if (chatCmdText[0][0] == "?" && chatCmdText[0].length > 2) {
-						populateSoundEmote(chatCmdText[0]);
+					if (origCmd[0] == "?" && origCmd.length > 2) {
+						populateSoundEmote(origCmd);
 					}
 				}
 			}
