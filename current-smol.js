@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/588496505464291341/testo.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/423966721020395525/589120673318961173/higurashibg.png";
+var background_img = "http://media.discordapp.net/attachments/528150212875649065/560543017329623076/65bb612d175e3aa95bd8676064b81ceb.jpg?width=1248&height=702";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -114,6 +114,7 @@ var countdownText5 = "Movie Night";
 	var bodyElem = document.body;
 	var videoListMaster = [];
 	var videoListBatch1 = [];
+	var mutei;
 	var chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
 
 /*!
@@ -141,7 +142,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d4bc15156340b6a45f65c1f31b04cdc57852c5b0/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/93329bbccee37b41399bca6ea4430e81d7702d27/current-ext.js",
 		callback: true
 	},
 	'layout': {

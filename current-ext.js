@@ -1220,6 +1220,7 @@ var chatCmdLookup = {
 		    this.pause(); 
 		    this.currentTime = 0;
 		}); 
+		mutei = true;
 		$("#main").after("<div class='row amq-wrap'><iframe class='full' src='https://animemusicquiz.com/'></iframe></div>");
 		let height = $('#videowrap').height();
 		if (height < 100) {
@@ -2209,7 +2210,7 @@ window.loadInitializer = function() {
 	    		inPlay = true;
 		    }
 		});
-		if (!inPlay || playbgmCondition == "false") {
+		if (!inPlay || playbgmCondition == "false" && mutei) {
 			window[CHANNEL.name].audioFunction.playbgm1(playbgmCondition == "true");
 		}
 	});
