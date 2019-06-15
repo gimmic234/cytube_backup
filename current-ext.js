@@ -2210,8 +2210,15 @@ window.loadInitializer = function() {
 	    		inPlay = true;
 		    }
 		});
-		if (!inPlay || playbgmCondition == "false" && mutei) {
+		if (!inPlay || playbgmCondition == "false") {
 			window[CHANNEL.name].audioFunction.playbgm1(playbgmCondition == "true");
+		}
+
+		if (mutei) {
+			$('audio').each(function(){
+		    this.pause(); 
+		    this.currentTime = 0;
+		}); 
 		}
 	});
 

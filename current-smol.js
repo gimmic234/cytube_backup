@@ -114,7 +114,9 @@ var countdownText5 = "Movie Night";
 	var bodyElem = document.body;
 	var videoListMaster = [];
 	var videoListBatch1 = [];
-	var mutei;
+	if (!mutei) {
+		var mutei;
+	}
 	var chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
 
 /*!
@@ -142,7 +144,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/93329bbccee37b41399bca6ea4430e81d7702d27/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f823a698c50e0b02c11dc4568588a624fb692555/current-ext.js",
 		callback: true
 	},
 	'layout': {
