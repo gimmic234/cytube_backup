@@ -128,7 +128,7 @@ $('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style='
 $('.navbar-nav').append("<li><a id='randomVideo' href='javascript:void(0)' style=''>Queue Random</a></li>");
 
 if (window.CLIENT.rank >= 3) {
-	$('.navbar-nav').append("<li><a id='batchVid' href='javascript:void(0)' style=''>QueueBatch</a></li>");
+	$('.navbar-nav').append("<li><a id='batchVid' href='javascript:void(0)' style=''>Queue Batch</a></li>");
 }
 
 if (window.CLIENT.rank >= 3) {
