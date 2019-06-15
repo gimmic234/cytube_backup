@@ -1232,6 +1232,7 @@ var chatCmdLookup = {
 		if (!($('.amq-wrap').length > 0)) {
 			return;
 		}
+		mutei = false;
 		$(".amq-wrap").remove();
 	},
 	"/cdtitle1": function(chatCmdText) {
