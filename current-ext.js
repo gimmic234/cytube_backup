@@ -1417,10 +1417,10 @@ var chatKeyLookup = {
 			if (chatCmdLookup.hasOwnProperty(chatCmdText[0])) {
 				chatCmdLookup[chatCmdText[0]](chatCmdText);
 			} else {
-				if (imgLookup.hasOwnProperty(chatCmdText[0])) {
-					imgLookup[chatCmdText[0]]();
-				} else if (soundLookup.hasOwnProperty(chatCmdText[0])) {
-					soundLookup[chatCmdText[0]]();
+				if (imgLookup.hasOwnProperty(origCmd)) {
+					imgLookup[origCmd]();
+				} else if (soundLookup.hasOwnProperty(origCmd)) {
+					soundLookup[origCmd]();
 				} else {
 					window.socket.emit("chatMsg", {
 						msg: msg,
