@@ -53,6 +53,9 @@ $("#videoinfo").append("<div class='textheader'></div><div id='videoinfohead'><s
 $(".navbar-header").after($("#currenttitle")); //move video title below video player
 $("#headbottom").append("<button id='addmedia' title='Add Media' class='headbtn headbtnleft'></button>");
 $("#headbottom").append("<button id='randomVideoSmol' title='Queue Random' class='headbtn headbtnleft'>Queue random</button>");
+if (window.CLIENT.rank >= 3) {
+	$("#headbottom").append("<button id='batchVid' title='Queue Random' class='headbtn headbtnleft'>Queue Batch</button>");
+}
 $("#headbottom").append($("#newpollbtn"));
 $("#headbottom").append("<button id='morebtn' title='More Actions' data-toggle='dropdown' class='headbtn headbtnleft'></button>");
 $("#newpollbtn").addClass("headbtn headbtnleft");
@@ -126,10 +129,6 @@ $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
 
 $('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style=''>Achievements</a></li>");
 $('.navbar-nav').append("<li><a id='randomVideo' href='javascript:void(0)' style=''>Queue Random</a></li>");
-
-if (window.CLIENT.rank >= 3) {
-	$('.navbar-nav').append("<li><a id='batchVid' href='javascript:void(0)' style=''>Queue Batch</a></li>");
-}
 
 if (window.CLIENT.rank >= 3) {
 	let adminMenu = "<li class='dropdown'><a class='dropdown-toggle' href='#' data-toggle='dropdown'>Admin<b class='caret'></b></a><ul class='dropdown-menu'>";
