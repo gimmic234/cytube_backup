@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/588496505464291341/testo.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/514955949136674856/591409022612013056/e02e73d5a7105a69bcb8e9f9c435553e-700.jpg";
+var background_img = "http://media.discordapp.net/attachments/514955949136674856/591448397051985924/hTMQbSP.png";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -67,7 +67,7 @@ var countdown_utc5 = {
 var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/577558806935109662/22_-_SHI-KI.mp3";
 var playbgmCondition = "true";
 var bgmoff = "true";
-var background_img_auto5 = "http://cdn.discordapp.com/attachments/514955949136674856/591409022612013056/e02e73d5a7105a69bcb8e9f9c435553e-700.jpg";
+var background_img_auto5 = "http://media.discordapp.net/attachments/514955949136674856/591448397051985924/hTMQbSP.png";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
 var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/566391443464257556/01._Oukyo_Shul_Shagana.flac";
@@ -88,8 +88,11 @@ var countdownText5 = "Movie Night";
 	var bgm4volume = .5;
 	var bgm5volume = .5;
 	var event1Volume = .8;
-	var bggimmick = true;
+	if (!bggimmick) {
+		var bggimmick = true;
+	}	
 	var bggimmickurl = "https://media.discordapp.net/attachments/514955949136674856/591448425200091166/gZgG9XH.jpg.png";
+	var bggimmicktimeout = 16500;
 	var voteskipImg = 'https://cdn.discordapp.com/attachments/409829343263719427/511380810637770752/Ban_circle_font_awesome-red.svg.png';
 	var voteskipFinalImg = 'https://media.discordapp.net/attachments/409829343263719427/513465042797068341/1-2-fail-stamp-picture-thumb.png';
 	var voteskipFinalUrl = 'https://cdn.discordapp.com/attachments/409829343263719427/513476476289548318/Judges_Gavel-SoundBible.com-1321455227.wav';
@@ -146,7 +149,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ac484aacb9b0887fb991329ee3f2af62f61a324a/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b51d0688ab556dc5b322b1e6f2c1123ac9d66dd5/current-ext.js",
 		callback: true
 	},
 	'layout': {
