@@ -2236,6 +2236,11 @@ window.loadInitializer = function() {
 	waitForEl('#backg', function() {
 		if ($(document.getElementById('backg')).css('background-image') != "url(\"https:" + penguinBg + "\")") {
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
+			if (bggimmick) {
+				setTimeout(function() {
+					$(document.getElementById('backg')).css('background-image', "url(" + bggimmickurl + ")");
+				}, 1800);
+			}
 		}
 	});
 
