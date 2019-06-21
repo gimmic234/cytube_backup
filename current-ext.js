@@ -2239,7 +2239,7 @@ window.loadInitializer = function() {
 			if (bggimmick) {
 				setTimeout(function() {
 					$(document.getElementById('backg')).css('background-image', "url(" + bggimmickurl + ")");
-				}, 1800);
+				}, bggimmicktimeout);
 			}
 		}
 	});
