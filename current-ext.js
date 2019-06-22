@@ -2970,6 +2970,12 @@ function bindEventHandler() {
 		}
 	});
 
+	$(bodyElem).on('mouseover', '.queue_entry', function() {
+		let title = $(this).attr('title').split("|")[0];
+		let timeleft = $(this).find('.qe_time').attr('data-timeleft');
+		$(this).attr('title', title + ' | ' +timeleft);
+	});
+
 	$(bodyElem).on('click', '.btn-bg-save', function() {
 		let cmd = $(this).attr('data-value');
 		let url = $(this).parent().parent().find('.bg-url').val();
