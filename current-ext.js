@@ -1693,7 +1693,7 @@ function populateSoundEmote(command) {
 		success: function(result) {
 			let entries = result.feed.entry;
 			let bodyString = "<li><b>?utsu</b></li>";
-			bodyString += "<li><b>?psychopass</b></li>";
+			bodyString += "<li><b>?psychopass</b> [name(optional)]</li>";
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				temp[value.gsx$command.$t] = function() {
