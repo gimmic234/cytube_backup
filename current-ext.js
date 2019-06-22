@@ -1078,7 +1078,7 @@ var chatCmdLookup = {
 	"?psychopass": function(chatCmdText) {
 		var pplist = [1,2,3, 4];
 		var ppstate = pplist[Math.floor(Math.random() * pplist.length)];
-		var user = '';
+		var user = CLIENT.name + "'s ";
 		if (chatCmdText.length > 1) {
 			user = chatCmdText[1] + "'s ";
 		}
@@ -1095,7 +1095,7 @@ var chatCmdLookup = {
 			case 1:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is under 100"
+						msg: user + "psycho pass is " + Math.random() * (99 - 0)
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_under_100" + "soundemoteaudio"
@@ -1112,7 +1112,7 @@ var chatCmdLookup = {
 			case 2:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is over 100"
+						msg: user + "psycho pass is " + Math.random() * (299 - 101) + 101
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
@@ -1129,7 +1129,7 @@ var chatCmdLookup = {
 			case 3:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is over 300"
+						msg: user + "psycho pass is " + Math.random() * (999 - 301) + 301
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
@@ -1146,7 +1146,7 @@ var chatCmdLookup = {
 			case 4:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is over 300"
+						msg: user + "psycho pass is " + Math.random() * (999 - 301) + 301
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
