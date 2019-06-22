@@ -1090,12 +1090,11 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: "soundemoteaudio" + "pp_user_updated" + "soundemoteaudio"
 		});	
-
 		switch(ppstate) {
 			case 1:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is " + Math.random() * (99 - 0)
+						msg: user + "psycho pass is " + Math.floor(Math.random() * (99 - 0))
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_under_100" + "soundemoteaudio"
@@ -1103,6 +1102,9 @@ var chatCmdLookup = {
 				}, 3300);
 
 				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "the trigger will be locked."
+					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_lock" + "soundemoteaudio"
 					});						
@@ -1112,7 +1114,7 @@ var chatCmdLookup = {
 			case 2:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is " + Math.random() * (299 - 101) + 101
+						msg: user + "psycho pass is " + Math.floor(Math.random() * (299 - 101)) + 101
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
@@ -1120,6 +1122,9 @@ var chatCmdLookup = {
 				}, 3300);
 
 				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "mode: *non-lethal paralyzer.*"
+					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_non_lethal" + "soundemoteaudio"
 					});						
@@ -1129,7 +1134,7 @@ var chatCmdLookup = {
 			case 3:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is " + Math.random() * (999 - 301) + 301
+						msg: user + "psycho pass is " + Math.floor(Math.random() * (999 - 301)) + 301
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
@@ -1137,6 +1142,9 @@ var chatCmdLookup = {
 				}, 3300);
 
 				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "mode: *lethal eliminator.*"
+					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_lethal" + "soundemoteaudio"
 					});						
@@ -1146,7 +1154,7 @@ var chatCmdLookup = {
 			case 4:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is " + Math.random() * (999 - 301) + 301
+						msg: user + "psycho pass is " + Math.floor(Math.random() * (999 - 301)) + 301
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
@@ -1155,8 +1163,11 @@ var chatCmdLookup = {
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
+						msg: "mode: *destroy decomposer.*"
+					});
+					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_destroy" + "soundemoteaudio"
-					});						
+					});
 				}, 6400);
 				break;	
 		}
