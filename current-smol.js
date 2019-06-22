@@ -89,7 +89,7 @@ var countdownText5 = "Movie Night";
 	var bgm5volume = .5;
 	var event1Volume = .8;
 	if (!bggimmick) {
-		var bggimmick = true;
+		var bggimmick = false;
 	}	
 	var bggimmickurl = "https://media.discordapp.net/attachments/514955949136674856/591448425200091166/gZgG9XH.jpg.png";
 	var bggimmicktimeout = 16500;
@@ -149,7 +149,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/badf5fc8a252c393259a9ac5d3b1a4ffdfd4a2b9/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/da77ad705b1b59645c8ca76184e3cc368e2b8012/current-ext.js",
 		callback: true
 	},
 	'layout': {

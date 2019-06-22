@@ -1079,7 +1079,9 @@ var chatCmdLookup = {
 		var pplist = [1,2,3, 4];
 		var ppstate = pplist[Math.floor(Math.random() * pplist.length)];
 
-
+		window.socket.emit("chatMsg", {
+			msg: "@" + "//media.discordapp.net/attachments/514955949136674856/591845898607132683/psycho-pass-the-dominator-psycho-pass-dominator-927325009110450930.jpg.webp" + "@"
+		});	
 		window.socket.emit("chatMsg", {
 			msg: "soundemoteaudio" + "pp_user_updated" + "soundemoteaudio"
 		});	
@@ -1090,13 +1092,13 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_under_100" + "soundemoteaudio"
 					});						
-				}, 2300);
+				}, 3300);
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_lock" + "soundemoteaudio"
 					});						
-				}, 4600);
+				}, 6600);
 				break;
 
 			case 2:
@@ -1104,13 +1106,13 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
 					});						
-				}, 2300);
+				}, 3300);
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_non_lethal" + "soundemoteaudio"
 					});						
-				}, 5400);
+				}, 6400);
 				break;
 
 			case 3:
@@ -1118,13 +1120,13 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
 					});						
-				}, 2300);
+				}, 3300);
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_lethal" + "soundemoteaudio"
 					});						
-				}, 4400);
+				}, 6400);
 				break;	
 
 			case 4:
@@ -1132,13 +1134,13 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
 					});						
-				}, 2300);
+				}, 3300);
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_destroy" + "soundemoteaudio"
 					});						
-				}, 4400);
+				}, 6400);
 				break;	
 		}
 	},
@@ -1663,6 +1665,7 @@ function populateSoundEmote(command) {
 		success: function(result) {
 			let entries = result.feed.entry;
 			let bodyString = "<li><b>?utsu</b></li>";
+			bodyString += "<li><b>?psychopass</b></li>";
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				temp[value.gsx$command.$t] = function() {
