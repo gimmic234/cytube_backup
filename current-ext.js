@@ -2971,7 +2971,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('mouseover', '.queue_entry', function() {
-		let title = $(this).attr('title').split("|")[0];
+		let title = $(this).attr('title').split(" |")[0];
 		let timeleft = $(this).find('.qe_time').attr('data-timeleft');
 		$(this).attr('title', title + ' | ' +timeleft);
 	});
