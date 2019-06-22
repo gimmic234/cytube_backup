@@ -1114,7 +1114,7 @@ var chatCmdLookup = {
 			case 2:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is " + Math.floor(Math.random() * (Math.floor(299) - Math.ceil(101))) + 101
+						msg: user + "psycho pass is " + (Math.floor(Math.random() * (Math.floor(299) - Math.ceil(101))) + 101)
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
@@ -1134,7 +1134,7 @@ var chatCmdLookup = {
 			case 3:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is " + Math.floor(Math.random() * (Math.floor(999) - Math.ceil(301))) + 301
+						msg: user + "psycho pass is " + (Math.floor(Math.random() * (Math.floor(999) - Math.ceil(301))) + 301)
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
@@ -1154,7 +1154,7 @@ var chatCmdLookup = {
 			case 4:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
-						msg: user + "psycho pass is " + Math.floor(Math.random() * (Math.floor(999) - Math.ceil(301))) + 301
+						msg: user + "psycho pass is " + (Math.floor(Math.random() * (Math.floor(999) - Math.ceil(301))) + 301)
 					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
