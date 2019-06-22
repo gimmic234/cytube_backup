@@ -1108,7 +1108,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_lock" + "soundemoteaudio"
 					});						
-				}, 6600);
+				}, 6200);
 				break;
 
 			case 2:
@@ -1128,7 +1128,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_non_lethal" + "soundemoteaudio"
 					});						
-				}, 6400);
+				}, 7200);
 				break;
 
 			case 3:
@@ -1148,7 +1148,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_lethal" + "soundemoteaudio"
 					});						
-				}, 6400);
+				}, 6200);
 				break;	
 
 			case 4:
@@ -1168,7 +1168,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_destroy" + "soundemoteaudio"
 					});
-				}, 6400);
+				}, 6200);
 				break;	
 		}
 	},
