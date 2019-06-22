@@ -29,7 +29,7 @@ var background_img_auto4 = 'http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 6,
-	day3: 21,
+	day3: 28,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -149,7 +149,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b51d0688ab556dc5b322b1e6f2c1123ac9d66dd5/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/badf5fc8a252c393259a9ac5d3b1a4ffdfd4a2b9/current-ext.js",
 		callback: true
 	},
 	'layout': {

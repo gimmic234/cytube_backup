@@ -1075,6 +1075,73 @@ var chatCmdLookup = {
 			});	
 		}
 	},
+	"?psychopass": function() {
+		var pplist = [1,2,3, 4];
+		var ppstate = pplist[Math.floor(Math.random() * pplist.length)];
+
+
+		window.socket.emit("chatMsg", {
+			msg: "soundemoteaudio" + "pp_user_updated" + "soundemoteaudio"
+		});	
+
+		switch(ppstate) {
+			case 1:
+				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + "pp_under_100" + "soundemoteaudio"
+					});						
+				}, 2300);
+
+				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + "pp_lock" + "soundemoteaudio"
+					});						
+				}, 4600);
+				break;
+
+			case 2:
+				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
+					});						
+				}, 2300);
+
+				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + "pp_non_lethal" + "soundemoteaudio"
+					});						
+				}, 5400);
+				break;
+
+			case 3:
+				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
+					});						
+				}, 2300);
+
+				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + "pp_lethal" + "soundemoteaudio"
+					});						
+				}, 4400);
+				break;	
+
+			case 4:
+				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
+					});						
+				}, 2300);
+
+				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: "soundemoteaudio" + "pp_destroy" + "soundemoteaudio"
+					});						
+				}, 4400);
+				break;	
+		}
+	},
 	"!club": function() {
 		let clublist = [
 			"//media.discordapp.net/attachments/420183063562027008/554607523760570388/Club_Anniversary_Image.jpg",
@@ -1587,6 +1654,7 @@ function closeamq() {
 function populateSoundEmote(command) {
 	let temp = {};
 	temp["?utsu"] = function() {};
+	temp["?psychopass"] = function () {};
 	let temp2 = {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/12/public/values?alt=json",
@@ -1605,6 +1673,14 @@ function populateSoundEmote(command) {
 				}
 				temp2[value.gsx$command.$t] = value.gsx$audio.$t;
 			})
+			temp2["pp_user_updated"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840069070094349/user_updated.mp3";
+			temp2["pp_over_100"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840067719528468/target_acquired.mp3";
+			temp2["pp_over_300"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840066490335302/over_300.mp3";
+			temp2["pp_under_100"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840064485720107/under_100.mp3";
+			temp2["pp_lock"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840053412626443/locku_shimasu.mp3";
+			temp2["pp_lethal"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840060111061017/lethal_eliminator.mp3";
+			temp2["pp_non_lethal"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840061088202768/non_lethal_paralyzer.mp3";
+			temp2["pp_destroy"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840063491538963/detroy_decomposer.mp3";
 			$('#sound-emote-list').html(bodyString);
 			soundLookup = temp;
 			emoteAudioList = temp2;
