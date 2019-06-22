@@ -1075,9 +1075,14 @@ var chatCmdLookup = {
 			});	
 		}
 	},
-	"?psychopass": function() {
+	"?psychopass": function(chatCmdText) {
 		var pplist = [1,2,3, 4];
 		var ppstate = pplist[Math.floor(Math.random() * pplist.length)];
+		var user = '';
+		if (chatCmdText.length > 1) {
+			user = chatCmdText[1] + "'s ";
+		}
+		
 
 		window.socket.emit("chatMsg", {
 			msg: "@" + "//media.discordapp.net/attachments/514955949136674856/591845898607132683/psycho-pass-the-dominator-psycho-pass-dominator-927325009110450930.jpg.webp" + "@"
@@ -1090,8 +1095,11 @@ var chatCmdLookup = {
 			case 1:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
+						msg: user + "psycho pass is under 100"
+					});
+					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_under_100" + "soundemoteaudio"
-					});						
+					});
 				}, 3300);
 
 				setTimeout(function() {
@@ -1103,6 +1111,9 @@ var chatCmdLookup = {
 
 			case 2:
 				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: user + "psycho pass is over 100"
+					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
 					});						
@@ -1118,6 +1129,9 @@ var chatCmdLookup = {
 			case 3:
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
+						msg: user + "psycho pass is over 300"
+					});
+					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
 					});						
 				}, 3300);
@@ -1131,6 +1145,9 @@ var chatCmdLookup = {
 
 			case 4:
 				setTimeout(function() {
+					window.socket.emit("chatMsg", {
+						msg: user + "psycho pass is over 300"
+					});
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
 					});						
