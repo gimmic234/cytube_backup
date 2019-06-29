@@ -2455,8 +2455,10 @@ function bindEventHandler() {
 		}
 		if (localStorage[muteName] == "true") {
 			$(this).addClass("btn-danger");
-		} else {
 			$(this).removeClass("btn-success");
+		} else {
+			$(this).addClass("btn-success");
+			$(this).removeClass("btn-danger");
 		}
 
 	});
