@@ -1097,7 +1097,7 @@ var chatCmdLookup = {
 						msg: user + "crime coefficient is " + Math.floor(Math.random() * (Math.floor(99) - Math.ceil(0)))
 					});
 
-					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
 						window.socket.emit("chatMsg", {
 							msg: "soundemoteaudio" + "pp_under_100" + "soundemoteaudio"
 						});
@@ -1108,7 +1108,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "the trigger will be locked."
 					});
-					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
 						window.socket.emit("chatMsg", {
 							msg: "soundemoteaudio" + "pp_lock" + "soundemoteaudio"
 						});
@@ -1121,7 +1121,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: user + "crime coefficient is " + (Math.floor(Math.random() * (Math.floor(299) - Math.ceil(101))) + 101)
 					});
-					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
 						window.socket.emit("chatMsg", {
 							msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
 						});						
@@ -1132,7 +1132,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "Mode: *non-lethal paralyzer.*"
 					});
-					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
 						window.socket.emit("chatMsg", {
 							msg: "soundemoteaudio" + "pp_non_lethal" + "soundemoteaudio"
 						});						
@@ -1145,7 +1145,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: user + "crime coefficient is " + (Math.floor(Math.random() * (Math.floor(999) - Math.ceil(301))) + 301)
 					});
-					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
 						window.socket.emit("chatMsg", {
 							msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
 						});						
@@ -1156,7 +1156,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "Mode: *lethal eliminator.*"
 					});
-					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
 						window.socket.emit("chatMsg", {
 							msg: "soundemoteaudio" + "pp_lethal" + "soundemoteaudio"
 						});						
@@ -1169,7 +1169,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: user + "crime coefficient is " + (Math.floor(Math.random() * (Math.floor(999) - Math.ceil(301))) + 301)
 					});
-					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
 						window.socket.emit("chatMsg", {
 							msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
 						});						
@@ -1180,7 +1180,7 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: "Mode: *destroy decomposer.*"
 					});
-					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
 						window.socket.emit("chatMsg", {
 							msg: "soundemoteaudio" + "pp_destroy" + "soundemoteaudio"
 						});						
@@ -1702,8 +1702,8 @@ function populateSoundEmote(command) {
 	let temp = {};
 	temp["?utsu"] = function() {};
 	temp["?psychopass"] = function () {};
-	var psychoMute = (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) ? "btn-success" : "btn-danger";
-	var utsuMute = (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"]) ? "btn-success" : "btn-danger";
+	var psychoMute = (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") ? "btn-success" : "btn-danger";
+	var utsuMute = (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"] == "true") ? "btn-success" : "btn-danger";
 	let temp2 = {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/12/public/values?alt=json",
@@ -1712,11 +1712,11 @@ function populateSoundEmote(command) {
 		success: function(result) {
 			let entries = result.feed.entry;
 			let localCacheMute = true;
-			let bodyString = "<li><b>?utsu</b><button data-type='?utsu' class=\"btn btn-sm "+utsuMute+" btn-sound-emote-toggle\" title=\"Toggle ?utsu\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
-			bodyString += "<li><b>?psychopass</b> [name(optional)]<button data-type='?psychopass' class=\"btn btn-sm "+psychoMute+" btn-sound-emote-toggle\" title=\"Toggle ?psychopass\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
+			let bodyString = "<li><div class='col-sm-6'><b>?utsu</b></div><div class='col-sm-6'><button data-type='?utsu' class=\"btn btn-sm "+utsuMute+" btn-sound-emote-toggle\" title=\"Toggle ?utsu\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
+			bodyString += "<li><div class='col-sm-6'><b>?psychopass</b> [name(optional)]</div><div class='col-sm-6'><button data-type='?psychopass' class=\"btn btn-sm "+psychoMute+" btn-sound-emote-toggle\" title=\"Toggle ?psychopass\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 			entries.each(function(value, index) {
-				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t]) ? "btn-success" : "btn-danger";
-				bodyString += "<li><b>"+value.gsx$command.$t+"</b><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
+				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == "true") ? "btn-success" : "btn-danger";
+				bodyString += "<li><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-6'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 				temp[value.gsx$command.$t] = function() {
 					imgEmote(value.gsx$image.$t);
 					window.socket.emit("chatMsg", {
@@ -2451,7 +2451,7 @@ function bindEventHandler() {
 		} else {
 			localStorage[muteName] = ((localStorage[muteName]) ? false : true);
 		}
-		if (localStorage[muteName]) {
+		if (localStorage[muteName] == "true") {
 			$(this).addClass("btn-danger");
 		} else {
 			$(this).removeClass("btn-success");

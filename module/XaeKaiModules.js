@@ -661,7 +661,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!(noiseActive == "true")) return;
 		let audioplay = window[CHANNEL.name].audioNotice.utsu.audio[0].cloneNode(true);
 		audioplay.volume = window[CHANNEL.name].audioNotice.utsu.volume;
-		if (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"]) {
+		if (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"] == "true") {
 			audioplay.play();
 		}
 	},
@@ -676,7 +676,7 @@ window[CHANNEL.name].audioNotice.handler = {
 			window[CHANNEL.name].audioNotice["emote"].audio = $("<audio>").prop("id", "AudioNoticeBgm1Play").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["emote"].volume).append($("<source>").attr("src", emoteAudioList[key]).attr("type", "audio/ogg"));
 			let audioplay = window[CHANNEL.name].audioNotice.emote.audio[0].cloneNode(true);
 			audioplay.volume = window[CHANNEL.name].audioNotice.emote.volume;
-			if (localStorage[CHANNEL.name + "_" + key] == null || localStorage[CHANNEL.name + "_"] + key) {
+			if (localStorage[CHANNEL.name + "_" + key] == null || localStorage[CHANNEL.name + "_" + key] == "true") {
 				audioplay.play();
 			}
 		} else {
@@ -691,7 +691,9 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!(noiseActive == "true")) return;
 		let audioplay = window[CHANNEL.name].audioNotice.utsunot.audio[0].cloneNode(true);
 		audioplay.volume = window[CHANNEL.name].audioNotice.utsunot.volume;
-		audioplay.play();
+		if (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"] == "true") {
+			audioplay.play();
+		}
 	},
 	voteSkip: function() {
 		let vskip = $(".voteskipNotice:not( .parsed )");
