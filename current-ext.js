@@ -1096,18 +1096,23 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: user + "crime coefficient is " + Math.floor(Math.random() * (Math.floor(99) - Math.ceil(0)))
 					});
-					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + "pp_under_100" + "soundemoteaudio"
-					});
+
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+						window.socket.emit("chatMsg", {
+							msg: "soundemoteaudio" + "pp_under_100" + "soundemoteaudio"
+						});
+					}
 				}, 3300);
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
 						msg: "the trigger will be locked."
 					});
-					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + "pp_lock" + "soundemoteaudio"
-					});						
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+						window.socket.emit("chatMsg", {
+							msg: "soundemoteaudio" + "pp_lock" + "soundemoteaudio"
+						});
+					}
 				}, 6200);
 				break;
 
@@ -1116,18 +1121,22 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: user + "crime coefficient is " + (Math.floor(Math.random() * (Math.floor(299) - Math.ceil(101))) + 101)
 					});
-					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
-					});						
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+						window.socket.emit("chatMsg", {
+							msg: "soundemoteaudio" + "pp_over_100" + "soundemoteaudio"
+						});						
+					}
 				}, 3300);
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
 						msg: "Mode: *non-lethal paralyzer.*"
 					});
-					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + "pp_non_lethal" + "soundemoteaudio"
-					});						
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+						window.socket.emit("chatMsg", {
+							msg: "soundemoteaudio" + "pp_non_lethal" + "soundemoteaudio"
+						});						
+					}
 				}, 7200);
 				break;
 
@@ -1136,18 +1145,22 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: user + "crime coefficient is " + (Math.floor(Math.random() * (Math.floor(999) - Math.ceil(301))) + 301)
 					});
-					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
-					});						
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+						window.socket.emit("chatMsg", {
+							msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
+						});						
+					}
 				}, 3300);
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
 						msg: "Mode: *lethal eliminator.*"
 					});
-					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + "pp_lethal" + "soundemoteaudio"
-					});						
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+						window.socket.emit("chatMsg", {
+							msg: "soundemoteaudio" + "pp_lethal" + "soundemoteaudio"
+						});						
+					}
 				}, 6200);
 				break;	
 
@@ -1156,18 +1169,22 @@ var chatCmdLookup = {
 					window.socket.emit("chatMsg", {
 						msg: user + "crime coefficient is " + (Math.floor(Math.random() * (Math.floor(999) - Math.ceil(301))) + 301)
 					});
-					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
-					});						
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+						window.socket.emit("chatMsg", {
+							msg: "soundemoteaudio" + "pp_over_300" + "soundemoteaudio"
+						});						
+					}
 				}, 3300);
 
 				setTimeout(function() {
 					window.socket.emit("chatMsg", {
 						msg: "Mode: *destroy decomposer.*"
 					});
-					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + "pp_destroy" + "soundemoteaudio"
-					});
+					if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) {
+						window.socket.emit("chatMsg", {
+							msg: "soundemoteaudio" + "pp_destroy" + "soundemoteaudio"
+						});						
+					}
 				}, 6200);
 				break;	
 		}
@@ -1685,6 +1702,8 @@ function populateSoundEmote(command) {
 	let temp = {};
 	temp["?utsu"] = function() {};
 	temp["?psychopass"] = function () {};
+	var psychoMute = (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"]) ? "btn-success" : "btn-danger";
+	var utsuMute = (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"]) ? "btn-success" : "btn-danger";
 	let temp2 = {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/12/public/values?alt=json",
@@ -1692,10 +1711,12 @@ function populateSoundEmote(command) {
 		dataType: "json",
 		success: function(result) {
 			let entries = result.feed.entry;
-			let bodyString = "<li><b>?utsu</b></li>";
-			bodyString += "<li><b>?psychopass</b> [name(optional)]</li>";
+			let localCacheMute = true;
+			let bodyString = "<li><b>?utsu</b><button data-type='?utsu' class=\"btn btn-sm "+utsuMute+" btn-sound-emote-toggle\" title=\"Toggle ?utsu\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
+			bodyString += "<li><b>?psychopass</b> [name(optional)]<button data-type='?psychopass' class=\"btn btn-sm "+psychoMute+" btn-sound-emote-toggle\" title=\"Toggle ?psychopass\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
 			entries.each(function(value, index) {
-				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t]) ? "btn-success" : "btn-danger";
+				bodyString += "<li><b>"+value.gsx$command.$t+"</b><button data-type='"++value.gsx$command.$t++"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
 				temp[value.gsx$command.$t] = function() {
 					imgEmote(value.gsx$image.$t);
 					window.socket.emit("chatMsg", {
@@ -2419,6 +2440,23 @@ function bindEventHandler() {
 			$(".achievement-control").remove();
 			$('.btn-group-vertical').append("<button class='btn btn-xs btn-default achievement-control'>Add Achievement</button>");
 		}
+	});
+
+	$(bodyElem).on('click', '.btn-sound-emote-toggle', function() {
+		//add cache
+		var cmdMute = $(this).attr('data-type');
+		var muteName = CHANNEL.name + "_" + cmdMute;
+		if (localStorage[muteName] == null) {
+			localStorage[muteName] = false;
+		} else {
+			localStorage[muteName] = ((localStorage[muteName]) ? false : true);
+		}
+		if (localStorage[muteName]) {
+			$(this).addClass("btn-danger");
+		} else {
+			$(this).removeClass("btn-success");
+		}
+
 	});
 
 	$(bodyElem).on('click', '.achievement-add', function() {
