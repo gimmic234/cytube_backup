@@ -1712,11 +1712,11 @@ function populateSoundEmote(command) {
 		success: function(result) {
 			let entries = result.feed.entry;
 			let localCacheMute = true;
-			let bodyString = "<li><div class='col-sm-6'><b>?utsu</b></div><div class='col-sm-6'><button data-type='?utsu' class=\"btn btn-sm "+utsuMute+" btn-sound-emote-toggle\" title=\"Toggle ?utsu\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
-			bodyString += "<li><div class='col-sm-6'><b>?psychopass</b> [name(optional)]</div><div class='col-sm-6'><button data-type='?psychopass' class=\"btn btn-sm "+psychoMute+" btn-sound-emote-toggle\" title=\"Toggle ?psychopass\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
+			let bodyString = "<li><div class='col-sm-6'><b>?utsu</b></div><div class='col-sm-3'><button data-type='?utsu' class=\"btn btn-sm "+utsuMute+" btn-sound-emote-toggle\" title=\"Toggle ?utsu\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
+			bodyString += "<li><div class='col-sm-6'><b>?psychopass</b> [name(optional)]</div><div class='col-sm-3'><button data-type='?psychopass' class=\"btn btn-sm "+psychoMute+" btn-sound-emote-toggle\" title=\"Toggle ?psychopass\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 			entries.each(function(value, index) {
 				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == "true") ? "btn-success" : "btn-danger";
-				bodyString += "<li><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-6'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
+				bodyString += "<li><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-3'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 				temp[value.gsx$command.$t] = function() {
 					imgEmote(value.gsx$image.$t);
 					window.socket.emit("chatMsg", {
