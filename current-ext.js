@@ -1716,7 +1716,7 @@ function populateSoundEmote(command) {
 			bodyString += "<li><b>?psychopass</b> [name(optional)]<button data-type='?psychopass' class=\"btn btn-sm "+psychoMute+" btn-sound-emote-toggle\" title=\"Toggle ?psychopass\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
 			entries.each(function(value, index) {
 				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t]) ? "btn-success" : "btn-danger";
-				bodyString += "<li><b>"+value.gsx$command.$t+"</b><button data-type='"++value.gsx$command.$t++"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
+				bodyString += "<li><b>"+value.gsx$command.$t+"</b><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></li>";
 				temp[value.gsx$command.$t] = function() {
 					imgEmote(value.gsx$image.$t);
 					window.socket.emit("chatMsg", {
