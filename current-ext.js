@@ -1087,9 +1087,11 @@ var chatCmdLookup = {
 		window.socket.emit("chatMsg", {
 			msg: "@" + "//media.discordapp.net/attachments/514955949136674856/591845898607132683/psycho-pass-the-dominator-psycho-pass-dominator-927325009110450930.jpg.webp" + "@"
 		});	
-		window.socket.emit("chatMsg", {
-			msg: "soundemoteaudio" + "pp_user_updated" + "soundemoteaudio"
-		});	
+		if (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") {
+			window.socket.emit("chatMsg", {
+				msg: "soundemoteaudio" + "pp_user_updated" + "soundemoteaudio"
+			});	
+		}
 		switch(ppstate) {
 			case 1:
 				setTimeout(function() {
