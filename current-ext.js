@@ -2449,7 +2449,7 @@ function bindEventHandler() {
 		if (localStorage[muteName] == null) {
 			localStorage[muteName] = false;
 		} else {
-			localStorage[muteName] = ((localStorage[muteName]) ? false : true);
+			localStorage[muteName] = ((localStorage[muteName] == "true") ? false : true);
 		}
 		if (localStorage[muteName] == "true") {
 			$(this).addClass("btn-danger");
