@@ -2454,11 +2454,11 @@ function bindEventHandler() {
 			localStorage[muteName] = ((localStorage[muteName] == "true") ? false : true);
 		}
 		if (localStorage[muteName] == "true") {
-			$(this).addClass("btn-danger");
-			$(this).removeClass("btn-success");
-		} else {
 			$(this).addClass("btn-success");
 			$(this).removeClass("btn-danger");
+		} else {
+			$(this).addClass("btn-danger");
+			$(this).removeClass("btn-success");
 		}
 
 	});
