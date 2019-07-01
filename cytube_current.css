@@ -454,3 +454,8 @@ position: relative;
 .audio-btn-group {
     right: 0px !important;   
 }
+
+#sound-emote-list li, #sound-emote-list li div {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}

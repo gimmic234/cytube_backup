@@ -1595,7 +1595,7 @@ function renderStatus(status) {
 function readAchievement() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/10/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+1)+"/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1620,7 +1620,7 @@ function readAchievement() {
 function readVideoList() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/13/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+4)+"/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1644,7 +1644,7 @@ function readVideoList() {
 function readVideoListBatch1() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/14/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+5)+"/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1668,7 +1668,7 @@ function readVideoListBatch1() {
 function readSheet() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/9/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+0)+"/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1708,7 +1708,7 @@ function populateSoundEmote(command) {
 	var utsuMute = (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"] == "true") ? "btn-success" : "btn-danger";
 	let temp2 = {};
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/12/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+3)+"/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
@@ -1754,7 +1754,7 @@ function populateImgEmote(command) {
 	temp["!coffee"] = function() {};
 	temp["!club"] = function() {};
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/11/public/values?alt=json",
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+2)+"/public/values?alt=json",
 		method: "get",
 		dataType: "json",
 		success: function(result) {
