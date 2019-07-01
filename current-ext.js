@@ -1306,9 +1306,9 @@ var chatCmdLookup = {
 	},
 	"/wheelstream": function() {
 		if (rankAdmin) {
-			$("#customembed-content").val("<iframe src='https://www.youtube.com/channel/UCq6EtlnH3qCQIxVAhAc0KgA/live'></iframe>");
+			$("#customembed-content").val("<iframe src='https://www.youtube.com/embed/live_stream?channel=UCq6EtlnH3qCQIxVAhAc0KgA'></iframe>");
 			$("#ce_queue_end").click();
-			let amq = $("a[href='https://www.youtube.com/channel/UCq6EtlnH3qCQIxVAhAc0KgA/live'");
+			let amq = $("a[href='https://www.youtube.com/embed/live_stream?channel=UCq6EtlnH3qCQIxVAhAc0KgA'");
 			if (amq.length > 0) {
 				amq.parent().find("button").click()
 			}
