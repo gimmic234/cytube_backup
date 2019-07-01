@@ -1304,6 +1304,16 @@ var chatCmdLookup = {
 			msg: "coffeeimg" + "//media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif" + "coffeeimg"
 		});
 	},
+	"/wheelstream": function() {
+		if (rankAdmin) {
+			$("#customembed-content").val("<iframe src='https://www.youtube.com/channel/UCq6EtlnH3qCQIxVAhAc0KgA/live'></iframe>");
+			$("#ce_queue_end").click();
+			let amq = $("a[href='https://www.youtube.com/channel/UCq6EtlnH3qCQIxVAhAc0KgA/live'");
+			if (amq.length > 0) {
+				amq.parent().find("button").click()
+			}
+		}
+	}
 	"/amqq": function() {
 		if (rankAdmin) {
 			$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
