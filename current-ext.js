@@ -1313,7 +1313,7 @@ var chatCmdLookup = {
 				amq.parent().find("button").click()
 			}
 		}
-	}
+	},
 	"/amqq": function() {
 		if (rankAdmin) {
 			$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
