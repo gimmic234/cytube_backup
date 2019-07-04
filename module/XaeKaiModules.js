@@ -508,13 +508,12 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!nicoEffectOn) {
 			return;
 		}
-		console.log(data);
 		var heightlist = [2,3,4,5,6,7,8,9,10];
-		let height = Math.floor(Math.random() * $('#ytapiplayer').height()) + 50;
+		let height = Math.floor(Math.random() * ($('#ytapiplayer').height() * 0.7)) + 50;
 		let textId = CLIENT.name + Math.floor(Math.random() * 1000);
 		var textHeight = heightlist[Math.floor(Math.random() * heightlist.length)];
 		let vidWidth = $('#ytapiplayer').width();
-		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+"test"+"</div>");
+		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+data.msg+"</div>");
 		$('#'+textId).css({top : height+"px"});
 		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-200px"}, 7000);
 		setTimeout(function() {
