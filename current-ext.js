@@ -728,12 +728,12 @@ var chatCmdLookup = {
 			editJs(45, [0, "false"]);
 		}
 	},
-	'/textOn': function() {
+	'/texton': function() {
 		if (rankAdmin) {
 			editJs(83, [0, "true"]);
 		}
 	},
-	'/textOff': function() {
+	'/textoff': function() {
 		if (rankAdmin) {
 			editJs(83, [0, "false"]);
 		}
