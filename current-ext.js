@@ -728,6 +728,16 @@ var chatCmdLookup = {
 			editJs(45, [0, "false"]);
 		}
 	},
+	'/textOn': function() {
+		if (rankAdmin) {
+			editJs(83, [0, "true"]);
+		}
+	},
+	'/textOff': function() {
+		if (rankAdmin) {
+			editJs(83, [0, "false"]);
+		}
+	},
 	'/img1fixed': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', '');

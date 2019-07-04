@@ -81,6 +81,7 @@ var countdownText2 = "Seasonal";
 var countdownText3 = "Higurashi";
 var countdownText4 = "E3";
 var countdownText5 = "Movie Night";
+var nicoEffectOnControl = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
 	var bgm2volume = .5;
@@ -88,7 +89,7 @@ var countdownText5 = "Movie Night";
 	var bgm4volume = .5;
 	var bgm5volume = .5;
 	var event1Volume = .8;
-	var nicoEffectOn = true;
+	var nicoEffectOn = (nicoEffectOnControl== "true") ? true : false;
 	if (!bggimmick) {
 		var bggimmick = false;
 	}	
@@ -181,7 +182,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f7cc04bbdb74266ffc58d85ddbdc7602407103b5/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f1e7b20f0bae55a21d2e32333ac148b2492bc6cb/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

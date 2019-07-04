@@ -43,8 +43,6 @@ $("#userlisttoggle").after($("#emotelistbtn"));
 $("#main").after("<div id='videoinfo' class='section'></div>");//create box to contain video title, description, and playlist options.
 $("#main").after($("#drinkbarwrap"));
 $("#drinkbarwrap").after("<div id='textFloat1'></div>");
-$("#drinkbarwrap").after("<div id='textFloat2'></div>");
-$("#drinkbarwrap").after("<div id='textFloat3'></div>");
 $("#drinkbarwrap").after("<div id='voteskipwrap'></div>");
 $("#voteskipwrap").after("<img id='voteskipNope' src='"+voteskipImg+"' hidden>");
 $("#voteskipwrap").after("<img id='voteskipFinal' src='"+voteskipFinalImg+"' hidden>");
