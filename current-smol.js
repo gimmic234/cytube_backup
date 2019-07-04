@@ -88,6 +88,7 @@ var countdownText5 = "Movie Night";
 	var bgm4volume = .5;
 	var bgm5volume = .5;
 	var event1Volume = .8;
+	var nicoEffectOn = true;
 	if (!bggimmick) {
 		var bggimmick = false;
 	}	
@@ -180,7 +181,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/14ba45babff299a911652ff8fd20b4982bc22b98/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/58ca9cc6a69a7944b217336ba8d7231da2c4caf0/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

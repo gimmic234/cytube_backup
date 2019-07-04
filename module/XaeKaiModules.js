@@ -510,7 +510,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		}
 		var heightlist = [2,3,4,5,6,7,8,9,10];
 		let textId = Math.random();
-		var textHeight = pplist[Math.floor(Math.random() * pplist.length)];
+		var textHeight = heightlist[Math.floor(Math.random() * heightlist.length)];
 		let vidWidth = $('#ytapiplayer').width();
 		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+"test"+"</div>");
 		$('#'+textId).css({"top": textHeight+"% !important"});
@@ -915,7 +915,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].chatNotice.handler["updateAchievementList"](data);
 		window[CHANNEL.name].chatNotice.handler["updateSoundEmote"](data);
 		window[CHANNEL.name].chatNotice.handler["hideEmote"]();
-		window[CHANNEL.name].chatNotice.handler["niceoEffect"](data);
+		window[CHANNEL.name].chatNotice.handler["nicoEffect"](data);
 	});
 
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {
