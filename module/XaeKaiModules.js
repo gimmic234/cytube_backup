@@ -527,24 +527,22 @@ window[CHANNEL.name].chatNotice.handler = {
 		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000, 'linear', function() { 
 			$("#"+textId).remove();
 		} );
-		setTimeout(function() {
-			$(".updateImgEmote:not( .parsed )").addClass('parsed');
-			$(".updateAchievementList:not( .parsed )").addClass('parsed');
-			$(".updateSoundEmote:not( .parsed )").addClass('parsed');
-			$(".voteskipNotice:not( .parsed )").addClass('parsed');
-			$(".semote:not( .parsed )").addClass('parsed');
-			$(".amq:not( .amqdone )").addClass('amqdone');
-			$(".amqclose:not( .amqclosedone )").addClass('amqclosedone');
-			$(".utsu:not( .parsed )").addClass('parsed');
-			$(".coffee:not( .coffeedone )").addClass('coffeedone');
-			$(".utsunot:not( .parsed )").addClass('parsed');
-			$(".final:not( .parsed )").addClass('parsed');
-			$(".nick-highlight:not( .parsed )").addClass('parsed');
-			$(".img1show:not( .parsed )").addClass('parsed');
-			$(".img1hide:not( .parsed )").addClass('parsed');
-			$(".fixedimg1show:not( .parsed )").addClass('parsed');
-			4(".fixedimg1hide:not( .parsed )").addClass('parsed');
-		}, 1000);
+		$(".updateImgEmote:not( .parsed )").addClass('parsed');
+		$(".updateAchievementList:not( .parsed )").addClass('parsed');
+		$(".updateSoundEmote:not( .parsed )").addClass('parsed');
+		$(".voteskipNotice:not( .parsed )").addClass('parsed');
+		$(".semote:not( .parsed )").addClass('parsed');
+		$(".amq:not( .amqdone )").addClass('amqdone');
+		$(".amqclose:not( .amqclosedone )").addClass('amqclosedone');
+		$(".utsu:not( .parsed )").addClass('parsed');
+		$(".coffee:not( .coffeedone )").addClass('coffeedone');
+		$(".utsunot:not( .parsed )").addClass('parsed');
+		$(".final:not( .parsed )").addClass('parsed');
+		$(".nick-highlight:not( .parsed )").addClass('parsed');
+		$(".img1show:not( .parsed )").addClass('parsed');
+		$(".img1hide:not( .parsed )").addClass('parsed');
+		$(".fixedimg1show:not( .parsed )").addClass('parsed');
+		$(".fixedimg1hide:not( .parsed )").addClass('parsed');
 	},
 	hideEmote: function() {
 		let emoteBlockList = [];
