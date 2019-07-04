@@ -517,7 +517,12 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!nicoEffectOn) {
 			return;
 		}
-		var buff = $('#messagebuffer');
+		let height = Math.floor(Math.random() * ($('#ytapiplayer').height() * 0.7)) + 70;
+		let textId = CLIENT.name + Math.floor(Math.random() * 1000);
+		let vidWidth = $('#ytapiplayer').width();
+		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+data.msg+"</div>");
+
+		var buff = $('#textFloat1');
 		buff.find(".updateImgEmote:not( .parsed )").addClass('parsed');
 		buff.find(".updateAchievementList:not( .parsed )").addClass('parsed');
 		buff.find(".updateSoundEmote:not( .parsed )").addClass('parsed');
@@ -537,10 +542,6 @@ window[CHANNEL.name].chatNotice.handler = {
 		buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
 		buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
 		
-		let height = Math.floor(Math.random() * ($('#ytapiplayer').height() * 0.7)) + 70;
-		let textId = CLIENT.name + Math.floor(Math.random() * 1000);
-		let vidWidth = $('#ytapiplayer').width();
-		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+data.msg+"</div>");
 		$('#'+textId).css({top : height+"px"});
 		let innerWidth = $('#'+textId).textWidth() + 200;
 		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000);
