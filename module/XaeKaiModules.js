@@ -524,7 +524,7 @@ window[CHANNEL.name].chatNotice.handler = {
 
 		$('#'+textId).css({top : height+"px"});
 		let innerWidth = $('#'+textId).textWidth() + 200;
-		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000, linear, function() { 
+		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000, 'linear', function() { 
 			$("#"+textId).remove();
 		} );
 		setTimeout(function() {
