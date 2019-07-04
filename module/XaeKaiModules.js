@@ -502,6 +502,15 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
 };
 
+$.fn.textWidth = function(){
+  var html_org = $(this).html();
+  var html_calc = '<span>' + html_org + '</span>';
+  $(this).html(html_calc);
+  var width = $(this).find('span:first').width();
+  $(this).html(html_org);
+  return width;
+};
+
 window[CHANNEL.name].chatNotice = {};
 window[CHANNEL.name].chatNotice.handler = {
 	nicoEffect: function(data) {
@@ -514,7 +523,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		let vidWidth = $('#ytapiplayer').width();
 		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+data.msg+"</div>");
 		$('#'+textId).css({top : height+"px"});
-		let innerWidth = $('#'+textId).innerWidth() + 200;
+		let innerWidth = $('#'+textId).textWidth() + 200;
 		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000);
 		setTimeout(function() {
 			$("#"+textId).remove();
