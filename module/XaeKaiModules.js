@@ -522,32 +522,32 @@ window[CHANNEL.name].chatNotice.handler = {
 		let vidWidth = $('#ytapiplayer').width();
 		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+data.msg+"</div>");
 
-		var buff = $('#textFloat1');
-		buff.find(".updateImgEmote:not( .parsed )").addClass('parsed');
-		buff.find(".updateAchievementList:not( .parsed )").addClass('parsed');
-		buff.find(".updateSoundEmote:not( .parsed )").addClass('parsed');
-		buff.find(".voteskipNotice:not( .parsed )").addClass('parsed');
-		buff.find(".semote:not( .parsed )").addClass('parsed');
-		buff.find(".amq:not( .amqdone )").addClass('amqdone');
-		buff.find(".amqclose:not( .amqclosedone )").addClass('amqclosedone');
-		buff.find(".utsu:not( .parsed )").addClass('parsed');
-		buff.find(".coffee:not( .coffeedone )").addClass('coffeedone');
-		buff.find(".utsunot:not( .parsed )").addClass('parsed');
-		buff.find(".final:not( .parsed )").addClass('parsed');
-		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
-		window[CHANNEL.name].audioNotice.handler["stopEvent"]();
-		buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
-		buff.find(".img1show:not( .parsed )").addClass('parsed');
-		buff.find(".img1hide:not( .parsed )").addClass('parsed');
-		buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
-		buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
-		
 		$('#'+textId).css({top : height+"px"});
 		let innerWidth = $('#'+textId).textWidth() + 200;
-		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000);
-		setTimeout(function() {
+		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000, linear, function() { 
 			$("#"+textId).remove();
-		}, 8000);
+		} );
+		setTimeout(function() {
+			var buff = $('#textFloat1');
+			buff.find(".updateImgEmote:not( .parsed )").addClass('parsed');
+			buff.find(".updateAchievementList:not( .parsed )").addClass('parsed');
+			buff.find(".updateSoundEmote:not( .parsed )").addClass('parsed');
+			buff.find(".voteskipNotice:not( .parsed )").addClass('parsed');
+			buff.find(".semote:not( .parsed )").addClass('parsed');
+			buff.find(".amq:not( .amqdone )").addClass('amqdone');
+			buff.find(".amqclose:not( .amqclosedone )").addClass('amqclosedone');
+			buff.find(".utsu:not( .parsed )").addClass('parsed');
+			buff.find(".coffee:not( .coffeedone )").addClass('coffeedone');
+			buff.find(".utsunot:not( .parsed )").addClass('parsed');
+			buff.find(".final:not( .parsed )").addClass('parsed');
+			window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
+			window[CHANNEL.name].audioNotice.handler["stopEvent"]();
+			buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
+			buff.find(".img1show:not( .parsed )").addClass('parsed');
+			buff.find(".img1hide:not( .parsed )").addClass('parsed');
+			buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
+			buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
+		}, 1000);
 	},
 	hideEmote: function() {
 		let emoteBlockList = [];
