@@ -514,7 +514,8 @@ window[CHANNEL.name].chatNotice.handler = {
 		let vidWidth = $('#ytapiplayer').width();
 		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+data.msg+"</div>");
 		$('#'+textId).css({top : height+"px"});
-		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+vidWidth+"px"}, 8000);
+		let innerWidth = $('#'+textId).innerWidth() + 200;
+		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000);
 		setTimeout(function() {
 			$("#"+textId).remove();
 		}, 8000);
