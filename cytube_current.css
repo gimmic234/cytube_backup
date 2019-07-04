@@ -482,7 +482,9 @@ position: relative;
     float: left;
     left: 28%;
     right: 0;
-    top: -1%;
+    font-size: 50px;
+    top: 5%;
     position: absolute;
     opacity: 1;
+    text-shadow: 2px 2px #FFFF33;
 }

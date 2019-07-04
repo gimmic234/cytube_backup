@@ -504,6 +504,18 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 
 window[CHANNEL.name].chatNotice = {};
 window[CHANNEL.name].chatNotice.handler = {
+	nicoEffect: function(data) {
+		if (!nicoEffectOn) {
+			return;
+		}
+		var heightlist = [2,3,4,5,6,7,8,9,10];
+		let textId = Math.random();
+		var textHeight = pplist[Math.floor(Math.random() * pplist.length)];
+		let vidWidth = $('#ytapiplayer').width();
+		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+"test"+"</div>");
+		$('#'+textId).css({"top": textHeight+"% !important"});
+		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-200px"}, 7000);
+	},
 	hideEmote: function() {
 		let emoteBlockList = [];
 		if (localStorage[CHANNEL.name + "_hideEmote"] != undefined) {
@@ -903,6 +915,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].chatNotice.handler["updateAchievementList"](data);
 		window[CHANNEL.name].chatNotice.handler["updateSoundEmote"](data);
 		window[CHANNEL.name].chatNotice.handler["hideEmote"]();
+		window[CHANNEL.name].chatNotice.handler["niceoEffect"](data);
 	});
 
 	if (window[CHANNEL.name] && window[CHANNEL.name].modulesOptions && window[CHANNEL.name].modulesOptions.audioNotice) {
