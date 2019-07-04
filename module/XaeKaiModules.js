@@ -528,25 +528,22 @@ window[CHANNEL.name].chatNotice.handler = {
 			$("#"+textId).remove();
 		} );
 		setTimeout(function() {
-			var buff = $('#textFloat1');
-			buff.find(".updateImgEmote:not( .parsed )").addClass('parsed');
-			buff.find(".updateAchievementList:not( .parsed )").addClass('parsed');
-			buff.find(".updateSoundEmote:not( .parsed )").addClass('parsed');
-			buff.find(".voteskipNotice:not( .parsed )").addClass('parsed');
-			buff.find(".semote:not( .parsed )").addClass('parsed');
-			buff.find(".amq:not( .amqdone )").addClass('amqdone');
-			buff.find(".amqclose:not( .amqclosedone )").addClass('amqclosedone');
-			buff.find(".utsu:not( .parsed )").addClass('parsed');
-			buff.find(".coffee:not( .coffeedone )").addClass('coffeedone');
-			buff.find(".utsunot:not( .parsed )").addClass('parsed');
-			buff.find(".final:not( .parsed )").addClass('parsed');
-			window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
-			window[CHANNEL.name].audioNotice.handler["stopEvent"]();
-			buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
-			buff.find(".img1show:not( .parsed )").addClass('parsed');
-			buff.find(".img1hide:not( .parsed )").addClass('parsed');
-			buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
-			buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
+			$(".updateImgEmote:not( .parsed )").addClass('parsed');
+			$(".updateAchievementList:not( .parsed )").addClass('parsed');
+			$(".updateSoundEmote:not( .parsed )").addClass('parsed');
+			$(".voteskipNotice:not( .parsed )").addClass('parsed');
+			$(".semote:not( .parsed )").addClass('parsed');
+			$(".amq:not( .amqdone )").addClass('amqdone');
+			$(".amqclose:not( .amqclosedone )").addClass('amqclosedone');
+			$(".utsu:not( .parsed )").addClass('parsed');
+			$(".coffee:not( .coffeedone )").addClass('coffeedone');
+			$(".utsunot:not( .parsed )").addClass('parsed');
+			$(".final:not( .parsed )").addClass('parsed');
+			$(".nick-highlight:not( .parsed )").addClass('parsed');
+			$(".img1show:not( .parsed )").addClass('parsed');
+			$(".img1hide:not( .parsed )").addClass('parsed');
+			$(".fixedimg1show:not( .parsed )").addClass('parsed');
+			4(".fixedimg1hide:not( .parsed )").addClass('parsed');
 		}, 1000);
 	},
 	hideEmote: function() {
