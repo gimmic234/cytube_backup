@@ -518,7 +518,7 @@ window[CHANNEL.name].chatNotice.handler = {
 			return;
 		}
 		
-		let height = Math.floor(Math.random() * ($('#ytapiplayer').height() * 0.7)) + 50;
+		let height = Math.floor(Math.random() * ($('#ytapiplayer').height() * 0.7)) + 70;
 		let textId = CLIENT.name + Math.floor(Math.random() * 1000);
 		let vidWidth = $('#ytapiplayer').width();
 		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+data.msg+"</div>");
