@@ -2101,6 +2101,7 @@ function videoDisplayToggle() {
 		$(document.getElementById('voteskipNope')).hide();
 		$(document.getElementById('voteskipFinal')).hide();
 		$(document.getElementById('videowrap')).hide();
+		nicoEffectOn = false;
 	} else {
 		if (bgmoff == "true") {
 			$('audio').each(function(){
@@ -2111,6 +2112,7 @@ function videoDisplayToggle() {
 		var title = $('.queue_active').find('.qe_title').html();
 		$('#currenttitle').html(title);
 		$(document.getElementById('videowrap')).show();
+		nicoEffectOn = (nicoEffectOnControl== "true") ? true : false;
 	}
 }
 
