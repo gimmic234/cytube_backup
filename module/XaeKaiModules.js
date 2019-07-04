@@ -509,12 +509,15 @@ window[CHANNEL.name].chatNotice.handler = {
 			return;
 		}
 		var heightlist = [2,3,4,5,6,7,8,9,10];
-		let textId = Math.random();
+		let textId = CLIENT.name + Math.floor(Math.random() * 100);
 		var textHeight = heightlist[Math.floor(Math.random() * heightlist.length)];
 		let vidWidth = $('#ytapiplayer').width();
 		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+"test"+"</div>");
 		$('#'+textId).css({"top": textHeight+"% !important"});
 		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-200px"}, 7000);
+		setTimeout(function() {
+			$("#"+textId).remove();
+		}, 7000);
 	},
 	hideEmote: function() {
 		let emoteBlockList = [];
