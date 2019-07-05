@@ -267,12 +267,12 @@ $("#morebtn").click(function(event){$("#headbottom .dropdown-menu").css("left", 
 
 
 var updateScrollHandles = function() {
-	var scrollbar = $("#mainpage > .nano .nano-slider");
+	/*var scrollbar = $("#mainpage > .nano .nano-slider");
 	var scrollbarOffset = scrollbar.height()/2 + Number(scrollbar.attr("style").match(/\d+(?:.\d+)*(?=px\))/));
 	$("#mHandle-left").attr("style", "transform: translate(" + (0 - $("#mHandle-left").width() - scrollbar.width() - 1) + "px, " + (scrollbarOffset + $("#mHandle-left").height()/2) + "px);");
 	$("#mHandle-right").attr("style", "transform: translate(-1px, "+ (scrollbarOffset + $("#mHandle-right").height()/2) + "px);");
 	$("#mHandle-mid").attr("style", "transform: translate(" + (0 - scrollbar.width() - 1) + "px, " + (scrollbarOffset + $("#mHandle-mid").height()/2) + "px);");
-	$(".mHandle").css("left", $("#splitRatio").attr("split") + "%");
+	$(".mHandle").css("left", $("#splitRatio").attr("split") + "%");*/
 }
 
 $("#mainpage > .nano .nano-pane").hover(function(eventData) {
@@ -365,13 +365,13 @@ new ResizeSensor($("#maincontain .container-fluid"),function() {
 
 //fix for scrolling when hovering over new YT embed
 $("#maincontain .nano-slider").mousedown(function() {
-	/*$("#main").addClass("disablehover");
+	$("#main").addClass("disablehover");
 	$("#main").mouseenter(function(eventData) {
 		if(eventData.buttons == 0) {
 			$("#main").removeClass("disablehover");
 			$(this).off("mouseenter");
 		}
-	});*/
+	});
 });
 //$(window).mouseup(function(eventData) {mouseupped = true; console.log(eventData)});
 
