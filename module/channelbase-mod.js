@@ -365,13 +365,13 @@ new ResizeSensor($("#maincontain .container-fluid"),function() {
 
 //fix for scrolling when hovering over new YT embed
 $("#maincontain .nano-slider").mousedown(function() {
-	$("#main").addClass("disablehover");
+	/*$("#main").addClass("disablehover");
 	$("#main").mouseenter(function(eventData) {
 		if(eventData.buttons == 0) {
 			$("#main").removeClass("disablehover");
 			$(this).off("mouseenter");
 		}
-	});
+	});*/
 });
 //$(window).mouseup(function(eventData) {mouseupped = true; console.log(eventData)});
 
