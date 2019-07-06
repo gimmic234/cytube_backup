@@ -276,8 +276,8 @@ var updateScrollHandles = function() {
 }
 
 $("#mainpage > .nano .nano-pane").hover(function(eventData) {
-	//updateScrollHandles();
-	//$("#mainpage").addClass("scrollHover").addClass("scrolling");
+	updateScrollHandles();
+	$("#mainpage").addClass("scrollHover").addClass("scrolling");
 	$(window).off("mousemove");
 }, function(eventData) {
 	if(eventData.buttons == 0) {

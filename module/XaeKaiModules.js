@@ -517,10 +517,20 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!nicoEffectOn) {
 			return;
 		}
+		let msgParsed = data.msg.split(/\s+/);
+		let tempBuffer = "";
+		msgParsed.each(function(msg) {
+			if (CHANNEL.emoteMap.hasOwnProperty(msg)) {
+				tempBuffer += " " + "<img src='"+CHANNEL.emoteMap[msg].image+"' class='channel-emote'>";
+			} else {
+				tempBuffer += " " + msg;
+			}
+		});
+
 		let height = Math.floor(Math.random() * ($('#ytapiplayer').height() * 0.7)) + 70;
 		let textId = CLIENT.name + Math.floor(Math.random() * 1000);
 		let vidWidth = $('#ytapiplayer').width();
-		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+data.msg+"</div>");
+		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+tempBuffer+"</div>");
 
 		$('#'+textId).css({top : height+"px"});
 		let innerWidth = $('#'+textId).textWidth() + 200;
