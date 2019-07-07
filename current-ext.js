@@ -2274,6 +2274,13 @@ window.loadInitializer = function() {
 		if (amq.length > 0) {
 			amq.parent().find("button").click()
 		}
+		if (nicoEffectOn) {
+			$('#nico-on').show();
+			$('#nico-off').hide();
+		} else {
+			$('#nico-on').hide();
+			$('#nico-off').show();
+		}		
 
 		rankMod = (window.CLIENT.rank >= 2);
 		rankAdmin = (window.CLIENT.rank >= 3);
@@ -2439,6 +2446,12 @@ window.loadInitializer = function() {
 function bindEventHandler() {
 	$(bodyElem).on('click', '#export-chatlog', function() {
 		chatCmdLookup['/export']();
+	});
+	$(bodyElem).on('click', '#nico-on', function() {
+		chatCmdLookup['/textoff']();
+	});
+	$(bodyElem).on('click', '#nico-off', function() {
+		chatCmdLookup['/texton']();
 	});
 
 	$(bodyElem).on('click', '.deleteMessageBtn', function() {

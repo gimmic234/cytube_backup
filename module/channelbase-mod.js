@@ -146,6 +146,8 @@ if (window.CLIENT.rank >= 3) {
 
 if (window.CLIENT.rank >= 3) {
 	$('.navbar-nav').append("<li><a id='export-chatlog' href='javascript:void(0)' style=''>Chatlog</a></li>");
+	$('.navbar-nav').append("<li><a id='nico-on' class='btn-danger' href='javascript:void(0)' style='' hidden>Nico</a></li>");
+	$('.navbar-nav').append("<li><a id='nico-off' class='btn-success' href='javascript:void(0)' style='' hidden>Nico</a></li>");
 }
 $('.navbar-nav').append("<li><a id='member-list' href='javascript:void(0)' style=''>Club Members</a></li>");
 $('.navbar-nav').append("<li><a id='amq-open' href='javascript:void(0)' style=''>AMQ</a></li>");
