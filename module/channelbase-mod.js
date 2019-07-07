@@ -55,7 +55,7 @@ $(".navbar-header").after($("#currenttitle")); //move video title below video pl
 $("#headbottom").append("<button id='addmedia' title='Add Media' class='headbtn headbtnleft'></button>");
 $("#headbottom").append("<button id='randomVideoSmol' title='Queue Random' class='headbtn headbtnleft'>Queue random</button>");
 if (window.CLIENT.rank >= 3) {
-	$("#headbottom").append("<button id='batchVid' title='Queue Random' class='headbtn headbtnleft'>Queue Batch</button>");
+	$("#headbottom").append("<button id='batchVid' title='Queue Batch' class='headbtn headbtnleft'>Queue Batch</button>");
 }
 $("#headbottom").append($("#newpollbtn"));
 $("#headbottom").append("<button id='morebtn' title='More Actions' data-toggle='dropdown' class='headbtn headbtnleft'></button>");
