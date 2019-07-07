@@ -1229,7 +1229,7 @@ var chatCmdLookup = {
 			if (chatCmdText[1] == "all") {
 				let connectedUsers = $('#userlist').find('strong');
 				connectedUsers.each(function(index, userc) {
-					if (!curr_alist[userc.innerText]) {
+					if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
 						curr_alist[userc.innerText] = [];
 						curr_alist[userc.innerText].push(stringItem);
 					} else {

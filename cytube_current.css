@@ -193,6 +193,7 @@ input#chatline {
 .chatimg {
     max-width: 100%;
     max-height: 200px;
+    border-radius: 8px;
 }
 
 .countdownbaseActive {
@@ -487,7 +488,6 @@ position: relative;
     display: inline !important;
     max-width: 110px !important;
     max-height: 110px !important;
-    border-radius: 0px !important;
     box-shadow: none !important;
 }
 
