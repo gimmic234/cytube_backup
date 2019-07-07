@@ -111,12 +111,6 @@ input#chatline {
     filter: blur(0px) !important;
 }
 
-.channel-emote {
-    display: inline !important;
-    max-width: 110px !important;
-    max-height: 110px !important;
-}
-
 .selectEmote td, .selectEmote th {
     border-top: 0px !important;
 }
@@ -486,12 +480,17 @@ position: relative;
     
     position: absolute;
     opacity: 1;
-    
-}
-
-.textFloatInner {
     text-shadow: 2px 2px #000000;
 }
+
+.channel-emote {
+    display: inline !important;
+    max-width: 110px !important;
+    max-height: 110px !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+}
+
 
 #messagebuffer {
     font-family: Verdana !important;
