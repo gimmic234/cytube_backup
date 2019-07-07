@@ -334,7 +334,7 @@ font-size: 8px !important;
 }
 
 .yellow {
-    color: #FFFF33;   
+    color: #FFFF33 !important;   
 }
 
 .bg-preview {
