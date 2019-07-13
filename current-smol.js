@@ -81,7 +81,7 @@ var countdownText2 = "Movie";
 var countdownText3 = "Higurashi";
 var countdownText4 = "E3";
 var countdownText5 = "Movie Night";
-var nicoEffectOnControl = "false";
+var nicoEffectOnControl = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
 	var bgm2volume = .5;
@@ -89,7 +89,7 @@ var nicoEffectOnControl = "false";
 	var bgm4volume = .5;
 	var bgm5volume = .5;
 	var event1Volume = .8;
-	var nicoEffectOn = (nicoEffectOnControl == "true" && localStorage[CHANNEL.name + '-nico-mode'] == "true") ? true : false;
+	var nicoEffectOn = (nicoEffectOnControl == "true" && (localStorage[CHANNEL.name + '-nico-mode'] == "true" || localStorage[CHANNEL.name + '-nico-mode'] == null)) ? true : false;
 	if (!bggimmick) {
 		var bggimmick = false;
 	}	
@@ -152,13 +152,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2cce81f35070b9dc6d2a52b1d65ab0cdedee00ad/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/121caea79077f64c01a4a1afbf5cb61ff860ab3f/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1ff6d890603058cfd590cc72d5d172c81fa17443/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/121caea79077f64c01a4a1afbf5cb61ff860ab3f/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {

@@ -2112,7 +2112,7 @@ function videoDisplayToggle() {
 		var title = $('.queue_active').find('.qe_title').html();
 		$('#currenttitle').html(title);
 		$(document.getElementById('videowrap')).show();
-		nicoEffectOn = (nicoEffectOnControl == "true" && localStorage[CHANNEL.name + '-nico-mode'] == "true") ? true : false;
+		nicoEffectOn = (nicoEffectOnControl == "true" && (localStorage[CHANNEL.name + '-nico-mode'] == "true" || localStorage[CHANNEL.name + '-nico-mode'] == null)) ? true : false;
 	}
 }
 
@@ -2465,7 +2465,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#personal-nico-on', function() {
 		localStorage[CHANNEL.name + '-nico-mode'] = "false";
-		nicoEffectOn = (nicoEffectOnControl == "true" && localStorage[CHANNEL.name + '-nico-mode'] == "true") ? true : false;
+		nicoEffectOn = (nicoEffectOnControl == "true" && (localStorage[CHANNEL.name + '-nico-mode'] == "true" || localStorage[CHANNEL.name + '-nico-mode'] == null)) ? true : false;
 		if (nicoEffectOn) {
 			$('#personal-nico-on').show();
 			$('#personal-nico-off').hide();
@@ -2477,7 +2477,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#personal-nico-off', function() {
 		localStorage[CHANNEL.name + '-nico-mode'] = "true";
-		nicoEffectOn = (nicoEffectOnControl == "true" && localStorage[CHANNEL.name + '-nico-mode'] == "true") ? true : false;
+		nicoEffectOn = (nicoEffectOnControl == "true" && (localStorage[CHANNEL.name + '-nico-mode'] == "true" || localStorage[CHANNEL.name + '-nico-mode'] == null)) ? true : false;
 		if (nicoEffectOn) {
 			$('#personal-nico-on').show();
 			$('#personal-nico-off').hide();
