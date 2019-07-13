@@ -2478,6 +2478,9 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#personal-nico-on', function() {
+		if (nicoEffectOnControl != "true") {
+			return;
+		}
 		localStorage[CHANNEL.name + '-nico-mode'] = "false";
 		nicoEffectOn = (nicoEffectOnControl == "true" && (localStorage[CHANNEL.name + '-nico-mode'] == "true" || localStorage[CHANNEL.name + '-nico-mode'] == null)) ? true : false;
 		if (nicoEffectOn) {
@@ -2490,6 +2493,9 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#personal-nico-off', function() {
+		if (nicoEffectOnControl != "true") {
+			return;
+		}
 		localStorage[CHANNEL.name + '-nico-mode'] = "true";
 		nicoEffectOn = (nicoEffectOnControl == "true" && (localStorage[CHANNEL.name + '-nico-mode'] == "true" || localStorage[CHANNEL.name + '-nico-mode'] == null)) ? true : false;
 		if (nicoEffectOn) {

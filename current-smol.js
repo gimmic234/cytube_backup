@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/588496505464291341/testo.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://static.zerochan.net/Senki.Zesshou.Symphogear.full.2234317.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/599700062104322063/258483.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -81,7 +81,7 @@ var countdownText2 = "Movie";
 var countdownText3 = "Higurashi";
 var countdownText4 = "E3";
 var countdownText5 = "Movie Night";
-var nicoEffectOnControl = "true";
+var nicoEffectOnControl = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
 	var bgm2volume = .5;
@@ -152,7 +152,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/f1ec845a2cfbd65f420b9f4ee887c9db1a096f84/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/de7e47f117bdc8c51b1dd381789df28e94bf7a85/current-ext.js",
 		callback: true
 	},
 	'layout': {
