@@ -2275,6 +2275,20 @@ window.loadInitializer = function() {
 			amq.parent().find("button").click()
 		}
 
+		if (localStorage[CHANNEL.name + "_motd"] == "false") {
+			var hidden = $("#motd").css("display") === "none";
+			$("#motd").toggle();
+			if (hidden) {
+			  $("#togglemotd").find(".glyphicon-plus")
+			    .removeClass("glyphicon-plus")
+			    .addClass("glyphicon-minus");
+			} else {
+			  $("#togglemotd").find(".glyphicon-minus")
+			    .removeClass("glyphicon-minus")
+			    .addClass("glyphicon-plus");
+			}
+		}
+
 		if (nicoEffectOn) {
 			$('#personal-nico-on').show();
 			$('#personal-nico-off').hide();
@@ -2484,6 +2498,14 @@ function bindEventHandler() {
 		} else {
 			$('#personal-nico-on').hide();
 			$('#personal-nico-off').show();
+		}
+	});
+
+	$(bodyElem).on('click', '#togglemotd', function() {
+		if (localStorage[CHANNEL.name + "_motd"] == "true" || localStorage[CHANNEL.name + "_motd"] == null) {
+			localStorage[CHANNEL.name + "_motd"] = "false";
+		} else {
+			localStorage[CHANNEL.name + "_motd"] = "true";
 		}
 	});
 
