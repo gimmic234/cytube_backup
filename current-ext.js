@@ -2112,7 +2112,7 @@ function videoDisplayToggle() {
 		var title = $('.queue_active').find('.qe_title').html();
 		$('#currenttitle').html(title);
 		$(document.getElementById('videowrap')).show();
-		nicoEffectOn = (nicoEffectOnControl== "true") ? true : false;
+		nicoEffectOn = (nicoEffectOnControl == "true" && localStorage[CHANNEL.name + '-nico-mode'] == "true") ? true : false;
 	}
 }
 
@@ -2274,7 +2274,16 @@ window.loadInitializer = function() {
 		if (amq.length > 0) {
 			amq.parent().find("button").click()
 		}
+
 		if (nicoEffectOn) {
+			$('#personal-nico-on').show();
+			$('#personal-nico-off').hide();
+		} else {
+			$('#personal-nico-on').hide();
+			$('#personal-nico-off').show();
+		}
+
+		if (nicoEffectOnControl == "true" && window.CLIENT.rank >= 3) {
 			$('#nico-on').show();
 			$('#nico-off').hide();
 		} else {
@@ -2452,6 +2461,30 @@ function bindEventHandler() {
 	});
 	$(bodyElem).on('click', '#nico-off', function() {
 		chatCmdLookup['/texton']();
+	});
+
+	$(bodyElem).on('click', '#personal-nico-on', function() {
+		localStorage[CHANNEL.name + '-nico-mode'] = "false";
+		nicoEffectOn = (nicoEffectOnControl == "true" && localStorage[CHANNEL.name + '-nico-mode'] == "true") ? true : false;
+		if (nicoEffectOn) {
+			$('#personal-nico-on').show();
+			$('#personal-nico-off').hide();
+		} else {
+			$('#personal-nico-on').hide();
+			$('#personal-nico-off').show();
+		}
+	});
+
+	$(bodyElem).on('click', '#personal-nico-off', function() {
+		localStorage[CHANNEL.name + '-nico-mode'] = "true";
+		nicoEffectOn = (nicoEffectOnControl == "true" && localStorage[CHANNEL.name + '-nico-mode'] == "true") ? true : false;
+		if (nicoEffectOn) {
+			$('#personal-nico-on').show();
+			$('#personal-nico-off').hide();
+		} else {
+			$('#personal-nico-on').hide();
+			$('#personal-nico-off').show();
+		}
 	});
 
 	$(bodyElem).on('click', '.deleteMessageBtn', function() {
