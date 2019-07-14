@@ -1493,7 +1493,7 @@ var emoteKeyLookup = {
 			selectedPopover = $('.emote-table tbody').children().first().addClass('active');
 		}
 		let emoteTop = $('.emote-table-wrapper').scrollTop();
-		let emoteActive = $('.emote-table-wrapper').find('.active').position().top;
+		let emoteActive = emoteTop + $('.emote-table-wrapper').find('.active').position().top;
 		let emoteHeight = $('.emote-table-wrapper').height();
 		if (emoteActive > (emoteTop + emoteHeight)) {
 			$('.emote-table-wrapper').scrollTop(emoteActive);
@@ -1515,7 +1515,7 @@ var emoteKeyLookup = {
 			selectedPopover = $('.emote-table tbody').children().last().addClass('active');
 		}
 		let emoteTop = $('.emote-table-wrapper').scrollTop();
-		let emoteActive = $('.emote-table-wrapper').find('.active').position().top;
+		let emoteActive = emoteTop + $('.emote-table-wrapper').find('.active').position().top;
 		let emoteHeight = $('.emote-table-wrapper').height();
 		if (emoteActive > (emoteTop + emoteHeight)) {
 			$('.emote-table-wrapper').scrollTop(emoteActive);
