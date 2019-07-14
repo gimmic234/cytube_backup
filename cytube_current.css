@@ -120,6 +120,7 @@ input#chatline {
 }
 
 .selectEmote {
+    z-index: 101;
     width: 100%;
 }
 
@@ -502,7 +503,7 @@ position: relative;
 
 .imgtext {
     position: absolute;
-    z-index: 100;
+    z-index: 3;
     top: -80px;
     bottom: 0;
     left: 0;
