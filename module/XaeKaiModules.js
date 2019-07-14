@@ -504,7 +504,7 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 
 $.fn.textWidth = function(){
   var html_org = $(this).html();
-  var html_calc = '<span>' + html_org + '</span>';
+  var html_calc = "<span class='text-calc'>" + html_org + "</span>";
   $(this).html(html_calc);
   var width = $(this).find('span:first').width();
   $(this).html(html_org);
@@ -534,7 +534,7 @@ window[CHANNEL.name].chatNotice.handler = {
 
 		$('#'+textId).css({top : height+"px"});
 		let innerWidth = $('#'+textId).textWidth() + 200;
-		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 8000, 'linear', function() { 
+		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 10000, 'linear', function() { 
 			$("#"+textId).remove();
 		} );
 		$(".updateImgEmote:not( .parsed )").addClass('parsed');

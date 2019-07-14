@@ -514,7 +514,7 @@ position: relative;
 .emote-table-wrapper {
     overflow-y: scroll;
     position: absolute;
-    max-height: 400px;
+    max-height: 800px;
     width: 100%;
     bottom: 40px;
     z-index: 10;
@@ -523,4 +523,8 @@ position: relative;
 .emote-table {
     background: rgba(27, 28, 31, 0.97) !important;
     margin-bottom: 0px !important;
+}
+
+.text-calc {
+    width: auto !important;   
 }
