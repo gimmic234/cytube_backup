@@ -499,12 +499,14 @@ position: relative;
 
 .imgwrap {
     position: relative;
+    display: inline-block;
+    height: 100%;
 }
 
 .imgtext {
     position: absolute;
     z-index: 3;
-    top: -80px;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -514,4 +516,5 @@ position: relative;
   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+  overflow: hidden;
 }

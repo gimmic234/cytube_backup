@@ -2982,7 +2982,7 @@ function bindEventHandler() {
 				selectedPopover = null;
 				emoteTable = false;
 			} else {
-				let emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
 				filteredEmote.forEach(function(value, index) {
 					let active = (index == 0) ? "active" : "";
 					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value.name + "'>";
@@ -2990,7 +2990,7 @@ function bindEventHandler() {
 					emoteString += "<td width='80%'>" + value.name + "</td>";
 					emoteString += "</tr>";
 				})
-				emoteString += "</tbody></table>";
+				emoteString += "</tbody></table></div>";
 				emoteList[0].innerHTML = emoteString;
 				selectedPopover = $('tr.active');
 				emoteTable = true;
@@ -3007,14 +3007,14 @@ function bindEventHandler() {
 				selectedPopover = null;
 				emoteTable = false;
 			} else {
-				let emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
 				filteredEmote.forEach(function(value, index) {
 					let active = (index == 0) ? "active" : "";
 					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
 					emoteString += "<td>" + value + "</td>";
 					emoteString += "</tr>";
 				})
-				emoteString += "</tbody></table>";
+				emoteString += "</tbody></table></div>";
 				emoteList[0].innerHTML = emoteString;
 				selectedPopover = $('tr.active');
 				emoteTable = true;
@@ -3031,14 +3031,14 @@ function bindEventHandler() {
 				selectedPopover = null;
 				emoteTable = false;
 			} else {
-				let emoteString = "<table class='table table-sm table-hover emote-table'><tbody>";
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
 				filteredEmote.forEach(function(value, index) {
 					let active = (index == 0) ? "active" : "";
 					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
 					emoteString += "<td>" + value + "</td>";
 					emoteString += "</tr>";
 				})
-				emoteString += "</tbody></table>";
+				emoteString += "</tbody></table></div>";
 				emoteList[0].innerHTML = emoteString;
 				selectedPopover = $('tr.active');
 				emoteTable = true;
