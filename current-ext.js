@@ -1785,7 +1785,7 @@ function populateImgEmote(command) {
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				temp[value.gsx$command.$t] = function(chatCmdText) {
-					let text = chatCmdText.slice(1).join(" ")l
+					let text = chatCmdText.slice(1).join(" ");
 					imgEmote(value.gsx$url.$t, text);
 				}
 				if (command != '' && command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
