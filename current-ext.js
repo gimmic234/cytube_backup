@@ -1555,9 +1555,9 @@ var chatKeyLookup = {
 				chatCmdLookup[chatCmdText[0]](chatCmdText);
 			} else {
 				if (imgLookup.hasOwnProperty(origCmd)) {
-					imgLookup[origCmd]();
+					imgLookup[origCmd](chatCmdText);
 				} else if (soundLookup.hasOwnProperty(origCmd)) {
-					soundLookup[origCmd]();
+					soundLookup[origCmd](chatCmdText);
 				} else {
 					window.socket.emit("chatMsg", {
 						msg: msg,
