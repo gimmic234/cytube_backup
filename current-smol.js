@@ -1,8 +1,8 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/588496505464291341/testo.png?width=1300&height=250';
+var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/597486719696371727/transparent.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/599700062104322063/258483.jpg";
+var background_img = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -15,12 +15,12 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 7,
-	day2: 13,
+	day2: 20,
 	hour2: 21,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/596110043389362184/HSF_BG.png";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/599700062104322063/258483.jpg";
 var background_img_auto2 = "http://media.discordapp.net/attachments/528150212875649065/560543017329623076/65bb612d175e3aa95bd8676064b81ceb.jpg?width=1248&height=702";
 var chatMute = 'false';
 var background_img_auto3 = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
@@ -152,7 +152,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/de7e47f117bdc8c51b1dd381789df28e94bf7a85/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1b9820c800821f1af66a262628e12ae76f97d911/current-ext.js",
 		callback: true
 	},
 	'layout': {

@@ -177,9 +177,8 @@ var chatCmdLookup = {
 	},
 
 	'/img': function(chatCmdText) {
-		if (chatCmdText.length == 2) {
-			imgEmote(chatCmdText[1]);
-		}
+		let text = chatCmdText.slice(2).join(" ");
+		imgEmote(chatCmdText[1], text);
 	},
 
 	'/skip': function(chatCmdText) {
@@ -1897,7 +1896,7 @@ function voteskipMod() {
 	}
 }
 
-function imgEmote(imageUrl) {
+function imgEmote(imageUrl, text = '') {
 	var url = imageUrl.replace('https:', '');
 	url = url.replace('http:', '');
 	if (url.lastIndexOf('?') > -1) {
@@ -1905,7 +1904,7 @@ function imgEmote(imageUrl) {
 	}
 
 	window.socket.emit("chatMsg", {
-		msg: "@" + url + "@"
+		msg: "@" + url + "@" + text
 	});
 }
 
