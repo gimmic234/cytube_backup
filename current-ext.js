@@ -1492,6 +1492,15 @@ var emoteKeyLookup = {
 		} else {
 			selectedPopover = $('.emote-table tbody').children().first().addClass('active');
 		}
+		let top = $('.emote-table-wrapper').scrollTop();
+		let activePos = $('.emote-table-wrapper').find('.active').position();
+		let height = $('.emote-table-wrapper').height();
+		if (activePos > (top + height)) {
+			$('.emote-table-wrapper').scrollTop(activePos);
+		}
+		if (activePos < (top)) {
+			$('.emote-table-wrapper').scrollTop(activePos);	
+		}
 	},
 	38: function(e) {
 		if (selectedPopover) {
@@ -1504,6 +1513,15 @@ var emoteKeyLookup = {
 			}
 		} else {
 			selectedPopover = $('.emote-table tbody').children().last().addClass('active');
+		}
+		let top = $('.emote-table-wrapper').scrollTop();
+		let activePos = $('.emote-table-wrapper').find('.active').position();
+		let height = $('.emote-table-wrapper').height();
+		if (activePos > (top + height)) {
+			$('.emote-table-wrapper').scrollTop(activePos);
+		}
+		if (activePos < (top)) {
+			$('.emote-table-wrapper').scrollTop(activePos);	
 		}
 	},
 	9: function(e) {

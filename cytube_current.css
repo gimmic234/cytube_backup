@@ -137,14 +137,6 @@ input#chatline {
     max-width: 20px;
 }
 
-.emote-table {
-    background: rgba(27, 28, 31, 0.97) !important;
-    margin-bottom: 0px !important;
-    position: absolute;
-    bottom: 40px;
-    z-index: 10;
-}
-
 .countdown {
     display: inline-block;
     font-size: 1.5em;
@@ -517,4 +509,18 @@ position: relative;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
   overflow: hidden;
+}
+
+.emote-table-wrapper {
+    overflow-y: scroll;
+    position: absolute;
+    max-height: 400px;
+    width: 100%;
+    bottom: 40px;
+    z-index: 10;
+}
+
+.emote-table {
+    background: rgba(27, 28, 31, 0.97) !important;
+    margin-bottom: 0px !important;
 }
