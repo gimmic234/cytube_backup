@@ -1495,7 +1495,7 @@ var emoteKeyLookup = {
 		let emoteTop = $('.emote-table-wrapper').scrollTop();
 		let emoteActive = emoteTop + $('.emote-table-wrapper').find('.active').position().top;
 		let emoteHeight = $('.emote-table-wrapper').height();
-		if (emoteActive > (emoteTop + emoteHeight)) {
+		if (emoteActive > (emoteTop + emoteHeight)-10) {
 			$('.emote-table-wrapper').scrollTop(emoteActive);
 		}
 		if (emoteActive < (emoteTop)) {
@@ -1517,7 +1517,7 @@ var emoteKeyLookup = {
 		let emoteTop = $('.emote-table-wrapper').scrollTop();
 		let emoteActive = emoteTop + $('.emote-table-wrapper').find('.active').position().top;
 		let emoteHeight = $('.emote-table-wrapper').height();
-		if (emoteActive > (emoteTop + emoteHeight)) {
+		if (emoteActive > (emoteTop + emoteHeight)-10) {
 			$('.emote-table-wrapper').scrollTop(emoteActive);
 		}
 		if (emoteActive < (emoteTop)) {
