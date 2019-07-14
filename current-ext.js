@@ -1492,14 +1492,14 @@ var emoteKeyLookup = {
 		} else {
 			selectedPopover = $('.emote-table tbody').children().first().addClass('active');
 		}
-		let top = $('.emote-table-wrapper').scrollTop();
-		let activePos = $('.emote-table-wrapper').find('.active').position();
-		let height = $('.emote-table-wrapper').height();
-		if (activePos > (top + height)) {
-			$('.emote-table-wrapper').scrollTop(activePos);
+		let emoteTop = $('.emote-table-wrapper').scrollTop();
+		let emoteActive = $('.emote-table-wrapper').find('.active').position().top;
+		let emoteHeight = $('.emote-table-wrapper').height();
+		if (emoteActive > (emoteTop + emoteHeight)) {
+			$('.emote-table-wrapper').scrollTop(emoteActive);
 		}
-		if (activePos < (top)) {
-			$('.emote-table-wrapper').scrollTop(activePos);	
+		if (emoteActive < (emoteTop)) {
+			$('.emote-table-wrapper').scrollTop(emoteActive);	
 		}
 	},
 	38: function(e) {
@@ -1514,14 +1514,14 @@ var emoteKeyLookup = {
 		} else {
 			selectedPopover = $('.emote-table tbody').children().last().addClass('active');
 		}
-		let top = $('.emote-table-wrapper').scrollTop();
-		let activePos = $('.emote-table-wrapper').find('.active').position();
-		let height = $('.emote-table-wrapper').height();
-		if (activePos > (top + height)) {
-			$('.emote-table-wrapper').scrollTop(activePos);
+		let emoteTop = $('.emote-table-wrapper').scrollTop();
+		let emoteActive = $('.emote-table-wrapper').find('.active').position().top;
+		let emoteHeight = $('.emote-table-wrapper').height();
+		if (emoteActive > (emoteTop + emoteHeight)) {
+			$('.emote-table-wrapper').scrollTop(emoteActive);
 		}
-		if (activePos < (top)) {
-			$('.emote-table-wrapper').scrollTop(activePos);	
+		if (emoteActive < (emoteTop)) {
+			$('.emote-table-wrapper').scrollTop(emoteActive);	
 		}
 	},
 	9: function(e) {
