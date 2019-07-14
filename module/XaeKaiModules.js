@@ -534,7 +534,8 @@ window[CHANNEL.name].chatNotice.handler = {
 
 		$('#'+textId).css({top : height+"px"});
 		let innerWidth = $('#'+textId).textWidth() + 200;
-		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, 10000, 'linear', function() { 
+		let textTimer = Math.floor(innerWidth/400) * 1000;
+		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, textTimer + 8000, 'linear', function() { 
 			$("#"+textId).remove();
 		} );
 		$(".updateImgEmote:not( .parsed )").addClass('parsed');

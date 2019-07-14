@@ -70,7 +70,7 @@ var bgmoff = "true";
 var background_img_auto5 = "http://media.discordapp.net/attachments/562795394157903885/592878484549009433/hinamizawa3.png";
 var background_img_auto6 = 'http://cdn.discordapp.com/attachments/466386319766192138/535705109485584399/0_0_productGfx_20bc389bdbee05036af2a7925099044b.jpg';
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/528150212875649065/597143138389327893/35_-_Symphogear_GX_OP.mp3";
+var bgm2url = "https://cdn.discordapp.com/attachments/589216839478018064/600086968105435156/1_-_.mp3";
 var bgm3url = "https://cdn.discordapp.com/attachments/515347492511023113/592184890523385856/02_Sono_Juukou_wa_Seigi_o_Shihai_suru.ogg";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/589799927631314954/Thanks.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
@@ -182,7 +182,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b19a513490b3efa54397690598dc24304d386dd3/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6d0bbb60e164a15cabc137605e2bc24e9cd2ed8f/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
