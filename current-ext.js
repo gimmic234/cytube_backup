@@ -1738,8 +1738,9 @@ function populateSoundEmote(command) {
 			entries.each(function(value, index) {
 				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == "true") ? "btn-success" : "btn-danger";
 				bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-3'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
-				temp[value.gsx$command.$t] = function() {
-					imgEmote(value.gsx$image.$t);
+				temp[value.gsx$command.$t] = function(chatCmdText) {
+					let text = chatCmdText.slice(1).join(" ");
+					imgEmote(value.gsx$image.$t, text);
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + value.gsx$command.$t + "soundemoteaudio"
 					});		
@@ -1783,8 +1784,9 @@ function populateImgEmote(command) {
 			bodyString += "<li><b>!coffee</b></li>";
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
-				temp[value.gsx$command.$t] = function() {
-					imgEmote(value.gsx$url.$t);
+				temp[value.gsx$command.$t] = function(chatCmdText) {
+					let text = chatCmdText.slice(1).join(" ")l
+					imgEmote(value.gsx$url.$t, text);
 				}
 				if (command != '' && command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
 					imgEmote(value.gsx$url.$t);
