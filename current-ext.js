@@ -2317,7 +2317,7 @@ window.loadInitializer = function() {
 			$('#personal-nico-off').show();
 		}
 
-		if (nicoEffectOnControl == "true" && window.CLIENT.rank >= 3) {
+		if (nicoEffectOnControl == "true") {
 			$('#nico-on').show();
 			$('#nico-off').hide();
 		} else {
@@ -2491,9 +2491,15 @@ function bindEventHandler() {
 		chatCmdLookup['/export']();
 	});
 	$(bodyElem).on('click', '#nico-on', function() {
+		if (window.CLIENT.rank < 3) {
+			return;
+		}
 		chatCmdLookup['/textoff']();
 	});
 	$(bodyElem).on('click', '#nico-off', function() {
+		if (window.CLIENT.rank < 3) {
+			return;
+		}
 		chatCmdLookup['/texton']();
 	});
 

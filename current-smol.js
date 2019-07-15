@@ -81,7 +81,7 @@ var countdownText2 = "Movie";
 var countdownText3 = "Higurashi";
 var countdownText4 = "E3";
 var countdownText5 = "Movie Night";
-var nicoEffectOnControl = "false";
+var nicoEffectOnControl = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
 	var bgm2volume = .5;
@@ -182,7 +182,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6d0bbb60e164a15cabc137605e2bc24e9cd2ed8f/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/76c20ebc8856a28e3106af940612ad34940aa55a/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
