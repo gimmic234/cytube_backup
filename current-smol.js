@@ -152,13 +152,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9876a57ad51da821862f674e15dfdbf66e11e2a8/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b103380c0c56bc1599759001556b7295157f2ade/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/121caea79077f64c01a4a1afbf5cb61ff860ab3f/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b103380c0c56bc1599759001556b7295157f2ade/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {

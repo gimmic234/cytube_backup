@@ -1496,7 +1496,7 @@ var emoteKeyLookup = {
 		let emoteActive = emoteTop + $('.emote-table-wrapper').find('.active').position().top;
 		let emoteHeight = $('.emote-table-wrapper').height();
 		if (emoteActive > (emoteTop + emoteHeight)-10) {
-			$('.emote-table-wrapper').scrollTop(emoteActive);
+			$('.emote-table-wrapper').scrollTop(emoteTop-40);
 		}
 		if (emoteActive < (emoteTop)) {
 			$('.emote-table-wrapper').scrollTop(emoteActive);	
