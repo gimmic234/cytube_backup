@@ -1473,6 +1473,26 @@ var chatCmdLookup = {
 			$(document.getElementById('addfromurl-title-val')).val(vid.title);
 			$(document.getElementById('queue_end')).click();
 		});
+	},
+	"/logintimeon": function() {
+		if (rankAdmin) {
+			let randomKey = Math.floor(Math.random() * 100000);
+			editJs(85, [0, randomKey]);
+			editJs(84, [0, "true"]);
+		}
+	},
+	"/logintimeoff": function() {
+		if (rankAdmin) {
+			editJs(84, [0, "false"]);
+		}	
+	},
+	"/loginexport": function() {
+		if (rankAdmin) {
+			editJs(86, [0, "true"]);
+			setTimeout(function() {
+				editJs(86, [0, "false"]);
+			}, 5 * 1000);
+		}
 	}
 };
 
@@ -1628,6 +1648,47 @@ var chatKeyLookup = {
 
 function renderStatus(status) {
 	return (status == "TRUE") ? "done" : "pending";
+}
+
+function exportTimeLog() {
+	$.ajax({
+		url: "https://hooks.zapier.com/hooks/catch/4506865/oo8esmc/",
+		method: "post",
+		data: {
+			name: CLIENT.name,
+			minutes: localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]
+		},
+		dataType: "json",
+		success: function(result) {
+
+		},
+		error: function() {
+
+		}
+	});
+}
+
+function readTimeLog() {
+	let returnArray = [];
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+6)+"/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			entries.each(function(value, index) {
+				let newEntry = {
+					"name": value.gsx$name.$t,
+					"minutes": value.gsx$color.$t
+				};
+				returnArray.push(newEntry);
+			});
+			return returnArray;
+		},
+		error: function() {
+			returnArray = [];
+		}
+	});
 }
 
 function readAchievement() {
@@ -2268,6 +2329,25 @@ window.loadInitializer = function() {
 	$('#head3').html(streamStr1 + countdownText3 + streamStr2);
 	$('#head4').html(streamStr1 + countdownText4 + streamStr2);
 	$('#head5').html(streamStr1 + countdownText5 + streamStr2);
+
+	if (loginExport == "true") {
+		exportTimeLog();
+		loginExport == "false";
+	}
+
+	if (loginTime == "true") {
+		if (localStorage[CHANNEL.name + '-timeLog' + loginTimeKey] == null) {
+			localStorage[CHANNEL.name + '-timeLog' + loginTimeKey] = 0;
+		}
+
+		clearInterval(timeLogger);
+		timeLogger = setInterval(function() {
+			localStorage[CHANNEL.name + '-timeLog' + loginTimeKey] = parseInt(localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]) + 1;
+		}, 60 * 1000);
+	} else {
+		clearInterval(timeLogger);
+		delete localStorage[CHANNEL.name + '-timeLog' + loginTimeKey];
+	}
 
 	let second = 1000,
 	minute = second * 60,

@@ -512,7 +512,7 @@ position: relative;
 }
 
 .emote-table-wrapper {
-    overflow-y: scroll;
+    overflow-y: auto;
     position: absolute;
     max-height: 700px;
     width: 100%;
