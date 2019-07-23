@@ -2403,7 +2403,15 @@ window.loadInitializer = function() {
 		} else {
 			$('#nico-on').hide();
 			$('#nico-off').show();
-		}		
+		}
+
+		if (loginTime == "true") {
+			$('#logger-on').show();
+			$('#logger-off').hide();
+		} else {
+			$('#logger-on').hide();
+			$('#logger-off').show();
+		}
 
 		rankMod = (window.CLIENT.rank >= 2);
 		rankAdmin = (window.CLIENT.rank >= 3);
@@ -2570,6 +2578,25 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '#export-chatlog', function() {
 		chatCmdLookup['/export']();
 	});
+
+	$(bodyElem).on('click', '#export-logger', function() {
+		chatCmdLookup['/loginexport']();
+	});
+
+	$(bodyElem).on('click', '#logger-on', function() {
+		if (window.CLIENT.rank < 3) {
+			return;
+		}
+		chatCmdLookup['/logintimestart']();
+	});
+
+	$(bodyElem).on('click', '#logger-off', function() {
+		if (window.CLIENT.rank < 3) {
+			return;
+		}
+		chatCmdLookup['/logintimeoff']();
+	});
+
 	$(bodyElem).on('click', '#nico-on', function() {
 		if (window.CLIENT.rank < 3) {
 			return;
