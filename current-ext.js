@@ -1488,10 +1488,12 @@ var chatCmdLookup = {
 	},
 	"/loginexport": function() {
 		if (rankAdmin) {
-			editJs(86, [0, "true"]);
-			setTimeout(function() {
-				editJs(86, [0, "false"]);
-			}, 5 * 1000);
+			if (confirm("this will use up request limit. Proceed?")) {
+				editJs(86, [0, "true"]);
+				setTimeout(function() {
+					editJs(86, [0, "false"]);
+				}, 5 * 1000);
+			}
 		}
 	}
 };
