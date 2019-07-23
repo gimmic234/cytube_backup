@@ -1474,7 +1474,7 @@ var chatCmdLookup = {
 			$(document.getElementById('queue_end')).click();
 		});
 	},
-	"/logintimeon": function() {
+	"/logintimestart": function() {
 		if (rankAdmin) {
 			let randomKey = Math.floor(Math.random() * 100000);
 			editJs(85, [0, randomKey]);
