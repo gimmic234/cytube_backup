@@ -2587,14 +2587,14 @@ function bindEventHandler() {
 		if (window.CLIENT.rank < 3) {
 			return;
 		}
-		chatCmdLookup['/logintimestart']();
+		chatCmdLookup['/logintimeoff']();
 	});
 
 	$(bodyElem).on('click', '#logger-off', function() {
 		if (window.CLIENT.rank < 3) {
 			return;
 		}
-		chatCmdLookup['/logintimeoff']();
+		chatCmdLookup['/logintimestart']();
 	});
 
 	$(bodyElem).on('click', '#nico-on', function() {
