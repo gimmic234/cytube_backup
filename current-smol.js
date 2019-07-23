@@ -83,7 +83,7 @@ var countdownText4 = "E3";
 var countdownText5 = "Movie Night";
 var nicoEffectOnControl = "false";
 var loginTime = "false";
-var loginTimeKey = "1";
+var loginTimeKey = "565656";
 var loginExport = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
@@ -155,7 +155,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a3982c11e641deb70f91e5d3dc37938214963f71/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/48852b347a590e7d28f8a0e5700c15906c98c9c1/current-ext.js",
 		callback: true
 	},
 	'layout': {

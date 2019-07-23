@@ -1477,7 +1477,7 @@ var chatCmdLookup = {
 	"/logintimestart": function() {
 		if (rankAdmin) {
 			let randomKey = Math.floor(Math.random() * 100000);
-			editJs(85, [0, randomKey]);
+			editJs(85, [0, randomKey.toString()]);
 			editJs(84, [0, "true"]);
 		}
 	},
