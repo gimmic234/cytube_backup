@@ -1654,6 +1654,24 @@ function renderStatus(status) {
 
 function exportTimeLog() {
 	$.ajax({
+		url: "http://ec2-13-59-88-168.us-east-2.compute.amazonaws.com:5000/write",
+		method: "post",
+		data: {
+			sheetname: "Cyt logintime",
+			values: [[CLIENT.name, localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]]]
+		},
+		dataType: "json",
+		success: function(result) {
+
+		},
+		error: function() {
+
+		}
+	});
+}
+
+/*function exportTimeLog() {
+	$.ajax({
 		url: "https://hooks.zapier.com/hooks/catch/4506865/oo8esmc/",
 		method: "post",
 		data: {
@@ -1668,7 +1686,7 @@ function exportTimeLog() {
 
 		}
 	});
-}
+}*/
 
 function readTimeLog() {
 	let returnArray = [];
