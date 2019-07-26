@@ -1488,7 +1488,7 @@ var chatCmdLookup = {
 	},
 	"/loginexport": function() {
 		if (rankAdmin) {
-			if (confirm("this will use up request limit. Proceed?")) {
+			if (confirm("log user's login duration to the club sheet?")) {
 				editJs(86, [0, "true"]);
 				setTimeout(function() {
 					editJs(86, [0, "false"]);
@@ -1656,10 +1656,11 @@ function exportTimeLog() {
 	$.ajax({
 		url: "https://d3dwdjhmbcrvib.cloudfront.net/write",
 		method: "post",
-		data: {
+		contentType: "application/json; charset=utf-8",
+		data: JSON.stringify({
 			sheetname: "Cyt logintime",
 			values: [[CLIENT.name, localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]]]
-		},
+		}),
 		dataType: "json",
 		success: function(result) {
 
