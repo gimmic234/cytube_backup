@@ -1654,7 +1654,7 @@ function renderStatus(status) {
 
 function exportTimeLog() {
 	$.ajax({
-		url: "http://ec2-13-59-88-168.us-east-2.compute.amazonaws.com:5000/write",
+		url: "https://d3dwdjhmbcrvib.cloudfront.net/write",
 		method: "post",
 		data: {
 			sheetname: "Cyt logintime",
