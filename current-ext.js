@@ -3244,6 +3244,14 @@ function bindEventHandler() {
 		$(this).parent().after(blockShow);
 	});
 
+	$(bodyElem).on('click','.vjs-subtitles-button', function() {
+		if ($(this).find('.vjs-menu').hasClass('vjs-lock-showing')) {
+			$(this).find('.vjs-menu').hide();
+		} else {
+			$(this).find('.vjs-menu').show();
+		}
+	});
+
 	$(bodyElem).on('mouseleave', '.chat-avatar', function() {
 		$('.achievement-container-small').remove();
 	});
