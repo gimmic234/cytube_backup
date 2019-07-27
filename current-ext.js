@@ -1476,6 +1476,9 @@ var chatCmdLookup = {
 	},
 	"/logintimestart": function() {
 		if (rankAdmin) {
+			if (!confirm("start login timer and reset the club sheet?")) {
+				return;
+			}
 			let randomKey = Math.floor(Math.random() * 100000);
 			clearlogintime();
 			editJs(85, [0, randomKey.toString()]);
@@ -1484,6 +1487,9 @@ var chatCmdLookup = {
 	},
 	"/logintimeoff": function() {
 		if (rankAdmin) {
+			if (!confirm("stop and reset the login timer?")) {
+				return;
+			}
 			editJs(84, [0, "false"]);
 		}	
 	},
