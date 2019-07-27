@@ -1659,7 +1659,7 @@ function exportTimeLog() {
 		contentType: "application/json; charset=utf-8",
 		data: JSON.stringify({
 			sheetname: "Cyt logintime",
-			values: [[CLIENT.name, Math.floor(parseInt(localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]])/60)]
+			values: [[CLIENT.name, Math.floor(parseInt(localStorage[CHANNEL.name + '-timeLog' + loginTimeKey])/60)]]
 		}),
 		dataType: "json",
 		success: function(result) {
