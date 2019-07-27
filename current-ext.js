@@ -1659,7 +1659,7 @@ function exportTimeLog() {
 		contentType: "application/json; charset=utf-8",
 		data: JSON.stringify({
 			sheetname: "Cyt logintime",
-			values: [[CLIENT.name, localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]]]
+			values: [[CLIENT.name, Math.floor(parseInt(localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]])/60)]
 		}),
 		dataType: "json",
 		success: function(result) {
@@ -2363,8 +2363,8 @@ window.loadInitializer = function() {
 
 		clearInterval(timeLogger);
 		timeLogger = setInterval(function() {
-			localStorage[CHANNEL.name + '-timeLog' + loginTimeKey] = parseInt(localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]) + 1;
-		}, 60 * 1000);
+			localStorage[CHANNEL.name + '-timeLog' + loginTimeKey] = parseInt(localStorage[CHANNEL.name + '-timeLog' + loginTimeKey]) + 5;
+		}, 5 * 1000);
 	} else {
 		clearInterval(timeLogger);
 		delete localStorage[CHANNEL.name + '-timeLog' + loginTimeKey];
