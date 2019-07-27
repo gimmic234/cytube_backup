@@ -1477,6 +1477,7 @@ var chatCmdLookup = {
 	"/logintimestart": function() {
 		if (rankAdmin) {
 			let randomKey = Math.floor(Math.random() * 100000);
+			clearlogintime();
 			editJs(85, [0, randomKey.toString()]);
 			editJs(84, [0, "true"]);
 		}
@@ -1650,6 +1651,22 @@ var chatKeyLookup = {
 
 function renderStatus(status) {
 	return (status == "TRUE") ? "done" : "pending";
+}
+
+function clearlogintime() {
+	$.ajax({
+		url: "https://d3dwdjhmbcrvib.cloudfront.net/clearlogin",
+		method: "post",
+		contentType: "application/json; charset=utf-8",
+		data: JSON.stringify({}),
+		dataType: "json",
+		success: function(result) {
+
+		},
+		error: function() {
+
+		}
+	});
 }
 
 function exportTimeLog() {
