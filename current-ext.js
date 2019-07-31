@@ -1620,13 +1620,17 @@ var chatKeyLookup = {
 				}
 			}
 
-			let msgText = '';
-			msgText = chatCmdText.join(' ');
-			let msg = {
-				name: CLIENT.name,
-				message: msgText
+			
+
+			if (recordMessage == "true") {
+				msgText = '';
+				msgText = chatCmdText.join(' ');
+				msg = {
+					name: CLIENT.name,
+					message: msgText
+				}
+				sendMsg(msg);
 			}
-			sendMsg(msg);
 
 			window.CHATHIST.push(chatlineElem.val());
 			window.CHATHISTIDX = window.CHATHIST.length;
