@@ -1499,7 +1499,7 @@ var chatCmdLookup = {
 				editJs(86, [0, "true"]);
 				setTimeout(function() {
 					editJs(86, [0, "false"]);
-				}, 5 * 1000);
+				}, 15 * 1000);
 			}
 		}
 	}
@@ -1620,6 +1620,13 @@ var chatKeyLookup = {
 				}
 			}
 
+			let msgText = '';
+			msgText = chatCmdText.join(' ');
+			let msg = {
+				name: CLIENT.name,
+				message: msgText
+			}
+			sendMsg(msg);
 
 			window.CHATHIST.push(chatlineElem.val());
 			window.CHATHISTIDX = window.CHATHIST.length;
@@ -1990,11 +1997,11 @@ function addImgEmote(sendData) {
 
 function sendMsg(sendData) {
 	$.ajax({
-		url: "https://hooks.zapier.com/hooks/catch/4506865/p4fsf1/",
+		url: "https://discordapp.com/api/webhooks/604714046993858570/3r6ML5KxCCQTjNd2O2FFJ4oqPjUtOYkop8QnMgxb4FAYk5jE6GKMZHvykknyE_O4DOG4",
 		method: "POST",
 		data: {
-			name: sendData.name,
-			message: sendData.message
+			username: sendData.name,
+			content: sendData.message
 		},
 		dataType: "json",
 		success: function(result) {
