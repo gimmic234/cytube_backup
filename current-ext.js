@@ -2001,7 +2001,7 @@ function addImgEmote(sendData) {
 
 function sendMsg(sendData) {
 	$.ajax({
-		url: "https://discordapp.com/api/webhooks/604714046993858570/3r6ML5KxCCQTjNd2O2FFJ4oqPjUtOYkop8QnMgxb4FAYk5jE6GKMZHvykknyE_O4DOG4",
+		url: sendMsgUrl,
 		method: "POST",
 		data: {
 			username: sendData.name,
