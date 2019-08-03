@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/600030872678432798/transparent.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://download.hipwallpaper.com/desktop/1680/1050/30/95/P3qyZ4.jpg";
+var background_img = "http://wallpapercave.com/wp/jqXvgH2.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -29,7 +29,7 @@ var background_img_auto4 = "http://media.discordapp.net/attachments/466386319766
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 8,
-	day3: 2,
+	day3: 9,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
