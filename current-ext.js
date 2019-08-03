@@ -2477,7 +2477,7 @@ window.loadInitializer = function() {
 		if (CLIENT.name == "PhenomSage") 
 		{
 			setTimeout(function() {
-				soundLookup['?phenomhello']([0, 0]);
+				soundLookup['?phenomhello']([0, '']);
 			}, 7000);
 		}
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
