@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/600030872678432798/transparent.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
+var background_img = "http://download.hipwallpaper.com/desktop/1680/1050/30/95/P3qyZ4.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
-	month: 7,
-	day: 31,
-	hour: 23,
+	month: 8,
+	day: 5,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
@@ -83,7 +83,7 @@ var countdownText4 = "E3";
 var countdownText5 = "Geah";
 var nicoEffectOnControl = "false";
 var loginTime = "false";
-var loginTimeKey = "76559";
+var loginTimeKey = "54187";
 var loginExport = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
@@ -128,7 +128,7 @@ var loginExport = "false";
 	if (!mutei) {
 		var mutei;
 	}
-	var sendMsgUrl = "https://discordapp.com/api/webhooks/604714046993858570/3r6ML5KxCCQTjNd2O2FFJ4oqPjUtOYkop8QnMgxb4FAYk5jE6GKMZHvykknyE_O4DOG4";
+	var sendMsgUrl = "https://discordapp.com/api/webhooks/604746671901114378/Ve4WrMmTWsfSH7u-eDPPX08ynSorR55xEAkklScq0sk2OFr78W6T-YCLqWKxbElJ5dwv";
 	var recordMessage = "true";
 	var msgText = '';
 	var msg = {};
@@ -159,7 +159,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/33084c0dcbd0fc8ad5efb13d84b812feeeda7819/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4e26c124e39c0407bc1f57317d78a7a20f7a720e/current-ext.js",
 		callback: true
 	},
 	'layout': {
