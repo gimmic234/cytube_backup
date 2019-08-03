@@ -2474,12 +2474,12 @@ window.loadInitializer = function() {
 		populateImgEmote('');
 		populateSoundEmote('');
 		var buff = $('#messagebuffer');
-		if (CLIENT.name == "PhenomSage") 
+		/*if (CLIENT.name == "PhenomSage") 
 		{
 			setTimeout(function() {
 				soundLookup['?phenomhello']([0, '']);
 			}, 7000);
-		}
+		}*/
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
 		window[CHANNEL.name].chatNotice.handler["hideEmote"]();
