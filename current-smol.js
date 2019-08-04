@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 8,
-	day2: 3,
+	day2: 10,
 	hour2: 21,
 	minute2: 0,
 	second2: 0
@@ -59,7 +59,7 @@ var countdown_utc4 = {
 var countdown_utc5 = {
 	year5: 2019,
 	month5: 8,
-	day5: 3,
+	day5: 10,
 	hour5: 19,
 	minute5: 0,
 	second5: 0
@@ -128,7 +128,7 @@ var loginExport = "false";
 	if (!mutei) {
 		var mutei;
 	}
-	var sendMsgUrl = "https://discordapp.com/api/webhooks/604746671901114378/Ve4WrMmTWsfSH7u-eDPPX08ynSorR55xEAkklScq0sk2OFr78W6T-YCLqWKxbElJ5dwv";
+	var sendMsgUrl = "https://discordapp.com/api/webhooks/606306608934551591/OzXJbc1UrOTm1y1dezce5s6k9G56o5PyQSxYy1nzZFiaRTJ6alqpoxxY_WKX7HKbQOsP";
 	var recordMessage = "true";
 	var msgText = '';
 	var msg = {};
@@ -159,7 +159,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/51aebbbedc453e98c7f39d1061d115ef47f424ba/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/459799e6f789726bf4590e565ab6d4367a969a74/current-ext.js",
 		callback: true
 	},
 	'layout': {

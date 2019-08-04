@@ -1938,7 +1938,7 @@ function populateImgEmote(command) {
 
 function addNewAchievement(sendData) {
 	$.ajax({
-		url: "https://hooks.zapier.com/hooks/catch/4506865/7dxfuj/",
+		url: "https://hooks.zapier.com/hooks/catch/4506865/obo3ps3/",
 		method: "POST",
 		data: {
 			title: sendData.title,
@@ -1960,7 +1960,7 @@ function addNewAchievement(sendData) {
 
 function addSoundEmote(sendData) {
 	$.ajax({
-		url: "https://hooks.zapier.com/hooks/catch/4506865/7dtj3i/",
+		url: "https://hooks.zapier.com/hooks/catch/4506865/obo3n5y/",
 		method: "POST",
 		data: {
 			name: sendData.command,
@@ -1981,7 +1981,7 @@ function addSoundEmote(sendData) {
 
 function addImgEmote(sendData) {
 	$.ajax({
-		url: "https://hooks.zapier.com/hooks/catch/4506865/7dt0w3/",
+		url: "https://hooks.zapier.com/hooks/catch/4506865/obo3n1k/",
 		method: "POST",
 		data: {
 			name: sendData.command,
