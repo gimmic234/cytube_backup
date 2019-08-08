@@ -560,6 +560,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!commandTitle.length) return;
 
 		commandTitle.each(function(instance) {
+			instance = $(instance);
 			let href = instance.attr('href');
 			let urlString = href.split('//');
 			if (sizeof(urlString) == 2) {
