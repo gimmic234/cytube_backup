@@ -1856,6 +1856,7 @@ function closeamq() {
 
 function populateSoundEmote(command) {
 	let temp = {};
+	let temp3 = {};
 	temp["?utsu"] = function() {};
 	temp["?psychopass"] = function () {};
 	var psychoMute = (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") ? "btn-success" : "btn-danger";
@@ -1914,6 +1915,7 @@ function populateSoundEmote(command) {
 
 function populateImgEmote(command) {
 	let temp = {};
+	let temp2 = {};
 	temp["!coffee"] = function() {};
 	temp["!club"] = function() {};
 	$.ajax({
