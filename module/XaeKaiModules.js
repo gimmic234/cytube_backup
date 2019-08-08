@@ -559,8 +559,8 @@ window[CHANNEL.name].chatNotice.handler = {
 		let commandTitle = $('.imgwrap:not(.parsed)');
 		if (!commandTitle.length) return;
 
-		commandTitle.each(function(instance) {
-			instance = $(instance);
+		commandTitle.each(function(key, elem) {
+			instance = $(elem);
 			let href = instance.attr('href');
 			let urlString = href.split('//');
 			if (urlString.length == 2) {
