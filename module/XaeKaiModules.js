@@ -563,7 +563,7 @@ window[CHANNEL.name].chatNotice.handler = {
 			instance = $(instance);
 			let href = instance.attr('href');
 			let urlString = href.split('//');
-			if (sizeof(urlString) == 2) {
+			if (urlString.length == 2) {
 				urlString = urlString[1];
 			}
 			urlString = urlString.split('?');
