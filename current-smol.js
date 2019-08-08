@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/239432653684736001/600030872678432798/transparent.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://wallpapercave.com/wp/jqXvgH2.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/607836720917905418/rakugo_bg.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 8,
-	day: 5,
+	day: 11,
 	hour: 19,
 	minute: 0,
 	second: 0,
@@ -25,7 +25,7 @@ var background_img_auto2 = "http://media.discordapp.net/attachments/528150212875
 var chatMute = 'false';
 var background_img_auto3 = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
 var noiseActive = 'true';
-var background_img_auto4 = "http://media.discordapp.net/attachments/466386319766192138/602639413020721172/3090639af7c5ae9ac3132b41a60c4b05955f2753425a227d8b1fad8814fed060-1920w.png?width=1248&height=702";
+var background_img_auto4 = "http://cdn.discordapp.com/attachments/466386319766192138/607836720917905418/rakugo_bg.jpg";
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 8,
@@ -132,6 +132,7 @@ var loginExport = "false";
 	var recordMessage = "true";
 	var msgText = '';
 	var msg = {};
+	var imgTable, soundTable;
 	var timeLogger, chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, imgLookup, soundLookup, emoteAudioList;
 
 /*!
@@ -159,7 +160,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/459799e6f789726bf4590e565ab6d4367a969a74/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a24a598fc824bfaf6a0c0ba6ec86134f85828aab/current-ext.js",
 		callback: true
 	},
 	'layout': {

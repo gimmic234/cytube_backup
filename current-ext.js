@@ -1881,6 +1881,14 @@ function populateSoundEmote(command) {
 					});		
 				}
 				temp2[value.gsx$command.$t] = value.gsx$audio.$t;
+				let urlString = value.gsx$image.$t.split('//');
+				if (sizeof(urlString) == 2) {
+					urlString = urlString[1];
+				}
+				urlString = urlString.split('?');
+				urlString = urlString[0];
+				
+				temp3[urlString] = value.gsx$command.$t;
 			})
 			temp2["pp_user_updated"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840069070094349/user_updated.mp3";
 			temp2["pp_over_100"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840067719528468/target_acquired.mp3";
@@ -1919,6 +1927,14 @@ function populateImgEmote(command) {
 			bodyString += "<li><b>!coffee</b></li>";
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+				let urlString = value.gsx$url.$t.split('//');
+				if (sizeof(urlString) == 2) {
+					urlString = urlString[1];
+				}
+				urlString = urlString.split('?');
+				urlString = urlString[0];
+
+				temp2[urlString] = value.gsx$command.$t;
 				temp[value.gsx$command.$t] = function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
 					imgEmote(value.gsx$url.$t, text);
@@ -1929,6 +1945,7 @@ function populateImgEmote(command) {
 			})
 			$('#image-emote-list').html(bodyString);
 			imgLookup = temp;
+			imgTable = temp2;
 		},
 		error: function() {
 			imgLookup = {};

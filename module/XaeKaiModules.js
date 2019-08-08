@@ -555,6 +555,32 @@ window[CHANNEL.name].chatNotice.handler = {
 		$(".fixedimg1show:not( .parsed )").addClass('parsed');
 		$(".fixedimg1hide:not( .parsed )").addClass('parsed');
 	},
+	addCommandTitle: function(data) {
+		let commandTitle = $('.imgwrap:not(.parsed)');
+		if (!commandTitle.length) return;
+
+		commandTitle.each(function(instance) {
+			let href = instance.attr('href');
+			let urlString = href.split('//');
+			if (sizeof(urlString) == 2) {
+				urlString = urlString[1];
+			}
+			urlString = urlString.split('?');
+			urlString = urlString[0];
+
+			let title = '';
+			if (imgTable.hasOwnProperty(urlString)) {
+				title = imgTable[urlString];
+			}
+
+			if (soundTable.hasOwnProperty(urlString)) {
+				title = soundTable[urlString];
+			}
+
+			instance.attr('title', title);
+			instance.addClass('parsed');
+		});
+	},
 	hideEmote: function() {
 		let emoteBlockList = [];
 		if (localStorage[CHANNEL.name + "_hideEmote"] != undefined) {
@@ -954,6 +980,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].chatNotice.handler["updateAchievementList"](data);
 		window[CHANNEL.name].chatNotice.handler["updateSoundEmote"](data);
 		window[CHANNEL.name].chatNotice.handler["hideEmote"]();
+		window[CHANNEL.name].chatNotice.handler["addCommandTitle"]();
 		window[CHANNEL.name].chatNotice.handler["nicoEffect"](data);
 	});
 
