@@ -1882,12 +1882,12 @@ function populateSoundEmote(command) {
 				}
 				temp2[value.gsx$command.$t] = value.gsx$audio.$t;
 				let urlString = value.gsx$image.$t.split('//');
-				if (sizeof(urlString) == 2) {
+				if (urlString.length == 2) {
 					urlString = urlString[1];
 				}
 				urlString = urlString.split('?');
 				urlString = urlString[0];
-				
+
 				temp3[urlString] = value.gsx$command.$t;
 			})
 			temp2["pp_user_updated"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840069070094349/user_updated.mp3";
@@ -1928,7 +1928,7 @@ function populateImgEmote(command) {
 			entries.each(function(value, index) {
 				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				let urlString = value.gsx$url.$t.split('//');
-				if (sizeof(urlString) == 2) {
+				if (urlString.length == 2) {
 					urlString = urlString[1];
 				}
 				urlString = urlString.split('?');
