@@ -1902,6 +1902,7 @@ function populateSoundEmote(command) {
 			$('#sound-emote-list').html(bodyString);
 			soundLookup = temp;
 			emoteAudioList = temp2;
+			soundTable = temp3;
 			if (command != '' && temp.hasOwnProperty(command)) {
 				temp[command]();
 			}
