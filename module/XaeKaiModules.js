@@ -517,6 +517,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!nicoEffectOn) {
 			return;
 		}
+		console.log(data);
 		let msgParsed = data.msg.split(/\s+/);
 		let tempBuffer = "";
 		msgParsed.each(function(msg) {
