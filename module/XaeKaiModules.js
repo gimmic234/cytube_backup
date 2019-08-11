@@ -517,9 +517,14 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (!nicoEffectOn) {
 			return;
 		}
-		console.log(data);
+		let profileImg = window.findUserlistItem(data.username).data('profile').image;
 		let msgParsed = data.msg.split(/\s+/);
 		let tempBuffer = "";
+		let msgHtml = $.parseHTML(data.msg);
+		if (msgHtml.hasClass("semote")) {
+			return;
+		}
+		tempBuffer += "<img class='chat-avatar chat-avatar_small' src='"+profileImg+"'>";
 		msgParsed.each(function(msg) {
 			if (CHANNEL.emoteMap.hasOwnProperty(msg)) {
 				tempBuffer += " " + "<img src='"+CHANNEL.emoteMap[msg].image+"' class='channel-emote'>";
