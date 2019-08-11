@@ -524,7 +524,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		if (msgHtml.hasClass("semote")) {
 			return;
 		}
-		tempBuffer += "<img class='chat-avatar chat-avatar_small' src='"+profileImg+"'>";
+		tempBuffer += "<img class='channel-emote-small float-avatar' src='"+profileImg+"'>";
 		msgParsed.each(function(msg) {
 			if (CHANNEL.emoteMap.hasOwnProperty(msg)) {
 				tempBuffer += " " + "<img src='"+CHANNEL.emoteMap[msg].image+"' class='channel-emote'>";
