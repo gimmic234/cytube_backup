@@ -520,7 +520,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		let profileImg = window.findUserlistItem(data.username).data('profile').image;
 		let msgParsed = data.msg.split(/\s+/);
 		let tempBuffer = "";
-		let msgHtml = $.parseHTML(data.msg);
+		let msgHtml = $($.parseHTML(data.msg));
 		if (msgHtml.hasClass("semote")) {
 			return;
 		}
