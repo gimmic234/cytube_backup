@@ -1603,9 +1603,11 @@ var chatKeyLookup = {
 				chatCmdLookup[chatCmdText[0]](chatCmdText);
 			} else {
 				if (imgLookup.hasOwnProperty(origCmd)) {
-					imgLookup[origCmd](chatCmdText);
+					imgLookup[origCmd][Math.floor(Math.random() * imgLookup[origCmd].length)](chatCmdText);
+					//imgLookup[origCmd](chatCmdText);
 				} else if (soundLookup.hasOwnProperty(origCmd)) {
-					soundLookup[origCmd](chatCmdText);
+					soundLookup[origCmd][Math.floor(Math.random() * soundLookup[origCmd].length)](chatCmdText);
+					//soundLookup[origCmd](chatCmdText);
 				} else {
 					window.socket.emit("chatMsg", {
 						msg: msg,
@@ -1857,8 +1859,8 @@ function closeamq() {
 function populateSoundEmote(command) {
 	let temp = {};
 	let temp3 = {};
-	temp["?utsu"] = function() {};
-	temp["?psychopass"] = function () {};
+	temp["?utsu"][] = function() {};
+	temp["?psychopass"][] = function () {};
 	var psychoMute = (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") ? "btn-success" : "btn-danger";
 	var utsuMute = (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"] == "true") ? "btn-success" : "btn-danger";
 	let temp2 = {};
@@ -1874,7 +1876,7 @@ function populateSoundEmote(command) {
 			entries.each(function(value, index) {
 				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == "true") ? "btn-success" : "btn-danger";
 				bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-3'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
-				temp[value.gsx$command.$t] = function(chatCmdText) {
+				temp[value.gsx$command.$t][] = function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
 					imgEmote(value.gsx$image.$t, text);
 					window.socket.emit("chatMsg", {
@@ -1904,7 +1906,7 @@ function populateSoundEmote(command) {
 			emoteAudioList = temp2;
 			soundTable = temp3;
 			if (command != '' && temp.hasOwnProperty(command)) {
-				temp[command]();
+				temp[command][0]();
 			}
 		},
 		error: function() {
@@ -1917,8 +1919,8 @@ function populateSoundEmote(command) {
 function populateImgEmote(command) {
 	let temp = {};
 	let temp2 = {};
-	temp["!coffee"] = function() {};
-	temp["!club"] = function() {};
+	temp["!coffee"][] = function() {};
+	temp["!club"][] = function() {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+2)+"/public/values?alt=json",
 		method: "get",
@@ -1938,7 +1940,7 @@ function populateImgEmote(command) {
 				urlString = urlString[0];
 
 				temp2[urlString] = value.gsx$command.$t;
-				temp[value.gsx$command.$t] = function(chatCmdText) {
+				temp[value.gsx$command.$t][] = function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
 					imgEmote(value.gsx$url.$t, text);
 				}
