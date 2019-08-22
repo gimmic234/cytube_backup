@@ -1859,6 +1859,8 @@ function closeamq() {
 function populateSoundEmote(command) {
 	let temp = {};
 	let temp3 = {};
+	temp["?utsu"] = [];
+	temp["?psychopass"] = [];
 	temp["?utsu"].push(function() {});
 	temp["?psychopass"].push(function() {});
 	var psychoMute = (localStorage[CHANNEL.name + "_?psychopass"] == null || localStorage[CHANNEL.name + "_?psychopass"] == "true") ? "btn-success" : "btn-danger";
@@ -1876,6 +1878,9 @@ function populateSoundEmote(command) {
 			entries.each(function(value, index) {
 				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == "true") ? "btn-success" : "btn-danger";
 				bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-3'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
+				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
+					temp[value.gsx$command.$t] = [];
+				}
 				temp[value.gsx$command.$t].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
 					imgEmote(value.gsx$image.$t, text);
@@ -1919,6 +1924,8 @@ function populateSoundEmote(command) {
 function populateImgEmote(command) {
 	let temp = {};
 	let temp2 = {};
+	temp["!coffee"] = [];
+	temp["!club"] = [];
 	temp["!coffee"].push(function() {});
 	temp["!club"].push(function() {});
 	$.ajax({
@@ -1940,6 +1947,9 @@ function populateImgEmote(command) {
 				urlString = urlString[0];
 
 				temp2[urlString] = value.gsx$command.$t;
+				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
+					temp[value.gsx$command.$t] = [];
+				}
 				temp[value.gsx$command.$t].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
 					imgEmote(value.gsx$url.$t, text);
