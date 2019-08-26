@@ -2541,7 +2541,7 @@ window.loadInitializer = function() {
 		}
 		setTimeout(function() {
 			userImgSend = window.findUserlistItem(window.username).data('profile').image;
-		}, 5000);
+		}, 20000);
 	});
 
 	waitForEl('#club_redirect', function() {
