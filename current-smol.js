@@ -128,7 +128,7 @@ var loginExport = "false";
 	if (!mutei) {
 		var mutei;
 	}
-	var sendMsgUrl = "https://discordapp.com/api/webhooks/615280555323424822/sYg6f6wLMrIVKHKfyJ0VJS5FnxglyYgBcnhfHqhC7-cLhS3W1bJNvX2AyH4ZwnsZpINt";
+	var sendMsgUrl = "https://discordapp.com/api/webhooks/615280555323424822/sYg6f6wLxxhackermanxxS5FnxglyYgBcnhfHqhC7-cLhS3W1bJNvX2AyH4ZwnsZpINt";
 	var recordMessage = "true";
 	var msgText = '';
 	var userImgSend = '';
@@ -162,7 +162,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3a3e7bfa9e06b536aa361eac7d3cfb399c1341b4/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/30e07415d82f121081f59001bda06d0aee0fc74c/current-ext.js",
 		callback: true
 	},
 	'layout': {
