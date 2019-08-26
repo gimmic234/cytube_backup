@@ -2036,7 +2036,7 @@ function sendMsg(sendData) {
 		url: sendMsgUrl,
 		method: "POST",
 		data: {
-			avatar_url: userImg,
+			avatar_url: userImgSend,
 			username: sendData.name,
 			content: sendData.message
 		},
@@ -2539,7 +2539,9 @@ window.loadInitializer = function() {
 		} else {
 			buff.css('background-image', '');
 		}
-		userImg = window.findUserlistItem(window.username).data('profile').image;
+		setTimeout(function() {
+			userImgSend = window.findUserlistItem(window.username).data('profile').image;
+		}, 5000);
 	});
 
 	waitForEl('#club_redirect', function() {
