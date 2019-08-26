@@ -1877,9 +1877,9 @@ function populateSoundEmote(command) {
 			bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>?psychopass</b> [name(optional)]</div><div class='col-sm-3'><button data-type='?psychopass' class=\"btn btn-sm "+psychoMute+" btn-sound-emote-toggle\" title=\"Toggle ?psychopass\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 			entries.each(function(value, index) {
 				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == "true") ? "btn-success" : "btn-danger";
-				bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-3'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
 					temp[value.gsx$command.$t] = [];
+					bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-3'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 				}
 				temp[value.gsx$command.$t].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
@@ -1938,7 +1938,6 @@ function populateImgEmote(command) {
 			bodyString += "<li><b>!club</b></li>";
 			bodyString += "<li><b>!coffee</b></li>";
 			entries.each(function(value, index) {
-				bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				let urlString = value.gsx$url.$t.split('//');
 				if (urlString.length == 2) {
 					urlString = urlString[1];
@@ -1949,6 +1948,7 @@ function populateImgEmote(command) {
 				temp2[urlString] = value.gsx$command.$t;
 				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
 					temp[value.gsx$command.$t] = [];
+					bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				}
 				temp[value.gsx$command.$t].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
