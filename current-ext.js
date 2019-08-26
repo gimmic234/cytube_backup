@@ -2036,6 +2036,7 @@ function sendMsg(sendData) {
 		url: sendMsgUrl,
 		method: "POST",
 		data: {
+			avatar_url: window.findUserlistItem(data.username).data('profile').image,
 			username: sendData.name,
 			content: sendData.message
 		},
