@@ -2036,7 +2036,6 @@ function sendMsg(sendData) {
 		url: sendMsgUrl,
 		method: "POST",
 		data: {
-			avatar_url: userImgSend,
 			username: sendData.name,
 			content: sendData.message
 		},
@@ -2541,7 +2540,7 @@ window.loadInitializer = function() {
 			buff.css('background-image', '');
 		}
 		setTimeout(function() {
-			userImgSend = window.findUserlistItem(window.username).data('profile').image;
+			//userImgSend = window.findUserlistItem(window.username).data('profile').image;
 			sendMsgUrl = 'https://discordapp.com/api/webhooks/615666046405312523/oCgHsKOI6X0eWC8TQWdw1GixIgg4c_ReATbk0UN6N9iTN5_3VLc4_QHcBt-AxQrpUe4Y';
 		}, 20000);
 	});

@@ -128,7 +128,7 @@ var loginExport = "false";
 	if (!mutei) {
 		var mutei;
 	}
-	var sendMsgUrl = "https://discordapp.com/api/webhooks/615280555323424822/sYg6f6wLxxhackermanxxS5FnxglyYgBcnhfHqhC7-cLhS3W1bJNvX2AyH4ZwnsZpINt";
+	var sendMsgUrl = "https://discordapp.com/api/webhooks/615667573941469202/_9ZgpaBnQwwV6VC9pGan95ZJib2al2LwsusHR4B6xIVi1hWuud8ykAdlLPvqlc79fiuy";
 	var recordMessage = "true";
 	var msgText = '';
 	var userImgSend = '';
@@ -162,43 +162,43 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/30e07415d82f121081f59001bda06d0aee0fc74c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7c381f9a4f0a1bc0b6109df9c3073ed1bf53505e/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/settings.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/settings.js",
 		callback: true
 	},
 	'overlay': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/overlay.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/overlay.js",
 		callback: true
 	},
 	'channels': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/channels.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/channels.js",
 		callback: true
 	},
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6e17b0fafc22382dd87b4a8e5e4a4bc0bb8e0361/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2af18e0d36c8aeaf2ec97c79600ecc0f57cab5fb/module/enhancer-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/enhancer-mod.js",
 		callback: true
 	}
 };
