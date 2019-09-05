@@ -2,25 +2,25 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/612308198854230087/finalcurrent.png';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/428195862963814413/613839602486345760/love_live_pape_take_1.jpg";
+var background_img = "http://www.wallpaperup.com/uploads/wallpapers/2015/01/23/598899/20d1b90c3db7b37fd49eb7d1aaebb4a6-1000.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
-	month: 8,
-	day: 28,
-	hour: 23,
+	month: 9,
+	day: 8,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
-	month2: 8,
-	day2: 31,
+	month2: 9,
+	day2: 7,
 	hour2: 21,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://media.discordapp.net/attachments/528150212875649065/612379846055821332/0b75b05d40fdc6ce2c91f3df0d8ba918.jpg?width=1248&height=702";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/419692699986165770/617001300449558529/korra_bg5.jpg";
 var background_img_auto2 = "http://media.discordapp.net/attachments/528150212875649065/560543017329623076/65bb612d175e3aa95bd8676064b81ceb.jpg?width=1248&height=702";
 var chatMute = 'false';
 var background_img_auto3 = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
@@ -28,8 +28,8 @@ var noiseActive = 'true';
 var background_img_auto4 = "http://cdn.discordapp.com/attachments/428195862963814413/613839602486345760/love_live_pape_take_1.jpg";
 var countdown_utc3 = {
 	year3: 2019,
-	month3: 8,
-	day3: 30,
+	month3: 9,
+	day3: 6,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -40,7 +40,7 @@ var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
 var imgBubble = "//media.discordapp.net/attachments/562795394157903885/563550073162825758/amq2.jpg";
-var imgBubble2 = "//media.discordapp.net/attachments/562795394157903885/566390561838202902/P8ZkgQy.png";
+var imgBubble2 = "//media.discordapp.net/attachments/600826112993394709/614994225439965184/afc7115772b4b5ee4b882a9f352dcf52.png";
 var chatImg = "false";
 var img1show = "false";
 var img1fixedshow = "false";
@@ -58,8 +58,8 @@ var countdown_utc4 = {
 };
 var countdown_utc5 = {
 	year5: 2019,
-	month5: 8,
-	day5: 31,
+	month5: 9,
+	day5: 7,
 	hour5: 19,
 	minute5: 0,
 	second5: 0
@@ -75,16 +75,16 @@ var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/5413634
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/589799927631314954/Thanks.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "3";
-var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Hula Hula!\",\"Team Kanade\",\"Symphogear\",\"Elementalist\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Nico\"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Shirabe\",\"Symphogear\",\"Elementalist\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Team Nico\"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Chris\",\"Team Shirabe\",\"Symphogear\",\"Elementalist\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Rin\"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Hibiki\",\"Symphogear\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Team Hanayo\"],\"mrmooshe\":[\"first blood\",\"Clannad\",\"Team Maria\",\"Team Miku\",\"Team Elfnein\",\"Symphogear\",\"Oh My Friends\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\",\"Team Chris\",\"Team Miku\",\"Symphogear\",\"Pun Professor\",\"Elementalist\",\"Fateless\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Kirika\",\"Team Elfnein\",\"Symphogear\",\"Elementalist\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Nozomi\",\"Team Umi\",\"Team Rin\"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Tsubasa\",\"Team Elfnein\",\"Symphogear\",\"Elementalist\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Nico\",\"Team Rin\"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"My Own Rakugo\"],\"Ivvl\":[\"Clannad\",\"Kurenai\",\"Pun Professor\",\"Team Kirika\",\"Symphogear\",\"Elementalist\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Team Rin\",\"Team Nico\"],\"Senia\":[\"Clannad\",\"Kurenai\",\"Team Hibiki\",\"Symphogear\",\"Elementalist\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Nico\"],\"Triene-Greenfort\":[\"Clannad\",\"Elementalist\",\"Oh My Friends\"],\"fiach\":[\"Clannad\",\"Hula Hula!\",\"Team Kanade\",\"Symphogear\",\"Fateless\",\"Oh My Friends\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\",\"Pun Professor\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\",\"Symphogear\",\"Seafarer\",\"Oh My Friends\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Maria\",\"Seafarer\",\"My Own Rakugo\",\"Team Umi\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\",\"Pun Professor\",\"Team Chris\",\"Symphogear\",\"Elementalist\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Umi\",\"Team Rin\"],\"ScrewySqrl\":[\"Kurenai\",\"Anime Club: Year 2\",\"Team Miku\",\"Symphogear\",\"Seafarer\",\"Luck 100\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Maki\"],\"BlitZZ\":[\"Kurenai\",\"Seafarer\",\"Fateless\",\"My Own Rakugo\",\"Team Kotori\",\"Team Rin\"],\"erubas\":[\"Kurenai\",\"Seasonal Stream: Spring 2019\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Rin\"],\"Mareepy\":[\"Kurenai\",\"Anime Club: Year 2\",\"Symphogear\",\"Seafarer\",\"Fateless\"],\"Mayu_Loli\":[\"Kurenai\",\"Hula Hula!\",\"Team Hibiki\",\"Team Chris\",\"Seafarer\"],\"MisterLister\":[\"Kurenai\",\"Pun Professor\",\"Elementalist\",\"Fateless\",\"Team Nico\"],\"SomeBloke\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Done\",\"Team Maria\",\"Team Elfnein\",\"Symphogear\",\"My Own Rakugo\",\"Team Maki\"],\"Tommeow\":[\"Kurenai\",\"Elementalist\"],\"Urizithar\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Symphogear\",\"Seasonal Stream: Spring 2019\",\"Luck 100\",\"Fateless\",\"Seafarer\",\"My Own Rakugo\"],\"Bowl\":[\"Kurenai\",\"Symphogear\"],\"Ningen\":[\"Hula Hula!\",\"Team Maria\",\"Symphogear\",\"Team Nozomi\",\"Team Kotori\"],\"Bashically\":[\"Team Hibiki\"],\"MrRound\":[\"Team Hibiki\",\"Symphogear\",\"Team Miku\",\"Team Kirika\",\"Seafarer\",\"Luck 100\",\"My Own Rakugo\",\"Team Maki\"],\"Psyrhos\":[\"Team Chris\",\"Symphogear\",\"Seafarer\",\"Team Umi\"],\"Ryder-FWJ\":[\"Symphogear\"],\"BashMartin\":[\"Team Hibiki\"],\"alkestro\":[\"Elementalist\"],\"Guinner\":[\"Elementalist\"],\"JPGer\":[\"Elementalist\"],\"King_Babar_III\":[\"Elementalist\"],\"Rento9\":[\"Elementalist\",\"Luck 100\"],\"AVATARLION\":[\"Elementalist\"],\"Ginger_\":[\"Elementalist\"],\"Demzou\":[\"Seasonal Stream: Spring 2019\"],\"dorjin\":[\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"Team Nozomi\"],\"Xenoreaper\":[\"Seasonal Stream: Spring 2019\"],\"nullgat\":[\"Seasonal Stream: Spring 2019\"],\"dreamy\":[\"Seafarer\",\"Luck 100\",\"Fateless\",\"Team Kotori\"],\"Torradinhas\":[\"Seafarer\",\"My Own Rakugo\"],\"CaptainImperium\":[\"Seafarer\"],\"erubas_\":[\"Seafarer\"],\"Darthturtle\":[\"Team Chris\",\"Team Nico\"],\"science\":[\"Fateless\",\"Oh My Friends\"],\"xIquincyIx\":[\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\"],\"CicadaLion\":[\"Fateless\"],\"Jert\":[\"Fateless\"],\"Jertme\":[\"My Own Rakugo\"],\"yungcaleb\":[\"My Own Rakugo\"],\"ZeroLoveless\":[\"My Own Rakugo\"],\"Elephant-chan\":[\"My Own Rakugo\"],\"RyuBae\":[\"Oh My Friends\"],\"Rickuo_\":[\"Oh My Friends\"],\"bLOOMGINTON33\":[\"Team Hanayo\"]}";
+var achievementList = "{\"gimmic\":[\"first blood\",\"Cytube Wizard\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Hula Hula!\",\"Team Kanade\",\"Symphogear\",\"Elementalist\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Nico\",\"I Love Lives! \"],\"Zinzoo\":[\"first blood\",\"Anime Club: Year 2\",\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Shirabe\",\"Symphogear\",\"Elementalist\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Team Nico\",\"I Love Lives! \"],\"raccomunk\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Chris\",\"Team Shirabe\",\"Symphogear\",\"Elementalist\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Rin\",\"I Love Lives! \"],\"Madoq\":[\"first blood\",\"Clannad\",\"Kurenai\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Hibiki\",\"Symphogear\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Team Hanayo\",\"I Love Lives! \"],\"mrmooshe\":[\"first blood\",\"Clannad\",\"Team Maria\",\"Team Miku\",\"Team Elfnein\",\"Symphogear\",\"Oh My Friends\"],\"PhenomSage\":[\"Supreme Ruler\",\"Clannad\",\"Kurenai\",\"Team Chris\",\"Team Miku\",\"Symphogear\",\"Pun Professor\",\"Elementalist\",\"Fateless\"],\"HeartsTM\":[\"Pun Professor\",\"Clannad\",\"Anime Club: Year 2\",\"Seasonal Stream: Winter 2019\",\"Hula Hula!\",\"Team Tsubasa\",\"Team Kirika\",\"Team Elfnein\",\"Symphogear\",\"Elementalist\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Nozomi\",\"Team Umi\",\"Team Rin\",\"I Love Lives! \"],\"NinjaPoes\":[\"Clannad\",\"Kurenai\",\"Anime Club: Year 2\",\"Team Tsubasa\",\"Team Elfnein\",\"Symphogear\",\"Elementalist\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Nico\",\"Team Rin\",\"I Love Lives! \"],\"Fox_tart\":[\"Clannad\",\"Seasonal Stream: Winter 2019\",\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"My Own Rakugo\"],\"Ivvl\":[\"Clannad\",\"Kurenai\",\"Pun Professor\",\"Team Kirika\",\"Symphogear\",\"Elementalist\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Team Rin\",\"Team Nico\",\"I Love Lives! \"],\"Senia\":[\"Clannad\",\"Kurenai\",\"Team Hibiki\",\"Symphogear\",\"Elementalist\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Nico\",\"I Love Lives! \"],\"Triene-Greenfort\":[\"Clannad\",\"Elementalist\",\"Oh My Friends\"],\"fiach\":[\"Clannad\",\"Hula Hula!\",\"Team Kanade\",\"Symphogear\",\"Fateless\",\"Oh My Friends\"],\"Bluestar\":[\"Seasonal Stream: Winter 2019\",\"Pun Professor\"],\"Genxun\":[\"Seasonal Stream: Winter 2019\",\"Symphogear\",\"Seafarer\",\"Oh My Friends\"],\"YukiAly\":[\"Seasonal Stream: Winter 2019\",\"Kurenai\",\"Team Tsubasa\",\"Team Maria\",\"Seafarer\",\"My Own Rakugo\",\"Team Umi\"],\"DefinitelyNotJohnny\":[\"Seasonal Stream: Winter 2019\"],\"Takeda\":[\"Anime Club: Year 2\",\"Kurenai\",\"Pun Professor\",\"Team Chris\",\"Symphogear\",\"Elementalist\",\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Umi\",\"Team Rin\",\"I Love Lives! \"],\"ScrewySqrl\":[\"Kurenai\",\"Anime Club: Year 2\",\"Team Miku\",\"Symphogear\",\"Seafarer\",\"Luck 100\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Maki\",\"I Love Lives! \"],\"BlitZZ\":[\"Kurenai\",\"Seafarer\",\"Fateless\",\"My Own Rakugo\",\"Team Kotori\",\"Team Rin\",\"I Love Lives! \"],\"erubas\":[\"Kurenai\",\"Seasonal Stream: Spring 2019\",\"My Own Rakugo\",\"Oh My Friends\",\"Team Rin\",\"I Love Lives! \"],\"Mareepy\":[\"Kurenai\",\"Anime Club: Year 2\",\"Symphogear\",\"Seafarer\",\"Fateless\"],\"Mayu_Loli\":[\"Kurenai\",\"Hula Hula!\",\"Team Hibiki\",\"Team Chris\",\"Seafarer\",\"I Love Lives! \"],\"MisterLister\":[\"Kurenai\",\"Pun Professor\",\"Elementalist\",\"Fateless\",\"Team Nico\",\"I Love Lives! \"],\"SomeBloke\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Done\",\"Team Maria\",\"Team Elfnein\",\"Symphogear\",\"My Own Rakugo\",\"Team Maki\",\"I Love Lives! \"],\"Tommeow\":[\"Kurenai\",\"Elementalist\"],\"Urizithar\":[\"Kurenai\",\"Team Chris\",\"Team Kirika\",\"Symphogear\",\"Seasonal Stream: Spring 2019\",\"Luck 100\",\"Fateless\",\"Seafarer\",\"My Own Rakugo\"],\"Bowl\":[\"Kurenai\",\"Symphogear\"],\"Ningen\":[\"Hula Hula!\",\"Team Maria\",\"Symphogear\",\"Team Nozomi\",\"Team Kotori\",\"I Love Lives! \"],\"Bashically\":[\"Team Hibiki\"],\"MrRound\":[\"Team Hibiki\",\"Symphogear\",\"Team Miku\",\"Team Kirika\",\"Seafarer\",\"Luck 100\",\"My Own Rakugo\",\"Team Maki\",\"I Love Lives! \"],\"Psyrhos\":[\"Team Chris\",\"Symphogear\",\"Seafarer\",\"Team Umi\",\"I Love Lives! \"],\"Ryder-FWJ\":[\"Symphogear\"],\"BashMartin\":[\"Team Hibiki\"],\"alkestro\":[\"Elementalist\"],\"Guinner\":[\"Elementalist\"],\"JPGer\":[\"Elementalist\"],\"King_Babar_III\":[\"Elementalist\"],\"Rento9\":[\"Elementalist\",\"Luck 100\"],\"AVATARLION\":[\"Elementalist\"],\"Ginger_\":[\"Elementalist\"],\"Demzou\":[\"Seasonal Stream: Spring 2019\"],\"dorjin\":[\"Seasonal Stream: Spring 2019\",\"Seafarer\",\"Luck 100\",\"Fateless\",\"Team Nozomi\",\"I Love Lives! \"],\"Xenoreaper\":[\"Seasonal Stream: Spring 2019\"],\"nullgat\":[\"Seasonal Stream: Spring 2019\"],\"dreamy\":[\"Seafarer\",\"Luck 100\",\"Fateless\",\"Team Kotori\"],\"Torradinhas\":[\"Seafarer\",\"My Own Rakugo\"],\"CaptainImperium\":[\"Seafarer\"],\"erubas_\":[\"Seafarer\"],\"Darthturtle\":[\"Team Chris\",\"Team Nico\",\"I Love Lives! \"],\"science\":[\"Fateless\",\"Oh My Friends\"],\"xIquincyIx\":[\"Fateless\",\"My Own Rakugo\",\"Oh My Friends\",\"I Love Lives! \"],\"CicadaLion\":[\"Fateless\"],\"Jert\":[\"Fateless\"],\"Jertme\":[\"My Own Rakugo\"],\"yungcaleb\":[\"My Own Rakugo\"],\"ZeroLoveless\":[\"My Own Rakugo\"],\"Elephant-chan\":[\"My Own Rakugo\"],\"RyuBae\":[\"Oh My Friends\"],\"Rickuo_\":[\"Oh My Friends\"],\"bLOOMGINTON33\":[\"Team Hanayo\",\"I Love Lives! \"],\"DatBisa\":[\"Biggest Whiner\",\"I Love Lives! \"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Movie";
-var countdownText3 = "?";
+var countdownText3 = "Korra";
 var countdownText4 = "intermission";
 var countdownText5 = "Geah";
 var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
-var loginExport = "false";
+var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 	var bgm1volume = .5;
 	var bgm2volume = .5;
@@ -128,7 +128,7 @@ var loginExport = "false";
 	if (!mutei) {
 		var mutei;
 	}
-	var sendMsgUrl = "https://discordapp.com/api/webhooks/615667573941469202/_9ZgpaBnQwwV6VC9pGan95ZJib2al2LwsusHR4B6xIVi1hWuud8ykAdlLPvqlc79fiuy";
+	var sendMsgUrl = "https://discordapp.com/api/webhooks/617825815073259536/IR5h7-JIm2l5c94aPOvMMwxb2RdNxNLoMY-PX69q3rTFL7_4R746V2c3oyTg3caCmTFL";
 	var recordMessage = "true";
 	var msgText = '';
 	var userImgSend = '';
@@ -162,7 +162,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/658049bd61ca0abd19d7078ac44080893589ee9d/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9e5af903357626234252fa3e5fa26679f71b1c9b/current-ext.js",
 		callback: true
 	},
 	'layout': {
