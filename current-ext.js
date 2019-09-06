@@ -1071,6 +1071,11 @@ var chatCmdLookup = {
 			"//media.discordapp.net/attachments/501103378714329100/539210465059012627/utsu8.png",
 			"//media.discordapp.net/attachments/501103378714329100/539215764175978516/utsu9.png",
 			"//media.discordapp.net/attachments/501103378714329100/541368857890258950/utsu10.jpg",
+			"//media.discordapp.net/attachments/562795394157903885/619358938235797522/AOGWnXR.jpg",
+			"//media.discordapp.net/attachments/562795394157903885/619359010444935170/kMJlLr7.jpg.png",
+			"//media.discordapp.net/attachments/562795394157903885/619359013724880927/UYLrsjs.jpg.png",
+			"//media.discordapp.net/attachments/562795394157903885/619359014786170905/7n1btyt.jpg.png",
+			"//media.discordapp.net/attachments/562795394157903885/619359020158943232/p95XW4l.jpg.png",
 			"not"
 		];
 		var utsuimg = utsulist[Math.floor(Math.random() * utsulist.length)];
