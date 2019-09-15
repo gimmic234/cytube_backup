@@ -1975,7 +1975,7 @@ function populateImgEmote(command) {
 
 function addNewAchievement(sendData) {
 	$.ajax({
-		url: "https://hooks.zapier.com/hooks/catch/4506865/obo3ps3/",
+		url: achievementUrl,
 		method: "POST",
 		data: {
 			title: sendData.title,
@@ -1997,7 +1997,7 @@ function addNewAchievement(sendData) {
 
 function addSoundEmote(sendData) {
 	$.ajax({
-		url: "https://hooks.zapier.com/hooks/catch/4506865/obo3n5y/",
+		url: soundAddUrl,
 		method: "POST",
 		data: {
 			name: sendData.command,
@@ -2018,7 +2018,7 @@ function addSoundEmote(sendData) {
 
 function addImgEmote(sendData) {
 	$.ajax({
-		url: "https://hooks.zapier.com/hooks/catch/4506865/obo3n1k/",
+		url: imageAddUrl,
 		method: "POST",
 		data: {
 			name: sendData.command,
