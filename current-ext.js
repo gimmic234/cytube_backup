@@ -1696,7 +1696,7 @@ function exportTimeLog() {
 	});
 }*/
 
-function readMsgCmd() {
+function readMsgCmd(command) {
 	let temp = {};
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+7)+"/public/values?alt=json",
