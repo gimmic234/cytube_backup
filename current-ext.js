@@ -1574,7 +1574,7 @@ var chatKeyLookup = {
 					soundLookup[origCmd][Math.floor(Math.random() * soundLookup[origCmd].length)](chatCmdText);
 					//soundLookup[origCmd](chatCmdText);
 				} else if (msgLookup.hasOwnProperty(origCmd)) {
-					msgLookup[origCmd][Math.floor(Math.random() * soundLookup[origCmd].length)](chatCmdText);
+					msgLookup[origCmd][Math.floor(Math.random() * msgLookup[origCmd].length)](chatCmdText);
 				} else {
 					window.socket.emit("chatMsg", {
 						msg: msg,
