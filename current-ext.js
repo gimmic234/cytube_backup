@@ -483,46 +483,6 @@ var chatCmdLookup = {
 			imgEmote('https://media.discordapp.net/attachments/409829343263719427/512051181946929152/sound_control.JPG');
 		}
 	},
-	'/rule1': function() {
-		window.socket.emit("chatMsg", {
-				msg: "Club rule #1 - |You will never, ever be picked.  Just accept it.|"
-		});
-	},
-	'/rule2': function() {
-		window.socket.emit("chatMsg", {
-				msg: "Club rule #2 - |Don't make Mareepy angry.|"
-		});
-	},
-	'/rule3': function() {
-		window.socket.emit("chatMsg", {
-				msg: "Club rule #3 - |All server rules still apply. In short, don't be a jerk.|"
-		});
-	},
-	'/rule4': function() {
-		window.socket.emit("chatMsg", {
-				msg: "Club rule #4 - |It's fine to dislike a show and voice your opinion on it, but provide constructive criticism on why it's bad rather than \"OMG lul, this show bad\"|"
-		});
-	},
-	'/rule5': function() {
-		window.socket.emit("chatMsg", {
-				msg: "Club rule #5 - |You must watch/rewatch the whole series AND discuss it in the server chatroom to qualify for a ticket.|"
-		});
-	},
-	'/rule6': function() {
-		window.socket.emit("chatMsg", {
-				msg: "Club rule #6 - |Lying about your participation will be severely penalized, possibly with a suspension from the club.|"
-		});
-	},
-	'/rule7': function() {
-		window.socket.emit("chatMsg", {
-				msg: "Club rule #7 - |Don't talk trash about a club pick until we've at least started watching it. Try to give everything a fair chance.|"
-		});
-	},
-	'/rule8': function() {
-		window.socket.emit("chatMsg", {
-				msg: "Club rule #8 - |Pat Poes for good luck!|"
-		});
-	},
 	'/noiseoff': function() {
 		if (rankAdmin) {
 			noiseActive = "false";
@@ -1613,6 +1573,8 @@ var chatKeyLookup = {
 				} else if (soundLookup.hasOwnProperty(origCmd)) {
 					soundLookup[origCmd][Math.floor(Math.random() * soundLookup[origCmd].length)](chatCmdText);
 					//soundLookup[origCmd](chatCmdText);
+				} else if (msgLookup.hasOwnProperty(origCmd)) {
+					msgLookup[origCmd][Math.floor(Math.random() * soundLookup[origCmd].length)](chatCmdText);
 				} else {
 					window.socket.emit("chatMsg", {
 						msg: msg,
@@ -1623,6 +1585,10 @@ var chatKeyLookup = {
 					}
 					if (origCmd[0] == "?" && origCmd.length > 2) {
 						populateSoundEmote(origCmd);
+					}
+
+					if (origCmd[0] == "$" && origCmd.length > 2) {
+						readMsgCmd(origCmd);
 					}
 				}
 			}
@@ -1729,6 +1695,40 @@ function exportTimeLog() {
 		}
 	});
 }*/
+
+function readMsgCmd() {
+	let temp = {};
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+7)+"/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			let bodyString = "";
+			entries.each(function(value, index) {
+				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
+					temp[value.gsx$command.$t] = [];
+					bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+				}
+				temp[value.gsx$command.$t].push(function(chatCmdText) {
+					window.socket.emit("chatMsg", {
+						msg: value.gsx$message.$t
+					});
+				});
+				if (command != '' && command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
+					window.socket.emit("chatMsg", {
+						msg: value.gsx$message.$t
+					});
+				}
+			})
+			$('#msg-emote-list').html(bodyString);
+			msgLookup = temp;
+		},
+		error: function() {
+			msgLookup = {};
+		}
+	});
+}
 
 function readTimeLog() {
 	let returnArray = [];
@@ -2510,6 +2510,7 @@ window.loadInitializer = function() {
 		$(document.getElementById('voteskipwrap')).hide();
 		populateImgEmote('');
 		populateSoundEmote('');
+		readMsgCmd('');
 		var buff = $('#messagebuffer');
 		/*if (CLIENT.name == "PhenomSage") 
 		{
@@ -3255,6 +3256,30 @@ function bindEventHandler() {
 				emoteList.show();
 			}
 		} else if(chatText.length == 1 && lastText.substr(0, 1) == '?' && lastText.length >= 2) {
+			emoteList[0].innerHTML = "";
+			imgArray = Object.keys(soundLookup);
+			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
+			let fullMatch = imgArray.includes("?"+emoteText);
+			if (fullMatch || filteredEmote.length == 0) {
+				emoteList.hide();
+				selectedPopover = null;
+				emoteTable = false;
+			} else {
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+				filteredEmote.forEach(function(value, index) {
+					let active = (index == 0) ? "active" : "";
+					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
+					emoteString += "<td>" + value + "</td>";
+					emoteString += "</tr>";
+				})
+				emoteString += "</tbody></table></div>";
+				emoteList[0].innerHTML = emoteString;
+				selectedPopover = $('tr.active');
+				emoteTable = true;
+				emoteList.show();
+			}
+		} else if(chatText.length == 1 && lastText.substr(0, 1) == '$' && lastText.length >= 2) {
 			emoteList[0].innerHTML = "";
 			imgArray = Object.keys(soundLookup);
 			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
