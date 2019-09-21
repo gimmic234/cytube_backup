@@ -3281,7 +3281,7 @@ function bindEventHandler() {
 			}
 		} else if(chatText.length == 1 && lastText.substr(0, 1) == '$' && lastText.length >= 2) {
 			emoteList[0].innerHTML = "";
-			imgArray = Object.keys(soundLookup);
+			imgArray = Object.keys(msgLookup);
 			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
 			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
 			let fullMatch = imgArray.includes("?"+emoteText);
