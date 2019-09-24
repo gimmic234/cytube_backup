@@ -128,7 +128,7 @@ var loginExport = "true";
 	if (!mutei) {
 		var mutei;
 	}
-	
+
 	var recordMessage = "true";
 	var msgText = '';
 	var userImgSend = '';
@@ -162,7 +162,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/189b6db2c2b5c763d1d5b14b3593f3ca6cd668da/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a94a3fdad807ba0ab3817560269c80df448c473f/current-ext.js",
 		callback: true
 	},
 	'layout': {

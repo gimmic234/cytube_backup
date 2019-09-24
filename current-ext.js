@@ -1193,14 +1193,16 @@ var chatCmdLookup = {
 			if (chatCmdText[1] == "all") {
 				let connectedUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
 				connectedUsers.each(function(index, userc) {
-					if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
-						curr_alist[userc.innerText] = [];
-						curr_alist[userc.innerText].push(stringItem);
-					} else {
-						if (!curr_alist[userc.innerText].includes(stringItem)) {
+					if (userc.innerText != "") {
+						if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
+							curr_alist[userc.innerText] = [];
 							curr_alist[userc.innerText].push(stringItem);
-						}
-					}			
+						} else {
+							if (!curr_alist[userc.innerText].includes(stringItem)) {
+								curr_alist[userc.innerText].push(stringItem);
+							}
+						}			
+					}
 				});
 			} else {
 				if (!curr_alist[chatCmdText[1]]) {
@@ -2800,10 +2802,12 @@ function bindEventHandler() {
 		let stringItem = $(this).attr('data-achievement');
 		let username = $(this).attr('data-user');
 		let src = $(this).find(".emote-preview").attr("src");
+		var url = src.replace('https:', '');
+		url = url.replace('http:', '');
 		let curr_alist = JSON.parse(achievementList);
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "\*" + username + "\* gained addachievement" + stringItem + "addachievement chatemoteforce" + src + "chatemoteforce"
+				msg: "\*" + username + "\* gained addachievement" + stringItem + "addachievement chatemoteforce" + url + "chatemoteforce"
 			});				
 		}
 
@@ -2868,23 +2872,27 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.achievement-add-all', function() {
 		let stringItem = $(this).attr('data-achievement');
 		let src = $(this).find(".emote-preview").attr("src");
+		var url = src.replace('https:', '');
+		url = url.replace('http:', '');
 		let curr_alist = JSON.parse(achievementList);
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "\*all\* gained addachievement" + stringItem + "addachievement chatemoteforce" + src + "chatemoteforce"
+				msg: "\*all\* gained addachievement" + stringItem + "addachievement chatemoteforce" + url + "chatemoteforce"
 			});				
 		}
 
 		let connectedUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
 		connectedUsers.each(function(index, userc) {
-			if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
-				curr_alist[userc.innerText] = [];
-				curr_alist[userc.innerText].push(stringItem);
-			} else {
-				if (!curr_alist[userc.innerText].includes(stringItem)) {
+			if (userc.innerText != "") {
+				if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
+					curr_alist[userc.innerText] = [];
 					curr_alist[userc.innerText].push(stringItem);
-				}
-			}			
+				} else {
+					if (!curr_alist[userc.innerText].includes(stringItem)) {
+						curr_alist[userc.innerText].push(stringItem);
+					}
+				}			
+			}
 		});
 
 		let curr_alist_string = JSON.stringify(curr_alist);
