@@ -1191,7 +1191,7 @@ var chatCmdLookup = {
 		let stringItem = chatCmdText.slice(2).join(' ').toString();
 		if (rankAdmin && chatCmdText.length >= 3) {			
 			if (chatCmdText[1] == "all") {
-				let connectedUsers = $('#userlist').find('strong');
+				let connectedUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
 				connectedUsers.each(function(index, userc) {
 					if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
 						curr_alist[userc.innerText] = [];
