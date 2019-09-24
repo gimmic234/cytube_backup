@@ -2799,10 +2799,11 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.achievement-add', function() {
 		let stringItem = $(this).attr('data-achievement');
 		let username = $(this).attr('data-user');
+		let src = $(this).find(".emote-preview").attr("src");
 		let curr_alist = JSON.parse(achievementList);
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "\*" + username + "\* gained addachievement" + stringItem + "addachievement"
+				msg: "\*" + username + "\* gained addachievement" + stringItem + "addachievement chatemoteforce" + src + "chatemoteforce"
 			});				
 		}
 
@@ -2866,16 +2867,17 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.achievement-add-all', function() {
 		let stringItem = $(this).attr('data-achievement');
+		let src = $(this).find(".emote-preview").attr("src");
 		let curr_alist = JSON.parse(achievementList);
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "\*all\* gained addachievement" + stringItem + "addachievement"
+				msg: "\*all\* gained addachievement" + stringItem + "addachievement chatemoteforce" + src + "chatemoteforce"
 			});				
 		}
 
-		let connectedUsers = $('#userlist').find('strong');
+		let connectedUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
 		connectedUsers.each(function(index, userc) {
-			if (!curr_alist[userc.innerText]) {
+			if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
 				curr_alist[userc.innerText] = [];
 				curr_alist[userc.innerText].push(stringItem);
 			} else {
