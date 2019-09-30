@@ -2699,18 +2699,12 @@ function bindEventHandler() {
 	$(bodyElem).on('mouseover', '.chatCommandDiv', function() {
 		let selected = $(this).parent().find(".chatCommandImageShow");
 		let scrollValue = parseInt($('#maincontain').find('.nano-slider').css('transform').split(', ')[5].split(")")[0]);
-		$(document).mousemove(function(event) {
-			let element = $(selected);
-			let offset = element.offset();
-			console.log("client: " + event.clientY);
-			console.log("page: " + event.pageY);
-			console.log("scroll: " + scrollValue);
-	    	element.css({"position":"absolute","left": event.pageX,"top": offset.top}).show();    
-	  });    
+		let element = $(selected);
+		let offset = element.offset();
+		element.css({"position":"absolute","left": event.pageX,"top": offset.top}).show();    
 	});
 
 	$(bodyElem).on('mouseleave', '.chatCommandDiv',function() {
-	  $(document).unbind("mousemove");
 	  $(".chatCommandImageShow").hide();	
 	});
 
