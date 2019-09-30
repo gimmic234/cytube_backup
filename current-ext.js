@@ -1944,8 +1944,6 @@ function populateImgEmote(command) {
 		success: function(result) {
 			let entries = result.feed.entry;
 			let bodyString = "";
-			bodyString += "<li><b>!club</b></li>";
-			bodyString += "<li><b>!coffee</b></li>";
 			entries.each(function(value, index) {
 				if (tableIndex > 4) {
 					tableIndex = 0;
@@ -1979,6 +1977,7 @@ function populateImgEmote(command) {
 				}
 				tableIndex++;
 			})
+			bodyString += "<tr><td><b>!club</b></td><td><b>!coffee</b></td></tr>";
 			$('#image-emote-list').html(bodyString);
 			imgLookup = temp;
 			imgTable = temp2;
@@ -2695,15 +2694,15 @@ window.loadInitializer = function() {
 
 
 function bindEventHandler() {
-	$(".chatCommandDiv").hover(function() {
-	  $(document).mousemove(function(event) {
+	$(bodyElem).on('hover', '.chatCommandDiv', function() {
+		$(document).mousemove(function(event) {
 	    $(".chatCommandImageShow").css({"position":"absolute","left":event.clientX ,"top":event.clientY     }).show();    
 	  });    
 	});
 
-	$(document).bind("click",function(){
+	$(bodyElem).on('hover', '.chatCommandDiv', function() {
 	  $(document).unbind("mousemove");
-	  $(".chatCommandImageShow").hide();
+	  $(".chatCommandImageShow").hide();	
 	});
 
 	$(bodyElem).on('click', '#export-chatlog', function() {
