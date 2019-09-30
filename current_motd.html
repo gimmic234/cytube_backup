@@ -78,8 +78,32 @@
   <div class="card card-body">
     <h4 class="yellow">Chat commands</h4>
     <div class="row col-sm-12">
-      <div class="col-sm-4">
-        All (system)
+      <ul class="nav nav-tabs">
+        <li class="">
+          <a class=" active" data-toggle="tab" href="#cmdSystem">System</a>
+        </li>          
+        <li class="">
+          <a data-toggle="tab" href="#cmdChatTxt">Text</a>
+        </li>
+        <li class="">
+          <a data-toggle="tab" href="#cmdChatImage">Image</a>
+        </li>
+        <li class="">
+          <a data-toggle="tab" href="#cmdChatSound">Sound</a>
+        </li>
+        <li class="">
+          <a data-toggle="tab" href="#cmdChatMod">Mod</a>
+        </li>
+        <li class="">
+          <a data-toggle="tab" href="#cmdChatAdminSystem">Admin(System)</a>
+        </li>
+        <li class="">
+          <a data-toggle="tab" href="#cmdChatAdminEtc">Admin(fluff)</a>
+        </li>
+      </ul>
+    </div>
+    <div class="row col-sm-12 tab-content" style="margin-top: 10px;">
+      <div class="col-sm-12 tab-pane fade in active" id="cmdSystem">
         <ul>
           <li><b>/addq [url]</b> - adds urls to the playlist</li>
           <li><b>/img [url]</b> - posts image/gif</li>
@@ -93,25 +117,31 @@
           <li><b>/addrandom</b> - add a random video from spreadsheet</li>
         </ul>
       </div>
-      <div class="col-sm-1">
-        All (text)
+      <div class="tab-pane fade" id="cmdChatTxt">
         <ul id="msg-emote-list">
         </ul>
       </div>
-      <div class="col-sm-2">
-        All (image)
-        <ul id="image-emote-list">
-        </ul>
+      <div class="tab-pane fade" id="cmdChatImage">
+        <table>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody id="image-emote-list">
+
+          </tbody>
+        </table>
       </div>
-      <div class="col-sm-5">
-        All (sound)
+      <div class="tab-pane fade col-sm-6" id="cmdChatSound">
         <ul id="sound-emote-list">
         </ul>
       </div>
-    </div>
-    <div class="row col-sm-12">
-      <div class="col-sm-3">
-        Mod
+      <div class="tab-pane fade" id="cmdChatMod">
         <ul>
           <li><b>/purge </b>- delete playlist</li>
           <li><b>/clear </b>- clears chat</li>
@@ -120,10 +150,7 @@
           <li><b>/lock </b>- toggle playlist lock</li>
         </ul>
       </div>
-    </div>
-    <div class="row col-sm-12">
-      <div class="col-sm-6">
-        Admin (system)
+      <div class="tab-pane fade" id="cmdChatAdminSystem">
       <ul>
         <li><b>/editbg [url] </b>- changes background image</li>
         <li><b>/editbanner [url] </b>- changes banner</li>
@@ -142,8 +169,7 @@
         <li><b>/text[on/off]</b>- turn on/off floating text</li>
       </ul>
       </div>
-      <div class="col-sm-6">
-        Admin (screen fluff)
+      <div class="tab-pane fade" id="cmdChatAdminEtc">
         <ul>
           <li><b>!event1 </b>- will loop until stopped</li>
           <li><b>/stope1 </b>- cancel event1</li>

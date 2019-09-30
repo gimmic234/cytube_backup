@@ -1935,6 +1935,8 @@ function populateImgEmote(command) {
 	temp["!club"] = [];
 	temp["!coffee"].push(function() {});
 	temp["!club"].push(function() {});
+	let tableIndex = 0;
+	let tableString = "";
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+2)+"/public/values?alt=json",
 		method: "get",
@@ -1945,6 +1947,16 @@ function populateImgEmote(command) {
 			bodyString += "<li><b>!club</b></li>";
 			bodyString += "<li><b>!coffee</b></li>";
 			entries.each(function(value, index) {
+				if (tableIndex > 4) {
+					tableIndex = 0;
+					tableString += "</tr>";
+					bodyString += tableString;
+					tableString = "";
+				}
+				if (tableIndex == 0)
+				{
+					tableString += "<tr>"
+				}
 				let urlString = value.gsx$url.$t.split('//');
 				if (urlString.length == 2) {
 					urlString = urlString[1];
@@ -1955,7 +1967,8 @@ function populateImgEmote(command) {
 				temp2[urlString] = value.gsx$command.$t;
 				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
 					temp[value.gsx$command.$t] = [];
-					bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+					tableString = "<td><b class='chatCommandDiv'>"+value.gsx$command.$t+"</b><img style='display: none;' class='chatCommandImageShow' src='"+value.gsx$url.$t+"'></td>";
+					//bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 				}
 				temp[value.gsx$command.$t].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
@@ -1964,6 +1977,7 @@ function populateImgEmote(command) {
 				if (command != '' && command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
 					imgEmote(value.gsx$url.$t);
 				}
+				tableIndex++;
 			})
 			$('#image-emote-list').html(bodyString);
 			imgLookup = temp;
@@ -2681,6 +2695,17 @@ window.loadInitializer = function() {
 
 
 function bindEventHandler() {
+	$(".chatCommandDiv").hover(function() {
+	  $(document).mousemove(function(event) {
+	    $(".chatCommandImageShow").css({"position":"absolute","left":event.clientX ,"top":event.clientY     }).show();    
+	  });    
+	});
+
+	$(document).bind("click",function(){
+	  $(document).unbind("mousemove");
+	  $(".chatCommandImageShow").hide();
+	});
+
 	$(bodyElem).on('click', '#export-chatlog', function() {
 		chatCmdLookup['/export']();
 	});
