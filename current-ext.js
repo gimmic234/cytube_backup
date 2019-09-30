@@ -2700,7 +2700,7 @@ function bindEventHandler() {
 		let selected = $(this).parent().find(".chatCommandImageShow");
 		let scrollValue = parseInt($('#maincontain').find('.nano-slider').css('transform').split(', ')[5].split(")")[0]);
 		let element = $(selected);
-		let offset = element.offset();
+		let offset = $(this).parent().offset();
 		element.css({"position":"absolute","left": event.pageX,"top": offset.top}).show();    
 	});
 
