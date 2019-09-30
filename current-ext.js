@@ -2705,7 +2705,7 @@ function bindEventHandler() {
 			console.log("client: " + event.clientY);
 			console.log("page: " + event.pageY);
 			console.log("scroll: " + scrollValue);
-	    	element.css({"position":"absolute","left": event.pageX,"top": scrollValue}).show();    
+	    	element.css({"position":"absolute","left": event.pageX,"top": offset.top}).show();    
 	  });    
 	});
 
