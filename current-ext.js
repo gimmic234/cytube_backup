@@ -1967,6 +1967,7 @@ function populateImgEmote(command) {
 					temp[value.gsx$command.$t] = [];
 					tableString += "<td><b class='chatCommandDiv'>"+value.gsx$command.$t+"</b><img style='display: none;' class='chatCommandImageShow' src='"+value.gsx$url.$t+"'></td>";
 					//bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+					tableIndex++;
 				}
 				temp[value.gsx$command.$t].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
@@ -1975,7 +1976,6 @@ function populateImgEmote(command) {
 				if (command != '' && command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
 					imgEmote(value.gsx$url.$t);
 				}
-				tableIndex++;
 			})
 			bodyString += "<tr><td><b>!club</b></td><td><b>!coffee</b></td></tr>";
 			$('#image-emote-list').html(bodyString);
@@ -2700,7 +2700,7 @@ function bindEventHandler() {
 	  });    
 	});
 
-	$(bodyElem).on('hover', '.chatCommandDiv', function() {
+	$(bodyElem).on('click', function() {
 	  $(document).unbind("mousemove");
 	  $(".chatCommandImageShow").hide();	
 	});
