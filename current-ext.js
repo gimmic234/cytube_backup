@@ -1965,7 +1965,7 @@ function populateImgEmote(command) {
 				temp2[urlString] = value.gsx$command.$t;
 				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
 					temp[value.gsx$command.$t] = [];
-					tableString += "<td><b class='chatCommandDiv'>"+value.gsx$command.$t+"</b><div class='chatCommandImageShow'><img class='chatCommandImageSrc' style='display: none;' src='"+value.gsx$url.$t+"'></div></td>";
+					tableString += "<td><b class='chatCommandDiv'>"+value.gsx$command.$t+"</b><div style='display: none;' class='chatCommandImageShow'><img class='chatCommandImageSrc' src='"+value.gsx$url.$t+"'></div></td>";
 					//bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 					tableIndex++;
 				}
