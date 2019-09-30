@@ -2696,14 +2696,14 @@ window.loadInitializer = function() {
 
 
 function bindEventHandler() {
-	$(bodyElem).on('click', '.chatCommandDiv', function() {
-		let selected = $(this).find(".chatCommandImageShow");
+	$(bodyElem).on('mouseover', '.chatCommandDiv', function() {
+		let selected = $(this).parent().find(".chatCommandImageShow");
 		$(document).mousemove(function(event) {
 	    	$(selected).css({"position":"absolute","left":event.clientX ,"top":event.clientY     }).show();    
 	  });    
 	});
 
-	$(bodyElem).on('click', function() {
+	$(bodyElem).on('mouseleave', '.chatCommandDiv',function() {
 	  $(document).unbind("mousemove");
 	  $(".chatCommandImageShow").hide();	
 	});
