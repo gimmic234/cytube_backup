@@ -2699,7 +2699,7 @@ function bindEventHandler() {
 	$(bodyElem).on('mouseover', '.chatCommandDiv', function() {
 		let selected = $(this).parent().find(".chatCommandImageShow");
 		$(document).mousemove(function(event) {
-	    	$(selected).css({"position":"absolute","left":event.clientX ,"top":event.clientY     }).show();    
+	    	$(selected).css({"position":"absolute","left":event.pageX ,"top":event.pageY}).show();    
 	  });    
 	});
 
