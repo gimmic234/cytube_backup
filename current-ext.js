@@ -1965,7 +1965,7 @@ function populateImgEmote(command) {
 				temp2[urlString] = value.gsx$command.$t;
 				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
 					temp[value.gsx$command.$t] = [];
-					tableString += "<td><b class='chatCommandDiv'>"+value.gsx$command.$t+"</b><img style='display: none;' class='chatCommandImageShow' src='"+value.gsx$url.$t+"'></td>";
+					tableString += "<td><b class='chatCommandDiv'>"+value.gsx$command.$t+"</b><div class='chatCommandImageShow'><img class='chatCommandImageSrc' style='display: none;' src='"+value.gsx$url.$t+"'></div></td>";
 					//bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 					tableIndex++;
 				}
@@ -2698,10 +2698,7 @@ window.loadInitializer = function() {
 function bindEventHandler() {
 	$(bodyElem).on('mouseover', '.chatCommandDiv', function() {
 		let selected = $(this).parent().find(".chatCommandImageShow");
-		let scrollValue = parseInt($('#maincontain').find('.nano-slider').css('transform').split(', ')[5].split(")")[0]);
-		let element = $(selected);
-		let offset = $(this).parent().offset();
-		element.css({"position":"absolute","left": event.pageX,"top": offset.top}).show();    
+		$(selected).show();
 	});
 
 	$(bodyElem).on('mouseleave', '.chatCommandDiv',function() {
