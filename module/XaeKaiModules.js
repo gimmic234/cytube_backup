@@ -502,6 +502,20 @@ window[CHANNEL.name].audioNotice.toggle = function(type) {
 	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
 };
 
+window[CHANNEL.name].audioNotice.on = function(type) {
+	window[CHANNEL.name].audioNotice[type].toggleState = true;
+	localStorage[CHANNEL.name + "_AudioNotice" + type + "Toggle"] = +true;
+	if (window[CHANNEL.name].audioNotice[type].toggleButton) window[CHANNEL.name].audioNotice[type].toggleButton.toggleClass("label-default label-info");
+	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
+};
+
+window[CHANNEL.name].audioNotice.off = function(type) {
+	window[CHANNEL.name].audioNotice[type].toggleState = !false;
+	localStorage[CHANNEL.name + "_AudioNotice" + type + "Toggle"] = +false;
+	if (window[CHANNEL.name].audioNotice[type].toggleButton) window[CHANNEL.name].audioNotice[type].toggleButton.toggleClass("label-default label-info");
+	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
+};
+
 $.fn.textWidth = function(){
   var html_org = $(this).html();
   var html_calc = "<span class='text-calc'>" + html_org + "</span>";
@@ -1028,12 +1042,19 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice.emote.toggleButton = $("<span/>").html('').prop("id", "AudioNoticeSqueeToggle").attr("title", "Toggle Emote Audio Notices").addClass("pointer fa fa-bell").click(function() {
 		window[CHANNEL.name].audioNotice.toggle("emote");
 		let emoteTogglestate = window[CHANNEL.name].audioNotice.emote.toggleState;
-		window[CHANNEL.name].audioNotice.utsu.toggleState = emoteTogglestate;
-		window[CHANNEL.name].audioNotice.utsunot.toggleState = emoteTogglestate;
-		window[CHANNEL.name].audioNotice.Squee.toggleState = emoteTogglestate;
-		window[CHANNEL.name].audioNotice.Skip.toggleState = emoteTogglestate;
-		window[CHANNEL.name].audioNotice.skipFinal.toggleState = emoteTogglestate;
-		
+		if (emoteTogglestate) {
+			window[CHANNEL.name].audioNotice.on("utsu");
+			window[CHANNEL.name].audioNotice.on("utsunot");
+			window[CHANNEL.name].audioNotice.on("Squee");
+			window[CHANNEL.name].audioNotice.on("Skip");
+			window[CHANNEL.name].audioNotice.on("skipFinal");
+		} else {
+			window[CHANNEL.name].audioNotice.off("utsu");
+			window[CHANNEL.name].audioNotice.off("utsunot");
+			window[CHANNEL.name].audioNotice.off("Squee");
+			window[CHANNEL.name].audioNotice.off("Skip");
+			window[CHANNEL.name].audioNotice.off("skipFinal");
+		}		
 	}).appendTo($("#chatwrap"));
 	if (!window[CHANNEL.name].audioNotice.emote.toggleState) {
 		window[CHANNEL.name].audioNotice.emote.toggleButton.removeClass("label-info").addClass("")
