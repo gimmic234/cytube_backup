@@ -13,21 +13,19 @@
 }
 
 #imgWrap1 {
-    top: 43px;
-    left: -9px;
+    top: 11px;
+    left: 6px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
     position: absolute;
-    z-index: 99;
+    z-index: 1100;
     opacity: 1;
-    height: 308px;
-    width: 395px;
 }
 
 #imgBubble {
-    height: 58px;
-    width: 336px;
+    height: 32px;
+    width: 37px;
 }
 
 #discoimg {
@@ -36,21 +34,21 @@
 }
 
 #imgWrapFixed1 {
-    top: 185px;
-    left: 103px;
+    top: 832px;
+    left: -4px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
     position: absolute;
-    z-index: 99;
+    z-index: 1050;
     opacity: 1;
     height: 339px;
     width: 414px;
 }
 
 #imgBubble2 {
-    height: 278px;
-    width: 209px;
+    height: 57px;
+    width: 364px;
 }
 
 /**/
@@ -559,14 +557,28 @@ color: yellow;
 }
 
 .chatCommandImageShow {
-max-width: 300px;
-max-height: 200px;
 position: relative;
 }
 
 .chatCommandImageSrc {
     margin-bottom: 0px !important;
     position: absolute;
-    top: -30px;
+    top: 10px;
+left: 10px;
+max-width: 300px;
+max-height: 200px;
     z-index: 99;
+}
+
+.chatCommandDiv:hover {
+    cursor: pointer;
+}
+
+.navbar-inverse .navbar-brand
+{
+color: #ffb732 !important;
+}
+
+.indicator {
+display: none;
 }

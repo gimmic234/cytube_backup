@@ -2,13 +2,13 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/626251049895854080/ttgl_bg.jpg";
+var background_img = "http://vistapointe.net/images/theatre-1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 10,
-	day: 2,
-	hour: 23,
+	day: 6,
+	hour: 19,
 	minute: 0,
 	second: 0,
 };
@@ -29,7 +29,7 @@ var background_img_auto4 = "http://image.tmdb.org/t/p/original/xZfEIJLLtZuKBADDa
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 10,
-	day3: 4,
+	day3: 11,
 	hour3: 23,
 	minute3: 0,
 	second3: 0
@@ -39,10 +39,10 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/562795394157903885/563550073162825758/amq2.jpg";
-var imgBubble2 = "//media.discordapp.net/attachments/600826112993394709/614994225439965184/afc7115772b4b5ee4b882a9f352dcf52.png";
+var imgBubble = "//cdn.discordapp.com/emojis/299958747323826176.png?v=1";
+var imgBubble2 = "//media.discordapp.net/attachments/501103378714329100/628815108805754890/pumpkin-clipart-black-and-white-vines-ncX8KMedi.png";
 var chatImg = "false";
-var img1show = "false";
+var img1show = "true";
 var img1fixedshow = "false";
 var chatLimit = 'false';
 var chatDelay = '1';
@@ -128,7 +128,7 @@ var loginExport = "true";
 	if (!mutei) {
 		var mutei;
 	}
-
+	
 	var recordMessage = "true";
 	var msgText = '';
 	var userImgSend = '';
@@ -162,7 +162,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/6a9be78a92851a1f3fff7700e4d88512a4f57211/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b72f666c95778b177bcc1a24caaf20d3d2f99431/current-ext.js",
 		callback: true
 	},
 	'layout': {
