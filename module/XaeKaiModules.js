@@ -1027,9 +1027,13 @@ window[CHANNEL.name].audioNotice.handler = {
 	}
 	window[CHANNEL.name].audioNotice.emote.toggleButton = $("<span/>").html('').prop("id", "AudioNoticeSqueeToggle").attr("title", "Toggle Emote Audio Notices").addClass("pointer fa fa-bell").click(function() {
 		window[CHANNEL.name].audioNotice.toggle("emote");
-		window[CHANNEL.name].audioNotice.toggle("utsu");
-		window[CHANNEL.name].audioNotice.toggle("utsunot");
-		window[CHANNEL.name].audioNotice.toggle("squee");
+		let emoteTogglestate = window[CHANNEL.name].audioNotice.emote.toggleState;
+		window[CHANNEL.name].audioNotice.utsu.toggleState = emoteTogglestate;
+		window[CHANNEL.name].audioNotice.utsunot.toggleState = emoteTogglestate;
+		window[CHANNEL.name].audioNotice.Squee.toggleState = emoteTogglestate;
+		window[CHANNEL.name].audioNotice.Skip.toggleState = emoteTogglestate;
+		window[CHANNEL.name].audioNotice.skipFinal.toggleState = emoteTogglestate;
+		
 	}).appendTo($("#chatwrap"));
 	if (!window[CHANNEL.name].audioNotice.emote.toggleState) {
 		window[CHANNEL.name].audioNotice.emote.toggleButton.removeClass("label-info").addClass("")
