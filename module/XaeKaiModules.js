@@ -506,14 +506,16 @@ window[CHANNEL.name].audioNotice.on = function(type) {
 	window[CHANNEL.name].audioNotice[type].toggleState = true;
 	localStorage[CHANNEL.name + "_AudioNotice" + type + "Toggle"] = +true;
 	if (window[CHANNEL.name].audioNotice[type].toggleButton) window[CHANNEL.name].audioNotice[type].toggleButton.toggleClass("label-default label-info");
-	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
+	window[CHANNEL.name].audioNotice[type].panel.removeClass("btn-danger");
+	window[CHANNEL.name].audioNotice[type].panel.addClass("btn-success");
 };
 
 window[CHANNEL.name].audioNotice.off = function(type) {
-	window[CHANNEL.name].audioNotice[type].toggleState = !false;
+	window[CHANNEL.name].audioNotice[type].toggleState = false;
 	localStorage[CHANNEL.name + "_AudioNotice" + type + "Toggle"] = +false;
 	if (window[CHANNEL.name].audioNotice[type].toggleButton) window[CHANNEL.name].audioNotice[type].toggleButton.toggleClass("label-default label-info");
-	window[CHANNEL.name].audioNotice[type].panel.toggleClass("btn-danger btn-success")
+	window[CHANNEL.name].audioNotice[type].panel.removeClass("btn-success");
+	window[CHANNEL.name].audioNotice[type].panel.addClass("btn-danger");
 };
 
 $.fn.textWidth = function(){
