@@ -1025,8 +1025,11 @@ window[CHANNEL.name].audioNotice.handler = {
 	} else {
 		console.log("ERROR: AudioNotice System: Local storage not supported by this browser.")
 	}
-	window[CHANNEL.name].audioNotice.emote.toggleButton = $("<span/>").html('').prop("id", "AudioNoticeEmoteToggle").attr("title", "Toggle Username Audio Notices").addClass("pointer fa fa-bell").click(function() {
+	window[CHANNEL.name].audioNotice.emote.toggleButton = $("<span/>").html('').prop("id", "AudioNoticeSqueeToggle").attr("title", "Toggle Emote Audio Notices").addClass("pointer fa fa-bell").click(function() {
 		window[CHANNEL.name].audioNotice.toggle("emote");
+		window[CHANNEL.name].audioNotice.toggle("utsu");
+		window[CHANNEL.name].audioNotice.toggle("utsunot");
+		window[CHANNEL.name].audioNotice.toggle("squee");
 	}).appendTo($("#chatwrap"));
 	if (!window[CHANNEL.name].audioNotice.emote.toggleState) {
 		window[CHANNEL.name].audioNotice.emote.toggleButton.removeClass("label-info").addClass("")
