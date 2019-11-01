@@ -2149,7 +2149,9 @@ var editCss = function(fieldIndex, chatCmdText) {
 		var textField = cssTextField.val();
 		var textFieldArray = textField.split("\n");
 		var firstBlock = textFieldArray[fieldIndex].substr(0, textFieldArray[fieldIndex].lastIndexOf(': '));
-		textField = textField.replace(textFieldArray[fieldIndex], firstBlock + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ";");
+		textFieldArray[fieldIndex] = firstBlock + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ";"
+		textField = textFieldArray.join("\n");
+		//textField = textField.replace(textFieldArray[fieldIndex], firstBlock + ": " + chatCmdText[1].replace(/['"]+/g, '').trim() + ";");
 		cssTextField.val(textField);
 		socket.emit("setChannelCSS", {
 			css: $("#cs-csstext").val()
