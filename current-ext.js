@@ -2875,6 +2875,7 @@ function bindEventHandler() {
 			let textDescription = '';
 			achievementMatch.each(function(achievement, i) {
 				if ($.inArray(achievement.title, curr_alist[username]) == -1) {
+					achievement.title = achievement.title.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim();
 					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 					textDescription = achievement.description;
@@ -2948,6 +2949,7 @@ function bindEventHandler() {
 			let textColor = '#FFFF33';
 			let textDescription = '';
 			achievementMatch.each(function(achievement, i) {
+				achievement.title = achievement.title.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim();
 				imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 				textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 				textDescription = achievement.description;
@@ -3192,6 +3194,7 @@ function bindEventHandler() {
 							textDescription = achievement.description;
 						}
 					})
+					title = title.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim();
 					let block = "<div class=''>";
 					block += "<div class='achievement-container' data-user='"+username+"' data-achievement='"+title+"' title='"+textDescription+"'>";
 					block += "<span class='emote-preview-hax'></span>";
@@ -3207,6 +3210,7 @@ function bindEventHandler() {
 					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 					textDescription = achievement.description;
+					achievement.title = achievement.title.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim();
 					let block = "<div class=''>";
 					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement='"+achievement.title+"' title='"+textDescription+"'>";
 					block += "<span class='emote-preview-hax'></span>";
