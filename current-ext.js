@@ -2827,6 +2827,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.achievement-add', function() {
 		let stringItem = $(this).attr('data-achievement');
+		stringItem = stringItem.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim();
 		let username = $(this).attr('data-user');
 		let src = $(this).find(".emote-preview").attr("src");
 		var url = src.replace('https:', '');
