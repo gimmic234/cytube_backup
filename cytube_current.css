@@ -21,6 +21,8 @@
     position: absolute;
     z-index: 1100;
     opacity: 1;
+
+
 }
 
 #imgBubble {
@@ -574,11 +576,10 @@ max-height: 200px;
     cursor: pointer;
 }
 
-.navbar-inverse .navbar-brand
-{
-color: #ffb732 !important;
-}
-
 .indicator {
 display: none;
+}
+
+#imgBubble {
+    border-radius: 8px;
 }

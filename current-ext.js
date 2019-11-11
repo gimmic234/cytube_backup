@@ -1189,6 +1189,7 @@ var chatCmdLookup = {
 	"/tag": function(chatCmdText) {
 		let curr_alist = JSON.parse(achievementList);
 		let stringItem = chatCmdText.slice(2).join(' ').toString();
+		stringItem.replace(/["]+/g, '\\"').replace(/[']+/g, "\\'").trim();
 		if (rankAdmin && chatCmdText.length >= 3) {			
 			if (chatCmdText[1] == "all") {
 				let connectedUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
