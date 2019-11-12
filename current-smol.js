@@ -39,7 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/562795394157903885/639667719523794984/1388887872181.png?width=783&height=615";
+var imgBubble = "//media.discordapp.net/attachments/501103378714329100/501103465955590150/9cb5a80d-0593-48c3-8c66-de079df1c01a.png";
 var imgBubble2 = "//media.discordapp.net/attachments/501103378714329100/628815108805754890/pumpkin-clipart-black-and-white-vines-ncX8KMedi.png";
 var chatImg = "false";
 var img1show = "true";
@@ -86,7 +86,7 @@ var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
-var loadConfigUrl = "";
+var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/535a2a4c2e4a5500beb186609b703ea4c84778a7/config.js";
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -154,6 +154,7 @@ window[CHANNEL.name].sequenceList = {
 	}
 };
 
+$.getScript(loadConfigUrl, window[CHANNEL.name].sequencerLoader);
 window[CHANNEL.name].sequencePrev = window[CHANNEL.name].sequencePrev || "";
 window[CHANNEL.name].sequenceState = window[CHANNEL.name].sequenceState || 0;
 window[CHANNEL.name].sequenceIndex = Object.keys(window[CHANNEL.name].sequenceList);

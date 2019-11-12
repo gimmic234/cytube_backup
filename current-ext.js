@@ -1,4 +1,13 @@
 var chatCmdLookup = {
+	'/yen': function(chatCmdText) {
+		let value = chatCmdText[1];
+		if (!isNaN(value)) {
+			newValue = value * 0.0092;
+			window.socket.emit("chatMsg", {
+				msg: value + " yen => ~" + newValue + "usd"
+			});
+		}
+	},
 	'/addq': function(chatCmdText) {
 		if (chatCmdText.length > 1 && chatCmdText.length <= 10) {
 			chatCmdText.shift();
