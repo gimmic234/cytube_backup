@@ -2623,6 +2623,9 @@ window.loadInitializer = function() {
 	});
 
 	waitForEl('#AudioNoticeEvent1', function() {
+		if (localStorage[CHANNEL.name + '_AudioNoticebgm1playToggle'] == '0') {
+			return;
+		}
 		let currentBgm = eval("bgm" + bgmSelect + "url");
 		let currentBgmKey = "bgm" + bgmSelect + "play";
 		window[CHANNEL.name].audioNotice["survivalStrategy"].audio = $("<audio>").prop("id", "AudioNoticeEvent1").appendTo("body").attr("preload", "auto").prop("volume", window[CHANNEL.name].audioNotice["survivalStrategy"].volume).append($("<source>").attr("src", penguinUrl).attr("type", "audio/ogg"));
