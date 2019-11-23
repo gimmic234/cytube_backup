@@ -1297,11 +1297,9 @@ var chatCmdLookup = {
 				if (value.pick3.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
 					foundList.push(value.user);
 				}
-			}
-
-			let listFinal = foundList.filter(function(value, index, self) {
-				return self.indexOf(value) === index;
 			});
+
+			let listFinal = foundList.filter(onlyUnique);
 
 			let msgString = listFinal.join(',');
 
@@ -1889,6 +1887,10 @@ function readSheet() {
 		}
 	});
 	return returnArray;
+}
+
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
 }
 
 function closeamq() {
