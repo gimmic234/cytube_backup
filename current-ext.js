@@ -1,6 +1,6 @@
 var chatCmdLookup = {
 	'/stat': function(chatCmdText) {
-		if (chatCmdText.length < 2) {
+		if (chatCmdText.length < 1) {
 			return;
 		}
 		let result = {};
@@ -8,7 +8,7 @@ var chatCmdLookup = {
 		let complete_alist = mergeAchievements();
 		let foundList = [];
 		achievementMatch.each(function(value) {
-			if (value.title.toLowerCase().indexOf(text)) {
+			if (value.title.toLowerCase().indexOf(text) >= 0) {
 				foundList.push(value.title);
 			}
 		});
