@@ -23,7 +23,7 @@ var chatCmdLookup = {
 
 		for(var key in result) {
 			window.socket.emit("chatMsg", {
-				msg: "*" + key + "*: " + result[key];
+				msg: "*" + key + "*: " + result[key]
 			});
 		}
 	},
@@ -44,7 +44,7 @@ var chatCmdLookup = {
 
 		for(var key in result) {
 			window.socket.emit("chatMsg", {
-				msg: "*" + key + "*: " + result[key];
+				msg: "*" + key + "*: " + result[key]
 			});
 		}
 	},
