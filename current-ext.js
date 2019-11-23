@@ -4,8 +4,8 @@ var chatCmdLookup = {
 		let complete_alist = mergeAchievements();
 		let foundList = [];
 		achievementMatch.each(function(value) {
-			if (value.toLowerCase().indexOf(text)) {
-				foundList.push(value);
+			if (value.title.toLowerCase().indexOf(text)) {
+				foundList.push(value.title);
 			}
 		});
 
