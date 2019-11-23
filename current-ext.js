@@ -3,8 +3,10 @@ var chatCmdLookup = {
 		if (chatCmdText.length < 1) {
 			return;
 		}
+		console.log(chatCmdText);
 		let result = {};
 		let text = chatCmdText.slice(1).join(" ").toLowerCase();
+		console.log(text);
 		let complete_alist = mergeAchievements();
 		let foundList = [];
 		achievementMatch.each(function(value) {
