@@ -1284,6 +1284,32 @@ var chatCmdLookup = {
 			});
 		}
 	},
+	'/search': function(chatCmdText) {
+		if (chatCmdText.length == 2) {
+			let foundList = {};
+			picklist.each(function(value, index)) {
+				if (value.pick1.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
+					foundList.push(value.user);
+				}
+				if (value.pick2.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
+					foundList.push(value.user);
+				}
+				if (value.pick3.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
+					foundList.push(value.user);
+				}
+			}
+
+			let listFinal = foundList.filter(function(value, index, self) {
+				return self.indexOf(value) === index;
+			});
+
+			let msgString = listFinal.join(',');
+
+			window.socket.emit("chatMsg", {
+				msg: chatCmdText[1] + " was picked by " + msgString;
+			});
+		}
+	},
 	"!coffee":function() {
 		window.socket.emit("chatMsg", {
 			msg: "coffeeimg" + "//media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif" + "coffeeimg"
