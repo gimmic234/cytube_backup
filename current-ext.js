@@ -1197,7 +1197,7 @@ var chatCmdLookup = {
 	},
 	"/tag": function(chatCmdText) {
 		let curr_alist = JSON.parse(achievementList);
-		let complete_alist = mergeArchievements();
+		let complete_alist = mergeAchievements();
 		let stringItem = chatCmdText.slice(2).join(' ').toString();
 		if (rankAdmin && chatCmdText.length >= 3) {			
 			if (chatCmdText[1] == "all") {
@@ -1253,7 +1253,7 @@ var chatCmdLookup = {
 	},
 	"/tagme": function() {
 		let curr_alist = JSON.parse(achievementList);
-		let complete_alist = mergeArchievements();
+		let complete_alist = mergeAchievements();
 		let username = window.CLIENT.name;
 		if (!complete_alist[username]) {
 			window.socket.emit("chatMsg", {
@@ -1271,7 +1271,7 @@ var chatCmdLookup = {
 	},
 	"/taglist": function(chatCmdText) {
 		let curr_alist = JSON.parse(achievementList);
-		let complete_alist = mergeArchievements();
+		let complete_alist = mergeAchievements();
 		if (!complete_alist[username]) {
 			window.socket.emit("chatMsg", {
 				msg: "\*" + chatCmdText[1] + "\* has nothing!"
@@ -1738,10 +1738,10 @@ function exportTimeLog() {
 	});
 }
 
-function mergeArchievements() {
+function mergeAchievements() {
 	let arrayList = [
-		JSON.parse(achievementList),
-		JSON.parse(achievementListArchieve)
+		JSON.parse(achievementListArchieve),
+		JSON.parse(achievementList)		
 	];
 
 	let newList = {};
@@ -2917,7 +2917,7 @@ function bindEventHandler() {
 		var url = src.replace('https:', '');
 		url = url.replace('http:', '');
 		let curr_alist = JSON.parse(achievementList);
-		let complete_alist = mergeArchievements();
+		let complete_alist = mergeAchievements();
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
 				msg: "\*" + username + "\* gained addachievement" + stringItem + "addachievement chatemoteforce" + url + "chatemoteforce"
@@ -2959,7 +2959,7 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
-			let complete_alist = mergeArchievements();
+			let complete_alist = mergeAchievements();
 			let listcontent = '';
 			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 			let textColor = '#FFFF33';
@@ -2994,7 +2994,7 @@ function bindEventHandler() {
 		var url = src.replace('https:', '');
 		url = url.replace('http:', '');
 		let curr_alist = JSON.parse(achievementList);
-		let complete_alist = mergeArchievements();
+		let complete_alist = mergeAchievements();
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
 				msg: "\*all\* gained addachievement" + stringItem + "addachievement chatemoteforce" + url + "chatemoteforce"
@@ -3040,7 +3040,7 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
-			let complete_alist = mergeArchievements();
+			let complete_alist = mergeAchievements();
 			let listcontent = '';
 			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 			let textColor = '#FFFF33';
@@ -3267,7 +3267,7 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
-			let complete_alist = mergeArchievements();
+			let complete_alist = mergeAchievements();
 			let nav = "<ul class='nav nav-tabs'>"
 			nav += "<li><a href='#current-achievement-list' data-toggle='tab' aria-expanded='false'>View Achievements</a></li>";
 			if (rankAdmin) {
@@ -3480,7 +3480,7 @@ function bindEventHandler() {
 	$(bodyElem).on('mouseover', '.chat-avatar', function() {
 		let username = $(this).parent().find('.username').text().replace(': ', '');
 		let curr_alist = JSON.parse(achievementList);
-		let complete_alist = mergeArchievements();
+		let complete_alist = mergeAchievements();
 		if (!complete_alist[username]) {
 			
 		} else {
@@ -3992,7 +3992,7 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
-			let complete_alist = mergeArchievements();
+			let complete_alist = mergeAchievements();
 			let username = window.CLIENT.name;
 			if (!complete_alist[username]) {
 				$("#achievementWrap").html('');
