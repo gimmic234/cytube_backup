@@ -1286,26 +1286,26 @@ var chatCmdLookup = {
 	},
 	'/search': function(chatCmdText) {
 		if (chatCmdText.length == 2) {
-			let foundList = {};
+			let foundList = [];
 			picklist.each(function(value, index) {
 				if (value.pick1.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList.push(value.user);
+					foundList[value.pick1] = value.user;
 				}
 				if (value.pick2.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList.push(value.user);
+					foundList[value.pick2] = value.user;
 				}
 				if (value.pick3.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList.push(value.user);
+					foundList[value.pick3] = value.user;
 				}
 			});
 
-			let listFinal = foundList.filter(onlyUnique);
-
-			let msgString = listFinal.join(',');
-
-			window.socket.emit("chatMsg", {
-				msg: chatCmdText[1] + " was picked by " + msgString
-			});
+			for (var key in foundList) {
+				let listFinal = foundList[key].filter(onlyUnique);
+				let msgString = listFinal.join(',');
+				window.socket.emit("chatMsg", {
+					msg: key + " was picked by " + msgString
+				});
+			}
 		}
 	},
 	"!coffee":function() {
