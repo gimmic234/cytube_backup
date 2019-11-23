@@ -1289,13 +1289,13 @@ var chatCmdLookup = {
 			let foundList = [];
 			picklist.each(function(value, index) {
 				if (value.pick1.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList[value.pick1] = value.user;
+					foundList[value.pick1][] = value.user;
 				}
 				if (value.pick2.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList[value.pick2] = value.user;
+					foundList[value.pick2][] = value.user;
 				}
 				if (value.pick3.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList[value.pick3] = value.user;
+					foundList[value.pick3][] = value.user;
 				}
 			});
 
