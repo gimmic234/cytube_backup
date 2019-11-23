@@ -17,9 +17,9 @@ var chatCmdLookup = {
 			for(var key in complete_alist) {
 				if (complete_alist[key].includes(value)) {
 					if (!result[value]) {
-						result[value] = 0;
+						result[value] = 1;
 					} else {
-						result[value]++;
+						result[value] = result[value]+ 1;
 					}
 				}
 			}
@@ -38,9 +38,9 @@ var chatCmdLookup = {
 			for(var key in complete_alist) {
 				if (complete_alist[key].includes(value)) {
 					if (!result[value]) {
-						result[value] = 0;
+						result[value] = 1;
 					} else {
-						result[value]++;
+						result[value] = result[value]+ 1;
 					}
 				}
 			}
