@@ -1,10 +1,59 @@
 var chatCmdLookup = {
+	'/stat': function(chatCmdText) {
+		let text = chatCmdText.slice(2).join(" ").toLowerCase();
+		let complete_alist = mergeAchievements();
+		let foundList = [];
+		achievementMatch.each(function(value) {
+			if (value.toLowerCase().indexOf(text)) {
+				foundList.push(value);
+			}
+		});
+
+		foundList.each(function(value) {
+			for(var key in complete_alist) {
+				if (complete_alist[key].includes(value)) {
+					if (!result[value]) {
+						result[value] = 0;
+					} else {
+						result[value]++;
+					}
+				}
+			}
+		});
+
+		for(var key in result) {
+			window.socket.emit("chatMsg", {
+				msg: "*" + key + "*: " + result[key];
+			});
+		}
+	},
+	'/statlist': function(chatCmdText) {
+		let complete_alist = mergeAchievements();
+		let result = {};
+		statList.each(function(value) {
+			for(var key in complete_alist) {
+				if (complete_alist[key].includes(value)) {
+					if (!result[value]) {
+						result[value] = 0;
+					} else {
+						result[value]++;
+					}
+				}
+			}
+		});
+
+		for(var key in result) {
+			window.socket.emit("chatMsg", {
+				msg: "*" + key + "*: " + result[key];
+			});
+		}
+	},
 	'/yen': function(chatCmdText) {
 		let value = chatCmdText[1];
 		if (!isNaN(value)) {
 			newValue = value * 0.0092;
 			window.socket.emit("chatMsg", {
-				msg: value + " yen => ~" + newValue + "usd"
+				msg: value + " yen => ~" + newValue + " usd"
 			});
 		}
 	},
