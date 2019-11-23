@@ -1225,11 +1225,11 @@ var chatCmdLookup = {
 					curr_alist[chatCmdText[1]].push(stringItem);
 				} else {
 					if (!complete_alist[chatCmdText[1]].includes(stringItem)) {
-						if (!curr_alist[userc.innerText]) {
-							curr_alist[userc.innerText] = [];
-							curr_alist[userc.innerText].push(stringItem);
+						if (!curr_alist[chatCmdText[1]]) {
+							curr_alist[chatCmdText[1]] = [];
+							curr_alist[chatCmdText[1]].push(stringItem);
 						} else {
-							curr_alist[userc.innerText].push(stringItem);
+							curr_alist[chatCmdText[1]].push(stringItem);
 						}
 					}
 				}
@@ -2929,11 +2929,11 @@ function bindEventHandler() {
 			curr_alist[username].push(stringItem);
 		} else {
 			if (!complete_alist[username].includes(stringItem)) {
-				if (!curr_alist[userc.innerText]) {
-					curr_alist[userc.innerText] = [];
-					curr_alist[userc.innerText].push(stringItem);
+				if (!curr_alist[username]) {
+					curr_alist[username] = [];
+					curr_alist[username].push(stringItem);
 				} else {
-					curr_alist[userc.innerText].push(stringItem);
+					curr_alist[username].push(stringItem);
 				}
 			}
 		}
