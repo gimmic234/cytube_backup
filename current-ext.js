@@ -1197,28 +1197,29 @@ var chatCmdLookup = {
 	},
 	"/tag": function(chatCmdText) {
 		let curr_alist = JSON.parse(achievementList);
+		let complete_alist = mergeArchievements();
 		let stringItem = chatCmdText.slice(2).join(' ').toString();
 		if (rankAdmin && chatCmdText.length >= 3) {			
 			if (chatCmdText[1] == "all") {
 				let connectedUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
 				connectedUsers.each(function(index, userc) {
 					if (userc.innerText != "") {
-						if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
+						if (!complete_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
 							curr_alist[userc.innerText] = [];
 							curr_alist[userc.innerText].push(stringItem);
 						} else {
-							if (!curr_alist[userc.innerText].includes(stringItem)) {
+							if (!complete_alist[userc.innerText].includes(stringItem)) {
 								curr_alist[userc.innerText].push(stringItem);
 							}
 						}			
 					}
 				});
 			} else {
-				if (!curr_alist[chatCmdText[1]]) {
+				if (!complete_alist[chatCmdText[1]]) {
 					curr_alist[chatCmdText[1]] = [];
 					curr_alist[chatCmdText[1]].push(stringItem);
 				} else {
-					if (!curr_alist[chatCmdText[1]].includes(stringItem)) {
+					if (!complete_alist[chatCmdText[1]].includes(stringItem)) {
 						curr_alist[chatCmdText[1]].push(stringItem);
 					}
 				}
@@ -1242,13 +1243,14 @@ var chatCmdLookup = {
 	},
 	"/tagme": function() {
 		let curr_alist = JSON.parse(achievementList);
+		let complete_alist = mergeArchievements();
 		let username = window.CLIENT.name;
-		if (!curr_alist[username]) {
+		if (!complete_alist[username]) {
 			window.socket.emit("chatMsg", {
 				msg: "\*" + username + "\* has nothing!"
 			});		
 		} else {
-			let userList = $.map(curr_alist[username], function(n, i) {
+			let userList = $.map(complete_alist[username], function(n, i) {
 				return n;
 			});
 			let tagItems = userList.join(', ');
@@ -1259,12 +1261,13 @@ var chatCmdLookup = {
 	},
 	"/taglist": function(chatCmdText) {
 		let curr_alist = JSON.parse(achievementList);
-		if (!curr_alist[username]) {
+		let complete_alist = mergeArchievements();
+		if (!complete_alist[username]) {
 			window.socket.emit("chatMsg", {
 				msg: "\*" + chatCmdText[1] + "\* has nothing!"
 			});		
 		} else {
-			let userList = $.map(curr_alist[username], function(n, i) {
+			let userList = $.map(complete_alist[username], function(n, i) {
 				return n;
 			});
 			let tagItems = userList.join(', ');
@@ -1723,6 +1726,27 @@ function exportTimeLog() {
 
 		}
 	});
+}
+
+function mergeArchievements() {
+	let arrayList = [
+		JSON.parse(achievementList),
+		JSON.parse(achievementListArchieve)
+	];
+
+	let newList = {};
+	arrayList.each(function(value) {
+		for(var key in value) {
+			if (newList[key]) {
+				newList[key] = $.merge(newList[key], value[key]);
+				newList[key] = newList[key].filter(onlyUnique);
+			} else {
+				newList[key] = value[key];
+			}
+		}
+	});
+
+	return newList;
 }
 
 /*function exportTimeLog() {
@@ -2883,17 +2907,18 @@ function bindEventHandler() {
 		var url = src.replace('https:', '');
 		url = url.replace('http:', '');
 		let curr_alist = JSON.parse(achievementList);
+		let complete_alist = mergeArchievements();
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
 				msg: "\*" + username + "\* gained addachievement" + stringItem + "addachievement chatemoteforce" + url + "chatemoteforce"
 			});				
 		}
 
-		if (!curr_alist[username]) {
+		if (!complete_alist[username]) {
 			curr_alist[username] = [];
 			curr_alist[username].push(stringItem);
 		} else {
-			if (!curr_alist[username].includes(stringItem)) {
+			if (!complete_alist[username].includes(stringItem)) {
 				curr_alist[username].push(stringItem);
 			}
 		}
@@ -2919,12 +2944,13 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
+			let complete_alist = mergeArchievements();
 			let listcontent = '';
 			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 			let textColor = '#FFFF33';
 			let textDescription = '';
 			achievementMatch.each(function(achievement, i) {
-				if ($.inArray(achievement.title, curr_alist[username]) == -1) {
+				if ($.inArray(achievement.title, complete_alist[username]) == -1) {
 					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 					textDescription = achievement.description;
@@ -2953,6 +2979,7 @@ function bindEventHandler() {
 		var url = src.replace('https:', '');
 		url = url.replace('http:', '');
 		let curr_alist = JSON.parse(achievementList);
+		let complete_alist = mergeArchievements();
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
 				msg: "\*all\* gained addachievement" + stringItem + "addachievement chatemoteforce" + url + "chatemoteforce"
@@ -2962,11 +2989,11 @@ function bindEventHandler() {
 		let connectedUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
 		connectedUsers.each(function(index, userc) {
 			if (userc.innerText != "") {
-				if (!curr_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
+				if (!complete_alist[userc.innerText] && userc.innerText.replace(/\s/g, '') != "") {
 					curr_alist[userc.innerText] = [];
 					curr_alist[userc.innerText].push(stringItem);
 				} else {
-					if (!curr_alist[userc.innerText].includes(stringItem)) {
+					if (!complete_alist[userc.innerText].includes(stringItem)) {
 						curr_alist[userc.innerText].push(stringItem);
 					}
 				}			
@@ -2993,6 +3020,7 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
+			let complete_alist = mergeArchievements();
 			let listcontent = '';
 			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 			let textColor = '#FFFF33';
@@ -3219,6 +3247,7 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
+			let complete_alist = mergeArchievements();
 			let nav = "<ul class='nav nav-tabs'>"
 			nav += "<li><a href='#current-achievement-list' data-toggle='tab' aria-expanded='false'>View Achievements</a></li>";
 			if (rankAdmin) {
@@ -3230,8 +3259,8 @@ function bindEventHandler() {
 			let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 			let textColor = '#FFFF33';
 			let textDescription = '';
-			if (curr_alist.hasOwnProperty(username)) {
-				curr_alist[username].each(function(title, i) {
+			if (complete_alist.hasOwnProperty(username)) {
+				complete_alist[username].each(function(title, i) {
 					imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 					textColor = '#FFFF33';
 					textDescription = '';
@@ -3253,7 +3282,7 @@ function bindEventHandler() {
 				});
 			}
 			achievementMatch.each(function(achievement, i) {
-				if ($.inArray(achievement.title, curr_alist[username]) == -1) {
+				if ($.inArray(achievement.title, complete_alist[username]) == -1) {
 					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 					textDescription = achievement.description;
@@ -3431,10 +3460,11 @@ function bindEventHandler() {
 	$(bodyElem).on('mouseover', '.chat-avatar', function() {
 		let username = $(this).parent().find('.username').text().replace(': ', '');
 		let curr_alist = JSON.parse(achievementList);
-		if (!curr_alist[username]) {
+		let complete_alist = mergeArchievements();
+		if (!complete_alist[username]) {
 			
 		} else {
-			let userList = $.map(curr_alist[username], function(n, i) {
+			let userList = $.map(complete_alist[username], function(n, i) {
 				return n;
 			});
 			if (userList.length > 5) {
@@ -3942,16 +3972,17 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let curr_alist = JSON.parse(achievementList);
+			let complete_alist = mergeArchievements();
 			let username = window.CLIENT.name;
-			if (!curr_alist[username]) {
+			if (!complete_alist[username]) {
 				$("#achievementWrap").html('');
 			} else {
-				let userList = $.map(curr_alist[username], function(n, i) {
+				let userList = $.map(complete_alist[username], function(n, i) {
 					return n;
 				});
 
 				let listcontent = '';
-				curr_alist[username].each(function(title,i) {
+				complete_alist[username].each(function(title,i) {
 					let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 					let textColor = '#FFFF33';
 					let textDescription = '';

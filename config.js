@@ -48,3 +48,4 @@
 	var imgTable, soundTable;
 	var avatarFloat = true;
 	var timeLogger, chatlineElem, queueList, emoteList, countDown, countDownTimer1, countDown2, countDownTimer2, countDown3, countDownTimer3, countDown4, countDownTimer4, countDown5, countDownTimer5, collapseArrow, collapseArrow2, picklist, achievementMatch, msgLookup, imgLookup, soundLookup, emoteAudioList;
+	var achievementListMerged;
