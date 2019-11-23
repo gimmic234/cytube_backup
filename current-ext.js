@@ -1286,16 +1286,28 @@ var chatCmdLookup = {
 	},
 	'/search': function(chatCmdText) {
 		if (chatCmdText.length == 2) {
-			let foundList = [];
+			let foundList = {};
 			picklist.each(function(value, index) {
 				if (value.pick1.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList[value.pick1][] = value.user;
+					if (foundList[value.pick1]) {
+						foundList[value.pick1].push(value.user);	
+					} else {
+						foundList[value.pick1] = [value.user];
+					}
 				}
 				if (value.pick2.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList[value.pick2][] = value.user;
+					if (foundList[value.pick2]) {
+						foundList[value.pick2].push(value.user);	
+					} else {
+						foundList[value.pick2] = [value.user];
+					}
 				}
 				if (value.pick3.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
-					foundList[value.pick3][] = value.user;
+					if (foundList[value.pick3]) {
+						foundList[value.pick3].push(value.user);	
+					} else {
+						foundList[value.pick3] = [value.user];
+					}
 				}
 			});
 
