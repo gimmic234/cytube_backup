@@ -1,5 +1,8 @@
 var chatCmdLookup = {
 	'/stat': function(chatCmdText) {
+		if (chatCmdText.length < 2) {
+			return;
+		}
 		let text = chatCmdText.slice(2).join(" ").toLowerCase();
 		let complete_alist = mergeAchievements();
 		let foundList = [];
