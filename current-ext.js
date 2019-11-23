@@ -1287,7 +1287,7 @@ var chatCmdLookup = {
 	'/search': function(chatCmdText) {
 		if (chatCmdText.length == 2) {
 			let foundList = {};
-			picklist.each(function(value, index)) {
+			picklist.each(function(value, index) {
 				if (value.pick1.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
 					foundList.push(value.user);
 				}
