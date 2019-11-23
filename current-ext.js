@@ -1304,7 +1304,7 @@ var chatCmdLookup = {
 			let msgString = listFinal.join(',');
 
 			window.socket.emit("chatMsg", {
-				msg: chatCmdText[1] + " was picked by " + msgString;
+				msg: chatCmdText[1] + " was picked by " + msgString
 			});
 		}
 	},
