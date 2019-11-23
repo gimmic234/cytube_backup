@@ -1209,7 +1209,12 @@ var chatCmdLookup = {
 							curr_alist[userc.innerText].push(stringItem);
 						} else {
 							if (!complete_alist[userc.innerText].includes(stringItem)) {
-								curr_alist[userc.innerText].push(stringItem);
+								if (!curr_alist[userc.innerText]) {
+									curr_alist[userc.innerText] = [];
+									curr_alist[userc.innerText].push(stringItem);
+								} else {
+									curr_alist[userc.innerText].push(stringItem);
+								}
 							}
 						}			
 					}
@@ -1220,7 +1225,12 @@ var chatCmdLookup = {
 					curr_alist[chatCmdText[1]].push(stringItem);
 				} else {
 					if (!complete_alist[chatCmdText[1]].includes(stringItem)) {
-						curr_alist[chatCmdText[1]].push(stringItem);
+						if (!curr_alist[userc.innerText]) {
+							curr_alist[userc.innerText] = [];
+							curr_alist[userc.innerText].push(stringItem);
+						} else {
+							curr_alist[userc.innerText].push(stringItem);
+						}
 					}
 				}
 			}
@@ -2919,7 +2929,12 @@ function bindEventHandler() {
 			curr_alist[username].push(stringItem);
 		} else {
 			if (!complete_alist[username].includes(stringItem)) {
-				curr_alist[username].push(stringItem);
+				if (!curr_alist[userc.innerText]) {
+					curr_alist[userc.innerText] = [];
+					curr_alist[userc.innerText].push(stringItem);
+				} else {
+					curr_alist[userc.innerText].push(stringItem);
+				}
 			}
 		}
 
@@ -2994,7 +3009,12 @@ function bindEventHandler() {
 					curr_alist[userc.innerText].push(stringItem);
 				} else {
 					if (!complete_alist[userc.innerText].includes(stringItem)) {
-						curr_alist[userc.innerText].push(stringItem);
+						if (!curr_alist[userc.innerText]) {
+							curr_alist[userc.innerText] = [];
+							curr_alist[userc.innerText].push(stringItem);
+						} else {
+							curr_alist[userc.innerText].push(stringItem);
+						}
 					}
 				}			
 			}
