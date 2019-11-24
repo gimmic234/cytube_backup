@@ -1378,7 +1378,7 @@ var chatCmdLookup = {
 				}
 			});
 
-			if (foundList.length == 0) {
+			if (Object.keys(foundList).length == 0) {
 				window.socket.emit("chatMsg", {
 					msg: "*" + text + "* was not found."
 				});
