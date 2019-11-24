@@ -1378,6 +1378,12 @@ var chatCmdLookup = {
 				}
 			});
 
+			if (foundList.length == 0) {
+				window.socket.emit("chatMsg", {
+					msg: "*" + text + "* was not found."
+				});
+			}
+
 			for (var key in foundList) {
 				let listFinal = foundList[key].filter(onlyUnique);
 				let msgString = listFinal.join(' | ');
