@@ -1351,24 +1351,25 @@ var chatCmdLookup = {
 		}
 	},
 	'/search': function(chatCmdText) {
-		if (chatCmdText.length == 2) {
+		if (chatCmdText.length >= 2) {
 			let foundList = {};
+			let text = chatCmdText.slice(1).join(" ").toLowerCase();
 			picklist.each(function(value, index) {
-				if (value.pick1.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
+				if (value.pick1.toLowerCase().indexOf(text) >= 0) {
 					if (foundList[value.pick1]) {
 						foundList[value.pick1].push(value.user);	
 					} else {
 						foundList[value.pick1] = [value.user];
 					}
 				}
-				if (value.pick2.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
+				if (value.pick2.toLowerCase().indexOf(text) >= 0) {
 					if (foundList[value.pick2]) {
 						foundList[value.pick2].push(value.user);	
 					} else {
 						foundList[value.pick2] = [value.user];
 					}
 				}
-				if (value.pick3.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
+				if (value.pick3.toLowerCase().indexOf(text) >= 0) {
 					if (foundList[value.pick3]) {
 						foundList[value.pick3].push(value.user);	
 					} else {
