@@ -1845,30 +1845,6 @@ function mergeAchievements() {
 	});
 }*/
 
-function readTickets() {
-	let returnArray = [];
-	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+8)+"/public/values?alt=json",
-		method: "get",
-		dataType: "json",
-		success: function(result) {
-			let entries = result.feed.entry;
-			entries.each(function(value, index) {
-				let newEntry = {
-					"name": value.gsx$name.$t,
-					"tickets": value.gsx$tickets.$t,
-					"status": value.gsx$status.$t
-				};
-				returnArray.push(newEntry);
-			});
-			return returnArray;
-		},
-		error: function() {
-			returnArray = [];
-		}
-	});
-}
-
 function readMsgCmd(command) {
 	let temp = {};
 	$.ajax({
@@ -2016,6 +1992,30 @@ function readSheet() {
 					"status2": value.gsx$status2.$t,
 					"pick3": value.gsx$pick3.$t,
 					"status3": value.gsx$status3.$t
+				};
+				returnArray.push(newEntry);
+			})
+		},
+		error: function() {
+			returnArray = [];
+		}
+	});
+	return returnArray;
+}
+
+function readTickets() {
+	let returnArray = [];
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+8)+"/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			entries.each(function(value, index) {
+				let newEntry = {
+					"name": value.gsx$name.$t,
+					"tickets": value.gsx$tickets.$t,
+					"status": value.gsx$status.$t
 				};
 				returnArray.push(newEntry);
 			})

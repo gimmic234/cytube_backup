@@ -86,7 +86,7 @@ var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
-var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/11861ee9199f62e64eeb28bcd3650e94f451d5bb/config.js";
+var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/0ec70263653518475be21d9b4dc023dafbe07f66/config.js";
 
 var statList = ['Team Mugi', 'Team Mio', 'Team Ritsu', 'Team Yui', 'Team Azusa'];
 /*!
