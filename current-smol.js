@@ -2,34 +2,34 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://media.discordapp.net/attachments/633533577216393257/643442652867592192/0eabcfd9eddc99f7caa211e2ca160716-700.jpg";
+var background_img = "http://vistapointe.net/images/theatre-1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
-	month: 11,
-	day: 24,
+	month: 12,
+	day: 8,
 	hour: 20,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2019,
-	month2: 11,
-	day2: 30,
+	month2: 12,
+	day2: 14,
 	hour2: 22,
 	minute2: 0,
 	second2: 0
 };
 var background_img_auto1 = "http://cdn.discordapp.com/attachments/419692699986165770/617001300449558529/korra_bg5.jpg";
 var background_img_auto2 = "http://cdn.discordapp.com/attachments/521413432294113303/647539892556922880/392325.png";
-var chatMute = 'false';
+var chatMute = "false";
 var background_img_auto3 = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
 var noiseActive = 'true';
-var background_img_auto4 = "http://media.discordapp.net/attachments/633533577216393257/643442652867592192/0eabcfd9eddc99f7caa211e2ca160716-700.jpg";
+var background_img_auto4 = "http://i.imgur.com/Bn8SkAQ.jpg";
 var countdown_utc3 = {
 	year3: 2019,
-	month3: 11,
-	day3: 30,
+	month3: 12,
+	day3: 14,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -39,8 +39,8 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/501103378714329100/501103465955590150/9cb5a80d-0593-48c3-8c66-de079df1c01a.png";
-var imgBubble2 = "//media.discordapp.net/attachments/528150212875649065/610177795632660503/d9036d6f62865eb8a3f36677a126d91d.gif";
+var imgBubble = "//cdn.discordapp.com/emojis/625018370479358053.png?v=1";
+var imgBubble2 = "//media.discordapp.net/attachments/562795394157903885/650789387969495040/450px-Anime_eye.svg.png";
 var chatImg = "false";
 var img1show = "true";
 var img1fixedshow = "false";
@@ -64,21 +64,21 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/577558806935109662/22_-_SHI-KI.mp3";
+var bgm1url = "https://cdn.discordapp.com/attachments/475489318421397504/651787318600138752/05_Vain_effort.mp3";
 var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
-var background_img_auto6 = "http://i.imgur.com/gl1cGjY.png";
+var background_img_auto6 = "http://media.discordapp.net/attachments/466386319766192138/652634527159681064/Yui.png?width=1123&height=702";
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
 var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/643613784812027906/KAIJI_OST_-_Wish.mp3";
-var bgm3url = "https://www.youtube.com/watch?v=rRTlLZ05KAs";
+var bgm3url = "https://cdn.discordapp.com/attachments/437295769427378176/651187079094730752/01_-_Fuwa_Fuwa_Time.mp3";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "2";
-var achievementList = "{\"Mayu_Loli\":[\"Pun Professor\"]}";
+var bgmSelect = "3";
+var achievementList = "{\"Mayu_Loli\":[\"Pun Professor\"],\"HeartsTM\":[\"Ultimate Survivor\",\"YFB\"],\"gimmic\":[\"Ultimate Survivor\",\"YFB\"],\"NinjaPoes\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\"],\"Zinzoo\":[\"Ultimate Survivor\",\"YFB\",\"Team Azusa\"],\"Darthturtle\":[\"Ultimate Survivor\",\"YFB\"],\"Fox_tart\":[\"Ultimate Survivor\",\"Team Mio\",\"YFB\",\"Team Azusa\"],\"Ivvl\":[\"Ultimate Survivor\",\"YFB\"],\"Madoq\":[\"Ultimate Survivor\",\"YFB\"],\"mrmooshe\":[\"Ultimate Survivor\",\"Fateless\",\"YFB\",\"Team Mio\"],\"MrRound\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\"],\"Psyrhos\":[\"Ultimate Survivor\",\"YFB\"],\"raccomunk\":[\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\"],\"ScrewySqrl\":[\"Ultimate Survivor\",\"YFB\"],\"Senia\":[\"Ultimate Survivor\",\"YFB\"],\"T---\":[\"Ultimate Survivor\"],\"SomeBloke\":[\"Team Mio\"],\"science\":[\"Team Mugi\"],\"Eli_HeavyWaterBoi\":[\"Team Mio\",\"Team Yui\"],\"xIquincyIx\":[\"Team Azusa\",\"Team Mio\"],\"dreamy\":[\"Team Azusa\"],\"Urizithar\":[\"Team Azusa\",\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\"],\"UserMagician\":[\"That\'s All For Today!\"],\"DatBisa\":[\"Team Kanade\",\"Clannad\",\"Symphogear\",\"YFB\"],\"Takeda\":[\"YFB\"],\"SkySKY\":[\"YFB\"],\"LST\":[\"Team Mugi\",\"Team Azusa\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Movie";
-var countdownText3 = "K-ON";
+var countdownText3 = "K-ON!!";
 var countdownText4 = "intermission";
 var countdownText5 = "Geah";
 var nicoEffectOnControl = "true";
@@ -88,7 +88,7 @@ var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/7984d9d281df01120483e19d87d20f794a6b179e/config.js";
 
-var statList = ['Team Mugi', 'Team Mio', 'Team Ritsu', 'Team Yui'];
+var statList = ['Team Mugi', 'Team Mio', 'Team Ritsu', 'Team Yui', 'Team Azusa'];
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -114,7 +114,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b40e1d618e04b8eae793405a4993a1ba5c6fd3fe/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/22d968ed4f1d927cfe06b9fd4519211850aa499c/current-ext.js",
 		callback: true
 	},
 	'layout': {

@@ -1348,6 +1348,14 @@ var chatCmdLookup = {
 					});
 				}
 			});
+
+			ticketList.each(function(value, index) {
+				if (value.name.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
+					window.socket.emit("chatMsg", {
+						msg: "\*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets."
+					});
+				}
+			});
 		}
 	},
 	'/search': function(chatCmdText) {
@@ -1836,6 +1844,30 @@ function mergeAchievements() {
 		}
 	});
 }*/
+
+function readTickets() {
+	let returnArray = [];
+	$.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+8)+"/public/values?alt=json",
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			entries.each(function(value, index) {
+				let newEntry = {
+					"name": value.gsx$name.$t,
+					"tickets": value.gsx$tickets.$t,
+					"status": value.gsx$status.$t
+				};
+				returnArray.push(newEntry);
+			});
+			return returnArray;
+		},
+		error: function() {
+			returnArray = [];
+		}
+	});
+}
 
 function readMsgCmd(command) {
 	let temp = {};
@@ -2573,6 +2605,7 @@ window.countdowner = function(countdown, destination,index) {
 
 window.loadInitializer = function() {
 	picklist = readSheet();
+	ticketList = readTickets();
 	readVideoList();
 	readVideoListBatch1();
 	achievementMatch = readAchievement();
@@ -4087,7 +4120,10 @@ function bindEventHandler() {
 			}
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
-			achievementMatch = readAchievement();
+			achievementMatchNew = readAchievement();
+			if ($.data(achievementMatch) == $.data(achievementMatchNew)) {
+				achievementMatch = achievementMatchNew;
+			}
 			$("#achievementModal").remove()
 		}).insertAfter("#useroptions").modal()
 	});
