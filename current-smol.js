@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://vistapointe.net/images/theatre-1.jpg";
+var background_img = "http://i.imgur.com/Bn8SkAQ.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
@@ -74,7 +74,7 @@ var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/6436137
 var bgm3url = "https://cdn.discordapp.com/attachments/437295769427378176/651187079094730752/01_-_Fuwa_Fuwa_Time.mp3";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "3";
+var bgmSelect = "1";
 var achievementList = "{\"Mayu_Loli\":[\"Pun Professor\"],\"HeartsTM\":[\"Ultimate Survivor\",\"YFB\"],\"gimmic\":[\"Ultimate Survivor\",\"YFB\"],\"NinjaPoes\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\"],\"Zinzoo\":[\"Ultimate Survivor\",\"YFB\",\"Team Azusa\"],\"Darthturtle\":[\"Ultimate Survivor\",\"YFB\"],\"Fox_tart\":[\"Ultimate Survivor\",\"Team Mio\",\"YFB\",\"Team Azusa\"],\"Ivvl\":[\"Ultimate Survivor\",\"YFB\"],\"Madoq\":[\"Ultimate Survivor\",\"YFB\"],\"mrmooshe\":[\"Ultimate Survivor\",\"Fateless\",\"YFB\",\"Team Mio\"],\"MrRound\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\"],\"Psyrhos\":[\"Ultimate Survivor\",\"YFB\"],\"raccomunk\":[\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\"],\"ScrewySqrl\":[\"Ultimate Survivor\",\"YFB\"],\"Senia\":[\"Ultimate Survivor\",\"YFB\"],\"T---\":[\"Ultimate Survivor\"],\"SomeBloke\":[\"Team Mio\"],\"science\":[\"Team Mugi\"],\"Eli_HeavyWaterBoi\":[\"Team Mio\",\"Team Yui\"],\"xIquincyIx\":[\"Team Azusa\",\"Team Mio\"],\"dreamy\":[\"Team Azusa\"],\"Urizithar\":[\"Team Azusa\",\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\"],\"UserMagician\":[\"That\'s All For Today!\"],\"DatBisa\":[\"Team Kanade\",\"Clannad\",\"Symphogear\",\"YFB\"],\"Takeda\":[\"YFB\"],\"SkySKY\":[\"YFB\"],\"LST\":[\"Team Mugi\",\"Team Azusa\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Movie";
@@ -86,7 +86,7 @@ var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
-var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/7984d9d281df01120483e19d87d20f794a6b179e/config.js";
+var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/11861ee9199f62e64eeb28bcd3650e94f451d5bb/config.js";
 
 var statList = ['Team Mugi', 'Team Mio', 'Team Ritsu', 'Team Yui', 'Team Azusa'];
 /*!
@@ -114,7 +114,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/22d968ed4f1d927cfe06b9fd4519211850aa499c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/11861ee9199f62e64eeb28bcd3650e94f451d5bb/current-ext.js",
 		callback: true
 	},
 	'layout': {
