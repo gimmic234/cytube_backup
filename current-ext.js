@@ -1353,7 +1353,7 @@ var chatCmdLookup = {
 						effCount = Math.ceil(Math.pow((ticketNum-8), 1.5) + 8);
 					}
 					window.socket.emit("chatMsg", {
-						msg: "\*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets. (effective value: " + effCount + ")"
+						msg: "\*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets. (eff: " + effCount + ")"
 					});
 				}
 			});
