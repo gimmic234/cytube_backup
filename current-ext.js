@@ -1350,7 +1350,7 @@ var chatCmdLookup = {
 					let ticketNum = parseInt(value.tickets);
 					let effCount = ticketNum;
 					if (ticketNum > 10) {
-						effCount = Math.pow((ticketNum-8), 1.5) + 8;
+						effCount = Math.Ceil(Math.pow((ticketNum-8), 1.5) + 8);
 					}
 					window.socket.emit("chatMsg", {
 						msg: "\*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets. (effective value: " + effCount + ")"
