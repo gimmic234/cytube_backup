@@ -1347,8 +1347,13 @@ var chatCmdLookup = {
 
 			ticketList.each(function(value, index) {
 				if (value.name.toLowerCase().indexOf(chatCmdText[1].toLowerCase()) >= 0) {
+					let ticketNum = parseInt(value.tickets);
+					let effCount = ticketNum;
+					if (ticketNum > 10) {
+						effCount = Math.pow((ticketNum-8), 1.5) + 8;
+					}
 					window.socket.emit("chatMsg", {
-						msg: "\*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets."
+						msg: "\*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets. (effective value: " + effCount + ")"
 					});
 				}
 			});
