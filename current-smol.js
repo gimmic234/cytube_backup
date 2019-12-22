@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://i.imgur.com/Bn8SkAQ.jpg";
+var background_img = "http://i.imgur.com/pHCu1Rx.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2019,
 	month: 12,
-	day: 8,
+	day: 22,
 	hour: 20,
 	minute: 0,
 	second: 0,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2019,
 	month2: 12,
-	day2: 14,
+	day2: 28,
 	hour2: 22,
 	minute2: 0,
 	second2: 0
@@ -25,11 +25,11 @@ var background_img_auto2 = "http://cdn.discordapp.com/attachments/52141343229411
 var chatMute = "false";
 var background_img_auto3 = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
 var noiseActive = 'true';
-var background_img_auto4 = "http://i.imgur.com/Bn8SkAQ.jpg";
+var background_img_auto4 = "http://i.imgur.com/pHCu1Rx.jpg";
 var countdown_utc3 = {
 	year3: 2019,
 	month3: 12,
-	day3: 14,
+	day3: 28,
 	hour3: 0,
 	minute3: 0,
 	second3: 0
@@ -39,7 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//cdn.discordapp.com/emojis/625018370479358053.png?v=1";
+var imgBubble = "//media.discordapp.net/attachments/562795394157903885/658060274749931530/VWpTe00.gif";
 var imgBubble2 = "//media.discordapp.net/attachments/562795394157903885/650789387969495040/450px-Anime_eye.svg.png";
 var chatImg = "false";
 var img1show = "true";
@@ -64,18 +64,18 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = "https://cdn.discordapp.com/attachments/475489318421397504/651787318600138752/05_Vain_effort.mp3";
+var bgm1url = "https://cdn.discordapp.com/attachments/414902113391476736/654448971900649493/The_Vision_Of_Escaflowne_OST_-_Deja_Blue.mp3";
 var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
-var background_img_auto6 = "http://media.discordapp.net/attachments/466386319766192138/652634527159681064/Yui.png?width=1123&height=702";
+var background_img_auto6 = "http://media.discordapp.net/attachments/528005830419677185/657582858977804288/Ritsu.jpg?width=1247&height=702";
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
 var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/643613784812027906/KAIJI_OST_-_Wish.mp3";
-var bgm3url = "https://cdn.discordapp.com/attachments/437295769427378176/651187079094730752/01_-_Fuwa_Fuwa_Time.mp3";
+var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/655043719933853706/2.8Mix.mp3";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "1";
-var achievementList = "{\"Mayu_Loli\":[\"Pun Professor\"],\"HeartsTM\":[\"Ultimate Survivor\",\"YFB\"],\"gimmic\":[\"Ultimate Survivor\",\"YFB\"],\"NinjaPoes\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\"],\"Zinzoo\":[\"Ultimate Survivor\",\"YFB\",\"Team Azusa\"],\"Darthturtle\":[\"Ultimate Survivor\",\"YFB\"],\"Fox_tart\":[\"Ultimate Survivor\",\"Team Mio\",\"YFB\",\"Team Azusa\"],\"Ivvl\":[\"Ultimate Survivor\",\"YFB\"],\"Madoq\":[\"Ultimate Survivor\",\"YFB\"],\"mrmooshe\":[\"Ultimate Survivor\",\"Fateless\",\"YFB\",\"Team Mio\"],\"MrRound\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\"],\"Psyrhos\":[\"Ultimate Survivor\",\"YFB\"],\"raccomunk\":[\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\"],\"ScrewySqrl\":[\"Ultimate Survivor\",\"YFB\"],\"Senia\":[\"Ultimate Survivor\",\"YFB\"],\"T---\":[\"Ultimate Survivor\"],\"SomeBloke\":[\"Team Mio\"],\"science\":[\"Team Mugi\"],\"Eli_HeavyWaterBoi\":[\"Team Mio\",\"Team Yui\"],\"xIquincyIx\":[\"Team Azusa\",\"Team Mio\"],\"dreamy\":[\"Team Azusa\"],\"Urizithar\":[\"Team Azusa\",\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\"],\"UserMagician\":[\"That\'s All For Today!\"],\"DatBisa\":[\"Team Kanade\",\"Clannad\",\"Symphogear\",\"YFB\"],\"Takeda\":[\"YFB\"],\"SkySKY\":[\"YFB\"],\"LST\":[\"Team Mugi\",\"Team Azusa\"]}";
+var achievementList = "{\"Mayu_Loli\":[\"Pun Professor\"],\"HeartsTM\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Merry Christmas!\"],\"gimmic\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Team Yui\",\"Team Mugi\",\"Merry Christmas!\"],\"NinjaPoes\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\",\"Volunteer\"],\"Zinzoo\":[\"Ultimate Survivor\",\"YFB\",\"Team Azusa\",\"Volunteer\",\"Pun Professor\",\"Merry Christmas!\"],\"Darthturtle\":[\"Ultimate Survivor\",\"YFB\"],\"Fox_tart\":[\"Ultimate Survivor\",\"Team Mio\",\"YFB\",\"Team Azusa\",\"Volunteer\",\"Merry Christmas!\"],\"Ivvl\":[\"Ultimate Survivor\",\"YFB\"],\"Madoq\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\"],\"mrmooshe\":[\"Ultimate Survivor\",\"Fateless\",\"YFB\",\"Team Mio\",\"Volunteer\"],\"MrRound\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\",\"Volunteer\",\"Merry Christmas!\"],\"Psyrhos\":[\"Ultimate Survivor\",\"YFB\"],\"raccomunk\":[\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\",\"Volunteer\"],\"ScrewySqrl\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Team Yui\",\"Pun Professor\",\"Merry Christmas!\"],\"Senia\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\"],\"T---\":[\"Ultimate Survivor\"],\"SomeBloke\":[\"Team Mio\"],\"science\":[\"Team Mugi\",\"Team Azusa\",\"Merry Christmas!\"],\"Eli_HeavyWaterBoi\":[\"Team Mio\",\"Team Yui\"],\"xIquincyIx\":[\"Team Azusa\",\"Team Mio\"],\"dreamy\":[\"Team Azusa\"],\"Urizithar\":[\"Team Azusa\",\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\",\"Volunteer\",\"Merry Christmas!\"],\"UserMagician\":[\"That\'s All For Today!\"],\"DatBisa\":[\"Team Kanade\",\"Clannad\",\"Symphogear\",\"YFB\"],\"Takeda\":[\"YFB\",\"Volunteer\"],\"SkySKY\":[\"YFB\",\"Team Mio\"],\"LST\":[\"Team Mugi\",\"Team Azusa\",\"Team Mio\"],\"PhenomSage\":[\"Volunteer\",\"Team Ritsu\",\"Team Mugi\",\"Merry Christmas!\"],\"bLOOMGINTON33\":[\"Volunteer\"],\"noreception\":[\"Volunteer\"],\"nullgat\":[\"Volunteer\",\"Merry Christmas!\"],\"Sayokuro\":[\"Volunteer\"],\"erubas\":[\"Team Mugi\",\"Merry Christmas!\"],\"Ningen\":[\"Team Ritsu\",\"Merry Christmas!\"],\"Ruvikko\":[\"Team Azusa\"],\"Demzou\":[\"Merry Christmas!\"],\"JPGer\":[\"Merry Christmas!\"],\"MisterLister\":[\"Merry Christmas!\"],\"MrNano\":[\"Merry Christmas!\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Movie";
 var countdownText3 = "K-ON!!";
@@ -86,7 +86,6 @@ var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
-var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/0ec70263653518475be21d9b4dc023dafbe07f66/config.js";
 
 var statList = ['Team Mugi', 'Team Mio', 'Team Ritsu', 'Team Yui', 'Team Azusa'];
 /*!
@@ -114,7 +113,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c3a440c936f93400c498d9a8a95c0598fbce8f16/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1aca7bf6475453e6925233d017e386267da1b570/current-ext.js",
 		callback: true
 	},
 	'layout': {

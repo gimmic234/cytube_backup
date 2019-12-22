@@ -1403,7 +1403,7 @@ var chatCmdLookup = {
 
 			for (var key in foundList) {
 				let listFinal = foundList[key].filter(onlyUnique);
-				let msgString = listFinal.join(' | ');
+				let msgString = listFinal.join(' / ');
 				window.socket.emit("chatMsg", {
 					msg: "*" + key + "* was picked by " + msgString
 				});
