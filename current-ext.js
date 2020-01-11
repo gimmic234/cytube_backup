@@ -12,11 +12,16 @@ var chatCmdLookup = {
 			if (value.title.toLowerCase().indexOf(text) >= 0) {
 				foundList.push(value.title);
 				foundListAchievement[value.title] = function(number) {
+					var url = value.image.replace('https:', '');
+					url = url.replace('http:', '');
+					if (url.lastIndexOf('?') > -1) {
+						url = url.substr(0, url.lastIndexOf('?'));
+					}
 					window.socket.emit("chatMsg", {
-						msg: "chatemoteforce" + value.image + "chatemoteforce *" + key + "* : " + number
+						msg: "chatemoteforce" + url + "chatemoteforce *" + key + "*: " + number
 					});				
 					window.socket.emit("chatMsg", {
-						msg: "achievement description: " + value.description
+						msg: "*achievement description*: " + value.description
 					});
 				}
 			}
