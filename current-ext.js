@@ -21,7 +21,7 @@ var chatCmdLookup = {
 						msg: "chatemoteforce" + url + "chatemoteforce *" + key + "*: " + number
 					});				
 					window.socket.emit("chatMsg", {
-						msg: "*achievement description*: " + value.description
+						msg: "*description*: " + value.description
 					});
 				}
 			}
