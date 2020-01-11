@@ -7,9 +7,18 @@ var chatCmdLookup = {
 		let text = chatCmdText.slice(1).join(" ").toLowerCase();
 		let complete_alist = mergeAchievements();
 		let foundList = [];
+		let foundListAchievement = {};
 		achievementMatch.each(function(value) {
 			if (value.title.toLowerCase().indexOf(text) >= 0) {
 				foundList.push(value.title);
+				foundListAchievement[value.title] = function(number) {
+					window.socket.emit("chatMsg", {
+						msg: "chatemoteforce" + value.image + "chatemoteforce *" + key + "* : " + number
+					});				
+					window.socket.emit("chatMsg", {
+						msg: "achievement description: " + value.description
+					});
+				}
 			}
 		});
 
@@ -26,9 +35,7 @@ var chatCmdLookup = {
 		});
 
 		for(var key in result) {
-			window.socket.emit("chatMsg", {
-				msg: "*" + key + "*: " + result[key]
-			});
+			foundListAchievement[key](result[key]);
 		}
 	},
 	'/statlist': function(chatCmdText) {
