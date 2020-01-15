@@ -1939,13 +1939,14 @@ function readAchievement() {
 					"image": value.gsx$image.$t
 				};
 				returnArray.push(newEntry);
-			})
+			});
+			achievementMatch = returnArray;
 		},
 		error: function() {
 			returnArray = [];
 		}
 	});
-	return returnArray;
+	//return returnArray;
 }
 
 function readVideoList() {
@@ -2629,7 +2630,7 @@ window.loadInitializer = function() {
 	ticketList = readTickets();
 	readVideoList();
 	readVideoListBatch1();
-	achievementMatch = readAchievement();
+	readAchievement();
 	let streamStr1 = "Next ";
 	let streamStr2 = " stream starts in...";
 	$('#head1').html(streamStr1 + countdownText1 + streamStr2);
@@ -4141,7 +4142,7 @@ function bindEventHandler() {
 			}
 		}).on("hidden.bs.modal", function(event) {
 			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
-			achievementMatchNew = readAchievement();
+			readAchievement();
 			if ($.data(achievementMatch) == $.data(achievementMatchNew)) {
 				achievementMatch = achievementMatchNew;
 			}

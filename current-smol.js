@@ -2,20 +2,20 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://vistapointe.net/images/theatre-1.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/664542521715589191/Untitled.png";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
 	month: 1,
-	day: 12,
-	hour: 20,
+	day: 16,
+	hour: 0,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2020,
 	month2: 1,
-	day2: 11,
+	day2: 18,
 	hour2: 22,
 	minute2: 0,
 	second2: 0
@@ -64,7 +64,7 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = "https://cdn.discordapp.com/attachments/414902113391476736/654448971900649493/The_Vision_Of_Escaflowne_OST_-_Deja_Blue.mp3";
+var bgm1url = "";
 var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
@@ -74,8 +74,8 @@ var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/6436137
 var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/655043719933853706/2.8Mix.mp3";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "3";
-var achievementList = "{\"Mayu_Loli\":[\"Pun Professor\",\"Merry Christmas!\"],\"HeartsTM\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Merry Christmas!\",\"Wings of Gaea\",\"I Lived, Bitch\"],\"gimmic\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Team Yui\",\"Team Mugi\",\"Merry Christmas!\",\"Wings of Gaea\",\"I Lived, Bitch\"],\"NinjaPoes\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\",\"Volunteer\",\"Wings of Gaea\",\"Team Mugi\",\"I Lived, Bitch\"],\"Zinzoo\":[\"Ultimate Survivor\",\"YFB\",\"Team Azusa\",\"Volunteer\",\"Pun Professor\",\"Merry Christmas!\",\"Wings of Gaea\",\"Team Mugi\",\"I Lived, Bitch\",\"Team Ritsu\"],\"Darthturtle\":[\"Ultimate Survivor\",\"YFB\",\"I Lived, Bitch\"],\"Fox_tart\":[\"Ultimate Survivor\",\"Team Mio\",\"YFB\",\"Team Azusa\",\"Volunteer\",\"Merry Christmas!\",\"Wings of Gaea\",\"Team Mugi\"],\"Ivvl\":[\"Ultimate Survivor\",\"YFB\"],\"Madoq\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\"],\"mrmooshe\":[\"Ultimate Survivor\",\"Fateless\",\"YFB\",\"Team Mio\",\"Volunteer\",\"I Lived, Bitch\"],\"MrRound\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\",\"Volunteer\",\"Merry Christmas!\",\"Wings of Gaea\",\"Team Ui\",\"I Lived, Bitch\"],\"Psyrhos\":[\"Ultimate Survivor\",\"YFB\",\"I Lived, Bitch\"],\"raccomunk\":[\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\",\"Volunteer\",\"Wings of Gaea\",\"Merry Christmas!\"],\"ScrewySqrl\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Team Yui\",\"Pun Professor\",\"Merry Christmas!\",\"Wings of Gaea\"],\"Senia\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Wings of Gaea\"],\"T---\":[\"Ultimate Survivor\"],\"SomeBloke\":[\"Team Mio\"],\"science\":[\"Team Mugi\",\"Team Azusa\",\"Merry Christmas!\",\"Team Ui\",\"Team Mio\"],\"Eli_HeavyWaterBoi\":[\"Team Mio\",\"Team Yui\"],\"xIquincyIx\":[\"Team Azusa\",\"Team Mio\",\"Team Yui\",\"I Lived, Bitch\",\"Team Ritsu\"],\"dreamy\":[\"Team Azusa\",\"Merry Christmas!\",\"Team Ritsu\"],\"Urizithar\":[\"Team Azusa\",\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\",\"Volunteer\",\"Merry Christmas!\",\"Team Mugi\",\"Team Ui\",\"Team Jun\"],\"UserMagician\":[\"That\'s All For Today!\",\"Wings of Gaea\"],\"DatBisa\":[\"Team Kanade\",\"Clannad\",\"Symphogear\",\"YFB\"],\"Takeda\":[\"YFB\",\"Volunteer\"],\"SkySKY\":[\"YFB\",\"Team Mio\"],\"LST\":[\"Team Mugi\",\"Team Azusa\",\"Team Mio\"],\"PhenomSage\":[\"Volunteer\",\"Team Ritsu\",\"Team Mugi\",\"Merry Christmas!\",\"Team Jun\"],\"bLOOMGINTON33\":[\"Volunteer\",\"Merry Christmas!\"],\"noreception\":[\"Volunteer\"],\"nullgat\":[\"Volunteer\",\"Merry Christmas!\"],\"Sayokuro\":[\"Volunteer\"],\"erubas\":[\"Team Mugi\",\"Merry Christmas!\",\"Wings of Gaea\",\"Team Jun\"],\"Ningen\":[\"Team Ritsu\",\"Merry Christmas!\",\"Team Mugi\"],\"Ruvikko\":[\"Team Azusa\"],\"Demzou\":[\"Merry Christmas!\"],\"JPGer\":[\"Merry Christmas!\"],\"MisterLister\":[\"Merry Christmas!\",\"Wings of Gaea\"],\"MrNano\":[\"Merry Christmas!\"],\"Mareepy\":[\"Team Azusa\",\"I Lived, Bitch\"],\"CupoDylan\":[\"Merry Christmas!\"],\"fiach\":[\"I Lived, Bitch\"]}";
+var bgmSelect = "1";
+var achievementList = "{\"Mayu_Loli\":[\"Pun Professor\",\"Merry Christmas!\"],\"HeartsTM\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Merry Christmas!\",\"Wings of Gaea\",\"I Lived, Bitch\",\"The Tragedy of This Movie\"],\"gimmic\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Team Yui\",\"Team Mugi\",\"Merry Christmas!\",\"Wings of Gaea\",\"I Lived, Bitch\",\"The Tragedy of This Movie\"],\"NinjaPoes\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\",\"Volunteer\",\"Wings of Gaea\",\"Team Mugi\",\"I Lived, Bitch\"],\"Zinzoo\":[\"Ultimate Survivor\",\"YFB\",\"Team Azusa\",\"Volunteer\",\"Pun Professor\",\"Merry Christmas!\",\"Wings of Gaea\",\"Team Mugi\",\"I Lived, Bitch\",\"Team Ritsu\",\"The Tragedy of This Movie\"],\"Darthturtle\":[\"Ultimate Survivor\",\"YFB\",\"I Lived, Bitch\"],\"Fox_tart\":[\"Ultimate Survivor\",\"Team Mio\",\"YFB\",\"Team Azusa\",\"Volunteer\",\"Merry Christmas!\",\"Wings of Gaea\",\"Team Mugi\",\"The Tragedy of This Movie\"],\"Ivvl\":[\"Ultimate Survivor\",\"YFB\",\"The Tragedy of This Movie\"],\"Madoq\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\"],\"mrmooshe\":[\"Ultimate Survivor\",\"Fateless\",\"YFB\",\"Team Mio\",\"Volunteer\",\"I Lived, Bitch\"],\"MrRound\":[\"Ultimate Survivor\",\"Team Azusa\",\"YFB\",\"Volunteer\",\"Merry Christmas!\",\"Wings of Gaea\",\"Team Ui\",\"I Lived, Bitch\",\"The Tragedy of This Movie\"],\"Psyrhos\":[\"Ultimate Survivor\",\"YFB\",\"I Lived, Bitch\"],\"raccomunk\":[\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\",\"Volunteer\",\"Wings of Gaea\",\"Merry Christmas!\"],\"ScrewySqrl\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Team Yui\",\"Pun Professor\",\"Merry Christmas!\",\"Wings of Gaea\"],\"Senia\":[\"Ultimate Survivor\",\"YFB\",\"Volunteer\",\"Wings of Gaea\"],\"T---\":[\"Ultimate Survivor\"],\"SomeBloke\":[\"Team Mio\"],\"science\":[\"Team Mugi\",\"Team Azusa\",\"Merry Christmas!\",\"Team Ui\",\"Team Mio\",\"The Tragedy of This Movie\"],\"Eli_HeavyWaterBoi\":[\"Team Mio\",\"Team Yui\"],\"xIquincyIx\":[\"Team Azusa\",\"Team Mio\",\"Team Yui\",\"I Lived, Bitch\",\"Team Ritsu\"],\"dreamy\":[\"Team Azusa\",\"Merry Christmas!\",\"Team Ritsu\"],\"Urizithar\":[\"Team Azusa\",\"Ultimate Survivor\",\"That\'s All For Today!\",\"YFB\",\"Volunteer\",\"Merry Christmas!\",\"Team Mugi\",\"Team Ui\",\"Team Jun\"],\"UserMagician\":[\"That\'s All For Today!\",\"Wings of Gaea\"],\"DatBisa\":[\"Team Kanade\",\"Clannad\",\"Symphogear\",\"YFB\"],\"Takeda\":[\"YFB\",\"Volunteer\"],\"SkySKY\":[\"YFB\",\"Team Mio\"],\"LST\":[\"Team Mugi\",\"Team Azusa\",\"Team Mio\"],\"PhenomSage\":[\"Volunteer\",\"Team Ritsu\",\"Team Mugi\",\"Merry Christmas!\",\"Team Jun\"],\"bLOOMGINTON33\":[\"Volunteer\",\"Merry Christmas!\"],\"noreception\":[\"Volunteer\"],\"nullgat\":[\"Volunteer\",\"Merry Christmas!\"],\"Sayokuro\":[\"Volunteer\"],\"erubas\":[\"Team Mugi\",\"Merry Christmas!\",\"Wings of Gaea\",\"Team Jun\",\"The Tragedy of This Movie\"],\"Ningen\":[\"Team Ritsu\",\"Merry Christmas!\",\"Team Mugi\"],\"Ruvikko\":[\"Team Azusa\"],\"Demzou\":[\"Merry Christmas!\"],\"JPGer\":[\"Merry Christmas!\"],\"MisterLister\":[\"Merry Christmas!\",\"Wings of Gaea\"],\"MrNano\":[\"Merry Christmas!\",\"The Tragedy of This Movie\"],\"Mareepy\":[\"Team Azusa\",\"I Lived, Bitch\"],\"CupoDylan\":[\"Merry Christmas!\"],\"fiach\":[\"I Lived, Bitch\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Movie";
 var countdownText3 = "K-ON!!";
@@ -113,7 +113,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/8c4660c8d79cb81c35156ceb4778e68295bc5847/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/cd1ed058c93ee879c66a16bcb386c20d5071576c/current-ext.js",
 		callback: true
 	},
 	'layout': {
