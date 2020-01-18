@@ -3028,6 +3028,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.achievement-add', function() {
 		let stringItem = $(this).attr('data-achievement');
+		let itemTitle = $(this).attr('title');
 		let username = $(this).attr('data-user');
 		let src = $(this).find(".emote-preview").attr("src");
 		var url = src.replace('https:', '');
@@ -3036,7 +3037,7 @@ function bindEventHandler() {
 		let complete_alist = mergeAchievements();
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "\*" + username + "\* gained addachievement" + stringItem + "addachievement chatemoteforce" + url + "chatemoteforce"
+				msg: "\*" + username + "\* gained addachievement" + itemTitle + "addachievement chatemoteforce" + url + "chatemoteforce"
 			});				
 		}
 
@@ -3106,6 +3107,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.achievement-add-all', function() {
 		let stringItem = $(this).attr('data-achievement');
+		let itemTitle = $(this).attr('title');
 		let src = $(this).find(".emote-preview").attr("src");
 		var url = src.replace('https:', '');
 		url = url.replace('http:', '');
@@ -3113,7 +3115,7 @@ function bindEventHandler() {
 		let complete_alist = mergeAchievements();
 		if (rankAdmin) {
 			window.socket.emit("chatMsg", {
-				msg: "\*all\* gained addachievement" + stringItem + "addachievement chatemoteforce" + url + "chatemoteforce"
+				msg: "\*all\* gained addachievement" + itemTitle + "addachievement chatemoteforce" + url + "chatemoteforce"
 			});				
 		}
 
