@@ -9,7 +9,7 @@ var chatCmdLookup = {
 		let foundList = [];
 		let foundListAchievement = {};
 		achievementMatch.each(function(value) {
-			if (value.title.indexOf(text) >= 0) {
+			if (value.title.toLowerCase().indexOf(text) >= 0) {
 				foundList.push(value.id);
 				foundListAchievement[value.id] = function(number) {
 					var url = value.image.replace('https:', '');
@@ -18,7 +18,7 @@ var chatCmdLookup = {
 						url = url.substr(0, url.lastIndexOf('?'));
 					}
 					window.socket.emit("chatMsg", {
-						msg: "chatemoteforce" + url + "chatemoteforce *" + key + "*: " + number
+						msg: "chatemoteforce" + url + "chatemoteforce *" + value.title + "*: " + number
 					});				
 					window.socket.emit("chatMsg", {
 						msg: "*description*: " + value.description
