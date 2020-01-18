@@ -1933,6 +1933,7 @@ function readAchievement() {
 			let entries = result.feed.entry;
 			entries.each(function(value, index) {
 				let newEntry = {
+					"id": value.gsx$id.$t,
 					"title": value.gsx$title.$t,
 					"color": value.gsx$color.$t,
 					"description": value.gsx$description.$t,
@@ -3085,7 +3086,7 @@ function bindEventHandler() {
 					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 					textDescription = achievement.description;
 					let block = "<div class=''>";
-					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement=\""+achievement.title+"\" title='"+textDescription+"'>";
+					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement=\""+achievement.id+"\" title='"+textDescription+"'>";
 					block += "<span class='emote-preview-hax'></span>";
 					block += "<img class='emote-preview' src='"+imageUrl+"'>";
 					block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
@@ -3165,7 +3166,7 @@ function bindEventHandler() {
 				textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 				textDescription = achievement.description;
 				let block = "<div class=''>";
-				block += "<div class='achievement-container achievement-add-all' data-achievement=\""+achievement.title+"\" title='"+textDescription+"'>";
+				block += "<div class='achievement-container achievement-add-all' data-achievement=\""+achievement.id+"\" title='"+textDescription+"'>";
 				block += "<span class='emote-preview-hax'></span>";
 				block += "<img class='emote-preview' src='"+imageUrl+"'>";
 				block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
@@ -3395,19 +3396,23 @@ function bindEventHandler() {
 			let textColor = '#FFFF33';
 			let textDescription = '';
 			if (complete_alist.hasOwnProperty(username)) {
-				complete_alist[username].each(function(title, i) {
+				complete_alist[username].each(function(item, i) {
 					imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 					textColor = '#FFFF33';
 					textDescription = '';
+					let title = '';
+					let foundId = 0;
 					achievementMatch.each(function(achievement, i) {
-						if (achievement.title.toLowerCase() == title.toLowerCase()) {
+						if (achievement.id == item) {
 							imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 							textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 							textDescription = achievement.description;
+							title = achievement.title;
+							foundId = achievement.id;
 						}
 					})
 					let block = "<div class=''>";
-					block += "<div class='achievement-container' data-user='"+username+"' data-achievement=\""+title+"\" title='"+textDescription+"'>";
+					block += "<div class='achievement-container' data-user='"+username+"' data-achievement=\""+foundId+"\" title='"+textDescription+"'>";
 					block += "<span class='emote-preview-hax'></span>";
 					block += "<img class='emote-preview' src='"+imageUrl+"'>";
 					block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
@@ -3417,12 +3422,12 @@ function bindEventHandler() {
 				});
 			}
 			achievementMatch.each(function(achievement, i) {
-				if ($.inArray(achievement.title, complete_alist[username]) == -1) {
+				if ($.inArray(achievement.id, complete_alist[username]) == -1) {
 					imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 					textDescription = achievement.description;
 					let block = "<div class=''>";
-					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement=\""+achievement.title+"\" title='"+textDescription+"'>";
+					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement=\""+achievement.id+"\" title='"+textDescription+"'>";
 					block += "<span class='emote-preview-hax'></span>";
 					block += "<img class='emote-preview' src='"+imageUrl+"'>";
 					block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
@@ -3611,17 +3616,19 @@ function bindEventHandler() {
 				let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 				let textColor = '#FFFF33';
 				let textDescription = '';
+				let title = '';
 				achievementMatch.each(function(achievement, i) {
-					if (achievement.title.toLowerCase() == item.toLowerCase()) {
+					if (achievement.id == item) {
 						imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 						textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 						textDescription = achievement.description;
+						title = achievement.title;
 					}
 					});
 					achievementShow += "<tr class=''>";
 					achievementShow += "<td width=20%><img src='"+imageUrl+"' class='smol-emote'></td>";
 					achievementShow += "<td width=80% style='color:"+textColor+"'>";
-					achievementShow += item;
+					achievementShow += title;
 					achievementShow += "</td>";
 					achievementShow += "</tr>";
 			});
@@ -4117,15 +4124,17 @@ function bindEventHandler() {
 				});
 
 				let listcontent = '';
-				complete_alist[username].each(function(title,i) {
+				complete_alist[username].each(function(item,i) {
 					let imageUrl = 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png';
 					let textColor = '#FFFF33';
 					let textDescription = '';
+					let title = "";
 					achievementMatch.each(function(achievement, i) {
-						if (achievement.title.toLowerCase() == title.toLowerCase()) {
+						if (achievement.id == item) {
 							imageUrl = ((achievement.image != '') ?  achievement.image : 'https://media.discordapp.net/attachments/501103378714329100/557766332532129793/medal-2163187_960_720.png');
 							textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 							textDescription = achievement.description;
+							title = achievement.title;
 						}
 					});
 
