@@ -3028,7 +3028,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.achievement-add', function() {
 		let stringItem = $(this).attr('data-achievement');
-		let itemTitle = $(this).attr('title');
+		let itemTitle = $(this).attr('data-title');
 		let username = $(this).attr('data-user');
 		let src = $(this).find(".emote-preview").attr("src");
 		var url = src.replace('https:', '');
@@ -3087,7 +3087,7 @@ function bindEventHandler() {
 					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 					textDescription = achievement.description;
 					let block = "<div class=''>";
-					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement=\""+achievement.id+"\" title='"+textDescription+"'>";
+					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement=\""+achievement.id+"\" data-title=\""+achievement.title+"\" title='"+textDescription+"'>";
 					block += "<span class='emote-preview-hax'></span>";
 					block += "<img class='emote-preview' src='"+imageUrl+"'>";
 					block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
@@ -3107,7 +3107,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.achievement-add-all', function() {
 		let stringItem = $(this).attr('data-achievement');
-		let itemTitle = $(this).attr('title');
+		let itemTitle = $(this).attr('data-title');
 		let src = $(this).find(".emote-preview").attr("src");
 		var url = src.replace('https:', '');
 		url = url.replace('http:', '');
@@ -3168,7 +3168,7 @@ function bindEventHandler() {
 				textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 				textDescription = achievement.description;
 				let block = "<div class=''>";
-				block += "<div class='achievement-container achievement-add-all' data-achievement=\""+achievement.id+"\" title='"+textDescription+"'>";
+				block += "<div class='achievement-container achievement-add-all' data-achievement=\""+achievement.id+"\" data-title=\""+achievement.title+"\" title='"+textDescription+"'>";
 				block += "<span class='emote-preview-hax'></span>";
 				block += "<img class='emote-preview' src='"+imageUrl+"'>";
 				block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
@@ -3414,7 +3414,7 @@ function bindEventHandler() {
 						}
 					})
 					let block = "<div class=''>";
-					block += "<div class='achievement-container' data-user='"+username+"' data-achievement=\""+foundId+"\" title='"+textDescription+"'>";
+					block += "<div class='achievement-container' data-user='"+username+"' data-achievement=\""+foundId+"\" data-title=\""+title+"\" title='"+textDescription+"'>";
 					block += "<span class='emote-preview-hax'></span>";
 					block += "<img class='emote-preview' src='"+imageUrl+"'>";
 					block += "<p style='color: "+textColor+"'><b>"+ title + "</b></p>";
@@ -3429,7 +3429,7 @@ function bindEventHandler() {
 					textColor = ((achievement.color != '') ? achievement.color : '#FFFF33');
 					textDescription = achievement.description;
 					let block = "<div class=''>";
-					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement=\""+achievement.id+"\" title='"+textDescription+"'>";
+					block += "<div class='achievement-container achievement-add' data-user='"+username+"' data-achievement=\""+achievement.id+"\" data-title=\""+achievement.title+"\" title='"+textDescription+"'>";
 					block += "<span class='emote-preview-hax'></span>";
 					block += "<img class='emote-preview' src='"+imageUrl+"'>";
 					block += "<p style='color: "+textColor+"'><b>"+ achievement.title + "</b></p>";
