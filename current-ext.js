@@ -9,7 +9,7 @@ var chatCmdLookup = {
 		let foundList = [];
 		let foundListAchievement = {};
 		achievementMatch.each(function(value) {
-			if (value.title.toLowerCase().indexOf(text) >= 0) {
+			if (value.id == text) {
 				foundList.push(value.title);
 				foundListAchievement[value.title] = function(number) {
 					var url = value.image.replace('https:', '');
@@ -59,9 +59,14 @@ var chatCmdLookup = {
 		});
 
 		for(var key in result) {
-			window.socket.emit("chatMsg", {
-				msg: "*" + key + "*: " + result[key]
-			});
+			achievementMatch.each(function(instance) {
+				if (instance.id == key) {
+					window.socket.emit("chatMsg", {
+						msg: "*" + instance.title + "*: " + result[key]
+					});
+				}
+				}
+			);
 		}
 	},
 	'/yen': function(chatCmdText) {
