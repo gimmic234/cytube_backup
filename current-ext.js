@@ -9,7 +9,7 @@ var chatCmdLookup = {
 		let foundList = [];
 		let foundListAchievement = {};
 		achievementMatch.each(function(value) {
-			if (value.id.indexOf(text) >= 0) {
+			if (value.title.indexOf(text) >= 0) {
 				foundList.push(value.id);
 				foundListAchievement[value.id] = function(number) {
 					var url = value.image.replace('https:', '');

@@ -87,7 +87,7 @@ var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 
-var statList = ['Team Mugi', 'Team Mio', 'Team Ritsu', 'Team Yui', 'Team Azusa', 'Team Ui', 'Team Jun'];
+var statList = ['47', '48', '49', '50', '52', '58', '57'];
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -113,7 +113,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/38fb1a011df4145e6a67d8984f32b6e358bc0298/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/843a01b342ac71e538637a2f0a4cc077bac1e766/current-ext.js",
 		callback: true
 	},
 	'layout': {
