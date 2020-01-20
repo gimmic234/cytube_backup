@@ -2022,13 +2022,13 @@ function readSheet() {
 					"status3": value.gsx$status3.$t
 				};
 				returnArray.push(newEntry);
-			})
+			});
+			picklist = returnArray;
 		},
 		error: function() {
 			returnArray = [];
 		}
 	});
-	return returnArray;
 }
 
 function readTickets() {
@@ -2046,13 +2046,13 @@ function readTickets() {
 					"status": value.gsx$status.$t
 				};
 				returnArray.push(newEntry);
-			})
+			});
+			ticketList = returnArray;
 		},
 		error: function() {
 			returnArray = [];
 		}
 	});
-	return returnArray;
 }
 
 function onlyUnique(value, index, self) { 
@@ -2632,8 +2632,8 @@ window.countdowner = function(countdown, destination,index) {
 }
 
 window.loadInitializer = function() {
-	picklist = readSheet();
-	ticketList = readTickets();
+	readSheet();
+	readTickets();
 	readVideoList();
 	readVideoListBatch1();
 	readAchievement();
@@ -3376,7 +3376,7 @@ function bindEventHandler() {
 
 			$("#memberWrap").html(body);
 		}).on("hidden.bs.modal", function(event) {
-			picklist = readSheet();
+			readSheet();
 			$("#memberModal").remove();
 		}).insertAfter("#useroptions").modal();
 	});
