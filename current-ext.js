@@ -3401,7 +3401,7 @@ function bindEventHandler() {
 
 
 	$(bodyElem).on('click', '.qr-addqueue', function() {
-		let url = this.attr('data-url');
+		let url = $(this).attr('data-url');
 		chatCmdLookup["/addq"]([0, url]);
 	});
 
@@ -3418,7 +3418,7 @@ function bindEventHandler() {
 			body += "<table class='table table-bordered'>";
 			body += "<thead>";
 			body += "<tr>";
-			body += "<th>Name</th>";
+			body += "<th>Title</th>";
 			body += "<th></th>";
 			body += "</tr>";
 			body += "</thead>";

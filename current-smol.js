@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/672166899915816960/fde.png";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/677213021180788755/hyouka_bg_4.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
-	month: 1,
-	day: 23,
+	month: 2,
+	day: 20,
 	hour: 0,
 	minute: 0,
 	second: 0,
@@ -15,13 +15,13 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2020,
 	month2: 2,
-	day2: 2,
+	day2: 23,
 	hour2: 20,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/668627070275944448/school_rumble_bg_5.jpg";
-var background_img_auto2 = "http://cdn.discordapp.com/attachments/521413432294113303/647539892556922880/392325.png";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/677213021180788755/hyouka_bg_4.jpg";
+var background_img_auto2 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var chatMute = "false";
 var background_img_auto3 = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
 var noiseActive = 'true';
@@ -29,7 +29,7 @@ var background_img_auto4 = "http://i.imgur.com/pHCu1Rx.jpg";
 var countdown_utc3 = {
 	year3: 2020,
 	month3: 2,
-	day3: 1,
+	day3: 29,
 	hour3: 22,
 	minute3: 0,
 	second3: 0
@@ -39,8 +39,8 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/466386319766192138/672933665935982601/banner_test.jpg";
-var imgBubble2 = "//media.discordapp.net/attachments/466386319766192138/672933665935982601/banner_test.jpg";
+var imgBubble = "//media.discordapp.net/attachments/562795394157903885/676946539603820594/sherlock-hat.png";
+var imgBubble2 = "//media.discordapp.net/attachments/562795394157903885/676151801330008074/ezgif.com-gif-maker.gif";
 var chatImg = "false";
 var img1show = "true";
 var img1fixedshow = "false";
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
 	month4: 2,
-	day4: 1,
+	day4: 29,
 	hour4: 0,
 	minute4: 0,
 	second4: 0
@@ -64,24 +64,24 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = "";
+var bgm1url = "https://cdn.discordapp.com/attachments/466386319766192138/680386620280668162/03_MYTH__ROID_STYX_HELIX_Instrumental.flac";
 var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
 var background_img_auto6 = "http://cdn.discordapp.com/attachments/466386319766192138/672166899915816960/fde.png";
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/643613784812027906/KAIJI_OST_-_Wish.mp3";
+var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/677255350537289768/Hyouka_OST_Air_Suite_No._3.mp3";
 var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/655043719933853706/2.8Mix.mp3";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "1";
-var achievementList = "{\"Mayu_Loli\":[\"4\",\"56\"],\"HeartsTM\":[\"51\",\"53\",\"54\",\"56\",\"55\",\"59\",\"60\",\"61\",\"47\",\"62\"],\"gimmic\":[\"51\",\"53\",\"54\",\"50\",\"47\",\"56\",\"55\",\"59\",\"60\",\"61\",\"62\"],\"NinjaPoes\":[\"51\",\"52\",\"53\",\"54\",\"55\",\"47\",\"59\",\"61\",\"62\"],\"Zinzoo\":[\"51\",\"53\",\"52\",\"54\",\"4\",\"56\",\"55\",\"47\",\"59\",\"49\",\"60\",\"61\",\"48\",\"57\",\"58\",\"62\"],\"Darthturtle\":[\"51\",\"53\",\"59\",\"61\"],\"Fox_tart\":[\"51\",\"48\",\"53\",\"52\",\"54\",\"56\",\"55\",\"47\",\"60\",\"61\",\"62\"],\"Ivvl\":[\"51\",\"53\",\"60\",\"61\"],\"Madoq\":[\"51\",\"53\",\"54\"],\"mrmooshe\":[\"51\",\"Fateless\",\"53\",\"48\",\"54\",\"59\",\"61\"],\"MrRound\":[\"51\",\"52\",\"53\",\"54\",\"56\",\"55\",\"58\",\"59\",\"60\",\"61\",\"62\"],\"Psyrhos\":[\"51\",\"53\",\"59\"],\"raccomunk\":[\"51\",\"45\",\"53\",\"54\",\"55\",\"56\",\"61\",\"62\"],\"ScrewySqrl\":[\"51\",\"53\",\"54\",\"50\",\"4\",\"56\",\"55\",\"61\",\"62\"],\"Senia\":[\"51\",\"53\",\"54\",\"55\",\"61\"],\"T---\":[\"51\"],\"SomeBloke\":[\"48\"],\"science\":[\"47\",\"52\",\"56\",\"58\",\"48\",\"60\",\"62\"],\"Eli_HeavyWaterBoi\":[\"48\",\"50\"],\"xIquincyIx\":[\"52\",\"48\",\"50\",\"59\",\"49\",\"62\"],\"dreamy\":[\"52\",\"56\",\"49\",\"61\",\"62\"],\"Urizithar\":[\"52\",\"51\",\"45\",\"53\",\"54\",\"56\",\"47\",\"58\",\"57\",\"61\",\"49\",\"62\"],\"UserMagician\":[\"45\",\"55\",\"62\"],\"DatBisa\":[\"18\",\"6\",\"9\",\"53\"],\"Takeda\":[\"53\",\"54\",\"62\"],\"SkySKY\":[\"53\",\"48\"],\"LST\":[\"47\",\"52\",\"48\"],\"PhenomSage\":[\"54\",\"49\",\"47\",\"56\",\"57\",\"62\"],\"bLOOMGINTON33\":[\"54\",\"56\"],\"noreception\":[\"54\"],\"nullgat\":[\"54\",\"56\"],\"Sayokuro\":[\"54\"],\"erubas\":[\"47\",\"56\",\"55\",\"57\",\"60\",\"62\"],\"Ningen\":[\"49\",\"56\",\"47\",\"61\"],\"Ruvikko\":[\"52\",\"62\"],\"Demzou\":[\"56\",\"60\",\"4\"],\"JPGer\":[\"56\"],\"MisterLister\":[\"56\",\"55\"],\"MrNano\":[\"56\",\"60\"],\"Mareepy\":[\"52\",\"59\",\"62\"],\"CupoDylan\":[\"56\"],\"fiach\":[\"59\",\"61\",\"62\"],\"ClareClare\":[\"49\",\"48\"],\"AwesomeAxD\":[\"48\",\"62\"]}";
+var achievementList = "{\"Mayu_Loli\":[\"4\",\"56\"],\"HeartsTM\":[\"51\",\"53\",\"54\",\"56\",\"55\",\"59\",\"60\",\"61\",\"47\",\"62\",\"64\",\"65\",\"67\"],\"gimmic\":[\"51\",\"53\",\"54\",\"50\",\"47\",\"56\",\"55\",\"59\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\"],\"NinjaPoes\":[\"51\",\"52\",\"53\",\"54\",\"55\",\"47\",\"59\",\"61\",\"62\",\"64\",\"67\"],\"Zinzoo\":[\"51\",\"53\",\"52\",\"54\",\"4\",\"56\",\"55\",\"47\",\"59\",\"49\",\"60\",\"61\",\"48\",\"57\",\"58\",\"62\",\"64\",\"65\",\"66\",\"67\"],\"Darthturtle\":[\"51\",\"53\",\"59\",\"61\",\"64\",\"66\",\"67\"],\"Fox_tart\":[\"51\",\"48\",\"53\",\"52\",\"54\",\"56\",\"55\",\"47\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\"],\"Ivvl\":[\"51\",\"53\",\"60\",\"61\"],\"Madoq\":[\"51\",\"53\",\"54\"],\"mrmooshe\":[\"51\",\"Fateless\",\"53\",\"48\",\"54\",\"59\",\"61\",\"64\",\"65\"],\"MrRound\":[\"51\",\"52\",\"53\",\"54\",\"56\",\"55\",\"58\",\"59\",\"60\",\"61\",\"62\",\"64\",\"66\",\"67\"],\"Psyrhos\":[\"51\",\"53\",\"59\",\"67\"],\"raccomunk\":[\"51\",\"45\",\"53\",\"54\",\"55\",\"56\",\"61\",\"62\",\"64\",\"65\",\"67\"],\"ScrewySqrl\":[\"51\",\"53\",\"54\",\"50\",\"4\",\"56\",\"55\",\"61\",\"62\",\"64\",\"67\"],\"Senia\":[\"51\",\"53\",\"54\",\"55\",\"61\",\"67\"],\"T---\":[\"51\"],\"SomeBloke\":[\"48\"],\"science\":[\"47\",\"52\",\"56\",\"58\",\"48\",\"60\",\"62\",\"65\",\"66\"],\"Eli_HeavyWaterBoi\":[\"48\",\"50\"],\"xIquincyIx\":[\"52\",\"48\",\"50\",\"59\",\"49\",\"62\",\"65\"],\"dreamy\":[\"52\",\"56\",\"49\",\"61\",\"62\",\"64\",\"65\"],\"Urizithar\":[\"52\",\"51\",\"45\",\"53\",\"54\",\"56\",\"47\",\"58\",\"57\",\"61\",\"49\",\"62\",\"64\",\"66\",\"67\"],\"UserMagician\":[\"45\",\"55\",\"62\"],\"DatBisa\":[\"18\",\"6\",\"9\",\"53\",\"63\",\"67\"],\"Takeda\":[\"53\",\"54\",\"62\"],\"SkySKY\":[\"53\",\"48\",\"66\"],\"LST\":[\"47\",\"52\",\"48\"],\"PhenomSage\":[\"54\",\"49\",\"47\",\"56\",\"57\",\"62\",\"65\",\"66\"],\"bLOOMGINTON33\":[\"54\",\"56\",\"64\",\"67\"],\"noreception\":[\"54\"],\"nullgat\":[\"54\",\"56\",\"64\",\"67\"],\"Sayokuro\":[\"54\"],\"erubas\":[\"47\",\"56\",\"55\",\"57\",\"60\",\"62\",\"66\"],\"Ningen\":[\"49\",\"56\",\"47\",\"61\",\"65\"],\"Ruvikko\":[\"52\",\"62\",\"64\",\"65\"],\"Demzou\":[\"56\",\"60\",\"4\"],\"JPGer\":[\"56\"],\"MisterLister\":[\"56\",\"55\",\"19\"],\"MrNano\":[\"56\",\"60\",\"66\"],\"Mareepy\":[\"52\",\"59\",\"62\"],\"CupoDylan\":[\"56\"],\"fiach\":[\"59\",\"61\",\"62\",\"64\",\"67\"],\"ClareClare\":[\"49\",\"48\",\"63\",\"65\"],\"AwesomeAxD\":[\"48\",\"62\"],\"Torradinhas\":[\"64\"],\"dorjin\":[\"65\",\"66\"],\"Rento9\":[\"65\"],\"Triene-Greenfort\":[\"65\",\"63\"],\"EmeraldRebels\":[\"63\"],\"Reuben-Redcastle\":[\"67\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
 var countdownText3 = "Movie";
-var countdownText4 = "Zvezda";
+var countdownText4 = "Re:Zero Kara Hajimaru Isekai Seikatsu";
 var countdownText5 = "Tokyo Godfather";
-var nicoEffectOnControl = "false";
+var nicoEffectOnControl = "true";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
@@ -113,7 +113,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/248544f223e22b439c3734d5b425c63dc602172c/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1b44251136e3626b0664479616dfcea4c7d756d5/current-ext.js",
 		callback: true
 	},
 	'layout': {
