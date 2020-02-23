@@ -1384,6 +1384,24 @@ var chatCmdLookup = {
 			});
 		}
 	},
+	'/searchop': function(chatCmdText) {
+		if (chatCmdText.length >= 2) {
+			let foundList = {};
+			let text = chatCmdText.slice(1).join(" ").toLowerCase();
+
+			videoListMaster.each(function(value, index) {
+				if (value.title.toLowerCase().indexOf(text) >= 0) {
+					foundList[value.title].push(value);	
+				}
+			});
+
+			if (Object.keys(foundList).length == 0) {
+				alert("*" + text + "* was not found.");
+			}
+			//this should open a popup
+		}
+	},
+
 	'/search': function(chatCmdText) {
 		if (chatCmdText.length >= 2) {
 			let foundList = {};
@@ -3378,6 +3396,52 @@ function bindEventHandler() {
 		}).on("hidden.bs.modal", function(event) {
 			readSheet();
 			$("#memberModal").remove();
+		}).insertAfter("#useroptions").modal();
+	});
+
+
+	$(bodyElem).on('click', '.qr-addqueue', function() {
+		let url = this.attr('data-url');
+		chatCmdLookup["/addq"]([0, url]);
+	});
+
+	$(bodyElem).on('click', '#queue-video-list', function() {
+		//test
+		createModalExt({
+			title: "List of queue random video",
+			wrap_id: "QRandomModal",
+			body_id: "QRandomWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let body = '';
+			body += "<div>";
+			body += "<table class='table table-bordered'>";
+			body += "<thead>";
+			body += "<tr>";
+			body += "<th>Name</th>";
+			body += "<th></th>";
+			body += "</tr>";
+			body += "</thead>";
+			body += "<tbody>";
+			videoListMaster.forEach(function(item, index) {
+				if (item.user != '') {
+					let row = "<tr>";
+					row += "<td class='members'>"+item.title+"</td>";
+					row += "<td>";
+					row += "<button data-url='"+item.url+"' class='btn btn-sm btn-success qr-addqueue'>Add Queue</button>";
+					row += "</td>";
+					row += "</tr>";
+					body += row;
+				}
+			});
+			body += "</tbody>";
+			body += "</table>";
+			body += "</div>";
+
+			$("#QRandomWrap").html(body);
+		}).on("hidden.bs.modal", function(event) {
+			readVideoList();
+			$("#QRandomModal").remove();
 		}).insertAfter("#useroptions").modal();
 	});
 
