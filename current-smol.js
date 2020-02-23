@@ -110,16 +110,28 @@ window[CHANNEL.name].sequenceList = {
 		url: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js",
 		callback: true
 	},
+	'tablesorter': {
+		active: 1,
+		rank: -1,
+		url: "https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.min.js",
+		callback: true
+	},
+	'tablesorter-widget': {
+		active: 1,
+		rank: -1,
+		url: "https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.widgets.min.js",
+		callback: true
+	},
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1b44251136e3626b0664479616dfcea4c7d756d5/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9b8db21f7c770d1e0662169d3788c1fa57bbefe1/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/715d222bb94deb81762318424da31e37557af08e/module/channelbase-mod.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9b8db21f7c770d1e0662169d3788c1fa57bbefe1/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {

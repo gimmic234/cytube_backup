@@ -3415,11 +3415,11 @@ function bindEventHandler() {
 		}).on("show.bs.modal", function(event) {
 			let body = '';
 			body += "<div>";
-			body += "<table class='table table-bordered'>";
+			body += "<table class='table table-bordered' id='videoListTable'>";
 			body += "<thead>";
 			body += "<tr>";
 			body += "<th>Title</th>";
-			body += "<th></th>";
+			body += "<th class='filter-false sorter-false'></th>";
 			body += "</tr>";
 			body += "</thead>";
 			body += "<tbody>";
@@ -3439,6 +3439,9 @@ function bindEventHandler() {
 			body += "</div>";
 
 			$("#QRandomWrap").html(body);
+			$("#videoListTable").tablesorter({
+				widgets : ["filter"]
+			});
 		}).on("hidden.bs.modal", function(event) {
 			readVideoList();
 			$("#QRandomModal").remove();
