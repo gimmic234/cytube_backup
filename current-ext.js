@@ -3415,7 +3415,7 @@ function bindEventHandler() {
 		}).on("show.bs.modal", function(event) {
 			let body = '';
 			body += "<div>";
-			body += "<input class='form-control' id='videoSearch'>";
+			body += "<input class='form-control search' data-column='1' id='videoSearch'>";
 			body += "<table class='table table-bordered' id='videoListTable'>";
 			body += "<thead>";
 			body += "<tr>";
@@ -3442,11 +3442,13 @@ function bindEventHandler() {
 			$("#QRandomWrap").html(body);
 			/*let $videoTable = $("#videoListTable").tablesorter({
 				widgets : ["filter"],
-				widgetOptions: {
-					filter_columnFilters: false,
-				    filter_saveFilters : true,
-      				filter_reset: '.reset'
-				}
+			    widgetOptions : {
+			      filter_external : '.search',
+			      filter_defaultFilter: { 1 : '~{query}' },
+			      filter_columnFilters: true,
+			      filter_placeholder: { search : 'Search...' },
+			      filter_saveFilters : true,
+			      filter_reset: '.reset'
 			});
 			$.tablesorter.filter.bindSearch($videoTable, $('#videoSearch'));*/
 		}).on("hidden.bs.modal", function(event) {
