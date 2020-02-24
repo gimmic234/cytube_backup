@@ -3415,9 +3415,9 @@ function bindEventHandler() {
 		}).on("show.bs.modal", function(event) {
 			let body = '';
 			body += "<div>";
-			body += "<div class='row'>";
+			body += "<div class='row bottom-margin'>";
 			body += "<div class='col-sm-4'>";
-			body += "<input class='form-control search' data-column='0' id='videoSearch'>";
+			body += "<input class='form-control search input-sm' data-column='0' id='videoSearch'>";
 			body += "</div>";
 			body += "<div class='col-sm-4'>";
 			body += "<button class='btn btn-default reset'>Reset</button>";
@@ -3451,10 +3451,10 @@ function bindEventHandler() {
 				widgets : ["filter"],
 			    widgetOptions : {
 			      filter_external : '.search',
-			      filter_defaultFilter: { 0 : '~{query}' },
+			      //filter_defaultFilter: { 0 : '~{query}' },
 			      filter_columnFilters: false,
 			      filter_placeholder: { search : 'Search...' },
-			      filter_saveFilters : true,
+			      filter_saveFilters : false,
 			      filter_reset: '.reset'
 		      	}
 			});
