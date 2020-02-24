@@ -87,6 +87,17 @@ var chatCmdLookup = {
 			})
 		}
 	},
+	'/addqtitle': function(chatCmdText) {
+		if (chatCmdText.length < 1) {
+			return;
+		}
+		let title = chatCmdText[1];
+		let url = chatCmdText[2];
+		$(document.getElementById('mediaurl')).val(title);
+		$(document.getElementById('mediaurl')).keyup();
+		$(document.getElementById('addfromurl-title-val')).val(url);
+		$(document.getElementById('queue_end')).click();
+	},
 	'/chatimg': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
@@ -3367,7 +3378,7 @@ function bindEventHandler() {
 		}).on("show.bs.modal", function(event) {
 			let body = '';
 			body += "<div>";
-			body += "<table class='table table-bordered'>";
+			body += "<table class='table table-bordered' id='memberTable'>";
 			body += "<thead>";
 			body += "<tr>";
 			body += "<th>Name</th>";
@@ -3393,6 +3404,15 @@ function bindEventHandler() {
 			body += "</div>";
 
 			$("#memberWrap").html(body);
+
+			$("#memberTable").tablesorter({
+				theme: 'bootstrap',
+				widgets : ["filter"],
+			    widgetOptions : {
+			      filter_columnFilters: true,
+			      filter_saveFilters : false
+		      	}
+			});
 		}).on("hidden.bs.modal", function(event) {
 			readSheet();
 			$("#memberModal").remove();
@@ -3402,7 +3422,8 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '.qr-addqueue', function() {
 		let url = $(this).attr('data-url');
-		chatCmdLookup["/addq"]([0, url]);
+		let title = $(this).attr('data-title');
+		chatCmdLookup["/addqtitle"]([0, JSON.parse(title), url]);
 	});
 
 	$(bodyElem).on('click', '#queue-video-list', function() {
@@ -3436,7 +3457,7 @@ function bindEventHandler() {
 					let row = "<tr>";
 					row += "<td class='members'>"+item.title+"</td>";
 					row += "<td>";
-					row += "<button data-url='"+item.url+"' class='btn btn-sm btn-success qr-addqueue'>Add Queue</button>";
+					row += "<button data-url='"+item.url+"' data-title='"+JSON.stringify(item.title)+"' class='btn btn-sm btn-success qr-addqueue'>Add Queue</button>";
 					row += "</td>";
 					row += "</tr>";
 					body += row;
