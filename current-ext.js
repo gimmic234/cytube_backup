@@ -3440,7 +3440,7 @@ function bindEventHandler() {
 			body += "</div>";
 
 			$("#QRandomWrap").html(body);
-			let $videoTable = $("#videoListTable").tablesorter({
+			/*let $videoTable = $("#videoListTable").tablesorter({
 				widgets : ["filter"],
 				widgetOptions: {
 					filter_columnFilters: false,
@@ -3448,7 +3448,7 @@ function bindEventHandler() {
       				filter_reset: '.reset'
 				}
 			});
-			$.tablesorter.filter.bindSearch($videoTable, $('#videoSearch'));
+			$.tablesorter.filter.bindSearch($videoTable, $('#videoSearch'));*/
 		}).on("hidden.bs.modal", function(event) {
 			readVideoList();
 			$("#QRandomModal").remove();
