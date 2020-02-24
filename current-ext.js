@@ -1400,16 +1400,62 @@ var chatCmdLookup = {
 			let foundList = {};
 			let text = chatCmdText.slice(1).join(" ").toLowerCase();
 
-			videoListMaster.each(function(value, index) {
-				if (value.title.toLowerCase().indexOf(text) >= 0) {
-					foundList[value.title].push(value);	
-				}
-			});
+			createModalExt({
+				title: "List of queue random video",
+				wrap_id: "QRandomModal",
+				body_id: "QRandomWrap",
+				footer: true
+			}).on("show.bs.modal", function(event) {
+				let body = '';
+				body += "<div>";
+				body += "<div class='row bottom-margin-big'>";
+				body += "<div class='col-sm-4'>";
+				body += "<input value='"+text+"' class='form-control search cs-textbox' type='text' data-column='0' id='videoSearch'>";
+				body += "</div>";
+				body += "<div class='col-sm-4'>";
+				body += "<button class='btn btn-default reset'>Reset</button>";
+				body += "</div>";
+				body += "</div>";
+				body += "<table class='table top-margin' id='videoListTable'>";
+				body += "<thead>";
+				body += "<tr>";
+				body += "<th data-value='"+text+"'>Title</th>";
+				body += "<th class='filter-false sorter-false'></th>";
+				body += "</tr>";
+				body += "</thead>";
+				body += "<tbody>";
+				videoListMaster.forEach(function(item, index) {
+					if (item.user != '') {
+						let row = "<tr>";
+						row += "<td class='members'>"+item.title+"</td>";
+						row += "<td>";
+						row += "<button data-url='"+item.url+"' data-title='"+JSON.stringify(item.title)+"' class='btn btn-sm btn-success qr-addqueue'>Add Queue</button>";
+						row += "</td>";
+						row += "</tr>";
+						body += row;
+					}
+				});
+				body += "</tbody>";
+				body += "</table>";
+				body += "</div>";
 
-			if (Object.keys(foundList).length == 0) {
-				alert("*" + text + "* was not found.");
-			}
-			//this should open a popup
+				$("#QRandomWrap").html(body);
+				let $videoTable = $("#videoListTable").tablesorter({
+					widgets : ["filter"],
+				    widgetOptions : {
+				      filter_external : '.search',
+				      //filter_defaultFilter: { 0 : '~{query}' },
+				      filter_columnFilters: false,
+				      filter_placeholder: { search : 'Search...' },
+				      filter_saveFilters : false,
+				      filter_reset: '.reset'
+			      	}
+				});
+			}).on("hidden.bs.modal", function(event) {
+				readVideoList();
+				$("#QRandomModal").remove();
+			}).insertAfter("#useroptions").modal();
+			
 		}
 	},
 
@@ -3425,6 +3471,7 @@ function bindEventHandler() {
 		let title = $(this).attr('data-title');
 		chatCmdLookup["/addqtitle"]([0, JSON.parse(title), url]);
 	});
+
 
 	$(bodyElem).on('click', '#queue-video-list', function() {
 		//test
