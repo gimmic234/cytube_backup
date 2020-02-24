@@ -3415,9 +3415,9 @@ function bindEventHandler() {
 		}).on("show.bs.modal", function(event) {
 			let body = '';
 			body += "<div>";
-			body += "<div class='row bottom-margin'>";
+			body += "<div class='row bottom-margin-big'>";
 			body += "<div class='col-sm-4'>";
-			body += "<input class='form-control search input-sm' data-column='0' id='videoSearch'>";
+			body += "<input class='form-control search cs-textbox' type='text' data-column='0' id='videoSearch'>";
 			body += "</div>";
 			body += "<div class='col-sm-4'>";
 			body += "<button class='btn btn-default reset'>Reset</button>";

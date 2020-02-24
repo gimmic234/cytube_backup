@@ -595,3 +595,7 @@ filter: brightness(70%);
     cursor: pointer;
     background-color: #e6bf99;
 }
+
+.bottom-margin-big {
+    margin-bottom: 50px !important;
+}
