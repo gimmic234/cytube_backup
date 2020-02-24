@@ -93,9 +93,9 @@ var chatCmdLookup = {
 		}
 		let title = chatCmdText[1];
 		let url = chatCmdText[2];
-		$(document.getElementById('mediaurl')).val(title);
+		$(document.getElementById('mediaurl')).val(url);
 		$(document.getElementById('mediaurl')).keyup();
-		$(document.getElementById('addfromurl-title-val')).val(url);
+		$(document.getElementById('addfromurl-title-val')).val(title);
 		$(document.getElementById('queue_end')).click();
 	},
 	'/chatimg': function(chatCmdText) {
@@ -3382,9 +3382,9 @@ function bindEventHandler() {
 			body += "<thead>";
 			body += "<tr>";
 			body += "<th>Name</th>";
-			body += "<th>Pick1</th>";
-			body += "<th>Pick2</th>";
-			body += "<th>Pick3</th>";
+			body += "<th class='filter-false'>Pick1</th>";
+			body += "<th class='filter-false'>Pick2</th>";
+			body += "<th class='filter-false'>Pick3</th>";
 			body += "</tr>";
 			body += "</thead>";
 			body += "<tbody>";
