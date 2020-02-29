@@ -2182,7 +2182,7 @@ function populateSoundEmote(command) {
 					urlString = urlString[1];
 				}
 				urlString = urlString.split('?');
-				urlString = urlString[0];
+				urlString = urlString[0] ? urlString[0] : "imagenone";
 
 				temp3[urlString] = value.gsx$command.$t;
 			})
@@ -2813,7 +2813,6 @@ window.loadInitializer = function() {
 		rankAdmin = (window.CLIENT.rank >= 3);
 		$(document.getElementById('voteskipwrap')).hide();
 		populateImgEmote('');
-		soundLookup = {};
 		populateSoundEmote('');
 		readMsgCmd('');
 		var buff = $('#messagebuffer');
