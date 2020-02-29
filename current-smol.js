@@ -2,25 +2,25 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/677213021180788755/hyouka_bg_4.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
 	month: 2,
-	day: 20,
+	day: 27,
 	hour: 0,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2020,
-	month2: 2,
-	day2: 23,
+	month2: 3,
+	day2: 1,
 	hour2: 20,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/677213021180788755/hyouka_bg_4.jpg";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/681375925891235914/tsuritama_bg_4.jpg";
 var background_img_auto2 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var chatMute = "false";
 var background_img_auto3 = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
@@ -39,7 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/562795394157903885/676946539603820594/sherlock-hat.png";
+var imgBubble = "//media.discordapp.net/attachments/562795394157903885/681329068402016256/Tsuritama_achievement-removebg-preview.png";
 var imgBubble2 = "//media.discordapp.net/attachments/562795394157903885/676151801330008074/ezgif.com-gif-maker.gif";
 var chatImg = "false";
 var img1show = "true";
@@ -50,8 +50,8 @@ var chatImgOp = "0";
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
-	month4: 2,
-	day4: 29,
+	month4: 3,
+	day4: 7,
 	hour4: 0,
 	minute4: 0,
 	second4: 0
@@ -81,7 +81,7 @@ var countdownText2 = "Club";
 var countdownText3 = "Movie";
 var countdownText4 = "Re:Zero Kara Hajimaru Isekai Seikatsu";
 var countdownText5 = "Tokyo Godfather";
-var nicoEffectOnControl = "true";
+var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
@@ -125,7 +125,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ae5903ea18f5a0d9a16a324715e0d7df047dfaaf/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/786eea1f50d385bf47ddeb4d5e16ec83c52b1fdd/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -205,5 +205,4 @@ window[CHANNEL.name].sequencerLoader();
 if (updateCmd == "true") {
 	$.getScript(window[CHANNEL.name].sequenceList['event-ext'].url);
 }
-
 $(".navbar-brand").text("Anime Club");
