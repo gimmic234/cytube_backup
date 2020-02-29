@@ -2377,9 +2377,6 @@ function imgEmote(imageUrl, text = '') {
 		url = url.substr(0, url.lastIndexOf('?'));
 	}
 
-	if (trim(url) == '') {
-		return;
-	}
 	window.socket.emit("chatMsg", {
 		msg: "@" + url + "@" + text
 	});
