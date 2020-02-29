@@ -2168,9 +2168,6 @@ function populateSoundEmote(command) {
 				}
 				temp[value.gsx$command.$t].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
-					if (!(value.gsx$image.$t)) {
-						return;
-					}
 					imgEmote(value.gsx$image.$t, text);
 					window.socket.emit("chatMsg", {
 						msg: "soundemoteaudio" + value.gsx$command.$t + "soundemoteaudio"
