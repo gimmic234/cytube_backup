@@ -2168,7 +2168,7 @@ function populateSoundEmote(command) {
 				}
 				temp[value.gsx$command.$t].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
-					if (trim(value.gsx$image.$t) == "") {
+					if (!(value.gsx$image.$t)) {
 						return;
 					}
 					imgEmote(value.gsx$image.$t, text);
@@ -2180,6 +2180,8 @@ function populateSoundEmote(command) {
 				let urlString = value.gsx$image.$t.split('//');
 				if (urlString.length == 2) {
 					urlString = urlString[1];
+				} else {
+					urlString = urlString[0];
 				}
 				urlString = urlString.split('?');
 				urlString = urlString[0] ? urlString[0] : "imagenone";
