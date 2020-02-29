@@ -2813,6 +2813,7 @@ window.loadInitializer = function() {
 		rankAdmin = (window.CLIENT.rank >= 3);
 		$(document.getElementById('voteskipwrap')).hide();
 		populateImgEmote('');
+		soundLookup = {};
 		populateSoundEmote('');
 		readMsgCmd('');
 		var buff = $('#messagebuffer');
