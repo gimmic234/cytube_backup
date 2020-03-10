@@ -2655,6 +2655,22 @@ function createModalExt(data) {
 	return wrap
 }
 
+function alphabetFilter(letter){
+    $('.alphabetFilterBtn').removeClass('yellow');
+    $(this).addClass('.yellow');
+    $('#videoListTable>tbody>tr:hidden').show();
+    if (letter == "") {
+    	return;
+    }
+
+    $('#videoListTable>tbody>tr').each(function() {
+    	if ($(this).find('td:first-child').text().substr(0,1).toUpperCase() != letter) {
+			$(this).hide();
+    	}
+    });
+}
+
+
 function componentToHex(c) {
     var hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
@@ -2765,7 +2781,7 @@ window.loadInitializer = function() {
 
 	waitForEl("#mediarefresh", function() {
 		if (!$('#queue-video-list-overlay').length) {
-			$('#mediarefresh').append("<button id='queue-video-list-overlay' title='video list popup' class='btn btn-sm btn-default OLB'>Video List</button>");
+			$('#mediarefresh').after("<button id='queue-video-list-overlay' title='video list popup' class='btn btn-sm btn-default OLB'>Video List</button>");
 		}
 	});
 
@@ -3483,7 +3499,7 @@ function bindEventHandler() {
 	});
 
 
-	$(bodyElem).on('click', '#queue-video-list', function() {
+	$(bodyElem).on('click', '#queue-video-list, #queue-video-list-overlay', function() {
 		//test
 		createModalExt({
 			title: "List of queue random video",
@@ -3501,6 +3517,17 @@ function bindEventHandler() {
 			body += "<button class='btn btn-default reset'>Reset</button>";
 			body += "</div>";
 			body += "</div>";
+
+			body += "<div class='row'>";
+			body += "<button class='btn btn-primary alphabetFilterBtn' value='' onclick='alphabetFilter(\'\')'>All</button>";
+
+			var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+		    $.each(alphabet, function(letter) {
+		    	body += "<button class='btn btn-primary alphabetFilterBtn' value='"+alphabet[letter]+"' onclick='alphabetFilter(\'"+alphabet[letter]+"\')'>"+alphabet[letter]+"</button>";
+		    });
+
+			body += "</div>";
+
 			body += "<table class='table top-margin' id='videoListTable'>";
 			body += "<thead>";
 			body += "<tr>";
