@@ -2655,7 +2655,8 @@ function createModalExt(data) {
 	return wrap
 }
 
-function alphabetFilter(letter){
+function alphabetFilter(){
+	let letter = $(this).val();
     $('.alphabetFilterBtn').removeClass('yellow');
     $(this).addClass('.yellow');
     $('#videoListTable>tbody>tr:hidden').show();
@@ -3518,12 +3519,12 @@ function bindEventHandler() {
 			body += "</div>";
 			body += "</div>";
 
-			body += "<div class='row'>";
-			body += "<button class='btn btn-primary alphabetFilterBtn' value='' onclick='alphabetFilter(\'\')'>All</button>";
+			body += "<div class='row alphabet-filter'>";
+			body += "<button class='btn btn-default alphabetFilterBtn' value='' onclick='alphabetFilter()'>All</button>";
 
 			var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 		    $.each(alphabet, function(letter) {
-		    	body += "<button class='btn btn-primary alphabetFilterBtn' value='"+alphabet[letter]+"' onclick='alphabetFilter(\'"+alphabet[letter]+"\')'>"+alphabet[letter]+"</button>";
+		    	body += "<button class='btn btn-default alphabetFilterBtn' value='"+alphabet[letter]+"' onclick='alphabetFilter()'>"+alphabet[letter]+"</button>";
 		    });
 
 			body += "</div>";
