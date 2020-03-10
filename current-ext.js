@@ -2655,10 +2655,10 @@ function createModalExt(data) {
 	return wrap
 }
 
-function alphabetFilter(){
-	let letter = $(this).val();
+function alphabetFilter(elem){
+	let letter = $(elem).val();
     $('.alphabetFilterBtn').removeClass('yellow');
-    $(this).addClass('.yellow');
+    $(elem).addClass('.yellow');
     $('#videoListTable>tbody>tr:hidden').show();
     if (letter == "") {
     	return;
@@ -3520,11 +3520,11 @@ function bindEventHandler() {
 			body += "</div>";
 
 			body += "<div class='row alphabet-filter'>";
-			body += "<button class='btn btn-default alphabetFilterBtn' value='' onclick='alphabetFilter()'>All</button>";
+			body += "<button class='btn btn-default alphabetFilterBtn' value='' onclick='alphabetFilter(self)'>All</button>";
 
 			var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 		    $.each(alphabet, function(letter) {
-		    	body += "<button class='btn btn-default alphabetFilterBtn' value='"+alphabet[letter]+"' onclick='alphabetFilter()'>"+alphabet[letter]+"</button>";
+		    	body += "<button class='btn btn-default alphabetFilterBtn' value='"+alphabet[letter]+"' onclick='alphabetFilter(self)'>"+alphabet[letter]+"</button>";
 		    });
 
 			body += "</div>";
