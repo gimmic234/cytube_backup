@@ -86,7 +86,12 @@ var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
-
+var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/e556c465cec96c283c175dedc7f314110a4d3e7b/config.js";
+var sendMsgUrl = "https://discordapp.com/api/webhooks/622923586197258271/O3XacLkp28qRBQ1JwvUgyxIGuY3rvbX7m0dPmU5tyeykGRR6Hyv0aRk6VDwVdN7Lir7y";
+var achievementUrl = "https://hooks.zapier.com/hooks/catch/4506865/o3cn6r7/";
+var imageAddUrl = "https://hooks.zapier.com/hooks/catch/4506865/o3cn6se/";
+var soundAddUrl = "https://hooks.zapier.com/hooks/catch/4506865/obo3n5y/";
+var statList = ['47', '48', '49', '50', '52', '58', '57'];
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -124,7 +129,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1c94a3207a3db4527fc2049bc72757b72e996660/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/04ecc0c043b60b1886c970f9b161abafd8d8d4de/current-ext.js",
 		callback: true
 	},
 	'layout': {
