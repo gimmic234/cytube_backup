@@ -2763,6 +2763,12 @@ window.loadInitializer = function() {
 		});
 	}
 
+	waitForEl("#mediarefresh", function() {
+		if (!$('#queue-video-list-overlay').length) {
+			$('#mediarefresh').append("<button id='queue-video-list-overlay' title='video list popup' class='btn btn-sm btn-default OLB'>Video List</button>");
+		}
+	});
+
 	waitForEl('#messagebuffer', function() {
 		let amq = $("a[href='https://animemusicquiz.com/'");
 		if (amq.length > 0) {
