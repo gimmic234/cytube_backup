@@ -26,7 +26,7 @@ var chatCmdLookup = {
 		$('#cs-chatfilters-newsubmit').click();
 
 		$('#cs-chatfilters-newname').val(chatCmdText[1] + 4);
-		$('#cs-chatfilters-newregex').val("(^)" + chatCmdText[1] + "([.:;,*+\s\-?^${}()|[\]\\])");
+		$('#cs-chatfilters-newregex').val("(^)" + chatCmdText[1] + "([.:;,*+\\s\\-?^${}()|[\\]\\\\])");
 		$('#cs-chatfilters-newflags').val("gi");
 		$('#cs-chatfilters-newreplace').val(text + "\\2");
 		$('#cs-chatfilters-newsubmit').click();
