@@ -6,6 +6,10 @@ var chatCmdLookup = {
 			return;
 		}
 
+		if (!rankAdmin) {
+			return;
+		}
+
 		let text = chatCmdText.slice(2).join(" ");
 		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
 		$('#cs-chatfilters-newregex').val(chatCmdText[1] + "($)");
