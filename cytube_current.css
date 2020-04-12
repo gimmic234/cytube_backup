@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: 1px;
-    left: 1px;
+    top: 0px;
+    left: -2px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -26,8 +26,8 @@
 }
 
 #imgBubble {
-    height: 43px;
-    width: 44px;
+    height: 51px;
+    width: 54px;
 }
 
 #discoimg {
@@ -36,8 +36,8 @@
 }
 
 #imgWrapFixed1 {
-    top: 476px;
-    left: 1101px;
+    top: 108px;
+    left: 401px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -49,8 +49,8 @@
 }
 
 #imgBubble2 {
-    height: 187px;
-    width: 201px;
+    height: 416px;
+    width: 688px;
 }
 
 /**/
@@ -598,4 +598,18 @@ filter: brightness(70%);
 
 .bottom-margin-big {
     margin-bottom: 50px !important;
+}
+
+#queue-video-list-overlay {
+    float: right;
+    right: 40px;
+}
+
+.alphabet-filter {
+    margin-left: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.alphabetFilterBtn {
+    margin-right: 5px !important;
 }

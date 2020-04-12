@@ -1,4 +1,37 @@
 var chatCmdLookup = {
+	'/addfilter': function(chatCmdText) {
+
+		if (chatCmdText.length <= 1) {
+			alert("the command format is incorrect.");
+			return;
+		}
+
+		let text = chatCmdText.slice(2).join(" ");
+		imgEmote(chatCmdText[1], text);
+		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
+		$('#cs-chatfilters-newregex').val(chatCmdText[1] + "($)");
+		$('#cs-chatfilters-newflags').val("g");
+		$('#cs-chatfilters-newreplace').val(text);
+		$('#cs-chatfilters-newsubmit').click();
+
+		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
+		$('#cs-chatfilters-newregex').val("(^)" + chatCmdText[1] + "($)");
+		$('#cs-chatfilters-newflags').val("gi");
+		$('#cs-chatfilters-newreplace').val(text);
+		$('#cs-chatfilters-newsubmit').click();
+
+		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
+		$('#cs-chatfilters-newregex').val(chatCmdText[1] + "($)");
+		$('#cs-chatfilters-newflags').val("gi");
+		$('#cs-chatfilters-newreplace').val(text);
+		$('#cs-chatfilters-newsubmit').click();
+
+		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
+		$('#cs-chatfilters-newregex').val("(^)" + chatCmdText[1] + "([.:;,*+\s\-?^${}()|[\]\\])");
+		$('#cs-chatfilters-newflags').val("gi");
+		$('#cs-chatfilters-newreplace').val(text + "\\2");
+		$('#cs-chatfilters-newsubmit').click();
+	},
 	'/stat': function(chatCmdText) {
 		if (chatCmdText.length <= 1) {
 			return;

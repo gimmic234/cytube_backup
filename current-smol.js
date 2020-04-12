@@ -2,34 +2,34 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/684912124073738252/one_outs_background_2.jpg";
+var background_img = "http://vistapointe.net/images/theatre-1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
-	month: 3,
-	day: 11,
+	month: 4,
+	day: 8,
 	hour: 23,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2020,
-	month2: 3,
-	day2: 1,
-	hour2: 20,
+	month2: 4,
+	day2: 12,
+	hour2: 19,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/684912124073738252/one_outs_background_2.jpg";
-var background_img_auto2 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/694893947822145586/T2IUzSO.jpg";
+var background_img_auto2 = "http://cdn.discordapp.com/attachments/466386319766192138/695945524930543636/1585989613140.png";
 var chatMute = "false";
-var background_img_auto3 = "http://media.discordapp.net/attachments/528150212875649065/597142637828636693/thumb-1920-1000727.jpg?width=1248&height=702";
+var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var noiseActive = 'true';
 var background_img_auto4 = "http://i.imgur.com/pHCu1Rx.jpg";
 var countdown_utc3 = {
 	year3: 2020,
-	month3: 3,
-	day3: 14,
+	month3: 4,
+	day3: 18,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -39,7 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//discordapp.com/assets/53d958a3faa6250deaadde739100ab66.svg";
+var imgBubble = "//media.discordapp.net/attachments/562795394157903885/694901600140918844/Azumanga_Daioh_Osaka_Neko_Koneko-removebg-preview2.png";
 var imgBubble2 = "//media.discordapp.net/attachments/626947598661713930/685656007648477184/20200307_090815-removebg-preview.png";
 var chatImg = "false";
 var img1show = "true";
@@ -50,8 +50,8 @@ var chatImgOp = "0";
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
-	month4: 3,
-	day4: 13,
+	month4: 4,
+	day4: 17,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -70,28 +70,23 @@ var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
 var background_img_auto6 = "http://cdn.discordapp.com/attachments/466386319766192138/672166899915816960/fde.png";
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/677255350537289768/Hyouka_OST_Air_Suite_No._3.mp3";
-var bgm3url = "https://cdn.discordapp.com/attachments/528005830419677185/655043719933853706/2.8Mix.mp3";
+var bgm2url = "https://cdn.discordapp.com/attachments/466386319766192138/694770798816133150/13._Shingakki_2.mp3";
+var bgm3url = "https://cdn.discordapp.com/attachments/466386319766192138/695952728588812418/16_Mizu_No_Kagami.mp3";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
-var bgmSelect = "1";
-var achievementList = "{\"Mayu_Loli\":[\"4\",\"56\"],\"HeartsTM\":[\"51\",\"53\",\"54\",\"56\",\"55\",\"59\",\"60\",\"61\",\"47\",\"62\",\"64\",\"65\",\"67\",\"70\",\"71\"],\"gimmic\":[\"51\",\"53\",\"54\",\"50\",\"47\",\"56\",\"55\",\"59\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\"],\"NinjaPoes\":[\"51\",\"52\",\"53\",\"54\",\"55\",\"47\",\"59\",\"61\",\"62\",\"64\",\"67\",\"70\",\"71\"],\"Zinzoo\":[\"51\",\"53\",\"52\",\"54\",\"4\",\"56\",\"55\",\"47\",\"59\",\"49\",\"60\",\"61\",\"48\",\"57\",\"58\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\"],\"Darthturtle\":[\"51\",\"53\",\"59\",\"61\",\"64\",\"66\",\"67\",\"71\"],\"Fox_tart\":[\"51\",\"48\",\"53\",\"52\",\"54\",\"56\",\"55\",\"47\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\"],\"Ivvl\":[\"51\",\"53\",\"60\",\"61\",\"71\"],\"Madoq\":[\"51\",\"53\",\"54\",\"71\"],\"mrmooshe\":[\"51\",\"Fateless\",\"53\",\"48\",\"54\",\"59\",\"61\",\"64\",\"65\",\"70\"],\"MrRound\":[\"51\",\"52\",\"53\",\"54\",\"56\",\"55\",\"58\",\"59\",\"60\",\"61\",\"62\",\"64\",\"66\",\"67\",\"71\"],\"Psyrhos\":[\"51\",\"53\",\"59\",\"67\",\"70\"],\"raccomunk\":[\"51\",\"45\",\"53\",\"54\",\"55\",\"56\",\"61\",\"62\",\"64\",\"65\",\"67\",\"70\",\"4\",\"71\"],\"ScrewySqrl\":[\"51\",\"53\",\"54\",\"50\",\"4\",\"56\",\"55\",\"61\",\"62\",\"64\",\"67\"],\"Senia\":[\"51\",\"53\",\"54\",\"55\",\"61\",\"67\",\"70\",\"71\"],\"T---\":[\"51\"],\"SomeBloke\":[\"48\"],\"science\":[\"47\",\"52\",\"56\",\"58\",\"48\",\"60\",\"62\",\"65\",\"66\",\"71\"],\"Eli_HeavyWaterBoi\":[\"48\",\"50\"],\"xIquincyIx\":[\"52\",\"48\",\"50\",\"59\",\"49\",\"62\",\"65\"],\"dreamy\":[\"52\",\"56\",\"49\",\"61\",\"62\",\"64\",\"65\"],\"Urizithar\":[\"52\",\"51\",\"45\",\"53\",\"54\",\"56\",\"47\",\"58\",\"57\",\"61\",\"49\",\"62\",\"64\",\"66\",\"67\",\"71\"],\"UserMagician\":[\"45\",\"55\",\"62\"],\"DatBisa\":[\"18\",\"6\",\"9\",\"53\",\"63\",\"67\"],\"Takeda\":[\"53\",\"54\",\"62\"],\"SkySKY\":[\"53\",\"48\",\"66\",\"71\"],\"LST\":[\"47\",\"52\",\"48\"],\"PhenomSage\":[\"54\",\"49\",\"47\",\"56\",\"57\",\"62\",\"65\",\"66\",\"71\"],\"bLOOMGINTON33\":[\"54\",\"56\",\"64\",\"67\",\"71\"],\"noreception\":[\"54\"],\"nullgat\":[\"54\",\"56\",\"64\",\"67\",\"70\",\"71\"],\"Sayokuro\":[\"54\"],\"erubas\":[\"47\",\"56\",\"55\",\"57\",\"60\",\"62\",\"66\"],\"Ningen\":[\"49\",\"56\",\"47\",\"61\",\"65\"],\"Ruvikko\":[\"52\",\"62\",\"64\",\"65\"],\"Demzou\":[\"56\",\"60\",\"4\"],\"JPGer\":[\"56\",\"71\"],\"MisterLister\":[\"56\",\"55\",\"19\",\"71\"],\"MrNano\":[\"56\",\"60\",\"66\"],\"Mareepy\":[\"52\",\"59\",\"62\"],\"CupoDylan\":[\"56\"],\"fiach\":[\"59\",\"61\",\"62\",\"64\",\"67\",\"71\"],\"ClareClare\":[\"49\",\"48\",\"63\",\"65\",\"71\"],\"AwesomeAxD\":[\"48\",\"62\",\"71\"],\"Torradinhas\":[\"64\"],\"dorjin\":[\"65\",\"66\",\"71\"],\"Rento9\":[\"65\",\"71\"],\"Triene-Greenfort\":[\"65\",\"63\"],\"EmeraldRebels\":[\"63\",\"70\"],\"Reuben-Redcastle\":[\"67\"],\"Eldoprano\":[\"71\"],\"OmuNakii\":[\"71\"]}";
+var bgmSelect = "2";
+var achievementList = "{\"Mayu_Loli\":[\"4\",\"56\"],\"HeartsTM\":[\"51\",\"53\",\"54\",\"56\",\"55\",\"59\",\"60\",\"61\",\"47\",\"62\",\"64\",\"65\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\"],\"gimmic\":[\"51\",\"53\",\"54\",\"50\",\"47\",\"56\",\"55\",\"59\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\"],\"NinjaPoes\":[\"51\",\"52\",\"53\",\"54\",\"55\",\"47\",\"59\",\"61\",\"62\",\"64\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\"],\"Zinzoo\":[\"51\",\"53\",\"52\",\"54\",\"4\",\"56\",\"55\",\"47\",\"59\",\"49\",\"60\",\"61\",\"48\",\"57\",\"58\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"73\",\"68\",\"69\",\"23\",\"38\",\"74\",\"76\"],\"Darthturtle\":[\"51\",\"53\",\"59\",\"61\",\"64\",\"66\",\"67\",\"71\",\"4\",\"73\",\"72\",\"74\",\"63\"],\"Fox_tart\":[\"51\",\"48\",\"53\",\"52\",\"54\",\"56\",\"55\",\"47\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"69\",\"68\",\"76\"],\"Ivvl\":[\"51\",\"53\",\"60\",\"61\",\"71\"],\"Madoq\":[\"51\",\"53\",\"54\",\"71\"],\"mrmooshe\":[\"51\",\"Fateless\",\"53\",\"48\",\"54\",\"59\",\"61\",\"64\",\"65\",\"70\",\"73\",\"74\",\"76\"],\"MrRound\":[\"51\",\"52\",\"53\",\"54\",\"56\",\"55\",\"58\",\"59\",\"60\",\"61\",\"62\",\"64\",\"66\",\"67\",\"71\",\"70\",\"72\",\"73\",\"69\",\"74\",\"76\"],\"Psyrhos\":[\"51\",\"53\",\"59\",\"67\",\"70\",\"63\",\"74\"],\"raccomunk\":[\"51\",\"45\",\"53\",\"54\",\"55\",\"56\",\"61\",\"62\",\"64\",\"65\",\"67\",\"70\",\"4\",\"71\",\"73\",\"72\",\"69\",\"68\",\"74\",\"76\"],\"ScrewySqrl\":[\"51\",\"53\",\"54\",\"50\",\"4\",\"56\",\"55\",\"61\",\"62\",\"64\",\"67\",\"72\",\"74\"],\"Senia\":[\"51\",\"53\",\"54\",\"55\",\"61\",\"67\",\"70\",\"71\",\"72\",\"73\"],\"T---\":[\"51\"],\"SomeBloke\":[\"48\"],\"science\":[\"47\",\"52\",\"56\",\"58\",\"48\",\"60\",\"62\",\"65\",\"66\",\"71\",\"76\"],\"Eli_HeavyWaterBoi\":[\"48\",\"50\"],\"xIquincyIx\":[\"52\",\"48\",\"50\",\"59\",\"49\",\"62\",\"65\"],\"dreamy\":[\"52\",\"56\",\"49\",\"61\",\"62\",\"64\",\"65\"],\"Urizithar\":[\"52\",\"51\",\"45\",\"53\",\"54\",\"56\",\"47\",\"58\",\"57\",\"61\",\"49\",\"62\",\"64\",\"66\",\"67\",\"71\",\"72\",\"68\",\"69\",\"23\",\"76\"],\"UserMagician\":[\"45\",\"55\",\"62\",\"69\",\"64\"],\"DatBisa\":[\"18\",\"6\",\"9\",\"53\",\"63\",\"67\",\"74\"],\"Takeda\":[\"53\",\"54\",\"62\"],\"SkySKY\":[\"53\",\"48\",\"66\",\"71\"],\"LST\":[\"47\",\"52\",\"48\"],\"PhenomSage\":[\"54\",\"49\",\"47\",\"56\",\"57\",\"62\",\"65\",\"66\",\"71\",\"72\",\"50\",\"69\",\"68\",\"76\"],\"bLOOMGINTON33\":[\"54\",\"56\",\"64\",\"67\",\"71\",\"74\"],\"noreception\":[\"54\"],\"nullgat\":[\"54\",\"56\",\"64\",\"67\",\"70\",\"71\"],\"Sayokuro\":[\"54\"],\"erubas\":[\"47\",\"56\",\"55\",\"57\",\"60\",\"62\",\"66\",\"72\",\"73\"],\"Ningen\":[\"49\",\"56\",\"47\",\"61\",\"65\"],\"Ruvikko\":[\"52\",\"62\",\"64\",\"65\",\"72\",\"63\",\"73\",\"74\"],\"Demzou\":[\"56\",\"60\",\"4\",\"76\"],\"JPGer\":[\"56\",\"71\"],\"MisterLister\":[\"56\",\"55\",\"19\",\"71\",\"73\"],\"MrNano\":[\"56\",\"60\",\"66\"],\"Mareepy\":[\"52\",\"59\",\"62\",\"76\"],\"CupoDylan\":[\"56\"],\"fiach\":[\"59\",\"61\",\"62\",\"64\",\"67\",\"71\",\"70\"],\"ClareClare\":[\"49\",\"48\",\"63\",\"65\",\"71\"],\"AwesomeAxD\":[\"48\",\"62\",\"71\"],\"Torradinhas\":[\"64\",\"74\"],\"dorjin\":[\"65\",\"66\",\"71\",\"72\",\"73\",\"74\"],\"Rento9\":[\"65\",\"71\"],\"Triene-Greenfort\":[\"65\",\"63\"],\"EmeraldRebels\":[\"63\",\"70\"],\"Reuben-Redcastle\":[\"67\"],\"Eldoprano\":[\"71\"],\"OmuNakii\":[\"71\"],\"BlitZZ\":[\"73\"],\"Saxy\":[\"63\",\"76\"],\"EscoriaCh\":[\"74\"],\"LRC_Napkin\":[\"74\"],\"kaguyay\":[\"76\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
 var countdownText3 = "Movie";
-var countdownText4 = "Re:Zero Kara Hajimaru Isekai Seikatsu";
-var countdownText5 = "Tokyo Godfather";
-var nicoEffectOnControl = "false";
+var countdownText4 = "Aria";
+var countdownText5 = "";
+var nicoEffectOnControl = "true";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
-var loadConfigUrl = "https://rawcdn.githack.com/gimmic234/cytube_backup/e556c465cec96c283c175dedc7f314110a4d3e7b/config.js";
-var sendMsgUrl = "https://discordapp.com/api/webhooks/622923586197258271/O3XacLkp28qRBQ1JwvUgyxIGuY3rvbX7m0dPmU5tyeykGRR6Hyv0aRk6VDwVdN7Lir7y";
-var achievementUrl = "https://hooks.zapier.com/hooks/catch/4506865/o3cn6r7/";
-var imageAddUrl = "https://hooks.zapier.com/hooks/catch/4506865/o3cn6se/";
-var soundAddUrl = "https://hooks.zapier.com/hooks/catch/4506865/obo3n5y/";
-var statList = ['47', '48', '49', '50', '52', '58', '57'];
+
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -129,43 +124,43 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/04ecc0c043b60b1886c970f9b161abafd8d8d4de/current-ext.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/9b8db21f7c770d1e0662169d3788c1fa57bbefe1/module/channelbase-mod.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/settings.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/settings.js",
 		callback: true
 	},
 	'overlay': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/overlay.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/overlay.js",
 		callback: true
 	},
 	'channels': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/channels.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/channels.js",
 		callback: true
 	},
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/5965019ab9fd793694114cd7631ac274a523266d/module/XaeKaiModules.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4a30cddf29684bfa80b3c95fd58690ce68306008/module/enhancer-mod.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/enhancer-mod.js",
 		callback: true
 	}
 };
