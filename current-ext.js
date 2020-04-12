@@ -7,26 +7,25 @@ var chatCmdLookup = {
 		}
 
 		let text = chatCmdText.slice(2).join(" ");
-		imgEmote(chatCmdText[1], text);
 		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
 		$('#cs-chatfilters-newregex').val(chatCmdText[1] + "($)");
 		$('#cs-chatfilters-newflags').val("g");
 		$('#cs-chatfilters-newreplace').val(text);
 		$('#cs-chatfilters-newsubmit').click();
 
-		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
+		$('#cs-chatfilters-newname').val(chatCmdText[1] + 2);
 		$('#cs-chatfilters-newregex').val("(^)" + chatCmdText[1] + "($)");
 		$('#cs-chatfilters-newflags').val("gi");
 		$('#cs-chatfilters-newreplace').val(text);
 		$('#cs-chatfilters-newsubmit').click();
 
-		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
+		$('#cs-chatfilters-newname').val(chatCmdText[1] + 3);
 		$('#cs-chatfilters-newregex').val(chatCmdText[1] + "($)");
 		$('#cs-chatfilters-newflags').val("gi");
 		$('#cs-chatfilters-newreplace').val(text);
 		$('#cs-chatfilters-newsubmit').click();
 
-		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
+		$('#cs-chatfilters-newname').val(chatCmdText[1] + 4);
 		$('#cs-chatfilters-newregex').val("(^)" + chatCmdText[1] + "([.:;,*+\s\-?^${}()|[\]\\])");
 		$('#cs-chatfilters-newflags').val("gi");
 		$('#cs-chatfilters-newreplace').val(text + "\\2");
