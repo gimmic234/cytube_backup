@@ -3704,9 +3704,9 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('input', '#chatline', function(e) {
-		let index = this.value.lastIndexOf(" ");
-		let chatText = this.value.split(" ");
-		let lastText = this.value.substr(index + 1);
+		let index = $('#chatline').val().lastIndexOf(" ");
+		let chatText = $('#chatline').val().split(" ");
+		let lastText = $('#chatline').val().substr(index + 1);
 		let chat = $(this);
 		if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
 			emoteList[0].innerHTML = "";
