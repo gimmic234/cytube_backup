@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://vistapointe.net/images/theatre-1.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/694893947822145586/T2IUzSO.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a3ae6377a357231835583ec11358731540b1ff82/current-ext.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
 		callback: true
 	},
 	'layout': {

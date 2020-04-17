@@ -2177,6 +2177,17 @@ function closeamq() {
 	$(".amq-wrap").remove();
 }
 
+function populateUserList() {
+	let allUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
+	let userList = [];
+	allUsers.each(function(index, userc) {
+		if (userc.innerText != "") {
+			userList.push(userc.innerText);
+		}
+	});
+	return userList;
+}
+
 function populateSoundEmote(command) {
 	let temp = {};
 	let temp3 = {};
@@ -3774,6 +3785,30 @@ function bindEventHandler() {
 			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
 			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
 			let fullMatch = imgArray.includes("?"+emoteText);
+			if (fullMatch || filteredEmote.length == 0) {
+				emoteList.hide();
+				selectedPopover = null;
+				emoteTable = false;
+			} else {
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+				filteredEmote.forEach(function(value, index) {
+					let active = (index == 0) ? "active" : "";
+					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
+					emoteString += "<td>" + value + "</td>";
+					emoteString += "</tr>";
+				})
+				emoteString += "</tbody></table></div>";
+				emoteList[0].innerHTML = emoteString;
+				selectedPopover = $('tr.active');
+				emoteTable = true;
+				emoteList.show();
+			}
+		} else if(chatText.length == 1 && lastText.substr(0, 1) == '@' && lastText.length >= 2) {
+			emoteList[0].innerHTML = "";
+			imgArray = populateUserList();
+			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
+			let fullMatch = imgArray.includes(emoteText);
 			if (fullMatch || filteredEmote.length == 0) {
 				emoteList.hide();
 				selectedPopover = null;
