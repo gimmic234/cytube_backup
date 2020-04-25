@@ -2835,11 +2835,14 @@ window.loadInitializer = function() {
 
 	waitForEl('#messagebuffer', function() {
 		let amq = $("a[href='https://animemusicquiz.com/'");
-		socket.on("addUser", function(data) {
-			if ((window.CLIENT.rank <2)) {
-				$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" has joined</span></div>");
-			}
-		});
+		if (loadSetComplete != true) {
+			socket.on("addUser", function(data) {
+				if ((window.CLIENT.rank <2)) {
+					$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" has joined</span></div>");
+				}
+			});
+		}
+		loadSetComplete = true;
 		if (amq.length > 0) {
 			amq.parent().find("button").click()
 		}

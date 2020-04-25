@@ -86,6 +86,7 @@ var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
+var loadSetComplete;
 
 /*!
  **|   XaeMae Sequenced Module Loader
@@ -124,7 +125,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7da32e04c97e001ad2d6e57b816e7b286df6660d/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c3095dc16b433f8641c9b6a45cfaa34bb4539f4d/current-ext.js",
 		callback: true
 	},
 	'layout': {
