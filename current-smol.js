@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/695945524930543636/1585989613140.png";
+var background_img = "http://cdn.hipwallpaper.com/i/68/42/HNetmx.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
 	month: 4,
-	day: 15,
+	day: 22,
 	hour: 23,
 	minute: 0,
 	second: 0,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2020,
 	month2: 4,
-	day2: 19,
+	day2: 26,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -29,7 +29,7 @@ var background_img_auto4 = "http://i.imgur.com/pHCu1Rx.jpg";
 var countdown_utc3 = {
 	year3: 2020,
 	month3: 4,
-	day3: 18,
+	day3: 25,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -39,7 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/562795394157903885/694901600140918844/Azumanga_Daioh_Osaka_Neko_Koneko-removebg-preview2.png";
+var imgBubble = "//cdn.discordapp.com/emojis/566681717285322756.png?v=1";
 var imgBubble2 = "//media.discordapp.net/attachments/626947598661713930/685656007648477184/20200307_090815-removebg-preview.png";
 var chatImg = "false";
 var img1show = "true";
@@ -50,8 +50,8 @@ var chatImgOp = "0";
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
-	month4: 4,
-	day4: 17,
+	month4: 5,
+	day4: 1,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7da32e04c97e001ad2d6e57b816e7b286df6660d/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -142,7 +142,7 @@ window[CHANNEL.name].sequenceList = {
 	'overlay': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/overlay.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7da32e04c97e001ad2d6e57b816e7b286df6660d/module/overlay.js",
 		callback: true
 	},
 	'channels': {
