@@ -2838,8 +2838,12 @@ window.loadInitializer = function() {
 		if (loadSetComplete != true) {
 			socket.on("addUser", function(data) {
 				if ((window.CLIENT.rank <2)) {
-					$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" has joined</span></div>");
+					$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" joined</span></div>");
 				}
+			});
+
+			socket.on("userLeave", function(data) {
+				$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" left</span></div>");
 			});
 		}
 		loadSetComplete = true;
