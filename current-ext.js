@@ -2842,9 +2842,11 @@ window.loadInitializer = function() {
 				}
 			});
 
-			socket.on("userLeave", function(data) {
-				$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" left</span></div>");
-			});
+			if ((window.CLIENT.rank >= 2)) {
+				socket.on("userLeave", function(data) {
+					$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" left</span></div>");
+				});
+			}
 		}
 		loadSetComplete = true;
 		if (amq.length > 0) {
