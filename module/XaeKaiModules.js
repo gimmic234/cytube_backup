@@ -552,12 +552,20 @@ window[CHANNEL.name].chatNotice.handler = {
 			}
 		});
 
-		let height = Math.floor(Math.random() * ($('#ytapiplayer').height() * 0.7)) + 70;
+		let playerHeight = $('#ytapiplayer').height();
+		let maxRange = (nicoTop) ? 1 : 0.5;
+		let minRange = (nicoTop) ? 0.5 : 0;
+
+		let rngNumber = Math.random() * (maxRange - minRange) + minRange;
+		let height = Math.floor(Math.random() * (playerHeight * 0.8)) + 70;
 		let textId = CLIENT.name + Math.floor(Math.random() * 1000);
 		let vidWidth = $('#ytapiplayer').width();
 		$('#textFloat1').after("<div class='textFloat' id='"+textId+"'>"+tempBuffer+"</div>");
 
 		$('#'+textId).css({top : height+"px"});
+
+		nicoTop = !nicoTop;
+
 		let innerWidth = $('#'+textId).textWidth() + 200;
 		let textTimer = Math.floor(innerWidth/400) * 1000;
 		$("#"+textId).css({"left": vidWidth +"px"}).animate({"left":"-"+innerWidth+"px"}, textTimer + 8000, 'linear', function() { 
