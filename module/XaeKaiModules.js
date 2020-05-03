@@ -553,8 +553,8 @@ window[CHANNEL.name].chatNotice.handler = {
 		});
 
 		let playerHeight = $('#ytapiplayer').height();
-		let maxRange = (nicoTop) ? 1 : 0.5;
-		let minRange = (nicoTop) ? 0.5 : 0;
+		let maxRange = (nicoTop) ? 1 : 0.52;
+		let minRange = (nicoTop) ? 0.48 : 0;
 
 		let rngNumber = Math.random() * (maxRange - minRange) + minRange;
 		let height = Math.floor(Math.random() * (playerHeight * 0.8)) + 70;
