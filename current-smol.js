@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://wallpaperaccess.com/full/1595596.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/695945524930543636/1585989613140.png";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -87,6 +87,191 @@ var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
 
+var nicoTop = true;
+var hasDriveUserscript = true;
+    // Checked against GS_VERSION from data.js
+var driveUserscriptVersion = '1.7';
+var getGoogleDriveMetadata = function getVideoInfo(id, cb) {
+        var url = 'https://docs.google.com/get_video_info?authuser='
+                + '&docid=' + id
+                + '&sle=true' 
+                + '&hl=en';
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+        	var res = this;
+        	if (!(res.readyState == 4 && res.status == 200)) {
+        		return;
+        	}
+        	  try {
+
+                    if (res.status !== 200) {
+                        return cb(
+                            'Google Drive request failed: HTTP ' + res.status
+                        );
+                    }
+
+                    var data = {};
+                    var error;
+                    // Google Santa sometimes eats login cookies and gets mad if there aren't any.
+                    if(/accounts\.google\.com\/ServiceLogin/.test(res.responseText)){
+                        error = 'Google Docs request failed: ' +
+                                'This video requires you be logged into a Google account. ' +
+                                'Open your Gmail in another tab and then refresh video.';
+                        return cb(error);
+                    }
+
+                    res.responseText.split('&').forEach(function (kv) {
+                        var pair = kv.split('=');
+                        data[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+                    });
+
+                    if (data.status === 'fail') {
+                        error = 'Google Drive request failed: ' +
+                                unescape(data.reason).replace(/\+/g, ' ');
+                        return cb(error);
+                    }
+
+                    if (!data.fmt_stream_map) {
+                        error = (
+                            'Google has removed the video streams associated' +
+                            ' with this item.  It can no longer be played.'
+                        );
+
+                        return cb(error);
+                    }
+
+                    data.links = {};
+                    data.fmt_stream_map.split(',').forEach(function (item) {
+                        var pair = item.split('|');
+                        data.links[pair[0]] = pair[1];
+                    });
+                    data.videoMap = mapLinks(data.links);
+                    console.log(data);
+                    cb(null, data);
+                } catch (error) {
+                    unsafeWindow.console.error(error);
+                }
+        };
+        
+        xhr.open('GET', url);
+        xhr.send();
+/*        $.ajax({
+            method: 'GET',
+            url: url,
+            onload: function (res) {
+            	console.log(res);
+                try {
+
+                    if (res.status !== 200) {
+                        return cb(
+                            'Google Drive request failed: HTTP ' + res.status
+                        );
+                    }
+
+                    var data = {};
+                    var error;
+                    // Google Santa sometimes eats login cookies and gets mad if there aren't any.
+                    if(/accounts\.google\.com\/ServiceLogin/.test(res.responseText)){
+                        error = 'Google Docs request failed: ' +
+                                'This video requires you be logged into a Google account. ' +
+                                'Open your Gmail in another tab and then refresh video.';
+                        return cb(error);
+                    }
+
+                    res.responseText.split('&').forEach(function (kv) {
+                        var pair = kv.split('=');
+                        data[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+                    });
+
+                    if (data.status === 'fail') {
+                        error = 'Google Drive request failed: ' +
+                                unescape(data.reason).replace(/\+/g, ' ');
+                        return cb(error);
+                    }
+
+                    if (!data.fmt_stream_map) {
+                        error = (
+                            'Google has removed the video streams associated' +
+                            ' with this item.  It can no longer be played.'
+                        );
+
+                        return cb(error);
+                    }
+
+                    data.links = {};
+                    data.fmt_stream_map.split(',').forEach(function (item) {
+                        var pair = item.split('|');
+                        data.links[pair[0]] = pair[1];
+                    });
+                    data.videoMap = mapLinks(data.links);
+
+                    cb(null, data);
+                } catch (error) {
+                    unsafeWindow.console.error(error);
+                }
+            },
+
+            onerror: function () {
+                var error = 'Google Drive request failed: ' +
+                            'metadata lookup HTTP request failed';
+                error.reason = 'HTTP_ONERROR';
+                return cb(error);
+            }
+        });*/
+    };
+
+
+var ITAG_QMAP = {
+    37: 1080,
+    46: 1080,
+    22: 720,
+    45: 720,
+    59: 480,
+    44: 480,
+    35: 480,
+    18: 360,
+    43: 360,
+    34: 360
+};
+
+var ITAG_CMAP = {
+    43: 'video/webm',
+    44: 'video/webm',
+    45: 'video/webm',
+    46: 'video/webm',
+    18: 'video/mp4',
+    22: 'video/mp4',
+    37: 'video/mp4',
+    59: 'video/mp4',
+    35: 'video/flv',
+    34: 'video/flv'
+};
+
+function mapLinks(links) {
+var videos = {
+    1080: [],
+    720: [],
+    480: [],
+    360: []
+};
+
+Object.keys(links).forEach(function (itag) {
+    itag = parseInt(itag, 10);
+    if (!ITAG_QMAP.hasOwnProperty(itag)) {
+        return;
+    }
+
+    videos[ITAG_QMAP[itag]].push({
+        itag: itag,
+        contentType: ITAG_CMAP[itag],
+        link: links[itag]
+    });
+});
+
+return videos;
+}
+
+
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -154,7 +339,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/ee74a9ea8739df49f2b32f8649e358993e762c74/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/196c2ce150aecdb51f37f7f6a6bb69366ae0e2f7/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
