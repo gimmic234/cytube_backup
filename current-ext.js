@@ -3830,7 +3830,7 @@ function bindEventHandler() {
 			}
 		} else if(lastText.substr(0, 1) == '@' && lastText.length >= 2) {
 			emoteList[0].innerHTML = "";
-			imgArray = populateUserList();
+			imgArray = populateUserListAll();
 			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
 			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
 			let fullMatch = imgArray.includes(emoteText);
