@@ -2177,6 +2177,17 @@ function closeamq() {
 	$(".amq-wrap").remove();
 }
 
+function populateUserListAll() {
+	let allUsers = $('#userlist').find('span').not("#connectedText");
+	let userList = [];
+	allUsers.each(function(index, userc) {
+		if (userc.innerText != "") {
+			userList.push(userc.innerText);
+		}
+	});
+	return userList;
+}
+
 function populateUserList() {
 	let allUsers = $('#userlist').find('span').not('.userlist_guest').not("#connectedText");
 	let userList = [];

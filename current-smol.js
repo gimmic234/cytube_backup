@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/695945524930543636/1585989613140.png";
+var background_img = "http://vistapointe.net/images/theatre-1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
-	month: 4,
-	day: 29,
+	month: 5,
+	day: 6,
 	hour: 23,
 	minute: 0,
 	second: 0,
@@ -15,12 +15,12 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2020,
 	month2: 5,
-	day2: 3,
+	day2: 10,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/699168169918595102/monte_cristo_background.jpg";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/707392374153805824/tatami_bg_v2.jpg";
 var background_img_auto2 = "http://cdn.discordapp.com/attachments/466386319766192138/695945524930543636/1585989613140.png";
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
 	month4: 5,
-	day4: 8,
+	day4: 15,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -75,7 +75,7 @@ var bgm3url = "https://cdn.discordapp.com/attachments/466386319766192138/6959527
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/528005830419677185/558834338314190848/14._Negai_ga_Kanau_Basho_II.mp3";
 var bgmSelect = "3";
-var achievementList = "{\"Mayu_Loli\":[\"4\",\"56\",\"78\"],\"HeartsTM\":[\"51\",\"53\",\"54\",\"56\",\"55\",\"59\",\"60\",\"61\",\"47\",\"62\",\"64\",\"65\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\",\"75\",\"77\",\"78\"],\"gimmic\":[\"51\",\"53\",\"54\",\"50\",\"47\",\"56\",\"55\",\"59\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\",\"75\",\"77\",\"78\"],\"NinjaPoes\":[\"51\",\"52\",\"53\",\"54\",\"55\",\"47\",\"59\",\"61\",\"62\",\"64\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\",\"75\",\"77\",\"78\"],\"Zinzoo\":[\"51\",\"53\",\"52\",\"54\",\"4\",\"56\",\"55\",\"47\",\"59\",\"49\",\"60\",\"61\",\"48\",\"57\",\"58\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"73\",\"68\",\"69\",\"23\",\"38\",\"74\",\"76\",\"75\",\"77\",\"78\"],\"Darthturtle\":[\"51\",\"53\",\"59\",\"61\",\"64\",\"66\",\"67\",\"71\",\"4\",\"73\",\"72\",\"74\",\"63\",\"75\",\"78\"],\"Fox_tart\":[\"51\",\"48\",\"53\",\"52\",\"54\",\"56\",\"55\",\"47\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"69\",\"68\",\"76\",\"75\",\"77\",\"78\"],\"Ivvl\":[\"51\",\"53\",\"60\",\"61\",\"71\",\"75\",\"78\"],\"Madoq\":[\"51\",\"53\",\"54\",\"71\"],\"mrmooshe\":[\"51\",\"Fateless\",\"53\",\"48\",\"54\",\"59\",\"61\",\"64\",\"65\",\"70\",\"73\",\"74\",\"76\",\"75\",\"77\"],\"MrRound\":[\"51\",\"52\",\"53\",\"54\",\"56\",\"55\",\"58\",\"59\",\"60\",\"61\",\"62\",\"64\",\"66\",\"67\",\"71\",\"70\",\"72\",\"73\",\"69\",\"74\",\"76\",\"75\",\"77\",\"78\"],\"Psyrhos\":[\"51\",\"53\",\"59\",\"67\",\"70\",\"63\",\"74\"],\"raccomunk\":[\"51\",\"45\",\"53\",\"54\",\"55\",\"56\",\"61\",\"62\",\"64\",\"65\",\"67\",\"70\",\"4\",\"71\",\"73\",\"72\",\"69\",\"68\",\"74\",\"76\",\"75\",\"77\"],\"ScrewySqrl\":[\"51\",\"53\",\"54\",\"50\",\"4\",\"56\",\"55\",\"61\",\"62\",\"64\",\"67\",\"72\",\"74\",\"75\",\"77\",\"78\"],\"Senia\":[\"51\",\"53\",\"54\",\"55\",\"61\",\"67\",\"70\",\"71\",\"72\",\"73\",\"75\",\"77\"],\"T---\":[\"51\"],\"SomeBloke\":[\"48\"],\"science\":[\"47\",\"52\",\"56\",\"58\",\"48\",\"60\",\"62\",\"65\",\"66\",\"71\",\"76\",\"78\"],\"Eli_HeavyWaterBoi\":[\"48\",\"50\",\"78\"],\"xIquincyIx\":[\"52\",\"48\",\"50\",\"59\",\"49\",\"62\",\"65\"],\"dreamy\":[\"52\",\"56\",\"49\",\"61\",\"62\",\"64\",\"65\",\"77\"],\"Urizithar\":[\"52\",\"51\",\"45\",\"53\",\"54\",\"56\",\"47\",\"58\",\"57\",\"61\",\"49\",\"62\",\"64\",\"66\",\"67\",\"71\",\"72\",\"68\",\"69\",\"23\",\"76\",\"77\",\"78\"],\"UserMagician\":[\"45\",\"55\",\"62\",\"69\",\"64\"],\"DatBisa\":[\"18\",\"6\",\"9\",\"53\",\"63\",\"67\",\"74\"],\"Takeda\":[\"53\",\"54\",\"62\",\"78\"],\"SkySKY\":[\"53\",\"48\",\"66\",\"71\"],\"LST\":[\"47\",\"52\",\"48\"],\"PhenomSage\":[\"54\",\"49\",\"47\",\"56\",\"57\",\"62\",\"65\",\"66\",\"71\",\"72\",\"50\",\"69\",\"68\",\"76\",\"77\",\"78\"],\"bLOOMGINTON33\":[\"54\",\"56\",\"64\",\"67\",\"71\",\"74\",\"77\",\"78\"],\"noreception\":[\"54\"],\"nullgat\":[\"54\",\"56\",\"64\",\"67\",\"70\",\"71\"],\"Sayokuro\":[\"54\"],\"erubas\":[\"47\",\"56\",\"55\",\"57\",\"60\",\"62\",\"66\",\"72\",\"73\",\"77\",\"78\"],\"Ningen\":[\"49\",\"56\",\"47\",\"61\",\"65\"],\"Ruvikko\":[\"52\",\"62\",\"64\",\"65\",\"72\",\"63\",\"73\",\"74\",\"75\",\"4\",\"77\"],\"Demzou\":[\"56\",\"60\",\"4\",\"76\",\"78\"],\"JPGer\":[\"56\",\"71\"],\"MisterLister\":[\"56\",\"55\",\"19\",\"71\",\"73\"],\"MrNano\":[\"56\",\"60\",\"66\"],\"Mareepy\":[\"52\",\"59\",\"62\",\"76\"],\"CupoDylan\":[\"56\"],\"fiach\":[\"59\",\"61\",\"62\",\"64\",\"67\",\"71\",\"70\",\"75\",\"77\"],\"ClareClare\":[\"49\",\"48\",\"63\",\"65\",\"71\"],\"AwesomeAxD\":[\"48\",\"62\",\"71\"],\"Torradinhas\":[\"64\",\"74\"],\"dorjin\":[\"65\",\"66\",\"71\",\"72\",\"73\",\"74\",\"78\"],\"Rento9\":[\"65\",\"71\"],\"Triene-Greenfort\":[\"65\",\"63\"],\"EmeraldRebels\":[\"63\",\"70\"],\"Reuben-Redcastle\":[\"67\"],\"Eldoprano\":[\"71\"],\"OmuNakii\":[\"71\"],\"BlitZZ\":[\"73\",\"77\",\"78\"],\"Saxy\":[\"63\",\"76\"],\"EscoriaCh\":[\"74\"],\"LRC_Napkin\":[\"74\"],\"kaguyay\":[\"76\"],\"Genxun\":[\"77\",\"78\"],\"Capital\":[\"77\",\"78\"],\"ChucklingBerry\":[\"78\"]}";
+var achievementList = "{\"Mayu_Loli\":[\"4\",\"56\",\"78\"],\"HeartsTM\":[\"51\",\"53\",\"54\",\"56\",\"55\",\"59\",\"60\",\"61\",\"47\",\"62\",\"64\",\"65\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\",\"75\",\"77\",\"78\",\"63\"],\"gimmic\":[\"51\",\"53\",\"54\",\"50\",\"47\",\"56\",\"55\",\"59\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\",\"75\",\"77\",\"78\",\"79\"],\"NinjaPoes\":[\"51\",\"52\",\"53\",\"54\",\"55\",\"47\",\"59\",\"61\",\"62\",\"64\",\"67\",\"70\",\"71\",\"72\",\"73\",\"74\",\"76\",\"75\",\"77\",\"78\",\"79\"],\"Zinzoo\":[\"51\",\"53\",\"52\",\"54\",\"4\",\"56\",\"55\",\"47\",\"59\",\"49\",\"60\",\"61\",\"48\",\"57\",\"58\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"73\",\"68\",\"69\",\"23\",\"38\",\"74\",\"76\",\"75\",\"77\",\"78\",\"79\"],\"Darthturtle\":[\"51\",\"53\",\"59\",\"61\",\"64\",\"66\",\"67\",\"71\",\"4\",\"73\",\"72\",\"74\",\"63\",\"75\",\"78\"],\"Fox_tart\":[\"51\",\"48\",\"53\",\"52\",\"54\",\"56\",\"55\",\"47\",\"60\",\"61\",\"62\",\"64\",\"65\",\"66\",\"67\",\"70\",\"71\",\"72\",\"69\",\"68\",\"76\",\"75\",\"77\",\"78\",\"79\"],\"Ivvl\":[\"51\",\"53\",\"60\",\"61\",\"71\",\"75\",\"78\"],\"Madoq\":[\"51\",\"53\",\"54\",\"71\"],\"mrmooshe\":[\"51\",\"Fateless\",\"53\",\"48\",\"54\",\"59\",\"61\",\"64\",\"65\",\"70\",\"73\",\"74\",\"76\",\"75\",\"77\",\"79\"],\"MrRound\":[\"51\",\"52\",\"53\",\"54\",\"56\",\"55\",\"58\",\"59\",\"60\",\"61\",\"62\",\"64\",\"66\",\"67\",\"71\",\"70\",\"72\",\"73\",\"69\",\"74\",\"76\",\"75\",\"77\",\"78\",\"79\"],\"Psyrhos\":[\"51\",\"53\",\"59\",\"67\",\"70\",\"63\",\"74\"],\"raccomunk\":[\"51\",\"45\",\"53\",\"54\",\"55\",\"56\",\"61\",\"62\",\"64\",\"65\",\"67\",\"70\",\"4\",\"71\",\"73\",\"72\",\"69\",\"68\",\"74\",\"76\",\"75\",\"77\",\"79\"],\"ScrewySqrl\":[\"51\",\"53\",\"54\",\"50\",\"4\",\"56\",\"55\",\"61\",\"62\",\"64\",\"67\",\"72\",\"74\",\"75\",\"77\",\"78\",\"79\"],\"Senia\":[\"51\",\"53\",\"54\",\"55\",\"61\",\"67\",\"70\",\"71\",\"72\",\"73\",\"75\",\"77\",\"79\"],\"T---\":[\"51\"],\"SomeBloke\":[\"48\"],\"science\":[\"47\",\"52\",\"56\",\"58\",\"48\",\"60\",\"62\",\"65\",\"66\",\"71\",\"76\",\"78\"],\"Eli_HeavyWaterBoi\":[\"48\",\"50\",\"78\",\"79\"],\"xIquincyIx\":[\"52\",\"48\",\"50\",\"59\",\"49\",\"62\",\"65\",\"79\"],\"dreamy\":[\"52\",\"56\",\"49\",\"61\",\"62\",\"64\",\"65\",\"77\"],\"Urizithar\":[\"52\",\"51\",\"45\",\"53\",\"54\",\"56\",\"47\",\"58\",\"57\",\"61\",\"49\",\"62\",\"64\",\"66\",\"67\",\"71\",\"72\",\"68\",\"69\",\"23\",\"76\",\"77\",\"78\"],\"UserMagician\":[\"45\",\"55\",\"62\",\"69\",\"64\"],\"DatBisa\":[\"18\",\"6\",\"9\",\"53\",\"63\",\"67\",\"74\",\"79\"],\"Takeda\":[\"53\",\"54\",\"62\",\"78\"],\"SkySKY\":[\"53\",\"48\",\"66\",\"71\"],\"LST\":[\"47\",\"52\",\"48\"],\"PhenomSage\":[\"54\",\"49\",\"47\",\"56\",\"57\",\"62\",\"65\",\"66\",\"71\",\"72\",\"50\",\"69\",\"68\",\"76\",\"77\",\"78\",\"79\"],\"bLOOMGINTON33\":[\"54\",\"56\",\"64\",\"67\",\"71\",\"74\",\"77\",\"78\",\"79\"],\"noreception\":[\"54\"],\"nullgat\":[\"54\",\"56\",\"64\",\"67\",\"70\",\"71\"],\"Sayokuro\":[\"54\"],\"erubas\":[\"47\",\"56\",\"55\",\"57\",\"60\",\"62\",\"66\",\"72\",\"73\",\"77\",\"78\",\"79\"],\"Ningen\":[\"49\",\"56\",\"47\",\"61\",\"65\"],\"Ruvikko\":[\"52\",\"62\",\"64\",\"65\",\"72\",\"63\",\"73\",\"74\",\"75\",\"4\",\"77\",\"79\"],\"Demzou\":[\"56\",\"60\",\"4\",\"76\",\"78\"],\"JPGer\":[\"56\",\"71\"],\"MisterLister\":[\"56\",\"55\",\"19\",\"71\",\"73\",\"79\"],\"MrNano\":[\"56\",\"60\",\"66\"],\"Mareepy\":[\"52\",\"59\",\"62\",\"76\"],\"CupoDylan\":[\"56\"],\"fiach\":[\"59\",\"61\",\"62\",\"64\",\"67\",\"71\",\"70\",\"75\",\"77\",\"79\"],\"ClareClare\":[\"49\",\"48\",\"63\",\"65\",\"71\"],\"AwesomeAxD\":[\"48\",\"62\",\"71\"],\"Torradinhas\":[\"64\",\"74\",\"79\"],\"dorjin\":[\"65\",\"66\",\"71\",\"72\",\"73\",\"74\",\"78\"],\"Rento9\":[\"65\",\"71\"],\"Triene-Greenfort\":[\"65\",\"63\"],\"EmeraldRebels\":[\"63\",\"70\"],\"Reuben-Redcastle\":[\"67\"],\"Eldoprano\":[\"71\"],\"OmuNakii\":[\"71\",\"79\"],\"BlitZZ\":[\"73\",\"77\",\"78\"],\"Saxy\":[\"63\",\"76\"],\"EscoriaCh\":[\"74\"],\"LRC_Napkin\":[\"74\"],\"kaguyay\":[\"76\"],\"Genxun\":[\"77\",\"78\"],\"Capital\":[\"77\",\"78\"],\"ChucklingBerry\":[\"78\"],\"Smoke420\":[\"63\"],\"Phosflyphyllite\":[\"79\"],\"Khiu\":[\"79\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
 var countdownText3 = "Movie";
@@ -86,191 +86,6 @@ var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "true";
 //-----------------------------------------------------------------------------------------------------------------------------------
-
-var nicoTop = true;
-var hasDriveUserscript = true;
-    // Checked against GS_VERSION from data.js
-var driveUserscriptVersion = '1.7';
-var getGoogleDriveMetadata = function getVideoInfo(id, cb) {
-        var url = 'https://docs.google.com/get_video_info?authuser='
-                + '&docid=' + id
-                + '&sle=true' 
-                + '&hl=en';
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-        	var res = this;
-        	if (!(res.readyState == 4 && res.status == 200)) {
-        		return;
-        	}
-        	  try {
-
-                    if (res.status !== 200) {
-                        return cb(
-                            'Google Drive request failed: HTTP ' + res.status
-                        );
-                    }
-
-                    var data = {};
-                    var error;
-                    // Google Santa sometimes eats login cookies and gets mad if there aren't any.
-                    if(/accounts\.google\.com\/ServiceLogin/.test(res.responseText)){
-                        error = 'Google Docs request failed: ' +
-                                'This video requires you be logged into a Google account. ' +
-                                'Open your Gmail in another tab and then refresh video.';
-                        return cb(error);
-                    }
-
-                    res.responseText.split('&').forEach(function (kv) {
-                        var pair = kv.split('=');
-                        data[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-                    });
-
-                    if (data.status === 'fail') {
-                        error = 'Google Drive request failed: ' +
-                                unescape(data.reason).replace(/\+/g, ' ');
-                        return cb(error);
-                    }
-
-                    if (!data.fmt_stream_map) {
-                        error = (
-                            'Google has removed the video streams associated' +
-                            ' with this item.  It can no longer be played.'
-                        );
-
-                        return cb(error);
-                    }
-
-                    data.links = {};
-                    data.fmt_stream_map.split(',').forEach(function (item) {
-                        var pair = item.split('|');
-                        data.links[pair[0]] = pair[1];
-                    });
-                    data.videoMap = mapLinks(data.links);
-                    console.log(data);
-                    cb(null, data);
-                } catch (error) {
-                    unsafeWindow.console.error(error);
-                }
-        };
-        
-        xhr.open('GET', url);
-        xhr.send();
-/*        $.ajax({
-            method: 'GET',
-            url: url,
-            onload: function (res) {
-            	console.log(res);
-                try {
-
-                    if (res.status !== 200) {
-                        return cb(
-                            'Google Drive request failed: HTTP ' + res.status
-                        );
-                    }
-
-                    var data = {};
-                    var error;
-                    // Google Santa sometimes eats login cookies and gets mad if there aren't any.
-                    if(/accounts\.google\.com\/ServiceLogin/.test(res.responseText)){
-                        error = 'Google Docs request failed: ' +
-                                'This video requires you be logged into a Google account. ' +
-                                'Open your Gmail in another tab and then refresh video.';
-                        return cb(error);
-                    }
-
-                    res.responseText.split('&').forEach(function (kv) {
-                        var pair = kv.split('=');
-                        data[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-                    });
-
-                    if (data.status === 'fail') {
-                        error = 'Google Drive request failed: ' +
-                                unescape(data.reason).replace(/\+/g, ' ');
-                        return cb(error);
-                    }
-
-                    if (!data.fmt_stream_map) {
-                        error = (
-                            'Google has removed the video streams associated' +
-                            ' with this item.  It can no longer be played.'
-                        );
-
-                        return cb(error);
-                    }
-
-                    data.links = {};
-                    data.fmt_stream_map.split(',').forEach(function (item) {
-                        var pair = item.split('|');
-                        data.links[pair[0]] = pair[1];
-                    });
-                    data.videoMap = mapLinks(data.links);
-
-                    cb(null, data);
-                } catch (error) {
-                    unsafeWindow.console.error(error);
-                }
-            },
-
-            onerror: function () {
-                var error = 'Google Drive request failed: ' +
-                            'metadata lookup HTTP request failed';
-                error.reason = 'HTTP_ONERROR';
-                return cb(error);
-            }
-        });*/
-    };
-
-
-var ITAG_QMAP = {
-    37: 1080,
-    46: 1080,
-    22: 720,
-    45: 720,
-    59: 480,
-    44: 480,
-    35: 480,
-    18: 360,
-    43: 360,
-    34: 360
-};
-
-var ITAG_CMAP = {
-    43: 'video/webm',
-    44: 'video/webm',
-    45: 'video/webm',
-    46: 'video/webm',
-    18: 'video/mp4',
-    22: 'video/mp4',
-    37: 'video/mp4',
-    59: 'video/mp4',
-    35: 'video/flv',
-    34: 'video/flv'
-};
-
-function mapLinks(links) {
-var videos = {
-    1080: [],
-    720: [],
-    480: [],
-    360: []
-};
-
-Object.keys(links).forEach(function (itag) {
-    itag = parseInt(itag, 10);
-    if (!ITAG_QMAP.hasOwnProperty(itag)) {
-        return;
-    }
-
-    videos[ITAG_QMAP[itag]].push({
-        itag: itag,
-        contentType: ITAG_CMAP[itag],
-        link: links[itag]
-    });
-});
-
-return videos;
-}
-
 
 /*!
  **|   XaeMae Sequenced Module Loader
