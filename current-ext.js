@@ -116,19 +116,25 @@ var chatCmdLookup = {
 	},
 	'/addq': function(chatCmdText) {
 		if (chatCmdText.length > 1 && chatCmdText.length <= 10) {
-			chatCmdText.shift();
-			chatCmdText.forEach(function(value) {
-				$(document.getElementById('mediaurl')).val(value);
-				$(document.getElementById('queue_end')).click();
-			})
+			let title = chatCmdText.slice(2).join(" ");
+			let url = chatCmdText[1];
+
+			if (title.trim() == "") {
+				title = filename(url);
+			}
+
+			$(document.getElementById('mediaurl')).val(url);
+			$(document.getElementById('mediaurl')).keyup();
+			$(document.getElementById('addfromurl-title-val')).val(title);
+			$(document.getElementById('queue_end')).click();
 		}
 	},
 	'/addqtitle': function(chatCmdText) {
-		if (chatCmdText.length < 1) {
+		if (chatCmdText.length < 2) {
 			return;
 		}
-		let title = chatCmdText[1];
-		let url = chatCmdText[2];
+		let title = chatCmdText[2];
+		let url = chatCmdText[1];
 		$(document.getElementById('mediaurl')).val(url);
 		$(document.getElementById('mediaurl')).keyup();
 		$(document.getElementById('addfromurl-title-val')).val(title);
@@ -2328,6 +2334,11 @@ function populateImgEmote(command) {
 			imgLookup = {};
 		}
 	});
+}
+
+function filename(path){
+    path = path.substring(path.lastIndexOf("/")+ 1);
+    return (path.match(/[^.]+(\.[^?#]+)?/) || [])[0];
 }
 
 function addNewAchievement(sendData) {
