@@ -2951,6 +2951,7 @@ window.loadInitializer = function() {
 		buff.find(".coffee:not( .coffeedone )").addClass('coffeedone');
 		buff.find(".utsunot:not( .parsed )").addClass('parsed');
 		buff.find(".final:not( .parsed )").addClass('parsed');
+		buff.find(".tts:not( .parsed )").addClass('parsed');
 		window[CHANNEL.name].audioNotice.handler["SurvivalStrategy"]();
 		window[CHANNEL.name].audioNotice.handler["stopEvent"]();
 		buff.find(".nick-highlight:not( .parsed )").addClass('parsed');
