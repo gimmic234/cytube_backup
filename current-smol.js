@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/d1abae2c736ff9baa74d73f314cfc31ef44c8cbc/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a2b0b7206ea72f7df8b8cf853d229567ad3bc112/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -154,7 +154,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c6839b12bc30063ba01bf28c9c21da622d9bcd3a/module/XaeKaiModules.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a2b0b7206ea72f7df8b8cf853d229567ad3bc112/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {

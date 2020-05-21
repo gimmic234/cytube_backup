@@ -319,7 +319,7 @@ var chatCmdLookup = {
 		}
 		let text = chatCmdText.slice(1).join(" ").trim();
 		window.socket.emit("chatMsg", {
-			msg: "texttospeechconvert1 " + text + "texttospeechconvert2"
+			msg: "texttospeechconvert1" + text + "texttospeechconvert2"
 		});	
 	},
 

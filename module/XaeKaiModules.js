@@ -995,6 +995,10 @@ window[CHANNEL.name].audioNotice.handler = {
 	window[CHANNEL.name].audioNotice["emote"].id = "emote";
 	window[CHANNEL.name].audioNotice["emote"].volume = 0.8;
 
+	window[CHANNEL.name].audioNotice["tts"].toggleState = true;
+	window[CHANNEL.name].audioNotice["tts"].id = "tts";
+	window[CHANNEL.name].audioNotice["tts"].volume = 0.8;
+
 	if (!!window[CHANNEL.name].audioLibrary) {
 		window[CHANNEL.name].audioNotice.choices = window[CHANNEL.name].audioLibrary.squees
 	} else {
