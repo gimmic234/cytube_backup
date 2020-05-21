@@ -1080,12 +1080,14 @@ window[CHANNEL.name].audioNotice.handler = {
 			window[CHANNEL.name].audioNotice.on("Squee");
 			window[CHANNEL.name].audioNotice.on("Skip");
 			window[CHANNEL.name].audioNotice.on("skipFinal");
+			window[CHANNEL.name].audioNotice.on("tts");
 		} else {
 			window[CHANNEL.name].audioNotice.off("utsu");
 			window[CHANNEL.name].audioNotice.off("utsunot");
 			window[CHANNEL.name].audioNotice.off("Squee");
 			window[CHANNEL.name].audioNotice.off("Skip");
 			window[CHANNEL.name].audioNotice.off("skipFinal");
+			window[CHANNEL.name].audioNotice.off("tts");
 		}		
 	}).appendTo($("#chatwrap"));
 	if (!window[CHANNEL.name].audioNotice.emote.toggleState) {
