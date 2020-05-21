@@ -313,6 +313,16 @@ var chatCmdLookup = {
 		imgEmote(chatCmdText[1], text);
 	},
 
+	'/tts': function(chatCmdText) {
+		if (!(window.CLIENT.rank >= 3)) {
+			return;
+		}
+		let text = chatCmdText.slice(1).join(" ");
+		window.socket.emit("chatMsg", {
+			msg: "texttospeechconvert1 " + text + "texttospeechconvert2"
+		});	
+	},
+
 	'/skip': function(chatCmdText) {
 		if (rankMod) {
 			var target = $(document.getElementsByClassName('queue_active'));

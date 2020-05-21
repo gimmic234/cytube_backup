@@ -212,6 +212,9 @@ if (!window[CHANNEL.name].audioNotice) {
 	window[CHANNEL.name].audioNotice.emote = {
 		timeSinceLast: 0
 	};
+	window[CHANNEL.name].audioNotice.tts = {
+		timeSinceLast: 0
+	};
 }
 window[CHANNEL.name].audioNotice.typeNames = {
 	Squee: "Username",
@@ -228,7 +231,8 @@ window[CHANNEL.name].audioNotice.typeNames = {
 	bgm5play: "BGM 5",
 	utsu: "Utsutsu",
 	utsunot: "Utsunot",
-	emote: "Emote"
+	emote: "Emote",
+	tts: "TTS"
 };
 
 this[CHANNEL.name].audioLibrary.squees = function() {
@@ -587,6 +591,7 @@ window[CHANNEL.name].chatNotice.handler = {
 		$(".img1hide:not( .parsed )").addClass('parsed');
 		$(".fixedimg1show:not( .parsed )").addClass('parsed');
 		$(".fixedimg1hide:not( .parsed )").addClass('parsed');
+		$(".tts:not( .parsed )").addClass('parsed');
 	},
 	addCommandTitle: function(data) {
 		let commandTitle = $('.imgwrap:not(.parsed)');
@@ -763,6 +768,18 @@ window[CHANNEL.name].audioNotice.handler = {
 			$(document.getElementById('backg')).css('background-image', "url(" + background_img + ")");
 			$('.well').css("background", "rgba(0,0,0,.7)");
 		},  (duration * 1000));*/
+	},
+	tts: function(data) {
+		let tts = $(".tts:not( .parsed )");
+		if (!tts.length) return;
+		tts.addClass("parsed");
+		if (!window[CHANNEL.name].audioNotice.tts.toggleState) return;
+		if (!(noiseActive == "true")) return;
+		let key = tts.text();
+		if ('speechSynthesis' in window) {
+		    var msg = new SpeechSynthesisUtterance(key);
+		    window.speechSynthesis.speak(msg);
+		}
 	},
 	utsu: function(data) {
 		let utsu = $(".utsu:not( .parsed )");
@@ -1005,6 +1022,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		window[CHANNEL.name].audioNotice.handler["utsu"](data);
 		window[CHANNEL.name].audioNotice.handler["utsunot"](data);
 		window[CHANNEL.name].audioNotice.handler["emote"](data);
+		window[CHANNEL.name].audioNotice.handler["tts"](data);
 		window[CHANNEL.name].chatNotice.handler["coffee"](data);
 		window[CHANNEL.name].chatNotice.handler["amq"](data);
 		window[CHANNEL.name].chatNotice.handler["amqclose"](data);
