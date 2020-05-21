@@ -775,7 +775,7 @@ window[CHANNEL.name].audioNotice.handler = {
 		tts.addClass("parsed");
 		if (!window[CHANNEL.name].audioNotice.tts.toggleState) return;
 		if (!(noiseActive == "true")) return;
-		let key = tts.text();
+		let key = $(tts).text();
 		if ('speechSynthesis' in window) {
 		    var msg = new SpeechSynthesisUtterance(key);
 		    window.speechSynthesis.speak(msg);

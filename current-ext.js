@@ -317,7 +317,7 @@ var chatCmdLookup = {
 		if (!(window.CLIENT.rank >= 3)) {
 			return;
 		}
-		let text = chatCmdText.slice(1).join(" ");
+		let text = chatCmdText.slice(1).join(" ").trim();
 		window.socket.emit("chatMsg", {
 			msg: "texttospeechconvert1 " + text + "texttospeechconvert2"
 		});	
