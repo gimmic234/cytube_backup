@@ -313,6 +313,20 @@ var chatCmdLookup = {
 		imgEmote(chatCmdText[1], text);
 	},
 
+	'/spimg': function(chatCmdText) {
+		if (chatCmdText.length == 2) {
+			var url = chatCmdText[1].replace('https:', '');
+			url = url.replace('http:', '');
+			if (url.lastIndexOf('?') > -1) {
+				url = url.substr(0, url.lastIndexOf('?'));
+			}
+
+			window.socket.emit("chatMsg", {
+				msg: "spoilerimg" + url + "spoilerimg"
+			});
+		}
+	},
+
 	'/tts': function(chatCmdText) {
 		if (!(window.CLIENT.rank >= 3)) {
 			return;

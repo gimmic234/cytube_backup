@@ -7,7 +7,7 @@ var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
 	month: 5,
-	day: 20,
+	day: 27,
 	hour: 23,
 	minute: 0,
 	second: 0,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2020,
 	month2: 5,
-	day2: 24,
+	day2: 31,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -29,7 +29,7 @@ var background_img_auto4 = "http://i.imgur.com/pHCu1Rx.jpg";
 var countdown_utc3 = {
 	year3: 2020,
 	month3: 5,
-	day3: 23,
+	day3: 30,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
 	month4: 5,
-	day4: 22,
+	day4: 29,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0523441b69edb09b3563751706b64f6bf213e11b/current-ext.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -142,7 +142,7 @@ window[CHANNEL.name].sequenceList = {
 	'overlay': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/7da32e04c97e001ad2d6e57b816e7b286df6660d/module/overlay.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/overlay.js",
 		callback: true
 	},
 	'channels': {
@@ -154,7 +154,7 @@ window[CHANNEL.name].sequenceList = {
 	'xaekai': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/0523441b69edb09b3563751706b64f6bf213e11b/module/XaeKaiModules.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/XaeKaiModules.js",
 		callback: true
 	},
 	'channel': {
