@@ -3115,6 +3115,10 @@ window.loadInitializer = function() {
 
 
 function bindEventHandler() {
+	$(bodyElem).on('click', '.spText', function() {
+		$(this).removeClass('spText');
+	});
+
 	$(bodyElem).on('mouseover', '.chatCommandDiv', function() {
 		let selected = $(this).parent().find(".chatCommandImageShow");
 		$(selected).show();
