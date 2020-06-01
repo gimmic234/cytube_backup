@@ -1433,6 +1433,23 @@ var chatCmdLookup = {
 			});		
 		}
 	},
+	'/tickets': function(chatCmdText) {
+		let topCount = 5;
+		if (chatCmdText.length >= 2) {
+			topCount = (chatCmdText[1] <= 10) ? chatCmdText[1] : 5;
+		}
+		let sortedList = ticketList.sort(keysrt('tickets'));
+		sortedList.slice(0, topCount).each(function(value, index) {
+			let ticketNum = parseInt(value.tickets);
+			let effCount = ticketNum;
+			if (ticketNum > 10) {
+				effCount = Math.ceil(Math.pow((ticketNum-8), 1.5) + 8);
+			}
+			window.socket.emit("chatMsg", {
+				msg: "\*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets. (eff: " + effCount + ")"
+			});		
+		});
+	},
 	'/pick': function(chatCmdText) {
 		if (chatCmdText.length == 2) {
 			window.socket.emit("chatMsg", {
@@ -2581,6 +2598,18 @@ window[CHANNEL.name].audioFunction.playbgm1 = function(condition) {
 		}); 
 	}
 };
+
+function srt(desc) {
+  return function(a,b){
+   return desc ? ~~(a < b) : ~~(a > b);
+  };
+}
+
+function keysrt(key,desc) {
+  return function(a,b){
+   return desc ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
+  }
+}
 
 function chatHandler(e) {
 
