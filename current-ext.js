@@ -1438,7 +1438,7 @@ var chatCmdLookup = {
 		if (chatCmdText.length >= 2) {
 			topCount = (chatCmdText[1] <= 10) ? chatCmdText[1] : 5;
 		}
-		let sortedList = ticketList.sort(keysrt('tickets'));
+		let sortedList = ticketList.sort(keysrt('tickets', true));
 		sortedList.slice(0, topCount).each(function(value, index) {
 			let ticketNum = parseInt(value.tickets);
 			let effCount = ticketNum;
@@ -1446,7 +1446,7 @@ var chatCmdLookup = {
 				effCount = Math.ceil(Math.pow((ticketNum-8), 1.5) + 8);
 			}
 			window.socket.emit("chatMsg", {
-				msg: "\*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets. (eff: " + effCount + ")"
+				msg: index + ". \*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets. (eff: " + effCount + ")"
 			});		
 		});
 	},
@@ -2607,7 +2607,7 @@ function srt(desc) {
 
 function keysrt(key,desc) {
   return function(a,b){
-   return desc ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
+   return desc ? ~~(parseInt(a[key]) < parseInt(b[key])) : ~~(parseInt(a[key]) > parseInt(b[key]));
   }
 }
 
