@@ -1439,6 +1439,10 @@ var chatCmdLookup = {
 			topCount = (chatCmdText[1] <= 10) ? chatCmdText[1] : 5;
 		}
 		let sortedList = ticketList.sort(keysrt('tickets', true));
+		sortedList = $.grep(ticketList, function(e){ 
+		     return e.status == "1 Active"; 
+		});
+
 		sortedList.slice(0, topCount).each(function(value, index) {
 			let ticketNum = parseInt(value.tickets);
 			let effCount = ticketNum;
@@ -1446,7 +1450,7 @@ var chatCmdLookup = {
 				effCount = Math.ceil(Math.pow((ticketNum-8), 1.5) + 8);
 			}
 			window.socket.emit("chatMsg", {
-				msg: index + ". \*" + value.name + "\* (" + value.status + " ) has " + value.tickets + " tickets. (eff: " + effCount + ")"
+				msg: (index+1) + ". \*" + value.name + "\* has " + value.tickets + " tickets. (eff: " + effCount + ")"
 			});		
 		});
 	},
