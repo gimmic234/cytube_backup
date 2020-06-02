@@ -1433,7 +1433,7 @@ var chatCmdLookup = {
 			});		
 		}
 	},
-	'/tickets': function(chatCmdText) {
+	'/top': function(chatCmdText) {
 		let topCount = 5;
 		if (chatCmdText.length >= 2) {
 			topCount = (chatCmdText[1] <= 10) ? chatCmdText[1] : 5;
