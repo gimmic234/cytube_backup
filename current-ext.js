@@ -3234,6 +3234,14 @@ function bindEventHandler() {
 		}
 	});
 
+	$(bodyElem).on('mouseover', '.parsedm', function() {
+		$(this).find(".deleteMessageBtn").show();
+	});
+
+	$(bodyElem).on('mouseleave', '.parsedm', function() {
+		$(this).find(".deleteMessageBtn").hide();
+	});
+
 	$(bodyElem).on('click', '.deleteMessageBtn', function() {
 		let user = $(this).parent()[0].className;
 		user = user.split(" ")[0];

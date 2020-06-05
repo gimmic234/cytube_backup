@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/712766700331728926/shirobako_bg.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/695945524930543636/1585989613140.png";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -14,13 +14,13 @@ var countdown_utc = {
 };
 var countdown_utc2 = {
 	year2: 2020,
-	month2: 5,
-	day2: 31,
+	month2: 6,
+	day2: 7,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/712766700331728926/shirobako_bg.jpg";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/717616345277267988/cytube_layout_guidelines_not_fullscreen.png";
 var background_img_auto2 = "http://cdn.discordapp.com/attachments/466386319766192138/695945524930543636/1585989613140.png";
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
@@ -81,10 +81,10 @@ var countdownText2 = "Club";
 var countdownText3 = "Movie";
 var countdownText4 = "Aria";
 var countdownText5 = "";
-var nicoEffectOnControl = "true";
+var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
-var loginExport = "true";
+var loginExport = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 /*!
