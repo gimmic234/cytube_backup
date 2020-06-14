@@ -207,22 +207,25 @@ input#chatline {
 .spoiler-img-inside {
     color: #a2a2a2;
     background: rgba(0, 0, 0, 0.08);
-    filter: blur(70px);
-    -webkit-filter: blur(70px);
-    -moz-filter: blur(70px);
-    -o-filter: blur(70px);
-    -ms-filter: blur(70px);
+    filter: blur(300px);
+    -webkit-filter: blur(300px);
+    -moz-filter: blur(300px);
+    -o-filter: blur(300px);
+    -ms-filter: blur(300px);
     filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='5');
     transform: scale(1.001);
 }
 
 .imgContainer:hover {
     cursor: pointer;
+    background-color: gray;
 }
 
 .imgContainer {
-    border: solid 1px white;
     overflow: hidden;
+    background-color: #696969;
+    opacity: 0.9;
+    border-radius: 9px;
 }
 
 .countdownDate {
@@ -307,7 +310,6 @@ div span {
 }
 
 .deleteMessageBtn {
-display: none !important;
 padding: 1.5px 6px !important;
 font-size: 8px !important;
 margin-left: 5px;
@@ -619,15 +621,16 @@ filter: brightness(70%);
 }
 
 .spText {
-color: black;
-background: rgba(0, 0, 0, 1);
--webkit-filter: blur(6px);
--moz-filter: blur(6px);
--o-filter: blur(6px);
--ms-filter: blur(6px);
+color: dimgray;
+background: dimgray;
+border-radius: 5px;
 display:inline-block;
 }
 
 .spText:hover {
 cursor: pointer;
+}
+
+.imgContainer a img {
+    visibility:hidden;
 }
