@@ -2920,20 +2920,6 @@ window.loadInitializer = function() {
 		}
 	});
 
-	waitForEl('#ytpiplayer', function() {
-		setTimeout(function() {
-			alignVideoPlayer();
-		}, 2000);
-
-		setTimeout(function() {
-			alignVideoPlayer();
-		}, 4000);
-
-		setTimeout(function() {
-			alignVideoPlayer();
-		}, 6000);
-	});
-
 	waitForEl('#messagebuffer', function() {
 		let amq = $("a[href='https://animemusicquiz.com/'");
 		if (loadSetComplete != true) {
@@ -3028,34 +3014,6 @@ window.loadInitializer = function() {
 		buff.find(".img1hide:not( .parsed )").addClass('parsed');
 		buff.find(".fixedimg1show:not( .parsed )").addClass('parsed');
 		buff.find(".fixedimg1hide:not( .parsed )").addClass('parsed');
-
-		window.socket.on("changeMedia", function(data) {
-			setTimeout(function() {
-				alignVideoPlayer();
-			}, 2000);
-
-			setTimeout(function() {
-				alignVideoPlayer();
-			}, 4000);
-
-			setTimeout(function() {
-				alignVideoPlayer();
-			}, 6000);
-		});
-
-		window.socket.on("mediaUpdate", function(data) {
-			setTimeout(function() {
-				alignVideoPlayer();
-			}, 2000);
-
-			setTimeout(function() {
-				alignVideoPlayer();
-			}, 4000);
-
-			setTimeout(function() {
-				alignVideoPlayer();
-			}, 6000);
-		});
 
 		if (chatImg != 'false') {
 			buff.css('background-image', "linear-gradient( rgba(0, 0, 0, "+chatImgOp+"), rgba(0, 0, 0, "+chatImgOp+") ), url('"+chatImg+"')");
