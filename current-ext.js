@@ -1587,6 +1587,7 @@ var chatCmdLookup = {
 					msg: "*" + key + "* was picked by " + msgString
 				});
 			}
+			malSearchAnime(text);
 		}
 	},
 	"!coffee":function() {
@@ -2223,6 +2224,38 @@ function readTickets() {
 			returnArray = [];
 		}
 	});
+}
+
+function malSearchAnime(string)
+{
+	let stringUrlEncoded = encodeURIComponent(string);
+	$.ajax({
+		url: "https://api.jikan.moe/v3/search/anime?q=" + stringUrlEncoded,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			if (result.results) {
+				let arrayResult = result.results.slice(0, 3);
+				arrayResult.map(function(items) {
+					let imageUrl = cleanHttps(items.image_url);
+					let link = cleanHttps(items.url);
+					window.socket.emit("chatMsg", {
+						msg: "MalSearch" + link + "MalSearch" + items.title
+					});
+				});
+			}
+		}
+	});
+}
+
+function cleanHttps(imageUrl)
+{
+	var url = imageUrl.replace('https:', '');
+	url = url.replace('http:', '');
+	if (url.lastIndexOf('?') > -1) {
+		url = url.substr(0, url.lastIndexOf('?'));
+	}
+	return url;
 }
 
 function onlyUnique(value, index, self) { 
@@ -3663,7 +3696,6 @@ function bindEventHandler() {
 
 
 	$(bodyElem).on('click', '#queue-video-list, #queue-video-list-overlay', function() {
-		//test
 		createModalExt({
 			title: "List of queue random video",
 			wrap_id: "QRandomModal",
