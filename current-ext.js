@@ -2240,7 +2240,7 @@ function malSearchAnime(string)
 					let imageUrl = cleanHttps(items.image_url);
 					let link = cleanHttps(items.url);
 					window.socket.emit("chatMsg", {
-						msg: "MalSearch" + link + "MalSearch" + items.title
+						msg: "MalSearch" + link + "MalSearch" + items.title + " | " + items.episodes + "eps | score: " + items.score
 					});
 				});
 			}
