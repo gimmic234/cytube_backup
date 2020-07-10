@@ -1590,6 +1590,12 @@ var chatCmdLookup = {
 			malSearchAnime(text);
 		}
 	},
+	"/ch": function(chatCmdText) {
+		if (chatCmdText.length >= 2) {
+			let text = chatCmdText.slice(1).join(" ").toLowerCase();
+			malSearchCharacter(text);
+		}
+	},
 	"!coffee":function() {
 		window.socket.emit("chatMsg", {
 			msg: "coffeeimg" + "//media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif" + "coffeeimg"
@@ -2222,6 +2228,59 @@ function readTickets() {
 		},
 		error: function() {
 			returnArray = [];
+		}
+	});
+}
+
+function malSearchCharacter(string)
+{
+
+	let stringUrlEncoded = encodeURIComponent(string);
+	$.ajax({
+		url: "https://api.jikan.moe/v3/search/character?q=" + stringUrlEncoded,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			if (result.results) {
+				let arrayResult = result.results.slice(0, 3);
+				arrayResult.map(function(items) {
+					var title = "";
+					if (items.anime.length > 0) {
+						title = items.anime[0].name;
+						malSearchVA(items.mal_id, items.name, title);
+					} else {
+						if (items.manga.length > 0) {
+							title = items.manga[0].name;
+						}
+						imgEmote(items.image_url, "");	
+						window.socket.emit("chatMsg", {
+							msg: items.name + " | " + title
+						});
+					}
+				});
+			}
+		}
+	});
+}
+
+function malSearchVA(id, name, title)
+{
+	$.ajax({
+		url: "https://api.jikan.moe/v3/character/" + id,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let va = result.voice_actors.filter(function(actor) {
+				return actor.language == "Japanese";
+			});
+			let vaName = 'unknown';
+			if (va.length > 0) {
+				vaName = va[0].name;
+			}
+			imgEmote(result.image_url, "");	
+			window.socket.emit("chatMsg", {
+				msg: name + " | " + title + " | V: " + vaName
+			});
 		}
 	});
 }
