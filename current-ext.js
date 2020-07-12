@@ -2234,7 +2234,6 @@ function readTickets() {
 
 function malSearchCharacter(string)
 {
-
 	let stringUrlEncoded = encodeURIComponent(string);
 	$.ajax({
 		url: "https://api.jikan.moe/v3/search/character?q=" + stringUrlEncoded,
@@ -2242,7 +2241,32 @@ function malSearchCharacter(string)
 		dataType: "json",
 		success: function(result) {
 			if (result.results) {
-				let arrayResult = result.results.slice(0, 3);
+				let arrayResult = result.results;
+				window.socket.emit("chatMsg", {
+					msg: "*character search (/ch)*: " + string
+				});
+				if (arrayResult.length > 3) {
+					let searchStringList = arrayResult.map(function(char) {
+						let altNames = "";
+						if (char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).length > 0) {
+							altNames = "(" + char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).join(",") + ")";
+						}
+						return char.name + altNames;
+					});
+					let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+					window.socket.emit("chatMsg", {
+						msg: "too many results: " + listString.slice(0, 300)
+					});
+					if (listString.length >= 300) {
+						window.socket.emit("chatMsg", {
+							msg: listString.slice(301, 600) + "..."
+						});
+					}
+					return;
+				} else {
+					arrayResult = arrayResult.slice(0, 3);
+				}
+
 				arrayResult.map(function(items) {
 					var title = "";
 					if (items.anime.length > 0) {
@@ -2302,6 +2326,100 @@ function malSearchAnime(string)
 						msg: "MalSearch" + link + "MalSearch" + items.title + " | " + items.episodes + " ep | " + items.score
 					});
 				});
+			}
+		}
+	});
+}
+
+function malPersonSearch(string)
+{
+	let stringUrlEncoded = encodeURIComponent(string);
+	$.ajax({
+		url: "https://api.jikan.moe/v3/search/person?q=" + stringUrlEncoded,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			if (result.results) {
+				let arrayResult = result.results;
+				window.socket.emit("chatMsg", {
+					msg: "*person search (/person)*: " + string
+				});
+				if (arrayResult.length > 2) {
+					let searchStringList = arrayResult.map(function(char) {
+						let altNames = "";
+						if (char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).length > 0) {
+							altNames = "(" + char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).join(",") + ")";
+						}
+						return char.name + altNames;
+					});
+					let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+					window.socket.emit("chatMsg", {
+						msg: "too many results: " + listString.slice(0, 300)
+					});
+					if (listString.length >= 300) {
+						window.socket.emit("chatMsg", {
+							msg: listString.slice(301, 600) + "..."
+						});
+					}
+					return;
+				} else {
+					arrayResult = arrayResult.slice(0, 2);
+				}
+
+				arrayResult.map(function(items) {
+					malPersonDetail(items.mal_id);
+				});
+			}
+		}
+	});
+}
+
+function malPersonDetail(id)
+{
+	$.ajax({
+		url: "https://api.jikan.moe/v3/person/" + id,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			imgEmote(result.image_url, "");
+			let altNames = "";
+			let birthday = "";
+			if (result.alternate_names.filter((v, p) => result.alternate_names.indexOf(v) == p).length > 0) {
+				altNames = " (" + result.alternate_names.filter((v, p) => result.alternate_names.indexOf(v) == p).join(",") + ")";
+			}
+			if (result.birthday) {
+				birthday = " | " + result.birthday.split("T")[0]
+			}
+			window.socket.emit("chatMsg", {
+				msg: "MalSearch" + result.url + "MalSearch" + result.name + altNames + birthday
+			});
+			if (result.voice_acting_roles.length > 0) {
+				let searchStringList = result.voice_acting_roles.map(function(ch) {
+					return ch.character.name;
+				});
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				window.socket.emit("chatMsg", {
+					msg: "*Voice Acting:* " + listString.slice(0, 300)
+				});
+				if (listString.length >= 300) {
+					window.socket.emit("chatMsg", {
+						msg: listString.slice(301, 600) + "..."
+					});
+				}	
+			}
+			if (result.anime_staff_positions.length > 0) {
+				let searchStringList = result.anime_staff_positions.map(function(anime) {
+					return anime.anime.name;
+				});
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				window.socket.emit("chatMsg", {
+					msg: "*Production Staff:* " + listString.slice(0, 300)
+				});
+				if (listString.length >= 300) {
+					window.socket.emit("chatMsg", {
+						msg: listString.slice(301, 600) + "..."
+					});
+				}		
 			}
 		}
 	});
