@@ -2421,6 +2421,20 @@ function malPersonDetail(id)
 					});
 				}		
 			}
+			if (result.published_manga.length > 0) {
+				let searchStringList = result.published_manga.map(function(manga) {
+					return manga.manga.name;
+				});
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				window.socket.emit("chatMsg", {
+					msg: "*Manga:* " + listString.slice(0, 300)
+				});
+				if (listString.length >= 300) {
+					window.socket.emit("chatMsg", {
+						msg: listString.slice(301, 600) + "..."
+					});
+				}			
+			}
 		}
 	});
 }
