@@ -2265,7 +2265,7 @@ function malSearchCharacter(string)
 					});
 					if (listString.length >= 300) {
 						window.socket.emit("chatMsg", {
-							msg: listString.slice(301, 600) + "..."
+							msg: listString.slice(300, 600) + "..."
 						});
 					}
 					return;
@@ -2364,7 +2364,7 @@ function malPersonSearch(string)
 					});
 					if (listString.length >= 300) {
 						window.socket.emit("chatMsg", {
-							msg: listString.slice(301, 600) + "..."
+							msg: listString.slice(300, 600) + "..."
 						});
 					}
 					return;
@@ -2409,7 +2409,7 @@ function malPersonDetail(id)
 				});
 				if (listString.length >= 300) {
 					window.socket.emit("chatMsg", {
-						msg: listString.slice(301, 600) + "..."
+						msg: listString.slice(300, 600) + "..."
 					});
 				}	
 			}
@@ -2423,7 +2423,7 @@ function malPersonDetail(id)
 				});
 				if (listString.length >= 300) {
 					window.socket.emit("chatMsg", {
-						msg: listString.slice(301, 600) + "..."
+						msg: listString.slice(300, 600) + "..."
 					});
 				}		
 			}
@@ -2437,7 +2437,7 @@ function malPersonDetail(id)
 				});
 				if (listString.length >= 300) {
 					window.socket.emit("chatMsg", {
-						msg: listString.slice(301, 600) + "..."
+						msg: listString.slice(300, 600) + "..."
 					});
 				}			
 			}
