@@ -1596,6 +1596,12 @@ var chatCmdLookup = {
 			malSearchCharacter(text);
 		}
 	},
+	"/person": function(chatCmdText) {
+		if (chatCmdText.length >= 2) {
+			let text = chatCmdText.slice(1).join(" ").toLowerCase();
+			malPersonSearch(text);
+		}
+	},
 	"!coffee":function() {
 		window.socket.emit("chatMsg", {
 			msg: "coffeeimg" + "//media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif" + "coffeeimg"
