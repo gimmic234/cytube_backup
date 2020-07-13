@@ -2251,7 +2251,7 @@ function malSearchCharacter(string)
 				window.socket.emit("chatMsg", {
 					msg: "*character search (/ch)*: " + string
 				});
-				if (arrayResult.length > 3) {
+				if (arrayResult.length > 10) {
 					let searchStringList = arrayResult.map(function(char) {
 						let altNames = "";
 						if (char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).length > 0) {
@@ -2270,7 +2270,7 @@ function malSearchCharacter(string)
 					}
 					return;
 				} else {
-					arrayResult = arrayResult.slice(0, 3);
+					arrayResult = arrayResult.slice(0, 5);
 				}
 
 				arrayResult.map(function(items) {
