@@ -2433,7 +2433,7 @@ function malPersonDetail(id)
 				});
 				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
 				window.socket.emit("chatMsg", {
-					msg: "*Manga:* " + listString.slice(0, 300)
+					msg: "*Manga/LN:* " + listString.slice(0, 300)
 				});
 				if (listString.length >= 300) {
 					window.socket.emit("chatMsg", {
