@@ -1596,7 +1596,7 @@ var chatCmdLookup = {
 			malSearchCharacter(text);
 		}
 	},
-	"/person": function(chatCmdText) {
+	"/per": function(chatCmdText) {
 		if (chatCmdText.length >= 2) {
 			let text = chatCmdText.slice(1).join(" ").toLowerCase();
 			malPersonSearch(text);
@@ -2348,7 +2348,7 @@ function malPersonSearch(string)
 			if (result.results) {
 				let arrayResult = result.results;
 				window.socket.emit("chatMsg", {
-					msg: "*person search (/person)*: " + string
+					msg: "*person search (/per)*: " + string
 				});
 				if (arrayResult.length > 2) {
 					let searchStringList = arrayResult.map(function(char) {
