@@ -2328,17 +2328,58 @@ function malSearchVA(id, name, title)
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let va = result.voice_actors.filter(function(actor) {
-				return actor.language == "Japanese";
-			});
-			let vaName = 'unknown';
-			if (va.length > 0) {
-				vaName = va[0].name;
+			let charName = "";
+			if (result.name) {
+				charName = result.name;
 			}
-			imgEmote(result.image_url, "");	
+			let nicks = "";
+			if (result.nicknames.length > 0) {
+				nicks = "("+ result.nicknames.join(", ") + ")";
+			}
+			let va = "";
+			if (result.voice_actors.length > 0) {
+				result.voice_actors.forEach(function(actor) {
+					if (actor.language == "Japanese") {
+						va = "| V: " + actor.name;
+					}
+				});
+			}
+
+			imgEmote(result.image_url, "");
 			window.socket.emit("chatMsg", {
-				msg: name + " | " + title + " | V: " + vaName
-			});
+				msg: charName + " " + nicks + " " + va
+			});		
+			let animes = "";
+			if (result.animeography.length > 0) {
+				let searchStringList = result.animeography.map(function(anime) {
+					return anime.name;
+				});
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				window.socket.emit("chatMsg", {
+					msg: "*Anime:* " + listString.slice(0, 300)
+				});
+				if (listString.length >= 300) {
+					window.socket.emit("chatMsg", {
+						msg: listString.slice(300, 600) + "..."
+					});
+				}	
+			}
+
+			if (result.mangaography.length > 0) {
+				let searchStringList = result.mangaography.map(function(manga) {
+					return manga.name;
+				});
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				window.socket.emit("chatMsg", {
+					msg: "*Manga:* " + listString.slice(0, 300)
+				});
+				if (listString.length >= 300) {
+					window.socket.emit("chatMsg", {
+						msg: listString.slice(300, 600) + "..."
+					});
+				}	
+			}
+
 		}
 	});
 }
