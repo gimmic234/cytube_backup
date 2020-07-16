@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2020,
 	month2: 7,
-	day2: 12,
+	day2: 19,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -81,7 +81,7 @@ var countdownText2 = "Club";
 var countdownText3 = "Movie";
 var countdownText4 = "Eureka 7";
 var countdownText5 = "";
-var nicoEffectOnControl = "true";
+var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/c1de34d38b290db292152c09962f9ed00c07a5ac/current-ext.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
 		callback: true
 	},
 	'layout': {

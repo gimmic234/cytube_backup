@@ -1804,6 +1804,7 @@ var emoteKeyLookup = {
 		emoteSelectSubmit(e);
 	},
 	40: function(e) {
+		e.preventDefault();
 		if (selectedPopover) {
 			selectedPopover.removeClass('active');
 			next = selectedPopover.next();
@@ -1826,6 +1827,7 @@ var emoteKeyLookup = {
 		}
 	},
 	38: function(e) {
+		e.preventDefault();
 		if (selectedPopover) {
 			selectedPopover.removeClass('active');
 			next = selectedPopover.prev();
@@ -2334,20 +2336,20 @@ function malSearchVA(id, name, title)
 			}
 			let nicks = "";
 			if (result.nicknames.length > 0) {
-				nicks = "("+ result.nicknames.join(", ") + ")";
+				nicks = " ("+ result.nicknames.join(", ") + ")";
 			}
 			let va = "";
 			if (result.voice_actors.length > 0) {
 				result.voice_actors.forEach(function(actor) {
 					if (actor.language == "Japanese") {
-						va = "| V: " + actor.name;
+						va = " | V: " + actor.name;
 					}
 				});
 			}
 
 			imgEmote(result.image_url, "");
 			window.socket.emit("chatMsg", {
-				msg: charName + " " + nicks + " " + va
+				msg: charName + nicks + va
 			});		
 			let animes = "";
 			if (result.animeography.length > 0) {
@@ -2379,7 +2381,9 @@ function malSearchVA(id, name, title)
 					});
 				}	
 			}
-
+			emoteList.hide();
+			selectedPopover = null;
+			emoteTable = false;
 		}
 	});
 }
@@ -2538,6 +2542,9 @@ function malPersonDetail(id)
 					});
 				}			
 			}
+			emoteList.hide();
+			selectedPopover = null;
+			emoteTable = false;
 		}
 	});
 }
