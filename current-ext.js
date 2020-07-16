@@ -1590,7 +1590,7 @@ var chatCmdLookup = {
 			malSearchAnime(text);
 		}
 	},
-	"/ch": function(chatCmdText) {
+	/*"/ch": function(chatCmdText) {
 		if (chatCmdText.length >= 2) {
 			let text = chatCmdText.slice(1).join(" ").toLowerCase();
 			malSearchCharacter(text);
@@ -1601,7 +1601,7 @@ var chatCmdLookup = {
 			let text = chatCmdText.slice(1).join(" ").toLowerCase();
 			malPersonSearch(text);
 		}
-	},
+	},*/
 	"!coffee":function() {
 		window.socket.emit("chatMsg", {
 			msg: "coffeeimg" + "//media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif" + "coffeeimg"
@@ -2238,6 +2238,34 @@ function readTickets() {
 	});
 }
 
+function malSearchCharacterAuto(string)
+{
+	let stringUrlEncoded = encodeURIComponent(string);
+	$.ajax({
+		url: "https://api.jikan.moe/v3/search/character?q=" + stringUrlEncoded,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			if (result.results) {
+				let arrayResult = result.results;
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+				arrayResult.forEach(function(value, index) {
+					let active = (index == 0) ? "active" : "";
+					emoteString += "<tr class='selectEmote malcharacter " + active + "' data-value='" + value.mal_id + "'>";
+					emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image_url + "'></td>";
+					emoteString += "<td width='80%'>" + value.name + "</td>";
+					emoteString += "</tr>";
+				})
+				emoteString += "</tbody></table></div>";
+				emoteList[0].innerHTML = emoteString;
+				selectedPopover = $('tr.active');
+				emoteTable = true;
+				emoteList.show();
+			}
+		}
+	});
+}
+
 function malSearchCharacter(string)
 {
 	let stringUrlEncoded = encodeURIComponent(string);
@@ -2332,6 +2360,34 @@ function malSearchAnime(string)
 						msg: "MalSearch" + link + "MalSearch" + items.title + " | " + items.episodes + " ep | " + items.score
 					});
 				});
+			}
+		}
+	});
+}
+
+function malPersonSearchAuto(string)
+{
+	let stringUrlEncoded = encodeURIComponent(string);
+	$.ajax({
+		url: "https://api.jikan.moe/v3/search/person?q=" + stringUrlEncoded,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			if (result.results) {
+				let arrayResult = result.results;
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+				arrayResult.forEach(function(value, index) {
+					let active = (index == 0) ? "active" : "";
+					emoteString += "<tr class='selectEmote malperson " + active + "' data-value='" + value.mal_id + "'>";
+					emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image_url + "'></td>";
+					emoteString += "<td width='80%'>" + value.name + "</td>";
+					emoteString += "</tr>";
+				})
+				emoteString += "</tbody></table></div>";
+				emoteList[0].innerHTML = emoteString;
+				selectedPopover = $('tr.active');
+				emoteTable = true;
+				emoteList.show();
 			}
 		}
 	});
@@ -2974,6 +3030,18 @@ function populateEmote() {
 		//preloadImages(emoteArray.map(emote => emote.image));
 	}
 	//preloadImages([penguinBg, penguinImg, "https://media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif", "https://media.discordapp.net/attachments/501103378714329100/559871062913843223/1518855884_tumblr_n3tsi9JO1F1r9b5wlo1_500.gif", "https://media.discordapp.net/attachments/501103378714329100/559871042429124628/6874742.GIF", "https://media.discordapp.net/attachments/501103378714329100/559871034451427328/tea-ore-monogatari-12.png"]);
+}
+
+function selectMalCharacterSearchDetail(elem) {
+	malSearchVA(elem.attr('data-value'));
+	chatlineElem.val("");
+	chatlineElem.focus();
+}
+
+function selectMalPersonSearchDetail(elem) {
+	malPersonDetail(elem.attr('data-value'));
+	chatlineElem.val("");
+	chatlineElem.focus();
 }
 
 function appendEmote(elem) {
@@ -4052,130 +4120,144 @@ function bindEventHandler() {
 		let chatText = $('#chatline').val().split(" ");
 		let lastText = $('#chatline').val().substr(index + 1);
 		let chat = $(this);
-		if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
-			emoteList[0].innerHTML = "";
-			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
-			let filteredEmote = emoteArray.filter(emote => (emote.name.toLowerCase().indexOf(emoteText) > -1));
-			if (lastText.substr(lastText.length - 1) == ':' || filteredEmote.length == 0) {
-				emoteList.hide();
-				selectedPopover = null;
-				emoteTable = false;
-			} else {
-				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
-				filteredEmote.forEach(function(value, index) {
-					let active = (index == 0) ? "active" : "";
-					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value.name + "'>";
-					emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image + "'></td>";
-					emoteString += "<td width='80%'>" + value.name + "</td>";
-					emoteString += "</tr>";
-				})
-				emoteString += "</tbody></table></div>";
-				emoteList[0].innerHTML = emoteString;
-				selectedPopover = $('tr.active');
-				emoteTable = true;
-				emoteList.show();
-			}
-		} else if(chatText.length == 1 && lastText.substr(0, 1) == '!' && lastText.length >= 2) {
-			emoteList[0].innerHTML = "";
-			imgArray = Object.keys(imgLookup);
-			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
-			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
-			let fullMatch = imgArray.includes("!"+emoteText);
-			if (fullMatch || filteredEmote.length == 0) {
-				emoteList.hide();
-				selectedPopover = null;
-				emoteTable = false;
-			} else {
-				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
-				filteredEmote.forEach(function(value, index) {
-					let active = (index == 0) ? "active" : "";
-					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
-					emoteString += "<td>" + value + "</td>";
-					emoteString += "</tr>";
-				})
-				emoteString += "</tbody></table></div>";
-				emoteList[0].innerHTML = emoteString;
-				selectedPopover = $('tr.active');
-				emoteTable = true;
-				emoteList.show();
-			}
-		} else if(chatText.length == 1 && lastText.substr(0, 1) == '?' && lastText.length >= 2) {
-			emoteList[0].innerHTML = "";
-			imgArray = Object.keys(soundLookup);
-			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
-			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
-			let fullMatch = imgArray.includes("?"+emoteText);
-			if (fullMatch || filteredEmote.length == 0) {
-				emoteList.hide();
-				selectedPopover = null;
-				emoteTable = false;
-			} else {
-				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
-				filteredEmote.forEach(function(value, index) {
-					let active = (index == 0) ? "active" : "";
-					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
-					emoteString += "<td>" + value + "</td>";
-					emoteString += "</tr>";
-				})
-				emoteString += "</tbody></table></div>";
-				emoteList[0].innerHTML = emoteString;
-				selectedPopover = $('tr.active');
-				emoteTable = true;
-				emoteList.show();
-			}
-		} else if(chatText.length == 1 && lastText.substr(0, 1) == '$' && lastText.length >= 2) {
-			emoteList[0].innerHTML = "";
-			imgArray = Object.keys(msgLookup);
-			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
-			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
-			let fullMatch = imgArray.includes("?"+emoteText);
-			if (fullMatch || filteredEmote.length == 0) {
-				emoteList.hide();
-				selectedPopover = null;
-				emoteTable = false;
-			} else {
-				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
-				filteredEmote.forEach(function(value, index) {
-					let active = (index == 0) ? "active" : "";
-					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
-					emoteString += "<td>" + value + "</td>";
-					emoteString += "</tr>";
-				})
-				emoteString += "</tbody></table></div>";
-				emoteList[0].innerHTML = emoteString;
-				selectedPopover = $('tr.active');
-				emoteTable = true;
-				emoteList.show();
-			}
-		} else if(lastText.substr(0, 1) == '@' && lastText.length >= 2) {
-			emoteList[0].innerHTML = "";
-			imgArray = populateUserListAll();
-			let emoteText = lastText.substr(1, lastText.length).toLowerCase();
-			let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
-			let fullMatch = imgArray.includes(emoteText);
-			if (fullMatch || filteredEmote.length == 0) {
-				emoteList.hide();
-				selectedPopover = null;
-				emoteTable = false;
-			} else {
-				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
-				filteredEmote.forEach(function(value, index) {
-					let active = (index == 0) ? "active" : "";
-					emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
-					emoteString += "<td>" + value + "</td>";
-					emoteString += "</tr>";
-				})
-				emoteString += "</tbody></table></div>";
-				emoteList[0].innerHTML = emoteString;
-				selectedPopover = $('tr.active');
-				emoteTable = true;
-				emoteList.show();
-			}
+		let firstText = "";
+		if (chatText.length > 1) {
+			firstText = chatText[0];
+		}
+
+		if (firstText == "/ch") {
+			let searchText = chatText.splice(1).join(" ");
+			malSearchCharacterAuto(searchText);
+		} else if (firstText == "/per") {
+			let searchText = chatText.splice(1).join(" ");
+			malPersonSearchAuto(searchText);
 		} else {
-			chatlineElem.on('keydown', handlerKeydown);
-			emoteList.hide();
-			selectedPopover = null;
-			emoteTable = false;
+
+			if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
+				emoteList[0].innerHTML = "";
+				let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+				let filteredEmote = emoteArray.filter(emote => (emote.name.toLowerCase().indexOf(emoteText) > -1));
+				if (lastText.substr(lastText.length - 1) == ':' || filteredEmote.length == 0) {
+					emoteList.hide();
+					selectedPopover = null;
+					emoteTable = false;
+				} else {
+					let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+					filteredEmote.forEach(function(value, index) {
+						let active = (index == 0) ? "active" : "";
+						emoteString += "<tr class='selectEmote " + active + "' data-value='" + value.name + "'>";
+						emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image + "'></td>";
+						emoteString += "<td width='80%'>" + value.name + "</td>";
+						emoteString += "</tr>";
+					})
+					emoteString += "</tbody></table></div>";
+					emoteList[0].innerHTML = emoteString;
+					selectedPopover = $('tr.active');
+					emoteTable = true;
+					emoteList.show();
+				}
+			} else if(chatText.length == 1 && lastText.substr(0, 1) == '!' && lastText.length >= 2) {
+				emoteList[0].innerHTML = "";
+				imgArray = Object.keys(imgLookup);
+				let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+				let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
+				let fullMatch = imgArray.includes("!"+emoteText);
+				if (fullMatch || filteredEmote.length == 0) {
+					emoteList.hide();
+					selectedPopover = null;
+					emoteTable = false;
+				} else {
+					let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+					filteredEmote.forEach(function(value, index) {
+						let active = (index == 0) ? "active" : "";
+						emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
+						emoteString += "<td>" + value + "</td>";
+						emoteString += "</tr>";
+					})
+					emoteString += "</tbody></table></div>";
+					emoteList[0].innerHTML = emoteString;
+					selectedPopover = $('tr.active');
+					emoteTable = true;
+					emoteList.show();
+				}
+			} else if(chatText.length == 1 && lastText.substr(0, 1) == '?' && lastText.length >= 2) {
+				emoteList[0].innerHTML = "";
+				imgArray = Object.keys(soundLookup);
+				let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+				let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
+				let fullMatch = imgArray.includes("?"+emoteText);
+				if (fullMatch || filteredEmote.length == 0) {
+					emoteList.hide();
+					selectedPopover = null;
+					emoteTable = false;
+				} else {
+					let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+					filteredEmote.forEach(function(value, index) {
+						let active = (index == 0) ? "active" : "";
+						emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
+						emoteString += "<td>" + value + "</td>";
+						emoteString += "</tr>";
+					})
+					emoteString += "</tbody></table></div>";
+					emoteList[0].innerHTML = emoteString;
+					selectedPopover = $('tr.active');
+					emoteTable = true;
+					emoteList.show();
+				}
+			} else if(chatText.length == 1 && lastText.substr(0, 1) == '$' && lastText.length >= 2) {
+				emoteList[0].innerHTML = "";
+				imgArray = Object.keys(msgLookup);
+				let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+				let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
+				let fullMatch = imgArray.includes("?"+emoteText);
+				if (fullMatch || filteredEmote.length == 0) {
+					emoteList.hide();
+					selectedPopover = null;
+					emoteTable = false;
+				} else {
+					let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+					filteredEmote.forEach(function(value, index) {
+						let active = (index == 0) ? "active" : "";
+						emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
+						emoteString += "<td>" + value + "</td>";
+						emoteString += "</tr>";
+					})
+					emoteString += "</tbody></table></div>";
+					emoteList[0].innerHTML = emoteString;
+					selectedPopover = $('tr.active');
+					emoteTable = true;
+					emoteList.show();
+				}
+			} else if(lastText.substr(0, 1) == '@' && lastText.length >= 2) {
+				emoteList[0].innerHTML = "";
+				imgArray = populateUserListAll();
+				let emoteText = lastText.substr(1, lastText.length).toLowerCase();
+				let filteredEmote = imgArray.filter(emote => (emote.toLowerCase().indexOf(emoteText) > -1));
+				let fullMatch = imgArray.includes(emoteText);
+				if (fullMatch || filteredEmote.length == 0) {
+					emoteList.hide();
+					selectedPopover = null;
+					emoteTable = false;
+				} else {
+					let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+					filteredEmote.forEach(function(value, index) {
+						let active = (index == 0) ? "active" : "";
+						emoteString += "<tr class='selectEmote " + active + "' data-value='" + value + "'>";
+						emoteString += "<td>" + value + "</td>";
+						emoteString += "</tr>";
+					})
+					emoteString += "</tbody></table></div>";
+					emoteList[0].innerHTML = emoteString;
+					selectedPopover = $('tr.active');
+					emoteTable = true;
+					emoteList.show();
+				}
+			} else {
+				chatlineElem.on('keydown', handlerKeydown);
+				emoteList.hide();
+				selectedPopover = null;
+				emoteTable = false;
+			}
 		}
 	});
 
