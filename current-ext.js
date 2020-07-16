@@ -2549,6 +2549,68 @@ function malPersonDetail(id)
 	});
 }
 
+function malSearchAnimeAuto(string)
+{
+	let stringUrlEncoded = encodeURIComponent(string);
+	$.ajax({
+		url: "https://api.jikan.moe/v3/search/anime?q=" + stringUrlEncoded,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			if (result.results) {
+				let arrayResult = result.results;
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+				arrayResult.forEach(function(value, index) {
+					let active = (index == 0) ? "active" : "";
+					emoteString += "<tr class='selectEmote malAnime " + active + "' data-value='" + value.mal_id + "'>";
+					emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image_url + "'></td>";
+					emoteString += "<td width='80%'>" + value.name + "</td>";
+					emoteString += "</tr>";
+				})
+				emoteString += "</tbody></table></div>";
+				emoteList[0].innerHTML = emoteString;
+				selectedPopover = $('tr.active');
+				emoteTable = true;
+				emoteList.show();
+			}
+		}
+	});
+}
+
+function themesMoeSearch(malId)
+{
+	$.ajax({
+		url: "https://themes.moe/api/themes/" + malId,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let response = $.parseJSON(result);
+			if (!response.theme) {
+				alert("no themes were found.");
+				emoteTable = false;
+				emoteList.hide();
+				return;
+			}
+			if (response.themes.length > 0) {
+				let arrayResult = response.themes;
+				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+				arrayResult.forEach(function(value, index) {
+					let active = (index == 0) ? "active" : "";
+					emoteString += "<tr class='selectEmote themeQueue " + active + "' data-value='" + value.mirror.mirrorURL + "'>";
+					emoteString += "<td width='40%'>"+value.themeType+"</td>";
+					emoteString += "<td width='60%'>" + value.mirror.notes + "</td>";
+					emoteString += "</tr>";
+				})
+				emoteString += "</tbody></table></div>";
+				emoteList[0].innerHTML = emoteString;
+				selectedPopover = $('tr.active');
+				emoteTable = true;
+				emoteList.show();
+			}
+		}
+	});
+}
+
 function cleanHttps(imageUrl)
 {
 	var url = imageUrl.replace('https:', '');
@@ -2861,16 +2923,25 @@ var emoteSelectSubmit = function(e) {
 	if (selectedPopover) {
 		e.preventDefault();
 		let activeSelected = $('tr.active');
+		let hide = true;
 		if (activeSelected.hasClass("malcharacter")) {
 			selectMalCharacterSearchDetail(activeSelected);
 		} else if (activeSelected.hasClass("malperson")) {
 			selectMalPersonSearchDetail(activeSelected);
+		} else if (activeSelected.hasClass("malAnime")) {
+			selectMalAnimeTheme(activeSelected);
+			hide = false;
+		} else if (activeSelected.hasClass("themeQueue")) {
+			selectPlayTheme(activeSelected);
 		} else {
 			appendEmote(activeSelected);
 		}
-		emoteList.hide();
-		selectedPopover = null;
-		emoteTable = false;
+
+		if (hide) {
+			emoteList.hide();
+			selectedPopover = null;
+			emoteTable = false;
+		}
 	}
 	return false;
 }
@@ -3085,6 +3156,21 @@ function populateEmote() {
 		//preloadImages(emoteArray.map(emote => emote.image));
 	}
 	//preloadImages([penguinBg, penguinImg, "https://media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif", "https://media.discordapp.net/attachments/501103378714329100/559871062913843223/1518855884_tumblr_n3tsi9JO1F1r9b5wlo1_500.gif", "https://media.discordapp.net/attachments/501103378714329100/559871042429124628/6874742.GIF", "https://media.discordapp.net/attachments/501103378714329100/559871034451427328/tea-ore-monogatari-12.png"]);
+}
+
+function selectMalAnimeTheme(elem)
+{
+	themesMoeSearch(elem.attr('data-value'));
+	chatlineElem.val("");
+	chatlineElem.focus();
+}
+
+function selectPlayTheme(elem)
+{
+	let url = elem.attr('data-value');
+	chatCmdLookup['/addq']([0, url]);
+	chatlineElem.val("");
+	chatlineElem.focus();
 }
 
 function selectMalCharacterSearchDetail(elem) {
@@ -4166,15 +4252,25 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#emote-data-field', function(e) {
 		let activeSelected = $(e.target).closest('tr');
+		let hide = true;
+
 		if (activeSelected.hasClass("malcharacter")) {
 			selectMalCharacterSearchDetail(activeSelected);
 		} else if (activeSelected.hasClass("malperson")) {
 			selectMalPersonSearchDetail(activeSelected);
+		} else if (activeSelected.hasClass("malAnime")) {
+			selectMalAnimeTheme(activeSelected);
+			hide = false;
+		} else if (activeSelected.hasClass("themeQueue")) {
+			selectPlayTheme(activeSelected);
 		} else {
 			appendEmote(activeSelected);
 		}
-		emoteList.hide();
-		emoteTable = false;
+
+		if (hide) {
+			emoteList.hide();
+			emoteTable = false;
+		}
 	});
 
 	$(bodyElem).on('input', '#chatline', function(e) {
@@ -4193,7 +4289,10 @@ function bindEventHandler() {
 		} else if (firstText == "/per") {
 			let searchText = chatText.splice(1).join(" ");
 			malPersonSearchAuto(searchText);
-		} else {
+		} else if (firstText == "/th") {
+			let searchText = chatText.splice(1).join(" ");
+			malSearchAnimeAuto(searchText);
+		}else {
 
 			if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
 				emoteList[0].innerHTML = "";
