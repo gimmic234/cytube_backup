@@ -2812,7 +2812,14 @@ function countdownMsg(totalSeconds) {
 var emoteSelectSubmit = function(e) {
 	if (selectedPopover) {
 		e.preventDefault();
-		appendEmote($('tr.active'));
+		let activeSelected = $('tr.active');
+		if (activeSelected.hasClass("malcharacter")) {
+			selectMalCharacterSearchDetail(activeSelected);
+		} else if (activeSelected.hasClass("malperson")) {
+			selectMalPersonSearchDetail(activeSelected);
+		} else {
+			appendEmote(activeSelected);
+		}
 		emoteList.hide();
 		selectedPopover = null;
 		emoteTable = false;
@@ -4110,7 +4117,14 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#emote-data-field', function(e) {
-		appendEmote($(e.target).closest('tr'));
+		let activeSelected = $(e.target).closest('tr');
+		if (activeSelected.hasClass("malcharacter")) {
+			selectMalCharacterSearchDetail(activeSelected);
+		} else if (activeSelected.hasClass("malperson")) {
+			selectMalPersonSearchDetail(activeSelected);
+		} else {
+			appendEmote(activeSelected);
+		}
 		emoteList.hide();
 		emoteTable = false;
 	});
