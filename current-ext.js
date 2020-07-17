@@ -2564,7 +2564,7 @@ function malSearchAnimeAuto(string)
 					let active = (index == 0) ? "active" : "";
 					emoteString += "<tr class='selectEmote malAnime " + active + "' data-value='" + value.mal_id + "'>";
 					emoteString += "<td width='20%'><img class='smol-emote' src='" + value.image_url + "'></td>";
-					emoteString += "<td width='80%'>" + value.name + "</td>";
+					emoteString += "<td width='80%'>" + value.title + "</td>";
 					emoteString += "</tr>";
 				})
 				emoteString += "</tbody></table></div>";
@@ -2577,22 +2577,28 @@ function malSearchAnimeAuto(string)
 	});
 }
 
+
+
 function themesMoeSearch(malId)
 {
 	$.ajax({
-		url: "https://themes.moe/api/themes/" + malId,
-		method: "get",
-		dataType: "json",
+		url: "https://themes.moe/api/themes/" + malId ,
+		dataType: 'jsonp',
+		jsonp: 'callback',
+		type: 'GET',
+		crossDomain: true,
+		jsonpCallback: 'themesMoeResultsProcess',
+		contentType: "text/javascript",
 		success: function(result) {
 			let response = $.parseJSON(result);
-			if (!response.theme) {
+			if (!response[0].theme) {
 				alert("no themes were found.");
 				emoteTable = false;
 				emoteList.hide();
 				return;
 			}
-			if (response.themes.length > 0) {
-				let arrayResult = response.themes;
+			if (response[0].themes.length > 0) {
+				let arrayResult = response[0].themes;
 				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
 				arrayResult.forEach(function(value, index) {
 					let active = (index == 0) ? "active" : "";
@@ -2607,7 +2613,15 @@ function themesMoeSearch(malId)
 				emoteTable = true;
 				emoteList.show();
 			}
-		}
+		},
+	    error: function(xhr, status, error) {
+	    	console.log(xhr);
+    	    console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+      	},
+      	complete: function(result)
+      	{
+      		console.log(result);
+      	}
 	});
 }
 
