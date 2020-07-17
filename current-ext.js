@@ -4445,7 +4445,7 @@ function bindEventHandler() {
 				emoteTable = false;
 			}
 		}
-	}));
+	}), 1000);
 
 	$(document).mouseup(function(e){
 	    var container = $('.emote-block-container');
