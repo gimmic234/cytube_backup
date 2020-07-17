@@ -4224,6 +4224,7 @@ function bindEventHandler() {
 				malSearchAnimeAuto(searchText)
 			}, chatSearchDelay);
 		} else {
+			searchEnabled = false;
 			if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
 				emoteList[0].innerHTML = "";
 				let emoteText = lastText.substr(1, lastText.length).toLowerCase();
