@@ -2578,8 +2578,52 @@ function malSearchAnimeAuto(string)
 }
 
 
+function themesMoeSuccess(error, result)
+{
+	if (error != null) {
+		alert(error);
+		return;
+	}
+
+	let response = $.parseJSON(result.response);
+	if (!response[0]) {
+		alert("invalid anime id");
+		emoteTable = false;
+		emoteList.hide();
+		return;
+	}
+
+	response = response[0];
+
+	if (response.themes.length == 0) {
+		alert("no themes were found.");
+		emoteTable = false;
+		emoteList.hide();
+		return;
+	}
+	if (response.themes.length > 0) {
+		let arrayResult = response.themes;
+		let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
+		arrayResult.forEach(function(value, index) {
+			let active = (index == 0) ? "active" : "";
+			emoteString += "<tr class='selectEmote themeQueue " + active + "' data-value='" + value.mirror.mirrorURL + "'>";
+			emoteString += "<td width='40%'>"+value.themeType+"</td>";
+			emoteString += "<td width='60%'>" + value.mirror.notes + "</td>";
+			emoteString += "</tr>";
+		})
+		emoteString += "</tbody></table></div>";
+		emoteList[0].innerHTML = emoteString;
+		selectedPopover = $('tr.active');
+		emoteTable = true;
+		emoteList.show();
+	}
+}
 
 function themesMoeSearch(malId)
+{
+	window.getThemesMoe(malId, themesMoeSuccess);
+}
+/*function themesMoeSearch(malId)
 {
 	$.ajax({
 		url: "https://themes.moe/api/themes/" + malId ,
@@ -2624,7 +2668,7 @@ function themesMoeSearch(malId)
       	}
 	});
 }
-
+*/
 function cleanHttps(imageUrl)
 {
 	var url = imageUrl.replace('https:', '');
@@ -4303,7 +4347,7 @@ function bindEventHandler() {
 		} else if (firstText == "/per") {
 			let searchText = chatText.splice(1).join(" ");
 			malPersonSearchAuto(searchText);
-		} else if (firstText == "/th") {
+		} else if (firstText == "/th" && window.themesmoe) {
 			let searchText = chatText.splice(1).join(" ");
 			malSearchAnimeAuto(searchText);
 		}else {
