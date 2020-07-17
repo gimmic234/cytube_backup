@@ -4298,7 +4298,7 @@ function bindEventHandler() {
 		}
 	});
 
-	$(bodyElem).on('input', '#chatline', delay(function(e) {
+	$(bodyElem).on('input', '#chatline', function(e) {
 		let index = $('#chatline').val().lastIndexOf(" ");
 		let chatText = $('#chatline').val().split(" ");
 		let lastText = $('#chatline').val().substr(index + 1);
@@ -4307,18 +4307,18 @@ function bindEventHandler() {
 		if (chatText.length > 1) {
 			firstText = chatText[0];
 		}
+		clearTimeout(typingTimer);
 
 		if (firstText == "/ch") {
 			let searchText = chatText.splice(1).join(" ");
-			malSearchCharacterAuto(searchText);
+  			typingTimer = setTimeout(malSearchCharacterAuto(searchText), chatSerachDelay);
 		} else if (firstText == "/per") {
 			let searchText = chatText.splice(1).join(" ");
-			malPersonSearchAuto(searchText);
+			typingTimer = setTimeout(malPersonSearchAuto(searchText), chatSerachDelay);
 		} else if (firstText == "/th" && window.themesmoe) {
 			let searchText = chatText.splice(1).join(" ");
-			malSearchAnimeAuto(searchText);
-		}else {
-
+			typingTimer = setTimeout(malSearchAnimeAuto(searchText), chatSerachDelay);
+		} else {
 			if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
 				emoteList[0].innerHTML = "";
 				let emoteText = lastText.substr(1, lastText.length).toLowerCase();
@@ -4445,7 +4445,7 @@ function bindEventHandler() {
 				emoteTable = false;
 			}
 		}
-	}), chatSerachDelay);
+	});
 
 	$(document).mouseup(function(e){
 	    var container = $('.emote-block-container');
