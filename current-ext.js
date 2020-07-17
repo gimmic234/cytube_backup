@@ -4311,13 +4311,19 @@ function bindEventHandler() {
 
 		if (firstText == "/ch") {
 			let searchText = chatText.splice(1).join(" ");
-  			typingTimer = setTimeout(malSearchCharacterAuto(searchText), chatSearchDelay);
+  			typingTimer = setTimeout(function() {
+  				malSearchCharacterAuto(searchText)
+  			}, chatSearchDelay);
 		} else if (firstText == "/per") {
 			let searchText = chatText.splice(1).join(" ");
-			typingTimer = setTimeout(malPersonSearchAuto(searchText), chatSearchDelay);
+			typingTimer = setTimeout(function() {
+				malPersonSearchAuto(searchText)
+			}, chatSearchDelay);
 		} else if (firstText == "/th" && window.themesmoe) {
 			let searchText = chatText.splice(1).join(" ");
-			typingTimer = setTimeout(malSearchAnimeAuto(searchText), chatSearchDelay);
+			typingTimer = setTimeout(function() {
+				malSearchAnimeAuto(searchText)
+			}, chatSearchDelay);
 		} else {
 			if (lastText.substr(0, 1) == ':' && lastText.length > 2) {
 				emoteList[0].innerHTML = "";
