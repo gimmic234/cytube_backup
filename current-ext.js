@@ -2240,6 +2240,18 @@ function readTickets() {
 	});
 }
 
+function delay(callback, ms) {
+  var timer = 0;
+  return function() {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      callback.apply(context, args);
+    }, ms || 0);
+  };
+}
+
+
 function malSearchCharacterAuto(string)
 {
 	let stringUrlEncoded = encodeURIComponent(string);
@@ -2623,52 +2635,7 @@ function themesMoeSearch(malId)
 {
 	window.getThemesMoe(malId, themesMoeSuccess);
 }
-/*function themesMoeSearch(malId)
-{
-	$.ajax({
-		url: "https://themes.moe/api/themes/" + malId ,
-		dataType: 'jsonp',
-		jsonp: 'callback',
-		type: 'GET',
-		crossDomain: true,
-		jsonpCallback: 'themesMoeResultsProcess',
-		contentType: "text/javascript",
-		success: function(result) {
-			let response = $.parseJSON(result);
-			if (!response[0].theme) {
-				alert("no themes were found.");
-				emoteTable = false;
-				emoteList.hide();
-				return;
-			}
-			if (response[0].themes.length > 0) {
-				let arrayResult = response[0].themes;
-				let emoteString = "<div class='emote-table-wrapper'><table class='table table-sm table-hover emote-table'><tbody>";
-				arrayResult.forEach(function(value, index) {
-					let active = (index == 0) ? "active" : "";
-					emoteString += "<tr class='selectEmote themeQueue " + active + "' data-value='" + value.mirror.mirrorURL + "'>";
-					emoteString += "<td width='40%'>"+value.themeType+"</td>";
-					emoteString += "<td width='60%'>" + value.mirror.notes + "</td>";
-					emoteString += "</tr>";
-				})
-				emoteString += "</tbody></table></div>";
-				emoteList[0].innerHTML = emoteString;
-				selectedPopover = $('tr.active');
-				emoteTable = true;
-				emoteList.show();
-			}
-		},
-	    error: function(xhr, status, error) {
-	    	console.log(xhr);
-    	    console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-      	},
-      	complete: function(result)
-      	{
-      		console.log(result);
-      	}
-	});
-}
-*/
+
 function cleanHttps(imageUrl)
 {
 	var url = imageUrl.replace('https:', '');
@@ -4331,7 +4298,7 @@ function bindEventHandler() {
 		}
 	});
 
-	$(bodyElem).on('input', '#chatline', function(e) {
+	$(bodyElem).on('input', '#chatline', delay(function(e) {
 		let index = $('#chatline').val().lastIndexOf(" ");
 		let chatText = $('#chatline').val().split(" ");
 		let lastText = $('#chatline').val().substr(index + 1);
@@ -4478,7 +4445,7 @@ function bindEventHandler() {
 				emoteTable = false;
 			}
 		}
-	});
+	}));
 
 	$(document).mouseup(function(e){
 	    var container = $('.emote-block-container');
