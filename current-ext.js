@@ -13,7 +13,7 @@ var chatCmdLookup = {
 		let text = chatCmdText.slice(2).join(" ");
 		$('#cs-chatfilters-newname').val(chatCmdText[1] + 1);
 		$('#cs-chatfilters-newregex').val(chatCmdText[1] + "($)");
-		$('#cs-chatfilters-newflags').val("g");
+		$('#cs-chatfilters-newflags').val("gi");
 		$('#cs-chatfilters-newreplace').val(text);
 		$('#cs-chatfilters-newsubmit').click();
 
