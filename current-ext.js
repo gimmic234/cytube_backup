@@ -1590,18 +1590,6 @@ var chatCmdLookup = {
 			malSearchAnime(text);
 		}
 	},
-	/*"/ch": function(chatCmdText) {
-		if (chatCmdText.length >= 2) {
-			let text = chatCmdText.slice(1).join(" ").toLowerCase();
-			malSearchCharacter(text);
-		}
-	},
-	"/per": function(chatCmdText) {
-		if (chatCmdText.length >= 2) {
-			let text = chatCmdText.slice(1).join(" ").toLowerCase();
-			malPersonSearch(text);
-		}
-	},*/
 	"!coffee":function() {
 		window.socket.emit("chatMsg", {
 			msg: "coffeeimg" + "//media.discordapp.net/attachments/501103378714329100/559871053866860584/tumblr_nke5iceDcM1sji7w0o1_540.gif" + "coffeeimg"
@@ -1856,6 +1844,9 @@ var emoteKeyLookup = {
 
 var chatKeyLookup = {
 	13: function(e) {
+		if (searchEnabled) {
+			return;
+		}
 		if (window.CHATTHROTTLE || (window.CLIENT.rank < 2 && chatMute == "true")) {
 			return;
 		}
@@ -2280,61 +2271,6 @@ function malSearchCharacterAuto(string)
 	});
 }
 
-function malSearchCharacter(string)
-{
-	let stringUrlEncoded = encodeURIComponent(string);
-	$.ajax({
-		url: "https://api.jikan.moe/v3/search/character?q=" + stringUrlEncoded,
-		method: "get",
-		dataType: "json",
-		success: function(result) {
-			if (result.results) {
-				let arrayResult = result.results;
-				window.socket.emit("chatMsg", {
-					msg: "*character search (/ch)*: " + string
-				});
-				if (arrayResult.length > 10) {
-					let searchStringList = arrayResult.map(function(char) {
-						let altNames = "";
-						if (char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).length > 0) {
-							altNames = "(" + char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).join(",") + ")";
-						}
-						return char.name + altNames;
-					});
-					let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
-					window.socket.emit("chatMsg", {
-						msg: "too many results: " + listString.slice(0, 300)
-					});
-					if (listString.length >= 300) {
-						window.socket.emit("chatMsg", {
-							msg: listString.slice(300, 600) + "..."
-						});
-					}
-					return;
-				} else {
-					arrayResult = arrayResult.slice(0, 5);
-				}
-
-				arrayResult.map(function(items) {
-					var title = "";
-					if (items.anime.length > 0) {
-						title = items.anime[0].name;
-						malSearchVA(items.mal_id, items.name, title);
-					} else {
-						if (items.manga.length > 0) {
-							title = items.manga[0].name;
-						}
-						imgEmote(items.image_url, "");	
-						window.socket.emit("chatMsg", {
-							msg: items.name + " | " + title
-						});
-					}
-				});
-			}
-		}
-	});
-}
-
 function malSearchVA(id, name, title)
 {
 	$.ajax({
@@ -2445,49 +2381,6 @@ function malPersonSearchAuto(string)
 				selectedPopover = $('tr.active');
 				emoteTable = true;
 				emoteList.show();
-			}
-		}
-	});
-}
-
-function malPersonSearch(string)
-{
-	let stringUrlEncoded = encodeURIComponent(string);
-	$.ajax({
-		url: "https://api.jikan.moe/v3/search/person?q=" + stringUrlEncoded,
-		method: "get",
-		dataType: "json",
-		success: function(result) {
-			if (result.results) {
-				let arrayResult = result.results;
-				window.socket.emit("chatMsg", {
-					msg: "*person search (/per)*: " + string
-				});
-				if (arrayResult.length > 2) {
-					let searchStringList = arrayResult.map(function(char) {
-						let altNames = "";
-						if (char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).length > 0) {
-							altNames = "(" + char.alternative_names.filter(n => n.toLowerCase() != string.toLowerCase()).join(",") + ")";
-						}
-						return char.name + altNames;
-					});
-					let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
-					window.socket.emit("chatMsg", {
-						msg: "too many results: " + listString.slice(0, 300)
-					});
-					if (listString.length >= 300) {
-						window.socket.emit("chatMsg", {
-							msg: listString.slice(300, 600) + "..."
-						});
-					}
-					return;
-				} else {
-					arrayResult = arrayResult.slice(0, 2);
-				}
-
-				arrayResult.map(function(items) {
-					malPersonDetail(items.mal_id);
-				});
 			}
 		}
 	});
@@ -4311,17 +4204,23 @@ function bindEventHandler() {
 
 		if (firstText == "/ch") {
 			let searchText = chatText.splice(1).join(" ");
+			searchEnabled = true;
   			typingTimer = setTimeout(function() {
+  				searchEnabled = false;
   				malSearchCharacterAuto(searchText)
   			}, chatSearchDelay);
 		} else if (firstText == "/per") {
 			let searchText = chatText.splice(1).join(" ");
+			searchEnabled = true;
 			typingTimer = setTimeout(function() {
+				searchEnabled = false;
 				malPersonSearchAuto(searchText)
 			}, chatSearchDelay);
 		} else if (firstText == "/th" && window.themesmoe) {
 			let searchText = chatText.splice(1).join(" ");
+			searchEnabled = true;
 			typingTimer = setTimeout(function() {
+				searchEnabled = false;
 				malSearchAnimeAuto(searchText)
 			}, chatSearchDelay);
 		} else {
