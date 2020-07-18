@@ -3304,8 +3304,8 @@ window.loadInitializer = function() {
 			  $("#togglemotd").find(".glyphicon-plus")
 			    .removeClass("glyphicon-plus")
 			    .addClass("glyphicon-minus");
-			    $("#motdwrap").addClass("lowopacity");
 			} else {
+				$("#motdwrap").addClass("lowopacity");
 			  $("#togglemotd").find(".glyphicon-minus")
 			    .removeClass("glyphicon-minus")
 			    .addClass("glyphicon-plus");
