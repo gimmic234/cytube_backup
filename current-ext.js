@@ -3277,6 +3277,12 @@ window.loadInitializer = function() {
 		}
 	});
 
+	waitForEl("#motd", function() {
+		if($("#motd")[0].style.display === "none") {
+			$("#motdwrap").addClass("lowopacity");
+		}
+	});
+
 	waitForEl('#messagebuffer', function() {
 		let amq = $("a[href='https://animemusicquiz.com/'");
 		if (loadSetComplete != true) {
@@ -4599,6 +4605,14 @@ function bindEventHandler() {
 		$(this).html(newStatus);
 		$(this).attr('data-status', newStatus);
 		editJs(68, [0, toggle]);
+	});
+
+	$(bodyElem).on('click', '#togglemotd', function() {
+		if($("#motd")[0].style.display === "none") {
+			$("#motdwrap").addClass("lowopacity");
+		} else {
+			$("#motdwrap").removeClass("lowopacity");
+		}
 	});
 
 	$(bodyElem).on('click', '#bgm-option', function() {
