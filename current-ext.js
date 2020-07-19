@@ -2231,17 +2231,20 @@ function readTickets() {
 	});
 }
 
-function delay(callback, ms) {
-  var timer = 0;
-  return function() {
-    var context = this, args = arguments;
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      callback.apply(context, args);
-    }, ms || 0);
-  };
+function removeArrayItemsContainsSameString(array)
+{
+	let arrayFiltered = [];
+	array.forEach(function(item) {
+		let tempArray = array.filter(function (v) { 
+		    return v.includes(item);
+		});
+		if (tempArray.length > 0) 
+		{
+			arrayFiltered.push(tempArray[0]);
+		}
+	});
+	return arrayFiltered;
 }
-
 
 function malSearchCharacterAuto(string)
 {
@@ -2304,30 +2307,24 @@ function malSearchVA(id, name, title)
 				let searchStringList = result.animeography.map(function(anime) {
 					return anime.name;
 				});
-				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p);
+				listString = removeArrayItemsContainsSameString(listString);
+				listString = listString.join(" | ")
 				window.socket.emit("chatMsg", {
 					msg: "*Anime:* " + listString.slice(0, 300)
 				});
-				if (listString.length >= 300) {
-					window.socket.emit("chatMsg", {
-						msg: listString.slice(300, 600) + "..."
-					});
-				}	
 			}
 
 			if (result.mangaography.length > 0) {
 				let searchStringList = result.mangaography.map(function(manga) {
 					return manga.name;
 				});
-				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p);
+				listString = removeArrayItemsContainsSameString(listString);
+				listString = listString.join(" | ")
 				window.socket.emit("chatMsg", {
 					msg: "*Manga:* " + listString.slice(0, 300)
 				});
-				if (listString.length >= 300) {
-					window.socket.emit("chatMsg", {
-						msg: listString.slice(300, 600) + "..."
-					});
-				}	
 			}
 			emoteList.hide();
 			selectedPopover = null;
@@ -2409,43 +2406,34 @@ function malPersonDetail(id)
 				let searchStringList = result.voice_acting_roles.map(function(ch) {
 					return ch.character.name;
 				});
-				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p);
+				listString = removeArrayItemsContainsSameString(listString);
+				listString = listString.join(" | ")
 				window.socket.emit("chatMsg", {
 					msg: "*Voice Acting:* " + listString.slice(0, 300)
 				});
-				if (listString.length >= 300) {
-					window.socket.emit("chatMsg", {
-						msg: listString.slice(300, 600) + "..."
-					});
-				}	
 			}
 			if (result.anime_staff_positions.length > 0) {
 				let searchStringList = result.anime_staff_positions.map(function(anime) {
 					return anime.anime.name;
 				});
-				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p);
+				listString = removeArrayItemsContainsSameString(listString);
+				listString = listString.join(" | ")
 				window.socket.emit("chatMsg", {
 					msg: "*Production Staff:* " + listString.slice(0, 300)
-				});
-				if (listString.length >= 300) {
-					window.socket.emit("chatMsg", {
-						msg: listString.slice(300, 600) + "..."
-					});
-				}		
+				});		
 			}
 			if (result.published_manga.length > 0) {
 				let searchStringList = result.published_manga.map(function(manga) {
 					return manga.manga.name;
 				});
-				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p).join(" | ");
+				let listString = searchStringList.filter((v, p) => searchStringList.indexOf(v) == p);
+				listString = removeArrayItemsContainsSameString(listString);
+				listString = listString.join(" | ")
 				window.socket.emit("chatMsg", {
 					msg: "*Manga/LN:* " + listString.slice(0, 300)
 				});
-				if (listString.length >= 300) {
-					window.socket.emit("chatMsg", {
-						msg: listString.slice(300, 600) + "..."
-					});
-				}			
 			}
 			emoteList.hide();
 			selectedPopover = null;
@@ -3301,11 +3289,14 @@ window.loadInitializer = function() {
 			var hidden = $("#motd").css("display") === "none";
 			$("#motd").toggle();
 			if (hidden) {
+				$('#motdrow').insertAfter('#scroll-feature');
+				$("#motdwrap").removeClass("lowopacity");
 			  $("#togglemotd").find(".glyphicon-plus")
 			    .removeClass("glyphicon-plus")
 			    .addClass("glyphicon-minus");
 			} else {
 				$("#motdwrap").addClass("lowopacity");
+				$('#motdrow').insertAfter('#queuecontainer');
 			  $("#togglemotd").find(".glyphicon-minus")
 			    .removeClass("glyphicon-minus")
 			    .addClass("glyphicon-plus");
@@ -4605,7 +4596,9 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '#togglemotd', function() {
 		if($("#motd")[0].style.display === "none") {
 			$("#motdwrap").addClass("lowopacity");
+			$('#motdrow').insertAfter('#queuecontainer');
 		} else {
+			$('#motdrow').insertAfter('#scroll-feature');
 			$("#motdwrap").removeClass("lowopacity");
 		}
 	});
