@@ -2234,12 +2234,14 @@ function readTickets() {
 function removeArrayItemsContainsSameString(array)
 {
 	let arrayFiltered = [];
+	let copyArray = array;
 	array.forEach(function(item) {
-		let tempArray = array.filter(function (v) { 
+		let tempArray = copyArray.filter(function (v) { 
 		    return v.includes(item);
 		});
 		if (tempArray.length > 0) 
 		{
+			copyArray = copyArray.filter( ( el ) => !tempArray.includes( el ) );
 			arrayFiltered.push(tempArray[0]);
 		}
 	});
