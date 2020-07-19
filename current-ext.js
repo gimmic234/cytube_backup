@@ -3292,12 +3292,10 @@ window.loadInitializer = function() {
 			$("#motd").toggle();
 			if (hidden) {
 				$('#motdrow').insertAfter('#scroll-feature');
-				$("#motdwrap").removeClass("lowopacity");
 			  $("#togglemotd").find(".glyphicon-plus")
 			    .removeClass("glyphicon-plus")
 			    .addClass("glyphicon-minus");
 			} else {
-				$("#motdwrap").addClass("lowopacity");
 				$('#motdrow').insertAfter('#queuecontainer');
 			  $("#togglemotd").find(".glyphicon-minus")
 			    .removeClass("glyphicon-minus")
@@ -4597,11 +4595,9 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#togglemotd', function() {
 		if($("#motd")[0].style.display === "none") {
-			$("#motdwrap").addClass("lowopacity");
 			$('#motdrow').insertAfter('#queuecontainer');
 		} else {
 			$('#motdrow').insertAfter('#scroll-feature');
-			$("#motdwrap").removeClass("lowopacity");
 		}
 	});
 

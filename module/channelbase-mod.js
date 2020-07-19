@@ -51,7 +51,7 @@ $('#disco').html("<img id='discoimg' src='"+discoGif+"'>");
 $('#wrap').append("<div id='imgWrap1' hidden></div>");
 $('#imgWrap1').append("<img id='imgBubble' src='"+imgBubble+"'>");
 $("#videoinfo").append("<div class='textheader'></div><div id='videoinfohead'><span id='addedbyTEXT'>Queued by <span id='addedby'></span></span><div id='headbottom'><div id='headright'><div id='ss7time' title='--:--'>0:00</div><div id='videolength'></div><div id='progbar'></div></div></div></div><div id='videoopts'></div>");
-$("<div class='row lowopacity' id='positionPadder'><p>s</p></div>").insertBefore("#videoinfo");
+$("<div class='row lowopacity' id='positionPadder'><p>&nbsp;</p></div>").insertBefore("#videoinfo");
 $(".navbar-header").after($("#currenttitle")); //move video title below video player
 $("#headbottom").append("<button id='addmedia' title='Add Media' class='headbtn headbtnleft'></button>");
 $("#headbottom").append("<button id='randomVideoSmol' title='Queue Random' class='headbtn headbtnleft'>Queue random</button>");
