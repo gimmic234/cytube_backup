@@ -3068,7 +3068,9 @@ function populateEmote() {
 
 function selectMalAnimeTheme(elem)
 {
-	themesMoeSearch(elem.attr('data-value'));
+	setTimeout(function() {
+		themesMoeSearch(elem.attr('data-value'));
+	}, 1500);
 	chatlineElem.val("");
 	chatlineElem.focus();
 }
@@ -3082,13 +3084,17 @@ function selectPlayTheme(elem)
 }
 
 function selectMalCharacterSearchDetail(elem) {
-	malSearchVA(elem.attr('data-value'));
+	setTimeout(function() {
+		malSearchVA(elem.attr('data-value'));
+	}, 1500);
 	chatlineElem.val("");
 	chatlineElem.focus();
 }
 
 function selectMalPersonSearchDetail(elem) {
-	malPersonDetail(elem.attr('data-value'));
+	setTimeout(function() {
+		malPersonDetail(elem.attr('data-value'));
+	}, 1500);
 	chatlineElem.val("");
 	chatlineElem.focus();
 }
