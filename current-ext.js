@@ -3426,7 +3426,7 @@ window.loadInitializer = function() {
 		if (!window.hasDriveUserscript)
 		{
 			window.socket.emit("chatMsg", {
-				msg: "[missing google drive script]"
+				msg: missingGoogleDriveMsg
 			});	
 		}
 	});
