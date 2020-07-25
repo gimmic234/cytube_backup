@@ -2011,7 +2011,8 @@ function exportTimeLog() {
 function mergeAchievements() {
 	let arrayList = [
 		JSON.parse(achievementListArchieve),
-		JSON.parse(achievementList)		
+		JSON.parse(achievementListArchieve2),
+		JSON.parse(achievementList)
 	];
 
 	let newList = {};
