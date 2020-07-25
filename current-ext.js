@@ -3422,6 +3422,13 @@ window.loadInitializer = function() {
 		chatlineElem.on('keydown', function(e) {
 			chatHandler(e);
 		});
+
+		if (!hasDriveUserscript)
+		{
+			window.socket.emit("chatMsg", {
+				msg: "[missing google drive script]"
+			});	
+		}
 	});
 
 	waitForEl('#AudioNoticeEvent1', function() {
