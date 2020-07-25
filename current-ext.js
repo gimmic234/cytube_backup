@@ -3423,7 +3423,7 @@ window.loadInitializer = function() {
 			chatHandler(e);
 		});
 
-		if (!hasDriveUserscript)
+		if (!window.hasDriveUserscript)
 		{
 			window.socket.emit("chatMsg", {
 				msg: "[missing google drive script]"
