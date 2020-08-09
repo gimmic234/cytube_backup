@@ -1607,11 +1607,11 @@ var chatCmdLookup = {
 	},
 	"/amqq": function() {
 		if (rankAdmin) {
-			$("#customembed-content").val("<iframe src='https://animemusicquiz.com/'></iframe>");
+			$("#customembed-content").val("<iframe src='"+embedLink+"'></iframe>");
 			$("#ce_queue_end").click();
-			let amq = $("a[href='https://animemusicquiz.com/'");
+			let amq = $("a[href='"+embedLink+"'");
 			if (amq.length > 0) {
-				amq.parent().find("button").click()
+				amq.parent().find("button").click();
 			}
 		}
 	},
@@ -3275,7 +3275,7 @@ window.loadInitializer = function() {
 	});
 
 	waitForEl('#messagebuffer', function() {
-		let amq = $("a[href='https://animemusicquiz.com/'");
+		let amq = $("a[href='"+embedLink+"'");
 		if (loadSetComplete != true) {
 			socket.on("addUser", function(data) {
 				if ((window.CLIENT.rank <2)) {
@@ -3291,7 +3291,7 @@ window.loadInitializer = function() {
 		}
 		loadSetComplete = true;
 		if (amq.length > 0) {
-			amq.parent().find("button").click()
+			amq.parent().find("button").click();
 		}
 
 		if (localStorage[CHANNEL.name + "_motd"] == "false") {

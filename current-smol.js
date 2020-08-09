@@ -6,16 +6,16 @@ var background_img = "http://vistapointe.net/images/theatre-1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
-	month: 7,
-	day: 15,
+	month: 8,
+	day: 5,
 	hour: 23,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2020,
-	month2: 7,
-	day2: 26,
+	month2: 8,
+	day2: 9,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -25,11 +25,11 @@ var background_img_auto2 = "http://cdn.discordapp.com/attachments/73263159377631
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var noiseActive = 'true';
-var background_img_auto4 = "http://cdn.discordapp.com/attachments/716383801131139123/716384478150262814/maquiatest.png";
+var background_img_auto4 = "http://cdn.discordapp.com/attachments/466386319766192138/738159173770149928/slayers_bg.jpg";
 var countdown_utc3 = {
 	year3: 2020,
-	month3: 7,
-	day3: 25,
+	month3: 8,
+	day3: 15,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -50,8 +50,8 @@ var chatImgOp = ".7";
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
-	month4: 7,
-	day4: 31,
+	month4: 8,
+	day4: 14,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -75,13 +75,13 @@ var bgm3url = "https://cdn.discordapp.com/attachments/732631593776316587/7326401
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/732631593776316587/732640519670333530/12_-_Gotta_knock_a_little_harder.mp3";
 var bgmSelect = "5";
-var achievementList = "{}";
+var achievementList = "{\"HeartsTM\":[\"95\"],\"fiach\":[\"95\"],\"Genxun\":[\"95\"],\"gimmic\":[\"95\"],\"NinjaPoes\":[\"95\"],\"raccomunk\":[\"95\"],\"Zinzoo\":[\"95\"],\"bLOOMGINTON33\":[\"95\"],\"Capital_TM\":[\"95\"],\"Ivvl\":[\"95\"],\"mrmooshe\":[\"95\"],\"MrRound\":[\"95\"],\"Rento9\":[\"95\"],\"Ruvikko\":[\"95\"],\"science\":[\"95\"],\"ScrewySqrl\":[\"95\"],\"Senia\":[\"95\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
 var countdownText3 = "Movie";
 var countdownText4 = "Eureka 7";
 var countdownText5 = "";
-var nicoEffectOnControl = "false";
+var nicoEffectOnControl = "true";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
