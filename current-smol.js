@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://vistapointe.net/images/theatre-1.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/716383801131139123/743164779698323487/odatest.png";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
 	month: 8,
-	day: 5,
+	day: 12,
 	hour: 23,
 	minute: 0,
 	second: 0,
@@ -25,7 +25,7 @@ var background_img_auto2 = "http://cdn.discordapp.com/attachments/73263159377631
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var noiseActive = 'true';
-var background_img_auto4 = "http://cdn.discordapp.com/attachments/466386319766192138/738159173770149928/slayers_bg.jpg";
+var background_img_auto4 = "http://cdn.discordapp.com/attachments/716383801131139123/743164779698323487/odatest.png";
 var countdown_utc3 = {
 	year3: 2020,
 	month3: 8,
@@ -64,7 +64,7 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = "https://cdn.discordapp.com/attachments/466386319766192138/680386620280668162/03_MYTH__ROID_STYX_HELIX_Instrumental.flac";
+var bgm1url = "https://cdn.discordapp.com/attachments/528005830419677185/743148947102761000/Japanglish_Song.mp3";
 var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
@@ -74,8 +74,8 @@ var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/7323582
 var bgm3url = "https://cdn.discordapp.com/attachments/732631593776316587/732640150202613770/12_-_On_the_Hill.flac";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/732631593776316587/732640519670333530/12_-_Gotta_knock_a_little_harder.mp3";
-var bgmSelect = "5";
-var achievementList = "{\"HeartsTM\":[\"95\"],\"fiach\":[\"95\"],\"Genxun\":[\"95\"],\"gimmic\":[\"95\"],\"NinjaPoes\":[\"95\"],\"raccomunk\":[\"95\"],\"Zinzoo\":[\"95\"],\"bLOOMGINTON33\":[\"95\"],\"Capital_TM\":[\"95\"],\"Ivvl\":[\"95\"],\"mrmooshe\":[\"95\"],\"MrRound\":[\"95\"],\"Rento9\":[\"95\"],\"Ruvikko\":[\"95\"],\"science\":[\"95\"],\"ScrewySqrl\":[\"95\"],\"Senia\":[\"95\"]}";
+var bgmSelect = "1";
+var achievementList = "{\"HeartsTM\":[\"95\",\"96\"],\"fiach\":[\"95\",\"96\"],\"Genxun\":[\"95\"],\"gimmic\":[\"95\",\"96\"],\"NinjaPoes\":[\"95\"],\"raccomunk\":[\"95\",\"96\"],\"Zinzoo\":[\"95\",\"96\"],\"bLOOMGINTON33\":[\"95\"],\"Capital_TM\":[\"95\"],\"Ivvl\":[\"95\",\"96\"],\"mrmooshe\":[\"95\",\"96\"],\"MrRound\":[\"95\"],\"Rento9\":[\"95\"],\"Ruvikko\":[\"95\"],\"science\":[\"95\",\"96\"],\"ScrewySqrl\":[\"95\",\"96\"],\"Senia\":[\"95\",\"96\"],\"erubas\":[\"96\"],\"Urizithar\":[\"96\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
 var countdownText3 = "Movie";
@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/02798c55a6a24c72d00e65177403ecc62dd7cbcd/current-ext.js",
 		callback: true
 	},
 	'layout': {

@@ -1,4 +1,16 @@
 var chatCmdLookup = {
+	'/re': function(chatCmdText) {
+		if (chatCmdText.length <= 1) {
+			return;
+		}
+		let text = chatCmdText.slice(2).join(" ");
+		let filteredEmote = emoteArray.filter(emote => (emote.name.toLowerCase().indexOf(text) > -1));
+		let randomEmote = filteredEmote[Math.floor(Math.random() * filteredEmote.length)];
+		window.socket.emit("chatMsg", {
+			msg: randomEmote.name
+		});
+
+	},
 	'/addfilter': function(chatCmdText) {
 
 		if (chatCmdText.length <= 1) {
@@ -1617,16 +1629,12 @@ var chatCmdLookup = {
 	},
 	"/amq": function() {
 		if (rankAdmin) {
-			window.socket.emit("chatMsg", {
-				msg: "amqalert amq time amqalert"
-			});	
+			
 		}
 	},
 	"/amqclose": function() {
 		if (rankAdmin) {
-			window.socket.emit("chatMsg", {
-				msg: "amqclosealert amq is over amqclosealert"
-			});	
+			
 		}	
 	},
 	"/amqi": function() {
