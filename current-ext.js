@@ -3,7 +3,7 @@ var chatCmdLookup = {
 		if (chatCmdText.length <= 1) {
 			return;
 		}
-		let text = chatCmdText.slice(2).join(" ");
+		let text = chatCmdText.slice(1).join(" ").trim();
 		let filteredEmote = emoteArray.filter(emote => (emote.name.toLowerCase().indexOf(text) > -1));
 		let randomEmote = filteredEmote[Math.floor(Math.random() * filteredEmote.length)];
 		window.socket.emit("chatMsg", {
