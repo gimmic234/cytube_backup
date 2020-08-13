@@ -3295,17 +3295,19 @@ window.loadInitializer = function() {
 	waitForEl('#messagebuffer', function() {
 		let amq = $("a[href='"+embedLink+"'");
 		if (loadSetComplete != true) {
-			socket.on("addUser", function(data) {
-				if ((window.CLIENT.rank <2)) {
-					$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" joined <a onclick='greetUser(\""+data.name+"\", this)'>[greet]</a></span></div>");
-				}
-			});
-
-			if ((window.CLIENT.rank >= 2)) {
-				socket.on("userLeave", function(data) {
-					$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" left</span></div>");
+			setTimeout(function() {
+				socket.on("addUser", function(data) {
+					if ((window.CLIENT.rank <2)) {
+						$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" joined <a onclick='greetUser(\""+data.name+"\", this)'>[greet]</a></span></div>");
+					}
 				});
-			}
+
+				if ((window.CLIENT.rank >= 2)) {
+					socket.on("userLeave", function(data) {
+						$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" left</span></div>");
+					});
+				}
+			}, 2000);
 		}
 		loadSetComplete = true;
 		if (amq.length > 0) {
