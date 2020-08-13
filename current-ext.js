@@ -3185,6 +3185,16 @@ window.scrollChat = function() {
 	}
 }
 
+function greetUser(name, elem)
+{
+	let filteredEmote = emoteArray.filter(emote => (emote.name.toLowerCase().indexOf("wave") > -1));
+	let randomEmote = filteredEmote[Math.floor(Math.random() * filteredEmote.length)];
+	window.socket.emit("chatMsg", {
+		msg: randomEmote.name + " " + name
+	});	
+	$(elem).hide();
+}
+
 window.getTimeZone = function() {
     return /\((.*)\)/.exec(new Date().toString())[1];
 }
@@ -3287,7 +3297,7 @@ window.loadInitializer = function() {
 		if (loadSetComplete != true) {
 			socket.on("addUser", function(data) {
 				if ((window.CLIENT.rank <2)) {
-					$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" joined</span></div>");
+					$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" joined <a onclick='greetUser(\""+data.name+"\", this)'>[greet]</a></span></div>");
 				}
 			});
 
