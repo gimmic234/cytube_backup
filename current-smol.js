@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/716383801131139123/743164779698323487/odatest.png";
+var background_img = "http://cdn.discordapp.com/attachments/528150212875649065/744218892024676422/Tron-Legacy-tron-legacy-20911253-1920-1080.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -21,7 +21,7 @@ var countdown_utc2 = {
 	second2: 0
 };
 var background_img_auto1 = "http://cdn.discordapp.com/attachments/466386319766192138/731075209704112179/E7_background.jpg";
-var background_img_auto2 = "http://cdn.discordapp.com/attachments/732631593776316587/732632533791146156/bebop_background.jpg";
+var background_img_auto2 = "http://cdn.discordapp.com/attachments/528150212875649065/744218892024676422/Tron-Legacy-tron-legacy-20911253-1920-1080.jpg";
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var noiseActive = 'true';
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
 	month4: 8,
-	day4: 14,
+	day4: 21,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -70,11 +70,11 @@ var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
 var background_img_auto6 = "http://cdn.discordapp.com/attachments/585972109159694336/721109369756057660/mizunashi_akari_alice_carroll_alicia_florence_aika_granzchesta_aria_pokoteng_and_4_more_aria_drawn_b.jpg";
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/732358270475436112/huh.mp3";
+var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/744220377919520858/Daft_Punk_-_Tron__Legacy_-_01_-_Overture__HD_.mp3";
 var bgm3url = "https://cdn.discordapp.com/attachments/732631593776316587/732640150202613770/12_-_On_the_Hill.flac";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/732631593776316587/732640519670333530/12_-_Gotta_knock_a_little_harder.mp3";
-var bgmSelect = "1";
+var bgmSelect = "2";
 var achievementList = "{\"HeartsTM\":[\"95\",\"96\"],\"fiach\":[\"95\",\"96\"],\"Genxun\":[\"95\"],\"gimmic\":[\"95\",\"96\"],\"NinjaPoes\":[\"95\"],\"raccomunk\":[\"95\",\"96\"],\"Zinzoo\":[\"95\",\"96\"],\"bLOOMGINTON33\":[\"95\"],\"Capital_TM\":[\"95\"],\"Ivvl\":[\"95\",\"96\"],\"mrmooshe\":[\"95\",\"96\"],\"MrRound\":[\"95\"],\"Rento9\":[\"95\"],\"Ruvikko\":[\"95\"],\"science\":[\"95\",\"96\"],\"ScrewySqrl\":[\"95\",\"96\"],\"Senia\":[\"95\",\"96\"],\"erubas\":[\"96\"],\"Urizithar\":[\"96\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
