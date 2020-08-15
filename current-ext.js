@@ -3296,13 +3296,19 @@ window.loadInitializer = function() {
 		let amq = $("a[href='"+embedLink+"'");
 		if (loadSetComplete != true) {
 			setTimeout(function() {
-				socket.on("addUser", function(data) {
-					if ((window.CLIENT.rank <2)) {
+				if ((window.CLIENT.rank < 2)) {
+					socket.on("addUser", function(data) {
 						$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" joined <a onclick='greetUser(\""+data.name+"\", this)'>[greet]</a></span></div>");
-					}
-				});
+					});
+				}
 
 				if ((window.CLIENT.rank >= 2)) {
+					socket.on("addUser", function(data) {
+						setTimeout(function() {
+							$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'><a onclick='greetUser(\""+data.name+"\", this.parentElement.parentElement)'>[greet "+data.name+"]</a></span></span></div>");
+						}, 500)
+					});
+
 					socket.on("userLeave", function(data) {
 						$("#messagebuffer").append("<div class='chat-msg-server'><span class='timestamp server-whisper'></span><span class='server-whisper'>"+data.name+" left</span></div>");
 					});
