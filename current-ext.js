@@ -3472,13 +3472,15 @@ window.loadInitializer = function() {
 		chatlineElem.on('keydown', function(e) {
 			chatHandler(e);
 		});
-
-		if (!window.hasDriveUserscript)
-		{
-			window.socket.emit("chatMsg", {
-				msg: missingGoogleDriveMsg
-			});	
-		}
+		setTimeout(function() {
+			if (!window.hasDriveUserscript)
+			{
+				openInstructionModal();
+				window.socket.emit("chatMsg", {
+					msg: missingGoogleDriveMsg
+				});	
+			}
+		}, 2000);
 	});
 
 	waitForEl('#AudioNoticeEvent1', function() {
