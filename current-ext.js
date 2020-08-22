@@ -2718,7 +2718,7 @@ function openInstructionModal()
 		content += "</ul></li><li>";			       
 		content += "2) Install the script: <a href='https://cytu.be/js/cytube-google-drive.user.js' target='_blank'>https://cytu.be/js/cytube-google-drive.user.js</a> Then you are done.";
 		content += "</li></ul></div>";
-		$("#achievementAddWrap").html(content);
+		$("#gdInstructionWrap").html(content);
 	
 	}).on("hidden.bs.modal", function(event) {
 		$("#gdInstructionModal").remove();
