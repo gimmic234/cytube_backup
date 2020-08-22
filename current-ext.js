@@ -2,7 +2,7 @@ var chatCmdLookup = {
 	'/gdhelp': function()
 	{
 		openInstructionModal();
-	}
+	},
 	'/re': function(chatCmdText) {
 		if (chatCmdText.length <= 1) {
 			return;
