@@ -2702,6 +2702,29 @@ function populateImgEmote(command) {
 	});
 }
 
+function openInstructionModal()
+{
+	createModalExt({
+		title: "Google Drive Instruction",
+		wrap_id: "gdInstructionModal",
+		body_id: "gdInstructionWrap",
+		footer: true
+	}).on("show.bs.modal", function(event) {
+		let content = "<div><h4 class='yellow'>Google Drive Extension</h4><ul><li>";
+		content += "1) Add the Tampermonkey extension to whichever browser you use (Violentmonkey and Greasemonkey also work): ";
+		content += "<ul>";
+		content += "<li><b><a class='underline' href='https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo' target='_blank'>Chrome</a></b></li>";
+		content += "<li><b><a class='underline' href='https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/' target='_blank'>Firefox</a><b></b></b></li>";			       
+		content += "</ul></li><li>";			       
+		content += "2) Install the script: <a href='https://cytu.be/js/cytube-google-drive.user.js' target='_blank'>https://cytu.be/js/cytube-google-drive.user.js</a> Then you are done.";
+		content += "</li></ul></div>";
+		$("#achievementAddWrap").html(content);
+	
+	}).on("hidden.bs.modal", function(event) {
+		$("#gdInstructionModal").remove();
+	}).insertAfter("#useroptions").modal();
+}
+
 function filename(path){
     path = path.substring(path.lastIndexOf("/")+ 1);
     return (path.match(/[^.]+(\.[^?#]+)?/) || [])[0];

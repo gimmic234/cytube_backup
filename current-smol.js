@@ -2,12 +2,12 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/528150212875649065/744218892024676422/Tron-Legacy-tron-legacy-20911253-1920-1080.jpg";
+var background_img = "http://vistapointe.net/images/theatre-1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
 	month: 8,
-	day: 12,
+	day: 19,
 	hour: 23,
 	minute: 0,
 	second: 0,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2020,
 	month2: 8,
-	day2: 16,
+	day2: 23,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -25,11 +25,11 @@ var background_img_auto2 = "http://cdn.discordapp.com/attachments/52815021287564
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var noiseActive = 'true';
-var background_img_auto4 = "http://cdn.discordapp.com/attachments/716383801131139123/743164779698323487/odatest.png";
+var background_img_auto4 = "http://cdn.discordapp.com/attachments/466386319766192138/745775244324634774/Michiko.to.Hatchin.full.203298.jpg";
 var countdown_utc3 = {
 	year3: 2020,
 	month3: 8,
-	day3: 15,
+	day3: 22,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
 	month4: 8,
-	day4: 21,
+	day4: 28,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -74,14 +74,14 @@ var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/7442203
 var bgm3url = "https://cdn.discordapp.com/attachments/732631593776316587/732640150202613770/12_-_On_the_Hill.flac";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/732631593776316587/732640519670333530/12_-_Gotta_knock_a_little_harder.mp3";
-var bgmSelect = "2";
-var achievementList = "{\"HeartsTM\":[\"95\",\"96\"],\"fiach\":[\"95\",\"96\"],\"Genxun\":[\"95\"],\"gimmic\":[\"95\",\"96\"],\"NinjaPoes\":[\"95\"],\"raccomunk\":[\"95\",\"96\"],\"Zinzoo\":[\"95\",\"96\"],\"bLOOMGINTON33\":[\"95\"],\"Capital_TM\":[\"95\"],\"Ivvl\":[\"95\",\"96\"],\"mrmooshe\":[\"95\",\"96\"],\"MrRound\":[\"95\"],\"Rento9\":[\"95\"],\"Ruvikko\":[\"95\"],\"science\":[\"95\",\"96\"],\"ScrewySqrl\":[\"95\",\"96\"],\"Senia\":[\"95\",\"96\"],\"erubas\":[\"96\"],\"Urizithar\":[\"96\"]}";
+var bgmSelect = "4";
+var achievementList = "{\"HeartsTM\":[\"95\",\"96\",\"97\",\"98\"],\"fiach\":[\"95\",\"96\",\"98\"],\"Genxun\":[\"95\",\"97\",\"98\"],\"gimmic\":[\"95\",\"96\",\"97\",\"98\"],\"NinjaPoes\":[\"95\",\"97\"],\"raccomunk\":[\"95\",\"96\",\"98\"],\"Zinzoo\":[\"95\",\"96\",\"97\",\"98\"],\"bLOOMGINTON33\":[\"95\",\"98\"],\"Capital_TM\":[\"95\",\"98\"],\"Ivvl\":[\"95\",\"96\",\"97\",\"98\"],\"mrmooshe\":[\"95\",\"96\",\"98\"],\"MrRound\":[\"95\",\"97\",\"98\"],\"Rento9\":[\"95\"],\"Ruvikko\":[\"95\",\"98\"],\"science\":[\"95\",\"96\",\"97\",\"98\"],\"ScrewySqrl\":[\"95\",\"96\",\"97\",\"98\"],\"Senia\":[\"95\",\"96\",\"98\"],\"erubas\":[\"96\",\"97\",\"98\"],\"Urizithar\":[\"96\",\"97\",\"98\"],\"Fox_tart\":[\"97\"],\"PhenomSage\":[\"97\"],\"ChucklingBerry\":[\"97\"],\"Demzou\":[\"97\"],\"JPGer\":[\"97\"],\"MisterLister\":[\"97\"],\"MrNano\":[\"97\"],\"nullgat\":[\"97\",\"98\"],\"Smoke420\":[\"97\"],\"Takeda\":[\"97\",\"98\"],\"Darthturtle\":[\"98\"],\"DatBisa\":[\"98\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
 var countdownText3 = "Movie";
 var countdownText4 = "Eureka 7";
 var countdownText5 = "";
-var nicoEffectOnControl = "false";
+var nicoEffectOnControl = "true";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/4348c9ed26a5aa27d2984a4fd04054c44e9b7e1e/current-ext.js",
 		callback: true
 	},
 	'layout': {
