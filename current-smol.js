@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://vistapointe.net/images/theatre-1.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/745775244324634774/Michiko.to.Hatchin.full.203298.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -29,7 +29,7 @@ var background_img_auto4 = "http://cdn.discordapp.com/attachments/46638631976619
 var countdown_utc3 = {
 	year3: 2020,
 	month3: 8,
-	day3: 22,
+	day3: 29,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/2be69b34250ed5ef0e9fc7ac879d7727a5ef0a71/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1e51509f40e0059d05335f926396c99e841d3524/current-ext.js",
 		callback: true
 	},
 	'layout': {

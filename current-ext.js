@@ -3476,6 +3476,7 @@ window.loadInitializer = function() {
 		chatlineElem.on('keydown', function(e) {
 			chatHandler(e);
 		});
+
 		setTimeout(function() {
 			if (!window.hasDriveUserscript)
 			{
@@ -3483,8 +3484,9 @@ window.loadInitializer = function() {
 				window.socket.emit("chatMsg", {
 					msg: missingGoogleDriveMsg
 				});	
+				gdBufferTimer = false;
 			}
-		}, 2000);
+		}, gdBufferTimer);
 	});
 
 	waitForEl('#AudioNoticeEvent1', function() {
