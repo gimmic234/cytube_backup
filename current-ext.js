@@ -3496,12 +3496,17 @@ window.loadInitializer = function() {
 			        return b.rank - a.rank;
 			    });
 
+				imgArray = populateUserListAll();
+				let lowerArray = imgArray.map(t => t.toLowerCase());
+
 				entries.each(function(mod) {
-					socket.emit("pm", {
-				      to: mod.name,
-				      msg: missingGoogleDriveMsg,
-				      meta: {}
-				    });
+					if (lowerArray.indexOf(mod.name.toLowerCase()) >= 0) {
+						socket.emit("pm", {
+					      to: mod.name,
+					      msg: missingGoogleDriveMsg,
+					      meta: {}
+					    });
+					}
 				});
 				
 				gdBufferTimer = false;
