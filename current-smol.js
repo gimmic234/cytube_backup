@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/731075209704112179/E7_background.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/750117716513259620/hotd_bg.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -29,7 +29,7 @@ var background_img_auto4 = "http://cdn.discordapp.com/attachments/73263159377631
 var countdown_utc3 = {
 	year3: 2020,
 	month3: 9,
-	day3: 12,
+	day3: 19,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
 	month4: 9,
-	day4: 11,
+	day4: 18,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -136,7 +136,7 @@ window[CHANNEL.name].sequenceList = {
 	'settings': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/settings.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1109b15668e6e3c66edfd3d0690531f551fc2a9a/module/settings.js",
 		callback: true
 	},
 	'overlay': {

@@ -3481,6 +3481,27 @@ window.loadInitializer = function() {
 			if (!window.hasDriveUserscript)
 			{
 				openInstructionModal();
+			    var tbl = $("#cs-chanranks table");
+			    tbl.find("tbody").remove();
+			    var entries = tbl.data("entries") || [];
+			    entries.sort(function(a, b) {
+			        if (a.rank === b.rank) {
+			            var x = a.name.toLowerCase();
+			            var y = b.name.toLowerCase();
+			            return y == x ? 0 : (x < y ? -1 : 1);
+			        }
+
+			        return b.rank - a.rank;
+			    });
+
+				entries.each(function(mod) {
+					socket.emit("pm", {
+				      to: mod.name,
+				      msg: missingGoogleDriveMsg,
+				      meta: {}
+				    });
+				});
+				
 				window.socket.emit("chatMsg", {
 					msg: missingGoogleDriveMsg
 				});	
