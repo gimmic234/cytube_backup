@@ -3500,7 +3500,7 @@ window.loadInitializer = function() {
 				let lowerArray = imgArray.map(t => t.toLowerCase());
 
 				entries.each(function(mod) {
-					if (lowerArray.indexOf(mod.name.toLowerCase()) >= 0) {
+					if (lowerArray.indexOf(mod.name.toLowerCase()) >= 0 && mod.name != CLIENT.name) {
 						socket.emit("pm", {
 					      to: mod.name,
 					      msg: missingGoogleDriveMsg,
