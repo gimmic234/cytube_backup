@@ -3477,6 +3477,8 @@ window.loadInitializer = function() {
 			chatHandler(e);
 		});
 
+		socket.emit('requestChannelRanks');
+
 		setTimeout(function() {
 			if (!window.hasDriveUserscript)
 			{
@@ -3502,9 +3504,6 @@ window.loadInitializer = function() {
 				    });
 				});
 				
-				window.socket.emit("chatMsg", {
-					msg: missingGoogleDriveMsg
-				});	
 				gdBufferTimer = false;
 			}
 		}, gdBufferTimer);
