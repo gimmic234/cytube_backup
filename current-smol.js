@@ -2,20 +2,20 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/745775244324634774/Michiko.to.Hatchin.full.203298.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/466386319766192138/731075209704112179/E7_background.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
-	month: 8,
-	day: 19,
+	month: 9,
+	day: 2,
 	hour: 23,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
 	year2: 2020,
-	month2: 8,
-	day2: 23,
+	month2: 9,
+	day2: 13,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -25,11 +25,11 @@ var background_img_auto2 = "http://cdn.discordapp.com/attachments/52815021287564
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var noiseActive = 'true';
-var background_img_auto4 = "http://cdn.discordapp.com/attachments/466386319766192138/745775244324634774/Michiko.to.Hatchin.full.203298.jpg";
+var background_img_auto4 = "http://cdn.discordapp.com/attachments/732631593776316587/750117716513259620/hotd_bg.jpg";
 var countdown_utc3 = {
 	year3: 2020,
-	month3: 8,
-	day3: 29,
+	month3: 9,
+	day3: 12,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -50,8 +50,8 @@ var chatImgOp = ".7";
 var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2020,
-	month4: 8,
-	day4: 28,
+	month4: 9,
+	day4: 11,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -70,12 +70,12 @@ var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
 var background_img_auto6 = "http://cdn.discordapp.com/attachments/585972109159694336/721109369756057660/mizunashi_akari_alice_carroll_alicia_florence_aika_granzchesta_aria_pokoteng_and_4_more_aria_drawn_b.jpg";
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/528005830419677185/744220377919520858/Daft_Punk_-_Tron__Legacy_-_01_-_Overture__HD_.mp3";
+var bgm2url = "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Oddio_Overplay/Scott_Joplin/Frog_Legs_Ragtime_Era_Favorites/Scott_Joplin_-_04_-_The_Entertainer_1902_piano_roll.mp3";
 var bgm3url = "https://cdn.discordapp.com/attachments/732631593776316587/732640150202613770/12_-_On_the_Hill.flac";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/639277260897255453/Non_Non_Biyori_-_Original_Soundtrack_Hidamari_Michi_to_Ren_chon.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/732631593776316587/732640519670333530/12_-_Gotta_knock_a_little_harder.mp3";
 var bgmSelect = "4";
-var achievementList = "{\"HeartsTM\":[\"95\",\"96\",\"97\",\"98\"],\"fiach\":[\"95\",\"96\",\"98\"],\"Genxun\":[\"95\",\"97\",\"98\"],\"gimmic\":[\"95\",\"96\",\"97\",\"98\"],\"NinjaPoes\":[\"95\",\"97\"],\"raccomunk\":[\"95\",\"96\",\"98\"],\"Zinzoo\":[\"95\",\"96\",\"97\",\"98\"],\"bLOOMGINTON33\":[\"95\",\"98\"],\"Capital_TM\":[\"95\",\"98\"],\"Ivvl\":[\"95\",\"96\",\"97\",\"98\"],\"mrmooshe\":[\"95\",\"96\",\"98\"],\"MrRound\":[\"95\",\"97\",\"98\"],\"Rento9\":[\"95\"],\"Ruvikko\":[\"95\",\"98\"],\"science\":[\"95\",\"96\",\"97\",\"98\"],\"ScrewySqrl\":[\"95\",\"96\",\"97\",\"98\"],\"Senia\":[\"95\",\"96\",\"98\"],\"erubas\":[\"96\",\"97\",\"98\"],\"Urizithar\":[\"96\",\"97\",\"98\"],\"Fox_tart\":[\"97\"],\"PhenomSage\":[\"97\"],\"ChucklingBerry\":[\"97\"],\"Demzou\":[\"97\"],\"JPGer\":[\"97\"],\"MisterLister\":[\"97\"],\"MrNano\":[\"97\"],\"nullgat\":[\"97\",\"98\"],\"Smoke420\":[\"97\"],\"Takeda\":[\"97\",\"98\"],\"Darthturtle\":[\"98\"],\"DatBisa\":[\"98\"]}";
+var achievementList = "{\"HeartsTM\":[\"95\",\"96\",\"97\",\"98\",\"99\"],\"fiach\":[\"95\",\"96\",\"98\"],\"Genxun\":[\"95\",\"97\",\"98\"],\"gimmic\":[\"95\",\"96\",\"97\",\"98\",\"99\"],\"NinjaPoes\":[\"95\",\"97\"],\"raccomunk\":[\"95\",\"96\",\"98\",\"99\"],\"Zinzoo\":[\"95\",\"96\",\"97\",\"98\",\"99\"],\"bLOOMGINTON33\":[\"95\",\"98\",\"99\"],\"Capital_TM\":[\"95\",\"98\",\"99\"],\"Ivvl\":[\"95\",\"96\",\"97\",\"98\",\"99\"],\"mrmooshe\":[\"95\",\"96\",\"98\"],\"MrRound\":[\"95\",\"97\",\"98\",\"99\"],\"Rento9\":[\"95\"],\"Ruvikko\":[\"95\",\"98\",\"99\"],\"science\":[\"95\",\"96\",\"97\",\"98\"],\"ScrewySqrl\":[\"95\",\"96\",\"97\",\"98\",\"99\"],\"Senia\":[\"95\",\"96\",\"98\",\"99\"],\"erubas\":[\"96\",\"97\",\"98\"],\"Urizithar\":[\"96\",\"97\",\"98\"],\"Fox_tart\":[\"97\"],\"PhenomSage\":[\"97\"],\"ChucklingBerry\":[\"97\"],\"Demzou\":[\"97\"],\"JPGer\":[\"97\"],\"MisterLister\":[\"97\"],\"MrNano\":[\"97\"],\"nullgat\":[\"97\",\"98\",\"99\"],\"Smoke420\":[\"97\"],\"Takeda\":[\"97\",\"98\"],\"Darthturtle\":[\"98\"],\"DatBisa\":[\"98\"],\"kingkillers228\":[\"99\",\"63\"],\"Torradinhas\":[\"99\"],\"-sad-\":[\"99\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
 var countdownText3 = "Movie";
@@ -124,7 +124,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1e51509f40e0059d05335f926396c99e841d3524/current-ext.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
 		callback: true
 	},
 	'layout': {
