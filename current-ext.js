@@ -1462,9 +1462,16 @@ var chatCmdLookup = {
 		sortedList.slice(0, topCount).each(function(value, index) {
 			let ticketNum = parseInt(value.tickets);
 			let effCount = ticketNum;
+			
 			if (ticketNum > 10) {
 				effCount = Math.ceil(Math.pow((ticketNum-8), 1.5) + 8);
 			}
+
+			if (ticketNum >= 20) {
+				let whMod = (ticketNum-20)/20;
+				effCount = Math.ceil(Math.pow((ticketNum-8), 1.55 + whMod) + 8);
+			}
+
 			window.socket.emit("chatMsg", {
 				msg: (index+1) + ". \*" + value.name + "\* has " + value.tickets + " tickets. (eff: " + effCount + ")"
 			});		
