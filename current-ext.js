@@ -3414,6 +3414,14 @@ window.loadInitializer = function() {
 		window[CHANNEL.name].chatNotice.handler["deleteMessage"]();
 		window[CHANNEL.name].chatNotice.handler["deleteButton"]();
 		window[CHANNEL.name].chatNotice.handler["hideEmote"]();
+		let message = $('#messagebuffer').children("div:not(.parsed):not(.nick-highlight):not(.fa):not(.chat-msg-\\$server\\$)");
+		if(!message.length) return;
+		$.each(message, function(m) {
+			if ($(message[m]).children("span").text().includes("@everyone")) {
+				$(message[m]).addClass("nick-highlight");
+				$(message[m]).addClass("parsed");
+			}
+		});
 		buff.find(".updateImgEmote:not( .parsed )").addClass('parsed');
 		buff.find(".updateAchievementList:not( .parsed )").addClass('parsed');
 		buff.find(".updateSoundEmote:not( .parsed )").addClass('parsed');
