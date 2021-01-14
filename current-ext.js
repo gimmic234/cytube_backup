@@ -1869,6 +1869,9 @@ var chatKeyLookup = {
 		if (window.CHATTHROTTLE || (window.CLIENT.rank < 2 && chatMute == "true")) {
 			return;
 		}
+		if (window.CLIENT.rank < 2 && $('#chatline').text().includes("@everyone")) {
+			return;
+		}
 		if (!rankMod && chatLimit == "true" && (Date.now() - window[CHANNEL.name].lastChat) < (chatDelay * 1000)) {
 			return;
 		}
@@ -4433,6 +4436,11 @@ function bindEventHandler() {
 						emoteString += "<td>" + value + "</td>";
 						emoteString += "</tr>";
 					})
+					if (window.CLIENT.rank >= 2) {
+						emoteString += "<tr class='selectEmote' data-value='@everyone'>";
+						emoteString += "<td>@everyone</td>";
+						emoteString += "</tr>";
+					}
 					emoteString += "</tbody></table></div>";
 					emoteList[0].innerHTML = emoteString;
 					selectedPopover = $('tr.active');

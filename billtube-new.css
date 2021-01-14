@@ -1,0 +1,45 @@
+:root {
+ --body-bg-color: #0e1015fa;
+ --theme-bg-color: #040405;
+ --theme-bg-color2: #0e1015f7;
+ --theme-bg-menu: #07080af7;
+ --body-bg-modal: #0e1015fa;
+ --settings-icon-hover: #efefef;
+ --developer-color: #f9fafb;
+ --input-bg: hsla(0,0%,100%,.06);
+ --input-chat-color: #a2a2a2;
+ --border-color: #1b2023;
+ --body-font: "Quicksand", sans-serif;
+ --logo-font: 'Passion One', cursive;
+ --chat-font: "Barlow", sans-serif;
+ --body-color: #8b93a7;
+ --scrollbar-width: 7px;
+ --settings-icon-color: #c1c7cd;
+ --msg-message: #adb0c3;
+ --chat-text-bg: #f1f2f6;
+ --theme-color: #cee8ff;
+ --msg-date: #c0c7d2;
+ --button-bg-color: #000000ba;
+ --button-bg-hover: #d0dcff;
+ --button-color: #dfefffe0;
+ --detail-font-color: #7289DA;
+ --chat-header-bg: #0e1015f7;
+ --msg-hover-bg: rgba(238, 242, 244, 0.4);
+ --HiddenVideo: url("https://lh3.googleusercontent.com/-_oqLaQ6du8Q/Xw51ZkGDAcI/AAAAAAAAPEw/IibTzM_BQJIAAXUCY76Z7p_F2cg5uh9WgCEwYBhgLKtMDAL1OcqxwWcHWeeNQiLi3HtT9chiD5ecKzmIH9I3LxJMuCglZLYud6I4XQL6NAEZRW-FuM40wNwUYIROKGcVwka1AS5XdMe3EZtpdDhdGamh8BRLlRH4TsceOt0fgu3Z8bcR5yGkkFTPP1X73KQWGhX-pI2pa16J1_UPVs9qteibVdvAqUfvW9YntRYYDDAT6II_gQGGBpJ53kFI1pqVJy2fkAQd7kepakmjVLli-sh648IFBy9L3vWFTIiGY0Aiy3dB7As-q4mixsEGeBCWMfQitbNfB12X7YQ-Y3KpAturNTnkCpQ4IiSPIp4dSnD36mq-Iq_BjHGMkx9pBtXmocG20O_cC7spRmFxXp_bbY3WY0hYxrltizcDkPkPYHJMOiC0gNZuHy5HT9SE7T8i8C0dm_SUYFC2y_2a-vS7svNJv91R25nsjh03EFHdXwG6eFMt8BCHDYSIa0gpMBD8Xlp0WIzk40-QbWQwBODRpAHZhpQuoSwisX3v3mbFrU2Dy5vue_pCMVf7f4gBPUbHhZO5oBcc5hooQFiuiTntGbTRjvlpR4r-1ATT1r5dlf95i2q_MhDNMKHcCoG0kvq--fH0ISPZQayjtmUIGP0sUxKwVgSAwy--5-AU/w1400-h1040-p/static.gif");
+};
+
+#chanjs-allow-prompt > a, #chanjs-allow-prompt > button {display: none}
+#chanjs-allow-prompt > span, #chanjs-allow-prompt > div.checkbox > label {font-size: 14px}
+#chanjs-allow-prompt > div.checkbox > label:after {content: '- Highly Recommended!';font-size: 14px !important}
+#chatwrap > div.profile-box{position: fixed !important; left: 100px !important; z-index: 10 !important;top: calc(90vh - 165px) !important;border-radius: 15px;}
+#chanjs-allow{font-size: 0px;background-color: green;border-radius: 15px;background-image: none;padding: 10px;}
+#chanjs-allow:before{font-size: 14px !important;content: 'ALLOW';}
+#chanjs-deny{font-size: 0px;border-radius: 15px;padding: 10px;}
+#chanjs-deny:before{font-size: 14px !important;content: 'REJECT';}
+@media (max-width: 992px){#chatwrap > div.profile-box {left: calc(90vw - 205px) !important;top: calc(90vh - 220px) !important;}}
+#videowrap {display: none;}
+#ytapiplayer_html5_api, vjs-tech { 
+transform: rotateY(180deg)!important;
+-webkit-transform:rotateY(180deg)!important; /* Safari and Chrome */
+-moz-transform:rotateY(180deg)!important; /* Firefox */
+}

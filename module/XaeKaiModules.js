@@ -855,6 +855,16 @@ window[CHANNEL.name].audioNotice.handler = {
 		if (!window[CHANNEL.name].audioNotice.Squee.toggleState) {
 			return
 		}
+
+	
+		let message = $('#messagebuffer').children("div:not(.parsed):not(.nick-highlight):not(.fa):not(.chat-msg-\\$server\\$)");
+		if(!message.length) return;
+		$.each(message, function(m) {
+			if ($(message[m]).children("span").text().includes("@everyone")) {
+				$(message[m]).addClass("nick-highlight");
+			}
+		});
+
 		/*if (!CHANNEL.opts.chat_antiflood) {
 			console.info();
 			return
