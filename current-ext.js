@@ -1870,6 +1870,7 @@ var chatKeyLookup = {
 			return;
 		}
 		if (window.CLIENT.rank < 2 && $('#chatline').text().includes("@everyone")) {
+			alert("only mods can use @everyone");
 			return;
 		}
 		if (!rankMod && chatLimit == "true" && (Date.now() - window[CHANNEL.name].lastChat) < (chatDelay * 1000)) {
