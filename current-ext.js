@@ -2218,7 +2218,8 @@ function readVideoFromServer(key) {
 					let title = splitString[splitString.length-1];
 					let newEntry = {
 						"title": title,
-						"url": value.filename
+						"url": value.filename,
+						"path": value.path
 					};
 					returnArray.push(newEntry);
 				}				
