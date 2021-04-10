@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: 1px;
-    left: -2px;
+    top: 2px;
+    left: 1px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -647,4 +647,8 @@ background-color: rgba(255,255,255,0) !important;
 
 #videoinfo {
 margin-top: 0px !important;
+}
+
+.clickable:hover {
+    cursor: pointer;
 }

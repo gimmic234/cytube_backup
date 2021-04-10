@@ -5036,7 +5036,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#randomVideo', function() {
-		chatCmdLookup['/addrandom']();
+		chatCmdLookup['/addrandomFromServer'](["","opeds"]);
 	});
 
 	$(bodyElem).on('click', '#batchVid', function() {
@@ -5044,7 +5044,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#randomVideoSmol', function() {
-		chatCmdLookup['/addrandom']();
+		chatCmdLookup['/addrandomFromServer'](["","opeds"]);
 	});
 
 	$('#voteskip').off();
