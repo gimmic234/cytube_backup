@@ -4222,17 +4222,17 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let body = '';
-			body += "<div id='video-init-menu'>";
+			body += "<div>";
 
-			body += "<div>"
+			body += "<div id='video-init-menu'>"
 
 			let listcontent = "";
 
 			$.each(repoKeyBlocks, function(key, blockItem) {
 				let block = "<div class=''>";
-				block += "<div class='achievement-container clickable' title='"+block.title+"' onclick='renderVideoList(\""+key+"\")'>";
+				block += "<div class='achievement-container clickable' title='"+blockItem.title+"' onclick='renderVideoList(\""+key+"\")'>";
 				block += "<span class='emote-preview-hax'></span>";
-				block += "<i class='fa fa-"+block.faIcon+" fa-5x'></i>";
+				block += "<i class='fa fa-"+blockblockItem.faIcon+" fa-5x'></i>";
 				block += "<p style='color: white'><b>"+ blockItem.title + "</b></p>";
 				block += "</div>";
 				block += "</div>";
