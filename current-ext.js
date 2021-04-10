@@ -4300,10 +4300,12 @@ function bindEventHandler() {
 			body += "</div>";
 
 			body += "<div class='bottom-margin row' id='directoryList'>";
+			body += "<div class='col-sm-6 offset-sm-3'>"
 			body += "<a class='btn btn-default expand-arrow' data-toggle='collapse' href='#directoryTraverse' role='button' aria-expanded='false' aria-controls='directoryTraverse'>";
 			body += "list directory &nbsp";
 			body += "<span id='directoryCollapse' class='glyphicon glyphicon-chevron-up'></span>";
 			body += "</a>";
+			body += "</div>";
 			body += "<div class='collapse in col-sm-12' id='directoryTraverse'>";
 			body += "</div>";
 			body += "</div>";

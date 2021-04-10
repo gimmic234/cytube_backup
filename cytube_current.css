@@ -653,6 +653,6 @@ margin-top: 0px !important;
     cursor: pointer;
 }
 
-a:focus, a:hover {
-    justify-content: center;
+#directoryList a:hover, #directoryList a:focus {
+    justify-content: center !important;
 }
