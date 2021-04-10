@@ -99,14 +99,14 @@ var missingGoogleDriveMsg = ':googledrivedead: missing google drive script. Type
 var gdBufferTimer = 5000;
 achievementMatch = [];
 var repoKeyBlocks = {
-	"video": {
+	"opeds": {
 		value: "opeds",
 		title: "OP/ED",
 		listKey: "repoVideoList",
 		list: [],
 		faIcon: "music"
 	}, 
-	"ost": {
+	"osts": {
 		value: "osts",
 		title: "OST",
 		listKey: "repoOstList",

@@ -1767,7 +1767,7 @@ var chatCmdLookup = {
 	'/addrandomFromServer': function(chatCmdText) {
 		let stringItem = chatCmdText.slice(1).join(' ').toString();
 		if (repoKeyBlocks[stringItem].list.length == 0)  {
-			await readVideoFromServer(stringItem, repoKeyBlocks[stringItem].list);
+			repoKeyBlocks[stringItem].list = await readVideoFromServer(stringItem);
 		}
 		var randomVid = repoKeyBlocks[stringItem].list[Math.floor(Math.random() * repoKeyBlocks[stringItem].list.length)];
 		$(document.getElementById('mediaurl')).val(randomVid.url);
@@ -2190,7 +2190,7 @@ function readVideoList() {
 	});
 }
 
-async function readVideoFromServer(key, arrayList) {
+async function readVideoFromServer(key) {
 	let returnArray = [];
 	$.ajax({
 		url: opRepoUrl + "?type=" + key,
@@ -2198,7 +2198,7 @@ async function readVideoFromServer(key, arrayList) {
 		async: false,
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result;
 			entries.each(function(value, index) {
 				if (!value.directory) {
 					let splitString = value.filename.split("/");
@@ -2210,13 +2210,12 @@ async function readVideoFromServer(key, arrayList) {
 					returnArray.push(newEntry);
 				}				
 			})
-			arrayList = returnArray;
 		},
 		error: function() {
 			returnArray = [];
-			arrayList = returnArray;
 		}
 	});	
+	return returnArray;
 }
 
 function readVideoListBatch1() {
@@ -3264,7 +3263,7 @@ window.scrollChat = function() {
 }
 
 
-	function renderVideoList(key) {
+	async function renderVideoList(key) {
 		let keyBlock = repoKeyBlocks[key];
 		if (!keyBlock)
 		{
@@ -3273,7 +3272,7 @@ window.scrollChat = function() {
 		}
 
 		if (keyBlock.list.length == 0) {
-			await readVideoFromServer(keyBlock.value, repoKeyBlocks[key].list);
+			repoKeyBlocks[key].list = await readVideoFromServer(keyBlock.value);
 			keyBlock = repoKeyBlocks[key];
 		}
 
