@@ -4232,7 +4232,7 @@ function bindEventHandler() {
 				let block = "<div class=''>";
 				block += "<div class='achievement-container clickable' title='"+blockItem.title+"' onclick='renderVideoList(\""+key+"\")'>";
 				block += "<span class='emote-preview-hax'></span>";
-				block += "<i class='fa fa-"+blockblockItem.faIcon+" fa-5x'></i>";
+				block += "<i class='fa fa-"+blockItem.faIcon+" fa-5x'></i>";
 				block += "<p style='color: white'><b>"+ blockItem.title + "</b></p>";
 				block += "</div>";
 				block += "</div>";
