@@ -4299,7 +4299,7 @@ function bindEventHandler() {
 			body += "</div>";
 			body += "</div>";
 
-			body += "<div class='bottom-margin row' id='directoryList'>";
+			body += "<div class='bottom-margin row col-sm-12' id='directoryList'>";
 			body += "<div class='col-sm-6 offset-sm-3'>"
 			body += "<a class='btn btn-default expand-arrow' data-toggle='collapse' href='#directoryTraverse' role='button' aria-expanded='false' aria-controls='directoryTraverse'>";
 			body += "list directory &nbsp";
@@ -4310,7 +4310,7 @@ function bindEventHandler() {
 			body += "</div>";
 			body += "</div>";
 
-			body += "<div class='row bottom-margin-big col-sm-12'>";
+			body += "<div class='row bottom-margin col-sm-12'>";
 			body += "<div class='col-sm-4'>";
 			body += "<input class='form-control search cs-textbox' type='text' data-column='0' id='videoSearch'>";
 			body += "</div>";
