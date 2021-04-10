@@ -3263,6 +3263,56 @@ window.scrollChat = function() {
 	}
 }
 
+
+	function renderVideoList(key) {
+		let keyBlock = repoKeyBlocks[key];
+		if (!keyBlock)
+		{
+			console.log("repo key not found: " + key);
+			return;
+		}
+
+		if (keyBlock.list.length == 0) {
+			await readVideoFromServer(keyBlock.value, repoKeyBlocks[key].list);
+			keyBlock = repoKeyBlocks[key];
+		}
+
+		let body = "";
+		keyBlock.list.forEach(function(item, index) {
+			if (item.user != '') {
+				let row = "<tr>";
+				row += "<td class='members'>"+item.title+"</td>";
+				row += "<td>";
+				row += "<button data-url='"+item.url+"' data-title='"+JSON.stringify(item.title)+"' class='btn btn-sm btn-success qr-addqueue'>Add Queue</button>";
+				row += "</td>";
+				row += "</tr>";
+				body += row;
+			}
+		});
+		$('#video-list-menu').html(body);
+		$("#videoListTable").trigger("destroy");
+		let $videoTable = $("#videoListTable").tablesorter({
+			widgets : ["filter"],
+		    widgetOptions : {
+		      filter_external : '.search',
+		      //filter_defaultFilter: { 0 : '~{query}' },
+		      filter_columnFilters: false,
+		      filter_placeholder: { search : 'Search...' },
+		      filter_saveFilters : false,
+		      filter_reset: '.reset'
+	      	}
+		});
+		$("#videoListTable").trigger("updateAll");
+		$('#video-search-menu').show();
+		$('#video-init-menu').hide();
+	}
+
+	function renderVideoInitMenu() {
+		$('#videoSearch').val('');
+		$('#video-search-menu').hide();
+		$('#video-init-menu').show();	
+	}
+
 function greetUser(name, elem)
 {
 	let filteredEmote = emoteArray.filter(emote => (emote.name.toLowerCase().indexOf("wave") > -1));
@@ -4164,55 +4214,6 @@ function bindEventHandler() {
 		let title = $(this).attr('data-title');
 		chatCmdLookup["/addqtitle"]([0, JSON.parse(title), url]);
 	});
-
-	function renderVideoList(key) {
-		let keyBlock = repoKeyBlocks[key];
-		if (!keyBlock)
-		{
-			console.log("repo key not found: " + key);
-			return;
-		}
-
-		if (keyBlock.list.length == 0) {
-			await readVideoFromServer(keyBlock.value, repoKeyBlocks[key].list);
-			keyBlock = repoKeyBlocks[key];
-		}
-
-		let body = "";
-		keyBlock.list.forEach(function(item, index) {
-			if (item.user != '') {
-				let row = "<tr>";
-				row += "<td class='members'>"+item.title+"</td>";
-				row += "<td>";
-				row += "<button data-url='"+item.url+"' data-title='"+JSON.stringify(item.title)+"' class='btn btn-sm btn-success qr-addqueue'>Add Queue</button>";
-				row += "</td>";
-				row += "</tr>";
-				body += row;
-			}
-		});
-		$('#video-list-menu').html(body);
-		$("#videoListTable").trigger("destroy");
-		let $videoTable = $("#videoListTable").tablesorter({
-			widgets : ["filter"],
-		    widgetOptions : {
-		      filter_external : '.search',
-		      //filter_defaultFilter: { 0 : '~{query}' },
-		      filter_columnFilters: false,
-		      filter_placeholder: { search : 'Search...' },
-		      filter_saveFilters : false,
-		      filter_reset: '.reset'
-	      	}
-		});
-		$("#videoListTable").trigger("updateAll");
-		$('#video-search-menu').show();
-		$('#video-init-menu').hide();
-	}
-
-	function renderVideoInitMenu() {
-		$('#videoSearch').val('');
-		$('#video-search-menu').hide();
-		$('#video-init-menu').show();	
-	}
 
 	$(bodyElem).on('click', '#queue-video-list, #queue-video-list-overlay', function() {
 		createModalExt({

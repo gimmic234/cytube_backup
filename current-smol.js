@@ -194,7 +194,7 @@ window[CHANNEL.name].sequenceList = {
 		active: 1,
 		rank: -1,
 		callback: true,
-		url: "https://raw.githubusercontent.com/feeaghdoo/cytube-audio-cover-art/main/cytube-audio-cover-art.js"
+		url: "https://rawcdn.githack.com/feeaghdoo/cytube-audio-cover-art/4318e71e2f91355371b22301bb9c3bdb76f74a3c/cytube-audio-cover-art.js"
 	}
 };
 
