@@ -3308,7 +3308,7 @@ function renderVideoList(key, directory = false) {
 			block += "</div>";
 			listcontent += block;
 		});
-		body += listcontent;
+		listcontent;
 		$('#directoryTraverse').html(listcontent);
 	}
 
