@@ -4228,7 +4228,7 @@ function bindEventHandler() {
 
 			let listcontent = "";
 
-			$.each(repoKeyBlocks, function(blockItem, key) {
+			$.each(repoKeyBlocks, function(key, blockItem) {
 				let block = "<div class=''>";
 				block += "<div class='achievement-container clickable' title='"+block.title+"' onclick='renderVideoList(\""+key+"\")'>";
 				block += "<span class='emote-preview-hax'></span>";
