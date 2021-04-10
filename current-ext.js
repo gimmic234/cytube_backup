@@ -1764,12 +1764,25 @@ var chatCmdLookup = {
 		$(document.getElementById('addfromurl-title-val')).val(randomVid.title);
 		$(document.getElementById('queue_end')).click();
 	},
-	'/addrandomFromServer': function(chatCmdText) {
-		let stringItem = chatCmdText.slice(1).join(' ').toString();
-		if (repoKeyBlocks[stringItem].list.length == 0)  {
-			repoKeyBlocks[stringItem].list = readVideoFromServer(stringItem);
-		}
-		var randomVid = repoKeyBlocks[stringItem].list[Math.floor(Math.random() * repoKeyBlocks[stringItem].list.length)];
+	'/addrandomFromServer': function() {
+		let keyRandom = [];
+		$.each(repoKeyBlocks, function(key,value) {
+			keyRandom.append(value.value);
+		});
+
+		$.each(keyRandom, function(key,stringItem) {
+			if (repoKeyBlocks[stringItem].list.length == 0)  {
+				repoKeyBlocks[stringItem].list = readVideoFromServer(stringItem);
+				repoKeyBlocks[stringItem].directories = populateDirectories(stringItem);
+			}
+		});
+		
+		let mergedList = [];
+		$.each(keyRandom, function(key, stringItem) {
+			mergedList = mergedList.concat(repoKeyBlocks[stringItem].list);
+		});
+
+		var randomVid = mergedList[Math.floor(Math.random() * mergedList.length)];
 		$(document.getElementById('mediaurl')).val(randomVid.url);
 		$(document.getElementById('mediaurl')).keyup();
 		$(document.getElementById('addfromurl-title-val')).val(randomVid.title);
@@ -3262,8 +3275,13 @@ window.scrollChat = function() {
 	}
 }
 
+function populateDirectories(key)
+{
+	let directorylist = repoKeyBlocks[key].list.map(l => l.path);
+	return directorylist.filter(l => (l != false));
+}
 
-async function renderVideoList(key) {
+function renderVideoList(key, directory = false) {
 	let keyBlock = repoKeyBlocks[key];
 	if (!keyBlock)
 	{
@@ -3273,11 +3291,34 @@ async function renderVideoList(key) {
 
 	if (keyBlock.list.length == 0) {
 		repoKeyBlocks[key].list = readVideoFromServer(keyBlock.value);
+		repoKeyBlocks[key].directories = populateDirectories(key);
 		keyBlock = repoKeyBlocks[key];
 	}
 
+	$('#directoryTraverse').html('');
+	if (!directory) {
+		let listcontent = "";
+		$.each(repoKeyBlocks[key].directories, function(keyValue, blockItem) {
+			let block = "<div class=''>";
+			block += "<div class='achievement-container clickable' title='"+blockItem+"' onclick='renderVideoList(\""+key+"\",\""+blockItem+"\")'>";
+			block += "<span class='emote-preview-hax'></span>";
+			block += "<i class='fa fa-folder fa-5x'></i>";
+			block += "<p style='color: white'><b>"+ blockItem + "</b></p>";
+			block += "</div>";
+			block += "</div>";
+			listcontent += block;
+		});
+		body += listcontent;
+		$('#directoryTraverse').html(listcontent);
+	}
+
+	let list = keyBlock.list;
+	if (directory) {
+		list = list.filter(l => l.path == directory);
+	}
+
 	let body = "";
-	keyBlock.list.forEach(function(item, index) {
+	list.forEach(function(item, index) {
 		if (item.user != '') {
 			let row = "<tr>";
 			row += "<td class='members'>"+item.title+"</td>";
@@ -3586,7 +3627,7 @@ window.loadInitializer = function() {
 		});
 
 		socket.emit('requestChannelRanks');
-
+/*
 		setTimeout(function() {
 			if (!window.hasDriveUserscript)
 			{
@@ -3619,7 +3660,7 @@ window.loadInitializer = function() {
 				
 				gdBufferTimer = false;
 			}
-		}, gdBufferTimer);
+		}, gdBufferTimer);*/
 	});
 
 	waitForEl('#AudioNoticeEvent1', function() {
@@ -4242,6 +4283,18 @@ function bindEventHandler() {
 			body += "</div>";
 
 			body += "<div id='video-search-menu' hidden>"; 
+			body += "<div class='col-sm-4 bottom-margin'>";
+			body += "<a class='clickable' onclick='renderVideoInitMenu()'><i class='fa fa-mail-reply fa-2x'></i></a>";
+			body += "</div>";
+
+			body += "<div class='bottom-margin row' id='directoryList'>";
+			body += "<a class='btn btn-default expand-arrow' data-toggle='collapse' href='#directoryTraverse' role='button' aria-expanded='false' aria-controls='directoryTraverse'>";
+			body += "list directory";
+			body += "<span id='directoryCollapse' class='glyphicon glyphicon-chevron-up'></span>";
+			body += "</a>";
+			body += "<div class='collapse in' id='directoryTraverse'>";
+			body += "</div>";
+			body += "</div>";
 
 			body += "<div class='row bottom-margin-big'>";
 			body += "<div class='col-sm-4'>";
@@ -4249,9 +4302,6 @@ function bindEventHandler() {
 			body += "</div>";
 			body += "<div class='col-sm-1'>";
 			body += "<button class='btn btn-default reset'>Reset</button>";
-			body += "</div>";
-			body += "<div class='col-sm-4'>";
-			body += "<a class='clickable' onclick='renderVideoInitMenu()'><i class='fa fa-mail-reply fa-2x'></i></a>";
 			body += "</div>";
 			body += "</div>";
 
@@ -5014,6 +5064,18 @@ function bindEventHandler() {
 		this.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(text);
 	});
 
+	$(bodyElem).on('hidden.bs.collapse', '#directoryTraverse', function() {
+		let collapse = $('#directoryCollapse');
+		collapse.classList.remove('glyphicon-chevron-up');
+		collapse.classList.add('glyphicon-chevron-down');
+	});
+
+	$(bodyElem).on('show.bs.collapse', '#directoryTraverse', function() {
+		let collapse = $('#directoryCollapse');
+		collapse.classList.remove('glyphicon-chevron-down');
+		collapse.classList.add('glyphicon-chevron-up');
+	});
+
 	$(bodyElem).on('hidden.bs.collapse', '#collapseMessage', function() {
 		collapseArrow[0].classList.remove('glyphicon-chevron-up');
 		collapseArrow[0].classList.add('glyphicon-chevron-down');
@@ -5036,7 +5098,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#randomVideo', function() {
-		chatCmdLookup['/addrandomFromServer'](["","opeds"]);
+		chatCmdLookup['/addrandomFromServer']();
 	});
 
 	$(bodyElem).on('click', '#batchVid', function() {
@@ -5044,7 +5106,7 @@ function bindEventHandler() {
 	});
 
 	$(bodyElem).on('click', '#randomVideoSmol', function() {
-		chatCmdLookup['/addrandomFromServer'](["","opeds"]);
+		chatCmdLookup['/addrandomFromServer']();
 	});
 
 	$('#voteskip').off();
