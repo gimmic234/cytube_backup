@@ -3298,6 +3298,7 @@ function renderVideoList(key, directory = false) {
 	$('#directoryTraverse').html('');
 	if (!directory) {
 		let listcontent = "";
+		
 		$.each(repoKeyBlocks[key].directories, function(keyValue, blockItem) {
 			let block = "<div class=''>";
 			block += "<div class='achievement-container clickable' title='"+blockItem+"' onclick='renderVideoList(\""+key+"\",\""+blockItem+"\")'>";
@@ -5066,8 +5067,8 @@ function bindEventHandler() {
 
 	$(bodyElem).on('hidden.bs.collapse', '#directoryTraverse', function() {
 		let collapse = $('#directoryCollapse');
-		collapse.classList.remove('glyphicon-chevron-up');
-		collapse.classList.add('glyphicon-chevron-down');
+		collapse.removeClass('glyphicon-chevron-up');
+		collapse.addClass('glyphicon-chevron-down');
 	});
 
 	$(bodyElem).on('show.bs.collapse', '#directoryTraverse', function() {
