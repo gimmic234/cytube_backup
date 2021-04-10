@@ -4244,12 +4244,14 @@ function bindEventHandler() {
 			body += "<div id='video-search-menu' hidden>"; 
 
 			body += "<div class='row bottom-margin-big'>";
-			body += "<a class='clickable' onclick='renderVideoInitMenu()'><i class='fa fa-mail-reply fa-2x'></i></a>";
 			body += "<div class='col-sm-4'>";
 			body += "<input class='form-control search cs-textbox' type='text' data-column='0' id='videoSearch'>";
 			body += "</div>";
-			body += "<div class='col-sm-4'>";
+			body += "<div class='col-sm-1'>";
 			body += "<button class='btn btn-default reset'>Reset</button>";
+			body += "</div>";
+			body += "<div class='col-sm-4'>";
+			body += "<a class='clickable' onclick='renderVideoInitMenu()'><i class='fa fa-mail-reply fa-2x'></i></a>";
 			body += "</div>";
 			body += "</div>";
 
