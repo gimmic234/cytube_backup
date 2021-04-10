@@ -652,3 +652,7 @@ margin-top: 0px !important;
 .clickable:hover {
     cursor: pointer;
 }
+
+a:focus, a:hover {
+    justify-content: center;
+}

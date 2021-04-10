@@ -3279,7 +3279,7 @@ window.scrollChat = function() {
 function populateDirectories(key)
 {
 	let directorylist = repoKeyBlocks[key].list.map(l => l.path);
-	return directorylist.filter(l => (l != false));
+	return directorylist.filter(l => (l != false)).filter(onlyUnique);
 }
 
 function renderVideoList(key, directory = false) {
@@ -4293,7 +4293,7 @@ function bindEventHandler() {
 			body += "</div>";
 
 			body += "<div id='video-search-menu' hidden>"; 
-			body += "<div class='row'>";
+			body += "<div class='col-sm-12 row'>";
 			body += "<div class='col-sm-4 bottom-margin'>";
 			body += "<a class='clickable' onclick='renderVideoInitMenu()' id='video-return' data-value='false'><i class='fa fa-mail-reply fa-2x'></i></a>";
 			body += "</div>";
@@ -4301,14 +4301,14 @@ function bindEventHandler() {
 
 			body += "<div class='bottom-margin row' id='directoryList'>";
 			body += "<a class='btn btn-default expand-arrow' data-toggle='collapse' href='#directoryTraverse' role='button' aria-expanded='false' aria-controls='directoryTraverse'>";
-			body += "list directory";
+			body += "list directory &nbsp";
 			body += "<span id='directoryCollapse' class='glyphicon glyphicon-chevron-up'></span>";
 			body += "</a>";
-			body += "<div class='collapse in' id='directoryTraverse'>";
+			body += "<div class='collapse in col-sm-12' id='directoryTraverse'>";
 			body += "</div>";
 			body += "</div>";
 
-			body += "<div class='row bottom-margin-big'>";
+			body += "<div class='row bottom-margin-big col-sm-12'>";
 			body += "<div class='col-sm-4'>";
 			body += "<input class='form-control search cs-textbox' type='text' data-column='0' id='videoSearch'>";
 			body += "</div>";
