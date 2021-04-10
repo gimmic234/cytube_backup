@@ -3297,6 +3297,7 @@ function renderVideoList(key, directory = false) {
 
 	$('#directoryTraverse').html('');
 	if (!directory) {
+		$('#video-return').attr('data-value', 'false');
 		let listcontent = "";
 		
 		$.each(repoKeyBlocks[key].directories, function(keyValue, blockItem) {
@@ -3315,6 +3316,7 @@ function renderVideoList(key, directory = false) {
 
 	let list = keyBlock.list;
 	if (directory) {
+		$('#video-return').attr('data-value', key);
 		list = list.filter(l => l.path == directory);
 	}
 
@@ -3349,9 +3351,15 @@ function renderVideoList(key, directory = false) {
 }
 
 function renderVideoInitMenu() {
-	$('#videoSearch').val('');
-	$('#video-search-menu').hide();
-	$('#video-init-menu').show();	
+	let value = $('#video-return').attr('data-value');
+	if (value == 'false') {
+		$('#videoSearch').val('');
+		$('#video-search-menu').hide();
+		$('#video-init-menu').show();	
+		return;
+	}
+
+	renderVideoList(value);
 }
 
 function greetUser(name, elem)
@@ -4284,8 +4292,10 @@ function bindEventHandler() {
 			body += "</div>";
 
 			body += "<div id='video-search-menu' hidden>"; 
+			body += "<div class='row'">;
 			body += "<div class='col-sm-4 bottom-margin'>";
-			body += "<a class='clickable' onclick='renderVideoInitMenu()'><i class='fa fa-mail-reply fa-2x'></i></a>";
+			body += "<a class='clickable' onclick='renderVideoInitMenu()' id='video-return' data-value='false'><i class='fa fa-mail-reply fa-2x'></i></a>";
+			body += "</div>";
 			body += "</div>";
 
 			body += "<div class='bottom-margin row' id='directoryList'>";
@@ -5073,8 +5083,8 @@ function bindEventHandler() {
 
 	$(bodyElem).on('show.bs.collapse', '#directoryTraverse', function() {
 		let collapse = $('#directoryCollapse');
-		collapse.classList.remove('glyphicon-chevron-down');
-		collapse.classList.add('glyphicon-chevron-up');
+		collapse.removeClass('glyphicon-chevron-down');
+		collapse.addClass('glyphicon-chevron-up');
 	});
 
 	$(bodyElem).on('hidden.bs.collapse', '#collapseMessage', function() {
