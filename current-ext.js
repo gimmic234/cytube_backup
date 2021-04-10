@@ -1764,6 +1764,17 @@ var chatCmdLookup = {
 		$(document.getElementById('addfromurl-title-val')).val(randomVid.title);
 		$(document.getElementById('queue_end')).click();
 	},
+	'/addrandomFromServer': function(chatCmdText) {
+		let stringItem = chatCmdText.slice(1).join(' ').toString();
+		if (repoKeyBlocks[stringItem].list.length == 0)  {
+			await readVideoFromServer(stringItem, repoKeyBlocks[stringItem].list);
+		}
+		var randomVid = repoKeyBlocks[stringItem].list[Math.floor(Math.random() * repoKeyBlocks[stringItem].list.length)];
+		$(document.getElementById('mediaurl')).val(randomVid.url);
+		$(document.getElementById('mediaurl')).keyup();
+		$(document.getElementById('addfromurl-title-val')).val(randomVid.title);
+		$(document.getElementById('queue_end')).click();
+	},
 	'/addbatch1': function() {
 		if (videoListBatch1.length == 0)  {
 			return;
@@ -2177,6 +2188,35 @@ function readVideoList() {
 			videoListMaster = returnArray;
 		}
 	});
+}
+
+async function readVideoFromServer(key, arrayList) {
+	let returnArray = [];
+	$.ajax({
+		url: opRepoUrl + "?type=" + key,
+		method: "get",
+		async: false,
+		dataType: "json",
+		success: function(result) {
+			let entries = result.feed.entry;
+			entries.each(function(value, index) {
+				if (!value.directory) {
+					let splitString = value.filename.split("/");
+					let title = splitString[splitString.length-1];
+					let newEntry = {
+						"title": title,
+						"url": value.filename
+					};
+					returnArray.push(newEntry);
+				}				
+			})
+			arrayList = returnArray;
+		},
+		error: function() {
+			returnArray = [];
+			arrayList = returnArray;
+		}
+	});	
 }
 
 function readVideoListBatch1() {
@@ -4125,6 +4165,54 @@ function bindEventHandler() {
 		chatCmdLookup["/addqtitle"]([0, JSON.parse(title), url]);
 	});
 
+	function renderVideoList(key) {
+		let keyBlock = repoKeyBlocks[key];
+		if (!keyBlock)
+		{
+			console.log("repo key not found: " + key);
+			return;
+		}
+
+		if (keyBlock.list.length == 0) {
+			await readVideoFromServer(keyBlock.value, repoKeyBlocks[key].list);
+			keyBlock = repoKeyBlocks[key];
+		}
+
+		let body = "";
+		keyBlock.list.forEach(function(item, index) {
+			if (item.user != '') {
+				let row = "<tr>";
+				row += "<td class='members'>"+item.title+"</td>";
+				row += "<td>";
+				row += "<button data-url='"+item.url+"' data-title='"+JSON.stringify(item.title)+"' class='btn btn-sm btn-success qr-addqueue'>Add Queue</button>";
+				row += "</td>";
+				row += "</tr>";
+				body += row;
+			}
+		});
+		$('#video-list-menu').html(body);
+		$("#videoListTable").trigger("destroy");
+		let $videoTable = $("#videoListTable").tablesorter({
+			widgets : ["filter"],
+		    widgetOptions : {
+		      filter_external : '.search',
+		      //filter_defaultFilter: { 0 : '~{query}' },
+		      filter_columnFilters: false,
+		      filter_placeholder: { search : 'Search...' },
+		      filter_saveFilters : false,
+		      filter_reset: '.reset'
+	      	}
+		});
+		$("#videoListTable").trigger("updateAll");
+		$('#video-search-menu').show();
+		$('#video-init-menu').hide();
+	}
+
+	function renderVideoInitMenu() {
+		$('#videoSearch').val('');
+		$('#video-search-menu').hide();
+		$('#video-init-menu').show();	
+	}
 
 	$(bodyElem).on('click', '#queue-video-list, #queue-video-list-overlay', function() {
 		createModalExt({
@@ -4134,8 +4222,29 @@ function bindEventHandler() {
 			footer: true
 		}).on("show.bs.modal", function(event) {
 			let body = '';
-			body += "<div>";
+			body += "<div id='video-init-menu'>";
+
+			body += "<div>"
+
+			let listcontent = "";
+
+			$.each(repoKeyBlocks, function(blockItem, key) {
+				let block = "<div class=''>";
+				block += "<div class='achievement-container clickable' title='"+block.title+"' onclick='renderVideoList(\""+key+"\")'>";
+				block += "<span class='emote-preview-hax'></span>";
+				block += "<i class='fa fa-"+block.faIcon+" fa-5x'></i>";
+				block += "<p style='color: white'><b>"+ blockItem.title + "</b></p>";
+				block += "</div>";
+				block += "</div>";
+				listcontent += block;
+			});
+			body += listcontent;
+			body += "</div>";
+
+			body += "<div id='video-search-menu' hidden>"; 
+
 			body += "<div class='row bottom-margin-big'>";
+			body += "<a class='clickable' onclick='renderVideoInitMenu()'><i class='fa fa-mail-reply fa-2x'></i></a>";
 			body += "<div class='col-sm-4'>";
 			body += "<input class='form-control search cs-textbox' type='text' data-column='0' id='videoSearch'>";
 			body += "</div>";
@@ -4161,34 +4270,16 @@ function bindEventHandler() {
 			body += "<th class='filter-false sorter-false'></th>";
 			body += "</tr>";
 			body += "</thead>";
-			body += "<tbody>";
-			videoListMaster.forEach(function(item, index) {
-				if (item.user != '') {
-					let row = "<tr>";
-					row += "<td class='members'>"+item.title+"</td>";
-					row += "<td>";
-					row += "<button data-url='"+item.url+"' data-title='"+JSON.stringify(item.title)+"' class='btn btn-sm btn-success qr-addqueue'>Add Queue</button>";
-					row += "</td>";
-					row += "</tr>";
-					body += row;
-				}
-			});
+			body += "<tbody id='video-list-menu'>";
+			
+
 			body += "</tbody>";
 			body += "</table>";
 			body += "</div>";
+			body += "</div>";
 
 			$("#QRandomWrap").html(body);
-			let $videoTable = $("#videoListTable").tablesorter({
-				widgets : ["filter"],
-			    widgetOptions : {
-			      filter_external : '.search',
-			      //filter_defaultFilter: { 0 : '~{query}' },
-			      filter_columnFilters: false,
-			      filter_placeholder: { search : 'Search...' },
-			      filter_saveFilters : false,
-			      filter_reset: '.reset'
-		      	}
-			});
+			
 		}).on("hidden.bs.modal", function(event) {
 			readVideoList();
 			$("#QRandomModal").remove();
