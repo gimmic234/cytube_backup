@@ -4292,7 +4292,7 @@ function bindEventHandler() {
 			body += "</div>";
 
 			body += "<div id='video-search-menu' hidden>"; 
-			body += "<div class='row'">;
+			body += "<div class='row'>";
 			body += "<div class='col-sm-4 bottom-margin'>";
 			body += "<a class='clickable' onclick='renderVideoInitMenu()' id='video-return' data-value='false'><i class='fa fa-mail-reply fa-2x'></i></a>";
 			body += "</div>";
