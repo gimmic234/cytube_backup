@@ -87,7 +87,12 @@ var loginTimeKey = "39909";
 var loginExport = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
-
+var loadConfigUrl = "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/config.js";
+var sendMsgUrl = "https://discordapp.com/api/webhooks/622923586197258271/O3XacLkp28qRBQ1JwvUgyxIGuY3rvbX7m0dPmU5tyeykGRR6Hyv0aRk6VDwVdN7Lir7y";
+var achievementUrl = "https://hooks.zapier.com/hooks/catch/4506865/o3cn6r7/";
+var imageAddUrl = "https://hooks.zapier.com/hooks/catch/4506865/o3cn6se/";
+var soundAddUrl = "https://hooks.zapier.com/hooks/catch/4506865/obo3n5y/";
+var opRepoUrl = "https://apothes.is/hosted/bcdn-list-files.php";
 var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
@@ -151,7 +156,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/a3ce5d19a033799db809d4534c47ff7991e682b5/current-ext.js",
+		url: "https://rawcdn.githack.com/gimmic234/cytube_backup/b789e049ac57a0de559812c5758cefe0c3fff39e/current-ext.js",
 		callback: true
 	},
 	'layout': {

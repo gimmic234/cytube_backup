@@ -4211,7 +4211,7 @@ function bindEventHandler() {
 	$(bodyElem).on('click', '.qr-addqueue', function() {
 		let url = $(this).attr('data-url');
 		let title = $(this).attr('data-title');
-		chatCmdLookup["/addqtitle"]([0, JSON.parse(title), encodeURI(url)]);
+		chatCmdLookup["/addqtitle"]([0, encodeURI(url), JSON.parse(title)]);
 	});
 
 	$(bodyElem).on('click', '#queue-video-list, #queue-video-list-overlay', function() {
