@@ -1767,7 +1767,7 @@ var chatCmdLookup = {
 	'/addrandomFromServer': function() {
 		let keyRandom = [];
 		$.each(repoKeyBlocks, function(key,value) {
-			keyRandom.append(value.value);
+			keyRandom.push(value.value);
 		});
 
 		$.each(keyRandom, function(key,stringItem) {
