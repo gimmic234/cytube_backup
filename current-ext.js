@@ -3407,7 +3407,7 @@ function renderVideoInitMenu() {
 		return;
 	}
 
-	let key = $('#video-return').attr('path-value') == '';
+	let key = $('#video-return').attr('path-value');
 	key = (key == '') ? false : key;
 
 	renderVideoList(value, key);
