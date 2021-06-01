@@ -3334,14 +3334,16 @@ function renderVideoList(key, directory = false) {
 			blockItem = pathway[0];
 			blockPath = blockItem;
 		}
-		let block = "<div class=''>";
-		block += "<div class='achievement-container clickable' title='"+blockItem+"' onclick='renderVideoList(\""+key+"\",\""+blockPath+"\")'>";
-		block += "<span class='emote-preview-hax'></span>";
-		block += "<i class='fa fa-folder fa-5x'></i>";
-		block += "<p style='color: white'><b>"+ blockItem + "</b></p>";
-		block += "</div>";
-		block += "</div>";
-		listcontent += block;
+		if (!blockItem) {
+			let block = "<div class=''>";
+			block += "<div class='achievement-container clickable' title='"+blockItem+"' onclick='renderVideoList(\""+key+"\",\""+blockPath+"\")'>";
+			block += "<span class='emote-preview-hax'></span>";
+			block += "<i class='fa fa-folder fa-5x'></i>";
+			block += "<p style='color: white'><b>"+ blockItem + "</b></p>";
+			block += "</div>";
+			block += "</div>";
+			listcontent += block;
+		}
 	});
 	listcontent;
 	$('#directoryTraverse').html(listcontent);
