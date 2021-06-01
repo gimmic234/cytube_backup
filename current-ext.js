@@ -3299,6 +3299,7 @@ function renderVideoList(key, directory = false) {
 	$('#directoryTraverse').html('');
 	//check this
 	$('#video-return').attr('data-value', 'false');
+	$('#video-return').attr('path-value', '');
 	let listcontent = "";
 	let dirList = (directory) ? keyBlock.directories.filter(l => l.indexOf(directory) > -1) : repoKeyBlocks[key].directories;
 
@@ -3334,7 +3335,8 @@ function renderVideoList(key, directory = false) {
 			blockItem = pathway[0];
 			blockPath = blockItem;
 		}
-		if (!blockItem) {
+
+		if (blockItem) {
 			let block = "<div class=''>";
 			block += "<div class='achievement-container clickable' title='"+blockItem+"' onclick='renderVideoList(\""+key+"\",\""+blockPath+"\")'>";
 			block += "<span class='emote-preview-hax'></span>";
@@ -3351,6 +3353,7 @@ function renderVideoList(key, directory = false) {
 	let list = keyBlock.list;
 	if (directory) {		
 		$('#video-return').attr('data-value', key);
+		$('#video-return').attr('path-value', directory);
 		list = list.filter(l => l.path.indexOf(directory) > -1);
 		list = list.filter(l => {
 			let subPath = l.path.split("/");
@@ -3404,7 +3407,10 @@ function renderVideoInitMenu() {
 		return;
 	}
 
-	renderVideoList(value);
+	let key = $('#video-return').attr('path-value') == '';
+	key = (key == '') ? false : key;
+
+	renderVideoList(value, key);
 }
 
 function greetUser(name, elem)
@@ -4339,7 +4345,7 @@ function bindEventHandler() {
 			body += "<div id='video-search-menu' hidden>"; 
 			body += "<div class='col-sm-12 row'>";
 			body += "<div class='col-sm-4 bottom-margin'>";
-			body += "<a class='clickable' onclick='renderVideoInitMenu()' id='video-return' data-value='false'><i class='fa fa-mail-reply fa-2x'></i></a>";
+			body += "<a class='clickable' onclick='renderVideoInitMenu()' id='video-return' data-value='false' path-value=''><i class='fa fa-mail-reply fa-2x'></i></a>";
 			body += "</div>";
 			body += "</div>";
 
