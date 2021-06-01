@@ -3309,6 +3309,10 @@ function renderVideoList(key, directory = false) {
 	if (directory) {
 		directoryPathway = directory.split("/");
 		directoryLevel = directoryPathway.length;
+		if (directoryLevel > 1) {
+			let subDir = directoryPathway.slice(0, directoryLevel-1);
+			$('#video-return').attr('path-value', subDir);
+		}
 		dirList = dirList.filter(l => {
 			let dirSubPath = l.split("/");
 			let result = true;
@@ -3353,7 +3357,6 @@ function renderVideoList(key, directory = false) {
 	let list = keyBlock.list;
 	if (directory) {		
 		$('#video-return').attr('data-value', key);
-		$('#video-return').attr('path-value', directory);
 		list = list.filter(l => l.path.indexOf(directory) > -1);
 		list = list.filter(l => {
 			let subPath = l.path.split("/");
