@@ -3310,12 +3310,15 @@ function renderVideoList(key, directory = false) {
 		directoryLevel = directoryPathway.length;
 		dirList = dirList.filter(l => {
 			let dirSubPath = l.split("/");
+			let result = true;
+			console.log(dirSubPath);
 			$.each(directoryPathway, function(keyValue, blockItem) {
 				if (directoryPathway[keyValue] != dirSubPath[keyValue]) {
-					return false;
+					console.log(dirSubPath[keyValue]);
+					result = false;
 				}
 			});
-			return true;
+			return result;
 		});
 	}
 
@@ -3349,13 +3352,14 @@ function renderVideoList(key, directory = false) {
 		list = list.filter(l => l.path.indexOf(directory) > -1);
 		list = list.filter(l => {
 			let subPath = l.path.split("/");
+			let result = true;
 			$.each(directoryPathway, function(keyValue, blockItem) {
 				if (directoryPathway[keyValue] != subPath[keyValue])
 				{
-					return false;
+					result = false;
 				}
 			});
-			return true;
+			return result;
 		});
 	}
 
