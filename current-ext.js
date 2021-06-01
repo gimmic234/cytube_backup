@@ -3326,7 +3326,7 @@ function renderVideoList(key, directory = false) {
 		let pathway = blockItem.split("/");
 		let pathPosition = 0;
 		if (directory) {
-			blockItem = pathway[directoryPathway.legnth];
+			blockItem = pathway[directoryLevel];
 			blockPath = directory + "/" + blockItem;
 		}
 
