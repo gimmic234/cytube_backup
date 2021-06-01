@@ -3297,28 +3297,66 @@ function renderVideoList(key, directory = false) {
 	}
 
 	$('#directoryTraverse').html('');
-	if (!directory) {
-		$('#video-return').attr('data-value', 'false');
-		let listcontent = "";
-		
-		$.each(repoKeyBlocks[key].directories, function(keyValue, blockItem) {
-			let block = "<div class=''>";
-			block += "<div class='achievement-container clickable' title='"+blockItem+"' onclick='renderVideoList(\""+key+"\",\""+blockItem+"\")'>";
-			block += "<span class='emote-preview-hax'></span>";
-			block += "<i class='fa fa-folder fa-5x'></i>";
-			block += "<p style='color: white'><b>"+ blockItem + "</b></p>";
-			block += "</div>";
-			block += "</div>";
-			listcontent += block;
+	//check this
+	$('#video-return').attr('data-value', 'false');
+	let listcontent = "";
+	let dirList = (directory) ? keyBlock.directories.filter(l => l.indexOf(directory) > -1) : repoKeyBlocks[key].directories;
+
+	let directoryPathway = "";
+	let directoryLevel = 0;
+
+	if (directory) {
+		directoryPathway = directory.split("/");
+		directoryLevel = directoryPathway.length;
+		dirList = dirList.filter(l => {
+			let dirSubPath = l.split("/");
+			$.each(directoryPathway, function(keyValue, blockItem) {
+				if (directoryPathway[keyValue] != dirSubPath[keyValue]) {
+					return false;
+				}
+			});
+			return true;
 		});
-		listcontent;
-		$('#directoryTraverse').html(listcontent);
 	}
 
+	$.each(dirList, function(keyValue, blockItem) {
+		let pathway = blockItem.split("/");
+		let pathPosition = 0;
+		if (directory) {
+			blockItem = pathway[directoryPathway.legnth];
+			blockPath = directory + "/" + blockItem;
+		}
+
+		if (!directory) {
+			blockItem = pathway[0];
+			blockPath = blockItem;
+		}
+		let block = "<div class=''>";
+		block += "<div class='achievement-container clickable' title='"+blockItem+"' onclick='renderVideoList(\""+key+"\",\""+blockPath+"\")'>";
+		block += "<span class='emote-preview-hax'></span>";
+		block += "<i class='fa fa-folder fa-5x'></i>";
+		block += "<p style='color: white'><b>"+ blockItem + "</b></p>";
+		block += "</div>";
+		block += "</div>";
+		listcontent += block;
+	});
+	listcontent;
+	$('#directoryTraverse').html(listcontent);
+
 	let list = keyBlock.list;
-	if (directory) {
+	if (directory) {		
 		$('#video-return').attr('data-value', key);
-		list = list.filter(l => l.path == directory);
+		list = list.filter(l => l.path.indexOf(directory) > -1);
+		list = list.filter(l => {
+			let subPath = l.path.split("/");
+			$.each(directoryPathway, function(keyValue, blockItem) {
+				if (directoryPathway[keyValue] != subPath[keyValue])
+				{
+					return false;
+				}
+			});
+			return true;
+		});
 	}
 
 	let body = "";
