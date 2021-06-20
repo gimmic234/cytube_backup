@@ -88,6 +88,7 @@ var loginExport = "false";
 var titleBanner = "";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
+
 var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
