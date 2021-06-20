@@ -1,4 +1,25 @@
 var chatCmdLookup = {
+	'/edittitle': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var textField = jsTextField.val();
+			var textFieldArray = textField.split("\n");
+			var bannerUrl = chatCmdText[1].replace(/['"]+/g, '').trim();
+			bannerUrl = bannerUrl.replace('https:', 'http:');
+			if (bannerUrl.lastIndexOf('?') > -1) {
+				bannerUrl = bannerUrl.substr(0, bannerUrl.lastIndexOf('?'));
+			}
+			bannerUrl += "";
+			var firstBlock = textFieldArray[87].substr(0, textFieldArray[].lastIndexOf(' = ') + 1);
+			textField = textField.replace(textFieldArray[87], firstBlock + "= '" + bannerUrl + "';");
+			jsTextField.val(textField);
+			socket.emit("setChannelJS", {
+				js: $("#cs-jstext").val()
+			});
+		}
+		window.socket.emit("chatMsg", {
+			msg: "banner updated"
+		});
+	},
 	'/gdhelp': function()
 	{
 		openInstructionModal();
@@ -4788,6 +4809,19 @@ function bindEventHandler() {
 			block += "<div class='input-group input-group-sm'>";
 			block += "<input class='form-control bg-url' type='text' value='"+background_img+"'>";
 			block += "<div class='input-group-btn'><button class='btn btn-default btn-bg-save' type='button' data-value='/editbg'>Save</button></div>";
+			block += "</div>";
+			block += "</div>";
+			block += "</div>";
+			viewcontent += block;
+
+			let block = "<div class=''>";
+			block += "<div class='background-select-container'>";
+			block += "<p><b>Title banner</b></p>";
+			block += "<span class='emote-preview-hax'></span>";
+			block += "<img class='bg-preview' src='"+titleBanner+"'>";
+			block += "<div class='input-group input-group-sm'>";
+			block += "<input class='form-control bg-url' type='text' value='"+titleBanner+"'>";
+			block += "<div class='input-group-btn'><button class='btn btn-default btn-bg-save' type='button' data-value='/edittitle'>Save</button></div>";
 			block += "</div>";
 			block += "</div>";
 			block += "</div>";
