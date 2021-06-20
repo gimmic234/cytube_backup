@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2021,
 	month2: 6,
-	day2: 6,
+	day2: 27,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -51,7 +51,7 @@ var delmessage = "false";
 var countdown_utc4 = {
 	year4: 2021,
 	month4: 6,
-	day4: 4,
+	day4: 25,
 	hour4: 23,
 	minute4: 0,
 	second4: 0
@@ -81,13 +81,12 @@ var countdownText2 = "Club";
 var countdownText3 = "Movie";
 var countdownText4 = "Berserk(1997)";
 var countdownText5 = "";
-var nicoEffectOnControl = "false";
+var nicoEffectOnControl = "true";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
-
 var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
@@ -98,7 +97,6 @@ var embedLink = "https://app.getmetastream.com/join/015b3af9038e5cc34b5aa86f983e
 var missingGoogleDriveMsg = ':googledrivedead: missing google drive script. Type /gdhelp for details.';
 var gdBufferTimer = 5000;
 achievementMatch = [];
-var currentDirectory = "";
 var repoKeyBlocks = {
 	"opeds": {
 		value: "opeds",
@@ -154,7 +152,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
+                url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -197,7 +195,7 @@ window[CHANNEL.name].sequenceList = {
 		active: 1,
 		rank: -1,
 		callback: true,
-                url: "https://cdn.jsdelivr.net/gh/feeaghdoo/cytube-audio-cover-art@master/cytube-audio-cover-art.js"
+                url: "https://cdn.jsdelivr.net/gh/feeaghdoo/cytube-audio-cover-art@latest/cytube-audio-cover-art.js"
 	}
 };
 

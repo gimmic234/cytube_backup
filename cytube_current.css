@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: 2px;
-    left: 1px;
+    top: 7px;
+    left: -2px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -26,8 +26,8 @@
 }
 
 #imgBubble {
-    height: 46px;
-    width: 46px;
+    height: 42px;
+    width: 50px;
 }
 
 #discoimg {
@@ -653,6 +653,22 @@ margin-top: 0px !important;
     cursor: pointer;
 }
 
-#directoryList a:hover, #directoryList a:focus {
+#directoryList a, #directoryList a:hover, #directoryList a:focus {
     justify-content: center !important;
+}
+
+#motdwrap {
+    margin-top: 0px !important;
+}
+
+#title-text-well {
+    margin: 0 !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    padding: 0 0 0 0 !important;
+}
+
+#session-title-banner {
+    width: 100% !important;
+    height: 100% !important;
 }
