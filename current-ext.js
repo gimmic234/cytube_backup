@@ -4814,7 +4814,7 @@ function bindEventHandler() {
 			block += "</div>";
 			viewcontent += block;
 
-			let block = "<div class=''>";
+			block = "<div class=''>";
 			block += "<div class='background-select-container'>";
 			block += "<p><b>Title banner</b></p>";
 			block += "<span class='emote-preview-hax'></span>";
