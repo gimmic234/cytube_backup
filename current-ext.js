@@ -9,7 +9,7 @@ var chatCmdLookup = {
 				bannerUrl = bannerUrl.substr(0, bannerUrl.lastIndexOf('?'));
 			}
 			bannerUrl += "";
-			var firstBlock = textFieldArray[87].substr(0, textFieldArray[].lastIndexOf(' = ') + 1);
+			var firstBlock = textFieldArray[87].substr(0, textFieldArray[87].lastIndexOf(' = ') + 1);
 			textField = textField.replace(textFieldArray[87], firstBlock + "= '" + bannerUrl + "';");
 			jsTextField.val(textField);
 			socket.emit("setChannelJS", {

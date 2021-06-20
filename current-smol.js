@@ -88,6 +88,7 @@ var loginExport = "false";
 var titleBanner = "";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
+var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
 var chatSearchDelay = 600;
@@ -152,7 +153,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-                url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
 		callback: true
 	},
 	'layout': {
