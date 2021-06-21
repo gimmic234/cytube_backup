@@ -3538,6 +3538,10 @@ window.loadInitializer = function() {
 		});
 	}
 
+	waitForEl("#session-title-banner", function() {
+		$('#session-title-banner').attr('src', titleBanner);
+	});
+
 	waitForEl("#mediarefresh", function() {
 		if (!$('#queue-video-list-overlay').length) {
 			$('#mediarefresh').after("<button id='queue-video-list-overlay' title='video list popup' class='btn btn-sm btn-default OLB'>Video List</button>");

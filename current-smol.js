@@ -85,11 +85,9 @@ var nicoEffectOnControl = "true";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
-var titleBanner = "";
+var titleBanner = 'http://media.discordapp.net/attachments/401840553634955266/856381124569727006/Haruka_sticker.gif';
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
-
-var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
 var chatSearchDelay = 600;
