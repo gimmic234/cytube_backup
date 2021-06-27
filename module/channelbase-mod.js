@@ -127,7 +127,7 @@ $("#chatwrap .nano").append($("#messagebuffer"));
 $(".nano").nanoScroller();
 $('#maincontain').find('.container-fluid').append("<div id='imgWrapFixed1' hidden></div>");
 $('#imgWrapFixed1').append("<img id='imgBubble2' src='"+imgBubble2+"'>");
-$('#motdwrap').before("<div id='title-text-well' class='well'><img id='session-title-banner'  src='"+titleBanner+"'></div>");
+$('#main').after("<div id='title-text-well' class='well'><img id='session-title-banner'  src='"+titleBanner+"'></div>");
 
 $('.navbar-nav').append("<li><a id='medallist' href='javascript:void(0)' style=''>Achievements</a></li>");
 /*$('.navbar-nav').append("<li><a id='randomVideo' href='javascript:void(0)' style=''>Queue Random</a></li>");*/

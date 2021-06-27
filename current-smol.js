@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://i.redd.it/cu0uoae082111.png";
+var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/858571452852469790/getter_robo_bg.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -81,13 +81,14 @@ var countdownText2 = "Club";
 var countdownText3 = "Movie";
 var countdownText4 = "Berserk(1997)";
 var countdownText5 = "";
-var nicoEffectOnControl = "true";
+var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
-var titleBanner = 'http://media.discordapp.net/attachments/401840553634955266/856381124569727006/Haruka_sticker.gif';
+var titleBanner = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
+var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
 var chatSearchDelay = 600;
