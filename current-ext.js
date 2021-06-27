@@ -20,6 +20,42 @@ var chatCmdLookup = {
 			msg: "banner updated"
 		});
 	},
+	'savetitle1': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(88, chatCmdText);
+		}
+	},
+	'savetitle2': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(89, chatCmdText);
+		}
+	},
+	'savetitle3': function(chatCmdText) {
+		if (chatCmdText.length > 1 && rankAdmin) {
+			var url = chatCmdText[1].replace('https:', 'http:');
+			chatCmdText[1] = url;
+			editJs(90, chatCmdText);
+		}
+	},
+	'settitle1': function(chatCmdText) {
+		if (rankAdmin) {
+			setAutoBanner(1);
+		}
+	},
+	'settitle2': function(chatCmdText) {
+		if (rankAdmin) {
+			setAutoBanner(2);
+		}	
+	},
+	'settitle3': function(chatCmdText) {
+		if (rankAdmin) {
+			setAutoBanner(3);
+		}
+	},
 	'/gdhelp': function()
 	{
 		openInstructionModal();
@@ -2928,6 +2964,11 @@ function imgEmote(imageUrl, text = '') {
 	});
 }
 
+function setAutoBanner(index) {
+	let textArray = [0, eval("titleBanner" + index)];
+	editJs(87, textArray);
+}
+
 function setAutobg(index) {
 	let textArray = [0, eval("background_img_auto" + index)];
 	editJs(4, textArray);
@@ -4793,6 +4834,7 @@ function bindEventHandler() {
 
 	$(bodyElem).on('click', '#bg-select-option', function() {
 		let bgList = [background_img_auto1, background_img_auto2, background_img_auto3, background_img_auto4, background_img_auto5, background_img_auto6, background_img_auto7];
+		let bannerList = [titleBanner1, titleBanner2, titleBanner3];
 		
 		createModalExt({
 			title: "View current background",
@@ -4830,6 +4872,21 @@ function bindEventHandler() {
 			block += "</div>";
 			block += "</div>";
 			viewcontent += block;
+
+			bannerList.each(function(url, i) {
+				let block = "<div class=''>";
+				block += "<div class='background-select-container'>";
+				block += "<p><b>background "+ (i+1) + "</b></p>";
+				block += "<span class='emote-preview-hax'></span>";
+				block += "<img class='bg-preview bg-change' src='"+url+"' data-value='/settitle"+(i+1)+"'>";
+				block += "<div class='input-group input-group-sm'>";
+				block += "<input class='form-control bg-url' type='text' value='"+url+"'>";
+				block += "<div class='input-group-btn'><button class='btn btn-default btn-bg-save' type='button' data-value='/savetitle"+(i+1)+"' >Save</button></div>";
+				block += "</div>";
+				block += "</div>";
+				block += "</div>";
+				viewcontent += block;
+			});
 
 			bgList.each(function(url, i) {
 				let block = "<div class=''>";

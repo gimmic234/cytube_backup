@@ -86,9 +86,11 @@ var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
 var titleBanner = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
+var titleBanner1 = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
+var titleBanner2 = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
+var titleBanner3 = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
-var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
 var chatSearchDelay = 600;
