@@ -662,7 +662,8 @@ margin-top: 0px !important;
 }
 
 #title-text-well {
-    margin: 0 !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 1rem !important;
     margin-right: 1rem !important;
     padding: 0 0 0 0 !important;
@@ -670,6 +671,12 @@ margin-top: 0px !important;
 }
 
 #session-title-banner {
-    width: 100% !important;
-    height: 100% !important;
+    width: 30% !important;
+display: block !important;
+margin-left: auto;
+margin-right: auto;
+}
+
+#positionPadder p {
+margin: 0 !important;
 }

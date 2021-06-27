@@ -4876,7 +4876,7 @@ function bindEventHandler() {
 			bannerList.each(function(url, i) {
 				let block = "<div class=''>";
 				block += "<div class='background-select-container'>";
-				block += "<p><b>background "+ (i+1) + "</b></p>";
+				block += "<p><b>title banner "+ (i+1) + "</b></p>";
 				block += "<span class='emote-preview-hax'></span>";
 				block += "<img class='bg-preview bg-change' src='"+url+"' data-value='/settitle"+(i+1)+"'>";
 				block += "<div class='input-group input-group-sm'>";
