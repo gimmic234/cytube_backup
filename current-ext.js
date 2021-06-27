@@ -4965,7 +4965,7 @@ function bindEventHandler() {
 		if($("#motd")[0].style.display === "none") {
 			$('#motdrow').insertAfter('#queuecontainer');
 		} else {
-			$('#motdrow').insertAfter('#scroll-feature');
+			$('#motdrow').insertAfter('#title-text-well');
 		}
 	});
 
