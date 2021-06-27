@@ -20,38 +20,38 @@ var chatCmdLookup = {
 			msg: "banner updated"
 		});
 	},
-	'savetitle1': function(chatCmdText) {
+	'/savetitle1': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(88, chatCmdText);
 		}
 	},
-	'savetitle2': function(chatCmdText) {
+	'/savetitle2': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(89, chatCmdText);
 		}
 	},
-	'savetitle3': function(chatCmdText) {
+	'/savetitle3': function(chatCmdText) {
 		if (chatCmdText.length > 1 && rankAdmin) {
 			var url = chatCmdText[1].replace('https:', 'http:');
 			chatCmdText[1] = url;
 			editJs(90, chatCmdText);
 		}
 	},
-	'settitle1': function(chatCmdText) {
+	'/settitle1': function(chatCmdText) {
 		if (rankAdmin) {
 			setAutoBanner(1);
 		}
 	},
-	'settitle2': function(chatCmdText) {
+	'/settitle2': function(chatCmdText) {
 		if (rankAdmin) {
 			setAutoBanner(2);
 		}	
 	},
-	'settitle3': function(chatCmdText) {
+	'/settitle3': function(chatCmdText) {
 		if (rankAdmin) {
 			setAutoBanner(3);
 		}
