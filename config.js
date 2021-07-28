@@ -40,7 +40,6 @@
 	var videoListMaster = [];
 	var videoListBatch1 = [];
 	var ticketList;
-	var sheetIndex = 10;
 	if (!mutei) {
 		var mutei;
 	}

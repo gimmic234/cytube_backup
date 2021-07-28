@@ -99,8 +99,9 @@ var searchEnabled = false;
 var embedLink = "https://app.getmetastream.com/join/015b3af9038e5cc34b5aa86f983e8a93f1ba45f1b03ffbc21e58ab44c3232849";
 var missingGoogleDriveMsg = ':googledrivedead: missing google drive script. Type /gdhelp for details.';
 var gdBufferTimer = 5000;
-var recordMessage = "true";
+var recordMessage = "false";
 achievementMatch = [];
+var sheetIndex = 11;
 var repoKeyBlocks = {
 	"opeds": {
 		value: "opeds",
