@@ -2116,6 +2116,7 @@ function mergeAchievements() {
 	let arrayList = [
 		JSON.parse(achievementListArchieve),
 		JSON.parse(achievementListArchieve2),
+		JSON.parse(achievementListArchieve3),
 		JSON.parse(achievementList)
 	];
 
