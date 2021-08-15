@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/858571452852469790/getter_robo_bg.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/873981927915417620/keijo_bg_v2.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -15,12 +15,12 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2021,
 	month2: 8,
-	day2: 1,
+	day2: 15,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/521413432294113303/835937945708920852/Kuriyama.png";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/732631593776316587/873981927915417620/keijo_bg_v2.jpg";
 var background_img_auto2 = "http://i.redd.it/cu0uoae082111.png";
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
@@ -39,8 +39,8 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/409829343263719427/845554617550635058/Mokona.png";
-var imgBubble2 = "//cdn.discordapp.com/emojis/426018091785519116.png?v=1";
+var imgBubble = "//media.discordapp.net/attachments/452943717708595211/874043927932596264/keijo_logo2.png";
+var imgBubble2 = "//media.discordapp.net/attachments/452943717708595211/874043927932596264/keijo_logo2.png";
 var chatImg = "false";
 var img1show = "true";
 var img1fixedshow = "false";
@@ -85,12 +85,13 @@ var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
-var titleBanner = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
-var titleBanner1 = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
+var titleBanner = "http://cdn.discordapp.com/attachments/732631593776316587/871746553948299374/keijo_title.png";
+var titleBanner1 = "http://cdn.discordapp.com/attachments/732631593776316587/871746553948299374/keijo_title.png";
 var titleBanner2 = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
 var titleBanner3 = 'http://media.discordapp.net/attachments/466386319766192138/858573367174496276/banner.png';
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
+var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
 var chatSearchDelay = 600;
@@ -99,7 +100,7 @@ var searchEnabled = false;
 var embedLink = "https://app.getmetastream.com/join/015b3af9038e5cc34b5aa86f983e8a93f1ba45f1b03ffbc21e58ab44c3232849";
 var missingGoogleDriveMsg = ':googledrivedead: missing google drive script. Type /gdhelp for details.';
 var gdBufferTimer = 5000;
-var recordMessage = "false";
+var recordMessage = "true";
 achievementMatch = [];
 var sheetIndex = 11;
 var repoKeyBlocks = {

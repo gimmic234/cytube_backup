@@ -3528,11 +3528,16 @@ window.countdowner = function(countdown, destination,index) {
 }
 
 window.loadInitializer = function() {
-	readSheet();
-	readTickets();
-	readVideoList();
-	readVideoListBatch1();
-	readAchievement();
+	if (readFromSheet) {
+		readSheet();
+		readTickets();
+		readVideoList();
+		readVideoListBatch1();
+		readAchievement();
+		populateImgEmote('');
+		populateSoundEmote('');
+		readMsgCmd('');
+	}
 	let streamStr1 = "Next ";
 	let streamStr2 = " stream starts in...";
 	$('#head1').html(streamStr1 + countdownText1 + streamStr2);
@@ -3661,9 +3666,7 @@ window.loadInitializer = function() {
 		rankMod = (window.CLIENT.rank >= 2);
 		rankAdmin = (window.CLIENT.rank >= 3);
 		$(document.getElementById('voteskipwrap')).hide();
-		populateImgEmote('');
-		populateSoundEmote('');
-		readMsgCmd('');
+		
 		var buff = $('#messagebuffer');
 		/*if (CLIENT.name == "PhenomSage") 
 		{
