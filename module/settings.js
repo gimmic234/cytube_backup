@@ -111,7 +111,7 @@ $("#moveoverlay").click(function() {
   $("#VideoOverlay").toggleClass("overlayfix");
   $("#Videoverlay").before($("#pollwrap"));
 });
-
+/*
 document.querySelector("#leftchat").onclick = function(e) {
   if (localStorage.getItem("theme") === null) {
     localStorage.setItem("theme", "dark");
@@ -128,7 +128,7 @@ document.querySelector("#leftchat").onclick = function(e) {
 
   };
   e.preventDefault();
-};
+};*/
 
 if (localStorage.getItem("theme") === "dark") {
   $(chatwrap).addClass("leftchat");

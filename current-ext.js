@@ -2156,25 +2156,26 @@ function mergeAchievements() {
 function readMsgCmd(command) {
 	let temp = {};
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+7)+"/public/values?alt=json",
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt txt cmd?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
+			entries.shift();
 			let bodyString = "";
 			entries.each(function(value, index) {
 				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
-					temp[value.gsx$command.$t] = [];
-					bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
+					temp[value[0]] = [];
+					bodyString += "<li><b>"+value[0]+"</b></li>";
 				}
-				temp[value.gsx$command.$t].push(function(chatCmdText) {
+				temp[value[0]].push(function(chatCmdText) {
 					window.socket.emit("chatMsg", {
-						msg: value.gsx$message.$t
+						msg: value[1]
 					});
 				});
-				if (command != '' && command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
+				if (command != '' && command.toLowerCase() == value[0].toLowerCase()) {
 					window.socket.emit("chatMsg", {
-						msg: value.gsx$message.$t
+						msg: value[1]
 					});
 				}
 			})
@@ -2189,16 +2190,17 @@ function readMsgCmd(command) {
 
 function readTimeLog() {
 	let returnArray = [];
-	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+6)+"/public/values?alt=json",
+	$.ajax({		
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt logintime?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
+			entries.shift();
 			entries.each(function(value, index) {
 				let newEntry = {
-					"name": value.gsx$name.$t,
-					"minutes": value.gsx$color.$t
+					"name": value[0],
+					"minutes": value[1]
 				};
 				returnArray.push(newEntry);
 			});
@@ -2213,18 +2215,19 @@ function readTimeLog() {
 function readAchievement() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+1)+"/public/values?alt=json",
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt Achievements?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
+			entries.shift();
 			entries.each(function(value, index) {
 				let newEntry = {
-					"id": value.gsx$id.$t,
-					"title": value.gsx$title.$t,
-					"color": value.gsx$color.$t,
-					"description": value.gsx$description.$t,
-					"image": value.gsx$image.$t
+					"id": value[0],
+					"title": value[1],
+					"color": value[2],
+					"description": value[3],
+					"image": value[4]
 				};
 				returnArray.push(newEntry);
 			});
@@ -2240,15 +2243,16 @@ function readAchievement() {
 function readVideoList() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+4)+"/public/values?alt=json",
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt vid?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
 			let entries = result.feed.entry;
+			entries.shift();
 			entries.each(function(value, index) {
 				let newEntry = {
-					"title": value.gsx$title.$t,
-					"url": value.gsx$link.$t
+					"title": value[0],
+					"url": value[1]
 				};
 				returnArray.push(newEntry);
 			})
@@ -2293,15 +2297,16 @@ function readVideoFromServer(key) {
 function readVideoListBatch1() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+5)+"/public/values?alt=json",
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt Batch1?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
+			entries.shift();
 			entries.each(function(value, index) {
 				let newEntry = {
-					"title": value.gsx$title.$t,
-					"url": value.gsx$link.$t
+					"title": value[0],
+					"url": value[1]
 				};
 				returnArray.push(newEntry);
 			})
@@ -2317,20 +2322,21 @@ function readVideoListBatch1() {
 function readSheet() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+0)+"/public/values?alt=json",
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt pick?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
+			entries.shift();
 			entries.each(function(value, index) {
 				let newEntry = {
-					"user": value.gsx$user.$t,
-					"pick1": value.gsx$pick1.$t,
-					"status1": value.gsx$status1.$t,
-					"pick2": value.gsx$pick2.$t,
-					"status2": value.gsx$status2.$t,
-					"pick3": value.gsx$pick3.$t,
-					"status3": value.gsx$status3.$t
+					"user": value[0],
+					"pick1": value[1],
+					"status1": value[2],
+					"pick2": value[3],
+					"status2": value[4],
+					"pick3": value[5],
+					"status3": value[6]
 				};
 				returnArray.push(newEntry);
 			});
@@ -2345,16 +2351,17 @@ function readSheet() {
 function readTickets() {
 	let returnArray = [];
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+8)+"/public/values?alt=json",
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt Tickets?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
+			entries.shift();
 			entries.each(function(value, index) {
 				let newEntry = {
-					"name": value.gsx$name.$t,
-					"tickets": value.gsx$tickets.$t,
-					"status": value.gsx$status.$t
+					"name": value[0],
+					"tickets": value[1],
+					"status": value[2]
 				};
 				returnArray.push(newEntry);
 			});
@@ -2708,31 +2715,32 @@ function populateSoundEmote(command) {
 	var utsuMute = (localStorage[CHANNEL.name + "_?utsu"] == null || localStorage[CHANNEL.name + "_?utsu"] == "true") ? "btn-success" : "btn-danger";
 	let temp2 = {};
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+3)+"/public/values?alt=json",
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt Sound Cmd?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
+			entries.shift();
 			let localCacheMute = true;
 			let bodyString = "<li class='col-sm-12'><div class='col-sm-6'><b>?utsu</b></div><div class='col-sm-3'><button data-type='?utsu' class=\"btn btn-sm "+utsuMute+" btn-sound-emote-toggle\" title=\"Toggle ?utsu\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 			bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>?psychopass</b> [name(optional)]</div><div class='col-sm-3'><button data-type='?psychopass' class=\"btn btn-sm "+psychoMute+" btn-sound-emote-toggle\" title=\"Toggle ?psychopass\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 			entries.each(function(value, index) {
-				localCacheMute = (localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == null || localStorage[CHANNEL.name + "_" + value.gsx$command.$t] == "true") ? "btn-success" : "btn-danger";
-				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
-					temp[value.gsx$command.$t] = [];
-					bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>"+value.gsx$command.$t+"</b></div><div class='col-sm-3'><button data-type='"+value.gsx$command.$t+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value.gsx$command.$t+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
+				localCacheMute = (localStorage[CHANNEL.name + "_" + value[0]] == null || localStorage[CHANNEL.name + "_" + value[0]] == "true") ? "btn-success" : "btn-danger";
+				if (!temp.hasOwnProperty(value[0])) {
+					temp[value[0]] = [];
+					bodyString += "<li class='col-sm-12'><div class='col-sm-6'><b>"+value[0]+"</b></div><div class='col-sm-3'><button data-type='"+value[0]+"' class=\"btn btn-sm "+localCacheMute+" btn-sound-emote-toggle\" title=\"Toggle "+value[0]+"\"><span class=\"glyphicon glyphicon-bell\"></span></button></div></li>";
 				}
-				temp[value.gsx$command.$t].push(function(chatCmdText) {
+				temp[value[0]].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
-					if (value.gsx$image.$t && value.gsx$image.$t != '') {
-						imgEmote(value.gsx$image.$t, text);
+					if (value[1] && value[1] != '') {
+						imgEmote(value[1], text);
 					}
 					window.socket.emit("chatMsg", {
-						msg: "soundemoteaudio" + value.gsx$command.$t + "soundemoteaudio"
+						msg: "soundemoteaudio" + value[0] + "soundemoteaudio"
 					});		
 				});
-				temp2[value.gsx$command.$t] = value.gsx$audio.$t;
-				let urlString = value.gsx$image.$t.split('//');
+				temp2[value[0]] = value[2];
+				let urlString = value[1].split('//');
 				if (urlString.length == 2) {
 					urlString = urlString[1];
 				} else {
@@ -2741,7 +2749,7 @@ function populateSoundEmote(command) {
 				urlString = urlString.split('?');
 				urlString = urlString[0] ? urlString[0] : "imagenone";
 
-				temp3[urlString] = value.gsx$command.$t;
+				temp3[urlString] = value[0];
 			})
 			temp2["pp_user_updated"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840069070094349/user_updated.mp3";
 			temp2["pp_over_100"] = "https://cdn.discordapp.com/attachments/538902403366518795/591840067719528468/target_acquired.mp3";
@@ -2776,11 +2784,12 @@ function populateImgEmote(command) {
 	let tableIndex = 0;
 	let tableString = "";
 	$.ajax({
-		url: "https://spreadsheets.google.com/feeds/list/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/"+(sheetIndex+2)+"/public/values?alt=json",
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt Img Cmd?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
+			entries.shift();
 			let bodyString = "";
 			entries.each(function(value, index) {
 				if (tableIndex > 4) {
@@ -2793,26 +2802,26 @@ function populateImgEmote(command) {
 				{
 					tableString += "<tr>"
 				}
-				let urlString = value.gsx$url.$t.split('//');
+				let urlString = value[1].split('//');
 				if (urlString.length == 2) {
 					urlString = urlString[1];
 				}
 				urlString = urlString.split('?');
 				urlString = urlString[0];
 
-				temp2[urlString] = value.gsx$command.$t;
-				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
-					temp[value.gsx$command.$t] = [];
-					tableString += "<td><b class='chatCommandDiv' onclick='imgEmote(\""+value.gsx$url.$t+"\")'>"+value.gsx$command.$t+"</b><div style='display: none;' class='chatCommandImageShow'><img class='chatCommandImageSrc' src='"+value.gsx$url.$t+"'></div></td>";
+				temp2[urlString] = value[0];
+				if (!temp.hasOwnProperty(value[0])) {
+					temp[value[0]] = [];
+					tableString += "<td><b class='chatCommandDiv' onclick='imgEmote(\""+value[1]+"\")'>"+value[0]+"</b><div style='display: none;' class='chatCommandImageShow'><img class='chatCommandImageSrc' src='"+value[1]+"'></div></td>";
 					//bodyString += "<li><b>"+value.gsx$command.$t+"</b></li>";
 					tableIndex++;
 				}
-				temp[value.gsx$command.$t].push(function(chatCmdText) {
+				temp[value[0]].push(function(chatCmdText) {
 					let text = chatCmdText.slice(1).join(" ");
-					imgEmote(value.gsx$url.$t, text);
+					imgEmote(value[1], text);
 				});
-				if (command != '' && command.toLowerCase() == value.gsx$command.$t.toLowerCase()) {
-					imgEmote(value.gsx$url.$t);
+				if (command != '' && command.toLowerCase() == value[0].toLowerCase()) {
+					imgEmote(value[1]);
 				}
 			})
 			tableString += "</tr>";

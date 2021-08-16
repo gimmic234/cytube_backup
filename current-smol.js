@@ -101,6 +101,12 @@ var embedLink = "https://app.getmetastream.com/join/015b3af9038e5cc34b5aa86f983e
 var missingGoogleDriveMsg = ':googledrivedead: missing google drive script. Type /gdhelp for details.';
 var gdBufferTimer = 5000;
 var recordMessage = "true";
+var readFromSheet = false;
+var imgLookup = {};
+var soundLookup = {};
+var msgLookup = {};
+var imgTable = {};
+var soundTable = {};
 achievementMatch = [];
 var sheetIndex = 11;
 var repoKeyBlocks = {
@@ -158,7 +164,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
 		callback: true
 	},
 	'layout': {
