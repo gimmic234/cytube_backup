@@ -2164,7 +2164,7 @@ function readMsgCmd(command) {
 			entries.shift();
 			let bodyString = "";
 			entries.each(function(value, index) {
-				if (!temp.hasOwnProperty(value.gsx$command.$t)) {
+				if (!temp.hasOwnProperty(value[0])) {
 					temp[value[0]] = [];
 					bodyString += "<li><b>"+value[0]+"</b></li>";
 				}
@@ -3537,16 +3537,6 @@ window.countdowner = function(countdown, destination,index) {
 }
 
 window.loadInitializer = function() {
-	if (readFromSheet) {
-		readSheet();
-		readTickets();
-		readVideoList();
-		readVideoListBatch1();
-		readAchievement();
-		populateImgEmote('');
-		populateSoundEmote('');
-		readMsgCmd('');
-	}
 	let streamStr1 = "Next ";
 	let streamStr2 = " stream starts in...";
 	$('#head1').html(streamStr1 + countdownText1 + streamStr2);
@@ -3741,6 +3731,16 @@ window.loadInitializer = function() {
 	});
 
 	waitForEl('#imgBubble', function() {
+		if (readFromSheet) {
+			readSheet();
+			readTickets();
+			readVideoList();
+			readVideoListBatch1();
+			readAchievement();
+			populateImgEmote('');
+			populateSoundEmote('');
+			readMsgCmd('');
+		}
 		let elem = $('#imgBubble');
 		elem.attr("src", imgBubble);
 		if (img1show == "true") {

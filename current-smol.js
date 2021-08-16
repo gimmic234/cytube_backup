@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2021,
 	month2: 8,
-	day2: 15,
+	day2: 22,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -102,11 +102,6 @@ var missingGoogleDriveMsg = ':googledrivedead: missing google drive script. Type
 var gdBufferTimer = 5000;
 var recordMessage = "true";
 var readFromSheet = false;
-var imgLookup = {};
-var soundLookup = {};
-var msgLookup = {};
-var imgTable = {};
-var soundTable = {};
 achievementMatch = [];
 var sheetIndex = 11;
 var repoKeyBlocks = {
