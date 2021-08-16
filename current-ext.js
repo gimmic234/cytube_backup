@@ -2247,7 +2247,7 @@ function readVideoList() {
 		method: "get",
 		dataType: "json",
 		success: function(result) {
-			let entries = result.feed.entry;
+			let entries = result.values;
 			entries.shift();
 			entries.each(function(value, index) {
 				let newEntry = {
