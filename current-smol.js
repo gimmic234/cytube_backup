@@ -168,13 +168,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js@latest",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/module/channelbase-mod.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/module/channelbase-mod.js@latest",
 		callback: true
 	},
 	'settings': {
@@ -212,7 +212,7 @@ window[CHANNEL.name].sequenceList = {
 		rank: -1,
 		callback: true,
         url: "https://cdn.jsdelivr.net/gh/feeaghdoo/cytube-audio-cover-art@latest/cytube-audio-cover-art.js"
-	}
+	},
 	'ranking-plugin': {
 		active: 1,
 		rank: -1,

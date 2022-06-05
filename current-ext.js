@@ -4581,14 +4581,14 @@ function bindEventHandler() {
 			content += "<td id='voteBattleNumber' colspan='3' style='padding-bottom: 10px;' style='text-align:center;'><b>battle #1<br>0% sorted.</b></td>";
 			content += "</tr>";
 			content += "<tr>";
-			content += "<td id='voteLeftField' onclick='if(voteFinishFlag==0) sortList(-1);' rowspan='2' style='text-align:center;'></td>";
-			content += "<td class='voteMiddleField' onclick='if(voteFnishFlag==0) sortList(0);' style='text-align:center;'>";
+			content += "<td id='voteLeftField' onclick='if(voteFinishFlag==0) sortVoteList(-1);' rowspan='2' style='text-align:center;'></td>";
+			content += "<td class='voteMiddleField' onclick='if(voteFnishFlag==0) sortVoteList(0);' style='text-align:center;'>";
 			content += "I like both";
 			content += "</td>";
-			content += "<td id='voteRightField' onclick='if(voteFinishFlag==0) sortList(1);' rowspan='2'style='text-align:center;'></td>";
+			content += "<td id='voteRightField' onclick='if(voteFinishFlag==0) sortVoteList(1);' rowspan='2'style='text-align:center;'></td>";
 			content += "</tr>";
 			content += "<tr>";
-			content += "<td class='voteMiddleField' onclick='if(voteFinishFlag==0) sortList(0);'style='text-align:center;'>";
+			content += "<td class='voteMiddleField' onclick='if(voteFinishFlag==0) sortVoteList(0);'style='text-align:center;'>";
 			content += "no opinion";
 			content += "</td>";
 			content += "</tr>";
