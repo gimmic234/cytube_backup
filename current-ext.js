@@ -4564,6 +4564,50 @@ function bindEventHandler() {
 		}).insertAfter("#useroptions").modal();
 	});
 
+	$(bodyElem).on('click', '#club-vote', function() {
+		createModalExt({
+			title: "List Ranking",
+			wrap_id: "clubVoteModal",
+			body_id: "clubVoteWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			var content = "<div>";
+			content += "<p class='instructions'>";
+			content += "<center><br /><br />";
+			content += "<b>Vote</b><br /><br>pick who you like better in each battle to get an accurate list of your<br />favorite members from the group.<br />note: hitting 'no opinion' or 'I like both' frequently will negatively affect your results.<br /><br /></center>";
+			content += "</p>";
+			content += "<table id='voteMainTable' align='center'>";
+			content += "<tbody><tr>";
+			content += "<td id='voteBattleNumber' colspan='3' style='padding-bottom: 10px;' style='text-align:center;'><b>battle #1<br>0% sorted.</b></td>";
+			content += "</tr>";
+			content += "<tr>";
+			content += "<td id='voteLeftField' onclick='if(voteFinishFlag==0) sortList(-1);' rowspan='2' style='text-align:center;'></td>";
+			content += "<td class='voteMiddleField' onclick='if(voteFnishFlag==0) sortList(0);' style='text-align:center;'>";
+			content += "I like both";
+			content += "</td>";
+			content += "<td id='voteRightField' onclick='if(voteFinishFlag==0) sortList(1);' rowspan='2'style='text-align:center;'></td>";
+			content += "</tr>";
+			content += "<tr>";
+			content += "<td class='voteMiddleField' onclick='if(voteFinishFlag==0) sortList(0);'style='text-align:center;'>";
+			content += "no opinion";
+			content += "</td>";
+			content += "</tr>";
+			content += "</tbody></table>";
+			content += "<br><br>";
+			content += "<div id='voteResultField' style='text-align: center;'>";
+			content += "<br>";
+			content += "</div>";
+
+			$("#clubVoteWrap").html(content);
+			initVoteList();
+			showVoteImage();		
+		}).on("hidden.bs.modal", function(event) {
+			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
+			$("#clubVoteModal").remove();
+		}).insertAfter("#useroptions").modal();
+	});
+
+
 	$(bodyElem).on('click', '#emote-data-field', function(e) {
 		let activeSelected = $(e.target).closest('tr');
 		let hide = true;

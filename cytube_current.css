@@ -13,8 +13,8 @@
 }
 
 #imgWrap1 {
-    top: 7px;
-    left: -2px;
+    top: 5px;
+    left: 2px;
     margin-left: 0px;
     margin-right: 0px;
     float: left;
@@ -27,7 +27,7 @@
 
 #imgBubble {
     height: 42px;
-    width: 50px;
+    width: 45px;
 }
 
 #discoimg {
@@ -679,4 +679,37 @@ margin-right: auto;
 
 #positionPadder p {
 margin: 0 !important;
+}
+
+#voteMainTable{
+     font-size: 19px;
+     font-family: 'Times New Roman', serif;
+     text-align: center;
+     vertical-align: middle;
+     width: 410px;
+     margin-left: auto;
+     margin-right: auto;
+     border-collapse: separate;
+     border-spacing: 10px 5px;
+ }
+ 
+#voteLeftField{
+     width: 120px;
+     height: 150px;
+     border: 1px solid #000;
+     cursor: pointer;
+ }
+ 
+#voteRightField{
+     width: 120px;
+     height: 150px;
+     border: 1px solid #000;
+     cursor: pointer;
+ }
+ 
+.voteMiddleField{
+    width: 120px;
+    height: 70px;
+    border: 1px solid #000;
+    cursor: pointer;
 }
