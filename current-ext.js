@@ -4608,7 +4608,7 @@ function bindEventHandler() {
 			content += "</tr>";
 			content += "<tr>";
 			content += "<td id='voteLeftField' onclick='if(voteFinishFlag==0) sortVoteList(-1);' rowspan='2' style='text-align:center;'></td>";
-			content += "<td class='voteMiddleField' onclick='if(voteFnishFlag==0) sortVoteList(0);' style='text-align:center;'>";
+			content += "<td class='voteMiddleField' onclick='if(voteFinishFlag==0) sortVoteList(0);' style='text-align:center;'>";
 			content += "I like both";
 			content += "</td>";
 			content += "<td id='voteRightField' onclick='if(voteFinishFlag==0) sortVoteList(1);' rowspan='2'style='text-align:center;'></td>";
