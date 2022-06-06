@@ -2240,6 +2240,31 @@ function readAchievement() {
 	//return returnArray;
 }
 
+function readSheetVoteList() {
+	let returnArray = [];
+	$.ajax({
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt Vote List?key=" + skv,
+		method: "get",
+		dataType: "json",
+		success: function(result) {
+			let entries = result.values;
+			entries.shift();
+			entries.each(function(value, index) {
+				let newEntry = {
+					"name": value[0],
+					"url": value[1]
+				};
+				returnArray.push(newEntry);
+			});
+			voteNamMember = returnArray;
+		},
+		error: function() {
+			returnArray = [];
+		}
+	});
+	//return returnArray;
+}
+
 function readVideoList() {
 	let returnArray = [];
 	$.ajax({
@@ -3740,6 +3765,7 @@ window.loadInitializer = function() {
 			populateImgEmote('');
 			populateSoundEmote('');
 			readMsgCmd('');
+			readSheetVoteList();
 		}
 		let elem = $('#imgBubble');
 		elem.attr("src", imgBubble);
@@ -4602,8 +4628,8 @@ function bindEventHandler() {
 			initVoteList();
 			showVoteImage();		
 		}).on("hidden.bs.modal", function(event) {
-			//$("#customSettingsWrap .customSettings").detach().appendTo($("#customSettingsStaging"));
 			$("#clubVoteModal").remove();
+			readSheetVoteList();
 		}).insertAfter("#useroptions").modal();
 	});
 

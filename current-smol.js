@@ -124,14 +124,7 @@ var repoKeyBlocks = {
 		faIcon: "music",
 		directories: []
 	}};
-var imagedummy123 = "https://media.discordapp.net/attachments/982777870843797554/982784771249807390/unknown.png?width=895&height=671";
-var voteNamMember = [
-     {name: "option 1", url: imagedummy123 },
-     {name: "option 2", url: imagedummy123 },
-     {name: "option 3", url: imagedummy123 },
-     {name: "option 4", url: imagedummy123 },
-     {name: "option 5", url: imagedummy123 },
- ];
+var voteNamMember = [];
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
