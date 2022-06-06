@@ -2251,8 +2251,9 @@ function readSheetVoteList() {
 			entries.shift();
 			entries.each(function(value, index) {
 				let newEntry = {
-					"name": value[0],
-					"url": value[1]
+					"id": value[0],
+					"name": value[1],
+					"url": value[2]
 				};
 				returnArray.push(newEntry);
 			});
@@ -4622,6 +4623,9 @@ function bindEventHandler() {
 			content += "<br><br>";
 			content += "<div id='voteResultField' style='text-align: center;'>";
 			content += "<br>";
+			content += "</div>";
+			content += "<div>";
+
 			content += "</div>";
 
 			$("#clubVoteWrap").html(content);
