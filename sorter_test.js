@@ -225,10 +225,10 @@
  	var url = "" + toUrlFace(n);
  	var str = "";
     str += "<div class=''>";
-	str += "<div class='achievement-container' title='"+ name +"'>";
+	str += "<div class='' title='"+ name +"'>";
 	str += "<p><b>"+ name + "</b></p>";
-	str += "<span class='emote-preview-hax'></span>";
-	str += "<img class='emote-preview' src='"+ url +"'>";
+	str += "<span class='vote-preview-hax'></span>";
+	str += "<img class='vote-preview' src='"+ url +"'>";
 	str += "</div>";
 	str += "</div>";
 	return str;

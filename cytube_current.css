@@ -713,3 +713,13 @@ margin: 0 !important;
     border: 1px solid #000;
     cursor: pointer;
 }
+.vote-preview-hax {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.vote-preview {
+    max-height: 150px;
+    cursor: pointer;
+}
