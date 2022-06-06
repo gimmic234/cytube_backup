@@ -91,6 +91,7 @@ var titleBanner2 = "http://cdn.discordapp.com/attachments/732631593776316587/974
 var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/982745412282773675/title.png";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
+
 var skv = "AIzaSyD5n0nk8-RbrcG4gnZZBjK3XZbmzwmuqFE";
 var shid = "1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow";
 var opRepoUrl = "https://apothes.is/hosted/bcdn-list-files.php";
@@ -124,12 +125,13 @@ var repoKeyBlocks = {
 		faIcon: "music",
 		directories: []
 	}};
+var imagedummy123 = "https://media.discordapp.net/attachments/982777870843797554/982784771249807390/unknown.png?width=895&height=671";
 var voteNamMember = [
-     {name: "option 1", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
-     {name: "option 2", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
-     {name: "option 3", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
-     {name: "option 4", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
-     {name: "option 5", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
+     {name: "option 1", url: imagedummy123 },
+     {name: "option 2", url: imagedummy123 },
+     {name: "option 3", url: imagedummy123 },
+     {name: "option 4", url: imagedummy123 },
+     {name: "option 5", url: imagedummy123 },
  ];
 /*!
  **|   XaeMae Sequenced Module Loader

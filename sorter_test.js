@@ -202,14 +202,7 @@
          str += "<tr>";
          str += "<td style=\"border:1px solid #000; text-align:center; padding-right:5px;\">" + ranking + "<\/td>";
          str += "<td style=\"border:1px solid #000; padding-left:5px;\">";
-         str += "<div class=''>";
-  		 str += "<div class='achievement-container' title='"+ voteNamMember[voteMembers[0][i]].name +"'>";
-  		 str += "<p><b>"+ voteNamMember[voteMembers[0][i]].name + "</b></p>";
-		 str += "<span class='emote-preview-hax'></span>";
-		 str += "<img class='emote-preview' src='"+ voteNamMember[voteMembers[0][i]].url +"'>";
-		 str += "</div>";
-		 str += "</div>";
-         str += "<\/td><\/tr>";
+         str +=  + voteNamMember[voteMembers[0][i]].name + "<\/td><\/tr>";
          if (i < voteNamMember.length - 1) {
              if (voteEqual[voteMembers[0][i]] == voteMembers[0][i + 1]) {
                  sameRank++;
@@ -227,10 +220,24 @@
 
  //Indicates two elements to compare+++++++++++++++++++++++++++++++++++
 
+ function buildVoteImage(n) {
+ 	var name = "" + toNameFace(n);
+ 	var url = "" + toUrlFace(n);
+ 	var str = var str1 = "";    
+    str += "<div class=''>";
+	str += "<div class='achievement-container' title='"+ voteNamMember[voteMembers[0][i]].name +"'>";
+	str += "<p><b>"+ voteNamMember[voteMembers[0][i]].name + "</b></p>";
+	str += "<span class='emote-preview-hax'></span>";
+	str += "<img class='emote-preview' src='"+ voteNamMember[voteMembers[0][i]].url +"'>";
+	str += "</div>";
+	str += "</div>";
+	return str;
+ }
+
  function showVoteImage() {
      var str0 = "battle #" + numQuestion + "<br>" + Math.floor(voteFinishSize * 100 / voteTotalSize) + "% sorted.";
-     var str1 = "" + toNameFace(voteMembers[voteCmp1][voteHead1]);
-     var str2 = "" + toNameFace(voteMembers[voteCmp2][voteHead2]);
+     var str1 = buildVoteImage(voteMembers[voteCmp1][voteHead1]);
+     var str2 = buildVoteImage(voteMembers[voteCmp2][voteHead2]);
 
      document.getElementById("voteBattleNumber").innerHTML = str0;
      document.getElementById("voteLeftField").innerHTML = str1;
@@ -241,9 +248,13 @@
 
 
  //Convert numeric value into a name (emoticon)+++++++++++++++++++++++++++++++
+ function toUrlFace(n) {
+	var str = voteNamMember[n].url;
+	return str;
+ }
 
  function toNameFace(n) {
-     var str = voteNamMember[n];
+     var str = voteNamMember[n].name;
      /*
       
      str += '<br />';
