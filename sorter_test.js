@@ -199,7 +199,17 @@
      str += "<tr><td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\">rank<\/td><td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\">options<\/td><\/tr>";
 
      for (i = 0; i < voteNamMember.length; i++) {
-         str += "<tr><td style=\"border:1px solid #000; text-align:center; padding-right:5px;\">" + ranking + "<\/td><td style=\"border:1px solid #000; padding-left:5px;\">" + voteNamMember[voteMembers[0][i]] + "<\/td><\/tr>";
+         str += "<tr>";
+         str += "<td style=\"border:1px solid #000; text-align:center; padding-right:5px;\">" + ranking + "<\/td>";
+         str += "<td style=\"border:1px solid #000; padding-left:5px;\">";
+         str += "<div class=''>";
+  		 str += "<div class='achievement-container' title='"+ voteNamMember[voteMembers[0][i]].name +"'>";
+  		 str += "<p><b>"+ voteNamMember[voteMembers[0][i]].name + "</b></p>";
+		 str += "<span class='emote-preview-hax'></span>";
+		 str += "<img class='emote-preview' src='"+ voteNamMember[voteMembers[0][i]].url +"'>";
+		 str += "</div>";
+		 str += "</div>";
+         str += "<\/td><\/tr>";
          if (i < voteNamMember.length - 1) {
              if (voteEqual[voteMembers[0][i]] == voteMembers[0][i + 1]) {
                  sameRank++;

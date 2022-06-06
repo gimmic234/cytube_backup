@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/974076521943805962/toji_no_miko_bg1_v2.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/982745411792044062/eva_bg.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -15,7 +15,7 @@ var countdown_utc = {
 var countdown_utc2 = {
 	year2: 2022,
 	month2: 6,
-	day2: 5,
+	day2: 12,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
@@ -74,7 +74,7 @@ var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/7642130
 var bgm3url = "https://cdn.discordapp.com/attachments/515347492511023113/974141639406792765/07-Tsuki_ni_Humming_Vocals_Shiina_Hekiru_-_Nakagawa_Akiko.mp3";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/584532447128190976/Kyou_no_Hi_wa_Sayounara_-_Sakurasou_no_Pet_na_Kanojo_OST_Track_25.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/515347492511023113/974530986933104670/02._TO-MAS_-_FLIP_FLAPPERS.m4a";
-var bgmSelect = "1";
+var bgmSelect = "4";
 var achievementList = "{\"PhenomSage\":[\"114\"],\"fiach\":[\"114\"],\"gimmic\":[\"114\"],\"Zinzoo\":[\"114\"],\"bLOOMGINTON33\":[\"114\"],\"ChucklingBerry\":[\"114\"],\"CM02\":[\"114\"],\"Demzou\":[\"114\"],\"Eldoprano\":[\"114\"],\"Enk__\":[\"114\"],\"erubas\":[\"114\"],\"gox64\":[\"114\"],\"Hanatsu\":[\"114\"],\"Madoq\":[\"114\"],\"MrRound\":[\"114\"],\"nullgat\":[\"114\"],\"raccomunk\":[\"114\"],\"Senia\":[\"114\"],\"Takeda\":[\"114\"]}";
 var countdownText1 = "Club";
 var countdownText2 = "Club";
@@ -85,7 +85,7 @@ var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
-var titleBanner = "http://cdn.discordapp.com/attachments/732631593776316587/974076815540899850/Untitled-4.png";
+var titleBanner = "http://cdn.discordapp.com/attachments/732631593776316587/982745412282773675/title.png";
 var titleBanner1 = "http://cdn.discordapp.com/attachments/732631593776316587/974074395356188703/Untitled-1.png";
 var titleBanner2 = "http://cdn.discordapp.com/attachments/732631593776316587/974076815540899850/Untitled-4.png";
 var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/982745412282773675/title.png";
@@ -124,13 +124,13 @@ var repoKeyBlocks = {
 		faIcon: "music",
 		directories: []
 	}};
-var voteNamMember = new Array(
-     "option 1",
-     "option 2",
-     "option 3",
-     "option 4",
-     "option 5"
- );
+var voteNamMember = [
+     {name: "option 1", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
+     {name: "option 2", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
+     {name: "option 3", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
+     {name: "option 4", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
+     {name: "option 5", url: "https://media.discordapp.net/attachments/562795394157903885/843895682536046652/715e8aae44207fc04688555d2b0869fb.gif" },
+ ];
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -168,13 +168,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js@latest",
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/module/channelbase-mod.js@latest",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
