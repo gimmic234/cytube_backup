@@ -202,7 +202,7 @@
          str += "<tr>";
          str += "<td style=\"border:1px solid #000; text-align:center; padding-right:5px;\">" + ranking + "<\/td>";
          str += "<td style=\"border:1px solid #000; padding-left:5px;\">";
-         str +=  + voteNamMember[voteMembers[0][i]].name + "<\/td><\/tr>";
+         str += voteNamMember[voteMembers[0][i]].name + "<\/td><\/tr>";
          if (i < voteNamMember.length - 1) {
              if (voteEqual[voteMembers[0][i]] == voteMembers[0][i + 1]) {
                  sameRank++;
