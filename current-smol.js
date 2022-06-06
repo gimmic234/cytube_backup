@@ -91,7 +91,6 @@ var titleBanner2 = "http://cdn.discordapp.com/attachments/732631593776316587/974
 var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/982745412282773675/title.png";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
-
 var skv = "AIzaSyD5n0nk8-RbrcG4gnZZBjK3XZbmzwmuqFE";
 var shid = "1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow";
 var opRepoUrl = "https://apothes.is/hosted/bcdn-list-files.php";

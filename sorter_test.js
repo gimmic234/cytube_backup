@@ -223,12 +223,12 @@
  function buildVoteImage(n) {
  	var name = "" + toNameFace(n);
  	var url = "" + toUrlFace(n);
- 	var str = var str1 = "";    
+ 	var str = "";
     str += "<div class=''>";
-	str += "<div class='achievement-container' title='"+ voteNamMember[voteMembers[0][i]].name +"'>";
-	str += "<p><b>"+ voteNamMember[voteMembers[0][i]].name + "</b></p>";
+	str += "<div class='achievement-container' title='"+ name +"'>";
+	str += "<p><b>"+ name + "</b></p>";
 	str += "<span class='emote-preview-hax'></span>";
-	str += "<img class='emote-preview' src='"+ voteNamMember[voteMembers[0][i]].url +"'>";
+	str += "<img class='emote-preview' src='"+ url +"'>";
 	str += "</div>";
 	str += "</div>";
 	return str;
