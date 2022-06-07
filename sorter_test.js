@@ -198,7 +198,12 @@
      str += "<table style=\"width:200px; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
      str += "<tr><td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\">rank<\/td><td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\">options<\/td><\/tr>";
 
+     voteNamMemberResult = voteNamMember;
+     var maxVoteScore = voteNamMemberResult.length;
+
      for (i = 0; i < voteNamMember.length; i++) {
+     	voteNamMemberResult[voteMembers[0][i]].rank = ranking;
+     	voteNamMemberResult[voteMembers[0][i]].score = maxVoteScore - ranking + 1;
          str += "<tr>";
          str += "<td style=\"border:1px solid #000; text-align:center; padding-right:5px;\">" + ranking + "<\/td>";
          str += "<td style=\"border:1px solid #000; padding-left:5px;\">";
@@ -214,6 +219,7 @@
      }
      str += "<\/table>";
      document.getElementById("voteResultField").innerHTML = str;
+     $(document.getElementById('submitRank')).show();
  }
 
 

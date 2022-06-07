@@ -2255,7 +2255,9 @@ function readSheetVoteList() {
 					"name": value[1],
 					"url": value[2]
 				};
-				returnArray.push(newEntry);
+				if (newEntry.name != "") {
+					returnArray.push(newEntry);
+				}
 			});
 			voteNamMember = returnArray;
 		},
@@ -2912,6 +2914,31 @@ function addNewAchievement(sendData) {
 		}
 	});
 }
+
+function addRankResult() {
+	$(document.getElementById('submitRankProcess')).show();
+	$(document.getElementById('submitRank')).remove();
+	$.ajax({
+		url: addRankUrl,
+		method: "POST",
+		data: {
+			id: voteNamMemberResult.id
+			name: voteNamMemberResult.name,
+			url: voteNamMemberResult.url,
+			rank: voteNamMemberResult.rank,
+			score: voteNamMemberResult.score
+		},
+		dataType: "json",
+		success: function(result) {
+			
+		}, 
+		complete: function(result) {
+			$("#clubVoteModal").remove();
+			readSheetVoteList();
+		}
+	});
+}
+
 
 function addSoundEmote(sendData) {
 	$.ajax({
@@ -4625,7 +4652,8 @@ function bindEventHandler() {
 			content += "<br>";
 			content += "</div>";
 			content += "<div>";
-
+			content += "<button class='btn btn-default' id='submitRank' type='button' onclick='addRankUrl()'>Submit</button>";
+			content += "<button class='btn btn-default' id='submitRankProcess' type='button' disabled>...</button>";
 			content += "</div>";
 
 			$("#clubVoteWrap").html(content);

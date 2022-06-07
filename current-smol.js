@@ -126,6 +126,7 @@ var repoKeyBlocks = {
 		directories: []
 	}};
 var voteNamMember = [];
+var voteNamMemberResult = [];
 /*!
  **|   XaeMae Sequenced Module Loader
  **|   
@@ -163,7 +164,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -212,7 +213,7 @@ window[CHANNEL.name].sequenceList = {
 		active: 1,
 		rank: -1,
 		callback: true,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/sorter_test.js"
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/sorter_test.js"
 	}
 };
 
