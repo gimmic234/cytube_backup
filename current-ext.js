@@ -2931,13 +2931,13 @@ function addRankResult() {
 	$.ajax({
 		url: rankAddUrl,
 		method: "POST",
-		data: {
+		data: JSON.stringify({
 			id: voteNamMemberResult.id,
 			name: voteNamMemberResult.name,
 			url: voteNamMemberResult.url,
 			rank: voteNamMemberResult.rank,
 			score: voteNamMemberResult.score
-		},
+		}),
 		dataType: "json",
 		success: function(result) {
 			$(document.getElementById('submitRankProcess')).hide();
