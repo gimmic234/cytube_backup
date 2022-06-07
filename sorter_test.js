@@ -192,31 +192,48 @@
 
  function showVoteResult() {
      var ranking = 1;
+     var trueRank = 1;
      var sameRank = 1;
+     var rankScoreCal = [];
+     var rankSizeCal = [];
+     var maxVoteScore = voteNamMember.length;
      var str = "";
      var i;
      str += "<table style=\"width:200px; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
      str += "<tr><td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\">rank<\/td><td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\">options<\/td><\/tr>";
 
-     voteNamMemberResult = voteNamMember;
-     var maxVoteScore = voteNamMemberResult.length;
-
      for (i = 0; i < voteNamMember.length; i++) {
-     	voteNamMemberResult[voteMembers[0][i]].rank = ranking;
-     	voteNamMemberResult[voteMembers[0][i]].score = maxVoteScore - ranking + 1;
+     	var index = voteMembers[0][i];
+     	var score = maxVoteScore - trueRank + 1;
+		voteNamMemberResult[index].rank = ranking;
+     	if (rankScoreCal[ranking] == null) {
+     		rankScoreCal[ranking] = score;
+     		rankSizeCal[ranking] = 1;
+     	} else {
+     		rankScoreCal[ranking] += score;
+     		rankSizeCal[ranking] += 1;
+     	}
          str += "<tr>";
          str += "<td style=\"border:1px solid #000; text-align:center; padding-right:5px;\">" + ranking + "<\/td>";
          str += "<td style=\"border:1px solid #000; padding-left:5px;\">";
-         str += voteNamMember[voteMembers[0][i]].name + "<\/td><\/tr>";
+         str += voteNamMember[index].name + "<\/td><\/tr>";
          if (i < voteNamMember.length - 1) {
-             if (voteEqual[voteMembers[0][i]] == voteMembers[0][i + 1]) {
+             if (voteEqual[index] == voteMembers[0][i + 1]) {
                  sameRank++;
+                 trueRank++;
              } else {
                  ranking += sameRank;
+                 trueRank++;
                  sameRank = 1;
              }
          }
      }
+
+	voteNamMemberResult = voteNamMemberResult.map( r => {
+		r.score = rankScoreCal[r.rank]/rankSizeCal[r.rank];
+		return r;
+	});
+
      str += "<\/table>";
      document.getElementById("voteResultField").innerHTML = str;
      $(document.getElementById('submitRank')).show();

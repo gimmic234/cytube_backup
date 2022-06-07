@@ -2242,6 +2242,7 @@ function readAchievement() {
 
 function readSheetVoteList() {
 	let returnArray = [];
+	let returnArray2 = [];
 	$.ajax({
 		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt Vote List?key=" + skv,
 		method: "get",
@@ -2255,11 +2256,20 @@ function readSheetVoteList() {
 					"name": value[1],
 					"url": value[2]
 				};
+				let newEntry2 = {
+					"id": value[0],
+					"name": value[1],
+					"url": value[2],
+					"rank": 0,
+					"score": 0
+				};
 				if (newEntry.name != "") {
 					returnArray.push(newEntry);
 				}
+				returnArray2.push(newEntry2);
 			});
 			voteNamMember = returnArray;
+			voteNamMemberResult = returnArray2;
 		},
 		error: function() {
 			returnArray = [];
@@ -2917,12 +2927,12 @@ function addNewAchievement(sendData) {
 
 function addRankResult() {
 	$(document.getElementById('submitRankProcess')).show();
-	$(document.getElementById('submitRank')).remove();
+	$(document.getElementById('submitRank')).hide();
 	$.ajax({
 		url: addRankUrl,
 		method: "POST",
 		data: {
-			id: voteNamMemberResult.id
+			id: voteNamMemberResult.id,
 			name: voteNamMemberResult.name,
 			url: voteNamMemberResult.url,
 			rank: voteNamMemberResult.rank,
@@ -2930,8 +2940,13 @@ function addRankResult() {
 		},
 		dataType: "json",
 		success: function(result) {
-			
+			$(document.getElementById('submitRankProcess')).hide();
 		}, 
+		error: function(result) {
+			$(document.getElementById('submitRankProcess')).hide();
+			$(document.getElementById('submitRank')).show();
+			alert("encountered an error. retry or contact discord mods.");
+		},
 		complete: function(result) {
 			$("#clubVoteModal").remove();
 			readSheetVoteList();
