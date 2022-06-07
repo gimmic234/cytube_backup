@@ -2929,7 +2929,7 @@ function addRankResult() {
 	$(document.getElementById('submitRankProcess')).show();
 	$(document.getElementById('submitRank')).hide();
 	$.ajax({
-		url: addRankUrl,
+		url: rankAddUrl,
 		method: "POST",
 		data: {
 			id: voteNamMemberResult.id,
@@ -4667,7 +4667,7 @@ function bindEventHandler() {
 			content += "<br>";
 			content += "</div>";
 			content += "<div>";
-			content += "<button class='btn btn-default' id='submitRank' type='button' onclick='addRankUrl()'>Submit</button>";
+			content += "<button class='btn btn-default' id='submitRank' type='button' onclick='addRankResult()'>Submit</button>";
 			content += "<button class='btn btn-default' id='submitRankProcess' type='button' disabled>...</button>";
 			content += "</div>";
 
