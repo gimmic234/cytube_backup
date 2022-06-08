@@ -2931,7 +2931,7 @@ function addRankResult() {
 	var dataVoteResult = {};
 
 	voteNamMemberResult.forEach(vr => {
-		dataVoteResult[vr.id] = {
+		dataVoteResult["id" + vr.id] = {
 			score: vr.score,
 			rank: vr.rank,
 			name: vr.name
