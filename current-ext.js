@@ -2928,7 +2928,7 @@ function addNewAchievement(sendData) {
 function addRankResult() {
 	$(document.getElementById('submitRankProcess')).show();
 	$(document.getElementById('submitRank')).hide();
-	var data = voteNamMemberResult.map(r => {
+	var dataVoteResult = voteNamMemberResult.map(r => {
 		return {
 			id: r.id,
 			name: r.name,
@@ -2937,10 +2937,12 @@ function addRankResult() {
 			score: r.score
 		};
 	});
+	console.log("vote result");
+	console.log(dataVoteResult);
 	$.ajax({
 		url: rankAddUrl,
 		method: "POST",
-		data: data,
+		data: dataVoteResult,
 		dataType: "json",
 		success: function(result) {
 			$(document.getElementById('submitRankProcess')).hide();
