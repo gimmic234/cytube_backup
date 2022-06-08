@@ -3710,6 +3710,16 @@ window.loadInitializer = function() {
 			}
 		}
 
+		if (voteControl == 'true') {
+			$('#club-vote-control').show();
+			$('#club-vote-control-off').hide();
+			$('#club-vote').show();
+		} else {
+			$('#club-vote-control').hide();
+			$('#club-vote-control-off').show();
+			$('#club-vote').hide();
+		}
+
 		if (nicoEffectOn) {
 			$('#personal-nico-on').show();
 			$('#personal-nico-off').hide();
@@ -4636,6 +4646,20 @@ function bindEventHandler() {
 			$("#achievementAddModal").remove();
 		}).insertAfter("#useroptions").modal();
 	});
+
+	$(bodyElem).on('click', '#club-vote-control', function() {
+		if (voteControl == 'true') {
+			$('#club-vote-control').hide();
+			$('#club-vote-control-off').show();
+			$('#club-vote').hide();
+			editJs(91, [0,'false']);
+		} else {
+			$('#club-vote-control').show();
+			$('#club-vote-control-off').hide();
+			$('#club-vote').show();
+			editJs(91, [0,'true']);
+		}
+	}
 
 	$(bodyElem).on('click', '#club-vote', function() {
 		createModalExt({
