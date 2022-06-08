@@ -2931,21 +2931,16 @@ function addRankResult() {
 	$.ajax({
 		url: rankAddUrl,
 		method: "POST",
-		data: JSON.stringify({
+		data: {
 			id: voteNamMemberResult.id,
 			name: voteNamMemberResult.name,
 			url: voteNamMemberResult.url,
 			rank: voteNamMemberResult.rank,
 			score: voteNamMemberResult.score
-		}),
+		},
 		dataType: "json",
 		success: function(result) {
 			$(document.getElementById('submitRankProcess')).hide();
-		}, 
-		error: function(result) {
-			$(document.getElementById('submitRankProcess')).hide();
-			$(document.getElementById('submitRank')).show();
-			alert("encountered an error. retry or contact discord mods.");
 		},
 		complete: function(result) {
 			$("#clubVoteModal").remove();
