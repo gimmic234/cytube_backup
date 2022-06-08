@@ -91,6 +91,7 @@ var titleBanner2 = "http://cdn.discordapp.com/attachments/732631593776316587/974
 var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/982745412282773675/title.png";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
+//var rankAddUrl = "https://hooks.zapier.com/hooks/catch/4506865/bahb02x/";
 var skv = "AIzaSyD5n0nk8-RbrcG4gnZZBjK3XZbmzwmuqFE";
 var shid = "1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow";
 var opRepoUrl = "https://apothes.is/hosted/bcdn-list-files.php";
@@ -163,7 +164,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://rawcdn.githack.com/gimmic234/cytube_backup/bb9a2f681da46c6f9f1bf8ede6b03f8f111f3f99/current-ext.js",
+        url: "https://rawcdn.githack.com/gimmic234/cytube_backup/3ad92e66629619414c1974e64869b80906462bad/current-ext.js",
 		callback: true
 	},
 	'layout': {
