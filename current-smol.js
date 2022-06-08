@@ -163,7 +163,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
+        url: "https://rawcdn.githack.com/gimmic234/cytube_backup/1c05e6210d348970e88cd0dcfbc30b496732168b/current-ext.js",
 		callback: true
 	},
 	'layout': {
@@ -212,7 +212,7 @@ window[CHANNEL.name].sequenceList = {
 		active: 1,
 		rank: -1,
 		callback: true,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/sorter_test.js"
+        url: "https://rawcdn.githack.com/gimmic234/cytube_backup/646172cd9da658d3b392a257fbefb195b5d71fb5/sorter_test.js"
 	}
 };
 

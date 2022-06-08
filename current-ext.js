@@ -2928,16 +2928,19 @@ function addNewAchievement(sendData) {
 function addRankResult() {
 	$(document.getElementById('submitRankProcess')).show();
 	$(document.getElementById('submitRank')).hide();
+	var data = voteNamMemberResult.map(r => {
+		return {
+			id: r.id,
+			name: r.name,
+			url: r.url,
+			rank: r.rank,
+			score: r.score
+		}
+	});
 	$.ajax({
 		url: rankAddUrl,
 		method: "POST",
-		data: {
-			id: voteNamMemberResult.id,
-			name: voteNamMemberResult.name,
-			url: voteNamMemberResult.url,
-			rank: voteNamMemberResult.rank,
-			score: voteNamMemberResult.score
-		},
+		data: data,
 		dataType: "json",
 		success: function(result) {
 			$(document.getElementById('submitRankProcess')).hide();
@@ -4661,7 +4664,7 @@ function bindEventHandler() {
 			content += "<div id='voteResultField' style='text-align: center;'>";
 			content += "<br>";
 			content += "</div>";
-			content += "<div>";
+			content += "<div class='pull-right'>";
 			content += "<button class='btn btn-default' id='submitRank' type='button' onclick='addRankResult()'>Submit</button>";
 			content += "<button class='btn btn-default' id='submitRankProcess' type='button' disabled>...</button>";
 			content += "</div>";

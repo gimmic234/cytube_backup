@@ -230,8 +230,12 @@
      }
 
 	voteNamMemberResult = voteNamMemberResult.map( r => {
-		r.score = rankScoreCal[r.rank]/rankSizeCal[r.rank];
-		return r;
+		if (rankScoreCal[r.rank] == null) {
+			return r;
+		} else {
+			r.score = rankScoreCal[r.rank]/rankSizeCal[r.rank];
+			return r;
+		}
 	});
 
      str += "<\/table>";

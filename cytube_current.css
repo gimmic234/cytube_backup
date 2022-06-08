@@ -720,6 +720,15 @@ margin: 0 !important;
 }
 
 .vote-preview {
-    max-height: 150px;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
+}
+
+.pull-right {
+    float: right;
+}
+
+#submitRankProcess {
+    display: none;
 }
