@@ -4659,7 +4659,7 @@ function bindEventHandler() {
 			$('#club-vote').show();
 			editJs(91, [0,'true']);
 		}
-	}
+	});
 
 	$(bodyElem).on('click', '#club-vote', function() {
 		createModalExt({
