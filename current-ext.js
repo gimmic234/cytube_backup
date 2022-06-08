@@ -2935,7 +2935,7 @@ function addRankResult() {
 			url: r.url,
 			rank: r.rank,
 			score: r.score
-		}
+		};
 	});
 	$.ajax({
 		url: rankAddUrl,
