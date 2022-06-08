@@ -212,7 +212,7 @@ window[CHANNEL.name].sequenceList = {
 		active: 1,
 		rank: -1,
 		callback: true,
-        url: "https://rawcdn.githack.com/gimmic234/cytube_backup/646172cd9da658d3b392a257fbefb195b5d71fb5/sorter_test.js"
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/sorter_test.js"
 	}
 };
 

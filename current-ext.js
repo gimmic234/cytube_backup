@@ -2263,7 +2263,7 @@ function readSheetVoteList() {
 					"rank": 0,
 					"score": 0
 				};
-				if (newEntry.name != "") {
+				if (newEntry.name != "" && newEntry.name != null) {
 					returnArray.push(newEntry);
 				}
 				returnArray2.push(newEntry2);
