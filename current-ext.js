@@ -2928,21 +2928,25 @@ function addNewAchievement(sendData) {
 function addRankResult() {
 	$(document.getElementById('submitRankProcess')).show();
 	$(document.getElementById('submitRank')).hide();
-	var dataVoteResult = voteNamMemberResult.map(r => {
-		return {
-			id: r.id,
-			name: r.name,
-			url: r.url,
-			rank: r.rank,
-			score: r.score
+	var dataVoteResult = {};
+
+	voteNamMemberResult.forEach(vr => {
+		dataVoteResult[vr.id] = {
+			score: vr.score,
+			rank: vr.rank,
+			name: vr.name
 		};
 	});
+
 	console.log("vote result");
 	console.log(dataVoteResult);
 	$.ajax({
 		url: rankAddUrl,
 		method: "POST",
-		data: dataVoteResult,
+		data: {
+			name: CLIENT.name,
+			result: dataVoteResult
+		},
 		dataType: "json",
 		success: function(result) {
 			$(document.getElementById('submitRankProcess')).hide();
