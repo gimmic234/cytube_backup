@@ -240,6 +240,7 @@
 	});
 
      str += "<\/table>";
+     $('#submitRank').attr('disabled', false);
      document.getElementById("voteResultField").innerHTML = str;
      $(document.getElementById('submitRank')).show();
  }

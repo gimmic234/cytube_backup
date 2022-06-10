@@ -2938,12 +2938,11 @@ function addRankResult() {
 		};
 	});
 
-	console.log("vote result");
-	console.log(dataVoteResult);
 	$.ajax({
 		url: rankAddUrl,
 		method: "POST",
 		data: {
+			session: countdownText3,
 			name: CLIENT.name,
 			result: dataVoteResult
 		},
@@ -4689,7 +4688,7 @@ function bindEventHandler() {
 			content += "<br>";
 			content += "</div>";
 			content += "<div class='pull-right'>";
-			content += "<button class='btn btn-default' id='submitRank' type='button' onclick='addRankResult()'>Submit</button>";
+			content += "<button class='btn btn-default' id='submitRank' type='button' onclick='addRankResult()' disabled>Submit</button>";
 			content += "<button class='btn btn-default' id='submitRankProcess' type='button' disabled>...</button>";
 			content += "</div>";
 
