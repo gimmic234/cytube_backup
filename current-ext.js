@@ -2244,7 +2244,7 @@ function readSheetVoteList() {
 	let returnArray = [];
 	let returnArray2 = [];
 	$.ajax({
-		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid+"/values/Cyt Vote List?key=" + skv,
+		url: "https://sheets.googleapis.com/v4/spreadsheets/"+shid2+"/values/Cyt Vote List?key=" + skv,
 		method: "get",
 		dataType: "json",
 		success: function(result) {
