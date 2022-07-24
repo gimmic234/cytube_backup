@@ -2074,47 +2074,23 @@ function sleep (time) {
 function bulkQueueInit()
 {
 	var data = $('#bulkQueueData').val();
-	var title = $('#bulkQueueDataTitle').val();
-	var episode = $('#bulkQueueDataIteration').val();
 	var splitVid = data.split("\n");
 	if (splitVid.length == 0)
 	{
 		return;
 	}
 
-	if (episode == "") {
-		episode = 1;
-	} else {
-		episode = Number(episode);
-		if (episode <= 0) {
-			episode = 1;
-		}
-	}
-
-	$('#submitBulkQueue').attr("disabled","true");
+	$('#submitBulkQueue').attr("disabled", true);
 	var iteration = 0;
 	splitVid.forEach(function(vid) {
-		if (title != "") {
-			title = title + " Ep " + episode;
-		} else {
-			title = "";
-		}
-
-		if (iteration > 3) {
-			iteration = 0;
-			sleep(500).then(() => {
-				chatCmdLookup["/addqtitle"]([0, encodeURI(vid), (title)]);
-				episode++;
-				iteration++;
+		if (vid.replace(/\s/g, '') != "") {
+			sleep(2000 * iteration).then(() => {
+				chatCmdLookup["/addq"]([0, vid]);
 			});
-		} else {
-
-			chatCmdLookup["/addqtitle"]([0, encodeURI(vid), (title)]);
-			episode++;
 			iteration++;
 		}
 	});
-	$('#submitBulkQueue').attr("disabled","false");
+	$("#queueBulkModal").remove();
 }
 
 
@@ -5419,9 +5395,7 @@ function bindEventHandler() {
 		}
 	});
 
-
-
-	$(bodyElem).on('click', '#bulkQueueMenuOpen', function() {
+	$(bodyElem).on('click', '#bulkQueue', function() {
 		createModalExt({
 			title: "Queue bulk",
 			wrap_id: "queueBulkModal",
@@ -5434,33 +5408,11 @@ function bindEventHandler() {
 			let viewcontent = "<div id='bulkQueueMenu' class='tab-pane active'>";
 
 			viewcontent += "<div class='row top-margin-theme col-sm-12'>";
-
-			viewcontent += "<div class='col-sm-4'>";
-			viewcontent += "<div class='input-group input-group-sm'>";
-			viewcontent += "<div class='input-group-addon'>";
-			viewcontent += "Title";
-			viewcontent += "</div>"
-			viewcontent += "<input class='form-control' type='text' id='bulkQueueDataTitle' placeholder='video title'>";
-			viewcontent += "</div>";
-			viewcontent += "</div>";
-
-			viewcontent += "<div class='col-sm-4'>";
-			viewcontent += "<div class='input-group input-group-sm'>";
-			viewcontent += "<div class='input-group-addon'>";
-			viewcontent += "Ep#";
-			viewcontent += "</div>"
-			viewcontent += "<input class='form-control' id='bulkQueueDataIteration' type='number' min='1' step='1' id='episode' value='1'>";
-			viewcontent += "</div>";
-			viewcontent += "</div>";
-
-			viewcontent += "</div>";
-
-			viewcontent += "<div class='row top-margin-theme col-sm-12'>";
 			viewcontent += "<textarea class='form-control' id='bulkQueueData' rows='20' wrap='soft' placeholder='paste video links separated by new line'  autofocus>";
 			viewcontent += "</textarea>";
 			viewcontent += "</div>";
 
-			viewcontent += "<div class='pull-right'>";
+			viewcontent += "<div class='pull-right top-margin'>";
 			viewcontent += "<button class='btn btn-default' id='submitBulkQueue' type='button' onclick='bulkQueueInit()'>Submit</button>";
 			viewcontent += "</div>";
 
