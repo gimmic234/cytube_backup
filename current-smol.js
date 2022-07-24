@@ -162,13 +162,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js@latest",
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/module/channelbase-mod.js@latest",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
