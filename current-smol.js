@@ -2,7 +2,7 @@
 //https is preferred for url
 var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/982745411792044062/eva_bg.jpg";
+var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/996125895909707906/yama_no_susume_bg_2.png";
 var autostart_msg = "start!";
 var countdown_utc = {
 	year: 2020,
@@ -14,22 +14,22 @@ var countdown_utc = {
 };
 var countdown_utc2 = {
 	year2: 2022,
-	month2: 6,
-	day2: 12,
+	month2: 7,
+	day2: 24,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/732631593776316587/974076521943805962/toji_no_miko_bg1_v2.jpg";
-var background_img_auto2 = "http://cdn.discordapp.com/attachments/732631593776316587/974074977353609216/toji_no_miko_bg_2.jpg";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/732631593776316587/996125895909707906/yama_no_susume_bg_2.png";
+var background_img_auto2 = "http://cdn.discordapp.com/attachments/732631593776316587/990876165097000980/show_by_rock_bg.png";
 var chatMute = "false";
 var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
 var noiseActive = 'true';
 var background_img_auto4 = "http://cdn.discordapp.com/attachments/732631593776316587/982745411792044062/eva_bg.jpg";
 var countdown_utc3 = {
 	year3: 2022,
-	month3: 6,
-	day3: 11,
+	month3: 7,
+	day3: 30,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -39,7 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/409829343263719427/974142459212886036/9831_slashes.png";
+var imgBubble = "//media.discordapp.net/attachments/409829343263719427/992188528282837022/guitar_mod2-removebg-preview.png";
 var imgBubble2 = "//media.discordapp.net/attachments/452943717708595211/874043927932596264/keijo_logo2.png";
 var chatImg = "false";
 var img1show = "true";
@@ -70,28 +70,30 @@ var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
 var background_img_auto6 = "http://cdn.discordapp.com/attachments/585972109159694336/721109369756057660/mizunashi_akari_alice_carroll_alicia_florence_aika_granzchesta_aria_pokoteng_and_4_more_aria_drawn_b.jpg";
 var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/764213049221185546/Remembering_Home.mp3";
+var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/986076835169308735/31._Beautiful_World.mp3";
 var bgm3url = "https://cdn.discordapp.com/attachments/515347492511023113/974141639406792765/07-Tsuki_ni_Humming_Vocals_Shiina_Hekiru_-_Nakagawa_Akiko.mp3";
-var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/584532447128190976/Kyou_no_Hi_wa_Sayounara_-_Sakurasou_no_Pet_na_Kanojo_OST_Track_25.mp3";
-var bgm5url = "https://cdn.discordapp.com/attachments/515347492511023113/974530986933104670/02._TO-MAS_-_FLIP_FLAPPERS.m4a";
-var bgmSelect = "4";
+var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/974524875538575400/10_Harukaze_no_Okurimono.mp3";
+var bgm5url = "https://cdn.discordapp.com/attachments/515347492511023113/993288548939735191/08._M11_Comical_1_Shonbori.mp3";
+var bgmSelect = "3";
 var achievementList = "{\"PhenomSage\":[\"114\"],\"fiach\":[\"114\"],\"gimmic\":[\"114\"],\"Zinzoo\":[\"114\"],\"bLOOMGINTON33\":[\"114\"],\"ChucklingBerry\":[\"114\"],\"CM02\":[\"114\"],\"Demzou\":[\"114\"],\"Eldoprano\":[\"114\"],\"Enk__\":[\"114\"],\"erubas\":[\"114\"],\"gox64\":[\"114\"],\"Hanatsu\":[\"114\"],\"Madoq\":[\"114\"],\"MrRound\":[\"114\"],\"nullgat\":[\"114\"],\"raccomunk\":[\"114\"],\"Senia\":[\"114\"],\"Takeda\":[\"114\"]}";
 var countdownText1 = "Club";
-var countdownText2 = "Club";
-var countdownText3 = "Eva Rebuild";
+var countdownText2 = "Show By Rock!!";
+var countdownText3 = "Yama No Susume";
 var countdownText4 = "Berserk(1997)";
 var countdownText5 = "";
 var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
-var titleBanner = "http://cdn.discordapp.com/attachments/732631593776316587/982745412282773675/title.png";
-var titleBanner1 = "http://cdn.discordapp.com/attachments/732631593776316587/974074395356188703/Untitled-1.png";
-var titleBanner2 = "http://cdn.discordapp.com/attachments/732631593776316587/974076815540899850/Untitled-4.png";
-var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/982745412282773675/title.png";
-var voteControl = 'false';
+var titleBanner = "http://cdn.discordapp.com/attachments/732631593776316587/996115515439329321/yama_title.png";
+var titleBanner1 = "http://cdn.discordapp.com/attachments/732631593776316587/990876165386403870/sbr_title.png";
+var titleBanner2 = "http://cdn.discordapp.com/attachments/732631593776316587/988159338747146250/title.png";
+var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/996115515439329321/yama_title.png";
+var voteControl = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
+
+var opRepoUrl = "https://apothes.is/hosted/bcdn-list-files.php";
 var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";

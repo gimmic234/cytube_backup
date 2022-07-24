@@ -210,7 +210,9 @@ var chatCmdLookup = {
 		let url = chatCmdText[1];
 		$(document.getElementById('mediaurl')).val(url);
 		$(document.getElementById('mediaurl')).keyup();
-		$(document.getElementById('addfromurl-title-val')).val(title);
+		if (title != "") {
+			$(document.getElementById('addfromurl-title-val')).val(title);
+		}
 		$(document.getElementById('queue_end')).click();
 	},
 	'/chatimg': function(chatCmdText) {
@@ -2064,6 +2066,38 @@ var chatKeyLookup = {
 		return false;
 	}
 }
+
+function bulkQueueInit()
+{
+	var data = $('#bulkQueueData').val();
+	var title = $('#bulkQueueDataTitle').val();
+	var episode = $('#bulkQueueDataIteration').val();
+	var splitVid = data.split("\n");
+	if (splitVid.length == 0)
+	{
+		return;
+	}
+
+	if (episode == "") {
+		episode = 1;
+	} else {
+		episode = Number(episode);
+		if (episode <= 0) {
+			episode = 1;
+		}
+	}
+
+	$('#submitBulkQueue').attr("disabled","true");
+	splitVid.forEach(function(vid) {
+		if (title != "") {
+			title = title + " " + episode;
+		}
+		chatCmdLookup["/addqtitle"]([0, encodeURI(vid), JSON.parse(title)]);
+		episode++;
+	});
+
+}
+
 
 function alignVideoPlayer()
 {
@@ -5364,6 +5398,62 @@ function bindEventHandler() {
 				msg: "Autostart - [" + name + "]"
 			});
 		}
+	});
+
+
+
+	$(bodyElem).on('click', '#bulkQueue', function() {
+
+	var title = $('#bulkQueueDataTitle').val();
+	var episode = $('#bulkQueueDataIteration').val();
+		createModalExt({
+			title: "Queue bulk",
+			wrap_id: "queueBulkModal",
+			body_id: "queueBulkWrap",
+			footer: true
+		}).on("show.bs.modal", function(event) {
+			let nav = "<ul class='nav nav-tabs'>"
+			nav += "<li><a href='#bulkQueueMenu' data-toggle='tab' aria-expanded='false'>Bulk Queue</a></li>";
+			nav += "</ul>";
+			let viewcontent = "<div id='bulkQueueMenu' class='tab-pane active'>";
+
+			viewcontent += "<div class='row top-margin-theme col-sm-12'>";
+			viewcontent += "	<div class='col-sm-4'>";
+			viewcontent += "		<div class='input-group input-group-sm'>";
+			viewcontent += "			<div class='input-group-addon'>";
+			viewcontent += "Title";
+			viewcontent += "			</div>"
+			viewcontent += "<input class='form-control' type='text' id='bulkQueueDataTitle' placeholder='video title'";
+			viewcontent += "		</div>";
+			viewcontent += "	</div>";
+			viewcontent += "	<div class='col-sm-4'>"
+			viewcontent += "		<div class='input-group input-group-sm'>";
+			viewcontent += "			<div class='input-group-addon'>";
+			viewcontent += "Ep#";
+			viewcontent += "			</div>"
+			viewcontent += "<input type='number' min='1' step='1' id='episode' value='1'";
+			viewcontent += "		</div>";
+			viewcontent += "	</div>";
+			viewcontent += "</div>";
+
+			viewcontent += "<div class='row top-margin-theme col-sm-12'>";
+
+			viewcontent += "<textarea id='bulkQueueData' rows='20' wrap='soft' placeholder='paste video links separated by new line'  autofocus>";
+			viewcontent += "</textarea>";
+
+			viewcontent += "</div>";
+
+			viewcontent += "<div class='pull-right'>";
+			viewcontent += "<button class='btn btn-default' id='submitBulkQueue' type='button' onclick='bulkQueueInit()'>Submit</button>";
+			viewcontent += "</div>";
+
+			viewcontent += "</div>";
+			let contentwrap = '';
+			contentwrap = "<div class='tab-content'>" + viewcontent + "</div>";
+			$("#queueBulkWrap").html(nav + contentwrap);
+		}).on("hidden.bs.modal", function(event) {
+			$("#queueBulkModal").remove();
+		}).insertAfter("#useroptions").modal();
 	});
 
 	$(bodyElem).on('DOMSubtreeModified', '#plcount', function(e) {
