@@ -93,7 +93,6 @@ var voteControl = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
 
-var opRepoUrl = "https://apothes.is/hosted/bcdn-list-files.php";
 var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
@@ -163,13 +162,13 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js@latest",
 		callback: true
 	},
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/module/channelbase-mod.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/module/channelbase-mod.js@latest",
 		callback: true
 	},
 	'settings': {

@@ -2088,14 +2088,22 @@ function bulkQueueInit()
 	}
 
 	$('#submitBulkQueue').attr("disabled","true");
+	var iteration = 0;
 	splitVid.forEach(function(vid) {
 		if (title != "") {
 			title = title + " " + episode;
 		}
+
+		if (iteration > 3) {
+			await new Promise(r => setTimeout(r, 2000));
+			iteration = 0;
+		}
+
 		chatCmdLookup["/addqtitle"]([0, encodeURI(vid), JSON.parse(title)]);
 		episode++;
+		iteration++;
 	});
-
+	$('#submitBulkQueue').attr("disabled","false");
 }
 
 
@@ -5418,22 +5426,22 @@ function bindEventHandler() {
 			let viewcontent = "<div id='bulkQueueMenu' class='tab-pane active'>";
 
 			viewcontent += "<div class='row top-margin-theme col-sm-12'>";
-			viewcontent += "	<div class='col-sm-4'>";
-			viewcontent += "		<div class='input-group input-group-sm'>";
-			viewcontent += "			<div class='input-group-addon'>";
+			viewcontent += "<div class='col-sm-4'>";
+			viewcontent += "<div class='input-group input-group-sm'>";
+			viewcontent += "<div class='input-group-addon'>";
 			viewcontent += "Title";
-			viewcontent += "			</div>"
+			viewcontent += "</div>"
 			viewcontent += "<input class='form-control' type='text' id='bulkQueueDataTitle' placeholder='video title'";
-			viewcontent += "		</div>";
-			viewcontent += "	</div>";
-			viewcontent += "	<div class='col-sm-4'>"
-			viewcontent += "		<div class='input-group input-group-sm'>";
-			viewcontent += "			<div class='input-group-addon'>";
+			viewcontent += "</div>";
+			viewcontent += "</div>";
+			viewcontent += "<div class='col-sm-4'>";
+			viewcontent += "<div class='input-group input-group-sm'>";
+			viewcontent += "<div class='input-group-addon'>";
 			viewcontent += "Ep#";
-			viewcontent += "			</div>"
+			viewcontent += "</div>"
 			viewcontent += "<input type='number' min='1' step='1' id='episode' value='1'";
-			viewcontent += "		</div>";
-			viewcontent += "	</div>";
+			viewcontent += "</div>";
+			viewcontent += "</div>";
 			viewcontent += "</div>";
 
 			viewcontent += "<div class='row top-margin-theme col-sm-12'>";
