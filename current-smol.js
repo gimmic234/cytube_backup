@@ -92,6 +92,7 @@ var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/120
 var voteControl = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
+
 var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
@@ -167,7 +168,7 @@ window[CHANNEL.name].sequenceList = {
 	'layout': {
 		active: 1,
 		rank: -1,
-		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/module/channelbase-mod.js",
+		url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/module/channelbase-mod.js",
 		callback: true
 	},
 	'settings': {
