@@ -1,35 +1,35 @@
 //-------------------------------------------------[CONTROL BLOCK]----------------------------------------------------------------------
 //https is preferred for url
-var banner_url = 'http://media.discordapp.net/attachments/528150212875649065/625399861910437909/current.png?width=1300&height=250';
+var banner_url = 'https://media.discordapp.net/attachments/501103378714329100/1213677142022291487/testo.png?ex=65f657eb&is=65e3e2eb&hm=151077147ef90da1d656cdfffce16dc125ad50734344adfc401ecd3109104835&=&format=webp&quality=lossless&width=1440&height=296';
 var href_url = "https://docs.google.com/spreadsheets/d/1KmHlAfiQza9vZrBSvsfWrzdyMP9u5KgQG6e5DWNwkow/edit?usp=sharing";
-var background_img = "http://cdn.discordapp.com/attachments/732631593776316587/996125895909707906/yama_no_susume_bg_2.png";
+var background_img = "http://vistapointe.net/images/theatre-1.jpg";
 var autostart_msg = "start!";
 var countdown_utc = {
-	year: 2020,
-	month: 11,
-	day: 12,
-	hour: 0,
+	year: 2023,
+	month: 5,
+	day: 19,
+	hour: 22,
 	minute: 0,
 	second: 0,
 };
 var countdown_utc2 = {
-	year2: 2022,
-	month2: 7,
-	day2: 24,
+	year2: 2024,
+	month2: 9,
+	day2: 22,
 	hour2: 19,
 	minute2: 0,
 	second2: 0
 };
-var background_img_auto1 = "http://cdn.discordapp.com/attachments/732631593776316587/996125895909707906/yama_no_susume_bg_2.png";
-var background_img_auto2 = "http://cdn.discordapp.com/attachments/732631593776316587/990876165097000980/show_by_rock_bg.png";
+var background_img_auto1 = "http://cdn.discordapp.com/attachments/732631593776316587/1147811688435941447/godannar_bg_3.jpg";
+var background_img_auto2 = "http://cdn.discordapp.com/attachments/732631593776316587/1145396324464857182/minky_momo_background.jpg";
 var chatMute = "false";
-var background_img_auto3 = "http://cdn.discordapp.com/attachments/466386319766192138/680174045781819416/re_zero_bg.jpg";
+var background_img_auto3 = "http://cdn.discordapp.com/attachments/732631593776316587/1203340436870008843/oumae_kumiko_hibike_euphonium__22ad7bf23f8aa8057206ec9b4d2d6149.jpg?ex=65d0bd1d&is=65be481d&hm=e98e0c8e870da99c503ebb6ec156babb853096ea4b512175241ea870257e0eee&";
 var noiseActive = 'true';
-var background_img_auto4 = "http://cdn.discordapp.com/attachments/732631593776316587/982745411792044062/eva_bg.jpg";
+var background_img_auto4 = "http://cdn.discordapp.com/attachments/732631593776316587/1145021181645312160/kamichu_bg.jpg";
 var countdown_utc3 = {
-	year3: 2022,
-	month3: 7,
-	day3: 30,
+	year3: 2024,
+	month3: 3,
+	day3: 23,
 	hour3: 21,
 	minute3: 0,
 	second3: 0
@@ -39,7 +39,7 @@ var penguinUrl = '//cdn.discordapp.com/attachments/485983742004035594/5258455829
 var penguinBg = '//media.discordapp.net/attachments/515347492511023113/525860289267236875/16719bfccf9c3f27d77bf05379d19388.png';
 var updateCmd = "false";
 var discoGif = '//media.discordapp.net/attachments/515347492511023113/525860799210848268/1446148934-Young_animation_holiday102815_03.gif';
-var imgBubble = "//media.discordapp.net/attachments/409829343263719427/992188528282837022/guitar_mod2-removebg-preview.png";
+var imgBubble = "//media.discordapp.net/attachments/501103378714329100/1213676814673649694/kimika.png?ex=65f6579d&is=65e3e29d&hm=fb0cf1bf65eeaa922a92ba13b5eab68b05c8d62ecf872f5c4e29612321485758&=&format=webp&quality=lossless";
 var imgBubble2 = "//media.discordapp.net/attachments/452943717708595211/874043927932596264/keijo_logo2.png";
 var chatImg = "false";
 var img1show = "true";
@@ -64,35 +64,34 @@ var countdown_utc5 = {
 	minute5: 0,
 	second5: 0
 };
-var bgm1url = "https://cdn.discordapp.com/attachments/515347492511023113/622614816841793566/22_.mp3";
+var bgm1url = "https://cdn.discordapp.com/attachments/515347492511023113/1214437561024520192/01._Reg__his_Interference_Unit.mp3?ex=65f91c1d&is=65e6a71d&hm=3fe2752cf85045c09919ad0e489d651af78b41709c2d30b44e5fb2eac24f7ef4&";
 var playbgmCondition = "true";
 var bgmoff = "true";
 var background_img_auto5 = "http://vistapointe.net/images/theatre-1.jpg";
 var background_img_auto6 = "http://cdn.discordapp.com/attachments/585972109159694336/721109369756057660/mizunashi_akari_alice_carroll_alicia_florence_aika_granzchesta_aria_pokoteng_and_4_more_aria_drawn_b.jpg";
-var background_img_auto7 = 'http://cdn.discordapp.com/attachments/524667869737254923/549389942242017290/clannad_pape_take_1.jpg';
-var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/986076835169308735/31._Beautiful_World.mp3";
-var bgm3url = "https://cdn.discordapp.com/attachments/515347492511023113/974141639406792765/07-Tsuki_ni_Humming_Vocals_Shiina_Hekiru_-_Nakagawa_Akiko.mp3";
+var background_img_auto7 = "http://cdn.discordapp.com/attachments/732631593776316587/1055282194203029524/4505588.png";
+var bgm2url = "https://cdn.discordapp.com/attachments/515347492511023113/991193447258128414/02_Skipping.mp3";
+var bgm3url = "https://cdn.discordapp.com/attachments/515347492511023113/1009215500779266088/10._Gymnopedie_dai_1_ban.mp3";
 var bgm4url = "https://cdn.discordapp.com/attachments/515347492511023113/974524875538575400/10_Harukaze_no_Okurimono.mp3";
 var bgm5url = "https://cdn.discordapp.com/attachments/515347492511023113/993288548939735191/08._M11_Comical_1_Shonbori.mp3";
-var bgmSelect = "3";
+var bgmSelect = "1";
 var achievementList = "{\"PhenomSage\":[\"114\"],\"fiach\":[\"114\"],\"gimmic\":[\"114\"],\"Zinzoo\":[\"114\"],\"bLOOMGINTON33\":[\"114\"],\"ChucklingBerry\":[\"114\"],\"CM02\":[\"114\"],\"Demzou\":[\"114\"],\"Eldoprano\":[\"114\"],\"Enk__\":[\"114\"],\"erubas\":[\"114\"],\"gox64\":[\"114\"],\"Hanatsu\":[\"114\"],\"Madoq\":[\"114\"],\"MrRound\":[\"114\"],\"nullgat\":[\"114\"],\"raccomunk\":[\"114\"],\"Senia\":[\"114\"],\"Takeda\":[\"114\"]}";
-var countdownText1 = "Club";
-var countdownText2 = "Show By Rock!!";
-var countdownText3 = "Yama No Susume";
+var countdownText1 = "Harry Potter";
+var countdownText2 = "Lucky Star";
+var countdownText3 = "Hibike Euphonium";
 var countdownText4 = "Berserk(1997)";
 var countdownText5 = "";
 var nicoEffectOnControl = "false";
 var loginTime = "false";
 var loginTimeKey = "39909";
 var loginExport = "false";
-var titleBanner = "http://cdn.discordapp.com/attachments/732631593776316587/996115515439329321/yama_title.png";
-var titleBanner1 = "http://cdn.discordapp.com/attachments/732631593776316587/990876165386403870/sbr_title.png";
-var titleBanner2 = "http://cdn.discordapp.com/attachments/732631593776316587/988159338747146250/title.png";
-var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/996115515439329321/yama_title.png";
+var titleBanner = "http://media.discordapp.net/attachments/501103378714329100/1213682863564783656/banner.png?ex=65f65d3f&is=65e3e83f&hm=68fb240b75b2bf9aea7276bc5070dfc500971d113fc427f628a007c6d81c8d64&=&format=webp&quality=lossless";
+var titleBanner1 = "http://media.discordapp.net/attachments/501103378714329100/1213682863564783656/banner.png?ex=65f65d3f&is=65e3e83f&hm=68fb240b75b2bf9aea7276bc5070dfc500971d113fc427f628a007c6d81c8d64&=&format=webp&quality=lossless";
+var titleBanner2 = "http://cdn.discordapp.com/attachments/732631593776316587/1091751542652149931/3gatsu_title_v2.png";
+var titleBanner3 = "http://cdn.discordapp.com/attachments/732631593776316587/1203343353207586836/eupho_title.png?ex=65d0bfd4&is=65be4ad4&hm=2472922c20126135e05ca9b9a6f312a92771de7e655d09f702410253bce45c34&";
 var voteControl = "false";
 //-----------------------------------------------------------------------------------------------------------------------------------
 var loadSetComplete;
-
 var statList = ['47', '48', '49', '50', '52', '58', '57'];
 var nicoTop = true;
 var delmessage = "false";
@@ -162,7 +161,7 @@ window[CHANNEL.name].sequenceList = {
 	'event-ext': {
 		active: 1,
 		rank: -1,
-        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@latest/current-ext.js",
+        url: "https://cdn.jsdelivr.net/gh/gimmic234/cytube_backup@master/current-ext.js",
 		callback: true
 	},
 	'layout': {
